@@ -5,6 +5,8 @@ on:
         paths:
             - protobufs
 
+    merge_group:
+
 permissions:
     contents: write
 
