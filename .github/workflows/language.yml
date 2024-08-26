@@ -13,7 +13,7 @@ jobs:
         if: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged == false }}
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v4
               with:
                   submodules: recursive
 
