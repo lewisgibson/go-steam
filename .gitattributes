@@ -1,0 +1,6 @@
+* text=auto
+*.md eol=lf
+*.yaml eol=lf
+*.json eol=lf linguist-language=jsonc
+language -diff
+vendor -diff

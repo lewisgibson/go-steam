@@ -1,0 +1,30 @@
+name: language
+
+on:
+    pull_request:
+        paths:
+            - protobufs
+
+permissions:
+    contents: write
+
+jobs:
+    language:
+        if: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged == false }}
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  submodules: recursive
+
+            - run: make language
+
+            - run: |
+                  if ! git diff --quiet; then
+                    git config --global user.name "github-actions[bot]"
+                    git config --global user.email "github-actions[bot]@users.noreply.github.com"
+                    git commit -a -m "Upgrade language from protobufs"
+                    git push
+                  fi
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
