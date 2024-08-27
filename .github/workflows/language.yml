@@ -15,16 +15,18 @@ jobs:
         steps:
             - uses: actions/checkout@v4
               with:
+                  fetch-depth: 0
                   submodules: recursive
 
             - run: make language
 
             - run: |
+                  git config --global user.name "github-actions[bot]"
+                  git config --global user.email "github-actions[bot]@users.noreply.github.com"
+                  git checkout ${{ github.head_ref }}
                   if ! git diff --quiet; then
-                    git config --global user.name "github-actions[bot]"
-                    git config --global user.email "github-actions[bot]@users.noreply.github.com"
                     git commit -a -m "Upgrade language from protobufs"
-                    git push
+                    git push origin HEAD:${{ github.head_ref }}
                   fi
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
