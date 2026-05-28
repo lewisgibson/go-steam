@@ -693,6 +693,102 @@ func (*CShader_ReportExternalBuild_Response) Descriptor() ([]byte, []int) {
 	return file_steammessages_shader_steamclient_proto_rawDescGZIP(), []int{11}
 }
 
+type CShader_ReportBucketProcessingComplete_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	GpuDesc       *string                `protobuf:"bytes,2,opt,name=gpu_desc,json=gpuDesc" json:"gpu_desc,omitempty"`
+	DriverDesc    *string                `protobuf:"bytes,3,opt,name=driver_desc,json=driverDesc" json:"driver_desc,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CShader_ReportBucketProcessingComplete_Request) Reset() {
+	*x = CShader_ReportBucketProcessingComplete_Request{}
+	mi := &file_steammessages_shader_steamclient_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CShader_ReportBucketProcessingComplete_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CShader_ReportBucketProcessingComplete_Request) ProtoMessage() {}
+
+func (x *CShader_ReportBucketProcessingComplete_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_shader_steamclient_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CShader_ReportBucketProcessingComplete_Request.ProtoReflect.Descriptor instead.
+func (*CShader_ReportBucketProcessingComplete_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_shader_steamclient_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *CShader_ReportBucketProcessingComplete_Request) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
+	}
+	return 0
+}
+
+func (x *CShader_ReportBucketProcessingComplete_Request) GetGpuDesc() string {
+	if x != nil && x.GpuDesc != nil {
+		return *x.GpuDesc
+	}
+	return ""
+}
+
+func (x *CShader_ReportBucketProcessingComplete_Request) GetDriverDesc() string {
+	if x != nil && x.DriverDesc != nil {
+		return *x.DriverDesc
+	}
+	return ""
+}
+
+type CShader_ReportBucketProcessingComplete_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CShader_ReportBucketProcessingComplete_Response) Reset() {
+	*x = CShader_ReportBucketProcessingComplete_Response{}
+	mi := &file_steammessages_shader_steamclient_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CShader_ReportBucketProcessingComplete_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CShader_ReportBucketProcessingComplete_Response) ProtoMessage() {}
+
+func (x *CShader_ReportBucketProcessingComplete_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_shader_steamclient_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CShader_ReportBucketProcessingComplete_Response.ProtoReflect.Descriptor instead.
+func (*CShader_ReportBucketProcessingComplete_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_shader_steamclient_proto_rawDescGZIP(), []int{13}
+}
+
 type CShader_RegisterShader_Request_Shader struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	CacheKeySha   []byte                 `protobuf:"bytes,1,opt,name=cache_key_sha,json=cacheKeySha" json:"cache_key_sha,omitempty"`
@@ -703,7 +799,7 @@ type CShader_RegisterShader_Request_Shader struct {
 
 func (x *CShader_RegisterShader_Request_Shader) Reset() {
 	*x = CShader_RegisterShader_Request_Shader{}
-	mi := &file_steammessages_shader_steamclient_proto_msgTypes[12]
+	mi := &file_steammessages_shader_steamclient_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -715,7 +811,7 @@ func (x *CShader_RegisterShader_Request_Shader) String() string {
 func (*CShader_RegisterShader_Request_Shader) ProtoMessage() {}
 
 func (x *CShader_RegisterShader_Request_Shader) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_shader_steamclient_proto_msgTypes[12]
+	mi := &file_steammessages_shader_steamclient_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -755,7 +851,7 @@ type CShader_SendShader_Request_ShaderCode struct {
 
 func (x *CShader_SendShader_Request_ShaderCode) Reset() {
 	*x = CShader_SendShader_Request_ShaderCode{}
-	mi := &file_steammessages_shader_steamclient_proto_msgTypes[13]
+	mi := &file_steammessages_shader_steamclient_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -767,7 +863,7 @@ func (x *CShader_SendShader_Request_ShaderCode) String() string {
 func (*CShader_SendShader_Request_ShaderCode) ProtoMessage() {}
 
 func (x *CShader_SendShader_Request_ShaderCode) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_shader_steamclient_proto_msgTypes[13]
+	mi := &file_steammessages_shader_steamclient_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -862,7 +958,13 @@ const file_steammessages_shader_steamclient_proto_rawDesc = "" +
 	"\x0fsource_gpu_desc\x18\x05 \x01(\tR\rsourceGpuDesc\x12,\n" +
 	"\x12source_driver_desc\x18\x06 \x01(\tR\x10sourceDriverDesc\x12\x1c\n" +
 	"\tdepotsize\x18\a \x01(\x04R\tdepotsize\"&\n" +
-	"$CShader_ReportExternalBuild_Response2\xb3\x04\n" +
+	"$CShader_ReportExternalBuild_Response\"\x82\x01\n" +
+	".CShader_ReportBucketProcessingComplete_Request\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x19\n" +
+	"\bgpu_desc\x18\x02 \x01(\tR\agpuDesc\x12\x1f\n" +
+	"\vdriver_desc\x18\x03 \x01(\tR\n" +
+	"driverDesc\"1\n" +
+	"/CShader_ReportBucketProcessingComplete_Response2\xb9\x05\n" +
 	"\x06Shader\x12t\n" +
 	"\x19GetShaderReportingCadence\x12*.CShader_GetShaderReportingCadence_Request\x1a+.CShader_GetShaderReportingCadence_Response\x12S\n" +
 	"\x0eRegisterShader\x12\x1f.CShader_RegisterShader_Request\x1a .CShader_RegisterShader_Response\x12G\n" +
@@ -870,7 +972,8 @@ const file_steammessages_shader_steamclient_proto_rawDesc = "" +
 	"SendShader\x12\x1b.CShader_SendShader_Request\x1a\x1c.CShader_SendShader_Response\x12\\\n" +
 	"\x11GetBucketManifest\x12\".CShader_GetBucketManifest_Request\x1a#.CShader_GetBucketManifest_Response\x12S\n" +
 	"\x0eGetStaleBucket\x12\x1f.CShader_GetStaleBucket_Request\x1a .CShader_GetStaleBucket_Response\x12b\n" +
-	"\x13ReportExternalBuild\x12$.CShader_ReportExternalBuild_Request\x1a%.CShader_ReportExternalBuild_ResponseB\x03\x80\x01\x01"
+	"\x13ReportExternalBuild\x12$.CShader_ReportExternalBuild_Request\x1a%.CShader_ReportExternalBuild_Response\x12\x83\x01\n" +
+	"\x1eReportBucketProcessingComplete\x12/.CShader_ReportBucketProcessingComplete_Request\x1a0.CShader_ReportBucketProcessingComplete_ResponseB\x03\x80\x01\x01"
 
 var (
 	file_steammessages_shader_steamclient_proto_rawDescOnce sync.Once
@@ -884,40 +987,44 @@ func file_steammessages_shader_steamclient_proto_rawDescGZIP() []byte {
 	return file_steammessages_shader_steamclient_proto_rawDescData
 }
 
-var file_steammessages_shader_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
+var file_steammessages_shader_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
 var file_steammessages_shader_steamclient_proto_goTypes = []any{
-	(*CShader_GetShaderReportingCadence_Request)(nil),  // 0: CShader_GetShaderReportingCadence_Request
-	(*CShader_GetShaderReportingCadence_Response)(nil), // 1: CShader_GetShaderReportingCadence_Response
-	(*CShader_RegisterShader_Request)(nil),             // 2: CShader_RegisterShader_Request
-	(*CShader_RegisterShader_Response)(nil),            // 3: CShader_RegisterShader_Response
-	(*CShader_SendShader_Request)(nil),                 // 4: CShader_SendShader_Request
-	(*CShader_SendShader_Response)(nil),                // 5: CShader_SendShader_Response
-	(*CShader_GetBucketManifest_Request)(nil),          // 6: CShader_GetBucketManifest_Request
-	(*CShader_GetBucketManifest_Response)(nil),         // 7: CShader_GetBucketManifest_Response
-	(*CShader_GetStaleBucket_Request)(nil),             // 8: CShader_GetStaleBucket_Request
-	(*CShader_GetStaleBucket_Response)(nil),            // 9: CShader_GetStaleBucket_Response
-	(*CShader_ReportExternalBuild_Request)(nil),        // 10: CShader_ReportExternalBuild_Request
-	(*CShader_ReportExternalBuild_Response)(nil),       // 11: CShader_ReportExternalBuild_Response
-	(*CShader_RegisterShader_Request_Shader)(nil),      // 12: CShader_RegisterShader_Request.Shader
-	(*CShader_SendShader_Request_ShaderCode)(nil),      // 13: CShader_SendShader_Request.ShaderCode
+	(*CShader_GetShaderReportingCadence_Request)(nil),       // 0: CShader_GetShaderReportingCadence_Request
+	(*CShader_GetShaderReportingCadence_Response)(nil),      // 1: CShader_GetShaderReportingCadence_Response
+	(*CShader_RegisterShader_Request)(nil),                  // 2: CShader_RegisterShader_Request
+	(*CShader_RegisterShader_Response)(nil),                 // 3: CShader_RegisterShader_Response
+	(*CShader_SendShader_Request)(nil),                      // 4: CShader_SendShader_Request
+	(*CShader_SendShader_Response)(nil),                     // 5: CShader_SendShader_Response
+	(*CShader_GetBucketManifest_Request)(nil),               // 6: CShader_GetBucketManifest_Request
+	(*CShader_GetBucketManifest_Response)(nil),              // 7: CShader_GetBucketManifest_Response
+	(*CShader_GetStaleBucket_Request)(nil),                  // 8: CShader_GetStaleBucket_Request
+	(*CShader_GetStaleBucket_Response)(nil),                 // 9: CShader_GetStaleBucket_Response
+	(*CShader_ReportExternalBuild_Request)(nil),             // 10: CShader_ReportExternalBuild_Request
+	(*CShader_ReportExternalBuild_Response)(nil),            // 11: CShader_ReportExternalBuild_Response
+	(*CShader_ReportBucketProcessingComplete_Request)(nil),  // 12: CShader_ReportBucketProcessingComplete_Request
+	(*CShader_ReportBucketProcessingComplete_Response)(nil), // 13: CShader_ReportBucketProcessingComplete_Response
+	(*CShader_RegisterShader_Request_Shader)(nil),           // 14: CShader_RegisterShader_Request.Shader
+	(*CShader_SendShader_Request_ShaderCode)(nil),           // 15: CShader_SendShader_Request.ShaderCode
 }
 var file_steammessages_shader_steamclient_proto_depIdxs = []int32{
-	12, // 0: CShader_RegisterShader_Request.shaders:type_name -> CShader_RegisterShader_Request.Shader
-	13, // 1: CShader_SendShader_Request.shaders:type_name -> CShader_SendShader_Request.ShaderCode
+	14, // 0: CShader_RegisterShader_Request.shaders:type_name -> CShader_RegisterShader_Request.Shader
+	15, // 1: CShader_SendShader_Request.shaders:type_name -> CShader_SendShader_Request.ShaderCode
 	0,  // 2: Shader.GetShaderReportingCadence:input_type -> CShader_GetShaderReportingCadence_Request
 	2,  // 3: Shader.RegisterShader:input_type -> CShader_RegisterShader_Request
 	4,  // 4: Shader.SendShader:input_type -> CShader_SendShader_Request
 	6,  // 5: Shader.GetBucketManifest:input_type -> CShader_GetBucketManifest_Request
 	8,  // 6: Shader.GetStaleBucket:input_type -> CShader_GetStaleBucket_Request
 	10, // 7: Shader.ReportExternalBuild:input_type -> CShader_ReportExternalBuild_Request
-	1,  // 8: Shader.GetShaderReportingCadence:output_type -> CShader_GetShaderReportingCadence_Response
-	3,  // 9: Shader.RegisterShader:output_type -> CShader_RegisterShader_Response
-	5,  // 10: Shader.SendShader:output_type -> CShader_SendShader_Response
-	7,  // 11: Shader.GetBucketManifest:output_type -> CShader_GetBucketManifest_Response
-	9,  // 12: Shader.GetStaleBucket:output_type -> CShader_GetStaleBucket_Response
-	11, // 13: Shader.ReportExternalBuild:output_type -> CShader_ReportExternalBuild_Response
-	8,  // [8:14] is the sub-list for method output_type
-	2,  // [2:8] is the sub-list for method input_type
+	12, // 8: Shader.ReportBucketProcessingComplete:input_type -> CShader_ReportBucketProcessingComplete_Request
+	1,  // 9: Shader.GetShaderReportingCadence:output_type -> CShader_GetShaderReportingCadence_Response
+	3,  // 10: Shader.RegisterShader:output_type -> CShader_RegisterShader_Response
+	5,  // 11: Shader.SendShader:output_type -> CShader_SendShader_Response
+	7,  // 12: Shader.GetBucketManifest:output_type -> CShader_GetBucketManifest_Response
+	9,  // 13: Shader.GetStaleBucket:output_type -> CShader_GetStaleBucket_Response
+	11, // 14: Shader.ReportExternalBuild:output_type -> CShader_ReportExternalBuild_Response
+	13, // 15: Shader.ReportBucketProcessingComplete:output_type -> CShader_ReportBucketProcessingComplete_Response
+	9,  // [9:16] is the sub-list for method output_type
+	2,  // [2:9] is the sub-list for method input_type
 	2,  // [2:2] is the sub-list for extension type_name
 	2,  // [2:2] is the sub-list for extension extendee
 	0,  // [0:2] is the sub-list for field type_name
@@ -936,7 +1043,7 @@ func file_steammessages_shader_steamclient_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_shader_steamclient_proto_rawDesc), len(file_steammessages_shader_steamclient_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   14,
+			NumMessages:   16,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

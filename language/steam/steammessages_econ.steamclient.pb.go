@@ -475,6 +475,7 @@ type CEconItem_Description struct {
 	MarketBucketGroupName        *string                        `protobuf:"bytes,34,opt,name=market_bucket_group_name,json=marketBucketGroupName" json:"market_bucket_group_name,omitempty"`
 	MarketBucketGroupId          *string                        `protobuf:"bytes,35,opt,name=market_bucket_group_id,json=marketBucketGroupId" json:"market_bucket_group_id,omitempty"`
 	SealedType                   *uint32                        `protobuf:"varint,37,opt,name=sealed_type,json=sealedType" json:"sealed_type,omitempty"`
+	MarketNameInsideGroup        *string                        `protobuf:"bytes,38,opt,name=market_name_inside_group,json=marketNameInsideGroup" json:"market_name_inside_group,omitempty"`
 	unknownFields                protoimpl.UnknownFields
 	sizeCache                    protoimpl.SizeCache
 }
@@ -752,6 +753,13 @@ func (x *CEconItem_Description) GetSealedType() uint32 {
 		return *x.SealedType
 	}
 	return 0
+}
+
+func (x *CEconItem_Description) GetMarketNameInsideGroup() string {
+	if x != nil && x.MarketNameInsideGroup != nil {
+		return *x.MarketNameInsideGroup
+	}
+	return ""
 }
 
 type CEconItem_Tag struct {
@@ -1863,7 +1871,7 @@ const file_steammessages_econ_steamclient_proto_rawDesc = "" +
 	"\x04name\x18\x05 \x01(\tR\x04name\":\n" +
 	"\x10CEconItem_Action\x12\x12\n" +
 	"\x04link\x18\x01 \x01(\tR\x04link\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\"\x86\f\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\"\xbf\f\n" +
 	"\x15CEconItem_Description\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\x05R\x05appid\x12\x18\n" +
 	"\aclassid\x18\x02 \x01(\x04R\aclassid\x12\x1e\n" +
@@ -1908,7 +1916,8 @@ const file_steammessages_econ_steamclient_proto_rawDesc = "" +
 	"\x18market_bucket_group_name\x18\" \x01(\tR\x15marketBucketGroupName\x123\n" +
 	"\x16market_bucket_group_id\x18# \x01(\tR\x13marketBucketGroupId\x12\x1f\n" +
 	"\vsealed_type\x18% \x01(\rR\n" +
-	"sealedType\"\xe2\x01\n" +
+	"sealedType\x127\n" +
+	"\x18market_name_inside_group\x18& \x01(\tR\x15marketNameInsideGroup\"\xe2\x01\n" +
 	"\rCEconItem_Tag\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1a\n" +
 	"\bcategory\x18\x02 \x01(\tR\bcategory\x12#\n" +

@@ -46,6 +46,8 @@ const (
 	EPublishedFileQueryType_k_PublishedFileQueryType_RankedByInappropriateContentRating            EPublishedFileQueryType = 19
 	EPublishedFileQueryType_k_PublishedFileQueryType_RankedByBanContentCheck                       EPublishedFileQueryType = 20
 	EPublishedFileQueryType_k_PublishedFileQueryType_RankedByLastUpdatedDate                       EPublishedFileQueryType = 21
+	EPublishedFileQueryType_k_PublishedFileQueryType_RankedByNumParentItems                        EPublishedFileQueryType = 22
+	EPublishedFileQueryType_k_PublishedFileQueryType_RankedByNumParentCollections                  EPublishedFileQueryType = 23
 )
 
 // Enum value maps for EPublishedFileQueryType.
@@ -73,6 +75,8 @@ var (
 		19: "k_PublishedFileQueryType_RankedByInappropriateContentRating",
 		20: "k_PublishedFileQueryType_RankedByBanContentCheck",
 		21: "k_PublishedFileQueryType_RankedByLastUpdatedDate",
+		22: "k_PublishedFileQueryType_RankedByNumParentItems",
+		23: "k_PublishedFileQueryType_RankedByNumParentCollections",
 	}
 	EPublishedFileQueryType_value = map[string]int32{
 		"k_PublishedFileQueryType_RankedByVote":                                  0,
@@ -97,6 +101,8 @@ var (
 		"k_PublishedFileQueryType_RankedByInappropriateContentRating":            19,
 		"k_PublishedFileQueryType_RankedByBanContentCheck":                       20,
 		"k_PublishedFileQueryType_RankedByLastUpdatedDate":                       21,
+		"k_PublishedFileQueryType_RankedByNumParentItems":                        22,
+		"k_PublishedFileQueryType_RankedByNumParentCollections":                  23,
 	}
 )
 
@@ -859,71 +865,6 @@ func (ESystemFanControlMode) EnumDescriptor() ([]byte, []int) {
 	return file_enums_proto_rawDescGZIP(), []int{10}
 }
 
-type EStartupMovieVariant int32
-
-const (
-	EStartupMovieVariant_k_EStartupMovieVariant_Invalid    EStartupMovieVariant = 0
-	EStartupMovieVariant_k_EStartupMovieVariant_Generic    EStartupMovieVariant = 1
-	EStartupMovieVariant_k_EStartupMovieVariant_DeckBlue   EStartupMovieVariant = 2
-	EStartupMovieVariant_k_EStartupMovieVariant_DeckOrange EStartupMovieVariant = 3
-	EStartupMovieVariant_k_EStartupMovieVariant_Machine    EStartupMovieVariant = 4
-)
-
-// Enum value maps for EStartupMovieVariant.
-var (
-	EStartupMovieVariant_name = map[int32]string{
-		0: "k_EStartupMovieVariant_Invalid",
-		1: "k_EStartupMovieVariant_Generic",
-		2: "k_EStartupMovieVariant_DeckBlue",
-		3: "k_EStartupMovieVariant_DeckOrange",
-		4: "k_EStartupMovieVariant_Machine",
-	}
-	EStartupMovieVariant_value = map[string]int32{
-		"k_EStartupMovieVariant_Invalid":    0,
-		"k_EStartupMovieVariant_Generic":    1,
-		"k_EStartupMovieVariant_DeckBlue":   2,
-		"k_EStartupMovieVariant_DeckOrange": 3,
-		"k_EStartupMovieVariant_Machine":    4,
-	}
-)
-
-func (x EStartupMovieVariant) Enum() *EStartupMovieVariant {
-	p := new(EStartupMovieVariant)
-	*p = x
-	return p
-}
-
-func (x EStartupMovieVariant) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (EStartupMovieVariant) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[11].Descriptor()
-}
-
-func (EStartupMovieVariant) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[11]
-}
-
-func (x EStartupMovieVariant) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Do not use.
-func (x *EStartupMovieVariant) UnmarshalJSON(b []byte) error {
-	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
-	if err != nil {
-		return err
-	}
-	*x = EStartupMovieVariant(num)
-	return nil
-}
-
-// Deprecated: Use EStartupMovieVariant.Descriptor instead.
-func (EStartupMovieVariant) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{11}
-}
-
 type EColorGamutLabelSet int32
 
 const (
@@ -957,11 +898,11 @@ func (x EColorGamutLabelSet) String() string {
 }
 
 func (EColorGamutLabelSet) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[12].Descriptor()
+	return file_enums_proto_enumTypes[11].Descriptor()
 }
 
 func (EColorGamutLabelSet) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[12]
+	return &file_enums_proto_enumTypes[11]
 }
 
 func (x EColorGamutLabelSet) Number() protoreflect.EnumNumber {
@@ -980,7 +921,7 @@ func (x *EColorGamutLabelSet) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EColorGamutLabelSet.Descriptor instead.
 func (EColorGamutLabelSet) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{12}
+	return file_enums_proto_rawDescGZIP(), []int{11}
 }
 
 type EWindowStackingOrder int32
@@ -1016,11 +957,11 @@ func (x EWindowStackingOrder) String() string {
 }
 
 func (EWindowStackingOrder) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[13].Descriptor()
+	return file_enums_proto_enumTypes[12].Descriptor()
 }
 
 func (EWindowStackingOrder) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[13]
+	return &file_enums_proto_enumTypes[12]
 }
 
 func (x EWindowStackingOrder) Number() protoreflect.EnumNumber {
@@ -1039,7 +980,7 @@ func (x *EWindowStackingOrder) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EWindowStackingOrder.Descriptor instead.
 func (EWindowStackingOrder) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{13}
+	return file_enums_proto_rawDescGZIP(), []int{12}
 }
 
 type EBluetoothDeviceType int32
@@ -1102,11 +1043,11 @@ func (x EBluetoothDeviceType) String() string {
 }
 
 func (EBluetoothDeviceType) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[14].Descriptor()
+	return file_enums_proto_enumTypes[13].Descriptor()
 }
 
 func (EBluetoothDeviceType) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[14]
+	return &file_enums_proto_enumTypes[13]
 }
 
 func (x EBluetoothDeviceType) Number() protoreflect.EnumNumber {
@@ -1125,6 +1066,68 @@ func (x *EBluetoothDeviceType) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EBluetoothDeviceType.Descriptor instead.
 func (EBluetoothDeviceType) EnumDescriptor() ([]byte, []int) {
+	return file_enums_proto_rawDescGZIP(), []int{13}
+}
+
+type ESpeakerConfiguration int32
+
+const (
+	ESpeakerConfiguration_k_ESpeakerConfiguration_Other  ESpeakerConfiguration = 0
+	ESpeakerConfiguration_k_ESpeakerConfiguration_Stereo ESpeakerConfiguration = 1
+	ESpeakerConfiguration_k_ESpeakerConfiguration_51     ESpeakerConfiguration = 2
+	ESpeakerConfiguration_k_ESpeakerConfiguration_71     ESpeakerConfiguration = 3
+)
+
+// Enum value maps for ESpeakerConfiguration.
+var (
+	ESpeakerConfiguration_name = map[int32]string{
+		0: "k_ESpeakerConfiguration_Other",
+		1: "k_ESpeakerConfiguration_Stereo",
+		2: "k_ESpeakerConfiguration_51",
+		3: "k_ESpeakerConfiguration_71",
+	}
+	ESpeakerConfiguration_value = map[string]int32{
+		"k_ESpeakerConfiguration_Other":  0,
+		"k_ESpeakerConfiguration_Stereo": 1,
+		"k_ESpeakerConfiguration_51":     2,
+		"k_ESpeakerConfiguration_71":     3,
+	}
+)
+
+func (x ESpeakerConfiguration) Enum() *ESpeakerConfiguration {
+	p := new(ESpeakerConfiguration)
+	*p = x
+	return p
+}
+
+func (x ESpeakerConfiguration) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ESpeakerConfiguration) Descriptor() protoreflect.EnumDescriptor {
+	return file_enums_proto_enumTypes[14].Descriptor()
+}
+
+func (ESpeakerConfiguration) Type() protoreflect.EnumType {
+	return &file_enums_proto_enumTypes[14]
+}
+
+func (x ESpeakerConfiguration) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *ESpeakerConfiguration) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = ESpeakerConfiguration(num)
+	return nil
+}
+
+// Deprecated: Use ESpeakerConfiguration.Descriptor instead.
+func (ESpeakerConfiguration) EnumDescriptor() ([]byte, []int) {
 	return file_enums_proto_rawDescGZIP(), []int{14}
 }
 
@@ -5254,7 +5257,8 @@ const (
 	EContentReportResolution_k_EContentReportResolution_RemoveAndKick               EContentReportResolution = 13
 	EContentReportResolution_k_EContentReportResolution_Sanctioned                  EContentReportResolution = 14
 	EContentReportResolution_k_EContentReportResolution_Sustained                   EContentReportResolution = 15
-	EContentReportResolution_k_EContentReportResolution_MAX                         EContentReportResolution = 16
+	EContentReportResolution_k_EContentReportResolution_Broken                      EContentReportResolution = 16
+	EContentReportResolution_k_EContentReportResolution_MAX                         EContentReportResolution = 17
 )
 
 // Enum value maps for EContentReportResolution.
@@ -5276,7 +5280,8 @@ var (
 		13: "k_EContentReportResolution_RemoveAndKick",
 		14: "k_EContentReportResolution_Sanctioned",
 		15: "k_EContentReportResolution_Sustained",
-		16: "k_EContentReportResolution_MAX",
+		16: "k_EContentReportResolution_Broken",
+		17: "k_EContentReportResolution_MAX",
 	}
 	EContentReportResolution_value = map[string]int32{
 		"k_EContentReportResolution_Unresolved":                  0,
@@ -5295,7 +5300,8 @@ var (
 		"k_EContentReportResolution_RemoveAndKick":               13,
 		"k_EContentReportResolution_Sanctioned":                  14,
 		"k_EContentReportResolution_Sustained":                   15,
-		"k_EContentReportResolution_MAX":                         16,
+		"k_EContentReportResolution_Broken":                      16,
+		"k_EContentReportResolution_MAX":                         17,
 	}
 )
 
@@ -5347,21 +5353,27 @@ const (
 	EContentModerationSanction_k_EContentModerationSanction_CommentHistoryDeleted EContentModerationSanction = 5
 	EContentModerationSanction_k_EContentModerationSanction_Relabelled            EContentModerationSanction = 6
 	EContentModerationSanction_k_EContentModerationSanction_MarkAsSuspicious      EContentModerationSanction = 7
-	EContentModerationSanction_k_EContentModerationSanction_MAX                   EContentModerationSanction = 8
+	EContentModerationSanction_k_EContentModerationSanction_Warned                EContentModerationSanction = 8
+	EContentModerationSanction_k_EContentModerationSanction_KickedFromGroup       EContentModerationSanction = 9
+	EContentModerationSanction_k_EContentModerationSanction_HarassmentBanned      EContentModerationSanction = 10
+	EContentModerationSanction_k_EContentModerationSanction_MAX                   EContentModerationSanction = 11
 )
 
 // Enum value maps for EContentModerationSanction.
 var (
 	EContentModerationSanction_name = map[int32]string{
-		0: "k_EContentModerationSanction_Invalid",
-		1: "k_EContentModerationSanction_Deleted",
-		2: "k_EContentModerationSanction_CommunityBanned",
-		3: "k_EContentModerationSanction_HubBanned",
-		4: "k_EContentModerationSanction_TradeBanned",
-		5: "k_EContentModerationSanction_CommentHistoryDeleted",
-		6: "k_EContentModerationSanction_Relabelled",
-		7: "k_EContentModerationSanction_MarkAsSuspicious",
-		8: "k_EContentModerationSanction_MAX",
+		0:  "k_EContentModerationSanction_Invalid",
+		1:  "k_EContentModerationSanction_Deleted",
+		2:  "k_EContentModerationSanction_CommunityBanned",
+		3:  "k_EContentModerationSanction_HubBanned",
+		4:  "k_EContentModerationSanction_TradeBanned",
+		5:  "k_EContentModerationSanction_CommentHistoryDeleted",
+		6:  "k_EContentModerationSanction_Relabelled",
+		7:  "k_EContentModerationSanction_MarkAsSuspicious",
+		8:  "k_EContentModerationSanction_Warned",
+		9:  "k_EContentModerationSanction_KickedFromGroup",
+		10: "k_EContentModerationSanction_HarassmentBanned",
+		11: "k_EContentModerationSanction_MAX",
 	}
 	EContentModerationSanction_value = map[string]int32{
 		"k_EContentModerationSanction_Invalid":               0,
@@ -5372,7 +5384,10 @@ var (
 		"k_EContentModerationSanction_CommentHistoryDeleted": 5,
 		"k_EContentModerationSanction_Relabelled":            6,
 		"k_EContentModerationSanction_MarkAsSuspicious":      7,
-		"k_EContentModerationSanction_MAX":                   8,
+		"k_EContentModerationSanction_Warned":                8,
+		"k_EContentModerationSanction_KickedFromGroup":       9,
+		"k_EContentModerationSanction_HarassmentBanned":      10,
+		"k_EContentModerationSanction_MAX":                   11,
 	}
 )
 
@@ -5439,6 +5454,7 @@ const (
 	EContentReportSubjectAction_k_EContentReportSubjectAction_Claimed               EContentReportSubjectAction = 20
 	EContentReportSubjectAction_k_EContentReportSubjectAction_Released              EContentReportSubjectAction = 21
 	EContentReportSubjectAction_k_EContentReportSubjectAction_PrivateMessaged       EContentReportSubjectAction = 22
+	EContentReportSubjectAction_k_EContentReportSubjectAction_OwnerDisputed         EContentReportSubjectAction = 23
 )
 
 // Enum value maps for EContentReportSubjectAction.
@@ -5467,6 +5483,7 @@ var (
 		20: "k_EContentReportSubjectAction_Claimed",
 		21: "k_EContentReportSubjectAction_Released",
 		22: "k_EContentReportSubjectAction_PrivateMessaged",
+		23: "k_EContentReportSubjectAction_OwnerDisputed",
 	}
 	EContentReportSubjectAction_value = map[string]int32{
 		"k_EContentReportSubjectAction_Invalid":               0,
@@ -5492,6 +5509,7 @@ var (
 		"k_EContentReportSubjectAction_Claimed":               20,
 		"k_EContentReportSubjectAction_Released":              21,
 		"k_EContentReportSubjectAction_PrivateMessaged":       22,
+		"k_EContentReportSubjectAction_OwnerDisputed":         23,
 	}
 )
 
@@ -6068,7 +6086,7 @@ var File_enums_proto protoreflect.FileDescriptor
 
 const file_enums_proto_rawDesc = "" +
 	"\n" +
-	"\venums.proto*\x80\n" +
+	"\venums.proto*\xf0\n" +
 	"\n" +
 	"\x17EPublishedFileQueryType\x12)\n" +
 	"%k_PublishedFileQueryType_RankedByVote\x10\x00\x124\n" +
@@ -6093,7 +6111,9 @@ const file_enums_proto_rawDesc = "" +
 	"9k_PublishedFileQueryType_RankedByLifetimePlaytimeSessions\x10\x12\x12?\n" +
 	";k_PublishedFileQueryType_RankedByInappropriateContentRating\x10\x13\x124\n" +
 	"0k_PublishedFileQueryType_RankedByBanContentCheck\x10\x14\x124\n" +
-	"0k_PublishedFileQueryType_RankedByLastUpdatedDate\x10\x15*\xbc\x01\n" +
+	"0k_PublishedFileQueryType_RankedByLastUpdatedDate\x10\x15\x123\n" +
+	"/k_PublishedFileQueryType_RankedByNumParentItems\x10\x16\x129\n" +
+	"5k_PublishedFileQueryType_RankedByNumParentCollections\x10\x17*\xbc\x01\n" +
 	"#EPublishedFileInappropriateProvider\x121\n" +
 	"-k_EPublishedFileInappropriateProvider_Invalid\x10\x00\x120\n" +
 	",k_EPublishedFileInappropriateProvider_Google\x10\x01\x120\n" +
@@ -6178,13 +6198,7 @@ const file_enums_proto_rawDesc = "" +
 	"\x15ESystemFanControlMode\x12\"\n" +
 	"\x1ek_SystemFanControlMode_Invalid\x10\x00\x12#\n" +
 	"\x1fk_SystemFanControlMode_Disabled\x10\x01\x12\"\n" +
-	"\x1ek_SystemFanControlMode_Default\x10\x02*\xce\x01\n" +
-	"\x14EStartupMovieVariant\x12\"\n" +
-	"\x1ek_EStartupMovieVariant_Invalid\x10\x00\x12\"\n" +
-	"\x1ek_EStartupMovieVariant_Generic\x10\x01\x12#\n" +
-	"\x1fk_EStartupMovieVariant_DeckBlue\x10\x02\x12%\n" +
-	"!k_EStartupMovieVariant_DeckOrange\x10\x03\x12\"\n" +
-	"\x1ek_EStartupMovieVariant_Machine\x10\x04*\x8b\x01\n" +
+	"\x1ek_SystemFanControlMode_Default\x10\x02*\x8b\x01\n" +
 	"\x13EColorGamutLabelSet\x12 \n" +
 	"\x1ck_ColorGamutLabelSet_Default\x10\x00\x12$\n" +
 	" k_ColorGamutLabelSet_sRGB_Native\x10\x01\x12,\n" +
@@ -6206,7 +6220,12 @@ const file_enums_proto_rawDesc = "" +
 	"\x1ek_BluetoothDeviceType_Joystick\x10\t\x12!\n" +
 	"\x1dk_BluetoothDeviceType_Gamepad\x10\n" +
 	"\x12\"\n" +
-	"\x1ek_BluetoothDeviceType_Keyboard\x10\v*\x80\x01\n" +
+	"\x1ek_BluetoothDeviceType_Keyboard\x10\v*\x9e\x01\n" +
+	"\x15ESpeakerConfiguration\x12!\n" +
+	"\x1dk_ESpeakerConfiguration_Other\x10\x00\x12\"\n" +
+	"\x1ek_ESpeakerConfiguration_Stereo\x10\x01\x12\x1e\n" +
+	"\x1ak_ESpeakerConfiguration_51\x10\x02\x12\x1e\n" +
+	"\x1ak_ESpeakerConfiguration_71\x10\x03*\x80\x01\n" +
 	"\x15ESystemAudioDirection\x12\"\n" +
 	"\x1ek_SystemAudioDirection_Invalid\x10\x00\x12 \n" +
 	"\x1ck_SystemAudioDirection_Input\x10\x01\x12!\n" +
@@ -6644,7 +6663,7 @@ const file_enums_proto_rawDesc = "" +
 	"#k_EContentModeratorLevel_Supervisor\x10\x01\x12\"\n" +
 	"\x1ek_EContentModeratorLevel_Valve\x10\n" +
 	"\x12 \n" +
-	"\x1ck_EContentModeratorLevel_MAX\x10\v*\xa4\x06\n" +
+	"\x1ck_EContentModeratorLevel_MAX\x10\v*\xcb\x06\n" +
 	"\x18EContentReportResolution\x12)\n" +
 	"%k_EContentReportResolution_Unresolved\x10\x00\x12(\n" +
 	"$k_EContentReportResolution_Acquitted\x10\x01\x12&\n" +
@@ -6662,8 +6681,9 @@ const file_enums_proto_rawDesc = "" +
 	"'k_EContentReportResolution_RemoveAndBan\x10\f\x12,\n" +
 	"(k_EContentReportResolution_RemoveAndKick\x10\r\x12)\n" +
 	"%k_EContentReportResolution_Sanctioned\x10\x0e\x12(\n" +
-	"$k_EContentReportResolution_Sustained\x10\x0f\x12\"\n" +
-	"\x1ek_EContentReportResolution_MAX\x10\x10*\xba\x03\n" +
+	"$k_EContentReportResolution_Sustained\x10\x0f\x12%\n" +
+	"!k_EContentReportResolution_Broken\x10\x10\x12\"\n" +
+	"\x1ek_EContentReportResolution_MAX\x10\x11*\xc8\x04\n" +
 	"\x1aEContentModerationSanction\x12(\n" +
 	"$k_EContentModerationSanction_Invalid\x10\x00\x12(\n" +
 	"$k_EContentModerationSanction_Deleted\x10\x01\x120\n" +
@@ -6672,8 +6692,12 @@ const file_enums_proto_rawDesc = "" +
 	"(k_EContentModerationSanction_TradeBanned\x10\x04\x126\n" +
 	"2k_EContentModerationSanction_CommentHistoryDeleted\x10\x05\x12+\n" +
 	"'k_EContentModerationSanction_Relabelled\x10\x06\x121\n" +
-	"-k_EContentModerationSanction_MarkAsSuspicious\x10\a\x12$\n" +
-	" k_EContentModerationSanction_MAX\x10\b*\xd7\b\n" +
+	"-k_EContentModerationSanction_MarkAsSuspicious\x10\a\x12'\n" +
+	"#k_EContentModerationSanction_Warned\x10\b\x120\n" +
+	",k_EContentModerationSanction_KickedFromGroup\x10\t\x121\n" +
+	"-k_EContentModerationSanction_HarassmentBanned\x10\n" +
+	"\x12$\n" +
+	" k_EContentModerationSanction_MAX\x10\v*\x88\t\n" +
 	"\x1bEContentReportSubjectAction\x12)\n" +
 	"%k_EContentReportSubjectAction_Invalid\x10\x00\x12,\n" +
 	"(k_EContentReportSubjectAction_Unresolved\x10\x01\x12,\n" +
@@ -6698,7 +6722,8 @@ const file_enums_proto_rawDesc = "" +
 	"3k_EContentReportSubjectAction_EscalatedForTerrorism\x10\x13\x12)\n" +
 	"%k_EContentReportSubjectAction_Claimed\x10\x14\x12*\n" +
 	"&k_EContentReportSubjectAction_Released\x10\x15\x121\n" +
-	"-k_EContentReportSubjectAction_PrivateMessaged\x10\x16*\xa9\x18\n" +
+	"-k_EContentReportSubjectAction_PrivateMessaged\x10\x16\x12/\n" +
+	"+k_EContentReportSubjectAction_OwnerDisputed\x10\x17*\xa9\x18\n" +
 	"\x14EContentReportReason\x12\"\n" +
 	"\x1ek_EContentReportReason_Invalid\x10\x00\x12\x1f\n" +
 	"\x1bk_EContentReportReason_None\x10\x01\x12\"\n" +
@@ -6826,10 +6851,10 @@ var file_enums_proto_goTypes = []any{
 	(ESDCardFormatStage)(0),                       // 8: ESDCardFormatStage
 	(EStorageFormatStage)(0),                      // 9: EStorageFormatStage
 	(ESystemFanControlMode)(0),                    // 10: ESystemFanControlMode
-	(EStartupMovieVariant)(0),                     // 11: EStartupMovieVariant
-	(EColorGamutLabelSet)(0),                      // 12: EColorGamutLabelSet
-	(EWindowStackingOrder)(0),                     // 13: EWindowStackingOrder
-	(EBluetoothDeviceType)(0),                     // 14: EBluetoothDeviceType
+	(EColorGamutLabelSet)(0),                      // 11: EColorGamutLabelSet
+	(EWindowStackingOrder)(0),                     // 12: EWindowStackingOrder
+	(EBluetoothDeviceType)(0),                     // 13: EBluetoothDeviceType
+	(ESpeakerConfiguration)(0),                    // 14: ESpeakerConfiguration
 	(ESystemAudioDirection)(0),                    // 15: ESystemAudioDirection
 	(ESystemAudioChannel)(0),                      // 16: ESystemAudioChannel
 	(ESystemAudioPortType)(0),                     // 17: ESystemAudioPortType

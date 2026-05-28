@@ -20,3 +20,17 @@ func (x EPublishedFileForSaleStatus) EncodeValues(key string, v *url.Values) err
 	v.Add(key, strconv.FormatInt(int64(x), 10))
 	return nil
 }
+
+// EncodeValues implements the query.Encoder interface for EQueryFilesSpecialFilter.
+// This allows the enum to be encoded as its numerical value in URL parameters.
+func (x EQueryFilesSpecialFilter) EncodeValues(key string, v *url.Values) error {
+	v.Add(key, strconv.FormatInt(int64(x), 10))
+	return nil
+}
+
+// EncodeValues implements the query.Encoder interface for EQueryFilesSearchTextTarget.
+// This allows the enum to be encoded as its numerical value in URL parameters.
+func (x EQueryFilesSearchTextTarget) EncodeValues(key string, v *url.Values) error {
+	v.Add(key, strconv.FormatInt(int64(x), 10))
+	return nil
+}

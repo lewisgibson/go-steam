@@ -3623,7 +3623,6 @@ type CMsgSystemManagerSettings struct {
 	DisplayBacklightRaw                *float32               `protobuf:"fixed32,23,opt,name=display_backlight_raw,json=displayBacklightRaw" json:"display_backlight_raw,omitempty"`
 	DisplayBrightnessAdaptivemin       *float32               `protobuf:"fixed32,24,opt,name=display_brightness_adaptivemin,json=displayBrightnessAdaptivemin" json:"display_brightness_adaptivemin,omitempty"`
 	DisplayBrightnessAdaptivemax       *float32               `protobuf:"fixed32,25,opt,name=display_brightness_adaptivemax,json=displayBrightnessAdaptivemax" json:"display_brightness_adaptivemax,omitempty"`
-	IsWifiPowersaveEnabled             *bool                  `protobuf:"varint,26,opt,name=is_wifi_powersave_enabled,json=isWifiPowersaveEnabled" json:"is_wifi_powersave_enabled,omitempty"`
 	IsFanControlAvailable              *bool                  `protobuf:"varint,27,opt,name=is_fan_control_available,json=isFanControlAvailable" json:"is_fan_control_available,omitempty"`
 	FanControlMode                     *ESystemFanControlMode `protobuf:"varint,28,opt,name=fan_control_mode,json=fanControlMode,enum=ESystemFanControlMode,def=0" json:"fan_control_mode,omitempty"`
 	IsDisplayBrightnessAvailable       *bool                  `protobuf:"varint,29,opt,name=is_display_brightness_available,json=isDisplayBrightnessAvailable" json:"is_display_brightness_available,omitempty"`
@@ -3814,13 +3813,6 @@ func (x *CMsgSystemManagerSettings) GetDisplayBrightnessAdaptivemax() float32 {
 		return *x.DisplayBrightnessAdaptivemax
 	}
 	return 0
-}
-
-func (x *CMsgSystemManagerSettings) GetIsWifiPowersaveEnabled() bool {
-	if x != nil && x.IsWifiPowersaveEnabled != nil {
-		return *x.IsWifiPowersaveEnabled
-	}
-	return false
 }
 
 func (x *CMsgSystemManagerSettings) GetIsFanControlAvailable() bool {
@@ -4704,11 +4696,11 @@ func (x *CMsgShortcutAppIds) GetAppids() []uint32 {
 }
 
 type CMsgMonitorInfo struct {
-	state               protoimpl.MessageState         `protogen:"open.v1"`
-	SelectedDisplayName *string                        `protobuf:"bytes,1,req,name=selected_display_name,json=selectedDisplayName" json:"selected_display_name,omitempty"`
-	Monitors            []*CMsgMonitorInfo_MonitorInfo `protobuf:"bytes,2,rep,name=monitors" json:"monitors,omitempty"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	state              protoimpl.MessageState         `protogen:"open.v1"`
+	SelectedDeviceName *string                        `protobuf:"bytes,1,req,name=selected_device_name,json=selectedDeviceName" json:"selected_device_name,omitempty"`
+	Monitors           []*CMsgMonitorInfo_MonitorInfo `protobuf:"bytes,2,rep,name=monitors" json:"monitors,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
 }
 
 func (x *CMsgMonitorInfo) Reset() {
@@ -4741,9 +4733,9 @@ func (*CMsgMonitorInfo) Descriptor() ([]byte, []int) {
 	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{52}
 }
 
-func (x *CMsgMonitorInfo) GetSelectedDisplayName() string {
-	if x != nil && x.SelectedDisplayName != nil {
-		return *x.SelectedDisplayName
+func (x *CMsgMonitorInfo) GetSelectedDeviceName() string {
+	if x != nil && x.SelectedDeviceName != nil {
+		return *x.SelectedDeviceName
 	}
 	return ""
 }
@@ -6682,7 +6674,7 @@ const file_steammessages_client_objects_proto_rawDesc = "" +
 	"\x1fCMsgSystemDisplayManagerSetMode\x12\x1d\n" +
 	"\n" +
 	"display_id\x18\x01 \x01(\x05R\tdisplayId\x12\x17\n" +
-	"\amode_id\x18\x02 \x01(\x05R\x06modeId\"\x93\x11\n" +
+	"\amode_id\x18\x02 \x01(\x05R\x06modeId\"\xd8\x10\n" +
 	"\x19CMsgSystemManagerSettings\x12J\n" +
 	"\"idle_backlight_dim_battery_seconds\x18\x01 \x01(\x02R\x1eidleBacklightDimBatterySeconds\x12@\n" +
 	"\x1didle_backlight_dim_ac_seconds\x18\x02 \x01(\x02R\x19idleBacklightDimAcSeconds\x12G\n" +
@@ -6704,8 +6696,7 @@ const file_steammessages_client_objects_proto_rawDesc = "" +
 	"\x0eals_lux_median\x18\x16 \x01(\x02R\falsLuxMedian\x122\n" +
 	"\x15display_backlight_raw\x18\x17 \x01(\x02R\x13displayBacklightRaw\x12D\n" +
 	"\x1edisplay_brightness_adaptivemin\x18\x18 \x01(\x02R\x1cdisplayBrightnessAdaptivemin\x12D\n" +
-	"\x1edisplay_brightness_adaptivemax\x18\x19 \x01(\x02R\x1cdisplayBrightnessAdaptivemax\x129\n" +
-	"\x19is_wifi_powersave_enabled\x18\x1a \x01(\bR\x16isWifiPowersaveEnabled\x127\n" +
+	"\x1edisplay_brightness_adaptivemax\x18\x19 \x01(\x02R\x1cdisplayBrightnessAdaptivemax\x127\n" +
 	"\x18is_fan_control_available\x18\x1b \x01(\bR\x15isFanControlAvailable\x12`\n" +
 	"\x10fan_control_mode\x18\x1c \x01(\x0e2\x16.ESystemFanControlMode:\x1ek_SystemFanControlMode_InvalidR\x0efanControlMode\x12E\n" +
 	"\x1fis_display_brightness_available\x18\x1d \x01(\bR\x1cisDisplayBrightnessAvailable\x12O\n" +
@@ -6781,9 +6772,9 @@ const file_steammessages_client_objects_proto_rawDesc = "" +
 	"\x11CMsgShortcutInfos\x12-\n" +
 	"\bshorcuts\x18\x01 \x03(\v2\x11.CMsgShortcutInfoR\bshorcuts\",\n" +
 	"\x12CMsgShortcutAppIds\x12\x16\n" +
-	"\x06appids\x18\x01 \x03(\rR\x06appids\"\xf0\x01\n" +
-	"\x0fCMsgMonitorInfo\x122\n" +
-	"\x15selected_display_name\x18\x01 \x02(\tR\x13selectedDisplayName\x128\n" +
+	"\x06appids\x18\x01 \x03(\rR\x06appids\"\xee\x01\n" +
+	"\x0fCMsgMonitorInfo\x120\n" +
+	"\x14selected_device_name\x18\x01 \x02(\tR\x12selectedDeviceName\x128\n" +
 	"\bmonitors\x18\x02 \x03(\v2\x1c.CMsgMonitorInfo.MonitorInfoR\bmonitors\x1ao\n" +
 	"\vMonitorInfo\x12.\n" +
 	"\x13monitor_device_name\x18\x01 \x02(\tR\x11monitorDeviceName\x120\n" +

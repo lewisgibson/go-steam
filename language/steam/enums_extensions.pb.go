@@ -84,13 +84,6 @@ func (x ESystemFanControlMode) EncodeValues(key string, v *url.Values) error {
 	return nil
 }
 
-// EncodeValues implements the query.Encoder interface for EStartupMovieVariant.
-// This allows the enum to be encoded as its numerical value in URL parameters.
-func (x EStartupMovieVariant) EncodeValues(key string, v *url.Values) error {
-	v.Add(key, strconv.FormatInt(int64(x), 10))
-	return nil
-}
-
 // EncodeValues implements the query.Encoder interface for EColorGamutLabelSet.
 // This allows the enum to be encoded as its numerical value in URL parameters.
 func (x EColorGamutLabelSet) EncodeValues(key string, v *url.Values) error {
@@ -108,6 +101,13 @@ func (x EWindowStackingOrder) EncodeValues(key string, v *url.Values) error {
 // EncodeValues implements the query.Encoder interface for EBluetoothDeviceType.
 // This allows the enum to be encoded as its numerical value in URL parameters.
 func (x EBluetoothDeviceType) EncodeValues(key string, v *url.Values) error {
+	v.Add(key, strconv.FormatInt(int64(x), 10))
+	return nil
+}
+
+// EncodeValues implements the query.Encoder interface for ESpeakerConfiguration.
+// This allows the enum to be encoded as its numerical value in URL parameters.
+func (x ESpeakerConfiguration) EncodeValues(key string, v *url.Values) error {
 	v.Add(key, strconv.FormatInt(int64(x), 10))
 	return nil
 }

@@ -2186,21 +2186,23 @@ func (x *CClientMetrics_ReportClientError_Notification_Error) GetContext() strin
 }
 
 type CClientMetrics_DownloadRates_Notification_StatsInfo struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	SourceType    *uint32                `protobuf:"varint,1,opt,name=source_type,json=sourceType" json:"source_type,omitempty"`
-	SourceId      *uint32                `protobuf:"varint,2,opt,name=source_id,json=sourceId" json:"source_id,omitempty"`
-	Bytes         *uint64                `protobuf:"varint,3,opt,name=bytes" json:"bytes,omitempty"`
-	HostName      *string                `protobuf:"bytes,4,opt,name=host_name,json=hostName" json:"host_name,omitempty"`
-	Microseconds  *uint64                `protobuf:"varint,5,opt,name=microseconds" json:"microseconds,omitempty"`
-	UsedIpv6      *bool                  `protobuf:"varint,6,opt,name=used_ipv6,json=usedIpv6" json:"used_ipv6,omitempty"`
-	Proxied       *bool                  `protobuf:"varint,7,opt,name=proxied" json:"proxied,omitempty"`
-	UsedHttp2     *bool                  `protobuf:"varint,8,opt,name=used_http2,json=usedHttp2" json:"used_http2,omitempty"`
-	CacheHits     *uint32                `protobuf:"varint,9,opt,name=cache_hits,json=cacheHits" json:"cache_hits,omitempty"`
-	CacheMisses   *uint32                `protobuf:"varint,10,opt,name=cache_misses,json=cacheMisses" json:"cache_misses,omitempty"`
-	HitBytes      *uint64                `protobuf:"varint,11,opt,name=hit_bytes,json=hitBytes" json:"hit_bytes,omitempty"`
-	MissBytes     *uint64                `protobuf:"varint,12,opt,name=miss_bytes,json=missBytes" json:"miss_bytes,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	SourceType     *uint32                `protobuf:"varint,1,opt,name=source_type,json=sourceType" json:"source_type,omitempty"`
+	SourceId       *uint32                `protobuf:"varint,2,opt,name=source_id,json=sourceId" json:"source_id,omitempty"`
+	Bytes          *uint64                `protobuf:"varint,3,opt,name=bytes" json:"bytes,omitempty"`
+	HostName       *string                `protobuf:"bytes,4,opt,name=host_name,json=hostName" json:"host_name,omitempty"`
+	Microseconds   *uint64                `protobuf:"varint,5,opt,name=microseconds" json:"microseconds,omitempty"`
+	UsedIpv6       *bool                  `protobuf:"varint,6,opt,name=used_ipv6,json=usedIpv6" json:"used_ipv6,omitempty"`
+	Proxied        *bool                  `protobuf:"varint,7,opt,name=proxied" json:"proxied,omitempty"`
+	UsedHttp2      *bool                  `protobuf:"varint,8,opt,name=used_http2,json=usedHttp2" json:"used_http2,omitempty"`
+	CacheHits      *uint32                `protobuf:"varint,9,opt,name=cache_hits,json=cacheHits" json:"cache_hits,omitempty"`
+	CacheMisses    *uint32                `protobuf:"varint,10,opt,name=cache_misses,json=cacheMisses" json:"cache_misses,omitempty"`
+	HitBytes       *uint64                `protobuf:"varint,11,opt,name=hit_bytes,json=hitBytes" json:"hit_bytes,omitempty"`
+	MissBytes      *uint64                `protobuf:"varint,12,opt,name=miss_bytes,json=missBytes" json:"miss_bytes,omitempty"`
+	ChunksScored   *uint32                `protobuf:"varint,13,opt,name=chunks_scored,json=chunksScored" json:"chunks_scored,omitempty"`
+	SumChunkScores *float64               `protobuf:"fixed64,14,opt,name=sum_chunk_scores,json=sumChunkScores" json:"sum_chunk_scores,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *CClientMetrics_DownloadRates_Notification_StatsInfo) Reset() {
@@ -2317,6 +2319,20 @@ func (x *CClientMetrics_DownloadRates_Notification_StatsInfo) GetMissBytes() uin
 	return 0
 }
 
+func (x *CClientMetrics_DownloadRates_Notification_StatsInfo) GetChunksScored() uint32 {
+	if x != nil && x.ChunksScored != nil {
+		return *x.ChunksScored
+	}
+	return 0
+}
+
+func (x *CClientMetrics_DownloadRates_Notification_StatsInfo) GetSumChunkScores() float64 {
+	if x != nil && x.SumChunkScores != nil {
+		return *x.SumChunkScores
+	}
+	return 0
+}
+
 type CClientMetrics_ClipRange_Notification_RelativeRangeEdge struct {
 	state               protoimpl.MessageState `protogen:"open.v1"`
 	OriginalRangeMethod *EClipRangeMethod      `protobuf:"varint,1,opt,name=original_range_method,json=originalRangeMethod,enum=EClipRangeMethod,def=1" json:"original_range_method,omitempty"`
@@ -2384,12 +2400,14 @@ func (x *CClientMetrics_ClipRange_Notification_RelativeRangeEdge) GetDeltaMs() i
 }
 
 type CClientMetrics_GamePerformance_Notification_FrameRate struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Gameid         *uint64                `protobuf:"fixed64,1,opt,name=gameid" json:"gameid,omitempty"`
-	FrameRate      *uint32                `protobuf:"varint,2,opt,name=frame_rate,json=frameRate" json:"frame_rate,omitempty"`
-	SessionSeconds *int32                 `protobuf:"varint,3,opt,name=session_seconds,json=sessionSeconds" json:"session_seconds,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state             protoimpl.MessageState   `protogen:"open.v1"`
+	Gameid            *uint64                  `protobuf:"fixed64,1,opt,name=gameid" json:"gameid,omitempty"`
+	FrameRate         *uint32                  `protobuf:"varint,2,opt,name=frame_rate,json=frameRate" json:"frame_rate,omitempty"`
+	SessionSeconds    *int32                   `protobuf:"varint,3,opt,name=session_seconds,json=sessionSeconds" json:"session_seconds,omitempty"`
+	FramegenFrameRate *uint32                  `protobuf:"varint,4,opt,name=framegen_frame_rate,json=framegenFrameRate" json:"framegen_frame_rate,omitempty"`
+	GameSettings      *GamePerformanceSettings `protobuf:"bytes,5,opt,name=game_settings,json=gameSettings" json:"game_settings,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *CClientMetrics_GamePerformance_Notification_FrameRate) Reset() {
@@ -2441,6 +2459,20 @@ func (x *CClientMetrics_GamePerformance_Notification_FrameRate) GetSessionSecond
 		return *x.SessionSeconds
 	}
 	return 0
+}
+
+func (x *CClientMetrics_GamePerformance_Notification_FrameRate) GetFramegenFrameRate() uint32 {
+	if x != nil && x.FramegenFrameRate != nil {
+		return *x.FramegenFrameRate
+	}
+	return 0
+}
+
+func (x *CClientMetrics_GamePerformance_Notification_FrameRate) GetGameSettings() *GamePerformanceSettings {
+	if x != nil {
+		return x.GameSettings
+	}
+	return nil
 }
 
 var File_steammessages_clientmetrics_steamclient_proto protoreflect.FileDescriptor
@@ -2519,14 +2551,14 @@ const file_steammessages_clientmetrics_steamclient_proto_rawDesc = "" +
 	"\x05count\x18\x03 \x01(\rR\x05count\x12\x18\n" +
 	"\acontext\x18\x04 \x01(\tR\acontext\"p\n" +
 	"+CClientMetrics_ClientBootstrap_Notification\x12A\n" +
-	"\asummary\x18\x01 \x01(\v2'.CClientMetrics_ClientBootstrap_SummaryR\asummary\"\xea\x04\n" +
+	"\asummary\x18\x01 \x01(\v2'.CClientMetrics_ClientBootstrap_SummaryR\asummary\"\xb9\x05\n" +
 	")CClientMetrics_DownloadRates_Notification\x12\x17\n" +
 	"\acell_id\x18\x01 \x01(\rR\x06cellId\x12J\n" +
 	"\x05stats\x18\x02 \x03(\v24.CClientMetrics_DownloadRates_Notification.StatsInfoR\x05stats\x12'\n" +
 	"\x0fthrottling_kbps\x18\x03 \x01(\rR\x0ethrottlingKbps\x12\x17\n" +
 	"\aos_type\x18\x04 \x01(\rR\x06osType\x12\x1f\n" +
 	"\vdevice_type\x18\x05 \x01(\rR\n" +
-	"deviceType\x1a\xf4\x02\n" +
+	"deviceType\x1a\xc3\x03\n" +
 	"\tStatsInfo\x12\x1f\n" +
 	"\vsource_type\x18\x01 \x01(\rR\n" +
 	"sourceType\x12\x1b\n" +
@@ -2544,7 +2576,9 @@ const file_steammessages_clientmetrics_steamclient_proto_rawDesc = "" +
 	" \x01(\rR\vcacheMisses\x12\x1b\n" +
 	"\thit_bytes\x18\v \x01(\x04R\bhitBytes\x12\x1d\n" +
 	"\n" +
-	"miss_bytes\x18\f \x01(\x04R\tmissBytes\"\xb4\x03\n" +
+	"miss_bytes\x18\f \x01(\x04R\tmissBytes\x12#\n" +
+	"\rchunks_scored\x18\r \x01(\rR\fchunksScored\x12(\n" +
+	"\x10sum_chunk_scores\x18\x0e \x01(\x01R\x0esumChunkScores\"\xb4\x03\n" +
 	"-CClientMetrics_ContentValidation_Notification\x12+\n" +
 	"\x11validation_result\x18\x01 \x01(\x05R\x10validationResult\x12\x15\n" +
 	"\x06app_id\x18\x02 \x01(\rR\x05appId\x12!\n" +
@@ -2630,17 +2664,19 @@ const file_steammessages_clientmetrics_steamclient_proto_rawDesc = "" +
 	"\aseconds\x18\x02 \x01(\x02R\aseconds\x12\x14\n" +
 	"\x05bytes\x18\x03 \x01(\x04R\x05bytes\x12\x16\n" +
 	"\x06gameid\x18\x04 \x01(\x06R\x06gameid\x12!\n" +
-	"\finstant_clip\x18\x05 \x01(\bR\vinstantClip\"\xac\x02\n" +
+	"\finstant_clip\x18\x05 \x01(\bR\vinstantClip\"\x9c\x03\n" +
 	"+CClientMetrics_GamePerformance_Notification\x12W\n" +
 	"\vframe_rates\x18\x02 \x03(\v26.CClientMetrics_GamePerformance_Notification.FrameRateR\n" +
 	"frameRates\x127\n" +
 	"\vsystem_info\x18\x03 \x01(\v2\x16.UserSystemInformationR\n" +
-	"systemInfo\x1ak\n" +
+	"systemInfo\x1a\xda\x01\n" +
 	"\tFrameRate\x12\x16\n" +
 	"\x06gameid\x18\x01 \x01(\x06R\x06gameid\x12\x1d\n" +
 	"\n" +
 	"frame_rate\x18\x02 \x01(\rR\tframeRate\x12'\n" +
-	"\x0fsession_seconds\x18\x03 \x01(\x05R\x0esessionSeconds*q\n" +
+	"\x0fsession_seconds\x18\x03 \x01(\x05R\x0esessionSeconds\x12.\n" +
+	"\x13framegen_frame_rate\x18\x04 \x01(\rR\x11framegenFrameRate\x12=\n" +
+	"\rgame_settings\x18\x05 \x01(\v2\x18.GamePerformanceSettingsR\fgameSettings*q\n" +
 	"\x12ESteamPipeWorkType\x12&\n" +
 	"\"k_ESteamPipeClientWorkType_Invalid\x10\x00\x123\n" +
 	"/k_ESteamPipeClientWorkType_StageFromChunkStores\x10\x01*\xbb\x01\n" +
@@ -2732,10 +2768,11 @@ var file_steammessages_clientmetrics_steamclient_proto_goTypes = []any{
 	(*CClientMetrics_GamePerformance_Notification_FrameRate)(nil),      // 31: CClientMetrics_GamePerformance_Notification.FrameRate
 	(*CClientMetrics_ClientBootstrap_Summary)(nil),                     // 32: CClientMetrics_ClientBootstrap_Summary
 	(*CClientMetrics_ContentDownloadResponse_Hosts)(nil),               // 33: CClientMetrics_ContentDownloadResponse_Hosts
-	(EGRMode)(0),                  // 34: EGRMode
-	(EGameRecordingType)(0),       // 35: EGameRecordingType
-	(*UserSystemInformation)(nil), // 36: UserSystemInformation
-	(*NoResponse)(nil),            // 37: NoResponse
+	(EGRMode)(0),                    // 34: EGRMode
+	(EGameRecordingType)(0),         // 35: EGameRecordingType
+	(*UserSystemInformation)(nil),   // 36: UserSystemInformation
+	(*GamePerformanceSettings)(nil), // 37: GamePerformanceSettings
+	(*NoResponse)(nil),              // 38: NoResponse
 }
 var file_steammessages_clientmetrics_steamclient_proto_depIdxs = []int32{
 	4,  // 0: CClientMetrics_AppInterfaceStats_Notification.interfaces_created:type_name -> CClientMetrics_AppInterfaceCreation
@@ -2761,45 +2798,46 @@ var file_steammessages_clientmetrics_steamclient_proto_depIdxs = []int32{
 	36, // 20: CClientMetrics_GamePerformance_Notification.system_info:type_name -> UserSystemInformation
 	3,  // 21: CClientMetrics_ClipRange_Notification.RelativeRangeEdge.original_range_method:type_name -> EClipRangeMethod
 	3,  // 22: CClientMetrics_ClipRange_Notification.RelativeRangeEdge.latest_range_method:type_name -> EClipRangeMethod
-	6,  // 23: ClientMetrics.ClientAppInterfaceStatsReport:input_type -> CClientMetrics_AppInterfaceStats_Notification
-	8,  // 24: ClientMetrics.ClientIPv6ConnectivityReport:input_type -> CClientMetrics_IPv6Connectivity_Notification
-	10, // 25: ClientMetrics.SteamPipeWorkStatsReport:input_type -> CClientMetrics_SteamPipeWorkStats_Notification
-	11, // 26: ClientMetrics.ReportReactUsage:input_type -> CClientMetrics_ReportReactUsage_Notification
-	12, // 27: ClientMetrics.ReportClientError:input_type -> CClientMetrics_ReportClientError_Notification
-	13, // 28: ClientMetrics.ClientBootstrapReport:input_type -> CClientMetrics_ClientBootstrap_Notification
-	14, // 29: ClientMetrics.ClientDownloadRatesReport:input_type -> CClientMetrics_DownloadRates_Notification
-	15, // 30: ClientMetrics.ClientContentValidationReport:input_type -> CClientMetrics_ContentValidation_Notification
-	16, // 31: ClientMetrics.ClientCloudAppSyncStats:input_type -> CClientMetrics_CloudAppSyncStats_Notification
-	17, // 32: ClientMetrics.ClientDownloadResponseCodeCounts:input_type -> CClientMetrics_ContentDownloadResponse_Counts_Notification
-	18, // 33: ClientMetrics.ReportClientArgs:input_type -> CClientMetrics_ReportClientArgs_Notification
-	19, // 34: ClientMetrics.ReportLinuxStats:input_type -> CClientMetrics_ReportLinuxStats_Notification
-	20, // 35: ClientMetrics.ReportAccessibilitySettings:input_type -> CClientMetrics_ReportAccessibilitySettings_Notification
-	21, // 36: ClientMetrics.ReportClipShare:input_type -> CClientMetrics_ClipShare_Notification
-	22, // 37: ClientMetrics.ReportClipRange:input_type -> CClientMetrics_ClipRange_Notification
-	23, // 38: ClientMetrics.ReportEndGameRecording:input_type -> CClientMetrics_EndGameRecording_Notification
-	24, // 39: ClientMetrics.ReportGamePerformance:input_type -> CClientMetrics_GamePerformance_Notification
-	37, // 40: ClientMetrics.ClientAppInterfaceStatsReport:output_type -> NoResponse
-	37, // 41: ClientMetrics.ClientIPv6ConnectivityReport:output_type -> NoResponse
-	37, // 42: ClientMetrics.SteamPipeWorkStatsReport:output_type -> NoResponse
-	37, // 43: ClientMetrics.ReportReactUsage:output_type -> NoResponse
-	37, // 44: ClientMetrics.ReportClientError:output_type -> NoResponse
-	37, // 45: ClientMetrics.ClientBootstrapReport:output_type -> NoResponse
-	37, // 46: ClientMetrics.ClientDownloadRatesReport:output_type -> NoResponse
-	37, // 47: ClientMetrics.ClientContentValidationReport:output_type -> NoResponse
-	37, // 48: ClientMetrics.ClientCloudAppSyncStats:output_type -> NoResponse
-	37, // 49: ClientMetrics.ClientDownloadResponseCodeCounts:output_type -> NoResponse
-	37, // 50: ClientMetrics.ReportClientArgs:output_type -> NoResponse
-	37, // 51: ClientMetrics.ReportLinuxStats:output_type -> NoResponse
-	37, // 52: ClientMetrics.ReportAccessibilitySettings:output_type -> NoResponse
-	37, // 53: ClientMetrics.ReportClipShare:output_type -> NoResponse
-	37, // 54: ClientMetrics.ReportClipRange:output_type -> NoResponse
-	37, // 55: ClientMetrics.ReportEndGameRecording:output_type -> NoResponse
-	37, // 56: ClientMetrics.ReportGamePerformance:output_type -> NoResponse
-	40, // [40:57] is the sub-list for method output_type
-	23, // [23:40] is the sub-list for method input_type
-	23, // [23:23] is the sub-list for extension type_name
-	23, // [23:23] is the sub-list for extension extendee
-	0,  // [0:23] is the sub-list for field type_name
+	37, // 23: CClientMetrics_GamePerformance_Notification.FrameRate.game_settings:type_name -> GamePerformanceSettings
+	6,  // 24: ClientMetrics.ClientAppInterfaceStatsReport:input_type -> CClientMetrics_AppInterfaceStats_Notification
+	8,  // 25: ClientMetrics.ClientIPv6ConnectivityReport:input_type -> CClientMetrics_IPv6Connectivity_Notification
+	10, // 26: ClientMetrics.SteamPipeWorkStatsReport:input_type -> CClientMetrics_SteamPipeWorkStats_Notification
+	11, // 27: ClientMetrics.ReportReactUsage:input_type -> CClientMetrics_ReportReactUsage_Notification
+	12, // 28: ClientMetrics.ReportClientError:input_type -> CClientMetrics_ReportClientError_Notification
+	13, // 29: ClientMetrics.ClientBootstrapReport:input_type -> CClientMetrics_ClientBootstrap_Notification
+	14, // 30: ClientMetrics.ClientDownloadRatesReport:input_type -> CClientMetrics_DownloadRates_Notification
+	15, // 31: ClientMetrics.ClientContentValidationReport:input_type -> CClientMetrics_ContentValidation_Notification
+	16, // 32: ClientMetrics.ClientCloudAppSyncStats:input_type -> CClientMetrics_CloudAppSyncStats_Notification
+	17, // 33: ClientMetrics.ClientDownloadResponseCodeCounts:input_type -> CClientMetrics_ContentDownloadResponse_Counts_Notification
+	18, // 34: ClientMetrics.ReportClientArgs:input_type -> CClientMetrics_ReportClientArgs_Notification
+	19, // 35: ClientMetrics.ReportLinuxStats:input_type -> CClientMetrics_ReportLinuxStats_Notification
+	20, // 36: ClientMetrics.ReportAccessibilitySettings:input_type -> CClientMetrics_ReportAccessibilitySettings_Notification
+	21, // 37: ClientMetrics.ReportClipShare:input_type -> CClientMetrics_ClipShare_Notification
+	22, // 38: ClientMetrics.ReportClipRange:input_type -> CClientMetrics_ClipRange_Notification
+	23, // 39: ClientMetrics.ReportEndGameRecording:input_type -> CClientMetrics_EndGameRecording_Notification
+	24, // 40: ClientMetrics.ReportGamePerformance:input_type -> CClientMetrics_GamePerformance_Notification
+	38, // 41: ClientMetrics.ClientAppInterfaceStatsReport:output_type -> NoResponse
+	38, // 42: ClientMetrics.ClientIPv6ConnectivityReport:output_type -> NoResponse
+	38, // 43: ClientMetrics.SteamPipeWorkStatsReport:output_type -> NoResponse
+	38, // 44: ClientMetrics.ReportReactUsage:output_type -> NoResponse
+	38, // 45: ClientMetrics.ReportClientError:output_type -> NoResponse
+	38, // 46: ClientMetrics.ClientBootstrapReport:output_type -> NoResponse
+	38, // 47: ClientMetrics.ClientDownloadRatesReport:output_type -> NoResponse
+	38, // 48: ClientMetrics.ClientContentValidationReport:output_type -> NoResponse
+	38, // 49: ClientMetrics.ClientCloudAppSyncStats:output_type -> NoResponse
+	38, // 50: ClientMetrics.ClientDownloadResponseCodeCounts:output_type -> NoResponse
+	38, // 51: ClientMetrics.ReportClientArgs:output_type -> NoResponse
+	38, // 52: ClientMetrics.ReportLinuxStats:output_type -> NoResponse
+	38, // 53: ClientMetrics.ReportAccessibilitySettings:output_type -> NoResponse
+	38, // 54: ClientMetrics.ReportClipShare:output_type -> NoResponse
+	38, // 55: ClientMetrics.ReportClipRange:output_type -> NoResponse
+	38, // 56: ClientMetrics.ReportEndGameRecording:output_type -> NoResponse
+	38, // 57: ClientMetrics.ReportGamePerformance:output_type -> NoResponse
+	41, // [41:58] is the sub-list for method output_type
+	24, // [24:41] is the sub-list for method input_type
+	24, // [24:24] is the sub-list for extension type_name
+	24, // [24:24] is the sub-list for extension extendee
+	0,  // [0:24] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_clientmetrics_steamclient_proto_init() }

@@ -23,8 +23,8 @@ const (
 
 type CSteamEngine_UpdateTextFilterDictionary_Notification struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Language      *string                `protobuf:"bytes,1,req,name=language" json:"language,omitempty"`
-	Type          *string                `protobuf:"bytes,2,req,name=type" json:"type,omitempty"`
+	Language      *string                `protobuf:"bytes,1,opt,name=language" json:"language,omitempty"`
+	Type          *string                `protobuf:"bytes,2,opt,name=type" json:"type,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -75,8 +75,8 @@ func (x *CSteamEngine_UpdateTextFilterDictionary_Notification) GetType() string 
 
 type CSteamEngine_GetTextFilterDictionary_Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Language      *string                `protobuf:"bytes,1,req,name=language" json:"language,omitempty"`
-	Type          *string                `protobuf:"bytes,2,req,name=type" json:"type,omitempty"`
+	Language      *string                `protobuf:"bytes,1,opt,name=language" json:"language,omitempty"`
+	Type          *string                `protobuf:"bytes,2,opt,name=type" json:"type,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -171,8 +171,8 @@ func (x *CSteamEngine_GetTextFilterDictionary_Response) GetDictionary() string {
 
 type CSteamEngine_TextFilterDictionaryChanged_Notification struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Language      *string                `protobuf:"bytes,1,req,name=language" json:"language,omitempty"`
-	Type          *string                `protobuf:"bytes,2,req,name=type" json:"type,omitempty"`
+	Language      *string                `protobuf:"bytes,1,opt,name=language" json:"language,omitempty"`
+	Type          *string                `protobuf:"bytes,2,opt,name=type" json:"type,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -311,8 +311,8 @@ func (x *CSteamEngine_GetGameIDForPID_Response) GetGameid() uint64 {
 
 type CSteamEngine_SetOverlayEscapeKeyHandling_Notification struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Gameid        *uint64                `protobuf:"varint,1,req,name=gameid" json:"gameid,omitempty"`
-	ShouldHandle  *bool                  `protobuf:"varint,2,req,name=should_handle,json=shouldHandle" json:"should_handle,omitempty"`
+	Gameid        *uint64                `protobuf:"varint,1,opt,name=gameid" json:"gameid,omitempty"`
+	ShouldHandle  *bool                  `protobuf:"varint,2,opt,name=should_handle,json=shouldHandle" json:"should_handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -463,25 +463,25 @@ const file_webuimessages_steamengine_proto_rawDesc = "" +
 	"\n" +
 	"\x1fwebuimessages_steamengine.proto\x1a\x18steammessages_base.proto\x1a\x18webuimessages_base.proto\"f\n" +
 	"4CSteamEngine_UpdateTextFilterDictionary_Notification\x12\x1a\n" +
-	"\blanguage\x18\x01 \x02(\tR\blanguage\x12\x12\n" +
-	"\x04type\x18\x02 \x02(\tR\x04type\"^\n" +
+	"\blanguage\x18\x01 \x01(\tR\blanguage\x12\x12\n" +
+	"\x04type\x18\x02 \x01(\tR\x04type\"^\n" +
 	",CSteamEngine_GetTextFilterDictionary_Request\x12\x1a\n" +
-	"\blanguage\x18\x01 \x02(\tR\blanguage\x12\x12\n" +
-	"\x04type\x18\x02 \x02(\tR\x04type\"O\n" +
+	"\blanguage\x18\x01 \x01(\tR\blanguage\x12\x12\n" +
+	"\x04type\x18\x02 \x01(\tR\x04type\"O\n" +
 	"-CSteamEngine_GetTextFilterDictionary_Response\x12\x1e\n" +
 	"\n" +
 	"dictionary\x18\x01 \x01(\tR\n" +
 	"dictionary\"g\n" +
 	"5CSteamEngine_TextFilterDictionaryChanged_Notification\x12\x1a\n" +
-	"\blanguage\x18\x01 \x02(\tR\blanguage\x12\x12\n" +
-	"\x04type\x18\x02 \x02(\tR\x04type\"8\n" +
+	"\blanguage\x18\x01 \x01(\tR\blanguage\x12\x12\n" +
+	"\x04type\x18\x02 \x01(\tR\x04type\"8\n" +
 	"$CSteamEngine_GetGameIDForPID_Request\x12\x10\n" +
 	"\x03pid\x18\x01 \x01(\rR\x03pid\"?\n" +
 	"%CSteamEngine_GetGameIDForPID_Response\x12\x16\n" +
 	"\x06gameid\x18\x01 \x01(\x04R\x06gameid\"t\n" +
 	"5CSteamEngine_SetOverlayEscapeKeyHandling_Notification\x12\x16\n" +
-	"\x06gameid\x18\x01 \x02(\x04R\x06gameid\x12#\n" +
-	"\rshould_handle\x18\x02 \x02(\bR\fshouldHandle\"z\n" +
+	"\x06gameid\x18\x01 \x01(\x04R\x06gameid\x12#\n" +
+	"\rshould_handle\x18\x02 \x01(\bR\fshouldHandle\"z\n" +
 	"6CSteamEngine_SearchAppDataCacheByStoreKeywords_Request\x12\x1f\n" +
 	"\vsearch_term\x18\x01 \x01(\tR\n" +
 	"searchTerm\x12\x1f\n" +

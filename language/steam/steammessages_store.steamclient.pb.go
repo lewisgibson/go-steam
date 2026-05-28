@@ -2320,6 +2320,8 @@ type CStore_UserPreferences struct {
 	ProvideDeckFeedback                          *EProvideDeckFeedbackPreference    `protobuf:"varint,12,opt,name=provide_deck_feedback,json=provideDeckFeedback,enum=EProvideDeckFeedbackPreference,def=0" json:"provide_deck_feedback,omitempty"`
 	AdditionalLanguages                          *string                            `protobuf:"bytes,13,opt,name=additional_languages,json=additionalLanguages" json:"additional_languages,omitempty"`
 	GameFrameRateReporting                       *EGameFrameRateReportingPreference `protobuf:"varint,14,opt,name=game_frame_rate_reporting,json=gameFrameRateReporting,enum=EGameFrameRateReportingPreference,def=0" json:"game_frame_rate_reporting,omitempty"`
+	DisableMicrotrailers                         *bool                              `protobuf:"varint,15,opt,name=disable_microtrailers,json=disableMicrotrailers" json:"disable_microtrailers,omitempty"`
+	DisableAnimatedMarketing                     *bool                              `protobuf:"varint,16,opt,name=disable_animated_marketing,json=disableAnimatedMarketing" json:"disable_animated_marketing,omitempty"`
 	unknownFields                                protoimpl.UnknownFields
 	sizeCache                                    protoimpl.SizeCache
 }
@@ -2443,6 +2445,20 @@ func (x *CStore_UserPreferences) GetGameFrameRateReporting() EGameFrameRateRepor
 		return *x.GameFrameRateReporting
 	}
 	return Default_CStore_UserPreferences_GameFrameRateReporting
+}
+
+func (x *CStore_UserPreferences) GetDisableMicrotrailers() bool {
+	if x != nil && x.DisableMicrotrailers != nil {
+		return *x.DisableMicrotrailers
+	}
+	return false
+}
+
+func (x *CStore_UserPreferences) GetDisableAnimatedMarketing() bool {
+	if x != nil && x.DisableAnimatedMarketing != nil {
+		return *x.DisableAnimatedMarketing
+	}
+	return false
 }
 
 type CStore_UserTagPreferences struct {
@@ -4363,7 +4379,7 @@ const file_steammessages_store_steamclient_proto_rawDesc = "" +
 	"\x06report\x18\x03 \x01(\tR\x06report\"\x1b\n" +
 	"\x19CStore_ReportApp_Response\"G\n" +
 	"\"CStore_GetStorePreferences_Request\x12!\n" +
-	"\fcountry_code\x18\x01 \x01(\tR\vcountryCode\"\xe4\x06\n" +
+	"\fcountry_code\x18\x01 \x01(\tR\vcountryCode\"\xd7\a\n" +
 	"\x16CStore_UserPreferences\x12)\n" +
 	"\x10primary_language\x18\x01 \x01(\x05R\x0fprimaryLanguage\x12/\n" +
 	"\x13secondary_languages\x18\x02 \x01(\rR\x12secondaryLanguages\x12)\n" +
@@ -4377,7 +4393,9 @@ const file_steammessages_store_steamclient_proto_rawDesc = "" +
 	"0timestamp_content_descriptor_preferences_updated\x18\v \x01(\x05R,timestampContentDescriptorPreferencesUpdated\x12{\n" +
 	"\x15provide_deck_feedback\x18\f \x01(\x0e2\x1f.EProvideDeckFeedbackPreference:&k_EProvideDeckFeedbackPreference_UnsetR\x13provideDeckFeedback\x121\n" +
 	"\x14additional_languages\x18\r \x01(\tR\x13additionalLanguages\x12\x88\x01\n" +
-	"\x19game_frame_rate_reporting\x18\x0e \x01(\x0e2\".EGameFrameRateReportingPreference:)k_EGameFrameRateReportingPreference_UnsetR\x16gameFrameRateReporting\"\xbd\x01\n" +
+	"\x19game_frame_rate_reporting\x18\x0e \x01(\x0e2\".EGameFrameRateReportingPreference:)k_EGameFrameRateReportingPreference_UnsetR\x16gameFrameRateReporting\x123\n" +
+	"\x15disable_microtrailers\x18\x0f \x01(\bR\x14disableMicrotrailers\x12<\n" +
+	"\x1adisable_animated_marketing\x18\x10 \x01(\bR\x18disableAnimatedMarketing\"\xbd\x01\n" +
 	"\x19CStore_UserTagPreferences\x12F\n" +
 	"\x0ftags_to_exclude\x18\x01 \x03(\v2\x1e.CStore_UserTagPreferences.TagR\rtagsToExclude\x1aX\n" +
 	"\x03Tag\x12\x14\n" +

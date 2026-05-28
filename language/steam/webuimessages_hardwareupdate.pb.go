@@ -182,14 +182,15 @@ func (*CHardwareUpdate_CheckForUpdates_Request) Descriptor() ([]byte, []int) {
 }
 
 type CMsgAvailableHardwareUpdate struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Etype         *uint32                `protobuf:"varint,1,opt,name=etype" json:"etype,omitempty"`
-	HardwareId    *uint32                `protobuf:"varint,2,opt,name=hardware_id,json=hardwareId" json:"hardware_id,omitempty"`
-	SerialNumber  *string                `protobuf:"bytes,3,opt,name=serial_number,json=serialNumber" json:"serial_number,omitempty"`
-	CurrentTs     *string                `protobuf:"bytes,4,opt,name=current_ts,json=currentTs" json:"current_ts,omitempty"`
-	UpdateTs      *string                `protobuf:"bytes,5,opt,name=update_ts,json=updateTs" json:"update_ts,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Etype           *uint32                `protobuf:"varint,1,opt,name=etype" json:"etype,omitempty"`
+	HardwareId      *uint32                `protobuf:"varint,2,opt,name=hardware_id,json=hardwareId" json:"hardware_id,omitempty"`
+	SerialNumber    *string                `protobuf:"bytes,3,opt,name=serial_number,json=serialNumber" json:"serial_number,omitempty"`
+	CurrentTs       *string                `protobuf:"bytes,4,opt,name=current_ts,json=currentTs" json:"current_ts,omitempty"`
+	UpdateTs        *string                `protobuf:"bytes,5,opt,name=update_ts,json=updateTs" json:"update_ts,omitempty"`
+	MandatoryUpdate *bool                  `protobuf:"varint,6,opt,name=mandatory_update,json=mandatoryUpdate" json:"mandatory_update,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *CMsgAvailableHardwareUpdate) Reset() {
@@ -257,6 +258,13 @@ func (x *CMsgAvailableHardwareUpdate) GetUpdateTs() string {
 	return ""
 }
 
+func (x *CMsgAvailableHardwareUpdate) GetMandatoryUpdate() bool {
+	if x != nil && x.MandatoryUpdate != nil {
+		return *x.MandatoryUpdate
+	}
+	return false
+}
+
 type CHardwareUpdate_CheckForUpdates_Response struct {
 	state         protoimpl.MessageState         `protogen:"open.v1"`
 	Updates       []*CMsgAvailableHardwareUpdate `protobuf:"bytes,1,rep,name=updates" json:"updates,omitempty"`
@@ -304,6 +312,7 @@ func (x *CHardwareUpdate_CheckForUpdates_Response) GetUpdates() []*CMsgAvailable
 type CHardwareUpdate_Update_Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	SerialNumber  *string                `protobuf:"bytes,1,opt,name=serial_number,json=serialNumber" json:"serial_number,omitempty"`
+	UpdateAll     *bool                  `protobuf:"varint,2,opt,name=update_all,json=updateAll" json:"update_all,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -343,6 +352,13 @@ func (x *CHardwareUpdate_Update_Request) GetSerialNumber() string {
 		return *x.SerialNumber
 	}
 	return ""
+}
+
+func (x *CHardwareUpdate_Update_Request) GetUpdateAll() bool {
+	if x != nil && x.UpdateAll != nil {
+		return *x.UpdateAll
+	}
+	return false
 }
 
 type CHardwareUpdate_Update_Response struct {
@@ -551,7 +567,7 @@ const file_webuimessages_hardwareupdate_proto_rawDesc = "" +
 	"\x14is_updater_supported\x18\x01 \x01(\bR\x12isUpdaterSupported\x120\n" +
 	"\x14has_seen_controllers\x18\x02 \x01(\bR\x12hasSeenControllers\"+\n" +
 	")CHardwareUpdate_StateChanged_Notification\")\n" +
-	"'CHardwareUpdate_CheckForUpdates_Request\"\xb5\x01\n" +
+	"'CHardwareUpdate_CheckForUpdates_Request\"\xe0\x01\n" +
 	"\x1bCMsgAvailableHardwareUpdate\x12\x14\n" +
 	"\x05etype\x18\x01 \x01(\rR\x05etype\x12\x1f\n" +
 	"\vhardware_id\x18\x02 \x01(\rR\n" +
@@ -559,11 +575,14 @@ const file_webuimessages_hardwareupdate_proto_rawDesc = "" +
 	"\rserial_number\x18\x03 \x01(\tR\fserialNumber\x12\x1d\n" +
 	"\n" +
 	"current_ts\x18\x04 \x01(\tR\tcurrentTs\x12\x1b\n" +
-	"\tupdate_ts\x18\x05 \x01(\tR\bupdateTs\"b\n" +
+	"\tupdate_ts\x18\x05 \x01(\tR\bupdateTs\x12)\n" +
+	"\x10mandatory_update\x18\x06 \x01(\bR\x0fmandatoryUpdate\"b\n" +
 	"(CHardwareUpdate_CheckForUpdates_Response\x126\n" +
-	"\aupdates\x18\x01 \x03(\v2\x1c.CMsgAvailableHardwareUpdateR\aupdates\"E\n" +
+	"\aupdates\x18\x01 \x03(\v2\x1c.CMsgAvailableHardwareUpdateR\aupdates\"d\n" +
 	"\x1eCHardwareUpdate_Update_Request\x12#\n" +
-	"\rserial_number\x18\x01 \x01(\tR\fserialNumber\"!\n" +
+	"\rserial_number\x18\x01 \x01(\tR\fserialNumber\x12\x1d\n" +
+	"\n" +
+	"update_all\x18\x02 \x01(\bR\tupdateAll\"!\n" +
 	"\x1fCHardwareUpdate_Update_Response\"I\n" +
 	"+CHardwareUpdate_UpdateProgress_Notification\x12\x1a\n" +
 	"\bprogress\x18\x01 \x01(\x05R\bprogress\"1\n" +

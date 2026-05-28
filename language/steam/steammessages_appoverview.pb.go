@@ -641,6 +641,7 @@ type CAppOverview struct {
 	DisplayNameElanguage         *int32                        `protobuf:"varint,75,opt,name=display_name_elanguage,json=displayNameElanguage,def=-1" json:"display_name_elanguage,omitempty"`
 	HasCustomSortAs              *bool                         `protobuf:"varint,76,opt,name=has_custom_sort_as,json=hasCustomSortAs" json:"has_custom_sort_as,omitempty"`
 	BitfieldSupportedLanguages   *uint64                       `protobuf:"varint,77,opt,name=bitfield_supported_languages,json=bitfieldSupportedLanguages,def=0" json:"bitfield_supported_languages,omitempty"`
+	RemotePerClientData          []*CAppOverview_PerClientData `protobuf:"bytes,78,rep,name=remote_per_client_data,json=remotePerClientData" json:"remote_per_client_data,omitempty"`
 	unknownFields                protoimpl.UnknownFields
 	sizeCache                    protoimpl.SizeCache
 }
@@ -1061,6 +1062,13 @@ func (x *CAppOverview) GetBitfieldSupportedLanguages() uint64 {
 	return Default_CAppOverview_BitfieldSupportedLanguages
 }
 
+func (x *CAppOverview) GetRemotePerClientData() []*CAppOverview_PerClientData {
+	if x != nil {
+		return x.RemotePerClientData
+	}
+	return nil
+}
+
 type CAppOverview_Change struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	AppOverview    []*CAppOverview        `protobuf:"bytes,1,rep,name=app_overview,json=appOverview" json:"app_overview,omitempty"`
@@ -1148,7 +1156,7 @@ const file_steammessages_appoverview_proto_rawDesc = "" +
 	" \x01(\bR\x1cisAvailableOnCurrentPlatform\x12+\n" +
 	"\x12is_invalid_os_type\x18\v \x01(\bR\x0fisInvalidOsType\x12#\n" +
 	"\rplaytime_left\x18\f \x01(\rR\fplaytimeLeft\x12M\n" +
-	"$update_available_but_disabled_by_app\x18\x0e \x01(\bR\x1fupdateAvailableButDisabledByApp\"\x96\x14\n" +
+	"$update_available_but_disabled_by_app\x18\x0e \x01(\bR\x1fupdateAvailableButDisabledByApp\"\xe8\x14\n" +
 	"\fCAppOverview\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12!\n" +
 	"\fdisplay_name\x18\x02 \x01(\tR\vdisplayName\x12/\n" +
@@ -1203,7 +1211,8 @@ const file_steammessages_appoverview_proto_rawDesc = "" +
 	"\x10album_cover_hash\x18J \x01(\tR\x0ealbumCoverHash\x128\n" +
 	"\x16display_name_elanguage\x18K \x01(\x05:\x02-1R\x14displayNameElanguage\x12+\n" +
 	"\x12has_custom_sort_as\x18L \x01(\bR\x0fhasCustomSortAs\x12C\n" +
-	"\x1cbitfield_supported_languages\x18M \x01(\x04:\x010R\x1abitfieldSupportedLanguages\"\xb6\x01\n" +
+	"\x1cbitfield_supported_languages\x18M \x01(\x04:\x010R\x1abitfieldSupportedLanguages\x12P\n" +
+	"\x16remote_per_client_data\x18N \x03(\v2\x1b.CAppOverview_PerClientDataR\x13remotePerClientData\"\xb6\x01\n" +
 	"\x13CAppOverview_Change\x120\n" +
 	"\fapp_overview\x18\x01 \x03(\v2\r.CAppOverviewR\vappOverview\x12#\n" +
 	"\rremoved_appid\x18\x02 \x03(\rR\fremovedAppid\x12\x1f\n" +
@@ -1311,12 +1320,13 @@ var file_steammessages_appoverview_proto_depIdxs = []int32{
 	8, // 1: CAppOverview.app_type:type_name -> EProtoAppType
 	2, // 2: CAppOverview.xbox_controller_support:type_name -> EAppControllerSupportLevel
 	5, // 3: CAppOverview.per_client_data:type_name -> CAppOverview_PerClientData
-	6, // 4: CAppOverview_Change.app_overview:type_name -> CAppOverview
-	5, // [5:5] is the sub-list for method output_type
-	5, // [5:5] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	5, // 4: CAppOverview.remote_per_client_data:type_name -> CAppOverview_PerClientData
+	6, // 5: CAppOverview_Change.app_overview:type_name -> CAppOverview
+	6, // [6:6] is the sub-list for method output_type
+	6, // [6:6] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_appoverview_proto_init() }

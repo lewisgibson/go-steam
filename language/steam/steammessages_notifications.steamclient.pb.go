@@ -54,6 +54,7 @@ const (
 	ESteamNotificationType_k_ESteamNotificationType_PartnerEvent                  ESteamNotificationType = 27
 	ESteamNotificationType_k_ESteamNotificationType_PlaytestInvite                ESteamNotificationType = 28
 	ESteamNotificationType_k_ESteamNotificationType_TradeReversal                 ESteamNotificationType = 29
+	ESteamNotificationType_k_ESteamNotificationType_ReportedContentAction         ESteamNotificationType = 30
 )
 
 // Enum value maps for ESteamNotificationType.
@@ -89,6 +90,7 @@ var (
 		27: "k_ESteamNotificationType_PartnerEvent",
 		28: "k_ESteamNotificationType_PlaytestInvite",
 		29: "k_ESteamNotificationType_TradeReversal",
+		30: "k_ESteamNotificationType_ReportedContentAction",
 	}
 	ESteamNotificationType_value = map[string]int32{
 		"k_ESteamNotificationType_Invalid":                       0,
@@ -121,6 +123,7 @@ var (
 		"k_ESteamNotificationType_PartnerEvent":                  27,
 		"k_ESteamNotificationType_PlaytestInvite":                28,
 		"k_ESteamNotificationType_TradeReversal":                 29,
+		"k_ESteamNotificationType_ReportedContentAction":         30,
 	}
 )
 
@@ -468,8 +471,7 @@ const file_steammessages_notifications_steamclient_proto_rawDesc = "" +
 	"\x11notification_type\x18\x01 \x01(\x0e2\x17.ESteamNotificationType: k_ESteamNotificationType_InvalidR\x10notificationType\x121\n" +
 	"\x14notification_targets\x18\x02 \x01(\rR\x13notificationTargets\"t\n" +
 	"2CSteamNotification_PreferencesUpdated_Notification\x12>\n" +
-	"\vpreferences\x18\x01 \x03(\v2\x1c.SteamNotificationPreferenceR\vpreferences*\xcc\n" +
-	"\n" +
+	"\vpreferences\x18\x01 \x03(\v2\x1c.SteamNotificationPreferenceR\vpreferences*\x80\v\n" +
 	"\x16ESteamNotificationType\x12$\n" +
 	" k_ESteamNotificationType_Invalid\x10\x00\x12!\n" +
 	"\x1dk_ESteamNotificationType_Test\x10\x01\x12!\n" +
@@ -501,7 +503,8 @@ const file_steammessages_notifications_steamclient_proto_rawDesc = "" +
 	"+k_ESteamNotificationType_MobileConfirmation\x10\x1a\x12)\n" +
 	"%k_ESteamNotificationType_PartnerEvent\x10\x1b\x12+\n" +
 	"'k_ESteamNotificationType_PlaytestInvite\x10\x1c\x12*\n" +
-	"&k_ESteamNotificationType_TradeReversal\x10\x1d2\xd5\x01\n" +
+	"&k_ESteamNotificationType_TradeReversal\x10\x1d\x122\n" +
+	".k_ESteamNotificationType_ReportedContentAction\x10\x1e2\xd5\x01\n" +
 	"\x17SteamNotificationClient\x12\\\n" +
 	"\x15NotificationsReceived\x126.CSteamNotification_NotificationsReceived_Notification\x1a\v.NoResponse\x12V\n" +
 	"\x12PreferencesUpdated\x123.CSteamNotification_PreferencesUpdated_Notification\x1a\v.NoResponse\x1a\x04\xc0\xb5\x18\x02B\x03\x80\x01\x01"

@@ -109,6 +109,606 @@ func (x *CUserAccount_GetAvailableValveDiscountPromotions_Response) GetPromotion
 	return nil
 }
 
+type CUserAccount_GetOptOutEmailOptions_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	OptOutToken   *string                `protobuf:"bytes,1,opt,name=opt_out_token,json=optOutToken" json:"opt_out_token,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Request) Reset() {
+	*x = CUserAccount_GetOptOutEmailOptions_Request{}
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CUserAccount_GetOptOutEmailOptions_Request) ProtoMessage() {}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CUserAccount_GetOptOutEmailOptions_Request.ProtoReflect.Descriptor instead.
+func (*CUserAccount_GetOptOutEmailOptions_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Request) GetOptOutToken() string {
+	if x != nil && x.OptOutToken != nil {
+		return *x.OptOutToken
+	}
+	return ""
+}
+
+type CPerAppEmailOptions struct {
+	state                 protoimpl.MessageState `protogen:"open.v1"`
+	Appid                 *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	OptOutInLibraryEvents *bool                  `protobuf:"varint,2,opt,name=opt_out_in_library_events,json=optOutInLibraryEvents,def=0" json:"opt_out_in_library_events,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
+}
+
+// Default values for CPerAppEmailOptions fields.
+const (
+	Default_CPerAppEmailOptions_OptOutInLibraryEvents = bool(false)
+)
+
+func (x *CPerAppEmailOptions) Reset() {
+	*x = CPerAppEmailOptions{}
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CPerAppEmailOptions) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CPerAppEmailOptions) ProtoMessage() {}
+
+func (x *CPerAppEmailOptions) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CPerAppEmailOptions.ProtoReflect.Descriptor instead.
+func (*CPerAppEmailOptions) Descriptor() ([]byte, []int) {
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *CPerAppEmailOptions) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
+	}
+	return 0
+}
+
+func (x *CPerAppEmailOptions) GetOptOutInLibraryEvents() bool {
+	if x != nil && x.OptOutInLibraryEvents != nil {
+		return *x.OptOutInLibraryEvents
+	}
+	return Default_CPerAppEmailOptions_OptOutInLibraryEvents
+}
+
+type CPerClanEmailOptions struct {
+	state                 protoimpl.MessageState `protogen:"open.v1"`
+	Clanid                *uint32                `protobuf:"varint,1,opt,name=clanid" json:"clanid,omitempty"`
+	OptOutInLibraryEvents *bool                  `protobuf:"varint,2,opt,name=opt_out_in_library_events,json=optOutInLibraryEvents,def=0" json:"opt_out_in_library_events,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
+}
+
+// Default values for CPerClanEmailOptions fields.
+const (
+	Default_CPerClanEmailOptions_OptOutInLibraryEvents = bool(false)
+)
+
+func (x *CPerClanEmailOptions) Reset() {
+	*x = CPerClanEmailOptions{}
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CPerClanEmailOptions) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CPerClanEmailOptions) ProtoMessage() {}
+
+func (x *CPerClanEmailOptions) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CPerClanEmailOptions.ProtoReflect.Descriptor instead.
+func (*CPerClanEmailOptions) Descriptor() ([]byte, []int) {
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *CPerClanEmailOptions) GetClanid() uint32 {
+	if x != nil && x.Clanid != nil {
+		return *x.Clanid
+	}
+	return 0
+}
+
+func (x *CPerClanEmailOptions) GetOptOutInLibraryEvents() bool {
+	if x != nil && x.OptOutInLibraryEvents != nil {
+		return *x.OptOutInLibraryEvents
+	}
+	return Default_CPerClanEmailOptions_OptOutInLibraryEvents
+}
+
+type CUserAccount_GetOptOutEmailOptions_Response struct {
+	state                         protoimpl.MessageState  `protogen:"open.v1"`
+	Email                         *string                 `protobuf:"bytes,1,opt,name=email" json:"email,omitempty"`
+	OptOutAll                     *bool                   `protobuf:"varint,2,opt,name=opt_out_all,json=optOutAll" json:"opt_out_all,omitempty"`
+	OptOutWishlistSales           *bool                   `protobuf:"varint,3,opt,name=opt_out_wishlist_sales,json=optOutWishlistSales" json:"opt_out_wishlist_sales,omitempty"`
+	OptOutSeasonalPromo           *bool                   `protobuf:"varint,4,opt,name=opt_out_seasonal_promo,json=optOutSeasonalPromo" json:"opt_out_seasonal_promo,omitempty"`
+	OptOutWishlistReleases        *bool                   `protobuf:"varint,5,opt,name=opt_out_wishlist_releases,json=optOutWishlistReleases" json:"opt_out_wishlist_releases,omitempty"`
+	OptOutGreenlightReleases      *bool                   `protobuf:"varint,6,opt,name=opt_out_greenlight_releases,json=optOutGreenlightReleases" json:"opt_out_greenlight_releases,omitempty"`
+	OptOutCuratorConnect          *bool                   `protobuf:"varint,7,opt,name=opt_out_curator_connect,json=optOutCuratorConnect" json:"opt_out_curator_connect,omitempty"`
+	OptOutCreatorHomeReleases     *bool                   `protobuf:"varint,8,opt,name=opt_out_creator_home_releases,json=optOutCreatorHomeReleases" json:"opt_out_creator_home_releases,omitempty"`
+	OptOutInLibraryEvents         *bool                   `protobuf:"varint,9,opt,name=opt_out_in_library_events,json=optOutInLibraryEvents" json:"opt_out_in_library_events,omitempty"`
+	PerAppOptOuts                 []*CPerAppEmailOptions  `protobuf:"bytes,10,rep,name=per_app_opt_outs,json=perAppOptOuts" json:"per_app_opt_outs,omitempty"`
+	PerClanOptOuts                []*CPerClanEmailOptions `protobuf:"bytes,11,rep,name=per_clan_opt_outs,json=perClanOptOuts" json:"per_clan_opt_outs,omitempty"`
+	OptOutLoyaltyAwardsReceived   *bool                   `protobuf:"varint,12,opt,name=opt_out_loyalty_awards_received,json=optOutLoyaltyAwardsReceived" json:"opt_out_loyalty_awards_received,omitempty"`
+	OptOutPartnerMessages         *bool                   `protobuf:"varint,13,opt,name=opt_out_partner_messages,json=optOutPartnerMessages" json:"opt_out_partner_messages,omitempty"`
+	OptOutYearInReview            *bool                   `protobuf:"varint,14,opt,name=opt_out_year_in_review,json=optOutYearInReview" json:"opt_out_year_in_review,omitempty"`
+	OptOutWishlistDemoReleases    *bool                   `protobuf:"varint,15,opt,name=opt_out_wishlist_demo_releases,json=optOutWishlistDemoReleases" json:"opt_out_wishlist_demo_releases,omitempty"`
+	OptOutCreatorHomeDemoReleases *bool                   `protobuf:"varint,16,opt,name=opt_out_creator_home_demo_releases,json=optOutCreatorHomeDemoReleases" json:"opt_out_creator_home_demo_releases,omitempty"`
+	OptOutNextFestStarts          *bool                   `protobuf:"varint,17,opt,name=opt_out_next_fest_starts,json=optOutNextFestStarts,def=1" json:"opt_out_next_fest_starts,omitempty"`
+	OptOutThemeSaleStarts         *bool                   `protobuf:"varint,18,opt,name=opt_out_theme_sale_starts,json=optOutThemeSaleStarts,def=1" json:"opt_out_theme_sale_starts,omitempty"`
+	OptOutSeasonPassShip          *bool                   `protobuf:"varint,19,opt,name=opt_out_season_pass_ship,json=optOutSeasonPassShip" json:"opt_out_season_pass_ship,omitempty"`
+	OptOutRoadmapShip             *bool                   `protobuf:"varint,20,opt,name=opt_out_roadmap_ship,json=optOutRoadmapShip" json:"opt_out_roadmap_ship,omitempty"`
+	IsSelf                        *bool                   `protobuf:"varint,21,opt,name=is_self,json=isSelf" json:"is_self,omitempty"`
+	unknownFields                 protoimpl.UnknownFields
+	sizeCache                     protoimpl.SizeCache
+}
+
+// Default values for CUserAccount_GetOptOutEmailOptions_Response fields.
+const (
+	Default_CUserAccount_GetOptOutEmailOptions_Response_OptOutNextFestStarts  = bool(true)
+	Default_CUserAccount_GetOptOutEmailOptions_Response_OptOutThemeSaleStarts = bool(true)
+)
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) Reset() {
+	*x = CUserAccount_GetOptOutEmailOptions_Response{}
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CUserAccount_GetOptOutEmailOptions_Response) ProtoMessage() {}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CUserAccount_GetOptOutEmailOptions_Response.ProtoReflect.Descriptor instead.
+func (*CUserAccount_GetOptOutEmailOptions_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetEmail() string {
+	if x != nil && x.Email != nil {
+		return *x.Email
+	}
+	return ""
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetOptOutAll() bool {
+	if x != nil && x.OptOutAll != nil {
+		return *x.OptOutAll
+	}
+	return false
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetOptOutWishlistSales() bool {
+	if x != nil && x.OptOutWishlistSales != nil {
+		return *x.OptOutWishlistSales
+	}
+	return false
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetOptOutSeasonalPromo() bool {
+	if x != nil && x.OptOutSeasonalPromo != nil {
+		return *x.OptOutSeasonalPromo
+	}
+	return false
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetOptOutWishlistReleases() bool {
+	if x != nil && x.OptOutWishlistReleases != nil {
+		return *x.OptOutWishlistReleases
+	}
+	return false
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetOptOutGreenlightReleases() bool {
+	if x != nil && x.OptOutGreenlightReleases != nil {
+		return *x.OptOutGreenlightReleases
+	}
+	return false
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetOptOutCuratorConnect() bool {
+	if x != nil && x.OptOutCuratorConnect != nil {
+		return *x.OptOutCuratorConnect
+	}
+	return false
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetOptOutCreatorHomeReleases() bool {
+	if x != nil && x.OptOutCreatorHomeReleases != nil {
+		return *x.OptOutCreatorHomeReleases
+	}
+	return false
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetOptOutInLibraryEvents() bool {
+	if x != nil && x.OptOutInLibraryEvents != nil {
+		return *x.OptOutInLibraryEvents
+	}
+	return false
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetPerAppOptOuts() []*CPerAppEmailOptions {
+	if x != nil {
+		return x.PerAppOptOuts
+	}
+	return nil
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetPerClanOptOuts() []*CPerClanEmailOptions {
+	if x != nil {
+		return x.PerClanOptOuts
+	}
+	return nil
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetOptOutLoyaltyAwardsReceived() bool {
+	if x != nil && x.OptOutLoyaltyAwardsReceived != nil {
+		return *x.OptOutLoyaltyAwardsReceived
+	}
+	return false
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetOptOutPartnerMessages() bool {
+	if x != nil && x.OptOutPartnerMessages != nil {
+		return *x.OptOutPartnerMessages
+	}
+	return false
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetOptOutYearInReview() bool {
+	if x != nil && x.OptOutYearInReview != nil {
+		return *x.OptOutYearInReview
+	}
+	return false
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetOptOutWishlistDemoReleases() bool {
+	if x != nil && x.OptOutWishlistDemoReleases != nil {
+		return *x.OptOutWishlistDemoReleases
+	}
+	return false
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetOptOutCreatorHomeDemoReleases() bool {
+	if x != nil && x.OptOutCreatorHomeDemoReleases != nil {
+		return *x.OptOutCreatorHomeDemoReleases
+	}
+	return false
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetOptOutNextFestStarts() bool {
+	if x != nil && x.OptOutNextFestStarts != nil {
+		return *x.OptOutNextFestStarts
+	}
+	return Default_CUserAccount_GetOptOutEmailOptions_Response_OptOutNextFestStarts
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetOptOutThemeSaleStarts() bool {
+	if x != nil && x.OptOutThemeSaleStarts != nil {
+		return *x.OptOutThemeSaleStarts
+	}
+	return Default_CUserAccount_GetOptOutEmailOptions_Response_OptOutThemeSaleStarts
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetOptOutSeasonPassShip() bool {
+	if x != nil && x.OptOutSeasonPassShip != nil {
+		return *x.OptOutSeasonPassShip
+	}
+	return false
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetOptOutRoadmapShip() bool {
+	if x != nil && x.OptOutRoadmapShip != nil {
+		return *x.OptOutRoadmapShip
+	}
+	return false
+}
+
+func (x *CUserAccount_GetOptOutEmailOptions_Response) GetIsSelf() bool {
+	if x != nil && x.IsSelf != nil {
+		return *x.IsSelf
+	}
+	return false
+}
+
+type CUserAccount_SetOptOutEmailOptions_Request struct {
+	state                         protoimpl.MessageState  `protogen:"open.v1"`
+	OptOutToken                   *string                 `protobuf:"bytes,1,opt,name=opt_out_token,json=optOutToken" json:"opt_out_token,omitempty"`
+	OptOutAll                     *bool                   `protobuf:"varint,2,opt,name=opt_out_all,json=optOutAll" json:"opt_out_all,omitempty"`
+	OptOutWishlistSales           *bool                   `protobuf:"varint,3,opt,name=opt_out_wishlist_sales,json=optOutWishlistSales" json:"opt_out_wishlist_sales,omitempty"`
+	OptOutSeasonalPromo           *bool                   `protobuf:"varint,4,opt,name=opt_out_seasonal_promo,json=optOutSeasonalPromo" json:"opt_out_seasonal_promo,omitempty"`
+	OptOutWishlistReleases        *bool                   `protobuf:"varint,5,opt,name=opt_out_wishlist_releases,json=optOutWishlistReleases" json:"opt_out_wishlist_releases,omitempty"`
+	OptOutGreenlightReleases      *bool                   `protobuf:"varint,6,opt,name=opt_out_greenlight_releases,json=optOutGreenlightReleases" json:"opt_out_greenlight_releases,omitempty"`
+	OptOutCuratorConnect          *bool                   `protobuf:"varint,7,opt,name=opt_out_curator_connect,json=optOutCuratorConnect" json:"opt_out_curator_connect,omitempty"`
+	OptOutCreatorHomeReleases     *bool                   `protobuf:"varint,8,opt,name=opt_out_creator_home_releases,json=optOutCreatorHomeReleases" json:"opt_out_creator_home_releases,omitempty"`
+	OptOutInLibraryEvents         *bool                   `protobuf:"varint,9,opt,name=opt_out_in_library_events,json=optOutInLibraryEvents" json:"opt_out_in_library_events,omitempty"`
+	PerAppOptOuts                 []*CPerAppEmailOptions  `protobuf:"bytes,10,rep,name=per_app_opt_outs,json=perAppOptOuts" json:"per_app_opt_outs,omitempty"`
+	PerClanOptOuts                []*CPerClanEmailOptions `protobuf:"bytes,11,rep,name=per_clan_opt_outs,json=perClanOptOuts" json:"per_clan_opt_outs,omitempty"`
+	OptOutLoyaltyAwardsReceived   *bool                   `protobuf:"varint,12,opt,name=opt_out_loyalty_awards_received,json=optOutLoyaltyAwardsReceived" json:"opt_out_loyalty_awards_received,omitempty"`
+	OptOutPartnerMessages         *bool                   `protobuf:"varint,13,opt,name=opt_out_partner_messages,json=optOutPartnerMessages" json:"opt_out_partner_messages,omitempty"`
+	OptOutYearInReview            *bool                   `protobuf:"varint,14,opt,name=opt_out_year_in_review,json=optOutYearInReview" json:"opt_out_year_in_review,omitempty"`
+	OptOutWishlistDemoReleases    *bool                   `protobuf:"varint,15,opt,name=opt_out_wishlist_demo_releases,json=optOutWishlistDemoReleases" json:"opt_out_wishlist_demo_releases,omitempty"`
+	OptOutCreatorHomeDemoReleases *bool                   `protobuf:"varint,16,opt,name=opt_out_creator_home_demo_releases,json=optOutCreatorHomeDemoReleases" json:"opt_out_creator_home_demo_releases,omitempty"`
+	OptOutNextFestStarts          *bool                   `protobuf:"varint,17,opt,name=opt_out_next_fest_starts,json=optOutNextFestStarts" json:"opt_out_next_fest_starts,omitempty"`
+	OptOutThemeSaleStarts         *bool                   `protobuf:"varint,18,opt,name=opt_out_theme_sale_starts,json=optOutThemeSaleStarts" json:"opt_out_theme_sale_starts,omitempty"`
+	OptOutSeasonPassShip          *bool                   `protobuf:"varint,19,opt,name=opt_out_season_pass_ship,json=optOutSeasonPassShip" json:"opt_out_season_pass_ship,omitempty"`
+	OptOutRoadmapShip             *bool                   `protobuf:"varint,20,opt,name=opt_out_roadmap_ship,json=optOutRoadmapShip" json:"opt_out_roadmap_ship,omitempty"`
+	unknownFields                 protoimpl.UnknownFields
+	sizeCache                     protoimpl.SizeCache
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) Reset() {
+	*x = CUserAccount_SetOptOutEmailOptions_Request{}
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CUserAccount_SetOptOutEmailOptions_Request) ProtoMessage() {}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CUserAccount_SetOptOutEmailOptions_Request.ProtoReflect.Descriptor instead.
+func (*CUserAccount_SetOptOutEmailOptions_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetOptOutToken() string {
+	if x != nil && x.OptOutToken != nil {
+		return *x.OptOutToken
+	}
+	return ""
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetOptOutAll() bool {
+	if x != nil && x.OptOutAll != nil {
+		return *x.OptOutAll
+	}
+	return false
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetOptOutWishlistSales() bool {
+	if x != nil && x.OptOutWishlistSales != nil {
+		return *x.OptOutWishlistSales
+	}
+	return false
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetOptOutSeasonalPromo() bool {
+	if x != nil && x.OptOutSeasonalPromo != nil {
+		return *x.OptOutSeasonalPromo
+	}
+	return false
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetOptOutWishlistReleases() bool {
+	if x != nil && x.OptOutWishlistReleases != nil {
+		return *x.OptOutWishlistReleases
+	}
+	return false
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetOptOutGreenlightReleases() bool {
+	if x != nil && x.OptOutGreenlightReleases != nil {
+		return *x.OptOutGreenlightReleases
+	}
+	return false
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetOptOutCuratorConnect() bool {
+	if x != nil && x.OptOutCuratorConnect != nil {
+		return *x.OptOutCuratorConnect
+	}
+	return false
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetOptOutCreatorHomeReleases() bool {
+	if x != nil && x.OptOutCreatorHomeReleases != nil {
+		return *x.OptOutCreatorHomeReleases
+	}
+	return false
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetOptOutInLibraryEvents() bool {
+	if x != nil && x.OptOutInLibraryEvents != nil {
+		return *x.OptOutInLibraryEvents
+	}
+	return false
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetPerAppOptOuts() []*CPerAppEmailOptions {
+	if x != nil {
+		return x.PerAppOptOuts
+	}
+	return nil
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetPerClanOptOuts() []*CPerClanEmailOptions {
+	if x != nil {
+		return x.PerClanOptOuts
+	}
+	return nil
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetOptOutLoyaltyAwardsReceived() bool {
+	if x != nil && x.OptOutLoyaltyAwardsReceived != nil {
+		return *x.OptOutLoyaltyAwardsReceived
+	}
+	return false
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetOptOutPartnerMessages() bool {
+	if x != nil && x.OptOutPartnerMessages != nil {
+		return *x.OptOutPartnerMessages
+	}
+	return false
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetOptOutYearInReview() bool {
+	if x != nil && x.OptOutYearInReview != nil {
+		return *x.OptOutYearInReview
+	}
+	return false
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetOptOutWishlistDemoReleases() bool {
+	if x != nil && x.OptOutWishlistDemoReleases != nil {
+		return *x.OptOutWishlistDemoReleases
+	}
+	return false
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetOptOutCreatorHomeDemoReleases() bool {
+	if x != nil && x.OptOutCreatorHomeDemoReleases != nil {
+		return *x.OptOutCreatorHomeDemoReleases
+	}
+	return false
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetOptOutNextFestStarts() bool {
+	if x != nil && x.OptOutNextFestStarts != nil {
+		return *x.OptOutNextFestStarts
+	}
+	return false
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetOptOutThemeSaleStarts() bool {
+	if x != nil && x.OptOutThemeSaleStarts != nil {
+		return *x.OptOutThemeSaleStarts
+	}
+	return false
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetOptOutSeasonPassShip() bool {
+	if x != nil && x.OptOutSeasonPassShip != nil {
+		return *x.OptOutSeasonPassShip
+	}
+	return false
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Request) GetOptOutRoadmapShip() bool {
+	if x != nil && x.OptOutRoadmapShip != nil {
+		return *x.OptOutRoadmapShip
+	}
+	return false
+}
+
+type CUserAccount_SetOptOutEmailOptions_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Response) Reset() {
+	*x = CUserAccount_SetOptOutEmailOptions_Response{}
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CUserAccount_SetOptOutEmailOptions_Response) ProtoMessage() {}
+
+func (x *CUserAccount_SetOptOutEmailOptions_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CUserAccount_SetOptOutEmailOptions_Response.ProtoReflect.Descriptor instead.
+func (*CUserAccount_SetOptOutEmailOptions_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{7}
+}
+
 type CUserAccount_GetClientWalletDetails_Request struct {
 	state                   protoimpl.MessageState `protogen:"open.v1"`
 	IncludeBalanceInUsd     *bool                  `protobuf:"varint,1,opt,name=include_balance_in_usd,json=includeBalanceInUsd" json:"include_balance_in_usd,omitempty"`
@@ -125,7 +725,7 @@ const (
 
 func (x *CUserAccount_GetClientWalletDetails_Request) Reset() {
 	*x = CUserAccount_GetClientWalletDetails_Request{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[2]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -137,7 +737,7 @@ func (x *CUserAccount_GetClientWalletDetails_Request) String() string {
 func (*CUserAccount_GetClientWalletDetails_Request) ProtoMessage() {}
 
 func (x *CUserAccount_GetClientWalletDetails_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[2]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -150,7 +750,7 @@ func (x *CUserAccount_GetClientWalletDetails_Request) ProtoReflect() protoreflec
 
 // Deprecated: Use CUserAccount_GetClientWalletDetails_Request.ProtoReflect.Descriptor instead.
 func (*CUserAccount_GetClientWalletDetails_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{2}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CUserAccount_GetClientWalletDetails_Request) GetIncludeBalanceInUsd() bool {
@@ -200,7 +800,7 @@ type CUserAccount_GetWalletDetails_Response struct {
 
 func (x *CUserAccount_GetWalletDetails_Response) Reset() {
 	*x = CUserAccount_GetWalletDetails_Response{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[3]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -212,7 +812,7 @@ func (x *CUserAccount_GetWalletDetails_Response) String() string {
 func (*CUserAccount_GetWalletDetails_Response) ProtoMessage() {}
 
 func (x *CUserAccount_GetWalletDetails_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[3]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -225,7 +825,7 @@ func (x *CUserAccount_GetWalletDetails_Response) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CUserAccount_GetWalletDetails_Response.ProtoReflect.Descriptor instead.
 func (*CUserAccount_GetWalletDetails_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{3}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CUserAccount_GetWalletDetails_Response) GetHasWallet() bool {
@@ -362,7 +962,7 @@ type CUserAccount_GetAccountLinkStatus_Request struct {
 
 func (x *CUserAccount_GetAccountLinkStatus_Request) Reset() {
 	*x = CUserAccount_GetAccountLinkStatus_Request{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[4]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -374,7 +974,7 @@ func (x *CUserAccount_GetAccountLinkStatus_Request) String() string {
 func (*CUserAccount_GetAccountLinkStatus_Request) ProtoMessage() {}
 
 func (x *CUserAccount_GetAccountLinkStatus_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[4]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -387,7 +987,7 @@ func (x *CUserAccount_GetAccountLinkStatus_Request) ProtoReflect() protoreflect.
 
 // Deprecated: Use CUserAccount_GetAccountLinkStatus_Request.ProtoReflect.Descriptor instead.
 func (*CUserAccount_GetAccountLinkStatus_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{4}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{10}
 }
 
 type CUserAccount_GetAccountLinkStatus_Response struct {
@@ -401,7 +1001,7 @@ type CUserAccount_GetAccountLinkStatus_Response struct {
 
 func (x *CUserAccount_GetAccountLinkStatus_Response) Reset() {
 	*x = CUserAccount_GetAccountLinkStatus_Response{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[5]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -413,7 +1013,7 @@ func (x *CUserAccount_GetAccountLinkStatus_Response) String() string {
 func (*CUserAccount_GetAccountLinkStatus_Response) ProtoMessage() {}
 
 func (x *CUserAccount_GetAccountLinkStatus_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[5]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -426,7 +1026,7 @@ func (x *CUserAccount_GetAccountLinkStatus_Response) ProtoReflect() protoreflect
 
 // Deprecated: Use CUserAccount_GetAccountLinkStatus_Response.ProtoReflect.Descriptor instead.
 func (*CUserAccount_GetAccountLinkStatus_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{5}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *CUserAccount_GetAccountLinkStatus_Response) GetPwid() uint32 {
@@ -459,7 +1059,7 @@ type CUserAccount_CancelLicenseForApp_Request struct {
 
 func (x *CUserAccount_CancelLicenseForApp_Request) Reset() {
 	*x = CUserAccount_CancelLicenseForApp_Request{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[6]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -471,7 +1071,7 @@ func (x *CUserAccount_CancelLicenseForApp_Request) String() string {
 func (*CUserAccount_CancelLicenseForApp_Request) ProtoMessage() {}
 
 func (x *CUserAccount_CancelLicenseForApp_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[6]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -484,7 +1084,7 @@ func (x *CUserAccount_CancelLicenseForApp_Request) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CUserAccount_CancelLicenseForApp_Request.ProtoReflect.Descriptor instead.
 func (*CUserAccount_CancelLicenseForApp_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{6}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *CUserAccount_CancelLicenseForApp_Request) GetAppid() uint32 {
@@ -502,7 +1102,7 @@ type CUserAccount_CancelLicenseForApp_Response struct {
 
 func (x *CUserAccount_CancelLicenseForApp_Response) Reset() {
 	*x = CUserAccount_CancelLicenseForApp_Response{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[7]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -514,7 +1114,7 @@ func (x *CUserAccount_CancelLicenseForApp_Response) String() string {
 func (*CUserAccount_CancelLicenseForApp_Response) ProtoMessage() {}
 
 func (x *CUserAccount_CancelLicenseForApp_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[7]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -527,7 +1127,7 @@ func (x *CUserAccount_CancelLicenseForApp_Response) ProtoReflect() protoreflect.
 
 // Deprecated: Use CUserAccount_CancelLicenseForApp_Response.ProtoReflect.Descriptor instead.
 func (*CUserAccount_CancelLicenseForApp_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{7}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{13}
 }
 
 type CUserAccount_GetUserCountry_Request struct {
@@ -539,7 +1139,7 @@ type CUserAccount_GetUserCountry_Request struct {
 
 func (x *CUserAccount_GetUserCountry_Request) Reset() {
 	*x = CUserAccount_GetUserCountry_Request{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[8]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -551,7 +1151,7 @@ func (x *CUserAccount_GetUserCountry_Request) String() string {
 func (*CUserAccount_GetUserCountry_Request) ProtoMessage() {}
 
 func (x *CUserAccount_GetUserCountry_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[8]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -564,7 +1164,7 @@ func (x *CUserAccount_GetUserCountry_Request) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CUserAccount_GetUserCountry_Request.ProtoReflect.Descriptor instead.
 func (*CUserAccount_GetUserCountry_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{8}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CUserAccount_GetUserCountry_Request) GetSteamid() uint64 {
@@ -583,7 +1183,7 @@ type CUserAccount_GetUserCountry_Response struct {
 
 func (x *CUserAccount_GetUserCountry_Response) Reset() {
 	*x = CUserAccount_GetUserCountry_Response{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[9]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -595,7 +1195,7 @@ func (x *CUserAccount_GetUserCountry_Response) String() string {
 func (*CUserAccount_GetUserCountry_Response) ProtoMessage() {}
 
 func (x *CUserAccount_GetUserCountry_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[9]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -608,7 +1208,7 @@ func (x *CUserAccount_GetUserCountry_Response) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CUserAccount_GetUserCountry_Response.ProtoReflect.Descriptor instead.
 func (*CUserAccount_GetUserCountry_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{9}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *CUserAccount_GetUserCountry_Response) GetCountry() string {
@@ -629,7 +1229,7 @@ type CUserAccount_CreateFriendInviteToken_Request struct {
 
 func (x *CUserAccount_CreateFriendInviteToken_Request) Reset() {
 	*x = CUserAccount_CreateFriendInviteToken_Request{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[10]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -641,7 +1241,7 @@ func (x *CUserAccount_CreateFriendInviteToken_Request) String() string {
 func (*CUserAccount_CreateFriendInviteToken_Request) ProtoMessage() {}
 
 func (x *CUserAccount_CreateFriendInviteToken_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[10]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -654,7 +1254,7 @@ func (x *CUserAccount_CreateFriendInviteToken_Request) ProtoReflect() protorefle
 
 // Deprecated: Use CUserAccount_CreateFriendInviteToken_Request.ProtoReflect.Descriptor instead.
 func (*CUserAccount_CreateFriendInviteToken_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{10}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *CUserAccount_CreateFriendInviteToken_Request) GetInviteLimit() uint32 {
@@ -691,7 +1291,7 @@ type CUserAccount_CreateFriendInviteToken_Response struct {
 
 func (x *CUserAccount_CreateFriendInviteToken_Response) Reset() {
 	*x = CUserAccount_CreateFriendInviteToken_Response{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[11]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -703,7 +1303,7 @@ func (x *CUserAccount_CreateFriendInviteToken_Response) String() string {
 func (*CUserAccount_CreateFriendInviteToken_Response) ProtoMessage() {}
 
 func (x *CUserAccount_CreateFriendInviteToken_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[11]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -716,7 +1316,7 @@ func (x *CUserAccount_CreateFriendInviteToken_Response) ProtoReflect() protorefl
 
 // Deprecated: Use CUserAccount_CreateFriendInviteToken_Response.ProtoReflect.Descriptor instead.
 func (*CUserAccount_CreateFriendInviteToken_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{11}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *CUserAccount_CreateFriendInviteToken_Response) GetInviteToken() string {
@@ -762,7 +1362,7 @@ type CUserAccount_GetFriendInviteTokens_Request struct {
 
 func (x *CUserAccount_GetFriendInviteTokens_Request) Reset() {
 	*x = CUserAccount_GetFriendInviteTokens_Request{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[12]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -774,7 +1374,7 @@ func (x *CUserAccount_GetFriendInviteTokens_Request) String() string {
 func (*CUserAccount_GetFriendInviteTokens_Request) ProtoMessage() {}
 
 func (x *CUserAccount_GetFriendInviteTokens_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[12]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -787,7 +1387,7 @@ func (x *CUserAccount_GetFriendInviteTokens_Request) ProtoReflect() protoreflect
 
 // Deprecated: Use CUserAccount_GetFriendInviteTokens_Request.ProtoReflect.Descriptor instead.
 func (*CUserAccount_GetFriendInviteTokens_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{12}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{18}
 }
 
 type CUserAccount_GetFriendInviteTokens_Response struct {
@@ -799,7 +1399,7 @@ type CUserAccount_GetFriendInviteTokens_Response struct {
 
 func (x *CUserAccount_GetFriendInviteTokens_Response) Reset() {
 	*x = CUserAccount_GetFriendInviteTokens_Response{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[13]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -811,7 +1411,7 @@ func (x *CUserAccount_GetFriendInviteTokens_Response) String() string {
 func (*CUserAccount_GetFriendInviteTokens_Response) ProtoMessage() {}
 
 func (x *CUserAccount_GetFriendInviteTokens_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[13]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -824,7 +1424,7 @@ func (x *CUserAccount_GetFriendInviteTokens_Response) ProtoReflect() protoreflec
 
 // Deprecated: Use CUserAccount_GetFriendInviteTokens_Response.ProtoReflect.Descriptor instead.
 func (*CUserAccount_GetFriendInviteTokens_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{13}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *CUserAccount_GetFriendInviteTokens_Response) GetTokens() []*CUserAccount_CreateFriendInviteToken_Response {
@@ -844,7 +1444,7 @@ type CUserAccount_ViewFriendInviteToken_Request struct {
 
 func (x *CUserAccount_ViewFriendInviteToken_Request) Reset() {
 	*x = CUserAccount_ViewFriendInviteToken_Request{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[14]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -856,7 +1456,7 @@ func (x *CUserAccount_ViewFriendInviteToken_Request) String() string {
 func (*CUserAccount_ViewFriendInviteToken_Request) ProtoMessage() {}
 
 func (x *CUserAccount_ViewFriendInviteToken_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[14]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -869,7 +1469,7 @@ func (x *CUserAccount_ViewFriendInviteToken_Request) ProtoReflect() protoreflect
 
 // Deprecated: Use CUserAccount_ViewFriendInviteToken_Request.ProtoReflect.Descriptor instead.
 func (*CUserAccount_ViewFriendInviteToken_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{14}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *CUserAccount_ViewFriendInviteToken_Request) GetSteamid() uint64 {
@@ -897,7 +1497,7 @@ type CUserAccount_ViewFriendInviteToken_Response struct {
 
 func (x *CUserAccount_ViewFriendInviteToken_Response) Reset() {
 	*x = CUserAccount_ViewFriendInviteToken_Response{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[15]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -909,7 +1509,7 @@ func (x *CUserAccount_ViewFriendInviteToken_Response) String() string {
 func (*CUserAccount_ViewFriendInviteToken_Response) ProtoMessage() {}
 
 func (x *CUserAccount_ViewFriendInviteToken_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[15]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -922,7 +1522,7 @@ func (x *CUserAccount_ViewFriendInviteToken_Response) ProtoReflect() protoreflec
 
 // Deprecated: Use CUserAccount_ViewFriendInviteToken_Response.ProtoReflect.Descriptor instead.
 func (*CUserAccount_ViewFriendInviteToken_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{15}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *CUserAccount_ViewFriendInviteToken_Response) GetValid() bool {
@@ -956,7 +1556,7 @@ type CUserAccount_RedeemFriendInviteToken_Request struct {
 
 func (x *CUserAccount_RedeemFriendInviteToken_Request) Reset() {
 	*x = CUserAccount_RedeemFriendInviteToken_Request{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[16]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -968,7 +1568,7 @@ func (x *CUserAccount_RedeemFriendInviteToken_Request) String() string {
 func (*CUserAccount_RedeemFriendInviteToken_Request) ProtoMessage() {}
 
 func (x *CUserAccount_RedeemFriendInviteToken_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[16]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -981,7 +1581,7 @@ func (x *CUserAccount_RedeemFriendInviteToken_Request) ProtoReflect() protorefle
 
 // Deprecated: Use CUserAccount_RedeemFriendInviteToken_Request.ProtoReflect.Descriptor instead.
 func (*CUserAccount_RedeemFriendInviteToken_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{16}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *CUserAccount_RedeemFriendInviteToken_Request) GetSteamid() uint64 {
@@ -1006,7 +1606,7 @@ type CUserAccount_RedeemFriendInviteToken_Response struct {
 
 func (x *CUserAccount_RedeemFriendInviteToken_Response) Reset() {
 	*x = CUserAccount_RedeemFriendInviteToken_Response{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[17]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1018,7 +1618,7 @@ func (x *CUserAccount_RedeemFriendInviteToken_Response) String() string {
 func (*CUserAccount_RedeemFriendInviteToken_Response) ProtoMessage() {}
 
 func (x *CUserAccount_RedeemFriendInviteToken_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[17]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1031,7 +1631,7 @@ func (x *CUserAccount_RedeemFriendInviteToken_Response) ProtoReflect() protorefl
 
 // Deprecated: Use CUserAccount_RedeemFriendInviteToken_Response.ProtoReflect.Descriptor instead.
 func (*CUserAccount_RedeemFriendInviteToken_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{17}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{23}
 }
 
 type CUserAccount_RevokeFriendInviteToken_Request struct {
@@ -1043,7 +1643,7 @@ type CUserAccount_RevokeFriendInviteToken_Request struct {
 
 func (x *CUserAccount_RevokeFriendInviteToken_Request) Reset() {
 	*x = CUserAccount_RevokeFriendInviteToken_Request{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[18]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1055,7 +1655,7 @@ func (x *CUserAccount_RevokeFriendInviteToken_Request) String() string {
 func (*CUserAccount_RevokeFriendInviteToken_Request) ProtoMessage() {}
 
 func (x *CUserAccount_RevokeFriendInviteToken_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[18]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1068,7 +1668,7 @@ func (x *CUserAccount_RevokeFriendInviteToken_Request) ProtoReflect() protorefle
 
 // Deprecated: Use CUserAccount_RevokeFriendInviteToken_Request.ProtoReflect.Descriptor instead.
 func (*CUserAccount_RevokeFriendInviteToken_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{18}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *CUserAccount_RevokeFriendInviteToken_Request) GetInviteToken() string {
@@ -1086,7 +1686,7 @@ type CUserAccount_RevokeFriendInviteToken_Response struct {
 
 func (x *CUserAccount_RevokeFriendInviteToken_Response) Reset() {
 	*x = CUserAccount_RevokeFriendInviteToken_Response{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[19]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1098,7 +1698,7 @@ func (x *CUserAccount_RevokeFriendInviteToken_Response) String() string {
 func (*CUserAccount_RevokeFriendInviteToken_Response) ProtoMessage() {}
 
 func (x *CUserAccount_RevokeFriendInviteToken_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[19]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1111,7 +1711,7 @@ func (x *CUserAccount_RevokeFriendInviteToken_Response) ProtoReflect() protorefl
 
 // Deprecated: Use CUserAccount_RevokeFriendInviteToken_Response.ProtoReflect.Descriptor instead.
 func (*CUserAccount_RevokeFriendInviteToken_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{19}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{25}
 }
 
 type CUserAccount_RegisterCompatTool_Request struct {
@@ -1123,7 +1723,7 @@ type CUserAccount_RegisterCompatTool_Request struct {
 
 func (x *CUserAccount_RegisterCompatTool_Request) Reset() {
 	*x = CUserAccount_RegisterCompatTool_Request{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[20]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1135,7 +1735,7 @@ func (x *CUserAccount_RegisterCompatTool_Request) String() string {
 func (*CUserAccount_RegisterCompatTool_Request) ProtoMessage() {}
 
 func (x *CUserAccount_RegisterCompatTool_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[20]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1148,7 +1748,7 @@ func (x *CUserAccount_RegisterCompatTool_Request) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CUserAccount_RegisterCompatTool_Request.ProtoReflect.Descriptor instead.
 func (*CUserAccount_RegisterCompatTool_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{20}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *CUserAccount_RegisterCompatTool_Request) GetCompatTool() uint32 {
@@ -1166,7 +1766,7 @@ type CUserAccount_RegisterCompatTool_Response struct {
 
 func (x *CUserAccount_RegisterCompatTool_Response) Reset() {
 	*x = CUserAccount_RegisterCompatTool_Response{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[21]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1178,7 +1778,7 @@ func (x *CUserAccount_RegisterCompatTool_Response) String() string {
 func (*CUserAccount_RegisterCompatTool_Response) ProtoMessage() {}
 
 func (x *CUserAccount_RegisterCompatTool_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[21]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1191,7 +1791,7 @@ func (x *CUserAccount_RegisterCompatTool_Response) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CUserAccount_RegisterCompatTool_Response.ProtoReflect.Descriptor instead.
 func (*CUserAccount_RegisterCompatTool_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{21}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{27}
 }
 
 type CEmbeddedClient_AuthorizeCurrentDevice_Request struct {
@@ -1206,7 +1806,7 @@ type CEmbeddedClient_AuthorizeCurrentDevice_Request struct {
 
 func (x *CEmbeddedClient_AuthorizeCurrentDevice_Request) Reset() {
 	*x = CEmbeddedClient_AuthorizeCurrentDevice_Request{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[22]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1218,7 +1818,7 @@ func (x *CEmbeddedClient_AuthorizeCurrentDevice_Request) String() string {
 func (*CEmbeddedClient_AuthorizeCurrentDevice_Request) ProtoMessage() {}
 
 func (x *CEmbeddedClient_AuthorizeCurrentDevice_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[22]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1231,7 +1831,7 @@ func (x *CEmbeddedClient_AuthorizeCurrentDevice_Request) ProtoReflect() protoref
 
 // Deprecated: Use CEmbeddedClient_AuthorizeCurrentDevice_Request.ProtoReflect.Descriptor instead.
 func (*CEmbeddedClient_AuthorizeCurrentDevice_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{22}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *CEmbeddedClient_AuthorizeCurrentDevice_Request) GetSteamid() uint64 {
@@ -1274,7 +1874,7 @@ type CEmbeddedClient_Token struct {
 
 func (x *CEmbeddedClient_Token) Reset() {
 	*x = CEmbeddedClient_Token{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[23]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1286,7 +1886,7 @@ func (x *CEmbeddedClient_Token) String() string {
 func (*CEmbeddedClient_Token) ProtoMessage() {}
 
 func (x *CEmbeddedClient_Token) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[23]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1299,7 +1899,7 @@ func (x *CEmbeddedClient_Token) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CEmbeddedClient_Token.ProtoReflect.Descriptor instead.
 func (*CEmbeddedClient_Token) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{23}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *CEmbeddedClient_Token) GetSteamid() uint64 {
@@ -1340,7 +1940,7 @@ type CEmbeddedClient_AuthorizeDevice_Response struct {
 
 func (x *CEmbeddedClient_AuthorizeDevice_Response) Reset() {
 	*x = CEmbeddedClient_AuthorizeDevice_Response{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[24]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1352,7 +1952,7 @@ func (x *CEmbeddedClient_AuthorizeDevice_Response) String() string {
 func (*CEmbeddedClient_AuthorizeDevice_Response) ProtoMessage() {}
 
 func (x *CEmbeddedClient_AuthorizeDevice_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[24]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1365,7 +1965,7 @@ func (x *CEmbeddedClient_AuthorizeDevice_Response) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CEmbeddedClient_AuthorizeDevice_Response.ProtoReflect.Descriptor instead.
 func (*CEmbeddedClient_AuthorizeDevice_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{24}
+	return file_steammessages_useraccount_steamclient_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *CEmbeddedClient_AuthorizeDevice_Response) GetResult() uint32 {
@@ -1401,7 +2001,7 @@ type CUserAccount_GetAvailableValveDiscountPromotions_Response_ValveDiscountProm
 
 func (x *CUserAccount_GetAvailableValveDiscountPromotions_Response_ValveDiscountPromotionDetails) Reset() {
 	*x = CUserAccount_GetAvailableValveDiscountPromotions_Response_ValveDiscountPromotionDetails{}
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[25]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1414,7 +2014,7 @@ func (*CUserAccount_GetAvailableValveDiscountPromotions_Response_ValveDiscountPr
 }
 
 func (x *CUserAccount_GetAvailableValveDiscountPromotions_Response_ValveDiscountPromotionDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[25]
+	mi := &file_steammessages_useraccount_steamclient_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1530,7 +2130,61 @@ const file_steammessages_useraccount_steamclient_proto_rawDesc = "" +
 	"\x11loyalty_reward_id\x18\t \x01(\x05R\x0floyaltyRewardId\x120\n" +
 	"\x14localized_name_token\x18\n" +
 	" \x01(\tR\x12localizedNameToken\x12\"\n" +
-	"\rmax_use_count\x18\v \x01(\x05R\vmaxUseCount\"\xc6\x01\n" +
+	"\rmax_use_count\x18\v \x01(\x05R\vmaxUseCount\"P\n" +
+	"*CUserAccount_GetOptOutEmailOptions_Request\x12\"\n" +
+	"\ropt_out_token\x18\x01 \x01(\tR\voptOutToken\"l\n" +
+	"\x13CPerAppEmailOptions\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12?\n" +
+	"\x19opt_out_in_library_events\x18\x02 \x01(\b:\x05falseR\x15optOutInLibraryEvents\"o\n" +
+	"\x14CPerClanEmailOptions\x12\x16\n" +
+	"\x06clanid\x18\x01 \x01(\rR\x06clanid\x12?\n" +
+	"\x19opt_out_in_library_events\x18\x02 \x01(\b:\x05falseR\x15optOutInLibraryEvents\"\xbd\t\n" +
+	"+CUserAccount_GetOptOutEmailOptions_Response\x12\x14\n" +
+	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1e\n" +
+	"\vopt_out_all\x18\x02 \x01(\bR\toptOutAll\x123\n" +
+	"\x16opt_out_wishlist_sales\x18\x03 \x01(\bR\x13optOutWishlistSales\x123\n" +
+	"\x16opt_out_seasonal_promo\x18\x04 \x01(\bR\x13optOutSeasonalPromo\x129\n" +
+	"\x19opt_out_wishlist_releases\x18\x05 \x01(\bR\x16optOutWishlistReleases\x12=\n" +
+	"\x1bopt_out_greenlight_releases\x18\x06 \x01(\bR\x18optOutGreenlightReleases\x125\n" +
+	"\x17opt_out_curator_connect\x18\a \x01(\bR\x14optOutCuratorConnect\x12@\n" +
+	"\x1dopt_out_creator_home_releases\x18\b \x01(\bR\x19optOutCreatorHomeReleases\x128\n" +
+	"\x19opt_out_in_library_events\x18\t \x01(\bR\x15optOutInLibraryEvents\x12=\n" +
+	"\x10per_app_opt_outs\x18\n" +
+	" \x03(\v2\x14.CPerAppEmailOptionsR\rperAppOptOuts\x12@\n" +
+	"\x11per_clan_opt_outs\x18\v \x03(\v2\x15.CPerClanEmailOptionsR\x0eperClanOptOuts\x12D\n" +
+	"\x1fopt_out_loyalty_awards_received\x18\f \x01(\bR\x1boptOutLoyaltyAwardsReceived\x127\n" +
+	"\x18opt_out_partner_messages\x18\r \x01(\bR\x15optOutPartnerMessages\x122\n" +
+	"\x16opt_out_year_in_review\x18\x0e \x01(\bR\x12optOutYearInReview\x12B\n" +
+	"\x1eopt_out_wishlist_demo_releases\x18\x0f \x01(\bR\x1aoptOutWishlistDemoReleases\x12I\n" +
+	"\"opt_out_creator_home_demo_releases\x18\x10 \x01(\bR\x1doptOutCreatorHomeDemoReleases\x12<\n" +
+	"\x18opt_out_next_fest_starts\x18\x11 \x01(\b:\x04trueR\x14optOutNextFestStarts\x12>\n" +
+	"\x19opt_out_theme_sale_starts\x18\x12 \x01(\b:\x04trueR\x15optOutThemeSaleStarts\x126\n" +
+	"\x18opt_out_season_pass_ship\x18\x13 \x01(\bR\x14optOutSeasonPassShip\x12/\n" +
+	"\x14opt_out_roadmap_ship\x18\x14 \x01(\bR\x11optOutRoadmapShip\x12\x17\n" +
+	"\ais_self\x18\x15 \x01(\bR\x06isSelf\"\xa5\t\n" +
+	"*CUserAccount_SetOptOutEmailOptions_Request\x12\"\n" +
+	"\ropt_out_token\x18\x01 \x01(\tR\voptOutToken\x12\x1e\n" +
+	"\vopt_out_all\x18\x02 \x01(\bR\toptOutAll\x123\n" +
+	"\x16opt_out_wishlist_sales\x18\x03 \x01(\bR\x13optOutWishlistSales\x123\n" +
+	"\x16opt_out_seasonal_promo\x18\x04 \x01(\bR\x13optOutSeasonalPromo\x129\n" +
+	"\x19opt_out_wishlist_releases\x18\x05 \x01(\bR\x16optOutWishlistReleases\x12=\n" +
+	"\x1bopt_out_greenlight_releases\x18\x06 \x01(\bR\x18optOutGreenlightReleases\x125\n" +
+	"\x17opt_out_curator_connect\x18\a \x01(\bR\x14optOutCuratorConnect\x12@\n" +
+	"\x1dopt_out_creator_home_releases\x18\b \x01(\bR\x19optOutCreatorHomeReleases\x128\n" +
+	"\x19opt_out_in_library_events\x18\t \x01(\bR\x15optOutInLibraryEvents\x12=\n" +
+	"\x10per_app_opt_outs\x18\n" +
+	" \x03(\v2\x14.CPerAppEmailOptionsR\rperAppOptOuts\x12@\n" +
+	"\x11per_clan_opt_outs\x18\v \x03(\v2\x15.CPerClanEmailOptionsR\x0eperClanOptOuts\x12D\n" +
+	"\x1fopt_out_loyalty_awards_received\x18\f \x01(\bR\x1boptOutLoyaltyAwardsReceived\x127\n" +
+	"\x18opt_out_partner_messages\x18\r \x01(\bR\x15optOutPartnerMessages\x122\n" +
+	"\x16opt_out_year_in_review\x18\x0e \x01(\bR\x12optOutYearInReview\x12B\n" +
+	"\x1eopt_out_wishlist_demo_releases\x18\x0f \x01(\bR\x1aoptOutWishlistDemoReleases\x12I\n" +
+	"\"opt_out_creator_home_demo_releases\x18\x10 \x01(\bR\x1doptOutCreatorHomeDemoReleases\x126\n" +
+	"\x18opt_out_next_fest_starts\x18\x11 \x01(\bR\x14optOutNextFestStarts\x128\n" +
+	"\x19opt_out_theme_sale_starts\x18\x12 \x01(\bR\x15optOutThemeSaleStarts\x126\n" +
+	"\x18opt_out_season_pass_ship\x18\x13 \x01(\bR\x14optOutSeasonPassShip\x12/\n" +
+	"\x14opt_out_roadmap_ship\x18\x14 \x01(\bR\x11optOutRoadmapShip\"-\n" +
+	"+CUserAccount_SetOptOutEmailOptions_Response\"\xc6\x01\n" +
 	"+CUserAccount_GetClientWalletDetails_Request\x123\n" +
 	"\x16include_balance_in_usd\x18\x01 \x01(\bR\x13includeBalanceInUsd\x12&\n" +
 	"\rwallet_region\x18\x02 \x01(\x05:\x011R\fwalletRegion\x12:\n" +
@@ -1613,10 +2267,11 @@ const file_steammessages_useraccount_steamclient_proto_rawDesc = "" +
 	"\bdeviceid\x18\x04 \x01(\rR\bdeviceid\"p\n" +
 	"(CEmbeddedClient_AuthorizeDevice_Response\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\rR\x06result\x12,\n" +
-	"\x05token\x18\x02 \x01(\v2\x16.CEmbeddedClient_TokenR\x05token2\x9c\n" +
-	"\n" +
+	"\x05token\x18\x02 \x01(\v2\x16.CEmbeddedClient_TokenR\x05token2\x84\f\n" +
 	"\vUserAccount\x12\x9c\x01\n" +
-	"#GetAvailableValveDiscountPromotions\x129.CUserAccount_GetAvailableValveDiscountPromotions_Request\x1a:.CUserAccount_GetAvailableValveDiscountPromotions_Response\x12o\n" +
+	"#GetAvailableValveDiscountPromotions\x129.CUserAccount_GetAvailableValveDiscountPromotions_Request\x1a:.CUserAccount_GetAvailableValveDiscountPromotions_Response\x12r\n" +
+	"\x15GetOptOutEmailOptions\x12+.CUserAccount_GetOptOutEmailOptions_Request\x1a,.CUserAccount_GetOptOutEmailOptions_Response\x12r\n" +
+	"\x15SetOptOutEmailOptions\x12+.CUserAccount_SetOptOutEmailOptions_Request\x1a,.CUserAccount_SetOptOutEmailOptions_Response\x12o\n" +
 	"\x16GetClientWalletDetails\x12,.CUserAccount_GetClientWalletDetails_Request\x1a'.CUserAccount_GetWalletDetails_Response\x12o\n" +
 	"\x14GetAccountLinkStatus\x12*.CUserAccount_GetAccountLinkStatus_Request\x1a+.CUserAccount_GetAccountLinkStatus_Response\x12l\n" +
 	"\x13CancelLicenseForApp\x12).CUserAccount_CancelLicenseForApp_Request\x1a*.CUserAccount_CancelLicenseForApp_Response\x12]\n" +
@@ -1642,68 +2297,82 @@ func file_steammessages_useraccount_steamclient_proto_rawDescGZIP() []byte {
 	return file_steammessages_useraccount_steamclient_proto_rawDescData
 }
 
-var file_steammessages_useraccount_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
+var file_steammessages_useraccount_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 32)
 var file_steammessages_useraccount_steamclient_proto_goTypes = []any{
 	(*CUserAccount_GetAvailableValveDiscountPromotions_Request)(nil),                                // 0: CUserAccount_GetAvailableValveDiscountPromotions_Request
 	(*CUserAccount_GetAvailableValveDiscountPromotions_Response)(nil),                               // 1: CUserAccount_GetAvailableValveDiscountPromotions_Response
-	(*CUserAccount_GetClientWalletDetails_Request)(nil),                                             // 2: CUserAccount_GetClientWalletDetails_Request
-	(*CUserAccount_GetWalletDetails_Response)(nil),                                                  // 3: CUserAccount_GetWalletDetails_Response
-	(*CUserAccount_GetAccountLinkStatus_Request)(nil),                                               // 4: CUserAccount_GetAccountLinkStatus_Request
-	(*CUserAccount_GetAccountLinkStatus_Response)(nil),                                              // 5: CUserAccount_GetAccountLinkStatus_Response
-	(*CUserAccount_CancelLicenseForApp_Request)(nil),                                                // 6: CUserAccount_CancelLicenseForApp_Request
-	(*CUserAccount_CancelLicenseForApp_Response)(nil),                                               // 7: CUserAccount_CancelLicenseForApp_Response
-	(*CUserAccount_GetUserCountry_Request)(nil),                                                     // 8: CUserAccount_GetUserCountry_Request
-	(*CUserAccount_GetUserCountry_Response)(nil),                                                    // 9: CUserAccount_GetUserCountry_Response
-	(*CUserAccount_CreateFriendInviteToken_Request)(nil),                                            // 10: CUserAccount_CreateFriendInviteToken_Request
-	(*CUserAccount_CreateFriendInviteToken_Response)(nil),                                           // 11: CUserAccount_CreateFriendInviteToken_Response
-	(*CUserAccount_GetFriendInviteTokens_Request)(nil),                                              // 12: CUserAccount_GetFriendInviteTokens_Request
-	(*CUserAccount_GetFriendInviteTokens_Response)(nil),                                             // 13: CUserAccount_GetFriendInviteTokens_Response
-	(*CUserAccount_ViewFriendInviteToken_Request)(nil),                                              // 14: CUserAccount_ViewFriendInviteToken_Request
-	(*CUserAccount_ViewFriendInviteToken_Response)(nil),                                             // 15: CUserAccount_ViewFriendInviteToken_Response
-	(*CUserAccount_RedeemFriendInviteToken_Request)(nil),                                            // 16: CUserAccount_RedeemFriendInviteToken_Request
-	(*CUserAccount_RedeemFriendInviteToken_Response)(nil),                                           // 17: CUserAccount_RedeemFriendInviteToken_Response
-	(*CUserAccount_RevokeFriendInviteToken_Request)(nil),                                            // 18: CUserAccount_RevokeFriendInviteToken_Request
-	(*CUserAccount_RevokeFriendInviteToken_Response)(nil),                                           // 19: CUserAccount_RevokeFriendInviteToken_Response
-	(*CUserAccount_RegisterCompatTool_Request)(nil),                                                 // 20: CUserAccount_RegisterCompatTool_Request
-	(*CUserAccount_RegisterCompatTool_Response)(nil),                                                // 21: CUserAccount_RegisterCompatTool_Response
-	(*CEmbeddedClient_AuthorizeCurrentDevice_Request)(nil),                                          // 22: CEmbeddedClient_AuthorizeCurrentDevice_Request
-	(*CEmbeddedClient_Token)(nil),                                                                   // 23: CEmbeddedClient_Token
-	(*CEmbeddedClient_AuthorizeDevice_Response)(nil),                                                // 24: CEmbeddedClient_AuthorizeDevice_Response
-	(*CUserAccount_GetAvailableValveDiscountPromotions_Response_ValveDiscountPromotionDetails)(nil), // 25: CUserAccount_GetAvailableValveDiscountPromotions_Response.ValveDiscountPromotionDetails
+	(*CUserAccount_GetOptOutEmailOptions_Request)(nil),                                              // 2: CUserAccount_GetOptOutEmailOptions_Request
+	(*CPerAppEmailOptions)(nil),                                                                     // 3: CPerAppEmailOptions
+	(*CPerClanEmailOptions)(nil),                                                                    // 4: CPerClanEmailOptions
+	(*CUserAccount_GetOptOutEmailOptions_Response)(nil),                                             // 5: CUserAccount_GetOptOutEmailOptions_Response
+	(*CUserAccount_SetOptOutEmailOptions_Request)(nil),                                              // 6: CUserAccount_SetOptOutEmailOptions_Request
+	(*CUserAccount_SetOptOutEmailOptions_Response)(nil),                                             // 7: CUserAccount_SetOptOutEmailOptions_Response
+	(*CUserAccount_GetClientWalletDetails_Request)(nil),                                             // 8: CUserAccount_GetClientWalletDetails_Request
+	(*CUserAccount_GetWalletDetails_Response)(nil),                                                  // 9: CUserAccount_GetWalletDetails_Response
+	(*CUserAccount_GetAccountLinkStatus_Request)(nil),                                               // 10: CUserAccount_GetAccountLinkStatus_Request
+	(*CUserAccount_GetAccountLinkStatus_Response)(nil),                                              // 11: CUserAccount_GetAccountLinkStatus_Response
+	(*CUserAccount_CancelLicenseForApp_Request)(nil),                                                // 12: CUserAccount_CancelLicenseForApp_Request
+	(*CUserAccount_CancelLicenseForApp_Response)(nil),                                               // 13: CUserAccount_CancelLicenseForApp_Response
+	(*CUserAccount_GetUserCountry_Request)(nil),                                                     // 14: CUserAccount_GetUserCountry_Request
+	(*CUserAccount_GetUserCountry_Response)(nil),                                                    // 15: CUserAccount_GetUserCountry_Response
+	(*CUserAccount_CreateFriendInviteToken_Request)(nil),                                            // 16: CUserAccount_CreateFriendInviteToken_Request
+	(*CUserAccount_CreateFriendInviteToken_Response)(nil),                                           // 17: CUserAccount_CreateFriendInviteToken_Response
+	(*CUserAccount_GetFriendInviteTokens_Request)(nil),                                              // 18: CUserAccount_GetFriendInviteTokens_Request
+	(*CUserAccount_GetFriendInviteTokens_Response)(nil),                                             // 19: CUserAccount_GetFriendInviteTokens_Response
+	(*CUserAccount_ViewFriendInviteToken_Request)(nil),                                              // 20: CUserAccount_ViewFriendInviteToken_Request
+	(*CUserAccount_ViewFriendInviteToken_Response)(nil),                                             // 21: CUserAccount_ViewFriendInviteToken_Response
+	(*CUserAccount_RedeemFriendInviteToken_Request)(nil),                                            // 22: CUserAccount_RedeemFriendInviteToken_Request
+	(*CUserAccount_RedeemFriendInviteToken_Response)(nil),                                           // 23: CUserAccount_RedeemFriendInviteToken_Response
+	(*CUserAccount_RevokeFriendInviteToken_Request)(nil),                                            // 24: CUserAccount_RevokeFriendInviteToken_Request
+	(*CUserAccount_RevokeFriendInviteToken_Response)(nil),                                           // 25: CUserAccount_RevokeFriendInviteToken_Response
+	(*CUserAccount_RegisterCompatTool_Request)(nil),                                                 // 26: CUserAccount_RegisterCompatTool_Request
+	(*CUserAccount_RegisterCompatTool_Response)(nil),                                                // 27: CUserAccount_RegisterCompatTool_Response
+	(*CEmbeddedClient_AuthorizeCurrentDevice_Request)(nil),                                          // 28: CEmbeddedClient_AuthorizeCurrentDevice_Request
+	(*CEmbeddedClient_Token)(nil),                                                                   // 29: CEmbeddedClient_Token
+	(*CEmbeddedClient_AuthorizeDevice_Response)(nil),                                                // 30: CEmbeddedClient_AuthorizeDevice_Response
+	(*CUserAccount_GetAvailableValveDiscountPromotions_Response_ValveDiscountPromotionDetails)(nil), // 31: CUserAccount_GetAvailableValveDiscountPromotions_Response.ValveDiscountPromotionDetails
 }
 var file_steammessages_useraccount_steamclient_proto_depIdxs = []int32{
-	25, // 0: CUserAccount_GetAvailableValveDiscountPromotions_Response.promotions:type_name -> CUserAccount_GetAvailableValveDiscountPromotions_Response.ValveDiscountPromotionDetails
-	11, // 1: CUserAccount_GetFriendInviteTokens_Response.tokens:type_name -> CUserAccount_CreateFriendInviteToken_Response
-	23, // 2: CEmbeddedClient_AuthorizeDevice_Response.token:type_name -> CEmbeddedClient_Token
-	0,  // 3: UserAccount.GetAvailableValveDiscountPromotions:input_type -> CUserAccount_GetAvailableValveDiscountPromotions_Request
-	2,  // 4: UserAccount.GetClientWalletDetails:input_type -> CUserAccount_GetClientWalletDetails_Request
-	4,  // 5: UserAccount.GetAccountLinkStatus:input_type -> CUserAccount_GetAccountLinkStatus_Request
-	6,  // 6: UserAccount.CancelLicenseForApp:input_type -> CUserAccount_CancelLicenseForApp_Request
-	8,  // 7: UserAccount.GetUserCountry:input_type -> CUserAccount_GetUserCountry_Request
-	10, // 8: UserAccount.CreateFriendInviteToken:input_type -> CUserAccount_CreateFriendInviteToken_Request
-	12, // 9: UserAccount.GetFriendInviteTokens:input_type -> CUserAccount_GetFriendInviteTokens_Request
-	14, // 10: UserAccount.ViewFriendInviteToken:input_type -> CUserAccount_ViewFriendInviteToken_Request
-	16, // 11: UserAccount.RedeemFriendInviteToken:input_type -> CUserAccount_RedeemFriendInviteToken_Request
-	18, // 12: UserAccount.RevokeFriendInviteToken:input_type -> CUserAccount_RevokeFriendInviteToken_Request
-	20, // 13: UserAccount.RegisterCompatTool:input_type -> CUserAccount_RegisterCompatTool_Request
-	22, // 14: EmbeddedClient.AuthorizeCurrentDevice:input_type -> CEmbeddedClient_AuthorizeCurrentDevice_Request
-	1,  // 15: UserAccount.GetAvailableValveDiscountPromotions:output_type -> CUserAccount_GetAvailableValveDiscountPromotions_Response
-	3,  // 16: UserAccount.GetClientWalletDetails:output_type -> CUserAccount_GetWalletDetails_Response
-	5,  // 17: UserAccount.GetAccountLinkStatus:output_type -> CUserAccount_GetAccountLinkStatus_Response
-	7,  // 18: UserAccount.CancelLicenseForApp:output_type -> CUserAccount_CancelLicenseForApp_Response
-	9,  // 19: UserAccount.GetUserCountry:output_type -> CUserAccount_GetUserCountry_Response
-	11, // 20: UserAccount.CreateFriendInviteToken:output_type -> CUserAccount_CreateFriendInviteToken_Response
-	13, // 21: UserAccount.GetFriendInviteTokens:output_type -> CUserAccount_GetFriendInviteTokens_Response
-	15, // 22: UserAccount.ViewFriendInviteToken:output_type -> CUserAccount_ViewFriendInviteToken_Response
-	17, // 23: UserAccount.RedeemFriendInviteToken:output_type -> CUserAccount_RedeemFriendInviteToken_Response
-	19, // 24: UserAccount.RevokeFriendInviteToken:output_type -> CUserAccount_RevokeFriendInviteToken_Response
-	21, // 25: UserAccount.RegisterCompatTool:output_type -> CUserAccount_RegisterCompatTool_Response
-	24, // 26: EmbeddedClient.AuthorizeCurrentDevice:output_type -> CEmbeddedClient_AuthorizeDevice_Response
-	15, // [15:27] is the sub-list for method output_type
-	3,  // [3:15] is the sub-list for method input_type
-	3,  // [3:3] is the sub-list for extension type_name
-	3,  // [3:3] is the sub-list for extension extendee
-	0,  // [0:3] is the sub-list for field type_name
+	31, // 0: CUserAccount_GetAvailableValveDiscountPromotions_Response.promotions:type_name -> CUserAccount_GetAvailableValveDiscountPromotions_Response.ValveDiscountPromotionDetails
+	3,  // 1: CUserAccount_GetOptOutEmailOptions_Response.per_app_opt_outs:type_name -> CPerAppEmailOptions
+	4,  // 2: CUserAccount_GetOptOutEmailOptions_Response.per_clan_opt_outs:type_name -> CPerClanEmailOptions
+	3,  // 3: CUserAccount_SetOptOutEmailOptions_Request.per_app_opt_outs:type_name -> CPerAppEmailOptions
+	4,  // 4: CUserAccount_SetOptOutEmailOptions_Request.per_clan_opt_outs:type_name -> CPerClanEmailOptions
+	17, // 5: CUserAccount_GetFriendInviteTokens_Response.tokens:type_name -> CUserAccount_CreateFriendInviteToken_Response
+	29, // 6: CEmbeddedClient_AuthorizeDevice_Response.token:type_name -> CEmbeddedClient_Token
+	0,  // 7: UserAccount.GetAvailableValveDiscountPromotions:input_type -> CUserAccount_GetAvailableValveDiscountPromotions_Request
+	2,  // 8: UserAccount.GetOptOutEmailOptions:input_type -> CUserAccount_GetOptOutEmailOptions_Request
+	6,  // 9: UserAccount.SetOptOutEmailOptions:input_type -> CUserAccount_SetOptOutEmailOptions_Request
+	8,  // 10: UserAccount.GetClientWalletDetails:input_type -> CUserAccount_GetClientWalletDetails_Request
+	10, // 11: UserAccount.GetAccountLinkStatus:input_type -> CUserAccount_GetAccountLinkStatus_Request
+	12, // 12: UserAccount.CancelLicenseForApp:input_type -> CUserAccount_CancelLicenseForApp_Request
+	14, // 13: UserAccount.GetUserCountry:input_type -> CUserAccount_GetUserCountry_Request
+	16, // 14: UserAccount.CreateFriendInviteToken:input_type -> CUserAccount_CreateFriendInviteToken_Request
+	18, // 15: UserAccount.GetFriendInviteTokens:input_type -> CUserAccount_GetFriendInviteTokens_Request
+	20, // 16: UserAccount.ViewFriendInviteToken:input_type -> CUserAccount_ViewFriendInviteToken_Request
+	22, // 17: UserAccount.RedeemFriendInviteToken:input_type -> CUserAccount_RedeemFriendInviteToken_Request
+	24, // 18: UserAccount.RevokeFriendInviteToken:input_type -> CUserAccount_RevokeFriendInviteToken_Request
+	26, // 19: UserAccount.RegisterCompatTool:input_type -> CUserAccount_RegisterCompatTool_Request
+	28, // 20: EmbeddedClient.AuthorizeCurrentDevice:input_type -> CEmbeddedClient_AuthorizeCurrentDevice_Request
+	1,  // 21: UserAccount.GetAvailableValveDiscountPromotions:output_type -> CUserAccount_GetAvailableValveDiscountPromotions_Response
+	5,  // 22: UserAccount.GetOptOutEmailOptions:output_type -> CUserAccount_GetOptOutEmailOptions_Response
+	7,  // 23: UserAccount.SetOptOutEmailOptions:output_type -> CUserAccount_SetOptOutEmailOptions_Response
+	9,  // 24: UserAccount.GetClientWalletDetails:output_type -> CUserAccount_GetWalletDetails_Response
+	11, // 25: UserAccount.GetAccountLinkStatus:output_type -> CUserAccount_GetAccountLinkStatus_Response
+	13, // 26: UserAccount.CancelLicenseForApp:output_type -> CUserAccount_CancelLicenseForApp_Response
+	15, // 27: UserAccount.GetUserCountry:output_type -> CUserAccount_GetUserCountry_Response
+	17, // 28: UserAccount.CreateFriendInviteToken:output_type -> CUserAccount_CreateFriendInviteToken_Response
+	19, // 29: UserAccount.GetFriendInviteTokens:output_type -> CUserAccount_GetFriendInviteTokens_Response
+	21, // 30: UserAccount.ViewFriendInviteToken:output_type -> CUserAccount_ViewFriendInviteToken_Response
+	23, // 31: UserAccount.RedeemFriendInviteToken:output_type -> CUserAccount_RedeemFriendInviteToken_Response
+	25, // 32: UserAccount.RevokeFriendInviteToken:output_type -> CUserAccount_RevokeFriendInviteToken_Response
+	27, // 33: UserAccount.RegisterCompatTool:output_type -> CUserAccount_RegisterCompatTool_Response
+	30, // 34: EmbeddedClient.AuthorizeCurrentDevice:output_type -> CEmbeddedClient_AuthorizeDevice_Response
+	21, // [21:35] is the sub-list for method output_type
+	7,  // [7:21] is the sub-list for method input_type
+	7,  // [7:7] is the sub-list for extension type_name
+	7,  // [7:7] is the sub-list for extension extendee
+	0,  // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_useraccount_steamclient_proto_init() }
@@ -1719,7 +2388,7 @@ func file_steammessages_useraccount_steamclient_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_useraccount_steamclient_proto_rawDesc), len(file_steammessages_useraccount_steamclient_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   26,
+			NumMessages:   32,
 			NumExtensions: 0,
 			NumServices:   2,
 		},

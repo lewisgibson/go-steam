@@ -84,6 +84,9 @@ const (
 	EClientNotificationType_k_EClientNotificationType_PlaytestInvite                  EClientNotificationType = 59
 	EClientNotificationType_k_EClientNotificationType_TradeReversal                   EClientNotificationType = 60
 	EClientNotificationType_k_EClientNotificationType_HardwareUpdateAvailable         EClientNotificationType = 61
+	EClientNotificationType_k_EClientNotificationType_ControllerLowBattery            EClientNotificationType = 62
+	EClientNotificationType_k_EClientNotificationType_ControllerConnected             EClientNotificationType = 63
+	EClientNotificationType_k_EClientNotificationType_ControllerDisconnected          EClientNotificationType = 64
 )
 
 // Enum value maps for EClientNotificationType.
@@ -149,6 +152,9 @@ var (
 		59: "k_EClientNotificationType_PlaytestInvite",
 		60: "k_EClientNotificationType_TradeReversal",
 		61: "k_EClientNotificationType_HardwareUpdateAvailable",
+		62: "k_EClientNotificationType_ControllerLowBattery",
+		63: "k_EClientNotificationType_ControllerConnected",
+		64: "k_EClientNotificationType_ControllerDisconnected",
 	}
 	EClientNotificationType_value = map[string]int32{
 		"k_EClientNotificationType_Invalid":                         0,
@@ -211,6 +217,9 @@ var (
 		"k_EClientNotificationType_PlaytestInvite":                  59,
 		"k_EClientNotificationType_TradeReversal":                   60,
 		"k_EClientNotificationType_HardwareUpdateAvailable":         61,
+		"k_EClientNotificationType_ControllerLowBattery":            62,
+		"k_EClientNotificationType_ControllerConnected":             63,
+		"k_EClientNotificationType_ControllerDisconnected":          64,
 	}
 )
 
@@ -2576,6 +2585,154 @@ func (x *CClientNotificationHardwareUpdateAvailable) GetEtype() []uint32 {
 	return nil
 }
 
+type CClientNotificationControllerLowBattery struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	ControllerType *uint32                `protobuf:"varint,1,opt,name=controller_type,json=controllerType" json:"controller_type,omitempty"`
+	PctRemaining   *float32               `protobuf:"fixed32,2,opt,name=pct_remaining,json=pctRemaining" json:"pct_remaining,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *CClientNotificationControllerLowBattery) Reset() {
+	*x = CClientNotificationControllerLowBattery{}
+	mi := &file_steammessages_clientnotificationtypes_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CClientNotificationControllerLowBattery) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CClientNotificationControllerLowBattery) ProtoMessage() {}
+
+func (x *CClientNotificationControllerLowBattery) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_clientnotificationtypes_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CClientNotificationControllerLowBattery.ProtoReflect.Descriptor instead.
+func (*CClientNotificationControllerLowBattery) Descriptor() ([]byte, []int) {
+	return file_steammessages_clientnotificationtypes_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *CClientNotificationControllerLowBattery) GetControllerType() uint32 {
+	if x != nil && x.ControllerType != nil {
+		return *x.ControllerType
+	}
+	return 0
+}
+
+func (x *CClientNotificationControllerLowBattery) GetPctRemaining() float32 {
+	if x != nil && x.PctRemaining != nil {
+		return *x.PctRemaining
+	}
+	return 0
+}
+
+type CClientNotificationControllerConnected struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	ControllerIndex *uint32                `protobuf:"varint,1,opt,name=controller_index,json=controllerIndex" json:"controller_index,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *CClientNotificationControllerConnected) Reset() {
+	*x = CClientNotificationControllerConnected{}
+	mi := &file_steammessages_clientnotificationtypes_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CClientNotificationControllerConnected) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CClientNotificationControllerConnected) ProtoMessage() {}
+
+func (x *CClientNotificationControllerConnected) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_clientnotificationtypes_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CClientNotificationControllerConnected.ProtoReflect.Descriptor instead.
+func (*CClientNotificationControllerConnected) Descriptor() ([]byte, []int) {
+	return file_steammessages_clientnotificationtypes_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *CClientNotificationControllerConnected) GetControllerIndex() uint32 {
+	if x != nil && x.ControllerIndex != nil {
+		return *x.ControllerIndex
+	}
+	return 0
+}
+
+type CClientNotificationControllerDisconnected struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	ControllerType *uint32                `protobuf:"varint,1,opt,name=controller_type,json=controllerType" json:"controller_type,omitempty"`
+	ControllerName *string                `protobuf:"bytes,2,opt,name=controller_name,json=controllerName" json:"controller_name,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *CClientNotificationControllerDisconnected) Reset() {
+	*x = CClientNotificationControllerDisconnected{}
+	mi := &file_steammessages_clientnotificationtypes_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CClientNotificationControllerDisconnected) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CClientNotificationControllerDisconnected) ProtoMessage() {}
+
+func (x *CClientNotificationControllerDisconnected) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_clientnotificationtypes_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CClientNotificationControllerDisconnected.ProtoReflect.Descriptor instead.
+func (*CClientNotificationControllerDisconnected) Descriptor() ([]byte, []int) {
+	return file_steammessages_clientnotificationtypes_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *CClientNotificationControllerDisconnected) GetControllerType() uint32 {
+	if x != nil && x.ControllerType != nil {
+		return *x.ControllerType
+	}
+	return 0
+}
+
+func (x *CClientNotificationControllerDisconnected) GetControllerName() string {
+	if x != nil && x.ControllerName != nil {
+		return *x.ControllerName
+	}
+	return ""
+}
+
 var File_steammessages_clientnotificationtypes_proto protoreflect.FileDescriptor
 
 const file_steammessages_clientnotificationtypes_proto_rawDesc = "" +
@@ -2713,7 +2870,15 @@ const file_steammessages_clientnotificationtypes_proto_rawDesc = "" +
 	"\aclip_id\x18\x02 \x01(\tR\x06clipId\x12#\n" +
 	"\rduration_secs\x18\x03 \x01(\x02R\fdurationSecs\"B\n" +
 	"*CClientNotificationHardwareUpdateAvailable\x12\x14\n" +
-	"\x05etype\x18\x01 \x03(\rR\x05etype*\x81\x17\n" +
+	"\x05etype\x18\x01 \x03(\rR\x05etype\"w\n" +
+	"'CClientNotificationControllerLowBattery\x12'\n" +
+	"\x0fcontroller_type\x18\x01 \x01(\rR\x0econtrollerType\x12#\n" +
+	"\rpct_remaining\x18\x02 \x01(\x02R\fpctRemaining\"S\n" +
+	"&CClientNotificationControllerConnected\x12)\n" +
+	"\x10controller_index\x18\x01 \x01(\rR\x0fcontrollerIndex\"}\n" +
+	")CClientNotificationControllerDisconnected\x12'\n" +
+	"\x0fcontroller_type\x18\x01 \x01(\rR\x0econtrollerType\x12'\n" +
+	"\x0fcontroller_name\x18\x02 \x01(\tR\x0econtrollerName*\x9e\x18\n" +
 	"\x17EClientNotificationType\x12%\n" +
 	"!k_EClientNotificationType_Invalid\x10\x00\x12/\n" +
 	"+k_EClientNotificationType_DownloadCompleted\x10\x01\x12*\n" +
@@ -2775,7 +2940,10 @@ const file_steammessages_clientnotificationtypes_proto_rawDesc = "" +
 	"2k_EClientNotificationType_GameRecordingInstantClip\x10:\x12,\n" +
 	"(k_EClientNotificationType_PlaytestInvite\x10;\x12+\n" +
 	"'k_EClientNotificationType_TradeReversal\x10<\x125\n" +
-	"1k_EClientNotificationType_HardwareUpdateAvailable\x10=*\xad\x01\n" +
+	"1k_EClientNotificationType_HardwareUpdateAvailable\x10=\x122\n" +
+	".k_EClientNotificationType_ControllerLowBattery\x10>\x121\n" +
+	"-k_EClientNotificationType_ControllerConnected\x10?\x124\n" +
+	"0k_EClientNotificationType_ControllerDisconnected\x10@*\xad\x01\n" +
 	"\x1dESystemUpdateNotificationType\x12+\n" +
 	"'k_ESystemUpdateNotificationType_Invalid\x10\x00\x12-\n" +
 	")k_ESystemUpdateNotificationType_Available\x10\x01\x120\n" +
@@ -2797,7 +2965,7 @@ func file_steammessages_clientnotificationtypes_proto_rawDescGZIP() []byte {
 }
 
 var file_steammessages_clientnotificationtypes_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
-var file_steammessages_clientnotificationtypes_proto_msgTypes = make([]protoimpl.MessageInfo, 42)
+var file_steammessages_clientnotificationtypes_proto_msgTypes = make([]protoimpl.MessageInfo, 45)
 var file_steammessages_clientnotificationtypes_proto_goTypes = []any{
 	(EClientNotificationType)(0),                                       // 0: EClientNotificationType
 	(ESystemUpdateNotificationType)(0),                                 // 1: ESystemUpdateNotificationType
@@ -2844,6 +3012,9 @@ var file_steammessages_clientnotificationtypes_proto_goTypes = []any{
 	(*CClientNotificationGameRecordingUserMarkerAdded)(nil),            // 42: CClientNotificationGameRecordingUserMarkerAdded
 	(*CClientNotificationGameRecordingInstantClip)(nil),                // 43: CClientNotificationGameRecordingInstantClip
 	(*CClientNotificationHardwareUpdateAvailable)(nil),                 // 44: CClientNotificationHardwareUpdateAvailable
+	(*CClientNotificationControllerLowBattery)(nil),                    // 45: CClientNotificationControllerLowBattery
+	(*CClientNotificationControllerConnected)(nil),                     // 46: CClientNotificationControllerConnected
+	(*CClientNotificationControllerDisconnected)(nil),                  // 47: CClientNotificationControllerDisconnected
 }
 var file_steammessages_clientnotificationtypes_proto_depIdxs = []int32{
 	1, // 0: CClientNotificationSystemUpdate.type:type_name -> ESystemUpdateNotificationType
@@ -2866,7 +3037,7 @@ func file_steammessages_clientnotificationtypes_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_clientnotificationtypes_proto_rawDesc), len(file_steammessages_clientnotificationtypes_proto_rawDesc)),
 			NumEnums:      3,
-			NumMessages:   42,
+			NumMessages:   45,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

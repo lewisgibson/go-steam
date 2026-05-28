@@ -152,6 +152,555 @@ func (x *CMsgRemoteClientStatus) GetStatus() *CMsgRemoteClientBroadcastStatus {
 	return nil
 }
 
+type CMsgRemoteClientDownloadStatus struct {
+	state                protoimpl.MessageState `protogen:"open.v1"`
+	CurrentConnections   *uint32                `protobuf:"varint,1,opt,name=current_connections,json=currentConnections" json:"current_connections,omitempty"`
+	CurrentBps           *uint32                `protobuf:"varint,2,opt,name=current_bps,json=currentBps" json:"current_bps,omitempty"`
+	TotalBytesDownloaded *uint64                `protobuf:"varint,3,opt,name=total_bytes_downloaded,json=totalBytesDownloaded" json:"total_bytes_downloaded,omitempty"`
+	RecentBps            *uint32                `protobuf:"varint,4,opt,name=recent_bps,json=recentBps" json:"recent_bps,omitempty"`
+	RemoteClientId       *uint64                `protobuf:"varint,5,opt,name=remote_client_id,json=remoteClientId" json:"remote_client_id,omitempty"`
+	DownloadThrottleRate *int32                 `protobuf:"varint,6,opt,name=download_throttle_rate,json=downloadThrottleRate" json:"download_throttle_rate,omitempty"`
+	RemoteClientName     *string                `protobuf:"bytes,7,opt,name=remote_client_name,json=remoteClientName" json:"remote_client_name,omitempty"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
+}
+
+func (x *CMsgRemoteClientDownloadStatus) Reset() {
+	*x = CMsgRemoteClientDownloadStatus{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientDownloadStatus) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientDownloadStatus) ProtoMessage() {}
+
+func (x *CMsgRemoteClientDownloadStatus) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientDownloadStatus.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientDownloadStatus) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *CMsgRemoteClientDownloadStatus) GetCurrentConnections() uint32 {
+	if x != nil && x.CurrentConnections != nil {
+		return *x.CurrentConnections
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientDownloadStatus) GetCurrentBps() uint32 {
+	if x != nil && x.CurrentBps != nil {
+		return *x.CurrentBps
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientDownloadStatus) GetTotalBytesDownloaded() uint64 {
+	if x != nil && x.TotalBytesDownloaded != nil {
+		return *x.TotalBytesDownloaded
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientDownloadStatus) GetRecentBps() uint32 {
+	if x != nil && x.RecentBps != nil {
+		return *x.RecentBps
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientDownloadStatus) GetRemoteClientId() uint64 {
+	if x != nil && x.RemoteClientId != nil {
+		return *x.RemoteClientId
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientDownloadStatus) GetDownloadThrottleRate() int32 {
+	if x != nil && x.DownloadThrottleRate != nil {
+		return *x.DownloadThrottleRate
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientDownloadStatus) GetRemoteClientName() string {
+	if x != nil && x.RemoteClientName != nil {
+		return *x.RemoteClientName
+	}
+	return ""
+}
+
+type CMsgRemoteClientUploadStatus struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	ServedAppId      *uint32                `protobuf:"varint,1,opt,name=served_app_id,json=servedAppId" json:"served_app_id,omitempty"`
+	NumClients       *uint32                `protobuf:"varint,2,opt,name=num_clients,json=numClients" json:"num_clients,omitempty"`
+	SendBytesPerSec  *uint32                `protobuf:"varint,3,opt,name=send_bytes_per_sec,json=sendBytesPerSec" json:"send_bytes_per_sec,omitempty"`
+	ReadBytesPerSec  *uint32                `protobuf:"varint,4,opt,name=read_bytes_per_sec,json=readBytesPerSec" json:"read_bytes_per_sec,omitempty"`
+	SendBytesTotal   *uint64                `protobuf:"varint,5,opt,name=send_bytes_total,json=sendBytesTotal" json:"send_bytes_total,omitempty"`
+	ReadBytesTotal   *uint64                `protobuf:"varint,6,opt,name=read_bytes_total,json=readBytesTotal" json:"read_bytes_total,omitempty"`
+	RemoteClientId   *uint64                `protobuf:"varint,7,opt,name=remote_client_id,json=remoteClientId" json:"remote_client_id,omitempty"`
+	RemoteClientName *string                `protobuf:"bytes,8,opt,name=remote_client_name,json=remoteClientName" json:"remote_client_name,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *CMsgRemoteClientUploadStatus) Reset() {
+	*x = CMsgRemoteClientUploadStatus{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientUploadStatus) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientUploadStatus) ProtoMessage() {}
+
+func (x *CMsgRemoteClientUploadStatus) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientUploadStatus.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientUploadStatus) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *CMsgRemoteClientUploadStatus) GetServedAppId() uint32 {
+	if x != nil && x.ServedAppId != nil {
+		return *x.ServedAppId
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientUploadStatus) GetNumClients() uint32 {
+	if x != nil && x.NumClients != nil {
+		return *x.NumClients
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientUploadStatus) GetSendBytesPerSec() uint32 {
+	if x != nil && x.SendBytesPerSec != nil {
+		return *x.SendBytesPerSec
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientUploadStatus) GetReadBytesPerSec() uint32 {
+	if x != nil && x.ReadBytesPerSec != nil {
+		return *x.ReadBytesPerSec
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientUploadStatus) GetSendBytesTotal() uint64 {
+	if x != nil && x.SendBytesTotal != nil {
+		return *x.SendBytesTotal
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientUploadStatus) GetReadBytesTotal() uint64 {
+	if x != nil && x.ReadBytesTotal != nil {
+		return *x.ReadBytesTotal
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientUploadStatus) GetRemoteClientId() uint64 {
+	if x != nil && x.RemoteClientId != nil {
+		return *x.RemoteClientId
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientUploadStatus) GetRemoteClientName() string {
+	if x != nil && x.RemoteClientName != nil {
+		return *x.RemoteClientName
+	}
+	return ""
+}
+
+type CMsgRemoteClientRestrictAutoUpdates struct {
+	state                    protoimpl.MessageState `protogen:"open.v1"`
+	RestrictAutoUpdates      *bool                  `protobuf:"varint,1,opt,name=restrict_auto_updates,json=restrictAutoUpdates" json:"restrict_auto_updates,omitempty"`
+	RestrictAutoUpdatesStart *int32                 `protobuf:"varint,2,opt,name=restrict_auto_updates_start,json=restrictAutoUpdatesStart" json:"restrict_auto_updates_start,omitempty"`
+	RestrictAutoUpdatesEnd   *int32                 `protobuf:"varint,3,opt,name=restrict_auto_updates_end,json=restrictAutoUpdatesEnd" json:"restrict_auto_updates_end,omitempty"`
+	unknownFields            protoimpl.UnknownFields
+	sizeCache                protoimpl.SizeCache
+}
+
+func (x *CMsgRemoteClientRestrictAutoUpdates) Reset() {
+	*x = CMsgRemoteClientRestrictAutoUpdates{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientRestrictAutoUpdates) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientRestrictAutoUpdates) ProtoMessage() {}
+
+func (x *CMsgRemoteClientRestrictAutoUpdates) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientRestrictAutoUpdates.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientRestrictAutoUpdates) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *CMsgRemoteClientRestrictAutoUpdates) GetRestrictAutoUpdates() bool {
+	if x != nil && x.RestrictAutoUpdates != nil {
+		return *x.RestrictAutoUpdates
+	}
+	return false
+}
+
+func (x *CMsgRemoteClientRestrictAutoUpdates) GetRestrictAutoUpdatesStart() int32 {
+	if x != nil && x.RestrictAutoUpdatesStart != nil {
+		return *x.RestrictAutoUpdatesStart
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientRestrictAutoUpdates) GetRestrictAutoUpdatesEnd() int32 {
+	if x != nil && x.RestrictAutoUpdatesEnd != nil {
+		return *x.RestrictAutoUpdatesEnd
+	}
+	return 0
+}
+
+type AppStageProgress struct {
+	state                      protoimpl.MessageState `protogen:"open.v1"`
+	InProgress                 *uint64                `protobuf:"varint,1,opt,name=in_progress,json=inProgress" json:"in_progress,omitempty"`
+	Total                      *uint64                `protobuf:"varint,2,opt,name=total" json:"total,omitempty"`
+	EstimatedTimeRemainingSecs *int32                 `protobuf:"varint,3,opt,name=estimated_time_remaining_secs,json=estimatedTimeRemainingSecs" json:"estimated_time_remaining_secs,omitempty"`
+	Weight                     *float32               `protobuf:"fixed32,4,opt,name=weight" json:"weight,omitempty"`
+	unknownFields              protoimpl.UnknownFields
+	sizeCache                  protoimpl.SizeCache
+}
+
+func (x *AppStageProgress) Reset() {
+	*x = AppStageProgress{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppStageProgress) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppStageProgress) ProtoMessage() {}
+
+func (x *AppStageProgress) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AppStageProgress.ProtoReflect.Descriptor instead.
+func (*AppStageProgress) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *AppStageProgress) GetInProgress() uint64 {
+	if x != nil && x.InProgress != nil {
+		return *x.InProgress
+	}
+	return 0
+}
+
+func (x *AppStageProgress) GetTotal() uint64 {
+	if x != nil && x.Total != nil {
+		return *x.Total
+	}
+	return 0
+}
+
+func (x *AppStageProgress) GetEstimatedTimeRemainingSecs() int32 {
+	if x != nil && x.EstimatedTimeRemainingSecs != nil {
+		return *x.EstimatedTimeRemainingSecs
+	}
+	return 0
+}
+
+func (x *AppStageProgress) GetWeight() float32 {
+	if x != nil && x.Weight != nil {
+		return *x.Weight
+	}
+	return 0
+}
+
+type AppUpdateInfo struct {
+	state                     protoimpl.MessageState `protogen:"open.v1"`
+	TimeUpdateStart           *uint32                `protobuf:"fixed32,1,opt,name=time_update_start,json=timeUpdateStart" json:"time_update_start,omitempty"`
+	BytesToDownload           *uint64                `protobuf:"varint,2,opt,name=bytes_to_download,json=bytesToDownload" json:"bytes_to_download,omitempty"`
+	BytesDownloaded           *uint64                `protobuf:"varint,3,opt,name=bytes_downloaded,json=bytesDownloaded" json:"bytes_downloaded,omitempty"`
+	BytesToProcess            *uint64                `protobuf:"varint,4,opt,name=bytes_to_process,json=bytesToProcess" json:"bytes_to_process,omitempty"`
+	BytesProcessed            *uint64                `protobuf:"varint,5,opt,name=bytes_processed,json=bytesProcessed" json:"bytes_processed,omitempty"`
+	EstimatedSecondsRemaining *int32                 `protobuf:"varint,6,opt,name=estimated_seconds_remaining,json=estimatedSecondsRemaining,def=-1" json:"estimated_seconds_remaining,omitempty"`
+	UpdateResult              *int32                 `protobuf:"varint,7,opt,name=update_result,json=updateResult" json:"update_result,omitempty"`
+	UpdateState               *uint32                `protobuf:"varint,8,opt,name=update_state,json=updateState" json:"update_state,omitempty"`
+	DownloadType              *uint32                `protobuf:"varint,9,opt,name=download_type,json=downloadType" json:"download_type,omitempty"`
+	StagingBytesStaged        *uint64                `protobuf:"varint,10,opt,name=staging_bytes_staged,json=stagingBytesStaged" json:"staging_bytes_staged,omitempty"`
+	StagingBytesToStage       *uint64                `protobuf:"varint,11,opt,name=staging_bytes_to_stage,json=stagingBytesToStage" json:"staging_bytes_to_stage,omitempty"`
+	BytesToDiscPerSecond      *uint32                `protobuf:"varint,12,opt,name=bytes_to_disc_per_second,json=bytesToDiscPerSecond" json:"bytes_to_disc_per_second,omitempty"`
+	ProgressWeights           []*AppStageProgress    `protobuf:"bytes,13,rep,name=progress_weights,json=progressWeights" json:"progress_weights,omitempty"`
+	TimeDeferredUntil         *uint32                `protobuf:"varint,14,opt,name=time_deferred_until,json=timeDeferredUntil" json:"time_deferred_until,omitempty"`
+	SourceBuildId             *uint32                `protobuf:"varint,15,opt,name=source_build_id,json=sourceBuildId" json:"source_build_id,omitempty"`
+	TargetBuildId             *uint32                `protobuf:"varint,16,opt,name=target_build_id,json=targetBuildId" json:"target_build_id,omitempty"`
+	unknownFields             protoimpl.UnknownFields
+	sizeCache                 protoimpl.SizeCache
+}
+
+// Default values for AppUpdateInfo fields.
+const (
+	Default_AppUpdateInfo_EstimatedSecondsRemaining = int32(-1)
+)
+
+func (x *AppUpdateInfo) Reset() {
+	*x = AppUpdateInfo{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppUpdateInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppUpdateInfo) ProtoMessage() {}
+
+func (x *AppUpdateInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AppUpdateInfo.ProtoReflect.Descriptor instead.
+func (*AppUpdateInfo) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *AppUpdateInfo) GetTimeUpdateStart() uint32 {
+	if x != nil && x.TimeUpdateStart != nil {
+		return *x.TimeUpdateStart
+	}
+	return 0
+}
+
+func (x *AppUpdateInfo) GetBytesToDownload() uint64 {
+	if x != nil && x.BytesToDownload != nil {
+		return *x.BytesToDownload
+	}
+	return 0
+}
+
+func (x *AppUpdateInfo) GetBytesDownloaded() uint64 {
+	if x != nil && x.BytesDownloaded != nil {
+		return *x.BytesDownloaded
+	}
+	return 0
+}
+
+func (x *AppUpdateInfo) GetBytesToProcess() uint64 {
+	if x != nil && x.BytesToProcess != nil {
+		return *x.BytesToProcess
+	}
+	return 0
+}
+
+func (x *AppUpdateInfo) GetBytesProcessed() uint64 {
+	if x != nil && x.BytesProcessed != nil {
+		return *x.BytesProcessed
+	}
+	return 0
+}
+
+func (x *AppUpdateInfo) GetEstimatedSecondsRemaining() int32 {
+	if x != nil && x.EstimatedSecondsRemaining != nil {
+		return *x.EstimatedSecondsRemaining
+	}
+	return Default_AppUpdateInfo_EstimatedSecondsRemaining
+}
+
+func (x *AppUpdateInfo) GetUpdateResult() int32 {
+	if x != nil && x.UpdateResult != nil {
+		return *x.UpdateResult
+	}
+	return 0
+}
+
+func (x *AppUpdateInfo) GetUpdateState() uint32 {
+	if x != nil && x.UpdateState != nil {
+		return *x.UpdateState
+	}
+	return 0
+}
+
+func (x *AppUpdateInfo) GetDownloadType() uint32 {
+	if x != nil && x.DownloadType != nil {
+		return *x.DownloadType
+	}
+	return 0
+}
+
+func (x *AppUpdateInfo) GetStagingBytesStaged() uint64 {
+	if x != nil && x.StagingBytesStaged != nil {
+		return *x.StagingBytesStaged
+	}
+	return 0
+}
+
+func (x *AppUpdateInfo) GetStagingBytesToStage() uint64 {
+	if x != nil && x.StagingBytesToStage != nil {
+		return *x.StagingBytesToStage
+	}
+	return 0
+}
+
+func (x *AppUpdateInfo) GetBytesToDiscPerSecond() uint32 {
+	if x != nil && x.BytesToDiscPerSecond != nil {
+		return *x.BytesToDiscPerSecond
+	}
+	return 0
+}
+
+func (x *AppUpdateInfo) GetProgressWeights() []*AppStageProgress {
+	if x != nil {
+		return x.ProgressWeights
+	}
+	return nil
+}
+
+func (x *AppUpdateInfo) GetTimeDeferredUntil() uint32 {
+	if x != nil && x.TimeDeferredUntil != nil {
+		return *x.TimeDeferredUntil
+	}
+	return 0
+}
+
+func (x *AppUpdateInfo) GetSourceBuildId() uint32 {
+	if x != nil && x.SourceBuildId != nil {
+		return *x.SourceBuildId
+	}
+	return 0
+}
+
+func (x *AppUpdateInfo) GetTargetBuildId() uint32 {
+	if x != nil && x.TargetBuildId != nil {
+		return *x.TargetBuildId
+	}
+	return 0
+}
+
+type AppCloudStatus struct {
+	state              protoimpl.MessageState `protogen:"open.v1"`
+	Status             *uint32                `protobuf:"varint,1,opt,name=status" json:"status,omitempty"`
+	SyncState          *uint32                `protobuf:"varint,2,opt,name=sync_state,json=syncState" json:"sync_state,omitempty"`
+	TransferPercentage *float64               `protobuf:"fixed64,3,opt,name=transfer_percentage,json=transferPercentage" json:"transfer_percentage,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
+}
+
+func (x *AppCloudStatus) Reset() {
+	*x = AppCloudStatus{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppCloudStatus) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppCloudStatus) ProtoMessage() {}
+
+func (x *AppCloudStatus) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AppCloudStatus.ProtoReflect.Descriptor instead.
+func (*AppCloudStatus) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *AppCloudStatus) GetStatus() uint32 {
+	if x != nil && x.Status != nil {
+		return *x.Status
+	}
+	return 0
+}
+
+func (x *AppCloudStatus) GetSyncState() uint32 {
+	if x != nil && x.SyncState != nil {
+		return *x.SyncState
+	}
+	return 0
+}
+
+func (x *AppCloudStatus) GetTransferPercentage() float64 {
+	if x != nil && x.TransferPercentage != nil {
+		return *x.TransferPercentage
+	}
+	return 0
+}
+
 type CMsgRemoteClientAppStatus struct {
 	state         protoimpl.MessageState                 `protogen:"open.v1"`
 	StatusUpdates []*CMsgRemoteClientAppStatus_AppStatus `protobuf:"bytes,1,rep,name=status_updates,json=statusUpdates" json:"status_updates,omitempty"`
@@ -161,7 +710,7 @@ type CMsgRemoteClientAppStatus struct {
 
 func (x *CMsgRemoteClientAppStatus) Reset() {
 	*x = CMsgRemoteClientAppStatus{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[1]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -173,7 +722,7 @@ func (x *CMsgRemoteClientAppStatus) String() string {
 func (*CMsgRemoteClientAppStatus) ProtoMessage() {}
 
 func (x *CMsgRemoteClientAppStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[1]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -186,7 +735,7 @@ func (x *CMsgRemoteClientAppStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteClientAppStatus.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientAppStatus) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{1}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CMsgRemoteClientAppStatus) GetStatusUpdates() []*CMsgRemoteClientAppStatus_AppStatus {
@@ -196,21 +745,592 @@ func (x *CMsgRemoteClientAppStatus) GetStatusUpdates() []*CMsgRemoteClientAppSta
 	return nil
 }
 
-type CMsgRemoteClientStartStream struct {
-	state              protoimpl.MessageState                         `protogen:"open.v1"`
-	AppId              *uint32                                        `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	Environment        *int32                                         `protobuf:"varint,2,opt,name=environment" json:"environment,omitempty"`
-	GamepadCount       *int32                                         `protobuf:"varint,3,opt,name=gamepad_count,json=gamepadCount" json:"gamepad_count,omitempty"`
-	LaunchOption       *int32                                         `protobuf:"varint,4,opt,name=launch_option,json=launchOption,def=-1" json:"launch_option,omitempty"`
-	LockParentalLock   *bool                                          `protobuf:"varint,5,opt,name=lock_parental_lock,json=lockParentalLock,def=0" json:"lock_parental_lock,omitempty"`
-	UnlockParentalLock *string                                        `protobuf:"bytes,6,opt,name=unlock_parental_lock,json=unlockParentalLock" json:"unlock_parental_lock,omitempty"`
-	MaximumResolutionX *int32                                         `protobuf:"varint,7,opt,name=maximum_resolution_x,json=maximumResolutionX" json:"maximum_resolution_x,omitempty"`
-	MaximumResolutionY *int32                                         `protobuf:"varint,8,opt,name=maximum_resolution_y,json=maximumResolutionY" json:"maximum_resolution_y,omitempty"`
-	Gamepads           []*CMsgRemoteClientStartStream_ReservedGamepad `protobuf:"bytes,9,rep,name=gamepads" json:"gamepads,omitempty"`
-	AudioChannelCount  *int32                                         `protobuf:"varint,10,opt,name=audio_channel_count,json=audioChannelCount,def=2" json:"audio_channel_count,omitempty"`
-	SupportedTransport []EStreamTransport                             `protobuf:"varint,11,rep,name=supported_transport,json=supportedTransport,enum=EStreamTransport" json:"supported_transport,omitempty"`
+type CMsgRemoteClientDownloadsManagement struct {
+	state                       protoimpl.MessageState                                       `protogen:"open.v1"`
+	ChangeQueuePlacement        *CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement `protobuf:"bytes,1,opt,name=change_queue_placement,json=changeQueuePlacement" json:"change_queue_placement,omitempty"`
+	ChangeDownloadIndex         *CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex     `protobuf:"bytes,2,opt,name=change_download_index,json=changeDownloadIndex" json:"change_download_index,omitempty"`
+	EnableAllDownloads          *bool                                                        `protobuf:"varint,3,opt,name=enable_all_downloads,json=enableAllDownloads" json:"enable_all_downloads,omitempty"`
+	RemoveFromDownloadListAppId *uint32                                                      `protobuf:"varint,4,opt,name=remove_from_download_list_app_id,json=removeFromDownloadListAppId" json:"remove_from_download_list_app_id,omitempty"`
+	SuspendDownloadThrottling   *bool                                                        `protobuf:"varint,5,opt,name=suspend_download_throttling,json=suspendDownloadThrottling" json:"suspend_download_throttling,omitempty"`
+	unknownFields               protoimpl.UnknownFields
+	sizeCache                   protoimpl.SizeCache
+}
+
+func (x *CMsgRemoteClientDownloadsManagement) Reset() {
+	*x = CMsgRemoteClientDownloadsManagement{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientDownloadsManagement) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientDownloadsManagement) ProtoMessage() {}
+
+func (x *CMsgRemoteClientDownloadsManagement) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientDownloadsManagement.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientDownloadsManagement) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *CMsgRemoteClientDownloadsManagement) GetChangeQueuePlacement() *CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement {
+	if x != nil {
+		return x.ChangeQueuePlacement
+	}
+	return nil
+}
+
+func (x *CMsgRemoteClientDownloadsManagement) GetChangeDownloadIndex() *CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex {
+	if x != nil {
+		return x.ChangeDownloadIndex
+	}
+	return nil
+}
+
+func (x *CMsgRemoteClientDownloadsManagement) GetEnableAllDownloads() bool {
+	if x != nil && x.EnableAllDownloads != nil {
+		return *x.EnableAllDownloads
+	}
+	return false
+}
+
+func (x *CMsgRemoteClientDownloadsManagement) GetRemoveFromDownloadListAppId() uint32 {
+	if x != nil && x.RemoveFromDownloadListAppId != nil {
+		return *x.RemoveFromDownloadListAppId
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientDownloadsManagement) GetSuspendDownloadThrottling() bool {
+	if x != nil && x.SuspendDownloadThrottling != nil {
+		return *x.SuspendDownloadThrottling
+	}
+	return false
+}
+
+type CMsgRemoteClientUpdateDownloadsController struct {
+	state                  protoimpl.MessageState `protogen:"open.v1"`
+	UpdateDownloadItems    *bool                  `protobuf:"varint,1,opt,name=update_download_items,json=updateDownloadItems" json:"update_download_items,omitempty"`
+	UpdateDownloadOverview *bool                  `protobuf:"varint,2,opt,name=update_download_overview,json=updateDownloadOverview" json:"update_download_overview,omitempty"`
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *CMsgRemoteClientUpdateDownloadsController) Reset() {
+	*x = CMsgRemoteClientUpdateDownloadsController{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientUpdateDownloadsController) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientUpdateDownloadsController) ProtoMessage() {}
+
+func (x *CMsgRemoteClientUpdateDownloadsController) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientUpdateDownloadsController.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientUpdateDownloadsController) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *CMsgRemoteClientUpdateDownloadsController) GetUpdateDownloadItems() bool {
+	if x != nil && x.UpdateDownloadItems != nil {
+		return *x.UpdateDownloadItems
+	}
+	return false
+}
+
+func (x *CMsgRemoteClientUpdateDownloadsController) GetUpdateDownloadOverview() bool {
+	if x != nil && x.UpdateDownloadOverview != nil {
+		return *x.UpdateDownloadOverview
+	}
+	return false
+}
+
+type CMsgRemoteClientPeerContentServerChanged struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	AppId          *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+	NumConnections *uint32                `protobuf:"varint,2,opt,name=num_connections,json=numConnections" json:"num_connections,omitempty"`
+	RemoteClientId *uint64                `protobuf:"varint,3,opt,name=remote_client_id,json=remoteClientId" json:"remote_client_id,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *CMsgRemoteClientPeerContentServerChanged) Reset() {
+	*x = CMsgRemoteClientPeerContentServerChanged{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientPeerContentServerChanged) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientPeerContentServerChanged) ProtoMessage() {}
+
+func (x *CMsgRemoteClientPeerContentServerChanged) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientPeerContentServerChanged.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientPeerContentServerChanged) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *CMsgRemoteClientPeerContentServerChanged) GetAppId() uint32 {
+	if x != nil && x.AppId != nil {
+		return *x.AppId
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientPeerContentServerChanged) GetNumConnections() uint32 {
+	if x != nil && x.NumConnections != nil {
+		return *x.NumConnections
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientPeerContentServerChanged) GetRemoteClientId() uint64 {
+	if x != nil && x.RemoteClientId != nil {
+		return *x.RemoteClientId
+	}
+	return 0
+}
+
+type CMsgRemoteClientDownloadingAppChanged struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	DownloadingAppId *uint32                `protobuf:"varint,1,opt,name=downloading_app_id,json=downloadingAppId" json:"downloading_app_id,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *CMsgRemoteClientDownloadingAppChanged) Reset() {
+	*x = CMsgRemoteClientDownloadingAppChanged{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientDownloadingAppChanged) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientDownloadingAppChanged) ProtoMessage() {}
+
+func (x *CMsgRemoteClientDownloadingAppChanged) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientDownloadingAppChanged.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientDownloadingAppChanged) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *CMsgRemoteClientDownloadingAppChanged) GetDownloadingAppId() uint32 {
+	if x != nil && x.DownloadingAppId != nil {
+		return *x.DownloadingAppId
+	}
+	return 0
+}
+
+type CMsgRemoteClientSuspendLanPeerContent struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Suspend       *bool                  `protobuf:"varint,1,opt,name=suspend" json:"suspend,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgRemoteClientSuspendLanPeerContent) Reset() {
+	*x = CMsgRemoteClientSuspendLanPeerContent{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientSuspendLanPeerContent) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientSuspendLanPeerContent) ProtoMessage() {}
+
+func (x *CMsgRemoteClientSuspendLanPeerContent) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientSuspendLanPeerContent.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientSuspendLanPeerContent) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *CMsgRemoteClientSuspendLanPeerContent) GetSuspend() bool {
+	if x != nil && x.Suspend != nil {
+		return *x.Suspend
+	}
+	return false
+}
+
+type CMsgRemoteClientDownloadScheduleChanged struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	DownloadEnabled  *bool                  `protobuf:"varint,1,opt,name=download_enabled,json=downloadEnabled" json:"download_enabled,omitempty"`
+	StartIndex       *uint32                `protobuf:"varint,2,opt,name=start_index,json=startIndex" json:"start_index,omitempty"`
+	FinalMessage     *bool                  `protobuf:"varint,3,opt,name=final_message,json=finalMessage" json:"final_message,omitempty"`
+	NumAppsScheduled *uint32                `protobuf:"varint,4,opt,name=num_apps_scheduled,json=numAppsScheduled" json:"num_apps_scheduled,omitempty"`
+	AppsScheduled    []uint32               `protobuf:"varint,5,rep,name=apps_scheduled,json=appsScheduled" json:"apps_scheduled,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *CMsgRemoteClientDownloadScheduleChanged) Reset() {
+	*x = CMsgRemoteClientDownloadScheduleChanged{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientDownloadScheduleChanged) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientDownloadScheduleChanged) ProtoMessage() {}
+
+func (x *CMsgRemoteClientDownloadScheduleChanged) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientDownloadScheduleChanged.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientDownloadScheduleChanged) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *CMsgRemoteClientDownloadScheduleChanged) GetDownloadEnabled() bool {
+	if x != nil && x.DownloadEnabled != nil {
+		return *x.DownloadEnabled
+	}
+	return false
+}
+
+func (x *CMsgRemoteClientDownloadScheduleChanged) GetStartIndex() uint32 {
+	if x != nil && x.StartIndex != nil {
+		return *x.StartIndex
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientDownloadScheduleChanged) GetFinalMessage() bool {
+	if x != nil && x.FinalMessage != nil {
+		return *x.FinalMessage
+	}
+	return false
+}
+
+func (x *CMsgRemoteClientDownloadScheduleChanged) GetNumAppsScheduled() uint32 {
+	if x != nil && x.NumAppsScheduled != nil {
+		return *x.NumAppsScheduled
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientDownloadScheduleChanged) GetAppsScheduled() []uint32 {
+	if x != nil {
+		return x.AppsScheduled
+	}
+	return nil
+}
+
+type CMsgRemoteClientDownloadScheduleItemChanged struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	AppId         *uint32                `protobuf:"varint,2,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgRemoteClientDownloadScheduleItemChanged) Reset() {
+	*x = CMsgRemoteClientDownloadScheduleItemChanged{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientDownloadScheduleItemChanged) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientDownloadScheduleItemChanged) ProtoMessage() {}
+
+func (x *CMsgRemoteClientDownloadScheduleItemChanged) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientDownloadScheduleItemChanged.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientDownloadScheduleItemChanged) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *CMsgRemoteClientDownloadScheduleItemChanged) GetAppId() uint32 {
+	if x != nil && x.AppId != nil {
+		return *x.AppId
+	}
+	return 0
+}
+
+type CMsgRemoteClientAppUpdateStopped struct {
+	state              protoimpl.MessageState `protogen:"open.v1"`
+	AppId              *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+	UpdateInfo         *AppUpdateInfo         `protobuf:"bytes,2,opt,name=update_info,json=updateInfo" json:"update_info,omitempty"`
+	ErrorDetail        *string                `protobuf:"bytes,3,opt,name=error_detail,json=errorDetail" json:"error_detail,omitempty"`
+	InstallFolderIndex *int32                 `protobuf:"varint,4,opt,name=install_folder_index,json=installFolderIndex" json:"install_folder_index,omitempty"`
+	AppInstallState    *uint32                `protobuf:"varint,5,opt,name=app_install_state,json=appInstallState" json:"app_install_state,omitempty"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
+}
+
+func (x *CMsgRemoteClientAppUpdateStopped) Reset() {
+	*x = CMsgRemoteClientAppUpdateStopped{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientAppUpdateStopped) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientAppUpdateStopped) ProtoMessage() {}
+
+func (x *CMsgRemoteClientAppUpdateStopped) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientAppUpdateStopped.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientAppUpdateStopped) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *CMsgRemoteClientAppUpdateStopped) GetAppId() uint32 {
+	if x != nil && x.AppId != nil {
+		return *x.AppId
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientAppUpdateStopped) GetUpdateInfo() *AppUpdateInfo {
+	if x != nil {
+		return x.UpdateInfo
+	}
+	return nil
+}
+
+func (x *CMsgRemoteClientAppUpdateStopped) GetErrorDetail() string {
+	if x != nil && x.ErrorDetail != nil {
+		return *x.ErrorDetail
+	}
+	return ""
+}
+
+func (x *CMsgRemoteClientAppUpdateStopped) GetInstallFolderIndex() int32 {
+	if x != nil && x.InstallFolderIndex != nil {
+		return *x.InstallFolderIndex
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientAppUpdateStopped) GetAppInstallState() uint32 {
+	if x != nil && x.AppInstallState != nil {
+		return *x.AppInstallState
+	}
+	return 0
+}
+
+type CMsgRemoteClientAppUpdateInfoComplete struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        *uint32                `protobuf:"varint,1,opt,name=result" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgRemoteClientAppUpdateInfoComplete) Reset() {
+	*x = CMsgRemoteClientAppUpdateInfoComplete{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientAppUpdateInfoComplete) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientAppUpdateInfoComplete) ProtoMessage() {}
+
+func (x *CMsgRemoteClientAppUpdateInfoComplete) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientAppUpdateInfoComplete.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientAppUpdateInfoComplete) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *CMsgRemoteClientAppUpdateInfoComplete) GetResult() uint32 {
+	if x != nil && x.Result != nil {
+		return *x.Result
+	}
+	return 0
+}
+
+type CMsgRemoteClientDownloadingAppID struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	DownloadingAppId *uint32                `protobuf:"varint,1,opt,name=downloading_app_id,json=downloadingAppId" json:"downloading_app_id,omitempty"`
+	UpdateInfo       *AppUpdateInfo         `protobuf:"bytes,2,opt,name=update_info,json=updateInfo" json:"update_info,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *CMsgRemoteClientDownloadingAppID) Reset() {
+	*x = CMsgRemoteClientDownloadingAppID{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientDownloadingAppID) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientDownloadingAppID) ProtoMessage() {}
+
+func (x *CMsgRemoteClientDownloadingAppID) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientDownloadingAppID.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientDownloadingAppID) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *CMsgRemoteClientDownloadingAppID) GetDownloadingAppId() uint32 {
+	if x != nil && x.DownloadingAppId != nil {
+		return *x.DownloadingAppId
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientDownloadingAppID) GetUpdateInfo() *AppUpdateInfo {
+	if x != nil {
+		return x.UpdateInfo
+	}
+	return nil
+}
+
+type CMsgRemoteClientStartStream struct {
+	state                       protoimpl.MessageState                         `protogen:"open.v1"`
+	AppId                       *uint32                                        `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+	Environment                 *int32                                         `protobuf:"varint,2,opt,name=environment" json:"environment,omitempty"`
+	GamepadCount                *int32                                         `protobuf:"varint,3,opt,name=gamepad_count,json=gamepadCount" json:"gamepad_count,omitempty"`
+	LaunchOption                *int32                                         `protobuf:"varint,4,opt,name=launch_option,json=launchOption,def=-1" json:"launch_option,omitempty"`
+	LockParentalLock            *bool                                          `protobuf:"varint,5,opt,name=lock_parental_lock,json=lockParentalLock,def=0" json:"lock_parental_lock,omitempty"`
+	UnlockParentalLock          *string                                        `protobuf:"bytes,6,opt,name=unlock_parental_lock,json=unlockParentalLock" json:"unlock_parental_lock,omitempty"`
+	MaximumResolutionX          *int32                                         `protobuf:"varint,7,opt,name=maximum_resolution_x,json=maximumResolutionX" json:"maximum_resolution_x,omitempty"`
+	MaximumResolutionY          *int32                                         `protobuf:"varint,8,opt,name=maximum_resolution_y,json=maximumResolutionY" json:"maximum_resolution_y,omitempty"`
+	Gamepads                    []*CMsgRemoteClientStartStream_ReservedGamepad `protobuf:"bytes,9,rep,name=gamepads" json:"gamepads,omitempty"`
+	AudioChannelCount           *int32                                         `protobuf:"varint,10,opt,name=audio_channel_count,json=audioChannelCount,def=2" json:"audio_channel_count,omitempty"`
+	SupportedTransport          []EStreamTransport                             `protobuf:"varint,11,rep,name=supported_transport,json=supportedTransport,enum=EStreamTransport" json:"supported_transport,omitempty"`
+	MaximumFramerateNumerator   *int32                                         `protobuf:"varint,12,opt,name=maximum_framerate_numerator,json=maximumFramerateNumerator" json:"maximum_framerate_numerator,omitempty"`
+	MaximumFramerateDenominator *int32                                         `protobuf:"varint,13,opt,name=maximum_framerate_denominator,json=maximumFramerateDenominator" json:"maximum_framerate_denominator,omitempty"`
+	DisplayHdr                  *bool                                          `protobuf:"varint,14,opt,name=display_hdr,json=displayHdr" json:"display_hdr,omitempty"`
+	unknownFields               protoimpl.UnknownFields
+	sizeCache                   protoimpl.SizeCache
 }
 
 // Default values for CMsgRemoteClientStartStream fields.
@@ -222,7 +1342,7 @@ const (
 
 func (x *CMsgRemoteClientStartStream) Reset() {
 	*x = CMsgRemoteClientStartStream{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[2]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -234,7 +1354,7 @@ func (x *CMsgRemoteClientStartStream) String() string {
 func (*CMsgRemoteClientStartStream) ProtoMessage() {}
 
 func (x *CMsgRemoteClientStartStream) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[2]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -247,7 +1367,7 @@ func (x *CMsgRemoteClientStartStream) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteClientStartStream.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientStartStream) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{2}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *CMsgRemoteClientStartStream) GetAppId() uint32 {
@@ -327,6 +1447,27 @@ func (x *CMsgRemoteClientStartStream) GetSupportedTransport() []EStreamTransport
 	return nil
 }
 
+func (x *CMsgRemoteClientStartStream) GetMaximumFramerateNumerator() int32 {
+	if x != nil && x.MaximumFramerateNumerator != nil {
+		return *x.MaximumFramerateNumerator
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientStartStream) GetMaximumFramerateDenominator() int32 {
+	if x != nil && x.MaximumFramerateDenominator != nil {
+		return *x.MaximumFramerateDenominator
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientStartStream) GetDisplayHdr() bool {
+	if x != nil && x.DisplayHdr != nil {
+		return *x.DisplayHdr
+	}
+	return false
+}
+
 type CMsgRemoteClientStartStreamResponse struct {
 	state              protoimpl.MessageState `protogen:"open.v1"`
 	ELaunchResult      *int32                 `protobuf:"varint,1,opt,name=e_launch_result,json=eLaunchResult,def=2" json:"e_launch_result,omitempty"`
@@ -352,7 +1493,7 @@ const (
 
 func (x *CMsgRemoteClientStartStreamResponse) Reset() {
 	*x = CMsgRemoteClientStartStreamResponse{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[3]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -364,7 +1505,7 @@ func (x *CMsgRemoteClientStartStreamResponse) String() string {
 func (*CMsgRemoteClientStartStreamResponse) ProtoMessage() {}
 
 func (x *CMsgRemoteClientStartStreamResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[3]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -377,7 +1518,7 @@ func (x *CMsgRemoteClientStartStreamResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CMsgRemoteClientStartStreamResponse.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientStartStreamResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{3}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *CMsgRemoteClientStartStreamResponse) GetELaunchResult() int32 {
@@ -465,7 +1606,7 @@ type CMsgRemoteClientPing struct {
 
 func (x *CMsgRemoteClientPing) Reset() {
 	*x = CMsgRemoteClientPing{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[4]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -477,7 +1618,7 @@ func (x *CMsgRemoteClientPing) String() string {
 func (*CMsgRemoteClientPing) ProtoMessage() {}
 
 func (x *CMsgRemoteClientPing) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[4]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -490,7 +1631,7 @@ func (x *CMsgRemoteClientPing) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteClientPing.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientPing) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{4}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{20}
 }
 
 type CMsgRemoteClientPingResponse struct {
@@ -501,7 +1642,7 @@ type CMsgRemoteClientPingResponse struct {
 
 func (x *CMsgRemoteClientPingResponse) Reset() {
 	*x = CMsgRemoteClientPingResponse{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[5]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -513,7 +1654,7 @@ func (x *CMsgRemoteClientPingResponse) String() string {
 func (*CMsgRemoteClientPingResponse) ProtoMessage() {}
 
 func (x *CMsgRemoteClientPingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[5]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -526,7 +1667,7 @@ func (x *CMsgRemoteClientPingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteClientPingResponse.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientPingResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{5}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{21}
 }
 
 type CMsgRemoteClientAcceptEULA struct {
@@ -540,7 +1681,7 @@ type CMsgRemoteClientAcceptEULA struct {
 
 func (x *CMsgRemoteClientAcceptEULA) Reset() {
 	*x = CMsgRemoteClientAcceptEULA{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[6]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -552,7 +1693,7 @@ func (x *CMsgRemoteClientAcceptEULA) String() string {
 func (*CMsgRemoteClientAcceptEULA) ProtoMessage() {}
 
 func (x *CMsgRemoteClientAcceptEULA) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[6]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -565,7 +1706,7 @@ func (x *CMsgRemoteClientAcceptEULA) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteClientAcceptEULA.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientAcceptEULA) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{6}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *CMsgRemoteClientAcceptEULA) GetAppId() []uint32 {
@@ -589,6 +1730,50 @@ func (x *CMsgRemoteClientAcceptEULA) GetEulaVersion() []uint32 {
 	return nil
 }
 
+type CMsgRemoteClientAcceptAllEULAs struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgRemoteClientAcceptAllEULAs) Reset() {
+	*x = CMsgRemoteClientAcceptAllEULAs{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientAcceptAllEULAs) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientAcceptAllEULAs) ProtoMessage() {}
+
+func (x *CMsgRemoteClientAcceptAllEULAs) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientAcceptAllEULAs.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientAcceptAllEULAs) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *CMsgRemoteClientAcceptAllEULAs) GetAppId() uint32 {
+	if x != nil && x.AppId != nil {
+		return *x.AppId
+	}
+	return 0
+}
+
 type CMsgRemoteClientGetControllerConfig struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	AppId           *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
@@ -599,7 +1784,7 @@ type CMsgRemoteClientGetControllerConfig struct {
 
 func (x *CMsgRemoteClientGetControllerConfig) Reset() {
 	*x = CMsgRemoteClientGetControllerConfig{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[7]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -611,7 +1796,7 @@ func (x *CMsgRemoteClientGetControllerConfig) String() string {
 func (*CMsgRemoteClientGetControllerConfig) ProtoMessage() {}
 
 func (x *CMsgRemoteClientGetControllerConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[7]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -624,7 +1809,7 @@ func (x *CMsgRemoteClientGetControllerConfig) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CMsgRemoteClientGetControllerConfig.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientGetControllerConfig) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{7}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *CMsgRemoteClientGetControllerConfig) GetAppId() uint32 {
@@ -656,7 +1841,7 @@ const (
 
 func (x *CMsgRemoteClientGetControllerConfigResponse) Reset() {
 	*x = CMsgRemoteClientGetControllerConfigResponse{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[8]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -668,7 +1853,7 @@ func (x *CMsgRemoteClientGetControllerConfigResponse) String() string {
 func (*CMsgRemoteClientGetControllerConfigResponse) ProtoMessage() {}
 
 func (x *CMsgRemoteClientGetControllerConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[8]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -681,7 +1866,7 @@ func (x *CMsgRemoteClientGetControllerConfigResponse) ProtoReflect() protoreflec
 
 // Deprecated: Use CMsgRemoteClientGetControllerConfigResponse.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientGetControllerConfigResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{8}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *CMsgRemoteClientGetControllerConfigResponse) GetEresult() int32 {
@@ -707,7 +1892,7 @@ type CMsgRemoteClientStreamingEnabled struct {
 
 func (x *CMsgRemoteClientStreamingEnabled) Reset() {
 	*x = CMsgRemoteClientStreamingEnabled{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[9]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -719,7 +1904,7 @@ func (x *CMsgRemoteClientStreamingEnabled) String() string {
 func (*CMsgRemoteClientStreamingEnabled) ProtoMessage() {}
 
 func (x *CMsgRemoteClientStreamingEnabled) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[9]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -732,7 +1917,7 @@ func (x *CMsgRemoteClientStreamingEnabled) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteClientStreamingEnabled.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientStreamingEnabled) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{9}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *CMsgRemoteClientStreamingEnabled) GetEnabled() bool {
@@ -755,7 +1940,7 @@ type CMsgRemoteClientWifiAPStatus struct {
 
 func (x *CMsgRemoteClientWifiAPStatus) Reset() {
 	*x = CMsgRemoteClientWifiAPStatus{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[10]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -767,7 +1952,7 @@ func (x *CMsgRemoteClientWifiAPStatus) String() string {
 func (*CMsgRemoteClientWifiAPStatus) ProtoMessage() {}
 
 func (x *CMsgRemoteClientWifiAPStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[10]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -780,7 +1965,7 @@ func (x *CMsgRemoteClientWifiAPStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteClientWifiAPStatus.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientWifiAPStatus) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{10}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *CMsgRemoteClientWifiAPStatus) GetSsid() string {
@@ -828,7 +2013,7 @@ type CMsgRemoteClientPairWifiAP struct {
 
 func (x *CMsgRemoteClientPairWifiAP) Reset() {
 	*x = CMsgRemoteClientPairWifiAP{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[11]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -840,7 +2025,7 @@ func (x *CMsgRemoteClientPairWifiAP) String() string {
 func (*CMsgRemoteClientPairWifiAP) ProtoMessage() {}
 
 func (x *CMsgRemoteClientPairWifiAP) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[11]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -853,7 +2038,7 @@ func (x *CMsgRemoteClientPairWifiAP) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteClientPairWifiAP.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientPairWifiAP) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{11}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *CMsgRemoteClientPairWifiAP) GetSsid() string {
@@ -886,7 +2071,7 @@ const (
 
 func (x *CMsgRemoteClientPairWifiAPResponse) Reset() {
 	*x = CMsgRemoteClientPairWifiAPResponse{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[12]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -898,7 +2083,7 @@ func (x *CMsgRemoteClientPairWifiAPResponse) String() string {
 func (*CMsgRemoteClientPairWifiAPResponse) ProtoMessage() {}
 
 func (x *CMsgRemoteClientPairWifiAPResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[12]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -911,7 +2096,7 @@ func (x *CMsgRemoteClientPairWifiAPResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CMsgRemoteClientPairWifiAPResponse.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientPairWifiAPResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{12}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *CMsgRemoteClientPairWifiAPResponse) GetEPairResult() int32 {
@@ -935,40 +2120,41 @@ func (x *CMsgRemoteClientPairWifiAPResponse) GetPassword() string {
 	return ""
 }
 
-type CMsgRemoteClientAppStatus_AppUpdateInfo struct {
-	state                     protoimpl.MessageState `protogen:"open.v1"`
-	TimeUpdateStart           *uint32                `protobuf:"fixed32,1,opt,name=time_update_start,json=timeUpdateStart" json:"time_update_start,omitempty"`
-	BytesToDownload           *uint64                `protobuf:"varint,2,opt,name=bytes_to_download,json=bytesToDownload" json:"bytes_to_download,omitempty"`
-	BytesDownloaded           *uint64                `protobuf:"varint,3,opt,name=bytes_downloaded,json=bytesDownloaded" json:"bytes_downloaded,omitempty"`
-	BytesToProcess            *uint64                `protobuf:"varint,4,opt,name=bytes_to_process,json=bytesToProcess" json:"bytes_to_process,omitempty"`
-	BytesProcessed            *uint64                `protobuf:"varint,5,opt,name=bytes_processed,json=bytesProcessed" json:"bytes_processed,omitempty"`
-	EstimatedSecondsRemaining *int32                 `protobuf:"varint,6,opt,name=estimated_seconds_remaining,json=estimatedSecondsRemaining,def=-1" json:"estimated_seconds_remaining,omitempty"`
-	UpdateResult              *int32                 `protobuf:"varint,7,opt,name=update_result,json=updateResult" json:"update_result,omitempty"`
-	UpdateState               *uint32                `protobuf:"varint,8,opt,name=update_state,json=updateState" json:"update_state,omitempty"`
-	unknownFields             protoimpl.UnknownFields
-	sizeCache                 protoimpl.SizeCache
+type CMsgRemoteClientAppStatus_AppStatus struct {
+	state                  protoimpl.MessageState                  `protogen:"open.v1"`
+	AppId                  *uint32                                 `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+	AppInstallState        *uint32                                 `protobuf:"varint,2,opt,name=app_install_state,json=appInstallState" json:"app_install_state,omitempty"`
+	UpdateInfo             *AppUpdateInfo                          `protobuf:"bytes,3,opt,name=update_info,json=updateInfo" json:"update_info,omitempty"`
+	ShortcutInfo           *CMsgRemoteClientAppStatus_ShortcutInfo `protobuf:"bytes,4,opt,name=shortcut_info,json=shortcutInfo" json:"shortcut_info,omitempty"`
+	VrNotRequired          *bool                                   `protobuf:"varint,5,opt,name=vr_not_required,json=vrNotRequired,def=1" json:"vr_not_required,omitempty"`
+	ShaderUpdateAvailable  *bool                                   `protobuf:"varint,6,opt,name=shader_update_available,json=shaderUpdateAvailable" json:"shader_update_available,omitempty"`
+	WorkshopUpdateAvilable *bool                                   `protobuf:"varint,7,opt,name=workshop_update_avilable,json=workshopUpdateAvilable" json:"workshop_update_avilable,omitempty"`
+	DownloadComplete       *bool                                   `protobuf:"varint,8,opt,name=download_complete,json=downloadComplete" json:"download_complete,omitempty"`
+	CloudStatus            *AppCloudStatus                         `protobuf:"bytes,9,opt,name=cloud_status,json=cloudStatus" json:"cloud_status,omitempty"`
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
-// Default values for CMsgRemoteClientAppStatus_AppUpdateInfo fields.
+// Default values for CMsgRemoteClientAppStatus_AppStatus fields.
 const (
-	Default_CMsgRemoteClientAppStatus_AppUpdateInfo_EstimatedSecondsRemaining = int32(-1)
+	Default_CMsgRemoteClientAppStatus_AppStatus_VrNotRequired = bool(true)
 )
 
-func (x *CMsgRemoteClientAppStatus_AppUpdateInfo) Reset() {
-	*x = CMsgRemoteClientAppStatus_AppUpdateInfo{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[13]
+func (x *CMsgRemoteClientAppStatus_AppStatus) Reset() {
+	*x = CMsgRemoteClientAppStatus_AppStatus{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CMsgRemoteClientAppStatus_AppUpdateInfo) String() string {
+func (x *CMsgRemoteClientAppStatus_AppStatus) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CMsgRemoteClientAppStatus_AppUpdateInfo) ProtoMessage() {}
+func (*CMsgRemoteClientAppStatus_AppStatus) ProtoMessage() {}
 
-func (x *CMsgRemoteClientAppStatus_AppUpdateInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[13]
+func (x *CMsgRemoteClientAppStatus_AppStatus) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -979,65 +2165,72 @@ func (x *CMsgRemoteClientAppStatus_AppUpdateInfo) ProtoReflect() protoreflect.Me
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CMsgRemoteClientAppStatus_AppUpdateInfo.ProtoReflect.Descriptor instead.
-func (*CMsgRemoteClientAppStatus_AppUpdateInfo) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{1, 0}
+// Deprecated: Use CMsgRemoteClientAppStatus_AppStatus.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientAppStatus_AppStatus) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{7, 0}
 }
 
-func (x *CMsgRemoteClientAppStatus_AppUpdateInfo) GetTimeUpdateStart() uint32 {
-	if x != nil && x.TimeUpdateStart != nil {
-		return *x.TimeUpdateStart
+func (x *CMsgRemoteClientAppStatus_AppStatus) GetAppId() uint32 {
+	if x != nil && x.AppId != nil {
+		return *x.AppId
 	}
 	return 0
 }
 
-func (x *CMsgRemoteClientAppStatus_AppUpdateInfo) GetBytesToDownload() uint64 {
-	if x != nil && x.BytesToDownload != nil {
-		return *x.BytesToDownload
+func (x *CMsgRemoteClientAppStatus_AppStatus) GetAppInstallState() uint32 {
+	if x != nil && x.AppInstallState != nil {
+		return *x.AppInstallState
 	}
 	return 0
 }
 
-func (x *CMsgRemoteClientAppStatus_AppUpdateInfo) GetBytesDownloaded() uint64 {
-	if x != nil && x.BytesDownloaded != nil {
-		return *x.BytesDownloaded
+func (x *CMsgRemoteClientAppStatus_AppStatus) GetUpdateInfo() *AppUpdateInfo {
+	if x != nil {
+		return x.UpdateInfo
 	}
-	return 0
+	return nil
 }
 
-func (x *CMsgRemoteClientAppStatus_AppUpdateInfo) GetBytesToProcess() uint64 {
-	if x != nil && x.BytesToProcess != nil {
-		return *x.BytesToProcess
+func (x *CMsgRemoteClientAppStatus_AppStatus) GetShortcutInfo() *CMsgRemoteClientAppStatus_ShortcutInfo {
+	if x != nil {
+		return x.ShortcutInfo
 	}
-	return 0
+	return nil
 }
 
-func (x *CMsgRemoteClientAppStatus_AppUpdateInfo) GetBytesProcessed() uint64 {
-	if x != nil && x.BytesProcessed != nil {
-		return *x.BytesProcessed
+func (x *CMsgRemoteClientAppStatus_AppStatus) GetVrNotRequired() bool {
+	if x != nil && x.VrNotRequired != nil {
+		return *x.VrNotRequired
 	}
-	return 0
+	return Default_CMsgRemoteClientAppStatus_AppStatus_VrNotRequired
 }
 
-func (x *CMsgRemoteClientAppStatus_AppUpdateInfo) GetEstimatedSecondsRemaining() int32 {
-	if x != nil && x.EstimatedSecondsRemaining != nil {
-		return *x.EstimatedSecondsRemaining
+func (x *CMsgRemoteClientAppStatus_AppStatus) GetShaderUpdateAvailable() bool {
+	if x != nil && x.ShaderUpdateAvailable != nil {
+		return *x.ShaderUpdateAvailable
 	}
-	return Default_CMsgRemoteClientAppStatus_AppUpdateInfo_EstimatedSecondsRemaining
+	return false
 }
 
-func (x *CMsgRemoteClientAppStatus_AppUpdateInfo) GetUpdateResult() int32 {
-	if x != nil && x.UpdateResult != nil {
-		return *x.UpdateResult
+func (x *CMsgRemoteClientAppStatus_AppStatus) GetWorkshopUpdateAvilable() bool {
+	if x != nil && x.WorkshopUpdateAvilable != nil {
+		return *x.WorkshopUpdateAvilable
 	}
-	return 0
+	return false
 }
 
-func (x *CMsgRemoteClientAppStatus_AppUpdateInfo) GetUpdateState() uint32 {
-	if x != nil && x.UpdateState != nil {
-		return *x.UpdateState
+func (x *CMsgRemoteClientAppStatus_AppStatus) GetDownloadComplete() bool {
+	if x != nil && x.DownloadComplete != nil {
+		return *x.DownloadComplete
 	}
-	return 0
+	return false
+}
+
+func (x *CMsgRemoteClientAppStatus_AppStatus) GetCloudStatus() *AppCloudStatus {
+	if x != nil {
+		return x.CloudStatus
+	}
+	return nil
 }
 
 type CMsgRemoteClientAppStatus_ShortcutInfo struct {
@@ -1052,7 +2245,7 @@ type CMsgRemoteClientAppStatus_ShortcutInfo struct {
 
 func (x *CMsgRemoteClientAppStatus_ShortcutInfo) Reset() {
 	*x = CMsgRemoteClientAppStatus_ShortcutInfo{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[14]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1064,7 +2257,7 @@ func (x *CMsgRemoteClientAppStatus_ShortcutInfo) String() string {
 func (*CMsgRemoteClientAppStatus_ShortcutInfo) ProtoMessage() {}
 
 func (x *CMsgRemoteClientAppStatus_ShortcutInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[14]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1077,7 +2270,7 @@ func (x *CMsgRemoteClientAppStatus_ShortcutInfo) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CMsgRemoteClientAppStatus_ShortcutInfo.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientAppStatus_ShortcutInfo) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{1, 1}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{7, 1}
 }
 
 func (x *CMsgRemoteClientAppStatus_ShortcutInfo) GetName() string {
@@ -1108,37 +2301,29 @@ func (x *CMsgRemoteClientAppStatus_ShortcutInfo) GetExepath() string {
 	return ""
 }
 
-type CMsgRemoteClientAppStatus_AppStatus struct {
-	state         protoimpl.MessageState                   `protogen:"open.v1"`
-	AppId         *uint32                                  `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	AppState      *uint32                                  `protobuf:"varint,2,opt,name=app_state,json=appState" json:"app_state,omitempty"`
-	UpdateInfo    *CMsgRemoteClientAppStatus_AppUpdateInfo `protobuf:"bytes,3,opt,name=update_info,json=updateInfo" json:"update_info,omitempty"`
-	ShortcutInfo  *CMsgRemoteClientAppStatus_ShortcutInfo  `protobuf:"bytes,4,opt,name=shortcut_info,json=shortcutInfo" json:"shortcut_info,omitempty"`
-	VrNotRequired *bool                                    `protobuf:"varint,5,opt,name=vr_not_required,json=vrNotRequired,def=1" json:"vr_not_required,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+type CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	AppId          *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+	QueuePlacement *uint32                `protobuf:"varint,2,opt,name=queue_placement,json=queuePlacement" json:"queue_placement,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
-// Default values for CMsgRemoteClientAppStatus_AppStatus fields.
-const (
-	Default_CMsgRemoteClientAppStatus_AppStatus_VrNotRequired = bool(true)
-)
-
-func (x *CMsgRemoteClientAppStatus_AppStatus) Reset() {
-	*x = CMsgRemoteClientAppStatus_AppStatus{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[15]
+func (x *CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement) Reset() {
+	*x = CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CMsgRemoteClientAppStatus_AppStatus) String() string {
+func (x *CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CMsgRemoteClientAppStatus_AppStatus) ProtoMessage() {}
+func (*CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement) ProtoMessage() {}
 
-func (x *CMsgRemoteClientAppStatus_AppStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[15]
+func (x *CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1149,44 +2334,75 @@ func (x *CMsgRemoteClientAppStatus_AppStatus) ProtoReflect() protoreflect.Messag
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CMsgRemoteClientAppStatus_AppStatus.ProtoReflect.Descriptor instead.
-func (*CMsgRemoteClientAppStatus_AppStatus) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{1, 2}
+// Deprecated: Use CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{8, 0}
 }
 
-func (x *CMsgRemoteClientAppStatus_AppStatus) GetAppId() uint32 {
+func (x *CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement) GetAppId() uint32 {
 	if x != nil && x.AppId != nil {
 		return *x.AppId
 	}
 	return 0
 }
 
-func (x *CMsgRemoteClientAppStatus_AppStatus) GetAppState() uint32 {
-	if x != nil && x.AppState != nil {
-		return *x.AppState
+func (x *CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement) GetQueuePlacement() uint32 {
+	if x != nil && x.QueuePlacement != nil {
+		return *x.QueuePlacement
 	}
 	return 0
 }
 
-func (x *CMsgRemoteClientAppStatus_AppStatus) GetUpdateInfo() *CMsgRemoteClientAppStatus_AppUpdateInfo {
-	if x != nil {
-		return x.UpdateInfo
-	}
-	return nil
+type CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+	DownloadIndex *uint32                `protobuf:"varint,3,opt,name=download_index,json=downloadIndex" json:"download_index,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
-func (x *CMsgRemoteClientAppStatus_AppStatus) GetShortcutInfo() *CMsgRemoteClientAppStatus_ShortcutInfo {
-	if x != nil {
-		return x.ShortcutInfo
-	}
-	return nil
+func (x *CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex) Reset() {
+	*x = CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
 }
 
-func (x *CMsgRemoteClientAppStatus_AppStatus) GetVrNotRequired() bool {
-	if x != nil && x.VrNotRequired != nil {
-		return *x.VrNotRequired
+func (x *CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex) ProtoMessage() {}
+
+func (x *CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
 	}
-	return Default_CMsgRemoteClientAppStatus_AppStatus_VrNotRequired
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{8, 1}
+}
+
+func (x *CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex) GetAppId() uint32 {
+	if x != nil && x.AppId != nil {
+		return *x.AppId
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex) GetDownloadIndex() uint32 {
+	if x != nil && x.DownloadIndex != nil {
+		return *x.DownloadIndex
+	}
+	return 0
 }
 
 type CMsgRemoteClientStartStream_ReservedGamepad struct {
@@ -1199,7 +2415,7 @@ type CMsgRemoteClientStartStream_ReservedGamepad struct {
 
 func (x *CMsgRemoteClientStartStream_ReservedGamepad) Reset() {
 	*x = CMsgRemoteClientStartStream_ReservedGamepad{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[16]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1211,7 +2427,7 @@ func (x *CMsgRemoteClientStartStream_ReservedGamepad) String() string {
 func (*CMsgRemoteClientStartStream_ReservedGamepad) ProtoMessage() {}
 
 func (x *CMsgRemoteClientStartStream_ReservedGamepad) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[16]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1224,7 +2440,7 @@ func (x *CMsgRemoteClientStartStream_ReservedGamepad) ProtoReflect() protoreflec
 
 // Deprecated: Use CMsgRemoteClientStartStream_ReservedGamepad.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientStartStream_ReservedGamepad) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{2, 0}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{18, 0}
 }
 
 func (x *CMsgRemoteClientStartStream_ReservedGamepad) GetControllerType() uint32 {
@@ -1250,9 +2466,37 @@ const file_steammessages_remoteclient_proto_rawDesc = "" +
 	"\tclient_id\x18\x01 \x01(\x04R\bclientId\x12\x1f\n" +
 	"\vinstance_id\x18\x02 \x01(\x04R\n" +
 	"instanceId\x128\n" +
-	"\x06status\x18\x03 \x01(\v2 .CMsgRemoteClientBroadcastStatusR\x06status\"\xd7\x06\n" +
-	"\x19CMsgRemoteClientAppStatus\x12K\n" +
-	"\x0estatus_updates\x18\x01 \x03(\v2$.CMsgRemoteClientAppStatus.AppStatusR\rstatusUpdates\x1a\xf1\x02\n" +
+	"\x06status\x18\x03 \x01(\v2 .CMsgRemoteClientBroadcastStatusR\x06status\"\xd5\x02\n" +
+	"\x1eCMsgRemoteClientDownloadStatus\x12/\n" +
+	"\x13current_connections\x18\x01 \x01(\rR\x12currentConnections\x12\x1f\n" +
+	"\vcurrent_bps\x18\x02 \x01(\rR\n" +
+	"currentBps\x124\n" +
+	"\x16total_bytes_downloaded\x18\x03 \x01(\x04R\x14totalBytesDownloaded\x12\x1d\n" +
+	"\n" +
+	"recent_bps\x18\x04 \x01(\rR\trecentBps\x12(\n" +
+	"\x10remote_client_id\x18\x05 \x01(\x04R\x0eremoteClientId\x124\n" +
+	"\x16download_throttle_rate\x18\x06 \x01(\x05R\x14downloadThrottleRate\x12,\n" +
+	"\x12remote_client_name\x18\a \x01(\tR\x10remoteClientName\"\xe9\x02\n" +
+	"\x1cCMsgRemoteClientUploadStatus\x12\"\n" +
+	"\rserved_app_id\x18\x01 \x01(\rR\vservedAppId\x12\x1f\n" +
+	"\vnum_clients\x18\x02 \x01(\rR\n" +
+	"numClients\x12+\n" +
+	"\x12send_bytes_per_sec\x18\x03 \x01(\rR\x0fsendBytesPerSec\x12+\n" +
+	"\x12read_bytes_per_sec\x18\x04 \x01(\rR\x0freadBytesPerSec\x12(\n" +
+	"\x10send_bytes_total\x18\x05 \x01(\x04R\x0esendBytesTotal\x12(\n" +
+	"\x10read_bytes_total\x18\x06 \x01(\x04R\x0ereadBytesTotal\x12(\n" +
+	"\x10remote_client_id\x18\a \x01(\x04R\x0eremoteClientId\x12,\n" +
+	"\x12remote_client_name\x18\b \x01(\tR\x10remoteClientName\"\xd3\x01\n" +
+	"#CMsgRemoteClientRestrictAutoUpdates\x122\n" +
+	"\x15restrict_auto_updates\x18\x01 \x01(\bR\x13restrictAutoUpdates\x12=\n" +
+	"\x1brestrict_auto_updates_start\x18\x02 \x01(\x05R\x18restrictAutoUpdatesStart\x129\n" +
+	"\x19restrict_auto_updates_end\x18\x03 \x01(\x05R\x16restrictAutoUpdatesEnd\"\xa4\x01\n" +
+	"\x10AppStageProgress\x12\x1f\n" +
+	"\vin_progress\x18\x01 \x01(\x04R\n" +
+	"inProgress\x12\x14\n" +
+	"\x05total\x18\x02 \x01(\x04R\x05total\x12A\n" +
+	"\x1destimated_time_remaining_secs\x18\x03 \x01(\x05R\x1aestimatedTimeRemainingSecs\x12\x16\n" +
+	"\x06weight\x18\x04 \x01(\x02R\x06weight\"\xf3\x05\n" +
 	"\rAppUpdateInfo\x12*\n" +
 	"\x11time_update_start\x18\x01 \x01(\aR\x0ftimeUpdateStart\x12*\n" +
 	"\x11bytes_to_download\x18\x02 \x01(\x04R\x0fbytesToDownload\x12)\n" +
@@ -1261,21 +2505,86 @@ const file_steammessages_remoteclient_proto_rawDesc = "" +
 	"\x0fbytes_processed\x18\x05 \x01(\x04R\x0ebytesProcessed\x12B\n" +
 	"\x1bestimated_seconds_remaining\x18\x06 \x01(\x05:\x02-1R\x19estimatedSecondsRemaining\x12#\n" +
 	"\rupdate_result\x18\a \x01(\x05R\fupdateResult\x12!\n" +
-	"\fupdate_state\x18\b \x01(\rR\vupdateState\x1ap\n" +
+	"\fupdate_state\x18\b \x01(\rR\vupdateState\x12#\n" +
+	"\rdownload_type\x18\t \x01(\rR\fdownloadType\x120\n" +
+	"\x14staging_bytes_staged\x18\n" +
+	" \x01(\x04R\x12stagingBytesStaged\x123\n" +
+	"\x16staging_bytes_to_stage\x18\v \x01(\x04R\x13stagingBytesToStage\x126\n" +
+	"\x18bytes_to_disc_per_second\x18\f \x01(\rR\x14bytesToDiscPerSecond\x12<\n" +
+	"\x10progress_weights\x18\r \x03(\v2\x11.AppStageProgressR\x0fprogressWeights\x12.\n" +
+	"\x13time_deferred_until\x18\x0e \x01(\rR\x11timeDeferredUntil\x12&\n" +
+	"\x0fsource_build_id\x18\x0f \x01(\rR\rsourceBuildId\x12&\n" +
+	"\x0ftarget_build_id\x18\x10 \x01(\rR\rtargetBuildId\"x\n" +
+	"\x0eAppCloudStatus\x12\x16\n" +
+	"\x06status\x18\x01 \x01(\rR\x06status\x12\x1d\n" +
+	"\n" +
+	"sync_state\x18\x02 \x01(\rR\tsyncState\x12/\n" +
+	"\x13transfer_percentage\x18\x03 \x01(\x01R\x12transferPercentage\"\xab\x05\n" +
+	"\x19CMsgRemoteClientAppStatus\x12K\n" +
+	"\x0estatus_updates\x18\x01 \x03(\v2$.CMsgRemoteClientAppStatus.AppStatusR\rstatusUpdates\x1a\xce\x03\n" +
+	"\tAppStatus\x12\x15\n" +
+	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12*\n" +
+	"\x11app_install_state\x18\x02 \x01(\rR\x0fappInstallState\x12/\n" +
+	"\vupdate_info\x18\x03 \x01(\v2\x0e.AppUpdateInfoR\n" +
+	"updateInfo\x12L\n" +
+	"\rshortcut_info\x18\x04 \x01(\v2'.CMsgRemoteClientAppStatus.ShortcutInfoR\fshortcutInfo\x12,\n" +
+	"\x0fvr_not_required\x18\x05 \x01(\b:\x04trueR\rvrNotRequired\x126\n" +
+	"\x17shader_update_available\x18\x06 \x01(\bR\x15shaderUpdateAvailable\x128\n" +
+	"\x18workshop_update_avilable\x18\a \x01(\bR\x16workshopUpdateAvilable\x12+\n" +
+	"\x11download_complete\x18\b \x01(\bR\x10downloadComplete\x122\n" +
+	"\fcloud_status\x18\t \x01(\v2\x0f.AppCloudStatusR\vcloudStatus\x1ap\n" +
 	"\fShortcutInfo\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n" +
 	"\x04icon\x18\x02 \x01(\tR\x04icon\x12\x1e\n" +
 	"\n" +
 	"categories\x18\x03 \x03(\tR\n" +
 	"categories\x12\x18\n" +
-	"\aexepath\x18\x04 \x01(\tR\aexepath\x1a\x86\x02\n" +
-	"\tAppStatus\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12\x1b\n" +
-	"\tapp_state\x18\x02 \x01(\rR\bappState\x12I\n" +
-	"\vupdate_info\x18\x03 \x01(\v2(.CMsgRemoteClientAppStatus.AppUpdateInfoR\n" +
-	"updateInfo\x12L\n" +
-	"\rshortcut_info\x18\x04 \x01(\v2'.CMsgRemoteClientAppStatus.ShortcutInfoR\fshortcutInfo\x12,\n" +
-	"\x0fvr_not_required\x18\x05 \x01(\b:\x04trueR\rvrNotRequired\"\x9b\x05\n" +
+	"\aexepath\x18\x04 \x01(\tR\aexepath\"\xf0\x04\n" +
+	"#CMsgRemoteClientDownloadsManagement\x12r\n" +
+	"\x16change_queue_placement\x18\x01 \x01(\v2<.CMsgRemoteClientDownloadsManagement.ChangeAppQueuePlacementR\x14changeQueuePlacement\x12l\n" +
+	"\x15change_download_index\x18\x02 \x01(\v28.CMsgRemoteClientDownloadsManagement.ChangeDownloadIndexR\x13changeDownloadIndex\x120\n" +
+	"\x14enable_all_downloads\x18\x03 \x01(\bR\x12enableAllDownloads\x12E\n" +
+	" remove_from_download_list_app_id\x18\x04 \x01(\rR\x1bremoveFromDownloadListAppId\x12>\n" +
+	"\x1bsuspend_download_throttling\x18\x05 \x01(\bR\x19suspendDownloadThrottling\x1aY\n" +
+	"\x17ChangeAppQueuePlacement\x12\x15\n" +
+	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12'\n" +
+	"\x0fqueue_placement\x18\x02 \x01(\rR\x0equeuePlacement\x1aS\n" +
+	"\x13ChangeDownloadIndex\x12\x15\n" +
+	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12%\n" +
+	"\x0edownload_index\x18\x03 \x01(\rR\rdownloadIndex\"\x99\x01\n" +
+	")CMsgRemoteClientUpdateDownloadsController\x122\n" +
+	"\x15update_download_items\x18\x01 \x01(\bR\x13updateDownloadItems\x128\n" +
+	"\x18update_download_overview\x18\x02 \x01(\bR\x16updateDownloadOverview\"\x94\x01\n" +
+	"(CMsgRemoteClientPeerContentServerChanged\x12\x15\n" +
+	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12'\n" +
+	"\x0fnum_connections\x18\x02 \x01(\rR\x0enumConnections\x12(\n" +
+	"\x10remote_client_id\x18\x03 \x01(\x04R\x0eremoteClientId\"U\n" +
+	"%CMsgRemoteClientDownloadingAppChanged\x12,\n" +
+	"\x12downloading_app_id\x18\x01 \x01(\rR\x10downloadingAppId\"A\n" +
+	"%CMsgRemoteClientSuspendLanPeerContent\x12\x18\n" +
+	"\asuspend\x18\x01 \x01(\bR\asuspend\"\xef\x01\n" +
+	"'CMsgRemoteClientDownloadScheduleChanged\x12)\n" +
+	"\x10download_enabled\x18\x01 \x01(\bR\x0fdownloadEnabled\x12\x1f\n" +
+	"\vstart_index\x18\x02 \x01(\rR\n" +
+	"startIndex\x12#\n" +
+	"\rfinal_message\x18\x03 \x01(\bR\ffinalMessage\x12,\n" +
+	"\x12num_apps_scheduled\x18\x04 \x01(\rR\x10numAppsScheduled\x12%\n" +
+	"\x0eapps_scheduled\x18\x05 \x03(\rR\rappsScheduled\"D\n" +
+	"+CMsgRemoteClientDownloadScheduleItemChanged\x12\x15\n" +
+	"\x06app_id\x18\x02 \x01(\rR\x05appId\"\xeb\x01\n" +
+	" CMsgRemoteClientAppUpdateStopped\x12\x15\n" +
+	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12/\n" +
+	"\vupdate_info\x18\x02 \x01(\v2\x0e.AppUpdateInfoR\n" +
+	"updateInfo\x12!\n" +
+	"\ferror_detail\x18\x03 \x01(\tR\verrorDetail\x120\n" +
+	"\x14install_folder_index\x18\x04 \x01(\x05R\x12installFolderIndex\x12*\n" +
+	"\x11app_install_state\x18\x05 \x01(\rR\x0fappInstallState\"?\n" +
+	"%CMsgRemoteClientAppUpdateInfoComplete\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\rR\x06result\"\x81\x01\n" +
+	" CMsgRemoteClientDownloadingAppID\x12,\n" +
+	"\x12downloading_app_id\x18\x01 \x01(\rR\x10downloadingAppId\x12/\n" +
+	"\vupdate_info\x18\x02 \x01(\v2\x0e.AppUpdateInfoR\n" +
+	"updateInfo\"\xc0\x06\n" +
 	"\x1bCMsgRemoteClientStartStream\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12 \n" +
 	"\venvironment\x18\x02 \x01(\x05R\venvironment\x12#\n" +
@@ -1288,7 +2597,11 @@ const file_steammessages_remoteclient_proto_rawDesc = "" +
 	"\bgamepads\x18\t \x03(\v2,.CMsgRemoteClientStartStream.ReservedGamepadR\bgamepads\x121\n" +
 	"\x13audio_channel_count\x18\n" +
 	" \x01(\x05:\x012R\x11audioChannelCount\x12B\n" +
-	"\x13supported_transport\x18\v \x03(\x0e2\x11.EStreamTransportR\x12supportedTransport\x1ai\n" +
+	"\x13supported_transport\x18\v \x03(\x0e2\x11.EStreamTransportR\x12supportedTransport\x12>\n" +
+	"\x1bmaximum_framerate_numerator\x18\f \x01(\x05R\x19maximumFramerateNumerator\x12B\n" +
+	"\x1dmaximum_framerate_denominator\x18\r \x01(\x05R\x1bmaximumFramerateDenominator\x12\x1f\n" +
+	"\vdisplay_hdr\x18\x0e \x01(\bR\n" +
+	"displayHdr\x1ai\n" +
 	"\x0fReservedGamepad\x12'\n" +
 	"\x0fcontroller_type\x18\x01 \x01(\rR\x0econtrollerType\x12-\n" +
 	"\x12controller_subtype\x18\x02 \x01(\rR\x11controllerSubtype\"\xfd\x03\n" +
@@ -1313,7 +2626,9 @@ const file_steammessages_remoteclient_proto_rawDesc = "" +
 	"\x1aCMsgRemoteClientAcceptEULA\x12\x15\n" +
 	"\x06app_id\x18\x01 \x03(\rR\x05appId\x12\x17\n" +
 	"\aeula_id\x18\x02 \x03(\tR\x06eulaId\x12!\n" +
-	"\feula_version\x18\x03 \x03(\rR\veulaVersion\"g\n" +
+	"\feula_version\x18\x03 \x03(\rR\veulaVersion\"7\n" +
+	"\x1eCMsgRemoteClientAcceptAllEULAs\x12\x15\n" +
+	"\x06app_id\x18\x01 \x01(\rR\x05appId\"g\n" +
 	"#CMsgRemoteClientGetControllerConfig\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12)\n" +
 	"\x10controller_index\x18\x03 \x01(\rR\x0fcontrollerIndex\"i\n" +
@@ -1358,42 +2673,66 @@ func file_steammessages_remoteclient_proto_rawDescGZIP() []byte {
 }
 
 var file_steammessages_remoteclient_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_steammessages_remoteclient_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
+var file_steammessages_remoteclient_proto_msgTypes = make([]protoimpl.MessageInfo, 35)
 var file_steammessages_remoteclient_proto_goTypes = []any{
-	(ERemoteClientPairWifiAPResult)(0),                  // 0: ERemoteClientPairWifiAPResult
-	(*CMsgRemoteClientStatus)(nil),                      // 1: CMsgRemoteClientStatus
-	(*CMsgRemoteClientAppStatus)(nil),                   // 2: CMsgRemoteClientAppStatus
-	(*CMsgRemoteClientStartStream)(nil),                 // 3: CMsgRemoteClientStartStream
-	(*CMsgRemoteClientStartStreamResponse)(nil),         // 4: CMsgRemoteClientStartStreamResponse
-	(*CMsgRemoteClientPing)(nil),                        // 5: CMsgRemoteClientPing
-	(*CMsgRemoteClientPingResponse)(nil),                // 6: CMsgRemoteClientPingResponse
-	(*CMsgRemoteClientAcceptEULA)(nil),                  // 7: CMsgRemoteClientAcceptEULA
-	(*CMsgRemoteClientGetControllerConfig)(nil),         // 8: CMsgRemoteClientGetControllerConfig
-	(*CMsgRemoteClientGetControllerConfigResponse)(nil), // 9: CMsgRemoteClientGetControllerConfigResponse
-	(*CMsgRemoteClientStreamingEnabled)(nil),            // 10: CMsgRemoteClientStreamingEnabled
-	(*CMsgRemoteClientWifiAPStatus)(nil),                // 11: CMsgRemoteClientWifiAPStatus
-	(*CMsgRemoteClientPairWifiAP)(nil),                  // 12: CMsgRemoteClientPairWifiAP
-	(*CMsgRemoteClientPairWifiAPResponse)(nil),          // 13: CMsgRemoteClientPairWifiAPResponse
-	(*CMsgRemoteClientAppStatus_AppUpdateInfo)(nil),     // 14: CMsgRemoteClientAppStatus.AppUpdateInfo
-	(*CMsgRemoteClientAppStatus_ShortcutInfo)(nil),      // 15: CMsgRemoteClientAppStatus.ShortcutInfo
-	(*CMsgRemoteClientAppStatus_AppStatus)(nil),         // 16: CMsgRemoteClientAppStatus.AppStatus
-	(*CMsgRemoteClientStartStream_ReservedGamepad)(nil), // 17: CMsgRemoteClientStartStream.ReservedGamepad
-	(*CMsgRemoteClientBroadcastStatus)(nil),             // 18: CMsgRemoteClientBroadcastStatus
-	(EStreamTransport)(0),                               // 19: EStreamTransport
+	(ERemoteClientPairWifiAPResult)(0),                                  // 0: ERemoteClientPairWifiAPResult
+	(*CMsgRemoteClientStatus)(nil),                                      // 1: CMsgRemoteClientStatus
+	(*CMsgRemoteClientDownloadStatus)(nil),                              // 2: CMsgRemoteClientDownloadStatus
+	(*CMsgRemoteClientUploadStatus)(nil),                                // 3: CMsgRemoteClientUploadStatus
+	(*CMsgRemoteClientRestrictAutoUpdates)(nil),                         // 4: CMsgRemoteClientRestrictAutoUpdates
+	(*AppStageProgress)(nil),                                            // 5: AppStageProgress
+	(*AppUpdateInfo)(nil),                                               // 6: AppUpdateInfo
+	(*AppCloudStatus)(nil),                                              // 7: AppCloudStatus
+	(*CMsgRemoteClientAppStatus)(nil),                                   // 8: CMsgRemoteClientAppStatus
+	(*CMsgRemoteClientDownloadsManagement)(nil),                         // 9: CMsgRemoteClientDownloadsManagement
+	(*CMsgRemoteClientUpdateDownloadsController)(nil),                   // 10: CMsgRemoteClientUpdateDownloadsController
+	(*CMsgRemoteClientPeerContentServerChanged)(nil),                    // 11: CMsgRemoteClientPeerContentServerChanged
+	(*CMsgRemoteClientDownloadingAppChanged)(nil),                       // 12: CMsgRemoteClientDownloadingAppChanged
+	(*CMsgRemoteClientSuspendLanPeerContent)(nil),                       // 13: CMsgRemoteClientSuspendLanPeerContent
+	(*CMsgRemoteClientDownloadScheduleChanged)(nil),                     // 14: CMsgRemoteClientDownloadScheduleChanged
+	(*CMsgRemoteClientDownloadScheduleItemChanged)(nil),                 // 15: CMsgRemoteClientDownloadScheduleItemChanged
+	(*CMsgRemoteClientAppUpdateStopped)(nil),                            // 16: CMsgRemoteClientAppUpdateStopped
+	(*CMsgRemoteClientAppUpdateInfoComplete)(nil),                       // 17: CMsgRemoteClientAppUpdateInfoComplete
+	(*CMsgRemoteClientDownloadingAppID)(nil),                            // 18: CMsgRemoteClientDownloadingAppID
+	(*CMsgRemoteClientStartStream)(nil),                                 // 19: CMsgRemoteClientStartStream
+	(*CMsgRemoteClientStartStreamResponse)(nil),                         // 20: CMsgRemoteClientStartStreamResponse
+	(*CMsgRemoteClientPing)(nil),                                        // 21: CMsgRemoteClientPing
+	(*CMsgRemoteClientPingResponse)(nil),                                // 22: CMsgRemoteClientPingResponse
+	(*CMsgRemoteClientAcceptEULA)(nil),                                  // 23: CMsgRemoteClientAcceptEULA
+	(*CMsgRemoteClientAcceptAllEULAs)(nil),                              // 24: CMsgRemoteClientAcceptAllEULAs
+	(*CMsgRemoteClientGetControllerConfig)(nil),                         // 25: CMsgRemoteClientGetControllerConfig
+	(*CMsgRemoteClientGetControllerConfigResponse)(nil),                 // 26: CMsgRemoteClientGetControllerConfigResponse
+	(*CMsgRemoteClientStreamingEnabled)(nil),                            // 27: CMsgRemoteClientStreamingEnabled
+	(*CMsgRemoteClientWifiAPStatus)(nil),                                // 28: CMsgRemoteClientWifiAPStatus
+	(*CMsgRemoteClientPairWifiAP)(nil),                                  // 29: CMsgRemoteClientPairWifiAP
+	(*CMsgRemoteClientPairWifiAPResponse)(nil),                          // 30: CMsgRemoteClientPairWifiAPResponse
+	(*CMsgRemoteClientAppStatus_AppStatus)(nil),                         // 31: CMsgRemoteClientAppStatus.AppStatus
+	(*CMsgRemoteClientAppStatus_ShortcutInfo)(nil),                      // 32: CMsgRemoteClientAppStatus.ShortcutInfo
+	(*CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement)(nil), // 33: CMsgRemoteClientDownloadsManagement.ChangeAppQueuePlacement
+	(*CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex)(nil),     // 34: CMsgRemoteClientDownloadsManagement.ChangeDownloadIndex
+	(*CMsgRemoteClientStartStream_ReservedGamepad)(nil),                 // 35: CMsgRemoteClientStartStream.ReservedGamepad
+	(*CMsgRemoteClientBroadcastStatus)(nil),                             // 36: CMsgRemoteClientBroadcastStatus
+	(EStreamTransport)(0),                                               // 37: EStreamTransport
 }
 var file_steammessages_remoteclient_proto_depIdxs = []int32{
-	18, // 0: CMsgRemoteClientStatus.status:type_name -> CMsgRemoteClientBroadcastStatus
-	16, // 1: CMsgRemoteClientAppStatus.status_updates:type_name -> CMsgRemoteClientAppStatus.AppStatus
-	17, // 2: CMsgRemoteClientStartStream.gamepads:type_name -> CMsgRemoteClientStartStream.ReservedGamepad
-	19, // 3: CMsgRemoteClientStartStream.supported_transport:type_name -> EStreamTransport
-	19, // 4: CMsgRemoteClientStartStreamResponse.transport:type_name -> EStreamTransport
-	14, // 5: CMsgRemoteClientAppStatus.AppStatus.update_info:type_name -> CMsgRemoteClientAppStatus.AppUpdateInfo
-	15, // 6: CMsgRemoteClientAppStatus.AppStatus.shortcut_info:type_name -> CMsgRemoteClientAppStatus.ShortcutInfo
-	7,  // [7:7] is the sub-list for method output_type
-	7,  // [7:7] is the sub-list for method input_type
-	7,  // [7:7] is the sub-list for extension type_name
-	7,  // [7:7] is the sub-list for extension extendee
-	0,  // [0:7] is the sub-list for field type_name
+	36, // 0: CMsgRemoteClientStatus.status:type_name -> CMsgRemoteClientBroadcastStatus
+	5,  // 1: AppUpdateInfo.progress_weights:type_name -> AppStageProgress
+	31, // 2: CMsgRemoteClientAppStatus.status_updates:type_name -> CMsgRemoteClientAppStatus.AppStatus
+	33, // 3: CMsgRemoteClientDownloadsManagement.change_queue_placement:type_name -> CMsgRemoteClientDownloadsManagement.ChangeAppQueuePlacement
+	34, // 4: CMsgRemoteClientDownloadsManagement.change_download_index:type_name -> CMsgRemoteClientDownloadsManagement.ChangeDownloadIndex
+	6,  // 5: CMsgRemoteClientAppUpdateStopped.update_info:type_name -> AppUpdateInfo
+	6,  // 6: CMsgRemoteClientDownloadingAppID.update_info:type_name -> AppUpdateInfo
+	35, // 7: CMsgRemoteClientStartStream.gamepads:type_name -> CMsgRemoteClientStartStream.ReservedGamepad
+	37, // 8: CMsgRemoteClientStartStream.supported_transport:type_name -> EStreamTransport
+	37, // 9: CMsgRemoteClientStartStreamResponse.transport:type_name -> EStreamTransport
+	6,  // 10: CMsgRemoteClientAppStatus.AppStatus.update_info:type_name -> AppUpdateInfo
+	32, // 11: CMsgRemoteClientAppStatus.AppStatus.shortcut_info:type_name -> CMsgRemoteClientAppStatus.ShortcutInfo
+	7,  // 12: CMsgRemoteClientAppStatus.AppStatus.cloud_status:type_name -> AppCloudStatus
+	13, // [13:13] is the sub-list for method output_type
+	13, // [13:13] is the sub-list for method input_type
+	13, // [13:13] is the sub-list for extension type_name
+	13, // [13:13] is the sub-list for extension extendee
+	0,  // [0:13] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_remoteclient_proto_init() }
@@ -1409,7 +2748,7 @@ func file_steammessages_remoteclient_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_remoteclient_proto_rawDesc), len(file_steammessages_remoteclient_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   17,
+			NumMessages:   35,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

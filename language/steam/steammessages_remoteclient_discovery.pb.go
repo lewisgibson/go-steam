@@ -39,6 +39,8 @@ const (
 	ERemoteClientBroadcastMsg_k_ERemoteDeviceStreamTransportSignal          ERemoteClientBroadcastMsg = 12
 	ERemoteClientBroadcastMsg_k_ERemoteDeviceStreamingProgress              ERemoteClientBroadcastMsg = 13
 	ERemoteClientBroadcastMsg_k_ERemoteDeviceAuthorizationConfirmed         ERemoteClientBroadcastMsg = 14
+	ERemoteClientBroadcastMsg_k_ERemoteClientBroadcastMsgPairingState       ERemoteClientBroadcastMsg = 15
+	ERemoteClientBroadcastMsg_k_ERemoteClientBroadcastMsgPairingExclusivity ERemoteClientBroadcastMsg = 16
 )
 
 // Enum value maps for ERemoteClientBroadcastMsg.
@@ -59,6 +61,8 @@ var (
 		12: "k_ERemoteDeviceStreamTransportSignal",
 		13: "k_ERemoteDeviceStreamingProgress",
 		14: "k_ERemoteDeviceAuthorizationConfirmed",
+		15: "k_ERemoteClientBroadcastMsgPairingState",
+		16: "k_ERemoteClientBroadcastMsgPairingExclusivity",
 	}
 	ERemoteClientBroadcastMsg_value = map[string]int32{
 		"k_ERemoteClientBroadcastMsgDiscovery":          0,
@@ -76,6 +80,8 @@ var (
 		"k_ERemoteDeviceStreamTransportSignal":          12,
 		"k_ERemoteDeviceStreamingProgress":              13,
 		"k_ERemoteDeviceAuthorizationConfirmed":         14,
+		"k_ERemoteClientBroadcastMsgPairingState":       15,
+		"k_ERemoteClientBroadcastMsgPairingExclusivity": 16,
 	}
 )
 
@@ -119,12 +125,13 @@ func (ERemoteClientBroadcastMsg) EnumDescriptor() ([]byte, []int) {
 type ERemoteClientService int32
 
 const (
-	ERemoteClientService_k_ERemoteClientServiceNone          ERemoteClientService = 0
-	ERemoteClientService_k_ERemoteClientServiceRemoteControl ERemoteClientService = 1
-	ERemoteClientService_k_ERemoteClientServiceGameStreaming ERemoteClientService = 2
-	ERemoteClientService_k_ERemoteClientServiceSiteLicense   ERemoteClientService = 4
-	ERemoteClientService_k_ERemoteClientServiceContentCache  ERemoteClientService = 8
-	ERemoteClientService_k_ERemoteClientServiceContentServer ERemoteClientService = 16
+	ERemoteClientService_k_ERemoteClientServiceNone            ERemoteClientService = 0
+	ERemoteClientService_k_ERemoteClientServiceRemoteControl   ERemoteClientService = 1
+	ERemoteClientService_k_ERemoteClientServiceGameStreaming   ERemoteClientService = 2
+	ERemoteClientService_k_ERemoteClientServiceSiteLicense     ERemoteClientService = 4
+	ERemoteClientService_k_ERemoteClientServiceContentCache    ERemoteClientService = 8
+	ERemoteClientService_k_ERemoteClientServiceContentServer   ERemoteClientService = 16
+	ERemoteClientService_k_ERemoteClientServiceManageDownloads ERemoteClientService = 32
 )
 
 // Enum value maps for ERemoteClientService.
@@ -136,14 +143,16 @@ var (
 		4:  "k_ERemoteClientServiceSiteLicense",
 		8:  "k_ERemoteClientServiceContentCache",
 		16: "k_ERemoteClientServiceContentServer",
+		32: "k_ERemoteClientServiceManageDownloads",
 	}
 	ERemoteClientService_value = map[string]int32{
-		"k_ERemoteClientServiceNone":          0,
-		"k_ERemoteClientServiceRemoteControl": 1,
-		"k_ERemoteClientServiceGameStreaming": 2,
-		"k_ERemoteClientServiceSiteLicense":   4,
-		"k_ERemoteClientServiceContentCache":  8,
-		"k_ERemoteClientServiceContentServer": 16,
+		"k_ERemoteClientServiceNone":            0,
+		"k_ERemoteClientServiceRemoteControl":   1,
+		"k_ERemoteClientServiceGameStreaming":   2,
+		"k_ERemoteClientServiceSiteLicense":     4,
+		"k_ERemoteClientServiceContentCache":    8,
+		"k_ERemoteClientServiceContentServer":   16,
+		"k_ERemoteClientServiceManageDownloads": 32,
 	}
 )
 
@@ -394,13 +403,13 @@ func (EStreamDeviceFormFactor) EnumDescriptor() ([]byte, []int) {
 type EStreamTransport int32
 
 const (
-	EStreamTransport_k_EStreamTransportNone            EStreamTransport = 0
-	EStreamTransport_k_EStreamTransportUDP             EStreamTransport = 1
-	EStreamTransport_k_EStreamTransportUDPRelay        EStreamTransport = 2
-	EStreamTransport_k_EStreamTransportWebRTC_OBSOLETE EStreamTransport = 3
-	EStreamTransport_k_EStreamTransportSDR             EStreamTransport = 4
-	EStreamTransport_k_EStreamTransportUDP_SNS         EStreamTransport = 5
-	EStreamTransport_k_EStreamTransportUDPRelay_SNS    EStreamTransport = 6
+	EStreamTransport_k_EStreamTransportNone                  EStreamTransport = 0
+	EStreamTransport_k_EStreamTransportUDP                   EStreamTransport = 1
+	EStreamTransport_k_EStreamTransportUDPRelay_OBSOLETE     EStreamTransport = 2
+	EStreamTransport_k_EStreamTransportWebRTC_OBSOLETE       EStreamTransport = 3
+	EStreamTransport_k_EStreamTransportSDR                   EStreamTransport = 4
+	EStreamTransport_k_EStreamTransportUDP_SNS               EStreamTransport = 5
+	EStreamTransport_k_EStreamTransportUDPRelay_SNS_OBSOLETE EStreamTransport = 6
 )
 
 // Enum value maps for EStreamTransport.
@@ -408,20 +417,20 @@ var (
 	EStreamTransport_name = map[int32]string{
 		0: "k_EStreamTransportNone",
 		1: "k_EStreamTransportUDP",
-		2: "k_EStreamTransportUDPRelay",
+		2: "k_EStreamTransportUDPRelay_OBSOLETE",
 		3: "k_EStreamTransportWebRTC_OBSOLETE",
 		4: "k_EStreamTransportSDR",
 		5: "k_EStreamTransportUDP_SNS",
-		6: "k_EStreamTransportUDPRelay_SNS",
+		6: "k_EStreamTransportUDPRelay_SNS_OBSOLETE",
 	}
 	EStreamTransport_value = map[string]int32{
-		"k_EStreamTransportNone":            0,
-		"k_EStreamTransportUDP":             1,
-		"k_EStreamTransportUDPRelay":        2,
-		"k_EStreamTransportWebRTC_OBSOLETE": 3,
-		"k_EStreamTransportSDR":             4,
-		"k_EStreamTransportUDP_SNS":         5,
-		"k_EStreamTransportUDPRelay_SNS":    6,
+		"k_EStreamTransportNone":                  0,
+		"k_EStreamTransportUDP":                   1,
+		"k_EStreamTransportUDPRelay_OBSOLETE":     2,
+		"k_EStreamTransportWebRTC_OBSOLETE":       3,
+		"k_EStreamTransportSDR":                   4,
+		"k_EStreamTransportUDP_SNS":               5,
+		"k_EStreamTransportUDPRelay_SNS_OBSOLETE": 6,
 	}
 )
 
@@ -788,6 +797,8 @@ type CMsgRemoteClientBroadcastStatus struct {
 	VrLinkInviteClientId       *uint64                                 `protobuf:"fixed64,27,opt,name=vr_link_invite_client_id,json=vrLinkInviteClientId" json:"vr_link_invite_client_id,omitempty"`
 	ConnectedPairedNetworkHash *uint64                                 `protobuf:"fixed64,28,opt,name=connected_paired_network_hash,json=connectedPairedNetworkHash" json:"connected_paired_network_hash,omitempty"`
 	WifiDonglePresent          *bool                                   `protobuf:"varint,29,opt,name=wifi_dongle_present,json=wifiDonglePresent" json:"wifi_dongle_present,omitempty"`
+	IsLowSpecHardware          *bool                                   `protobuf:"varint,30,opt,name=is_low_spec_hardware,json=isLowSpecHardware" json:"is_low_spec_hardware,omitempty"`
+	GamingDeviceType           *uint32                                 `protobuf:"varint,31,opt,name=gaming_device_type,json=gamingDeviceType" json:"gaming_device_type,omitempty"`
 	unknownFields              protoimpl.UnknownFields
 	sizeCache                  protoimpl.SizeCache
 }
@@ -1015,6 +1026,20 @@ func (x *CMsgRemoteClientBroadcastStatus) GetWifiDonglePresent() bool {
 		return *x.WifiDonglePresent
 	}
 	return false
+}
+
+func (x *CMsgRemoteClientBroadcastStatus) GetIsLowSpecHardware() bool {
+	if x != nil && x.IsLowSpecHardware != nil {
+		return *x.IsLowSpecHardware
+	}
+	return false
+}
+
+func (x *CMsgRemoteClientBroadcastStatus) GetGamingDeviceType() uint32 {
+	if x != nil && x.GamingDeviceType != nil {
+		return *x.GamingDeviceType
+	}
+	return 0
 }
 
 type CMsgRemoteClientBroadcastDiscovery struct {
@@ -1347,30 +1372,145 @@ func (x *CMsgRemoteDeviceAuthorizationConfirmed) GetResult() ERemoteDeviceAuthor
 	return Default_CMsgRemoteDeviceAuthorizationConfirmed_Result
 }
 
+type CMsgRemoteClientBroadcastClientPairingState struct {
+	state               protoimpl.MessageState `protogen:"open.v1"`
+	MyPairedNetworkHash *uint64                `protobuf:"fixed64,1,opt,name=my_paired_network_hash,json=myPairedNetworkHash" json:"my_paired_network_hash,omitempty"`
+	MyPairingTime       *uint32                `protobuf:"varint,2,opt,name=my_pairing_time,json=myPairingTime" json:"my_pairing_time,omitempty"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
+}
+
+func (x *CMsgRemoteClientBroadcastClientPairingState) Reset() {
+	*x = CMsgRemoteClientBroadcastClientPairingState{}
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientBroadcastClientPairingState) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientBroadcastClientPairingState) ProtoMessage() {}
+
+func (x *CMsgRemoteClientBroadcastClientPairingState) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientBroadcastClientPairingState.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientBroadcastClientPairingState) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_discovery_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *CMsgRemoteClientBroadcastClientPairingState) GetMyPairedNetworkHash() uint64 {
+	if x != nil && x.MyPairedNetworkHash != nil {
+		return *x.MyPairedNetworkHash
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientBroadcastClientPairingState) GetMyPairingTime() uint32 {
+	if x != nil && x.MyPairingTime != nil {
+		return *x.MyPairingTime
+	}
+	return 0
+}
+
+type CMsgRemoteClientBroadcastClientPairingExclusivity struct {
+	state                      protoimpl.MessageState `protogen:"open.v1"`
+	IfPairedNetworkHashIs      *uint64                `protobuf:"fixed64,1,opt,name=if_paired_network_hash_is,json=ifPairedNetworkHashIs" json:"if_paired_network_hash_is,omitempty"`
+	UnpairUnlessYouAreClientId *uint64                `protobuf:"fixed64,2,opt,name=unpair_unless_you_are_client_id,json=unpairUnlessYouAreClientId" json:"unpair_unless_you_are_client_id,omitempty"`
+	LastKnownPairingTime       *uint32                `protobuf:"varint,3,opt,name=last_known_pairing_time,json=lastKnownPairingTime" json:"last_known_pairing_time,omitempty"`
+	unknownFields              protoimpl.UnknownFields
+	sizeCache                  protoimpl.SizeCache
+}
+
+func (x *CMsgRemoteClientBroadcastClientPairingExclusivity) Reset() {
+	*x = CMsgRemoteClientBroadcastClientPairingExclusivity{}
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientBroadcastClientPairingExclusivity) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientBroadcastClientPairingExclusivity) ProtoMessage() {}
+
+func (x *CMsgRemoteClientBroadcastClientPairingExclusivity) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientBroadcastClientPairingExclusivity.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientBroadcastClientPairingExclusivity) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_discovery_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *CMsgRemoteClientBroadcastClientPairingExclusivity) GetIfPairedNetworkHashIs() uint64 {
+	if x != nil && x.IfPairedNetworkHashIs != nil {
+		return *x.IfPairedNetworkHashIs
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientBroadcastClientPairingExclusivity) GetUnpairUnlessYouAreClientId() uint64 {
+	if x != nil && x.UnpairUnlessYouAreClientId != nil {
+		return *x.UnpairUnlessYouAreClientId
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientBroadcastClientPairingExclusivity) GetLastKnownPairingTime() uint32 {
+	if x != nil && x.LastKnownPairingTime != nil {
+		return *x.LastKnownPairingTime
+	}
+	return 0
+}
+
 type CMsgRemoteDeviceStreamingRequest struct {
-	state                protoimpl.MessageState                              `protogen:"open.v1"`
-	RequestId            *uint32                                             `protobuf:"varint,1,req,name=request_id,json=requestId" json:"request_id,omitempty"`
-	MaximumResolutionX   *int32                                              `protobuf:"varint,2,opt,name=maximum_resolution_x,json=maximumResolutionX" json:"maximum_resolution_x,omitempty"`
-	MaximumResolutionY   *int32                                              `protobuf:"varint,3,opt,name=maximum_resolution_y,json=maximumResolutionY" json:"maximum_resolution_y,omitempty"`
-	AudioChannelCount    *int32                                              `protobuf:"varint,4,opt,name=audio_channel_count,json=audioChannelCount,def=2" json:"audio_channel_count,omitempty"`
-	DeviceVersion        *string                                             `protobuf:"bytes,5,opt,name=device_version,json=deviceVersion" json:"device_version,omitempty"`
-	StreamDesktop        *bool                                               `protobuf:"varint,6,opt,name=stream_desktop,json=streamDesktop" json:"stream_desktop,omitempty"`
-	DeviceToken          []byte                                              `protobuf:"bytes,7,opt,name=device_token,json=deviceToken" json:"device_token,omitempty"`
-	Pin                  []byte                                              `protobuf:"bytes,8,opt,name=pin" json:"pin,omitempty"`
-	EnableVideoStreaming *bool                                               `protobuf:"varint,9,opt,name=enable_video_streaming,json=enableVideoStreaming,def=1" json:"enable_video_streaming,omitempty"`
-	EnableAudioStreaming *bool                                               `protobuf:"varint,10,opt,name=enable_audio_streaming,json=enableAudioStreaming,def=1" json:"enable_audio_streaming,omitempty"`
-	EnableInputStreaming *bool                                               `protobuf:"varint,11,opt,name=enable_input_streaming,json=enableInputStreaming,def=1" json:"enable_input_streaming,omitempty"`
-	NetworkTest          *bool                                               `protobuf:"varint,12,opt,name=network_test,json=networkTest" json:"network_test,omitempty"`
-	ClientId             *uint64                                             `protobuf:"varint,13,opt,name=client_id,json=clientId" json:"client_id,omitempty"`
-	SupportedTransport   []EStreamTransport                                  `protobuf:"varint,14,rep,name=supported_transport,json=supportedTransport,enum=EStreamTransport" json:"supported_transport,omitempty"`
-	Restricted           *bool                                               `protobuf:"varint,15,opt,name=restricted" json:"restricted,omitempty"`
-	FormFactor           *EStreamDeviceFormFactor                            `protobuf:"varint,16,opt,name=form_factor,json=formFactor,enum=EStreamDeviceFormFactor,def=0" json:"form_factor,omitempty"`
-	GamepadCount         *int32                                              `protobuf:"varint,17,opt,name=gamepad_count,json=gamepadCount" json:"gamepad_count,omitempty"`
-	Gamepads             []*CMsgRemoteDeviceStreamingRequest_ReservedGamepad `protobuf:"bytes,18,rep,name=gamepads" json:"gamepads,omitempty"`
-	Gameid               *uint64                                             `protobuf:"varint,19,opt,name=gameid" json:"gameid,omitempty"`
-	StreamInterface      *EStreamInterface                                   `protobuf:"varint,20,opt,name=stream_interface,json=streamInterface,enum=EStreamInterface,def=0" json:"stream_interface,omitempty"`
-	unknownFields        protoimpl.UnknownFields
-	sizeCache            protoimpl.SizeCache
+	state                       protoimpl.MessageState                              `protogen:"open.v1"`
+	RequestId                   *uint32                                             `protobuf:"varint,1,req,name=request_id,json=requestId" json:"request_id,omitempty"`
+	MaximumResolutionX          *int32                                              `protobuf:"varint,2,opt,name=maximum_resolution_x,json=maximumResolutionX" json:"maximum_resolution_x,omitempty"`
+	MaximumResolutionY          *int32                                              `protobuf:"varint,3,opt,name=maximum_resolution_y,json=maximumResolutionY" json:"maximum_resolution_y,omitempty"`
+	AudioChannelCount           *int32                                              `protobuf:"varint,4,opt,name=audio_channel_count,json=audioChannelCount,def=2" json:"audio_channel_count,omitempty"`
+	DeviceVersion               *string                                             `protobuf:"bytes,5,opt,name=device_version,json=deviceVersion" json:"device_version,omitempty"`
+	StreamDesktop               *bool                                               `protobuf:"varint,6,opt,name=stream_desktop,json=streamDesktop" json:"stream_desktop,omitempty"`
+	DeviceToken                 []byte                                              `protobuf:"bytes,7,opt,name=device_token,json=deviceToken" json:"device_token,omitempty"`
+	Pin                         []byte                                              `protobuf:"bytes,8,opt,name=pin" json:"pin,omitempty"`
+	EnableVideoStreaming        *bool                                               `protobuf:"varint,9,opt,name=enable_video_streaming,json=enableVideoStreaming,def=1" json:"enable_video_streaming,omitempty"`
+	EnableAudioStreaming        *bool                                               `protobuf:"varint,10,opt,name=enable_audio_streaming,json=enableAudioStreaming,def=1" json:"enable_audio_streaming,omitempty"`
+	EnableInputStreaming        *bool                                               `protobuf:"varint,11,opt,name=enable_input_streaming,json=enableInputStreaming,def=1" json:"enable_input_streaming,omitempty"`
+	NetworkTest                 *bool                                               `protobuf:"varint,12,opt,name=network_test,json=networkTest" json:"network_test,omitempty"`
+	ClientId                    *uint64                                             `protobuf:"varint,13,opt,name=client_id,json=clientId" json:"client_id,omitempty"`
+	SupportedTransport          []EStreamTransport                                  `protobuf:"varint,14,rep,name=supported_transport,json=supportedTransport,enum=EStreamTransport" json:"supported_transport,omitempty"`
+	Restricted                  *bool                                               `protobuf:"varint,15,opt,name=restricted" json:"restricted,omitempty"`
+	FormFactor                  *EStreamDeviceFormFactor                            `protobuf:"varint,16,opt,name=form_factor,json=formFactor,enum=EStreamDeviceFormFactor,def=0" json:"form_factor,omitempty"`
+	GamepadCount                *int32                                              `protobuf:"varint,17,opt,name=gamepad_count,json=gamepadCount" json:"gamepad_count,omitempty"`
+	Gamepads                    []*CMsgRemoteDeviceStreamingRequest_ReservedGamepad `protobuf:"bytes,18,rep,name=gamepads" json:"gamepads,omitempty"`
+	Gameid                      *uint64                                             `protobuf:"varint,19,opt,name=gameid" json:"gameid,omitempty"`
+	StreamInterface             *EStreamInterface                                   `protobuf:"varint,20,opt,name=stream_interface,json=streamInterface,enum=EStreamInterface,def=0" json:"stream_interface,omitempty"`
+	MaximumFramerateNumerator   *int32                                              `protobuf:"varint,21,opt,name=maximum_framerate_numerator,json=maximumFramerateNumerator" json:"maximum_framerate_numerator,omitempty"`
+	MaximumFramerateDenominator *int32                                              `protobuf:"varint,22,opt,name=maximum_framerate_denominator,json=maximumFramerateDenominator" json:"maximum_framerate_denominator,omitempty"`
+	DisplayHdr                  *bool                                               `protobuf:"varint,23,opt,name=display_hdr,json=displayHdr" json:"display_hdr,omitempty"`
+	unknownFields               protoimpl.UnknownFields
+	sizeCache                   protoimpl.SizeCache
 }
 
 // Default values for CMsgRemoteDeviceStreamingRequest fields.
@@ -1385,7 +1525,7 @@ const (
 
 func (x *CMsgRemoteDeviceStreamingRequest) Reset() {
 	*x = CMsgRemoteDeviceStreamingRequest{}
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[8]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1397,7 +1537,7 @@ func (x *CMsgRemoteDeviceStreamingRequest) String() string {
 func (*CMsgRemoteDeviceStreamingRequest) ProtoMessage() {}
 
 func (x *CMsgRemoteDeviceStreamingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[8]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1410,7 +1550,7 @@ func (x *CMsgRemoteDeviceStreamingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteDeviceStreamingRequest.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteDeviceStreamingRequest) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_discovery_proto_rawDescGZIP(), []int{8}
+	return file_steammessages_remoteclient_discovery_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *CMsgRemoteDeviceStreamingRequest) GetRequestId() uint32 {
@@ -1553,6 +1693,27 @@ func (x *CMsgRemoteDeviceStreamingRequest) GetStreamInterface() EStreamInterface
 	return Default_CMsgRemoteDeviceStreamingRequest_StreamInterface
 }
 
+func (x *CMsgRemoteDeviceStreamingRequest) GetMaximumFramerateNumerator() int32 {
+	if x != nil && x.MaximumFramerateNumerator != nil {
+		return *x.MaximumFramerateNumerator
+	}
+	return 0
+}
+
+func (x *CMsgRemoteDeviceStreamingRequest) GetMaximumFramerateDenominator() int32 {
+	if x != nil && x.MaximumFramerateDenominator != nil {
+		return *x.MaximumFramerateDenominator
+	}
+	return 0
+}
+
+func (x *CMsgRemoteDeviceStreamingRequest) GetDisplayHdr() bool {
+	if x != nil && x.DisplayHdr != nil {
+		return *x.DisplayHdr
+	}
+	return false
+}
+
 type CMsgRemoteDeviceStreamingCancelRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RequestId     *uint32                `protobuf:"varint,1,req,name=request_id,json=requestId" json:"request_id,omitempty"`
@@ -1562,7 +1723,7 @@ type CMsgRemoteDeviceStreamingCancelRequest struct {
 
 func (x *CMsgRemoteDeviceStreamingCancelRequest) Reset() {
 	*x = CMsgRemoteDeviceStreamingCancelRequest{}
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[9]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1574,7 +1735,7 @@ func (x *CMsgRemoteDeviceStreamingCancelRequest) String() string {
 func (*CMsgRemoteDeviceStreamingCancelRequest) ProtoMessage() {}
 
 func (x *CMsgRemoteDeviceStreamingCancelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[9]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1587,7 +1748,7 @@ func (x *CMsgRemoteDeviceStreamingCancelRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CMsgRemoteDeviceStreamingCancelRequest.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteDeviceStreamingCancelRequest) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_discovery_proto_rawDescGZIP(), []int{9}
+	return file_steammessages_remoteclient_discovery_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *CMsgRemoteDeviceStreamingCancelRequest) GetRequestId() uint32 {
@@ -1607,7 +1768,7 @@ type CMsgRemoteDeviceStreamingProgress struct {
 
 func (x *CMsgRemoteDeviceStreamingProgress) Reset() {
 	*x = CMsgRemoteDeviceStreamingProgress{}
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[10]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1619,7 +1780,7 @@ func (x *CMsgRemoteDeviceStreamingProgress) String() string {
 func (*CMsgRemoteDeviceStreamingProgress) ProtoMessage() {}
 
 func (x *CMsgRemoteDeviceStreamingProgress) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[10]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1632,7 +1793,7 @@ func (x *CMsgRemoteDeviceStreamingProgress) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CMsgRemoteDeviceStreamingProgress.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteDeviceStreamingProgress) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_discovery_proto_rawDescGZIP(), []int{10}
+	return file_steammessages_remoteclient_discovery_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *CMsgRemoteDeviceStreamingProgress) GetRequestId() uint32 {
@@ -1670,7 +1831,7 @@ const (
 
 func (x *CMsgRemoteDeviceStreamingResponse) Reset() {
 	*x = CMsgRemoteDeviceStreamingResponse{}
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[11]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1682,7 +1843,7 @@ func (x *CMsgRemoteDeviceStreamingResponse) String() string {
 func (*CMsgRemoteDeviceStreamingResponse) ProtoMessage() {}
 
 func (x *CMsgRemoteDeviceStreamingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[11]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1695,7 +1856,7 @@ func (x *CMsgRemoteDeviceStreamingResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CMsgRemoteDeviceStreamingResponse.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteDeviceStreamingResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_discovery_proto_rawDescGZIP(), []int{11}
+	return file_steammessages_remoteclient_discovery_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *CMsgRemoteDeviceStreamingResponse) GetRequestId() uint32 {
@@ -1758,7 +1919,7 @@ type CMsgRemoteDeviceProofRequest struct {
 
 func (x *CMsgRemoteDeviceProofRequest) Reset() {
 	*x = CMsgRemoteDeviceProofRequest{}
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[12]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1770,7 +1931,7 @@ func (x *CMsgRemoteDeviceProofRequest) String() string {
 func (*CMsgRemoteDeviceProofRequest) ProtoMessage() {}
 
 func (x *CMsgRemoteDeviceProofRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[12]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1783,7 +1944,7 @@ func (x *CMsgRemoteDeviceProofRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteDeviceProofRequest.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteDeviceProofRequest) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_discovery_proto_rawDescGZIP(), []int{12}
+	return file_steammessages_remoteclient_discovery_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CMsgRemoteDeviceProofRequest) GetChallenge() []byte {
@@ -1818,7 +1979,7 @@ type CMsgRemoteDeviceProofResponse struct {
 
 func (x *CMsgRemoteDeviceProofResponse) Reset() {
 	*x = CMsgRemoteDeviceProofResponse{}
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[13]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1830,7 +1991,7 @@ func (x *CMsgRemoteDeviceProofResponse) String() string {
 func (*CMsgRemoteDeviceProofResponse) ProtoMessage() {}
 
 func (x *CMsgRemoteDeviceProofResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[13]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1843,7 +2004,7 @@ func (x *CMsgRemoteDeviceProofResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteDeviceProofResponse.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteDeviceProofResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_discovery_proto_rawDescGZIP(), []int{13}
+	return file_steammessages_remoteclient_discovery_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *CMsgRemoteDeviceProofResponse) GetResponse() []byte {
@@ -1877,7 +2038,7 @@ type CMsgRemoteDeviceStreamTransportSignal struct {
 
 func (x *CMsgRemoteDeviceStreamTransportSignal) Reset() {
 	*x = CMsgRemoteDeviceStreamTransportSignal{}
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[14]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1889,7 +2050,7 @@ func (x *CMsgRemoteDeviceStreamTransportSignal) String() string {
 func (*CMsgRemoteDeviceStreamTransportSignal) ProtoMessage() {}
 
 func (x *CMsgRemoteDeviceStreamTransportSignal) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[14]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1902,7 +2063,7 @@ func (x *CMsgRemoteDeviceStreamTransportSignal) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CMsgRemoteDeviceStreamTransportSignal.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteDeviceStreamTransportSignal) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_discovery_proto_rawDescGZIP(), []int{14}
+	return file_steammessages_remoteclient_discovery_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *CMsgRemoteDeviceStreamTransportSignal) GetToken() []byte {
@@ -1929,7 +2090,7 @@ type CMsgRemoteClientBroadcastStatus_User struct {
 
 func (x *CMsgRemoteClientBroadcastStatus_User) Reset() {
 	*x = CMsgRemoteClientBroadcastStatus_User{}
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[15]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1941,7 +2102,7 @@ func (x *CMsgRemoteClientBroadcastStatus_User) String() string {
 func (*CMsgRemoteClientBroadcastStatus_User) ProtoMessage() {}
 
 func (x *CMsgRemoteClientBroadcastStatus_User) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[15]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1993,7 +2154,7 @@ const (
 
 func (x *CMsgRemoteDeviceAuthorizationRequest_CKeyEscrow_Ticket) Reset() {
 	*x = CMsgRemoteDeviceAuthorizationRequest_CKeyEscrow_Ticket{}
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[16]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2005,7 +2166,7 @@ func (x *CMsgRemoteDeviceAuthorizationRequest_CKeyEscrow_Ticket) String() string
 func (*CMsgRemoteDeviceAuthorizationRequest_CKeyEscrow_Ticket) ProtoMessage() {}
 
 func (x *CMsgRemoteDeviceAuthorizationRequest_CKeyEscrow_Ticket) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[16]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2094,7 +2255,7 @@ type CMsgRemoteDeviceStreamingRequest_ReservedGamepad struct {
 
 func (x *CMsgRemoteDeviceStreamingRequest_ReservedGamepad) Reset() {
 	*x = CMsgRemoteDeviceStreamingRequest_ReservedGamepad{}
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[17]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2106,7 +2267,7 @@ func (x *CMsgRemoteDeviceStreamingRequest_ReservedGamepad) String() string {
 func (*CMsgRemoteDeviceStreamingRequest_ReservedGamepad) ProtoMessage() {}
 
 func (x *CMsgRemoteDeviceStreamingRequest_ReservedGamepad) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[17]
+	mi := &file_steammessages_remoteclient_discovery_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2119,7 +2280,7 @@ func (x *CMsgRemoteDeviceStreamingRequest_ReservedGamepad) ProtoReflect() protor
 
 // Deprecated: Use CMsgRemoteDeviceStreamingRequest_ReservedGamepad.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteDeviceStreamingRequest_ReservedGamepad) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_discovery_proto_rawDescGZIP(), []int{8, 0}
+	return file_steammessages_remoteclient_discovery_proto_rawDescGZIP(), []int{10, 0}
 }
 
 func (x *CMsgRemoteDeviceStreamingRequest_ReservedGamepad) GetControllerType() uint32 {
@@ -2147,7 +2308,8 @@ const file_steammessages_remoteclient_discovery_proto_rawDesc = "" +
 	"\vinstance_id\x18\x03 \x01(\x04R\n" +
 	"instanceId\x12,\n" +
 	"\x12device_id_OBSOLETE\x18\x04 \x01(\x04R\x10deviceIdOBSOLETE\x12!\n" +
-	"\fdevice_token\x18\x05 \x01(\fR\vdeviceToken\"\xb8\t\n" +
+	"\fdevice_token\x18\x05 \x01(\fR\vdeviceToken\"\x97\n" +
+	"\n" +
 	"\x1fCMsgRemoteClientBroadcastStatus\x12\x18\n" +
 	"\aversion\x18\x01 \x01(\x05R\aversion\x12\x1f\n" +
 	"\vmin_version\x18\x02 \x01(\x05R\n" +
@@ -2178,7 +2340,9 @@ const file_steammessages_remoteclient_discovery_proto_rawDesc = "" +
 	"vrLinkCaps\x126\n" +
 	"\x18vr_link_invite_client_id\x18\x1b \x01(\x06R\x14vrLinkInviteClientId\x12A\n" +
 	"\x1dconnected_paired_network_hash\x18\x1c \x01(\x06R\x1aconnectedPairedNetworkHash\x12.\n" +
-	"\x13wifi_dongle_present\x18\x1d \x01(\bR\x11wifiDonglePresent\x1a@\n" +
+	"\x13wifi_dongle_present\x18\x1d \x01(\bR\x11wifiDonglePresent\x12/\n" +
+	"\x14is_low_spec_hardware\x18\x1e \x01(\bR\x11isLowSpecHardware\x12,\n" +
+	"\x12gaming_device_type\x18\x1f \x01(\rR\x10gamingDeviceType\x1a@\n" +
 	"\x04User\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12\x1e\n" +
 	"\vauth_key_id\x18\x02 \x01(\rR\tauthKeyId\"\\\n" +
@@ -2219,7 +2383,15 @@ const file_steammessages_remoteclient_discovery_proto_rawDesc = "" +
 	"\bauth_key\x18\x03 \x01(\fR\aauthKey\x12!\n" +
 	"\fdevice_token\x18\x04 \x01(\fR\vdeviceToken\"\x88\x01\n" +
 	"&CMsgRemoteDeviceAuthorizationConfirmed\x12^\n" +
-	"\x06result\x18\x01 \x02(\x0e2!.ERemoteDeviceAuthorizationResult:#k_ERemoteDeviceAuthorizationSuccessR\x06result\"\xe0\b\n" +
+	"\x06result\x18\x01 \x02(\x0e2!.ERemoteDeviceAuthorizationResult:#k_ERemoteDeviceAuthorizationSuccessR\x06result\"\x8a\x01\n" +
+	"+CMsgRemoteClientBroadcastClientPairingState\x123\n" +
+	"\x16my_paired_network_hash\x18\x01 \x01(\x06R\x13myPairedNetworkHash\x12&\n" +
+	"\x0fmy_pairing_time\x18\x02 \x01(\rR\rmyPairingTime\"\xe9\x01\n" +
+	"1CMsgRemoteClientBroadcastClientPairingExclusivity\x128\n" +
+	"\x19if_paired_network_hash_is\x18\x01 \x01(\x06R\x15ifPairedNetworkHashIs\x12C\n" +
+	"\x1funpair_unless_you_are_client_id\x18\x02 \x01(\x06R\x1aunpairUnlessYouAreClientId\x125\n" +
+	"\x17last_known_pairing_time\x18\x03 \x01(\rR\x14lastKnownPairingTime\"\x85\n" +
+	"\n" +
 	" CMsgRemoteDeviceStreamingRequest\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\x01 \x02(\rR\trequestId\x120\n" +
@@ -2245,7 +2417,11 @@ const file_steammessages_remoteclient_discovery_proto_rawDesc = "" +
 	"\rgamepad_count\x18\x11 \x01(\x05R\fgamepadCount\x12M\n" +
 	"\bgamepads\x18\x12 \x03(\v21.CMsgRemoteDeviceStreamingRequest.ReservedGamepadR\bgamepads\x12\x16\n" +
 	"\x06gameid\x18\x13 \x01(\x04R\x06gameid\x12W\n" +
-	"\x10stream_interface\x18\x14 \x01(\x0e2\x11.EStreamInterface:\x19k_EStreamInterfaceDefaultR\x0fstreamInterface\x1ai\n" +
+	"\x10stream_interface\x18\x14 \x01(\x0e2\x11.EStreamInterface:\x19k_EStreamInterfaceDefaultR\x0fstreamInterface\x12>\n" +
+	"\x1bmaximum_framerate_numerator\x18\x15 \x01(\x05R\x19maximumFramerateNumerator\x12B\n" +
+	"\x1dmaximum_framerate_denominator\x18\x16 \x01(\x05R\x1bmaximumFramerateDenominator\x12\x1f\n" +
+	"\vdisplay_hdr\x18\x17 \x01(\bR\n" +
+	"displayHdr\x1ai\n" +
 	"\x0fReservedGamepad\x12'\n" +
 	"\x0fcontroller_type\x18\x01 \x01(\rR\x0econtrollerType\x12-\n" +
 	"\x12controller_subtype\x18\x02 \x01(\rR\x11controllerSubtype\"G\n" +
@@ -2277,7 +2453,7 @@ const file_steammessages_remoteclient_discovery_proto_rawDesc = "" +
 	"\x0eupdated_secret\x18\x03 \x01(\bR\rupdatedSecret\"W\n" +
 	"%CMsgRemoteDeviceStreamTransportSignal\x12\x14\n" +
 	"\x05token\x18\x01 \x01(\fR\x05token\x12\x18\n" +
-	"\apayload\x18\x02 \x01(\fR\apayload*\xfd\x04\n" +
+	"\apayload\x18\x02 \x01(\fR\apayload*\xdd\x05\n" +
 	"\x19ERemoteClientBroadcastMsg\x12(\n" +
 	"$k_ERemoteClientBroadcastMsgDiscovery\x10\x00\x12%\n" +
 	"!k_ERemoteClientBroadcastMsgStatus\x10\x01\x12&\n" +
@@ -2294,14 +2470,17 @@ const file_steammessages_remoteclient_discovery_proto_rawDesc = "" +
 	"-k_ERemoteClientBroadcastMsgClientIDDeconflict\x10\v\x12(\n" +
 	"$k_ERemoteDeviceStreamTransportSignal\x10\f\x12$\n" +
 	" k_ERemoteDeviceStreamingProgress\x10\r\x12)\n" +
-	"%k_ERemoteDeviceAuthorizationConfirmed\x10\x0e*\x80\x02\n" +
+	"%k_ERemoteDeviceAuthorizationConfirmed\x10\x0e\x12+\n" +
+	"'k_ERemoteClientBroadcastMsgPairingState\x10\x0f\x121\n" +
+	"-k_ERemoteClientBroadcastMsgPairingExclusivity\x10\x10*\xab\x02\n" +
 	"\x14ERemoteClientService\x12\x1e\n" +
 	"\x1ak_ERemoteClientServiceNone\x10\x00\x12'\n" +
 	"#k_ERemoteClientServiceRemoteControl\x10\x01\x12'\n" +
 	"#k_ERemoteClientServiceGameStreaming\x10\x02\x12%\n" +
 	"!k_ERemoteClientServiceSiteLicense\x10\x04\x12&\n" +
 	"\"k_ERemoteClientServiceContentCache\x10\b\x12'\n" +
-	"#k_ERemoteClientServiceContentServer\x10\x10*\x8d\x01\n" +
+	"#k_ERemoteClientServiceContentServer\x10\x10\x12)\n" +
+	"%k_ERemoteClientServiceManageDownloads\x10 *\x8d\x01\n" +
 	"\vEVRLinkCaps\x12\x18\n" +
 	"\x14k_EVRLinkCapsUnknown\x10\x00\x12\x1a\n" +
 	"\x16k_EVRLinkCapsAvailable\x10\x01\x12\x1e\n" +
@@ -2323,15 +2502,15 @@ const file_steammessages_remoteclient_discovery_proto_rawDesc = "" +
 	"\x1fk_EStreamDeviceFormFactorTablet\x10\x02\x12%\n" +
 	"!k_EStreamDeviceFormFactorComputer\x10\x03\x12\x1f\n" +
 	"\x1bk_EStreamDeviceFormFactorTV\x10\x04\x12&\n" +
-	"\"k_EStreamDeviceFormFactorVRHeadset\x10\x05*\xee\x01\n" +
+	"\"k_EStreamDeviceFormFactorVRHeadset\x10\x05*\x80\x02\n" +
 	"\x10EStreamTransport\x12\x1a\n" +
 	"\x16k_EStreamTransportNone\x10\x00\x12\x19\n" +
-	"\x15k_EStreamTransportUDP\x10\x01\x12\x1e\n" +
-	"\x1ak_EStreamTransportUDPRelay\x10\x02\x12%\n" +
+	"\x15k_EStreamTransportUDP\x10\x01\x12'\n" +
+	"#k_EStreamTransportUDPRelay_OBSOLETE\x10\x02\x12%\n" +
 	"!k_EStreamTransportWebRTC_OBSOLETE\x10\x03\x12\x19\n" +
 	"\x15k_EStreamTransportSDR\x10\x04\x12\x1d\n" +
-	"\x19k_EStreamTransportUDP_SNS\x10\x05\x12\"\n" +
-	"\x1ek_EStreamTransportUDPRelay_SNS\x10\x06*\xb4\x01\n" +
+	"\x19k_EStreamTransportUDP_SNS\x10\x05\x12+\n" +
+	"'k_EStreamTransportUDPRelay_SNS_OBSOLETE\x10\x06*\xb4\x01\n" +
 	"\x10EStreamInterface\x12\x1d\n" +
 	"\x19k_EStreamInterfaceDefault\x10\x00\x12!\n" +
 	"\x1dk_EStreamInterfaceRecentGames\x10\x01\x12 \n" +
@@ -2370,7 +2549,7 @@ func file_steammessages_remoteclient_discovery_proto_rawDescGZIP() []byte {
 }
 
 var file_steammessages_remoteclient_discovery_proto_enumTypes = make([]protoimpl.EnumInfo, 9)
-var file_steammessages_remoteclient_discovery_proto_msgTypes = make([]protoimpl.MessageInfo, 18)
+var file_steammessages_remoteclient_discovery_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
 var file_steammessages_remoteclient_discovery_proto_goTypes = []any{
 	(ERemoteClientBroadcastMsg)(0),                                 // 0: ERemoteClientBroadcastMsg
 	(ERemoteClientService)(0),                                      // 1: ERemoteClientService
@@ -2389,26 +2568,28 @@ var file_steammessages_remoteclient_discovery_proto_goTypes = []any{
 	(*CMsgRemoteDeviceAuthorizationCancelRequest)(nil),             // 14: CMsgRemoteDeviceAuthorizationCancelRequest
 	(*CMsgRemoteDeviceAuthorizationResponse)(nil),                  // 15: CMsgRemoteDeviceAuthorizationResponse
 	(*CMsgRemoteDeviceAuthorizationConfirmed)(nil),                 // 16: CMsgRemoteDeviceAuthorizationConfirmed
-	(*CMsgRemoteDeviceStreamingRequest)(nil),                       // 17: CMsgRemoteDeviceStreamingRequest
-	(*CMsgRemoteDeviceStreamingCancelRequest)(nil),                 // 18: CMsgRemoteDeviceStreamingCancelRequest
-	(*CMsgRemoteDeviceStreamingProgress)(nil),                      // 19: CMsgRemoteDeviceStreamingProgress
-	(*CMsgRemoteDeviceStreamingResponse)(nil),                      // 20: CMsgRemoteDeviceStreamingResponse
-	(*CMsgRemoteDeviceProofRequest)(nil),                           // 21: CMsgRemoteDeviceProofRequest
-	(*CMsgRemoteDeviceProofResponse)(nil),                          // 22: CMsgRemoteDeviceProofResponse
-	(*CMsgRemoteDeviceStreamTransportSignal)(nil),                  // 23: CMsgRemoteDeviceStreamTransportSignal
-	(*CMsgRemoteClientBroadcastStatus_User)(nil),                   // 24: CMsgRemoteClientBroadcastStatus.User
-	(*CMsgRemoteDeviceAuthorizationRequest_CKeyEscrow_Ticket)(nil), // 25: CMsgRemoteDeviceAuthorizationRequest.CKeyEscrow_Ticket
-	(*CMsgRemoteDeviceStreamingRequest_ReservedGamepad)(nil),       // 26: CMsgRemoteDeviceStreamingRequest.ReservedGamepad
+	(*CMsgRemoteClientBroadcastClientPairingState)(nil),            // 17: CMsgRemoteClientBroadcastClientPairingState
+	(*CMsgRemoteClientBroadcastClientPairingExclusivity)(nil),      // 18: CMsgRemoteClientBroadcastClientPairingExclusivity
+	(*CMsgRemoteDeviceStreamingRequest)(nil),                       // 19: CMsgRemoteDeviceStreamingRequest
+	(*CMsgRemoteDeviceStreamingCancelRequest)(nil),                 // 20: CMsgRemoteDeviceStreamingCancelRequest
+	(*CMsgRemoteDeviceStreamingProgress)(nil),                      // 21: CMsgRemoteDeviceStreamingProgress
+	(*CMsgRemoteDeviceStreamingResponse)(nil),                      // 22: CMsgRemoteDeviceStreamingResponse
+	(*CMsgRemoteDeviceProofRequest)(nil),                           // 23: CMsgRemoteDeviceProofRequest
+	(*CMsgRemoteDeviceProofResponse)(nil),                          // 24: CMsgRemoteDeviceProofResponse
+	(*CMsgRemoteDeviceStreamTransportSignal)(nil),                  // 25: CMsgRemoteDeviceStreamTransportSignal
+	(*CMsgRemoteClientBroadcastStatus_User)(nil),                   // 26: CMsgRemoteClientBroadcastStatus.User
+	(*CMsgRemoteDeviceAuthorizationRequest_CKeyEscrow_Ticket)(nil), // 27: CMsgRemoteDeviceAuthorizationRequest.CKeyEscrow_Ticket
+	(*CMsgRemoteDeviceStreamingRequest_ReservedGamepad)(nil),       // 28: CMsgRemoteDeviceStreamingRequest.ReservedGamepad
 }
 var file_steammessages_remoteclient_discovery_proto_depIdxs = []int32{
 	0,  // 0: CMsgRemoteClientBroadcastHeader.msg_type:type_name -> ERemoteClientBroadcastMsg
-	24, // 1: CMsgRemoteClientBroadcastStatus.users:type_name -> CMsgRemoteClientBroadcastStatus.User
+	26, // 1: CMsgRemoteClientBroadcastStatus.users:type_name -> CMsgRemoteClientBroadcastStatus.User
 	2,  // 2: CMsgRemoteClientBroadcastStatus.vr_link_caps:type_name -> EVRLinkCaps
 	3,  // 3: CMsgRemoteDeviceAuthorizationResponse.result:type_name -> ERemoteDeviceAuthorizationResult
 	3,  // 4: CMsgRemoteDeviceAuthorizationConfirmed.result:type_name -> ERemoteDeviceAuthorizationResult
 	5,  // 5: CMsgRemoteDeviceStreamingRequest.supported_transport:type_name -> EStreamTransport
 	4,  // 6: CMsgRemoteDeviceStreamingRequest.form_factor:type_name -> EStreamDeviceFormFactor
-	26, // 7: CMsgRemoteDeviceStreamingRequest.gamepads:type_name -> CMsgRemoteDeviceStreamingRequest.ReservedGamepad
+	28, // 7: CMsgRemoteDeviceStreamingRequest.gamepads:type_name -> CMsgRemoteDeviceStreamingRequest.ReservedGamepad
 	6,  // 8: CMsgRemoteDeviceStreamingRequest.stream_interface:type_name -> EStreamInterface
 	7,  // 9: CMsgRemoteDeviceStreamingResponse.result:type_name -> ERemoteDeviceStreamingResult
 	5,  // 10: CMsgRemoteDeviceStreamingResponse.transport:type_name -> EStreamTransport
@@ -2431,7 +2612,7 @@ func file_steammessages_remoteclient_discovery_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_remoteclient_discovery_proto_rawDesc), len(file_steammessages_remoteclient_discovery_proto_rawDesc)),
 			NumEnums:      9,
-			NumMessages:   18,
+			NumMessages:   20,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

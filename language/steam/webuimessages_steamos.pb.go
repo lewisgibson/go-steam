@@ -94,7 +94,6 @@ type CSteamOSManagerState struct {
 	IsServiceAvailable                   *bool                  `protobuf:"varint,1,opt,name=is_service_available,json=isServiceAvailable" json:"is_service_available,omitempty"`
 	OsVersion                            *string                `protobuf:"bytes,2,opt,name=os_version,json=osVersion" json:"os_version,omitempty"`
 	IsMandatoryUpdateAvailable           *bool                  `protobuf:"varint,3,opt,name=is_mandatory_update_available,json=isMandatoryUpdateAvailable" json:"is_mandatory_update_available,omitempty"`
-	StartupMovieVariant                  *EStartupMovieVariant  `protobuf:"varint,4,opt,name=startup_movie_variant,json=startupMovieVariant,enum=EStartupMovieVariant,def=0" json:"startup_movie_variant,omitempty"`
 	IsStatusLedControlAvailable          *bool                  `protobuf:"varint,5,opt,name=is_status_led_control_available,json=isStatusLedControlAvailable" json:"is_status_led_control_available,omitempty"`
 	FactoryResetState                    *CMsgFactoryResetState `protobuf:"bytes,6,opt,name=factory_reset_state,json=factoryResetState" json:"factory_reset_state,omitempty"`
 	IsTdpLimitAvailable                  *bool                  `protobuf:"varint,7,opt,name=is_tdp_limit_available,json=isTdpLimitAvailable" json:"is_tdp_limit_available,omitempty"`
@@ -126,11 +125,6 @@ type CSteamOSManagerState struct {
 	unknownFields                        protoimpl.UnknownFields
 	sizeCache                            protoimpl.SizeCache
 }
-
-// Default values for CSteamOSManagerState fields.
-const (
-	Default_CSteamOSManagerState_StartupMovieVariant = EStartupMovieVariant_k_EStartupMovieVariant_Invalid
-)
 
 func (x *CSteamOSManagerState) Reset() {
 	*x = CSteamOSManagerState{}
@@ -181,13 +175,6 @@ func (x *CSteamOSManagerState) GetIsMandatoryUpdateAvailable() bool {
 		return *x.IsMandatoryUpdateAvailable
 	}
 	return false
-}
-
-func (x *CSteamOSManagerState) GetStartupMovieVariant() EStartupMovieVariant {
-	if x != nil && x.StartupMovieVariant != nil {
-		return *x.StartupMovieVariant
-	}
-	return Default_CSteamOSManagerState_StartupMovieVariant
 }
 
 func (x *CSteamOSManagerState) GetIsStatusLedControlAvailable() bool {
@@ -1723,13 +1710,12 @@ const file_webuimessages_steamos_proto_rawDesc = "" +
 	"is_running\x18\x01 \x01(\bR\tisRunning\x12\x1a\n" +
 	"\bprogress\x18\x02 \x01(\x05R\bprogress\x12,\n" +
 	"\x12is_restart_pending\x18\x03 \x01(\bR\x10isRestartPending\x12<\n" +
-	"\x1artime_estimated_completion\x18\x04 \x01(\aR\x18rtimeEstimatedCompletion\"\x93\x0f\n" +
+	"\x1artime_estimated_completion\x18\x04 \x01(\aR\x18rtimeEstimatedCompletion\"\xa8\x0e\n" +
 	"\x14CSteamOSManagerState\x120\n" +
 	"\x14is_service_available\x18\x01 \x01(\bR\x12isServiceAvailable\x12\x1d\n" +
 	"\n" +
 	"os_version\x18\x02 \x01(\tR\tosVersion\x12A\n" +
-	"\x1dis_mandatory_update_available\x18\x03 \x01(\bR\x1aisMandatoryUpdateAvailable\x12i\n" +
-	"\x15startup_movie_variant\x18\x04 \x01(\x0e2\x15.EStartupMovieVariant:\x1ek_EStartupMovieVariant_InvalidR\x13startupMovieVariant\x12D\n" +
+	"\x1dis_mandatory_update_available\x18\x03 \x01(\bR\x1aisMandatoryUpdateAvailable\x12D\n" +
 	"\x1fis_status_led_control_available\x18\x05 \x01(\bR\x1bisStatusLedControlAvailable\x12F\n" +
 	"\x13factory_reset_state\x18\x06 \x01(\v2\x16.CMsgFactoryResetStateR\x11factoryResetState\x123\n" +
 	"\x16is_tdp_limit_available\x18\a \x01(\bR\x13isTdpLimitAvailable\x12\"\n" +
@@ -1881,54 +1867,52 @@ var file_webuimessages_steamos_proto_goTypes = []any{
 	(*CSteamOSSLS_SetEnabled_Response)(nil),                        // 31: CSteamOSSLS_SetEnabled_Response
 	(*CSteamOSSLS_SetPluginEnabled_Request)(nil),                   // 32: CSteamOSSLS_SetPluginEnabled_Request
 	(*CSteamOSSLS_SetPluginEnabled_Response)(nil),                  // 33: CSteamOSSLS_SetPluginEnabled_Response
-	(EStartupMovieVariant)(0),                                      // 34: EStartupMovieVariant
-	(ESLSHelper)(0),                                                // 35: ESLSHelper
-	(*WebUINoResponse)(nil),                                        // 36: WebUINoResponse
+	(ESLSHelper)(0),         // 34: ESLSHelper
+	(*WebUINoResponse)(nil), // 35: WebUINoResponse
 }
 var file_webuimessages_steamos_proto_depIdxs = []int32{
-	34, // 0: CSteamOSManagerState.startup_movie_variant:type_name -> EStartupMovieVariant
-	0,  // 1: CSteamOSManagerState.factory_reset_state:type_name -> CMsgFactoryResetState
-	1,  // 2: CSteamOSManager_GetState_Response.state:type_name -> CSteamOSManagerState
-	35, // 3: CSteamOSManager_IsTelemetryHelperAvailable_Request.etype:type_name -> ESLSHelper
-	35, // 4: CSteamOSSLSPlugin.etype:type_name -> ESLSHelper
-	25, // 5: CSteamOSSLSState.plugins:type_name -> CSteamOSSLSPlugin
-	26, // 6: CSteamOSSLS_GetState_Response.state:type_name -> CSteamOSSLSState
-	35, // 7: CSteamOSSLS_SetPluginEnabled_Request.etype:type_name -> ESLSHelper
-	2,  // 8: SteamOSManager.GetState:input_type -> CSteamOSManager_GetState_Request
-	4,  // 9: SteamOSManager.NotifyStateChanged:input_type -> CSteamOSManager_StateChanged_Notification
-	7,  // 10: SteamOSManager.OptOutOfSideloadedClient:input_type -> CSteamOSManager_OptOutOfSideloadedClient_Request
-	9,  // 11: SteamOSManager.ApplyMandatoryUpdate:input_type -> CSteamOSManager_ApplyMandatoryUpdate_Request
-	11, // 12: SteamOSManager.FactoryReset:input_type -> CSteamOSManager_FactoryReset_Request
-	19, // 13: SteamOSManager.PrepareFactoryImageTest:input_type -> CSteamOSManager_PrepareFactoryImageTest_Request
-	13, // 14: SteamOSManager.RefreshScreenReaderAutoLocale:input_type -> CSteamOSManager_RefreshScreenReaderAutoLocale_Request
-	15, // 15: SteamOSManager.SetUserPassword:input_type -> CSteamOS_SetUserPassword_Request
-	17, // 16: SteamOSManager.GetUserHasPassword:input_type -> CSteamOS_GetUserHasPassword_Request
-	21, // 17: SteamOSManager.SwitchToDesktop:input_type -> CSteamOSManager_SwitchToDesktop_Request
-	23, // 18: SteamOSManager.SetDefaultDesktopSession:input_type -> CSteamOSManager_SetDefaultDesktopSession_Request
-	27, // 19: SteamOSSLS.GetState:input_type -> CSteamOSSLS_GetState_Request
-	29, // 20: SteamOSSLS.NotifyStateChanged:input_type -> CSteamOSSLS_StateChanged_Notification
-	30, // 21: SteamOSSLS.SetEnabled:input_type -> CSteamOSSLS_SetEnabled_Request
-	32, // 22: SteamOSSLS.SetPluginEnabled:input_type -> CSteamOSSLS_SetPluginEnabled_Request
-	3,  // 23: SteamOSManager.GetState:output_type -> CSteamOSManager_GetState_Response
-	36, // 24: SteamOSManager.NotifyStateChanged:output_type -> WebUINoResponse
-	8,  // 25: SteamOSManager.OptOutOfSideloadedClient:output_type -> CSteamOSManager_OptOutOfSideloadedClient_Response
-	10, // 26: SteamOSManager.ApplyMandatoryUpdate:output_type -> CSteamOSManager_ApplyMandatoryUpdate_Response
-	12, // 27: SteamOSManager.FactoryReset:output_type -> CSteamOSManager_FactoryReset_Response
-	20, // 28: SteamOSManager.PrepareFactoryImageTest:output_type -> CSteamOSManager_PrepareFactoryImageTest_Response
-	14, // 29: SteamOSManager.RefreshScreenReaderAutoLocale:output_type -> CSteamOSManager_RefreshScreenReaderAutoLocale_Response
-	16, // 30: SteamOSManager.SetUserPassword:output_type -> CSteamOS_SetUserPassword_Response
-	18, // 31: SteamOSManager.GetUserHasPassword:output_type -> CSteamOS_GetUserHasPassword_Response
-	22, // 32: SteamOSManager.SwitchToDesktop:output_type -> CSteamOSManager_SwitchToDesktop_Response
-	24, // 33: SteamOSManager.SetDefaultDesktopSession:output_type -> CSteamOSManager_SetDefaultDesktopSession_Response
-	28, // 34: SteamOSSLS.GetState:output_type -> CSteamOSSLS_GetState_Response
-	36, // 35: SteamOSSLS.NotifyStateChanged:output_type -> WebUINoResponse
-	31, // 36: SteamOSSLS.SetEnabled:output_type -> CSteamOSSLS_SetEnabled_Response
-	33, // 37: SteamOSSLS.SetPluginEnabled:output_type -> CSteamOSSLS_SetPluginEnabled_Response
-	23, // [23:38] is the sub-list for method output_type
-	8,  // [8:23] is the sub-list for method input_type
-	8,  // [8:8] is the sub-list for extension type_name
-	8,  // [8:8] is the sub-list for extension extendee
-	0,  // [0:8] is the sub-list for field type_name
+	0,  // 0: CSteamOSManagerState.factory_reset_state:type_name -> CMsgFactoryResetState
+	1,  // 1: CSteamOSManager_GetState_Response.state:type_name -> CSteamOSManagerState
+	34, // 2: CSteamOSManager_IsTelemetryHelperAvailable_Request.etype:type_name -> ESLSHelper
+	34, // 3: CSteamOSSLSPlugin.etype:type_name -> ESLSHelper
+	25, // 4: CSteamOSSLSState.plugins:type_name -> CSteamOSSLSPlugin
+	26, // 5: CSteamOSSLS_GetState_Response.state:type_name -> CSteamOSSLSState
+	34, // 6: CSteamOSSLS_SetPluginEnabled_Request.etype:type_name -> ESLSHelper
+	2,  // 7: SteamOSManager.GetState:input_type -> CSteamOSManager_GetState_Request
+	4,  // 8: SteamOSManager.NotifyStateChanged:input_type -> CSteamOSManager_StateChanged_Notification
+	7,  // 9: SteamOSManager.OptOutOfSideloadedClient:input_type -> CSteamOSManager_OptOutOfSideloadedClient_Request
+	9,  // 10: SteamOSManager.ApplyMandatoryUpdate:input_type -> CSteamOSManager_ApplyMandatoryUpdate_Request
+	11, // 11: SteamOSManager.FactoryReset:input_type -> CSteamOSManager_FactoryReset_Request
+	19, // 12: SteamOSManager.PrepareFactoryImageTest:input_type -> CSteamOSManager_PrepareFactoryImageTest_Request
+	13, // 13: SteamOSManager.RefreshScreenReaderAutoLocale:input_type -> CSteamOSManager_RefreshScreenReaderAutoLocale_Request
+	15, // 14: SteamOSManager.SetUserPassword:input_type -> CSteamOS_SetUserPassword_Request
+	17, // 15: SteamOSManager.GetUserHasPassword:input_type -> CSteamOS_GetUserHasPassword_Request
+	21, // 16: SteamOSManager.SwitchToDesktop:input_type -> CSteamOSManager_SwitchToDesktop_Request
+	23, // 17: SteamOSManager.SetDefaultDesktopSession:input_type -> CSteamOSManager_SetDefaultDesktopSession_Request
+	27, // 18: SteamOSSLS.GetState:input_type -> CSteamOSSLS_GetState_Request
+	29, // 19: SteamOSSLS.NotifyStateChanged:input_type -> CSteamOSSLS_StateChanged_Notification
+	30, // 20: SteamOSSLS.SetEnabled:input_type -> CSteamOSSLS_SetEnabled_Request
+	32, // 21: SteamOSSLS.SetPluginEnabled:input_type -> CSteamOSSLS_SetPluginEnabled_Request
+	3,  // 22: SteamOSManager.GetState:output_type -> CSteamOSManager_GetState_Response
+	35, // 23: SteamOSManager.NotifyStateChanged:output_type -> WebUINoResponse
+	8,  // 24: SteamOSManager.OptOutOfSideloadedClient:output_type -> CSteamOSManager_OptOutOfSideloadedClient_Response
+	10, // 25: SteamOSManager.ApplyMandatoryUpdate:output_type -> CSteamOSManager_ApplyMandatoryUpdate_Response
+	12, // 26: SteamOSManager.FactoryReset:output_type -> CSteamOSManager_FactoryReset_Response
+	20, // 27: SteamOSManager.PrepareFactoryImageTest:output_type -> CSteamOSManager_PrepareFactoryImageTest_Response
+	14, // 28: SteamOSManager.RefreshScreenReaderAutoLocale:output_type -> CSteamOSManager_RefreshScreenReaderAutoLocale_Response
+	16, // 29: SteamOSManager.SetUserPassword:output_type -> CSteamOS_SetUserPassword_Response
+	18, // 30: SteamOSManager.GetUserHasPassword:output_type -> CSteamOS_GetUserHasPassword_Response
+	22, // 31: SteamOSManager.SwitchToDesktop:output_type -> CSteamOSManager_SwitchToDesktop_Response
+	24, // 32: SteamOSManager.SetDefaultDesktopSession:output_type -> CSteamOSManager_SetDefaultDesktopSession_Response
+	28, // 33: SteamOSSLS.GetState:output_type -> CSteamOSSLS_GetState_Response
+	35, // 34: SteamOSSLS.NotifyStateChanged:output_type -> WebUINoResponse
+	31, // 35: SteamOSSLS.SetEnabled:output_type -> CSteamOSSLS_SetEnabled_Response
+	33, // 36: SteamOSSLS.SetPluginEnabled:output_type -> CSteamOSSLS_SetPluginEnabled_Response
+	22, // [22:37] is the sub-list for method output_type
+	7,  // [7:22] is the sub-list for method input_type
+	7,  // [7:7] is the sub-list for extension type_name
+	7,  // [7:7] is the sub-list for extension extendee
+	0,  // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_webuimessages_steamos_proto_init() }

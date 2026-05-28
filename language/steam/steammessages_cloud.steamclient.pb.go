@@ -2825,17 +2825,18 @@ func (x *CCloud_GetAppFileChangelist_Request) GetSyncedChangeNumber() uint64 {
 }
 
 type CCloud_AppFileInfo struct {
-	state            protoimpl.MessageState     `protogen:"open.v1"`
-	FileName         *string                    `protobuf:"bytes,1,opt,name=file_name,json=fileName" json:"file_name,omitempty"`
-	ShaFile          []byte                     `protobuf:"bytes,2,opt,name=sha_file,json=shaFile" json:"sha_file,omitempty"`
-	TimeStamp        *uint64                    `protobuf:"varint,3,opt,name=time_stamp,json=timeStamp" json:"time_stamp,omitempty"`
-	RawFileSize      *uint32                    `protobuf:"varint,4,opt,name=raw_file_size,json=rawFileSize" json:"raw_file_size,omitempty"`
-	PersistState     *ECloudStoragePersistState `protobuf:"varint,5,opt,name=persist_state,json=persistState,enum=ECloudStoragePersistState,def=0" json:"persist_state,omitempty"`
-	PlatformsToSync  *uint32                    `protobuf:"varint,6,opt,name=platforms_to_sync,json=platformsToSync" json:"platforms_to_sync,omitempty"`
-	PathPrefixIndex  *uint32                    `protobuf:"varint,7,opt,name=path_prefix_index,json=pathPrefixIndex" json:"path_prefix_index,omitempty"`
-	MachineNameIndex *uint32                    `protobuf:"varint,8,opt,name=machine_name_index,json=machineNameIndex" json:"machine_name_index,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
+	state             protoimpl.MessageState     `protogen:"open.v1"`
+	FileName          *string                    `protobuf:"bytes,1,opt,name=file_name,json=fileName" json:"file_name,omitempty"`
+	ShaFile           []byte                     `protobuf:"bytes,2,opt,name=sha_file,json=shaFile" json:"sha_file,omitempty"`
+	TimeStamp         *uint64                    `protobuf:"varint,3,opt,name=time_stamp,json=timeStamp" json:"time_stamp,omitempty"`
+	RawFileSize       *uint32                    `protobuf:"varint,4,opt,name=raw_file_size,json=rawFileSize" json:"raw_file_size,omitempty"`
+	PersistState      *ECloudStoragePersistState `protobuf:"varint,5,opt,name=persist_state,json=persistState,enum=ECloudStoragePersistState,def=0" json:"persist_state,omitempty"`
+	PlatformsToSync   *uint32                    `protobuf:"varint,6,opt,name=platforms_to_sync,json=platformsToSync" json:"platforms_to_sync,omitempty"`
+	PathPrefixIndex   *uint32                    `protobuf:"varint,7,opt,name=path_prefix_index,json=pathPrefixIndex" json:"path_prefix_index,omitempty"`
+	MachineNameIndex  *uint32                    `protobuf:"varint,8,opt,name=machine_name_index,json=machineNameIndex" json:"machine_name_index,omitempty"`
+	ReuploadRequested *bool                      `protobuf:"varint,9,opt,name=reupload_requested,json=reuploadRequested" json:"reupload_requested,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 // Default values for CCloud_AppFileInfo fields.
@@ -2927,6 +2928,13 @@ func (x *CCloud_AppFileInfo) GetMachineNameIndex() uint32 {
 		return *x.MachineNameIndex
 	}
 	return 0
+}
+
+func (x *CCloud_AppFileInfo) GetReuploadRequested() bool {
+	if x != nil && x.ReuploadRequested != nil {
+		return *x.ReuploadRequested
+	}
+	return false
 }
 
 type CCloud_GetAppFileChangelist_Response struct {
@@ -4056,7 +4064,7 @@ const file_steammessages_cloud_steamclient_proto_rawDesc = "" +
 	"\x11chose_local_files\x18\x02 \x01(\bR\x0fchoseLocalFiles\"m\n" +
 	"#CCloud_GetAppFileChangelist_Request\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x120\n" +
-	"\x14synced_change_number\x18\x02 \x01(\x04R\x12syncedChangeNumber\"\xfc\x02\n" +
+	"\x14synced_change_number\x18\x02 \x01(\x04R\x12syncedChangeNumber\"\xab\x03\n" +
 	"\x12CCloud_AppFileInfo\x12\x1b\n" +
 	"\tfile_name\x18\x01 \x01(\tR\bfileName\x12\x19\n" +
 	"\bsha_file\x18\x02 \x01(\fR\ashaFile\x12\x1d\n" +
@@ -4066,7 +4074,8 @@ const file_steammessages_cloud_steamclient_proto_rawDesc = "" +
 	"\rpersist_state\x18\x05 \x01(\x0e2\x1a.ECloudStoragePersistState:$k_ECloudStoragePersistStatePersistedR\fpersistState\x12*\n" +
 	"\x11platforms_to_sync\x18\x06 \x01(\rR\x0fplatformsToSync\x12*\n" +
 	"\x11path_prefix_index\x18\a \x01(\rR\x0fpathPrefixIndex\x12,\n" +
-	"\x12machine_name_index\x18\b \x01(\rR\x10machineNameIndex\"\x9b\x02\n" +
+	"\x12machine_name_index\x18\b \x01(\rR\x10machineNameIndex\x12-\n" +
+	"\x12reupload_requested\x18\t \x01(\bR\x11reuploadRequested\"\x9b\x02\n" +
 	"$CCloud_GetAppFileChangelist_Response\x122\n" +
 	"\x15current_change_number\x18\x01 \x01(\x04R\x13currentChangeNumber\x12)\n" +
 	"\x05files\x18\x02 \x03(\v2\x13.CCloud_AppFileInfoR\x05files\x12\"\n" +

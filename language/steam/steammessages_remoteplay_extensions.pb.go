@@ -84,6 +84,13 @@ func (x EStreamHostPlayAudioPreference) EncodeValues(key string, v *url.Values) 
 	return nil
 }
 
+// EncodeValues implements the query.Encoder interface for EStreamHostDisplaySetting.
+// This allows the enum to be encoded as its numerical value in URL parameters.
+func (x EStreamHostDisplaySetting) EncodeValues(key string, v *url.Values) error {
+	v.Add(key, strconv.FormatInt(int64(x), 10))
+	return nil
+}
+
 // EncodeValues implements the query.Encoder interface for EStreamingDataType.
 // This allows the enum to be encoded as its numerical value in URL parameters.
 func (x EStreamingDataType) EncodeValues(key string, v *url.Values) error {
@@ -115,6 +122,13 @@ func (x EStreamFramerateLimiter) EncodeValues(key string, v *url.Values) error {
 // EncodeValues implements the query.Encoder interface for EStreamActivity.
 // This allows the enum to be encoded as its numerical value in URL parameters.
 func (x EStreamActivity) EncodeValues(key string, v *url.Values) error {
+	v.Add(key, strconv.FormatInt(int64(x), 10))
+	return nil
+}
+
+// EncodeValues implements the query.Encoder interface for ECaptureFailedReason.
+// This allows the enum to be encoded as its numerical value in URL parameters.
+func (x ECaptureFailedReason) EncodeValues(key string, v *url.Values) error {
 	v.Add(key, strconv.FormatInt(int64(x), 10))
 	return nil
 }

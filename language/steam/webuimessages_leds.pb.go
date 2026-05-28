@@ -21,6 +21,74 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type ELEDManagerMode int32
+
+const (
+	ELEDManagerMode_k_ELEDManagerModeInvalid          ELEDManagerMode = 0
+	ELEDManagerMode_k_ELEDManagerModeLogon            ELEDManagerMode = 1
+	ELEDManagerMode_k_ELEDManagerModeIdle             ELEDManagerMode = 2
+	ELEDManagerMode_k_ELEDManagerModeDownload         ELEDManagerMode = 3
+	ELEDManagerMode_k_ELEDManagerModeCustomize        ELEDManagerMode = 4
+	ELEDManagerMode_k_ELEDManagerModeCustomizeStartup ELEDManagerMode = 5
+)
+
+// Enum value maps for ELEDManagerMode.
+var (
+	ELEDManagerMode_name = map[int32]string{
+		0: "k_ELEDManagerModeInvalid",
+		1: "k_ELEDManagerModeLogon",
+		2: "k_ELEDManagerModeIdle",
+		3: "k_ELEDManagerModeDownload",
+		4: "k_ELEDManagerModeCustomize",
+		5: "k_ELEDManagerModeCustomizeStartup",
+	}
+	ELEDManagerMode_value = map[string]int32{
+		"k_ELEDManagerModeInvalid":          0,
+		"k_ELEDManagerModeLogon":            1,
+		"k_ELEDManagerModeIdle":             2,
+		"k_ELEDManagerModeDownload":         3,
+		"k_ELEDManagerModeCustomize":        4,
+		"k_ELEDManagerModeCustomizeStartup": 5,
+	}
+)
+
+func (x ELEDManagerMode) Enum() *ELEDManagerMode {
+	p := new(ELEDManagerMode)
+	*p = x
+	return p
+}
+
+func (x ELEDManagerMode) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ELEDManagerMode) Descriptor() protoreflect.EnumDescriptor {
+	return file_webuimessages_leds_proto_enumTypes[0].Descriptor()
+}
+
+func (ELEDManagerMode) Type() protoreflect.EnumType {
+	return &file_webuimessages_leds_proto_enumTypes[0]
+}
+
+func (x ELEDManagerMode) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *ELEDManagerMode) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = ELEDManagerMode(num)
+	return nil
+}
+
+// Deprecated: Use ELEDManagerMode.Descriptor instead.
+func (ELEDManagerMode) EnumDescriptor() ([]byte, []int) {
+	return file_webuimessages_leds_proto_rawDescGZIP(), []int{0}
+}
+
 type CMsgLEDColor struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	R             *float32               `protobuf:"fixed32,1,opt,name=r" json:"r,omitempty"`
@@ -82,20 +150,22 @@ func (x *CMsgLEDColor) GetB() float32 {
 }
 
 type CMsgLEDManagerDevice struct {
-	state              protoimpl.MessageState `protogen:"open.v1"`
-	Id                 *int32                 `protobuf:"varint,1,opt,name=id" json:"id,omitempty"`
-	Enabled            *bool                  `protobuf:"varint,2,opt,name=enabled" json:"enabled,omitempty"`
-	Name               *string                `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
-	EffectsAvailable   []string               `protobuf:"bytes,4,rep,name=effects_available,json=effectsAvailable" json:"effects_available,omitempty"`
-	Effect             *string                `protobuf:"bytes,5,opt,name=effect" json:"effect,omitempty"`
-	SupportsColor      *bool                  `protobuf:"varint,9,opt,name=supports_color,json=supportsColor" json:"supports_color,omitempty"`
-	Color              []*CMsgLEDColor        `protobuf:"bytes,10,rep,name=color" json:"color,omitempty"`
-	SupportsSpeed      *bool                  `protobuf:"varint,11,opt,name=supports_speed,json=supportsSpeed" json:"supports_speed,omitempty"`
-	Speed              *float32               `protobuf:"fixed32,12,opt,name=speed" json:"speed,omitempty"`
-	SupportsBrightness *bool                  `protobuf:"varint,13,opt,name=supports_brightness,json=supportsBrightness" json:"supports_brightness,omitempty"`
-	Brightness         *float32               `protobuf:"fixed32,14,opt,name=brightness" json:"brightness,omitempty"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
+	state                     protoimpl.MessageState `protogen:"open.v1"`
+	Id                        *int32                 `protobuf:"varint,1,opt,name=id" json:"id,omitempty"`
+	Enabled                   *bool                  `protobuf:"varint,2,opt,name=enabled" json:"enabled,omitempty"`
+	Name                      *string                `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
+	EffectsAvailable          []string               `protobuf:"bytes,4,rep,name=effects_available,json=effectsAvailable" json:"effects_available,omitempty"`
+	Effect                    *string                `protobuf:"bytes,5,opt,name=effect" json:"effect,omitempty"`
+	SupportsColor             *bool                  `protobuf:"varint,9,opt,name=supports_color,json=supportsColor" json:"supports_color,omitempty"`
+	Color                     []*CMsgLEDColor        `protobuf:"bytes,10,rep,name=color" json:"color,omitempty"`
+	SupportsSpeed             *bool                  `protobuf:"varint,11,opt,name=supports_speed,json=supportsSpeed" json:"supports_speed,omitempty"`
+	Speed                     *float32               `protobuf:"fixed32,12,opt,name=speed" json:"speed,omitempty"`
+	SupportsBrightness        *bool                  `protobuf:"varint,13,opt,name=supports_brightness,json=supportsBrightness" json:"supports_brightness,omitempty"`
+	Brightness                *float32               `protobuf:"fixed32,14,opt,name=brightness" json:"brightness,omitempty"`
+	SupportsStartupBrightness *bool                  `protobuf:"varint,15,opt,name=supports_startup_brightness,json=supportsStartupBrightness" json:"supports_startup_brightness,omitempty"`
+	StartupBrightness         *float32               `protobuf:"fixed32,16,opt,name=startup_brightness,json=startupBrightness" json:"startup_brightness,omitempty"`
+	unknownFields             protoimpl.UnknownFields
+	sizeCache                 protoimpl.SizeCache
 }
 
 func (x *CMsgLEDManagerDevice) Reset() {
@@ -201,6 +271,20 @@ func (x *CMsgLEDManagerDevice) GetSupportsBrightness() bool {
 func (x *CMsgLEDManagerDevice) GetBrightness() float32 {
 	if x != nil && x.Brightness != nil {
 		return *x.Brightness
+	}
+	return 0
+}
+
+func (x *CMsgLEDManagerDevice) GetSupportsStartupBrightness() bool {
+	if x != nil && x.SupportsStartupBrightness != nil {
+		return *x.SupportsStartupBrightness
+	}
+	return false
+}
+
+func (x *CMsgLEDManagerDevice) GetStartupBrightness() float32 {
+	if x != nil && x.StartupBrightness != nil {
+		return *x.StartupBrightness
 	}
 	return 0
 }
@@ -821,6 +905,179 @@ func (*CLEDManager_SetBrightness_Response) Descriptor() ([]byte, []int) {
 	return file_webuimessages_leds_proto_rawDescGZIP(), []int{15}
 }
 
+type CLEDManager_SetStartupBrightness_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	DeviceId      *int32                 `protobuf:"varint,1,opt,name=device_id,json=deviceId" json:"device_id,omitempty"`
+	Brightness    *float32               `protobuf:"fixed32,2,opt,name=brightness" json:"brightness,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CLEDManager_SetStartupBrightness_Request) Reset() {
+	*x = CLEDManager_SetStartupBrightness_Request{}
+	mi := &file_webuimessages_leds_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CLEDManager_SetStartupBrightness_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CLEDManager_SetStartupBrightness_Request) ProtoMessage() {}
+
+func (x *CLEDManager_SetStartupBrightness_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_leds_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CLEDManager_SetStartupBrightness_Request.ProtoReflect.Descriptor instead.
+func (*CLEDManager_SetStartupBrightness_Request) Descriptor() ([]byte, []int) {
+	return file_webuimessages_leds_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *CLEDManager_SetStartupBrightness_Request) GetDeviceId() int32 {
+	if x != nil && x.DeviceId != nil {
+		return *x.DeviceId
+	}
+	return 0
+}
+
+func (x *CLEDManager_SetStartupBrightness_Request) GetBrightness() float32 {
+	if x != nil && x.Brightness != nil {
+		return *x.Brightness
+	}
+	return 0
+}
+
+type CLEDManager_SetStartupBrightness_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CLEDManager_SetStartupBrightness_Response) Reset() {
+	*x = CLEDManager_SetStartupBrightness_Response{}
+	mi := &file_webuimessages_leds_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CLEDManager_SetStartupBrightness_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CLEDManager_SetStartupBrightness_Response) ProtoMessage() {}
+
+func (x *CLEDManager_SetStartupBrightness_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_leds_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CLEDManager_SetStartupBrightness_Response.ProtoReflect.Descriptor instead.
+func (*CLEDManager_SetStartupBrightness_Response) Descriptor() ([]byte, []int) {
+	return file_webuimessages_leds_proto_rawDescGZIP(), []int{17}
+}
+
+type CLEDManager_SetManagerMode_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Mode          *ELEDManagerMode       `protobuf:"varint,1,opt,name=mode,enum=ELEDManagerMode,def=0" json:"mode,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+// Default values for CLEDManager_SetManagerMode_Request fields.
+const (
+	Default_CLEDManager_SetManagerMode_Request_Mode = ELEDManagerMode_k_ELEDManagerModeInvalid
+)
+
+func (x *CLEDManager_SetManagerMode_Request) Reset() {
+	*x = CLEDManager_SetManagerMode_Request{}
+	mi := &file_webuimessages_leds_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CLEDManager_SetManagerMode_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CLEDManager_SetManagerMode_Request) ProtoMessage() {}
+
+func (x *CLEDManager_SetManagerMode_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_leds_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CLEDManager_SetManagerMode_Request.ProtoReflect.Descriptor instead.
+func (*CLEDManager_SetManagerMode_Request) Descriptor() ([]byte, []int) {
+	return file_webuimessages_leds_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *CLEDManager_SetManagerMode_Request) GetMode() ELEDManagerMode {
+	if x != nil && x.Mode != nil {
+		return *x.Mode
+	}
+	return Default_CLEDManager_SetManagerMode_Request_Mode
+}
+
+type CLEDManager_SetManagerMode_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CLEDManager_SetManagerMode_Response) Reset() {
+	*x = CLEDManager_SetManagerMode_Response{}
+	mi := &file_webuimessages_leds_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CLEDManager_SetManagerMode_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CLEDManager_SetManagerMode_Response) ProtoMessage() {}
+
+func (x *CLEDManager_SetManagerMode_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_leds_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CLEDManager_SetManagerMode_Response.ProtoReflect.Descriptor instead.
+func (*CLEDManager_SetManagerMode_Response) Descriptor() ([]byte, []int) {
+	return file_webuimessages_leds_proto_rawDescGZIP(), []int{19}
+}
+
 var File_webuimessages_leds_proto protoreflect.FileDescriptor
 
 const file_webuimessages_leds_proto_rawDesc = "" +
@@ -829,7 +1086,7 @@ const file_webuimessages_leds_proto_rawDesc = "" +
 	"\fCMsgLEDColor\x12\f\n" +
 	"\x01r\x18\x01 \x01(\x02R\x01r\x12\f\n" +
 	"\x01g\x18\x02 \x01(\x02R\x01g\x12\f\n" +
-	"\x01b\x18\x03 \x01(\x02R\x01b\"\xf3\x02\n" +
+	"\x01b\x18\x03 \x01(\x02R\x01b\"\xe2\x03\n" +
 	"\x14CMsgLEDManagerDevice\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x18\n" +
 	"\aenabled\x18\x02 \x01(\bR\aenabled\x12\x12\n" +
@@ -844,7 +1101,9 @@ const file_webuimessages_leds_proto_rawDesc = "" +
 	"\x13supports_brightness\x18\r \x01(\bR\x12supportsBrightness\x12\x1e\n" +
 	"\n" +
 	"brightness\x18\x0e \x01(\x02R\n" +
-	"brightness\"x\n" +
+	"brightness\x12>\n" +
+	"\x1bsupports_startup_brightness\x18\x0f \x01(\bR\x19supportsStartupBrightness\x12-\n" +
+	"\x12startup_brightness\x18\x10 \x01(\x02R\x11startupBrightness\"x\n" +
 	"\x13CMsgLEDManagerState\x120\n" +
 	"\x14is_service_available\x18\x01 \x01(\bR\x12isServiceAvailable\x12/\n" +
 	"\adevices\x18\x02 \x03(\v2\x15.CMsgLEDManagerDeviceR\adevices\"\x1e\n" +
@@ -875,7 +1134,23 @@ const file_webuimessages_leds_proto_rawDesc = "" +
 	"\n" +
 	"brightness\x18\x02 \x01(\x02R\n" +
 	"brightness\"$\n" +
-	"\"CLEDManager_SetBrightness_Response2\xbc\x04\n" +
+	"\"CLEDManager_SetBrightness_Response\"g\n" +
+	"(CLEDManager_SetStartupBrightness_Request\x12\x1b\n" +
+	"\tdevice_id\x18\x01 \x01(\x05R\bdeviceId\x12\x1e\n" +
+	"\n" +
+	"brightness\x18\x02 \x01(\x02R\n" +
+	"brightness\"+\n" +
+	")CLEDManager_SetStartupBrightness_Response\"d\n" +
+	"\"CLEDManager_SetManagerMode_Request\x12>\n" +
+	"\x04mode\x18\x01 \x01(\x0e2\x10.ELEDManagerMode:\x18k_ELEDManagerModeInvalidR\x04mode\"%\n" +
+	"#CLEDManager_SetManagerMode_Response*\xcc\x01\n" +
+	"\x0fELEDManagerMode\x12\x1c\n" +
+	"\x18k_ELEDManagerModeInvalid\x10\x00\x12\x1a\n" +
+	"\x16k_ELEDManagerModeLogon\x10\x01\x12\x19\n" +
+	"\x15k_ELEDManagerModeIdle\x10\x02\x12\x1d\n" +
+	"\x19k_ELEDManagerModeDownload\x10\x03\x12\x1e\n" +
+	"\x1ak_ELEDManagerModeCustomize\x10\x04\x12%\n" +
+	"!k_ELEDManagerModeCustomizeStartup\x10\x052\x88\x06\n" +
 	"\n" +
 	"LEDManager\x12I\n" +
 	"\bGetState\x12\x1d.CLEDManager_GetState_Request\x1a\x1e.CLEDManager_GetState_Response\x12N\n" +
@@ -885,7 +1160,9 @@ const file_webuimessages_leds_proto_rawDesc = "" +
 	"\bSetColor\x12\x1d.CLEDManager_SetColor_Request\x1a\x1e.CLEDManager_SetColor_Response\x12L\n" +
 	"\tSetEffect\x12\x1e.CLEDManager_SetEffect_Request\x1a\x1f.CLEDManager_SetEffect_Response\x12I\n" +
 	"\bSetSpeed\x12\x1d.CLEDManager_SetSpeed_Request\x1a\x1e.CLEDManager_SetSpeed_Response\x12X\n" +
-	"\rSetBrightness\x12\".CLEDManager_SetBrightness_Request\x1a#.CLEDManager_SetBrightness_Response\x1a\x04\x80\x97\"\x01B\x05H\x01\x80\x01\x01"
+	"\rSetBrightness\x12\".CLEDManager_SetBrightness_Request\x1a#.CLEDManager_SetBrightness_Response\x12m\n" +
+	"\x14SetStartupBrightness\x12).CLEDManager_SetStartupBrightness_Request\x1a*.CLEDManager_SetStartupBrightness_Response\x12[\n" +
+	"\x0eSetManagerMode\x12#.CLEDManager_SetManagerMode_Request\x1a$.CLEDManager_SetManagerMode_Response\x1a\x04\x80\x97\"\x01B\x05H\x01\x80\x01\x01"
 
 var (
 	file_webuimessages_leds_proto_rawDescOnce sync.Once
@@ -899,50 +1176,61 @@ func file_webuimessages_leds_proto_rawDescGZIP() []byte {
 	return file_webuimessages_leds_proto_rawDescData
 }
 
-var file_webuimessages_leds_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
+var file_webuimessages_leds_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_webuimessages_leds_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
 var file_webuimessages_leds_proto_goTypes = []any{
-	(*CMsgLEDColor)(nil),                          // 0: CMsgLEDColor
-	(*CMsgLEDManagerDevice)(nil),                  // 1: CMsgLEDManagerDevice
-	(*CMsgLEDManagerState)(nil),                   // 2: CMsgLEDManagerState
-	(*CLEDManager_GetState_Request)(nil),          // 3: CLEDManager_GetState_Request
-	(*CLEDManager_GetState_Response)(nil),         // 4: CLEDManager_GetState_Response
-	(*CLEDManager_StateChanged_Notification)(nil), // 5: CLEDManager_StateChanged_Notification
-	(*CLEDManager_SetColor_Request)(nil),          // 6: CLEDManager_SetColor_Request
-	(*CLEDManager_SetColor_Response)(nil),         // 7: CLEDManager_SetColor_Response
-	(*CLEDManager_SetEnabled_Request)(nil),        // 8: CLEDManager_SetEnabled_Request
-	(*CLEDManager_SetEnabled_Response)(nil),       // 9: CLEDManager_SetEnabled_Response
-	(*CLEDManager_SetEffect_Request)(nil),         // 10: CLEDManager_SetEffect_Request
-	(*CLEDManager_SetEffect_Response)(nil),        // 11: CLEDManager_SetEffect_Response
-	(*CLEDManager_SetSpeed_Request)(nil),          // 12: CLEDManager_SetSpeed_Request
-	(*CLEDManager_SetSpeed_Response)(nil),         // 13: CLEDManager_SetSpeed_Response
-	(*CLEDManager_SetBrightness_Request)(nil),     // 14: CLEDManager_SetBrightness_Request
-	(*CLEDManager_SetBrightness_Response)(nil),    // 15: CLEDManager_SetBrightness_Response
-	(*WebUINoResponse)(nil),                       // 16: WebUINoResponse
+	(ELEDManagerMode)(0),                              // 0: ELEDManagerMode
+	(*CMsgLEDColor)(nil),                              // 1: CMsgLEDColor
+	(*CMsgLEDManagerDevice)(nil),                      // 2: CMsgLEDManagerDevice
+	(*CMsgLEDManagerState)(nil),                       // 3: CMsgLEDManagerState
+	(*CLEDManager_GetState_Request)(nil),              // 4: CLEDManager_GetState_Request
+	(*CLEDManager_GetState_Response)(nil),             // 5: CLEDManager_GetState_Response
+	(*CLEDManager_StateChanged_Notification)(nil),     // 6: CLEDManager_StateChanged_Notification
+	(*CLEDManager_SetColor_Request)(nil),              // 7: CLEDManager_SetColor_Request
+	(*CLEDManager_SetColor_Response)(nil),             // 8: CLEDManager_SetColor_Response
+	(*CLEDManager_SetEnabled_Request)(nil),            // 9: CLEDManager_SetEnabled_Request
+	(*CLEDManager_SetEnabled_Response)(nil),           // 10: CLEDManager_SetEnabled_Response
+	(*CLEDManager_SetEffect_Request)(nil),             // 11: CLEDManager_SetEffect_Request
+	(*CLEDManager_SetEffect_Response)(nil),            // 12: CLEDManager_SetEffect_Response
+	(*CLEDManager_SetSpeed_Request)(nil),              // 13: CLEDManager_SetSpeed_Request
+	(*CLEDManager_SetSpeed_Response)(nil),             // 14: CLEDManager_SetSpeed_Response
+	(*CLEDManager_SetBrightness_Request)(nil),         // 15: CLEDManager_SetBrightness_Request
+	(*CLEDManager_SetBrightness_Response)(nil),        // 16: CLEDManager_SetBrightness_Response
+	(*CLEDManager_SetStartupBrightness_Request)(nil),  // 17: CLEDManager_SetStartupBrightness_Request
+	(*CLEDManager_SetStartupBrightness_Response)(nil), // 18: CLEDManager_SetStartupBrightness_Response
+	(*CLEDManager_SetManagerMode_Request)(nil),        // 19: CLEDManager_SetManagerMode_Request
+	(*CLEDManager_SetManagerMode_Response)(nil),       // 20: CLEDManager_SetManagerMode_Response
+	(*WebUINoResponse)(nil),                           // 21: WebUINoResponse
 }
 var file_webuimessages_leds_proto_depIdxs = []int32{
-	0,  // 0: CMsgLEDManagerDevice.color:type_name -> CMsgLEDColor
-	1,  // 1: CMsgLEDManagerState.devices:type_name -> CMsgLEDManagerDevice
-	2,  // 2: CLEDManager_GetState_Response.state:type_name -> CMsgLEDManagerState
-	0,  // 3: CLEDManager_SetColor_Request.color:type_name -> CMsgLEDColor
-	3,  // 4: LEDManager.GetState:input_type -> CLEDManager_GetState_Request
-	5,  // 5: LEDManager.NotifyStateChanged:input_type -> CLEDManager_StateChanged_Notification
-	8,  // 6: LEDManager.SetEnabled:input_type -> CLEDManager_SetEnabled_Request
-	6,  // 7: LEDManager.SetColor:input_type -> CLEDManager_SetColor_Request
-	10, // 8: LEDManager.SetEffect:input_type -> CLEDManager_SetEffect_Request
-	12, // 9: LEDManager.SetSpeed:input_type -> CLEDManager_SetSpeed_Request
-	14, // 10: LEDManager.SetBrightness:input_type -> CLEDManager_SetBrightness_Request
-	4,  // 11: LEDManager.GetState:output_type -> CLEDManager_GetState_Response
-	16, // 12: LEDManager.NotifyStateChanged:output_type -> WebUINoResponse
-	9,  // 13: LEDManager.SetEnabled:output_type -> CLEDManager_SetEnabled_Response
-	7,  // 14: LEDManager.SetColor:output_type -> CLEDManager_SetColor_Response
-	11, // 15: LEDManager.SetEffect:output_type -> CLEDManager_SetEffect_Response
-	13, // 16: LEDManager.SetSpeed:output_type -> CLEDManager_SetSpeed_Response
-	15, // 17: LEDManager.SetBrightness:output_type -> CLEDManager_SetBrightness_Response
-	11, // [11:18] is the sub-list for method output_type
-	4,  // [4:11] is the sub-list for method input_type
-	4,  // [4:4] is the sub-list for extension type_name
-	4,  // [4:4] is the sub-list for extension extendee
-	0,  // [0:4] is the sub-list for field type_name
+	1,  // 0: CMsgLEDManagerDevice.color:type_name -> CMsgLEDColor
+	2,  // 1: CMsgLEDManagerState.devices:type_name -> CMsgLEDManagerDevice
+	3,  // 2: CLEDManager_GetState_Response.state:type_name -> CMsgLEDManagerState
+	1,  // 3: CLEDManager_SetColor_Request.color:type_name -> CMsgLEDColor
+	0,  // 4: CLEDManager_SetManagerMode_Request.mode:type_name -> ELEDManagerMode
+	4,  // 5: LEDManager.GetState:input_type -> CLEDManager_GetState_Request
+	6,  // 6: LEDManager.NotifyStateChanged:input_type -> CLEDManager_StateChanged_Notification
+	9,  // 7: LEDManager.SetEnabled:input_type -> CLEDManager_SetEnabled_Request
+	7,  // 8: LEDManager.SetColor:input_type -> CLEDManager_SetColor_Request
+	11, // 9: LEDManager.SetEffect:input_type -> CLEDManager_SetEffect_Request
+	13, // 10: LEDManager.SetSpeed:input_type -> CLEDManager_SetSpeed_Request
+	15, // 11: LEDManager.SetBrightness:input_type -> CLEDManager_SetBrightness_Request
+	17, // 12: LEDManager.SetStartupBrightness:input_type -> CLEDManager_SetStartupBrightness_Request
+	19, // 13: LEDManager.SetManagerMode:input_type -> CLEDManager_SetManagerMode_Request
+	5,  // 14: LEDManager.GetState:output_type -> CLEDManager_GetState_Response
+	21, // 15: LEDManager.NotifyStateChanged:output_type -> WebUINoResponse
+	10, // 16: LEDManager.SetEnabled:output_type -> CLEDManager_SetEnabled_Response
+	8,  // 17: LEDManager.SetColor:output_type -> CLEDManager_SetColor_Response
+	12, // 18: LEDManager.SetEffect:output_type -> CLEDManager_SetEffect_Response
+	14, // 19: LEDManager.SetSpeed:output_type -> CLEDManager_SetSpeed_Response
+	16, // 20: LEDManager.SetBrightness:output_type -> CLEDManager_SetBrightness_Response
+	18, // 21: LEDManager.SetStartupBrightness:output_type -> CLEDManager_SetStartupBrightness_Response
+	20, // 22: LEDManager.SetManagerMode:output_type -> CLEDManager_SetManagerMode_Response
+	14, // [14:23] is the sub-list for method output_type
+	5,  // [5:14] is the sub-list for method input_type
+	5,  // [5:5] is the sub-list for extension type_name
+	5,  // [5:5] is the sub-list for extension extendee
+	0,  // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_webuimessages_leds_proto_init() }
@@ -958,13 +1246,14 @@ func file_webuimessages_leds_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_webuimessages_leds_proto_rawDesc), len(file_webuimessages_leds_proto_rawDesc)),
-			NumEnums:      0,
-			NumMessages:   16,
+			NumEnums:      1,
+			NumMessages:   20,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
 		GoTypes:           file_webuimessages_leds_proto_goTypes,
 		DependencyIndexes: file_webuimessages_leds_proto_depIdxs,
+		EnumInfos:         file_webuimessages_leds_proto_enumTypes,
 		MessageInfos:      file_webuimessages_leds_proto_msgTypes,
 	}.Build()
 	File_webuimessages_leds_proto = out.File

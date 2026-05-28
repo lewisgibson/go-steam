@@ -2492,6 +2492,7 @@ type CGameRecording_TakeScreenshot_Request struct {
 	GameId           *uint64                `protobuf:"fixed64,1,opt,name=game_id,json=gameId" json:"game_id,omitempty"`
 	TimelineId       *string                `protobuf:"bytes,2,opt,name=timeline_id,json=timelineId" json:"timeline_id,omitempty"`
 	TimelineOffsetMs *uint64                `protobuf:"varint,3,opt,name=timeline_offset_ms,json=timelineOffsetMs" json:"timeline_offset_ms,omitempty"`
+	SourceClipId     *string                `protobuf:"bytes,4,opt,name=source_clip_id,json=sourceClipId" json:"source_clip_id,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -2545,6 +2546,13 @@ func (x *CGameRecording_TakeScreenshot_Request) GetTimelineOffsetMs() uint64 {
 		return *x.TimelineOffsetMs
 	}
 	return 0
+}
+
+func (x *CGameRecording_TakeScreenshot_Request) GetSourceClipId() string {
+	if x != nil && x.SourceClipId != nil {
+		return *x.SourceClipId
+	}
+	return ""
 }
 
 type CGameRecording_TakeScreenshot_Response struct {
@@ -5307,12 +5315,13 @@ const file_webuimessages_gamerecording_proto_rawDesc = "" +
 	"\x11run_policy_checks\x18\x03 \x01(\bR\x0frunPolicyChecks\"\x93\x01\n" +
 	")CGameRecording_ExportClipPreview_Response\x12%\n" +
 	"\x0eestimated_size\x18\x01 \x01(\x04R\restimatedSize\x12?\n" +
-	"\bsettings\x18\x02 \x01(\v2#.CGameRecording_ExportClip_SettingsR\bsettings\"\x8f\x01\n" +
+	"\bsettings\x18\x02 \x01(\v2#.CGameRecording_ExportClip_SettingsR\bsettings\"\xb5\x01\n" +
 	"%CGameRecording_TakeScreenshot_Request\x12\x17\n" +
 	"\agame_id\x18\x01 \x01(\x06R\x06gameId\x12\x1f\n" +
 	"\vtimeline_id\x18\x02 \x01(\tR\n" +
 	"timelineId\x12,\n" +
-	"\x12timeline_offset_ms\x18\x03 \x01(\x04R\x10timelineOffsetMs\"M\n" +
+	"\x12timeline_offset_ms\x18\x03 \x01(\x04R\x10timelineOffsetMs\x12$\n" +
+	"\x0esource_clip_id\x18\x04 \x01(\tR\fsourceClipId\"M\n" +
 	"&CGameRecording_TakeScreenshot_Response\x12#\n" +
 	"\rscreenshot_id\x18\x01 \x01(\x06R\fscreenshotId\"\x8d\x01\n" +
 	"(CGameRecording_UploadClipToSteam_Request\x12\x17\n" +

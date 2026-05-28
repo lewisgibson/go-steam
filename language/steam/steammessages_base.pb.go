@@ -372,6 +372,74 @@ func (CMsgProtoBufHeader_ESessionDisposition) EnumDescriptor() ([]byte, []int) {
 	return file_steammessages_base_proto_rawDescGZIP(), []int{3, 0}
 }
 
+type GamePerformanceSettings_EGamePerformanceSetting int32
+
+const (
+	GamePerformanceSettings_k_EGamePerformanceSetting_NotSet GamePerformanceSettings_EGamePerformanceSetting = 0
+	GamePerformanceSettings_k_EGamePerformanceSetting_Low    GamePerformanceSettings_EGamePerformanceSetting = 1
+	GamePerformanceSettings_k_EGamePerformanceSetting_Medium GamePerformanceSettings_EGamePerformanceSetting = 2
+	GamePerformanceSettings_k_EGamePerformanceSetting_High   GamePerformanceSettings_EGamePerformanceSetting = 3
+	GamePerformanceSettings_k_EGamePerformanceSetting_Ultra  GamePerformanceSettings_EGamePerformanceSetting = 4
+	GamePerformanceSettings_k_EGamePerformanceSetting_Custom GamePerformanceSettings_EGamePerformanceSetting = 5
+)
+
+// Enum value maps for GamePerformanceSettings_EGamePerformanceSetting.
+var (
+	GamePerformanceSettings_EGamePerformanceSetting_name = map[int32]string{
+		0: "k_EGamePerformanceSetting_NotSet",
+		1: "k_EGamePerformanceSetting_Low",
+		2: "k_EGamePerformanceSetting_Medium",
+		3: "k_EGamePerformanceSetting_High",
+		4: "k_EGamePerformanceSetting_Ultra",
+		5: "k_EGamePerformanceSetting_Custom",
+	}
+	GamePerformanceSettings_EGamePerformanceSetting_value = map[string]int32{
+		"k_EGamePerformanceSetting_NotSet": 0,
+		"k_EGamePerformanceSetting_Low":    1,
+		"k_EGamePerformanceSetting_Medium": 2,
+		"k_EGamePerformanceSetting_High":   3,
+		"k_EGamePerformanceSetting_Ultra":  4,
+		"k_EGamePerformanceSetting_Custom": 5,
+	}
+)
+
+func (x GamePerformanceSettings_EGamePerformanceSetting) Enum() *GamePerformanceSettings_EGamePerformanceSetting {
+	p := new(GamePerformanceSettings_EGamePerformanceSetting)
+	*p = x
+	return p
+}
+
+func (x GamePerformanceSettings_EGamePerformanceSetting) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (GamePerformanceSettings_EGamePerformanceSetting) Descriptor() protoreflect.EnumDescriptor {
+	return file_steammessages_base_proto_enumTypes[4].Descriptor()
+}
+
+func (GamePerformanceSettings_EGamePerformanceSetting) Type() protoreflect.EnumType {
+	return &file_steammessages_base_proto_enumTypes[4]
+}
+
+func (x GamePerformanceSettings_EGamePerformanceSetting) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *GamePerformanceSettings_EGamePerformanceSetting) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = GamePerformanceSettings_EGamePerformanceSetting(num)
+	return nil
+}
+
+// Deprecated: Use GamePerformanceSettings_EGamePerformanceSetting.Descriptor instead.
+func (GamePerformanceSettings_EGamePerformanceSetting) EnumDescriptor() ([]byte, []int) {
+	return file_steammessages_base_proto_rawDescGZIP(), []int{22, 0}
+}
+
 type CMsgIPAddress struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Types that are valid to be assigned to Ip:
@@ -2116,6 +2184,7 @@ type CClanEventData struct {
 	BuildId                *uint32                          `protobuf:"varint,29,opt,name=build_id,json=buildId" json:"build_id,omitempty"`
 	BuildBranch            *string                          `protobuf:"bytes,30,opt,name=build_branch,json=buildBranch" json:"build_branch,omitempty"`
 	Unlisted               *bool                            `protobuf:"varint,31,opt,name=unlisted" json:"unlisted,omitempty"`
+	RtimeCreated           *uint32                          `protobuf:"varint,32,opt,name=rtime_created,json=rtimeCreated" json:"rtime_created,omitempty"`
 	unknownFields          protoimpl.UnknownFields
 	sizeCache              protoimpl.SizeCache
 }
@@ -2370,6 +2439,13 @@ func (x *CClanEventData) GetUnlisted() bool {
 		return *x.Unlisted
 	}
 	return false
+}
+
+func (x *CClanEventData) GetRtimeCreated() uint32 {
+	if x != nil && x.RtimeCreated != nil {
+		return *x.RtimeCreated
+	}
+	return 0
 }
 
 type CBilling_Address struct {
@@ -2778,6 +2854,9 @@ type UserSystemInformation struct {
 	DriverVersion      *string                `protobuf:"bytes,15,opt,name=driver_version,json=driverVersion" json:"driver_version,omitempty"`
 	DriverDate         *string                `protobuf:"bytes,16,opt,name=driver_date,json=driverDate" json:"driver_date,omitempty"`
 	VramSize           *uint32                `protobuf:"varint,17,opt,name=vram_size,json=vramSize" json:"vram_size,omitempty"`
+	ScreenWidth        *uint32                `protobuf:"varint,18,opt,name=screen_width,json=screenWidth" json:"screen_width,omitempty"`
+	ScreenHeight       *uint32                `protobuf:"varint,19,opt,name=screen_height,json=screenHeight" json:"screen_height,omitempty"`
+	PreciseFrameRate   *bool                  `protobuf:"varint,20,opt,name=precise_frame_rate,json=preciseFrameRate" json:"precise_frame_rate,omitempty"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
@@ -2924,6 +3003,92 @@ func (x *UserSystemInformation) GetVramSize() uint32 {
 	return 0
 }
 
+func (x *UserSystemInformation) GetScreenWidth() uint32 {
+	if x != nil && x.ScreenWidth != nil {
+		return *x.ScreenWidth
+	}
+	return 0
+}
+
+func (x *UserSystemInformation) GetScreenHeight() uint32 {
+	if x != nil && x.ScreenHeight != nil {
+		return *x.ScreenHeight
+	}
+	return 0
+}
+
+func (x *UserSystemInformation) GetPreciseFrameRate() bool {
+	if x != nil && x.PreciseFrameRate != nil {
+		return *x.PreciseFrameRate
+	}
+	return false
+}
+
+type GamePerformanceSettings struct {
+	state                protoimpl.MessageState                           `protogen:"open.v1"`
+	Setting              *GamePerformanceSettings_EGamePerformanceSetting `protobuf:"varint,1,opt,name=setting,enum=GamePerformanceSettings_EGamePerformanceSetting,def=0" json:"setting,omitempty"`
+	GameResolutionWidth  *uint32                                          `protobuf:"varint,2,opt,name=game_resolution_width,json=gameResolutionWidth" json:"game_resolution_width,omitempty"`
+	GameResolutionHeight *uint32                                          `protobuf:"varint,3,opt,name=game_resolution_height,json=gameResolutionHeight" json:"game_resolution_height,omitempty"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
+}
+
+// Default values for GamePerformanceSettings fields.
+const (
+	Default_GamePerformanceSettings_Setting = GamePerformanceSettings_k_EGamePerformanceSetting_NotSet
+)
+
+func (x *GamePerformanceSettings) Reset() {
+	*x = GamePerformanceSettings{}
+	mi := &file_steammessages_base_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GamePerformanceSettings) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GamePerformanceSettings) ProtoMessage() {}
+
+func (x *GamePerformanceSettings) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_base_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GamePerformanceSettings.ProtoReflect.Descriptor instead.
+func (*GamePerformanceSettings) Descriptor() ([]byte, []int) {
+	return file_steammessages_base_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *GamePerformanceSettings) GetSetting() GamePerformanceSettings_EGamePerformanceSetting {
+	if x != nil && x.Setting != nil {
+		return *x.Setting
+	}
+	return Default_GamePerformanceSettings_Setting
+}
+
+func (x *GamePerformanceSettings) GetGameResolutionWidth() uint32 {
+	if x != nil && x.GameResolutionWidth != nil {
+		return *x.GameResolutionWidth
+	}
+	return 0
+}
+
+func (x *GamePerformanceSettings) GetGameResolutionHeight() uint32 {
+	if x != nil && x.GameResolutionHeight != nil {
+		return *x.GameResolutionHeight
+	}
+	return 0
+}
+
 type CMsgKubeRPCPacket_Hdr struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	JobidSource   *uint64                `protobuf:"fixed64,10,opt,name=jobid_source,json=jobidSource,def=18446744073709551615" json:"jobid_source,omitempty"`
@@ -2945,7 +3110,7 @@ const (
 
 func (x *CMsgKubeRPCPacket_Hdr) Reset() {
 	*x = CMsgKubeRPCPacket_Hdr{}
-	mi := &file_steammessages_base_proto_msgTypes[22]
+	mi := &file_steammessages_base_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2957,7 +3122,7 @@ func (x *CMsgKubeRPCPacket_Hdr) String() string {
 func (*CMsgKubeRPCPacket_Hdr) ProtoMessage() {}
 
 func (x *CMsgKubeRPCPacket_Hdr) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_base_proto_msgTypes[22]
+	mi := &file_steammessages_base_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3025,7 +3190,7 @@ type UserContentDescriptorPreferences_ContentDescriptor struct {
 
 func (x *UserContentDescriptorPreferences_ContentDescriptor) Reset() {
 	*x = UserContentDescriptorPreferences_ContentDescriptor{}
-	mi := &file_steammessages_base_proto_msgTypes[23]
+	mi := &file_steammessages_base_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3037,7 +3202,7 @@ func (x *UserContentDescriptorPreferences_ContentDescriptor) String() string {
 func (*UserContentDescriptorPreferences_ContentDescriptor) ProtoMessage() {}
 
 func (x *UserContentDescriptorPreferences_ContentDescriptor) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_base_proto_msgTypes[23]
+	mi := &file_steammessages_base_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3305,7 +3470,8 @@ const file_steammessages_base_proto_rawDesc = "" +
 	"\vvoteupcount\x18\x0e \x01(\x05R\vvoteupcount\x12$\n" +
 	"\rvotedowncount\x18\x0f \x01(\x05R\rvotedowncount\x12f\n" +
 	"\x10ban_check_result\x18\x10 \x01(\x0e2\x17.EBanContentCheckResult:#k_EBanContentCheckResult_NotScannedR\x0ebanCheckResult\x12\x16\n" +
-	"\x06banned\x18\x11 \x01(\bR\x06banned\"\xfa\t\n" +
+	"\x06banned\x18\x11 \x01(\bR\x06banned\"\x9f\n" +
+	"\n" +
 	"\x0eCClanEventData\x12\x10\n" +
 	"\x03gid\x18\x01 \x01(\x06R\x03gid\x12!\n" +
 	"\fclan_steamid\x18\x02 \x01(\x06R\vclanSteamid\x12\x1d\n" +
@@ -3341,7 +3507,8 @@ const file_steammessages_base_proto_rawDesc = "" +
 	"\x11referenced_appids\x18\x1c \x03(\rR\x10referencedAppids\x12\x19\n" +
 	"\bbuild_id\x18\x1d \x01(\rR\abuildId\x12!\n" +
 	"\fbuild_branch\x18\x1e \x01(\tR\vbuildBranch\x12\x1a\n" +
-	"\bunlisted\x18\x1f \x01(\bR\bunlisted\"\xa7\x02\n" +
+	"\bunlisted\x18\x1f \x01(\bR\bunlisted\x12#\n" +
+	"\rrtime_created\x18  \x01(\rR\frtimeCreated\"\xa7\x02\n" +
 	"\x10CBilling_Address\x12\x1d\n" +
 	"\n" +
 	"first_name\x18\x01 \x01(\tR\tfirstName\x12\x1b\n" +
@@ -3378,7 +3545,7 @@ const file_steammessages_base_proto_rawDesc = "" +
 	"\x1econtent_descriptors_to_exclude\x18\x01 \x03(\v23.UserContentDescriptorPreferences.ContentDescriptorR\x1bcontentDescriptorsToExclude\x1ao\n" +
 	"\x11ContentDescriptor\x121\n" +
 	"\x14content_descriptorid\x18\x01 \x01(\rR\x13contentDescriptorid\x12'\n" +
-	"\x0ftimestamp_added\x18\x02 \x01(\rR\x0etimestampAdded\"\xa9\x04\n" +
+	"\x0ftimestamp_added\x18\x02 \x01(\rR\x0etimestampAdded\"\x9f\x05\n" +
 	"\x15UserSystemInformation\x12\"\n" +
 	"\fmanufacturer\x18\x01 \x01(\tR\fmanufacturer\x12\x14\n" +
 	"\x05model\x18\x02 \x01(\tR\x05model\x12\"\n" +
@@ -3401,7 +3568,21 @@ const file_steammessages_base_proto_rawDesc = "" +
 	"\x0edriver_version\x18\x0f \x01(\tR\rdriverVersion\x12\x1f\n" +
 	"\vdriver_date\x18\x10 \x01(\tR\n" +
 	"driverDate\x12\x1b\n" +
-	"\tvram_size\x18\x11 \x01(\rR\bvramSize*\xd8\x02\n" +
+	"\tvram_size\x18\x11 \x01(\rR\bvramSize\x12!\n" +
+	"\fscreen_width\x18\x12 \x01(\rR\vscreenWidth\x12#\n" +
+	"\rscreen_height\x18\x13 \x01(\rR\fscreenHeight\x12,\n" +
+	"\x12precise_frame_rate\x18\x14 \x01(\bR\x10preciseFrameRate\"\xeb\x03\n" +
+	"\x17GamePerformanceSettings\x12l\n" +
+	"\asetting\x18\x01 \x01(\x0e20.GamePerformanceSettings.EGamePerformanceSetting: k_EGamePerformanceSetting_NotSetR\asetting\x122\n" +
+	"\x15game_resolution_width\x18\x02 \x01(\rR\x13gameResolutionWidth\x124\n" +
+	"\x16game_resolution_height\x18\x03 \x01(\rR\x14gameResolutionHeight\"\xf7\x01\n" +
+	"\x17EGamePerformanceSetting\x12$\n" +
+	" k_EGamePerformanceSetting_NotSet\x10\x00\x12!\n" +
+	"\x1dk_EGamePerformanceSetting_Low\x10\x01\x12$\n" +
+	" k_EGamePerformanceSetting_Medium\x10\x02\x12\"\n" +
+	"\x1ek_EGamePerformanceSetting_High\x10\x03\x12#\n" +
+	"\x1fk_EGamePerformanceSetting_Ultra\x10\x04\x12$\n" +
+	" k_EGamePerformanceSetting_Custom\x10\x05*\xd8\x02\n" +
 	"\x16EBanContentCheckResult\x12'\n" +
 	"#k_EBanContentCheckResult_NotScanned\x10\x00\x12\"\n" +
 	"\x1ek_EBanContentCheckResult_Reset\x10\x01\x12*\n" +
@@ -3471,60 +3652,63 @@ func file_steammessages_base_proto_rawDescGZIP() []byte {
 	return file_steammessages_base_proto_rawDescData
 }
 
-var file_steammessages_base_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
-var file_steammessages_base_proto_msgTypes = make([]protoimpl.MessageInfo, 24)
+var file_steammessages_base_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
+var file_steammessages_base_proto_msgTypes = make([]protoimpl.MessageInfo, 25)
 var file_steammessages_base_proto_goTypes = []any{
 	(EBanContentCheckResult)(0),                                // 0: EBanContentCheckResult
 	(EProtoClanEventType)(0),                                   // 1: EProtoClanEventType
 	(PartnerEventNotificationType)(0),                          // 2: PartnerEventNotificationType
 	(CMsgProtoBufHeader_ESessionDisposition)(0),                // 3: CMsgProtoBufHeader.ESessionDisposition
-	(*CMsgIPAddress)(nil),                                      // 4: CMsgIPAddress
-	(*CMsgIPAddressBucket)(nil),                                // 5: CMsgIPAddressBucket
-	(*CMsgGCRoutingProtoBufHeader)(nil),                        // 6: CMsgGCRoutingProtoBufHeader
-	(*CMsgProtoBufHeader)(nil),                                 // 7: CMsgProtoBufHeader
-	(*CMsgKubeRPCPacket)(nil),                                  // 8: CMsgKubeRPCPacket
-	(*CMsgMulti)(nil),                                          // 9: CMsgMulti
-	(*CMsgProtobufWrapped)(nil),                                // 10: CMsgProtobufWrapped
-	(*CMsgAuthTicket)(nil),                                     // 11: CMsgAuthTicket
-	(*CCDDBAppDetailCommon)(nil),                               // 12: CCDDBAppDetailCommon
-	(*CMsgAppRights)(nil),                                      // 13: CMsgAppRights
-	(*CCuratorPreferences)(nil),                                // 14: CCuratorPreferences
-	(*CLocalizationToken)(nil),                                 // 15: CLocalizationToken
-	(*CClanEventUserNewsTuple)(nil),                            // 16: CClanEventUserNewsTuple
-	(*CClanMatchEventByRange)(nil),                             // 17: CClanMatchEventByRange
-	(*CCommunity_ClanAnnouncementInfo)(nil),                    // 18: CCommunity_ClanAnnouncementInfo
-	(*CClanEventData)(nil),                                     // 19: CClanEventData
-	(*CBilling_Address)(nil),                                   // 20: CBilling_Address
-	(*CPackageReservationStatus)(nil),                          // 21: CPackageReservationStatus
-	(*CMsgKeyValuePair)(nil),                                   // 22: CMsgKeyValuePair
-	(*CMsgKeyValueSet)(nil),                                    // 23: CMsgKeyValueSet
-	(*UserContentDescriptorPreferences)(nil),                   // 24: UserContentDescriptorPreferences
-	(*UserSystemInformation)(nil),                              // 25: UserSystemInformation
-	(*CMsgKubeRPCPacket_Hdr)(nil),                              // 26: CMsgKubeRPCPacket.Hdr
-	(*UserContentDescriptorPreferences_ContentDescriptor)(nil), // 27: UserContentDescriptorPreferences.ContentDescriptor
-	(*descriptorpb.MessageOptions)(nil),                        // 28: google.protobuf.MessageOptions
-	(*descriptorpb.FieldOptions)(nil),                          // 29: google.protobuf.FieldOptions
+	(GamePerformanceSettings_EGamePerformanceSetting)(0),       // 4: GamePerformanceSettings.EGamePerformanceSetting
+	(*CMsgIPAddress)(nil),                                      // 5: CMsgIPAddress
+	(*CMsgIPAddressBucket)(nil),                                // 6: CMsgIPAddressBucket
+	(*CMsgGCRoutingProtoBufHeader)(nil),                        // 7: CMsgGCRoutingProtoBufHeader
+	(*CMsgProtoBufHeader)(nil),                                 // 8: CMsgProtoBufHeader
+	(*CMsgKubeRPCPacket)(nil),                                  // 9: CMsgKubeRPCPacket
+	(*CMsgMulti)(nil),                                          // 10: CMsgMulti
+	(*CMsgProtobufWrapped)(nil),                                // 11: CMsgProtobufWrapped
+	(*CMsgAuthTicket)(nil),                                     // 12: CMsgAuthTicket
+	(*CCDDBAppDetailCommon)(nil),                               // 13: CCDDBAppDetailCommon
+	(*CMsgAppRights)(nil),                                      // 14: CMsgAppRights
+	(*CCuratorPreferences)(nil),                                // 15: CCuratorPreferences
+	(*CLocalizationToken)(nil),                                 // 16: CLocalizationToken
+	(*CClanEventUserNewsTuple)(nil),                            // 17: CClanEventUserNewsTuple
+	(*CClanMatchEventByRange)(nil),                             // 18: CClanMatchEventByRange
+	(*CCommunity_ClanAnnouncementInfo)(nil),                    // 19: CCommunity_ClanAnnouncementInfo
+	(*CClanEventData)(nil),                                     // 20: CClanEventData
+	(*CBilling_Address)(nil),                                   // 21: CBilling_Address
+	(*CPackageReservationStatus)(nil),                          // 22: CPackageReservationStatus
+	(*CMsgKeyValuePair)(nil),                                   // 23: CMsgKeyValuePair
+	(*CMsgKeyValueSet)(nil),                                    // 24: CMsgKeyValueSet
+	(*UserContentDescriptorPreferences)(nil),                   // 25: UserContentDescriptorPreferences
+	(*UserSystemInformation)(nil),                              // 26: UserSystemInformation
+	(*GamePerformanceSettings)(nil),                            // 27: GamePerformanceSettings
+	(*CMsgKubeRPCPacket_Hdr)(nil),                              // 28: CMsgKubeRPCPacket.Hdr
+	(*UserContentDescriptorPreferences_ContentDescriptor)(nil), // 29: UserContentDescriptorPreferences.ContentDescriptor
+	(*descriptorpb.MessageOptions)(nil),                        // 30: google.protobuf.MessageOptions
+	(*descriptorpb.FieldOptions)(nil),                          // 31: google.protobuf.FieldOptions
 }
 var file_steammessages_base_proto_depIdxs = []int32{
-	4,  // 0: CMsgIPAddressBucket.original_ip_address:type_name -> CMsgIPAddress
-	6,  // 1: CMsgProtoBufHeader.routing_gc:type_name -> CMsgGCRoutingProtoBufHeader
+	5,  // 0: CMsgIPAddressBucket.original_ip_address:type_name -> CMsgIPAddress
+	7,  // 1: CMsgProtoBufHeader.routing_gc:type_name -> CMsgGCRoutingProtoBufHeader
 	3,  // 2: CMsgProtoBufHeader.session_disposition:type_name -> CMsgProtoBufHeader.ESessionDisposition
-	26, // 3: CMsgKubeRPCPacket.hdr:type_name -> CMsgKubeRPCPacket.Hdr
-	16, // 4: CClanMatchEventByRange.events:type_name -> CClanEventUserNewsTuple
+	28, // 3: CMsgKubeRPCPacket.hdr:type_name -> CMsgKubeRPCPacket.Hdr
+	17, // 4: CClanMatchEventByRange.events:type_name -> CClanEventUserNewsTuple
 	0,  // 5: CCommunity_ClanAnnouncementInfo.ban_check_result:type_name -> EBanContentCheckResult
 	1,  // 6: CClanEventData.event_type:type_name -> EProtoClanEventType
-	18, // 7: CClanEventData.announcement_body:type_name -> CCommunity_ClanAnnouncementInfo
-	22, // 8: CMsgKeyValueSet.pairs:type_name -> CMsgKeyValuePair
-	27, // 9: UserContentDescriptorPreferences.content_descriptors_to_exclude:type_name -> UserContentDescriptorPreferences.ContentDescriptor
-	28, // 10: msgpool_soft_limit:extendee -> google.protobuf.MessageOptions
-	28, // 11: msgpool_hard_limit:extendee -> google.protobuf.MessageOptions
-	29, // 12: php_output_always_number:extendee -> google.protobuf.FieldOptions
-	29, // 13: allow_field_named_steam_id:extendee -> google.protobuf.FieldOptions
-	14, // [14:14] is the sub-list for method output_type
-	14, // [14:14] is the sub-list for method input_type
-	14, // [14:14] is the sub-list for extension type_name
-	10, // [10:14] is the sub-list for extension extendee
-	0,  // [0:10] is the sub-list for field type_name
+	19, // 7: CClanEventData.announcement_body:type_name -> CCommunity_ClanAnnouncementInfo
+	23, // 8: CMsgKeyValueSet.pairs:type_name -> CMsgKeyValuePair
+	29, // 9: UserContentDescriptorPreferences.content_descriptors_to_exclude:type_name -> UserContentDescriptorPreferences.ContentDescriptor
+	4,  // 10: GamePerformanceSettings.setting:type_name -> GamePerformanceSettings.EGamePerformanceSetting
+	30, // 11: msgpool_soft_limit:extendee -> google.protobuf.MessageOptions
+	30, // 12: msgpool_hard_limit:extendee -> google.protobuf.MessageOptions
+	31, // 13: php_output_always_number:extendee -> google.protobuf.FieldOptions
+	31, // 14: allow_field_named_steam_id:extendee -> google.protobuf.FieldOptions
+	15, // [15:15] is the sub-list for method output_type
+	15, // [15:15] is the sub-list for method input_type
+	15, // [15:15] is the sub-list for extension type_name
+	11, // [11:15] is the sub-list for extension extendee
+	0,  // [0:11] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_base_proto_init() }
@@ -3545,8 +3729,8 @@ func file_steammessages_base_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_base_proto_rawDesc), len(file_steammessages_base_proto_rawDesc)),
-			NumEnums:      4,
-			NumMessages:   24,
+			NumEnums:      5,
+			NumMessages:   25,
 			NumExtensions: 4,
 			NumServices:   0,
 		},

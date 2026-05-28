@@ -749,38 +749,29 @@ func (x *CMsgMouseLeave) GetBrowserHandle() uint32 {
 type CMsgBrowserCreate struct {
 	state                  protoimpl.MessageState `protogen:"open.v1"`
 	RequestId              *uint32                `protobuf:"varint,1,opt,name=request_id,json=requestId" json:"request_id,omitempty"`
-	Useragent              *string                `protobuf:"bytes,3,opt,name=useragent" json:"useragent,omitempty"`
-	UserCss                *string                `protobuf:"bytes,5,opt,name=user_css,json=userCss" json:"user_css,omitempty"`
-	NativeDropdowns        *bool                  `protobuf:"varint,6,opt,name=native_dropdowns,json=nativeDropdowns" json:"native_dropdowns,omitempty"`
-	DpiScaling             *float32               `protobuf:"fixed32,7,opt,name=dpi_scaling,json=dpiScaling" json:"dpi_scaling,omitempty"`
-	Offscreen              *bool                  `protobuf:"varint,8,opt,name=offscreen,def=1" json:"offscreen,omitempty"`
-	InitialWidth           *uint32                `protobuf:"varint,9,opt,name=initial_width,json=initialWidth,def=0" json:"initial_width,omitempty"`
-	InitialHeight          *uint32                `protobuf:"varint,10,opt,name=initial_height,json=initialHeight,def=0" json:"initial_height,omitempty"`
-	WindowIcon             *string                `protobuf:"bytes,11,opt,name=window_icon,json=windowIcon" json:"window_icon,omitempty"`
-	Borderless             *bool                  `protobuf:"varint,12,opt,name=borderless,def=0" json:"borderless,omitempty"`
-	VroverlayKey           *string                `protobuf:"bytes,13,opt,name=vroverlay_key,json=vroverlayKey" json:"vroverlay_key,omitempty"`
-	BrowserType            *uint32                `protobuf:"varint,14,opt,name=browser_type,json=browserType,def=0" json:"browser_type,omitempty"`
-	InitialTop             *int32                 `protobuf:"varint,15,opt,name=initial_top,json=initialTop,def=-2147483648" json:"initial_top,omitempty"`
-	InitialLeft            *int32                 `protobuf:"varint,16,opt,name=initial_left,json=initialLeft,def=-2147483648" json:"initial_left,omitempty"`
-	OnlyAllowTrustedPopups *bool                  `protobuf:"varint,17,opt,name=only_allow_trusted_popups,json=onlyAllowTrustedPopups,def=0" json:"only_allow_trusted_popups,omitempty"`
-	InitialUrl             *string                `protobuf:"bytes,18,opt,name=initial_url,json=initialUrl" json:"initial_url,omitempty"`
-	HwndParent             *uint64                `protobuf:"fixed64,19,opt,name=hwnd_parent,json=hwndParent" json:"hwnd_parent,omitempty"`
-	CreationFlags          *uint32                `protobuf:"varint,20,opt,name=creation_flags,json=creationFlags,def=0" json:"creation_flags,omitempty"`
+	Useragent              *string                `protobuf:"bytes,2,opt,name=useragent" json:"useragent,omitempty"`
+	UserCss                *string                `protobuf:"bytes,3,opt,name=user_css,json=userCss" json:"user_css,omitempty"`
+	NativeDropdowns        *bool                  `protobuf:"varint,4,opt,name=native_dropdowns,json=nativeDropdowns" json:"native_dropdowns,omitempty"`
+	DpiScaling             *float32               `protobuf:"fixed32,5,opt,name=dpi_scaling,json=dpiScaling" json:"dpi_scaling,omitempty"`
+	InitialWidth           *uint32                `protobuf:"varint,6,opt,name=initial_width,json=initialWidth" json:"initial_width,omitempty"`
+	InitialHeight          *uint32                `protobuf:"varint,7,opt,name=initial_height,json=initialHeight" json:"initial_height,omitempty"`
+	WindowIcon             *string                `protobuf:"bytes,8,opt,name=window_icon,json=windowIcon" json:"window_icon,omitempty"`
+	VroverlayKey           *string                `protobuf:"bytes,9,opt,name=vroverlay_key,json=vroverlayKey" json:"vroverlay_key,omitempty"`
+	BrowserType            *uint32                `protobuf:"varint,10,opt,name=browser_type,json=browserType" json:"browser_type,omitempty"`
+	InitialTop             *int32                 `protobuf:"varint,11,opt,name=initial_top,json=initialTop,def=-2147483648" json:"initial_top,omitempty"`
+	InitialLeft            *int32                 `protobuf:"varint,12,opt,name=initial_left,json=initialLeft,def=-2147483648" json:"initial_left,omitempty"`
+	OnlyAllowTrustedPopups *bool                  `protobuf:"varint,13,opt,name=only_allow_trusted_popups,json=onlyAllowTrustedPopups" json:"only_allow_trusted_popups,omitempty"`
+	InitialUrl             *string                `protobuf:"bytes,14,opt,name=initial_url,json=initialUrl" json:"initial_url,omitempty"`
+	HwndParent             *uint64                `protobuf:"fixed64,15,opt,name=hwnd_parent,json=hwndParent" json:"hwnd_parent,omitempty"`
+	CreationFlags          *uint32                `protobuf:"varint,16,opt,name=creation_flags,json=creationFlags" json:"creation_flags,omitempty"`
 	unknownFields          protoimpl.UnknownFields
 	sizeCache              protoimpl.SizeCache
 }
 
 // Default values for CMsgBrowserCreate fields.
 const (
-	Default_CMsgBrowserCreate_Offscreen              = bool(true)
-	Default_CMsgBrowserCreate_InitialWidth           = uint32(0)
-	Default_CMsgBrowserCreate_InitialHeight          = uint32(0)
-	Default_CMsgBrowserCreate_Borderless             = bool(false)
-	Default_CMsgBrowserCreate_BrowserType            = uint32(0)
-	Default_CMsgBrowserCreate_InitialTop             = int32(-2147483648)
-	Default_CMsgBrowserCreate_InitialLeft            = int32(-2147483648)
-	Default_CMsgBrowserCreate_OnlyAllowTrustedPopups = bool(false)
-	Default_CMsgBrowserCreate_CreationFlags          = uint32(0)
+	Default_CMsgBrowserCreate_InitialTop  = int32(-2147483648)
+	Default_CMsgBrowserCreate_InitialLeft = int32(-2147483648)
 )
 
 func (x *CMsgBrowserCreate) Reset() {
@@ -848,25 +839,18 @@ func (x *CMsgBrowserCreate) GetDpiScaling() float32 {
 	return 0
 }
 
-func (x *CMsgBrowserCreate) GetOffscreen() bool {
-	if x != nil && x.Offscreen != nil {
-		return *x.Offscreen
-	}
-	return Default_CMsgBrowserCreate_Offscreen
-}
-
 func (x *CMsgBrowserCreate) GetInitialWidth() uint32 {
 	if x != nil && x.InitialWidth != nil {
 		return *x.InitialWidth
 	}
-	return Default_CMsgBrowserCreate_InitialWidth
+	return 0
 }
 
 func (x *CMsgBrowserCreate) GetInitialHeight() uint32 {
 	if x != nil && x.InitialHeight != nil {
 		return *x.InitialHeight
 	}
-	return Default_CMsgBrowserCreate_InitialHeight
+	return 0
 }
 
 func (x *CMsgBrowserCreate) GetWindowIcon() string {
@@ -874,13 +858,6 @@ func (x *CMsgBrowserCreate) GetWindowIcon() string {
 		return *x.WindowIcon
 	}
 	return ""
-}
-
-func (x *CMsgBrowserCreate) GetBorderless() bool {
-	if x != nil && x.Borderless != nil {
-		return *x.Borderless
-	}
-	return Default_CMsgBrowserCreate_Borderless
 }
 
 func (x *CMsgBrowserCreate) GetVroverlayKey() string {
@@ -894,7 +871,7 @@ func (x *CMsgBrowserCreate) GetBrowserType() uint32 {
 	if x != nil && x.BrowserType != nil {
 		return *x.BrowserType
 	}
-	return Default_CMsgBrowserCreate_BrowserType
+	return 0
 }
 
 func (x *CMsgBrowserCreate) GetInitialTop() int32 {
@@ -915,7 +892,7 @@ func (x *CMsgBrowserCreate) GetOnlyAllowTrustedPopups() bool {
 	if x != nil && x.OnlyAllowTrustedPopups != nil {
 		return *x.OnlyAllowTrustedPopups
 	}
-	return Default_CMsgBrowserCreate_OnlyAllowTrustedPopups
+	return false
 }
 
 func (x *CMsgBrowserCreate) GetInitialUrl() string {
@@ -936,7 +913,7 @@ func (x *CMsgBrowserCreate) GetCreationFlags() uint32 {
 	if x != nil && x.CreationFlags != nil {
 		return *x.CreationFlags
 	}
-	return Default_CMsgBrowserCreate_CreationFlags
+	return 0
 }
 
 type CMsgBrowserCreateResponse struct {
@@ -10434,6 +10411,58 @@ func (x *CMsgSetAccessibilitySettings) GetMinimumFontSize() uint32 {
 	return 0
 }
 
+type CMsgSetBrowserViewDomainRequestMapping struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	RequestDomain    *string                `protobuf:"bytes,1,opt,name=request_domain,json=requestDomain" json:"request_domain,omitempty"`
+	DefaultLocalPath *string                `protobuf:"bytes,2,opt,name=default_local_path,json=defaultLocalPath" json:"default_local_path,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *CMsgSetBrowserViewDomainRequestMapping) Reset() {
+	*x = CMsgSetBrowserViewDomainRequestMapping{}
+	mi := &file_htmlmessages_proto_msgTypes[169]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgSetBrowserViewDomainRequestMapping) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgSetBrowserViewDomainRequestMapping) ProtoMessage() {}
+
+func (x *CMsgSetBrowserViewDomainRequestMapping) ProtoReflect() protoreflect.Message {
+	mi := &file_htmlmessages_proto_msgTypes[169]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgSetBrowserViewDomainRequestMapping.ProtoReflect.Descriptor instead.
+func (*CMsgSetBrowserViewDomainRequestMapping) Descriptor() ([]byte, []int) {
+	return file_htmlmessages_proto_rawDescGZIP(), []int{169}
+}
+
+func (x *CMsgSetBrowserViewDomainRequestMapping) GetRequestDomain() string {
+	if x != nil && x.RequestDomain != nil {
+		return *x.RequestDomain
+	}
+	return ""
+}
+
+func (x *CMsgSetBrowserViewDomainRequestMapping) GetDefaultLocalPath() string {
+	if x != nil && x.DefaultLocalPath != nil {
+		return *x.DefaultLocalPath
+	}
+	return ""
+}
+
 type CMsgSetLocalFileRequestMapping_AdditionalRoute struct {
 	state             protoimpl.MessageState `protogen:"open.v1"`
 	RelativeUrl       *string                `protobuf:"bytes,1,opt,name=relative_url,json=relativeUrl" json:"relative_url,omitempty"`
@@ -10446,7 +10475,7 @@ type CMsgSetLocalFileRequestMapping_AdditionalRoute struct {
 
 func (x *CMsgSetLocalFileRequestMapping_AdditionalRoute) Reset() {
 	*x = CMsgSetLocalFileRequestMapping_AdditionalRoute{}
-	mi := &file_htmlmessages_proto_msgTypes[169]
+	mi := &file_htmlmessages_proto_msgTypes[170]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10458,7 +10487,7 @@ func (x *CMsgSetLocalFileRequestMapping_AdditionalRoute) String() string {
 func (*CMsgSetLocalFileRequestMapping_AdditionalRoute) ProtoMessage() {}
 
 func (x *CMsgSetLocalFileRequestMapping_AdditionalRoute) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[169]
+	mi := &file_htmlmessages_proto_msgTypes[170]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10513,7 +10542,7 @@ type CMsgFileLoadDialog_Filter struct {
 
 func (x *CMsgFileLoadDialog_Filter) Reset() {
 	*x = CMsgFileLoadDialog_Filter{}
-	mi := &file_htmlmessages_proto_msgTypes[170]
+	mi := &file_htmlmessages_proto_msgTypes[171]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10525,7 +10554,7 @@ func (x *CMsgFileLoadDialog_Filter) String() string {
 func (*CMsgFileLoadDialog_Filter) ProtoMessage() {}
 
 func (x *CMsgFileLoadDialog_Filter) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[170]
+	mi := &file_htmlmessages_proto_msgTypes[171]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10572,7 +10601,7 @@ type CMsgJSValue_JSObjectProperty struct {
 
 func (x *CMsgJSValue_JSObjectProperty) Reset() {
 	*x = CMsgJSValue_JSObjectProperty{}
-	mi := &file_htmlmessages_proto_msgTypes[171]
+	mi := &file_htmlmessages_proto_msgTypes[172]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10584,7 +10613,7 @@ func (x *CMsgJSValue_JSObjectProperty) String() string {
 func (*CMsgJSValue_JSObjectProperty) ProtoMessage() {}
 
 func (x *CMsgJSValue_JSObjectProperty) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[171]
+	mi := &file_htmlmessages_proto_msgTypes[172]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10628,7 +10657,7 @@ type CMsgDraggableRegionsChanged_DraggableRects struct {
 
 func (x *CMsgDraggableRegionsChanged_DraggableRects) Reset() {
 	*x = CMsgDraggableRegionsChanged_DraggableRects{}
-	mi := &file_htmlmessages_proto_msgTypes[172]
+	mi := &file_htmlmessages_proto_msgTypes[173]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10640,7 +10669,7 @@ func (x *CMsgDraggableRegionsChanged_DraggableRects) String() string {
 func (*CMsgDraggableRegionsChanged_DraggableRects) ProtoMessage() {}
 
 func (x *CMsgDraggableRegionsChanged_DraggableRects) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[172]
+	mi := &file_htmlmessages_proto_msgTypes[173]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10708,7 +10737,7 @@ type CMsgShowBrowserContextMenu_ContextCommand struct {
 
 func (x *CMsgShowBrowserContextMenu_ContextCommand) Reset() {
 	*x = CMsgShowBrowserContextMenu_ContextCommand{}
-	mi := &file_htmlmessages_proto_msgTypes[173]
+	mi := &file_htmlmessages_proto_msgTypes[174]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10720,7 +10749,7 @@ func (x *CMsgShowBrowserContextMenu_ContextCommand) String() string {
 func (*CMsgShowBrowserContextMenu_ContextCommand) ProtoMessage() {}
 
 func (x *CMsgShowBrowserContextMenu_ContextCommand) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[173]
+	mi := &file_htmlmessages_proto_msgTypes[174]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10799,35 +10828,31 @@ const file_htmlmessages_proto_rawDesc = "" +
 	"\x01y\x18\x03 \x01(\x05R\x01y\x12\x1c\n" +
 	"\tmodifiers\x18\x04 \x01(\rR\tmodifiers\"7\n" +
 	"\x0eCMsgMouseLeave\x12%\n" +
-	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\"\xcc\x05\n" +
+	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\"\xee\x04\n" +
 	"\x11CMsgBrowserCreate\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\x01 \x01(\rR\trequestId\x12\x1c\n" +
-	"\tuseragent\x18\x03 \x01(\tR\tuseragent\x12\x19\n" +
-	"\buser_css\x18\x05 \x01(\tR\auserCss\x12)\n" +
-	"\x10native_dropdowns\x18\x06 \x01(\bR\x0fnativeDropdowns\x12\x1f\n" +
-	"\vdpi_scaling\x18\a \x01(\x02R\n" +
-	"dpiScaling\x12\"\n" +
-	"\toffscreen\x18\b \x01(\b:\x04trueR\toffscreen\x12&\n" +
-	"\rinitial_width\x18\t \x01(\r:\x010R\finitialWidth\x12(\n" +
-	"\x0einitial_height\x18\n" +
-	" \x01(\r:\x010R\rinitialHeight\x12\x1f\n" +
-	"\vwindow_icon\x18\v \x01(\tR\n" +
-	"windowIcon\x12%\n" +
-	"\n" +
-	"borderless\x18\f \x01(\b:\x05falseR\n" +
-	"borderless\x12#\n" +
-	"\rvroverlay_key\x18\r \x01(\tR\fvroverlayKey\x12$\n" +
-	"\fbrowser_type\x18\x0e \x01(\r:\x010R\vbrowserType\x12,\n" +
-	"\vinitial_top\x18\x0f \x01(\x05:\v-2147483648R\n" +
+	"\tuseragent\x18\x02 \x01(\tR\tuseragent\x12\x19\n" +
+	"\buser_css\x18\x03 \x01(\tR\auserCss\x12)\n" +
+	"\x10native_dropdowns\x18\x04 \x01(\bR\x0fnativeDropdowns\x12\x1f\n" +
+	"\vdpi_scaling\x18\x05 \x01(\x02R\n" +
+	"dpiScaling\x12#\n" +
+	"\rinitial_width\x18\x06 \x01(\rR\finitialWidth\x12%\n" +
+	"\x0einitial_height\x18\a \x01(\rR\rinitialHeight\x12\x1f\n" +
+	"\vwindow_icon\x18\b \x01(\tR\n" +
+	"windowIcon\x12#\n" +
+	"\rvroverlay_key\x18\t \x01(\tR\fvroverlayKey\x12!\n" +
+	"\fbrowser_type\x18\n" +
+	" \x01(\rR\vbrowserType\x12,\n" +
+	"\vinitial_top\x18\v \x01(\x05:\v-2147483648R\n" +
 	"initialTop\x12.\n" +
-	"\finitial_left\x18\x10 \x01(\x05:\v-2147483648R\vinitialLeft\x12@\n" +
-	"\x19only_allow_trusted_popups\x18\x11 \x01(\b:\x05falseR\x16onlyAllowTrustedPopups\x12\x1f\n" +
-	"\vinitial_url\x18\x12 \x01(\tR\n" +
+	"\finitial_left\x18\f \x01(\x05:\v-2147483648R\vinitialLeft\x129\n" +
+	"\x19only_allow_trusted_popups\x18\r \x01(\bR\x16onlyAllowTrustedPopups\x12\x1f\n" +
+	"\vinitial_url\x18\x0e \x01(\tR\n" +
 	"initialUrl\x12\x1f\n" +
-	"\vhwnd_parent\x18\x13 \x01(\x06R\n" +
-	"hwndParent\x12(\n" +
-	"\x0ecreation_flags\x18\x14 \x01(\r:\x010R\rcreationFlags\"a\n" +
+	"\vhwnd_parent\x18\x0f \x01(\x06R\n" +
+	"hwndParent\x12%\n" +
+	"\x0ecreation_flags\x18\x10 \x01(\rR\rcreationFlags\"a\n" +
 	"\x19CMsgBrowserCreateResponse\x12%\n" +
 	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\x12\x1d\n" +
 	"\n" +
@@ -11522,7 +11547,10 @@ const file_htmlmessages_proto_rawDesc = "" +
 	"\x1cCMsgSetAccessibilitySettings\x124\n" +
 	"\x16reduced_motion_enabled\x18\x01 \x01(\bR\x14reducedMotionEnabled\x12o\n" +
 	"\x12preferred_contrast\x18\x02 \x01(\x0e2\x1b.EAccessibilityContrastMode:#k_EBrowserContrastMode_NoPreferenceR\x11preferredContrast\x12*\n" +
-	"\x11minimum_font_size\x18\x03 \x01(\rR\x0fminimumFontSize*\xad\x01\n" +
+	"\x11minimum_font_size\x18\x03 \x01(\rR\x0fminimumFontSize\"}\n" +
+	"&CMsgSetBrowserViewDomainRequestMapping\x12%\n" +
+	"\x0erequest_domain\x18\x01 \x01(\tR\rrequestDomain\x12,\n" +
+	"\x12default_local_path\x18\x02 \x01(\tR\x10defaultLocalPath*\xad\x01\n" +
 	"\x15EJSRegisterMethodType\x12#\n" +
 	"\x1fk_EJSRegisterMethodType_Invalid\x10\x00\x12$\n" +
 	" k_EJSRegisterMethodType_Function\x10\x01\x12$\n" +
@@ -11546,7 +11574,7 @@ func file_htmlmessages_proto_rawDescGZIP() []byte {
 }
 
 var file_htmlmessages_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_htmlmessages_proto_msgTypes = make([]protoimpl.MessageInfo, 174)
+var file_htmlmessages_proto_msgTypes = make([]protoimpl.MessageInfo, 175)
 var file_htmlmessages_proto_goTypes = []any{
 	(EJSRegisterMethodType)(0),                             // 0: EJSRegisterMethodType
 	(EAccessibilityContrastMode)(0),                        // 1: EAccessibilityContrastMode
@@ -11719,46 +11747,47 @@ var file_htmlmessages_proto_goTypes = []any{
 	(*CMsgSetVRKeyboardVisibility)(nil),                    // 168: CMsgSetVRKeyboardVisibility
 	(*CMsgRestartJSContext)(nil),                           // 169: CMsgRestartJSContext
 	(*CMsgSetAccessibilitySettings)(nil),                   // 170: CMsgSetAccessibilitySettings
-	(*CMsgSetLocalFileRequestMapping_AdditionalRoute)(nil), // 171: CMsgSetLocalFileRequestMapping.AdditionalRoute
-	(*CMsgFileLoadDialog_Filter)(nil),                      // 172: CMsgFileLoadDialog.Filter
-	(*CMsgJSValue_JSObjectProperty)(nil),                   // 173: CMsgJSValue.JSObjectProperty
-	(*CMsgDraggableRegionsChanged_DraggableRects)(nil),     // 174: CMsgDraggableRegionsChanged.DraggableRects
-	(*CMsgShowBrowserContextMenu_ContextCommand)(nil),      // 175: CMsgShowBrowserContextMenu.ContextCommand
-	(EBrowserGPUStatus)(0),                                 // 176: EBrowserGPUStatus
-	(EBrowserFeatureStatus)(0),                             // 177: EBrowserFeatureStatus
+	(*CMsgSetBrowserViewDomainRequestMapping)(nil),         // 171: CMsgSetBrowserViewDomainRequestMapping
+	(*CMsgSetLocalFileRequestMapping_AdditionalRoute)(nil), // 172: CMsgSetLocalFileRequestMapping.AdditionalRoute
+	(*CMsgFileLoadDialog_Filter)(nil),                      // 173: CMsgFileLoadDialog.Filter
+	(*CMsgJSValue_JSObjectProperty)(nil),                   // 174: CMsgJSValue.JSObjectProperty
+	(*CMsgDraggableRegionsChanged_DraggableRects)(nil),     // 175: CMsgDraggableRegionsChanged.DraggableRects
+	(*CMsgShowBrowserContextMenu_ContextCommand)(nil),      // 176: CMsgShowBrowserContextMenu.ContextCommand
+	(EBrowserGPUStatus)(0),                                 // 177: EBrowserGPUStatus
+	(EBrowserFeatureStatus)(0),                             // 178: EBrowserFeatureStatus
 }
 var file_htmlmessages_proto_depIdxs = []int32{
-	171, // 0: CMsgSetLocalFileRequestMapping.routes:type_name -> CMsgSetLocalFileRequestMapping.AdditionalRoute
+	172, // 0: CMsgSetLocalFileRequestMapping.routes:type_name -> CMsgSetLocalFileRequestMapping.AdditionalRoute
 	47,  // 1: CMsgHistoryChanged.entries:type_name -> CHistoryEntry
 	50,  // 2: CMsgLoadedRequest.headers:type_name -> CHTMLHeader
 	51,  // 3: CMsgPageSecurity.security_info:type_name -> CHTMLPageSecurityInfo
-	172, // 4: CMsgFileLoadDialog.filters:type_name -> CMsgFileLoadDialog.Filter
-	176, // 5: CMsgProcessInfoNotification.gpu_status:type_name -> EBrowserGPUStatus
-	177, // 6: CMsgProcessInfoNotification.canvas_2d:type_name -> EBrowserFeatureStatus
-	177, // 7: CMsgProcessInfoNotification.canvas_oop_rasterization:type_name -> EBrowserFeatureStatus
-	177, // 8: CMsgProcessInfoNotification.direct_rendering_display_compositor:type_name -> EBrowserFeatureStatus
-	177, // 9: CMsgProcessInfoNotification.gpu_compositing:type_name -> EBrowserFeatureStatus
-	177, // 10: CMsgProcessInfoNotification.multiple_raster_threads:type_name -> EBrowserFeatureStatus
-	177, // 11: CMsgProcessInfoNotification.opengl:type_name -> EBrowserFeatureStatus
-	177, // 12: CMsgProcessInfoNotification.rasterization:type_name -> EBrowserFeatureStatus
-	177, // 13: CMsgProcessInfoNotification.raw_draw:type_name -> EBrowserFeatureStatus
-	177, // 14: CMsgProcessInfoNotification.skia_graphite:type_name -> EBrowserFeatureStatus
-	177, // 15: CMsgProcessInfoNotification.video_decode:type_name -> EBrowserFeatureStatus
-	177, // 16: CMsgProcessInfoNotification.video_encode:type_name -> EBrowserFeatureStatus
-	177, // 17: CMsgProcessInfoNotification.vulkan:type_name -> EBrowserFeatureStatus
-	177, // 18: CMsgProcessInfoNotification.webgl:type_name -> EBrowserFeatureStatus
-	177, // 19: CMsgProcessInfoNotification.webgl2:type_name -> EBrowserFeatureStatus
-	177, // 20: CMsgProcessInfoNotification.webgpu:type_name -> EBrowserFeatureStatus
-	177, // 21: CMsgProcessInfoNotification.webnn:type_name -> EBrowserFeatureStatus
+	173, // 4: CMsgFileLoadDialog.filters:type_name -> CMsgFileLoadDialog.Filter
+	177, // 5: CMsgProcessInfoNotification.gpu_status:type_name -> EBrowserGPUStatus
+	178, // 6: CMsgProcessInfoNotification.canvas_2d:type_name -> EBrowserFeatureStatus
+	178, // 7: CMsgProcessInfoNotification.canvas_oop_rasterization:type_name -> EBrowserFeatureStatus
+	178, // 8: CMsgProcessInfoNotification.direct_rendering_display_compositor:type_name -> EBrowserFeatureStatus
+	178, // 9: CMsgProcessInfoNotification.gpu_compositing:type_name -> EBrowserFeatureStatus
+	178, // 10: CMsgProcessInfoNotification.multiple_raster_threads:type_name -> EBrowserFeatureStatus
+	178, // 11: CMsgProcessInfoNotification.opengl:type_name -> EBrowserFeatureStatus
+	178, // 12: CMsgProcessInfoNotification.rasterization:type_name -> EBrowserFeatureStatus
+	178, // 13: CMsgProcessInfoNotification.raw_draw:type_name -> EBrowserFeatureStatus
+	178, // 14: CMsgProcessInfoNotification.skia_graphite:type_name -> EBrowserFeatureStatus
+	178, // 15: CMsgProcessInfoNotification.video_decode:type_name -> EBrowserFeatureStatus
+	178, // 16: CMsgProcessInfoNotification.video_encode:type_name -> EBrowserFeatureStatus
+	178, // 17: CMsgProcessInfoNotification.vulkan:type_name -> EBrowserFeatureStatus
+	178, // 18: CMsgProcessInfoNotification.webgl:type_name -> EBrowserFeatureStatus
+	178, // 19: CMsgProcessInfoNotification.webgl2:type_name -> EBrowserFeatureStatus
+	178, // 20: CMsgProcessInfoNotification.webgpu:type_name -> EBrowserFeatureStatus
+	178, // 21: CMsgProcessInfoNotification.webnn:type_name -> EBrowserFeatureStatus
 	110, // 22: CMsgGetCookiesForURLResponse.cookies:type_name -> CCookie
 	0,   // 23: CMsgJSRegisterMethod.method_type:type_name -> EJSRegisterMethodType
 	128, // 24: CMsgJSValue.array_values:type_name -> CMsgJSValue
-	173, // 25: CMsgJSValue.object_properties:type_name -> CMsgJSValue.JSObjectProperty
+	174, // 25: CMsgJSValue.object_properties:type_name -> CMsgJSValue.JSObjectProperty
 	128, // 26: CMsgJSMethodCall.arguments:type_name -> CMsgJSValue
 	128, // 27: CMsgJSExecuteCallback.arguments:type_name -> CMsgJSValue
 	128, // 28: CMsgJSExecutePromise.argument:type_name -> CMsgJSValue
-	174, // 29: CMsgDraggableRegionsChanged.rects:type_name -> CMsgDraggableRegionsChanged.DraggableRects
-	175, // 30: CMsgShowBrowserContextMenu.custom_commands:type_name -> CMsgShowBrowserContextMenu.ContextCommand
+	175, // 29: CMsgDraggableRegionsChanged.rects:type_name -> CMsgDraggableRegionsChanged.DraggableRects
+	176, // 30: CMsgShowBrowserContextMenu.custom_commands:type_name -> CMsgShowBrowserContextMenu.ContextCommand
 	1,   // 31: CMsgSetAccessibilitySettings.preferred_contrast:type_name -> EAccessibilityContrastMode
 	128, // 32: CMsgJSValue.JSObjectProperty.value:type_name -> CMsgJSValue
 	33,  // [33:33] is the sub-list for method output_type
@@ -11780,7 +11809,7 @@ func file_htmlmessages_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_htmlmessages_proto_rawDesc), len(file_htmlmessages_proto_rawDesc)),
 			NumEnums:      2,
-			NumMessages:   174,
+			NumMessages:   175,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
