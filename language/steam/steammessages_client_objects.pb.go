@@ -86,6 +86,65 @@ func (ECloudPendingRemoteOperation) EnumDescriptor() ([]byte, []int) {
 	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{0}
 }
 
+type EDisplayManagerRGBRange int32
+
+const (
+	EDisplayManagerRGBRange_k_EDisplayManagerRGBRange_Automatic EDisplayManagerRGBRange = 0
+	EDisplayManagerRGBRange_k_EDisplayManagerRGBRange_Full      EDisplayManagerRGBRange = 1
+	EDisplayManagerRGBRange_k_EDisplayManagerRGBRange_Limited   EDisplayManagerRGBRange = 2
+)
+
+// Enum value maps for EDisplayManagerRGBRange.
+var (
+	EDisplayManagerRGBRange_name = map[int32]string{
+		0: "k_EDisplayManagerRGBRange_Automatic",
+		1: "k_EDisplayManagerRGBRange_Full",
+		2: "k_EDisplayManagerRGBRange_Limited",
+	}
+	EDisplayManagerRGBRange_value = map[string]int32{
+		"k_EDisplayManagerRGBRange_Automatic": 0,
+		"k_EDisplayManagerRGBRange_Full":      1,
+		"k_EDisplayManagerRGBRange_Limited":   2,
+	}
+)
+
+func (x EDisplayManagerRGBRange) Enum() *EDisplayManagerRGBRange {
+	p := new(EDisplayManagerRGBRange)
+	*p = x
+	return p
+}
+
+func (x EDisplayManagerRGBRange) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (EDisplayManagerRGBRange) Descriptor() protoreflect.EnumDescriptor {
+	return file_steammessages_client_objects_proto_enumTypes[1].Descriptor()
+}
+
+func (EDisplayManagerRGBRange) Type() protoreflect.EnumType {
+	return &file_steammessages_client_objects_proto_enumTypes[1]
+}
+
+func (x EDisplayManagerRGBRange) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *EDisplayManagerRGBRange) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = EDisplayManagerRGBRange(num)
+	return nil
+}
+
+// Deprecated: Use EDisplayManagerRGBRange.Descriptor instead.
+func (EDisplayManagerRGBRange) EnumDescriptor() ([]byte, []int) {
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{1}
+}
+
 type ESteamDeckKeyboardLayout int32
 
 const (
@@ -218,11 +277,11 @@ func (x ESteamDeckKeyboardLayout) String() string {
 }
 
 func (ESteamDeckKeyboardLayout) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_client_objects_proto_enumTypes[1].Descriptor()
+	return file_steammessages_client_objects_proto_enumTypes[2].Descriptor()
 }
 
 func (ESteamDeckKeyboardLayout) Type() protoreflect.EnumType {
-	return &file_steammessages_client_objects_proto_enumTypes[1]
+	return &file_steammessages_client_objects_proto_enumTypes[2]
 }
 
 func (x ESteamDeckKeyboardLayout) Number() protoreflect.EnumNumber {
@@ -241,7 +300,7 @@ func (x *ESteamDeckKeyboardLayout) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use ESteamDeckKeyboardLayout.Descriptor instead.
 func (ESteamDeckKeyboardLayout) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{1}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{2}
 }
 
 type SteamMessagesClientIClientForcedEnumDependencies struct {
@@ -3324,9 +3383,15 @@ type CMsgSystemDisplay struct {
 	IsHdrCapable          *bool                    `protobuf:"varint,16,opt,name=is_hdr_capable,json=isHdrCapable" json:"is_hdr_capable,omitempty"`
 	IsHdrOutputActive     *bool                    `protobuf:"varint,17,opt,name=is_hdr_output_active,json=isHdrOutputActive" json:"is_hdr_output_active,omitempty"`
 	SupportedRefreshRates []int32                  `protobuf:"varint,18,rep,name=supported_refresh_rates,json=supportedRefreshRates" json:"supported_refresh_rates,omitempty"`
+	RgbRange              *EDisplayManagerRGBRange `protobuf:"varint,19,opt,name=rgb_range,json=rgbRange,enum=EDisplayManagerRGBRange,def=0" json:"rgb_range,omitempty"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
+
+// Default values for CMsgSystemDisplay fields.
+const (
+	Default_CMsgSystemDisplay_RgbRange = EDisplayManagerRGBRange_k_EDisplayManagerRGBRange_Automatic
+)
 
 func (x *CMsgSystemDisplay) Reset() {
 	*x = CMsgSystemDisplay{}
@@ -3484,6 +3549,13 @@ func (x *CMsgSystemDisplay) GetSupportedRefreshRates() []int32 {
 	return nil
 }
 
+func (x *CMsgSystemDisplay) GetRgbRange() EDisplayManagerRGBRange {
+	if x != nil && x.RgbRange != nil {
+		return *x.RgbRange
+	}
+	return Default_CMsgSystemDisplay_RgbRange
+}
+
 type CMsgSystemDisplayManagerState struct {
 	state                    protoimpl.MessageState           `protogen:"open.v1"`
 	Displays                 []*CMsgSystemDisplay             `protobuf:"bytes,1,rep,name=displays" json:"displays,omitempty"`
@@ -3550,12 +3622,18 @@ func (x *CMsgSystemDisplayManagerState) GetCompatibilityMode() ESystemDisplayCom
 }
 
 type CMsgSystemDisplayManagerSetMode struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	DisplayId     *int32                 `protobuf:"varint,1,opt,name=display_id,json=displayId" json:"display_id,omitempty"`
-	ModeId        *int32                 `protobuf:"varint,2,opt,name=mode_id,json=modeId" json:"mode_id,omitempty"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	DisplayId     *int32                   `protobuf:"varint,1,opt,name=display_id,json=displayId" json:"display_id,omitempty"`
+	ModeId        *int32                   `protobuf:"varint,2,opt,name=mode_id,json=modeId" json:"mode_id,omitempty"`
+	RgbRange      *EDisplayManagerRGBRange `protobuf:"varint,3,opt,name=rgb_range,json=rgbRange,enum=EDisplayManagerRGBRange,def=0" json:"rgb_range,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
+
+// Default values for CMsgSystemDisplayManagerSetMode fields.
+const (
+	Default_CMsgSystemDisplayManagerSetMode_RgbRange = EDisplayManagerRGBRange_k_EDisplayManagerRGBRange_Automatic
+)
 
 func (x *CMsgSystemDisplayManagerSetMode) Reset() {
 	*x = CMsgSystemDisplayManagerSetMode{}
@@ -3599,6 +3677,13 @@ func (x *CMsgSystemDisplayManagerSetMode) GetModeId() int32 {
 		return *x.ModeId
 	}
 	return 0
+}
+
+func (x *CMsgSystemDisplayManagerSetMode) GetRgbRange() EDisplayManagerRGBRange {
+	if x != nil && x.RgbRange != nil {
+		return *x.RgbRange
+	}
+	return Default_CMsgSystemDisplayManagerSetMode_RgbRange
 }
 
 type CMsgSystemManagerSettings struct {
@@ -6643,7 +6728,7 @@ const file_steammessages_client_objects_proto_rawDesc = "" +
 	"\x05width\x18\x02 \x01(\x05R\x05width\x12\x16\n" +
 	"\x06height\x18\x03 \x01(\x05R\x06height\x12\x1d\n" +
 	"\n" +
-	"refresh_hz\x18\x04 \x01(\x05R\trefreshHz\"\xac\x05\n" +
+	"refresh_hz\x18\x04 \x01(\x05R\trefreshHz\"\x88\x06\n" +
 	"\x11CMsgSystemDisplay\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
@@ -6666,15 +6751,17 @@ const file_steammessages_client_objects_proto_rawDesc = "" +
 	"\x14is_vrr_output_active\x18\x0f \x01(\bR\x11isVrrOutputActive\x12$\n" +
 	"\x0eis_hdr_capable\x18\x10 \x01(\bR\fisHdrCapable\x12/\n" +
 	"\x14is_hdr_output_active\x18\x11 \x01(\bR\x11isHdrOutputActive\x126\n" +
-	"\x17supported_refresh_rates\x18\x12 \x03(\x05R\x15supportedRefreshRates\"\x8a\x02\n" +
+	"\x17supported_refresh_rates\x18\x12 \x03(\x05R\x15supportedRefreshRates\x12Z\n" +
+	"\trgb_range\x18\x13 \x01(\x0e2\x18.EDisplayManagerRGBRange:#k_EDisplayManagerRGBRange_AutomaticR\brgbRange\"\x8a\x02\n" +
 	"\x1dCMsgSystemDisplayManagerState\x12.\n" +
 	"\bdisplays\x18\x01 \x03(\v2\x12.CMsgSystemDisplayR\bdisplays\x12=\n" +
 	"\x1bis_mode_switching_supported\x18\x02 \x01(\bR\x18isModeSwitchingSupported\x12z\n" +
-	"\x12compatibility_mode\x18\x03 \x01(\x0e2 .ESystemDisplayCompatibilityMode:)k_ESystemDisplayCompatibilityMode_InvalidR\x11compatibilityMode\"Y\n" +
+	"\x12compatibility_mode\x18\x03 \x01(\x0e2 .ESystemDisplayCompatibilityMode:)k_ESystemDisplayCompatibilityMode_InvalidR\x11compatibilityMode\"\xb5\x01\n" +
 	"\x1fCMsgSystemDisplayManagerSetMode\x12\x1d\n" +
 	"\n" +
 	"display_id\x18\x01 \x01(\x05R\tdisplayId\x12\x17\n" +
-	"\amode_id\x18\x02 \x01(\x05R\x06modeId\"\xd8\x10\n" +
+	"\amode_id\x18\x02 \x01(\x05R\x06modeId\x12Z\n" +
+	"\trgb_range\x18\x03 \x01(\x0e2\x18.EDisplayManagerRGBRange:#k_EDisplayManagerRGBRange_AutomaticR\brgbRange\"\xd8\x10\n" +
 	"\x19CMsgSystemManagerSettings\x12J\n" +
 	"\"idle_backlight_dim_battery_seconds\x18\x01 \x01(\x02R\x1eidleBacklightDimBatterySeconds\x12@\n" +
 	"\x1didle_backlight_dim_ac_seconds\x18\x02 \x01(\x02R\x19idleBacklightDimAcSeconds\x12G\n" +
@@ -6797,7 +6884,11 @@ const file_steammessages_client_objects_proto_rawDesc = "" +
 	".k_ECloudPendingRemoteOperationAppSessionActive\x10\x01\x122\n" +
 	".k_ECloudPendingRemoteOperationUploadInProgress\x10\x02\x12/\n" +
 	"+k_ECloudPendingRemoteOperationUploadPending\x10\x03\x125\n" +
-	"1k_ECloudPendingRemoteOperationAppSessionSuspended\x10\x04*\xca\f\n" +
+	"1k_ECloudPendingRemoteOperationAppSessionSuspended\x10\x04*\x8d\x01\n" +
+	"\x17EDisplayManagerRGBRange\x12'\n" +
+	"#k_EDisplayManagerRGBRange_Automatic\x10\x00\x12\"\n" +
+	"\x1ek_EDisplayManagerRGBRange_Full\x10\x01\x12%\n" +
+	"!k_EDisplayManagerRGBRange_Limited\x10\x02*\xca\f\n" +
 	"\x18ESteamDeckKeyboardLayout\x12%\n" +
 	"!k_ESteamDeckKeyboardLayout_QWERTY\x10\x00\x12(\n" +
 	"$k_ESteamDeckKeyboardLayout_Bulgarian\x10\x01\x121\n" +
@@ -6849,206 +6940,209 @@ func file_steammessages_client_objects_proto_rawDescGZIP() []byte {
 	return file_steammessages_client_objects_proto_rawDescData
 }
 
-var file_steammessages_client_objects_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_steammessages_client_objects_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_steammessages_client_objects_proto_msgTypes = make([]protoimpl.MessageInfo, 75)
 var file_steammessages_client_objects_proto_goTypes = []any{
 	(ECloudPendingRemoteOperation)(0),                        // 0: ECloudPendingRemoteOperation
-	(ESteamDeckKeyboardLayout)(0),                            // 1: ESteamDeckKeyboardLayout
-	(*SteamMessagesClientIClientForcedEnumDependencies)(nil), // 2: SteamMessagesClientIClientForcedEnumDependencies
-	(*CMsgNetworkDeviceIP4Address)(nil),                      // 3: CMsgNetworkDeviceIP4Address
-	(*CMsgNetworkDeviceIP4Config)(nil),                       // 4: CMsgNetworkDeviceIP4Config
-	(*CMsgNetworkDeviceIP6Address)(nil),                      // 5: CMsgNetworkDeviceIP6Address
-	(*CMsgNetworkDeviceIP6Config)(nil),                       // 6: CMsgNetworkDeviceIP6Config
-	(*CMsgNetworkDevicesData)(nil),                           // 7: CMsgNetworkDevicesData
-	(*CMsgNetworkDeviceConnect)(nil),                         // 8: CMsgNetworkDeviceConnect
-	(*CMsgNetworkDeviceSetOptions)(nil),                      // 9: CMsgNetworkDeviceSetOptions
-	(*CMsgStorageDevicesData)(nil),                           // 10: CMsgStorageDevicesData
-	(*CCloud_PendingRemoteOperation)(nil),                    // 11: CCloud_PendingRemoteOperation
-	(*CMsgCloudPendingRemoteOperations)(nil),                 // 12: CMsgCloudPendingRemoteOperations
-	(*CMsgBluetoothDevicesData)(nil),                         // 13: CMsgBluetoothDevicesData
-	(*CMsgSystemPerfDiagnosticEntry)(nil),                    // 14: CMsgSystemPerfDiagnosticEntry
-	(*CMsgSystemPerfNetworkInterface)(nil),                   // 15: CMsgSystemPerfNetworkInterface
-	(*CMsgSystemPerfDiagnosticInfo)(nil),                     // 16: CMsgSystemPerfDiagnosticInfo
-	(*CMsgSystemPerfLimits)(nil),                             // 17: CMsgSystemPerfLimits
-	(*CMsgSystemPerfSettingsGlobal)(nil),                     // 18: CMsgSystemPerfSettingsGlobal
-	(*CMsgSystemPerfSettingsPerApp)(nil),                     // 19: CMsgSystemPerfSettingsPerApp
-	(*CMsgSystemPerfSettings)(nil),                           // 20: CMsgSystemPerfSettings
-	(*CMsgSystemPerfSettingsV1)(nil),                         // 21: CMsgSystemPerfSettingsV1
-	(*CMsgSystemPerfState)(nil),                              // 22: CMsgSystemPerfState
-	(*CMsgSystemPerfUpdateSettings)(nil),                     // 23: CMsgSystemPerfUpdateSettings
-	(*CMsgSystemPerfLegacySettingEntry)(nil),                 // 24: CMsgSystemPerfLegacySettingEntry
-	(*CMsgSystemPerfLegacySettings)(nil),                     // 25: CMsgSystemPerfLegacySettings
-	(*CMsgSystemDockUpdateState)(nil),                        // 26: CMsgSystemDockUpdateState
-	(*CMsgSystemDockState)(nil),                              // 27: CMsgSystemDockState
-	(*CMsgSystemDockUpdateFirmware)(nil),                     // 28: CMsgSystemDockUpdateFirmware
-	(*CMsgSystemAudioVolume)(nil),                            // 29: CMsgSystemAudioVolume
-	(*CMsgSystemAudioManagerObject)(nil),                     // 30: CMsgSystemAudioManagerObject
-	(*CMsgSystemAudioManagerDevice)(nil),                     // 31: CMsgSystemAudioManagerDevice
-	(*CMsgSystemAudioManagerNode)(nil),                       // 32: CMsgSystemAudioManagerNode
-	(*CMsgSystemAudioManagerPort)(nil),                       // 33: CMsgSystemAudioManagerPort
-	(*CMsgSystemAudioManagerLink)(nil),                       // 34: CMsgSystemAudioManagerLink
-	(*CMsgSystemAudioManagerStateHW)(nil),                    // 35: CMsgSystemAudioManagerStateHW
-	(*CMsgSystemAudioManagerState)(nil),                      // 36: CMsgSystemAudioManagerState
-	(*CMsgSystemAudioManagerUpdateSomething)(nil),            // 37: CMsgSystemAudioManagerUpdateSomething
-	(*CMsgSystemDisplayMode)(nil),                            // 38: CMsgSystemDisplayMode
-	(*CMsgSystemDisplay)(nil),                                // 39: CMsgSystemDisplay
-	(*CMsgSystemDisplayManagerState)(nil),                    // 40: CMsgSystemDisplayManagerState
-	(*CMsgSystemDisplayManagerSetMode)(nil),                  // 41: CMsgSystemDisplayManagerSetMode
-	(*CMsgSystemManagerSettings)(nil),                        // 42: CMsgSystemManagerSettings
-	(*CMsgSelectOSBranchParams)(nil),                         // 43: CMsgSelectOSBranchParams
-	(*CMsgSystemUpdateProgress)(nil),                         // 44: CMsgSystemUpdateProgress
-	(*CMsgSystemUpdateCheckResult)(nil),                      // 45: CMsgSystemUpdateCheckResult
-	(*CMsgSystemUpdateApplyParams)(nil),                      // 46: CMsgSystemUpdateApplyParams
-	(*CMsgSystemUpdateApplyResult)(nil),                      // 47: CMsgSystemUpdateApplyResult
-	(*CMsgSystemUpdateState)(nil),                            // 48: CMsgSystemUpdateState
-	(*CMsgAchievementChange)(nil),                            // 49: CMsgAchievementChange
-	(*CMsgCellList)(nil),                                     // 50: CMsgCellList
-	(*CMsgShortcutInfo)(nil),                                 // 51: CMsgShortcutInfo
-	(*CMsgShortcutInfos)(nil),                                // 52: CMsgShortcutInfos
-	(*CMsgShortcutAppIds)(nil),                               // 53: CMsgShortcutAppIds
-	(*CMsgMonitorInfo)(nil),                                  // 54: CMsgMonitorInfo
-	(*CMsgGenerateSystemReportReply)(nil),                    // 55: CMsgGenerateSystemReportReply
-	(*CMsgWebUITransportInfo)(nil),                           // 56: CMsgWebUITransportInfo
-	(*CMsgWebUITransportFailure)(nil),                        // 57: CMsgWebUITransportFailure
-	(*CMsgClientShaderHitCacheEntry)(nil),                    // 58: CMsgClientShaderHitCacheEntry
-	(*CMsgClientShaderHitCache)(nil),                         // 59: CMsgClientShaderHitCache
-	(*CMsgNetworkDevicesData_Device)(nil),                    // 60: CMsgNetworkDevicesData.Device
-	(*CMsgNetworkDevicesData_Device_Wired)(nil),              // 61: CMsgNetworkDevicesData.Device.Wired
-	(*CMsgNetworkDevicesData_Device_Wireless)(nil),           // 62: CMsgNetworkDevicesData.Device.Wireless
-	(*CMsgNetworkDevicesData_Device_Wireless_AP)(nil),        // 63: CMsgNetworkDevicesData.Device.Wireless.AP
-	(*CMsgNetworkDeviceConnect_KnownAP)(nil),                 // 64: CMsgNetworkDeviceConnect.KnownAP
-	(*CMsgNetworkDeviceConnect_CustomAP)(nil),                // 65: CMsgNetworkDeviceConnect.CustomAP
-	(*CMsgNetworkDeviceConnect_Credentials)(nil),             // 66: CMsgNetworkDeviceConnect.Credentials
-	(*CMsgNetworkDeviceConnect_Wireless)(nil),                // 67: CMsgNetworkDeviceConnect.Wireless
-	(*CMsgNetworkDeviceSetOptions_Wireless)(nil),             // 68: CMsgNetworkDeviceSetOptions.Wireless
-	(*CMsgStorageDevicesData_Drive)(nil),                     // 69: CMsgStorageDevicesData.Drive
-	(*CMsgStorageDevicesData_BlockDevice)(nil),               // 70: CMsgStorageDevicesData.BlockDevice
-	(*CMsgBluetoothDevicesData_Adapter)(nil),                 // 71: CMsgBluetoothDevicesData.Adapter
-	(*CMsgBluetoothDevicesData_Device)(nil),                  // 72: CMsgBluetoothDevicesData.Device
-	(*CMsgBluetoothDevicesData_Manager)(nil),                 // 73: CMsgBluetoothDevicesData.Manager
-	(*CMsgSystemAudioVolume_ChannelEntry)(nil),               // 74: CMsgSystemAudioVolume.ChannelEntry
-	(*CMsgCellList_Cell)(nil),                                // 75: CMsgCellList.Cell
-	(*CMsgMonitorInfo_MonitorInfo)(nil),                      // 76: CMsgMonitorInfo.MonitorInfo
-	(EBluetoothDeviceType)(0),                                // 77: EBluetoothDeviceType
-	(EStorageBlockContentType)(0),                            // 78: EStorageBlockContentType
-	(EStorageBlockFileSystemType)(0),                         // 79: EStorageBlockFileSystemType
-	(ESDCardFormatStage)(0),                                  // 80: ESDCardFormatStage
-	(EGPUPerformanceLevel)(0),                                // 81: EGPUPerformanceLevel
-	(ESplitScalingFilter)(0),                                 // 82: ESplitScalingFilter
-	(ESplitScalingScaler)(0),                                 // 83: ESplitScalingScaler
-	(ESystemServiceState)(0),                                 // 84: ESystemServiceState
-	(EGraphicsPerfOverlayLevel)(0),                           // 85: EGraphicsPerfOverlayLevel
-	(EHDRToneMapOperator)(0),                                 // 86: EHDRToneMapOperator
-	(ECPUGovernor)(0),                                        // 87: ECPUGovernor
-	(EUpdaterState)(0),                                       // 88: EUpdaterState
-	(ESystemAudioDirection)(0),                               // 89: ESystemAudioDirection
-	(ESystemAudioPortType)(0),                                // 90: ESystemAudioPortType
-	(ESystemAudioPortDirection)(0),                           // 91: ESystemAudioPortDirection
-	(ESystemDisplayCompatibilityMode)(0),                     // 92: ESystemDisplayCompatibilityMode
-	(ESystemFanControlMode)(0),                               // 93: ESystemFanControlMode
-	(EColorGamutLabelSet)(0),                                 // 94: EColorGamutLabelSet
-	(EOSBranch)(0),                                           // 95: EOSBranch
-	(EUpdaterType)(0),                                        // 96: EUpdaterType
-	(EStorageDriveMediaType)(0),                              // 97: EStorageDriveMediaType
-	(ESystemAudioChannel)(0),                                 // 98: ESystemAudioChannel
+	(EDisplayManagerRGBRange)(0),                             // 1: EDisplayManagerRGBRange
+	(ESteamDeckKeyboardLayout)(0),                            // 2: ESteamDeckKeyboardLayout
+	(*SteamMessagesClientIClientForcedEnumDependencies)(nil), // 3: SteamMessagesClientIClientForcedEnumDependencies
+	(*CMsgNetworkDeviceIP4Address)(nil),                      // 4: CMsgNetworkDeviceIP4Address
+	(*CMsgNetworkDeviceIP4Config)(nil),                       // 5: CMsgNetworkDeviceIP4Config
+	(*CMsgNetworkDeviceIP6Address)(nil),                      // 6: CMsgNetworkDeviceIP6Address
+	(*CMsgNetworkDeviceIP6Config)(nil),                       // 7: CMsgNetworkDeviceIP6Config
+	(*CMsgNetworkDevicesData)(nil),                           // 8: CMsgNetworkDevicesData
+	(*CMsgNetworkDeviceConnect)(nil),                         // 9: CMsgNetworkDeviceConnect
+	(*CMsgNetworkDeviceSetOptions)(nil),                      // 10: CMsgNetworkDeviceSetOptions
+	(*CMsgStorageDevicesData)(nil),                           // 11: CMsgStorageDevicesData
+	(*CCloud_PendingRemoteOperation)(nil),                    // 12: CCloud_PendingRemoteOperation
+	(*CMsgCloudPendingRemoteOperations)(nil),                 // 13: CMsgCloudPendingRemoteOperations
+	(*CMsgBluetoothDevicesData)(nil),                         // 14: CMsgBluetoothDevicesData
+	(*CMsgSystemPerfDiagnosticEntry)(nil),                    // 15: CMsgSystemPerfDiagnosticEntry
+	(*CMsgSystemPerfNetworkInterface)(nil),                   // 16: CMsgSystemPerfNetworkInterface
+	(*CMsgSystemPerfDiagnosticInfo)(nil),                     // 17: CMsgSystemPerfDiagnosticInfo
+	(*CMsgSystemPerfLimits)(nil),                             // 18: CMsgSystemPerfLimits
+	(*CMsgSystemPerfSettingsGlobal)(nil),                     // 19: CMsgSystemPerfSettingsGlobal
+	(*CMsgSystemPerfSettingsPerApp)(nil),                     // 20: CMsgSystemPerfSettingsPerApp
+	(*CMsgSystemPerfSettings)(nil),                           // 21: CMsgSystemPerfSettings
+	(*CMsgSystemPerfSettingsV1)(nil),                         // 22: CMsgSystemPerfSettingsV1
+	(*CMsgSystemPerfState)(nil),                              // 23: CMsgSystemPerfState
+	(*CMsgSystemPerfUpdateSettings)(nil),                     // 24: CMsgSystemPerfUpdateSettings
+	(*CMsgSystemPerfLegacySettingEntry)(nil),                 // 25: CMsgSystemPerfLegacySettingEntry
+	(*CMsgSystemPerfLegacySettings)(nil),                     // 26: CMsgSystemPerfLegacySettings
+	(*CMsgSystemDockUpdateState)(nil),                        // 27: CMsgSystemDockUpdateState
+	(*CMsgSystemDockState)(nil),                              // 28: CMsgSystemDockState
+	(*CMsgSystemDockUpdateFirmware)(nil),                     // 29: CMsgSystemDockUpdateFirmware
+	(*CMsgSystemAudioVolume)(nil),                            // 30: CMsgSystemAudioVolume
+	(*CMsgSystemAudioManagerObject)(nil),                     // 31: CMsgSystemAudioManagerObject
+	(*CMsgSystemAudioManagerDevice)(nil),                     // 32: CMsgSystemAudioManagerDevice
+	(*CMsgSystemAudioManagerNode)(nil),                       // 33: CMsgSystemAudioManagerNode
+	(*CMsgSystemAudioManagerPort)(nil),                       // 34: CMsgSystemAudioManagerPort
+	(*CMsgSystemAudioManagerLink)(nil),                       // 35: CMsgSystemAudioManagerLink
+	(*CMsgSystemAudioManagerStateHW)(nil),                    // 36: CMsgSystemAudioManagerStateHW
+	(*CMsgSystemAudioManagerState)(nil),                      // 37: CMsgSystemAudioManagerState
+	(*CMsgSystemAudioManagerUpdateSomething)(nil),            // 38: CMsgSystemAudioManagerUpdateSomething
+	(*CMsgSystemDisplayMode)(nil),                            // 39: CMsgSystemDisplayMode
+	(*CMsgSystemDisplay)(nil),                                // 40: CMsgSystemDisplay
+	(*CMsgSystemDisplayManagerState)(nil),                    // 41: CMsgSystemDisplayManagerState
+	(*CMsgSystemDisplayManagerSetMode)(nil),                  // 42: CMsgSystemDisplayManagerSetMode
+	(*CMsgSystemManagerSettings)(nil),                        // 43: CMsgSystemManagerSettings
+	(*CMsgSelectOSBranchParams)(nil),                         // 44: CMsgSelectOSBranchParams
+	(*CMsgSystemUpdateProgress)(nil),                         // 45: CMsgSystemUpdateProgress
+	(*CMsgSystemUpdateCheckResult)(nil),                      // 46: CMsgSystemUpdateCheckResult
+	(*CMsgSystemUpdateApplyParams)(nil),                      // 47: CMsgSystemUpdateApplyParams
+	(*CMsgSystemUpdateApplyResult)(nil),                      // 48: CMsgSystemUpdateApplyResult
+	(*CMsgSystemUpdateState)(nil),                            // 49: CMsgSystemUpdateState
+	(*CMsgAchievementChange)(nil),                            // 50: CMsgAchievementChange
+	(*CMsgCellList)(nil),                                     // 51: CMsgCellList
+	(*CMsgShortcutInfo)(nil),                                 // 52: CMsgShortcutInfo
+	(*CMsgShortcutInfos)(nil),                                // 53: CMsgShortcutInfos
+	(*CMsgShortcutAppIds)(nil),                               // 54: CMsgShortcutAppIds
+	(*CMsgMonitorInfo)(nil),                                  // 55: CMsgMonitorInfo
+	(*CMsgGenerateSystemReportReply)(nil),                    // 56: CMsgGenerateSystemReportReply
+	(*CMsgWebUITransportInfo)(nil),                           // 57: CMsgWebUITransportInfo
+	(*CMsgWebUITransportFailure)(nil),                        // 58: CMsgWebUITransportFailure
+	(*CMsgClientShaderHitCacheEntry)(nil),                    // 59: CMsgClientShaderHitCacheEntry
+	(*CMsgClientShaderHitCache)(nil),                         // 60: CMsgClientShaderHitCache
+	(*CMsgNetworkDevicesData_Device)(nil),                    // 61: CMsgNetworkDevicesData.Device
+	(*CMsgNetworkDevicesData_Device_Wired)(nil),              // 62: CMsgNetworkDevicesData.Device.Wired
+	(*CMsgNetworkDevicesData_Device_Wireless)(nil),           // 63: CMsgNetworkDevicesData.Device.Wireless
+	(*CMsgNetworkDevicesData_Device_Wireless_AP)(nil),        // 64: CMsgNetworkDevicesData.Device.Wireless.AP
+	(*CMsgNetworkDeviceConnect_KnownAP)(nil),                 // 65: CMsgNetworkDeviceConnect.KnownAP
+	(*CMsgNetworkDeviceConnect_CustomAP)(nil),                // 66: CMsgNetworkDeviceConnect.CustomAP
+	(*CMsgNetworkDeviceConnect_Credentials)(nil),             // 67: CMsgNetworkDeviceConnect.Credentials
+	(*CMsgNetworkDeviceConnect_Wireless)(nil),                // 68: CMsgNetworkDeviceConnect.Wireless
+	(*CMsgNetworkDeviceSetOptions_Wireless)(nil),             // 69: CMsgNetworkDeviceSetOptions.Wireless
+	(*CMsgStorageDevicesData_Drive)(nil),                     // 70: CMsgStorageDevicesData.Drive
+	(*CMsgStorageDevicesData_BlockDevice)(nil),               // 71: CMsgStorageDevicesData.BlockDevice
+	(*CMsgBluetoothDevicesData_Adapter)(nil),                 // 72: CMsgBluetoothDevicesData.Adapter
+	(*CMsgBluetoothDevicesData_Device)(nil),                  // 73: CMsgBluetoothDevicesData.Device
+	(*CMsgBluetoothDevicesData_Manager)(nil),                 // 74: CMsgBluetoothDevicesData.Manager
+	(*CMsgSystemAudioVolume_ChannelEntry)(nil),               // 75: CMsgSystemAudioVolume.ChannelEntry
+	(*CMsgCellList_Cell)(nil),                                // 76: CMsgCellList.Cell
+	(*CMsgMonitorInfo_MonitorInfo)(nil),                      // 77: CMsgMonitorInfo.MonitorInfo
+	(EBluetoothDeviceType)(0),                                // 78: EBluetoothDeviceType
+	(EStorageBlockContentType)(0),                            // 79: EStorageBlockContentType
+	(EStorageBlockFileSystemType)(0),                         // 80: EStorageBlockFileSystemType
+	(ESDCardFormatStage)(0),                                  // 81: ESDCardFormatStage
+	(EGPUPerformanceLevel)(0),                                // 82: EGPUPerformanceLevel
+	(ESplitScalingFilter)(0),                                 // 83: ESplitScalingFilter
+	(ESplitScalingScaler)(0),                                 // 84: ESplitScalingScaler
+	(ESystemServiceState)(0),                                 // 85: ESystemServiceState
+	(EGraphicsPerfOverlayLevel)(0),                           // 86: EGraphicsPerfOverlayLevel
+	(EHDRToneMapOperator)(0),                                 // 87: EHDRToneMapOperator
+	(ECPUGovernor)(0),                                        // 88: ECPUGovernor
+	(EUpdaterState)(0),                                       // 89: EUpdaterState
+	(ESystemAudioDirection)(0),                               // 90: ESystemAudioDirection
+	(ESystemAudioPortType)(0),                                // 91: ESystemAudioPortType
+	(ESystemAudioPortDirection)(0),                           // 92: ESystemAudioPortDirection
+	(ESystemDisplayCompatibilityMode)(0),                     // 93: ESystemDisplayCompatibilityMode
+	(ESystemFanControlMode)(0),                               // 94: ESystemFanControlMode
+	(EColorGamutLabelSet)(0),                                 // 95: EColorGamutLabelSet
+	(EOSBranch)(0),                                           // 96: EOSBranch
+	(EUpdaterType)(0),                                        // 97: EUpdaterType
+	(EStorageDriveMediaType)(0),                              // 98: EStorageDriveMediaType
+	(ESystemAudioChannel)(0),                                 // 99: ESystemAudioChannel
 }
 var file_steammessages_client_objects_proto_depIdxs = []int32{
-	77, // 0: SteamMessagesClientIClientForcedEnumDependencies.a:type_name -> EBluetoothDeviceType
-	78, // 1: SteamMessagesClientIClientForcedEnumDependencies.b:type_name -> EStorageBlockContentType
-	79, // 2: SteamMessagesClientIClientForcedEnumDependencies.c:type_name -> EStorageBlockFileSystemType
-	80, // 3: SteamMessagesClientIClientForcedEnumDependencies.d:type_name -> ESDCardFormatStage
-	3,  // 4: CMsgNetworkDeviceIP4Config.addresses:type_name -> CMsgNetworkDeviceIP4Address
-	5,  // 5: CMsgNetworkDeviceIP6Config.addresses:type_name -> CMsgNetworkDeviceIP6Address
-	60, // 6: CMsgNetworkDevicesData.devices:type_name -> CMsgNetworkDevicesData.Device
-	66, // 7: CMsgNetworkDeviceConnect.credentials:type_name -> CMsgNetworkDeviceConnect.Credentials
-	4,  // 8: CMsgNetworkDeviceConnect.ip4:type_name -> CMsgNetworkDeviceIP4Config
-	6,  // 9: CMsgNetworkDeviceConnect.ip6:type_name -> CMsgNetworkDeviceIP6Config
-	67, // 10: CMsgNetworkDeviceConnect.wireless:type_name -> CMsgNetworkDeviceConnect.Wireless
-	64, // 11: CMsgNetworkDeviceConnect.ap_known:type_name -> CMsgNetworkDeviceConnect.KnownAP
-	65, // 12: CMsgNetworkDeviceConnect.ap_custom:type_name -> CMsgNetworkDeviceConnect.CustomAP
-	68, // 13: CMsgNetworkDeviceSetOptions.wireless:type_name -> CMsgNetworkDeviceSetOptions.Wireless
-	69, // 14: CMsgStorageDevicesData.drives:type_name -> CMsgStorageDevicesData.Drive
-	70, // 15: CMsgStorageDevicesData.block_devices:type_name -> CMsgStorageDevicesData.BlockDevice
+	78, // 0: SteamMessagesClientIClientForcedEnumDependencies.a:type_name -> EBluetoothDeviceType
+	79, // 1: SteamMessagesClientIClientForcedEnumDependencies.b:type_name -> EStorageBlockContentType
+	80, // 2: SteamMessagesClientIClientForcedEnumDependencies.c:type_name -> EStorageBlockFileSystemType
+	81, // 3: SteamMessagesClientIClientForcedEnumDependencies.d:type_name -> ESDCardFormatStage
+	4,  // 4: CMsgNetworkDeviceIP4Config.addresses:type_name -> CMsgNetworkDeviceIP4Address
+	6,  // 5: CMsgNetworkDeviceIP6Config.addresses:type_name -> CMsgNetworkDeviceIP6Address
+	61, // 6: CMsgNetworkDevicesData.devices:type_name -> CMsgNetworkDevicesData.Device
+	67, // 7: CMsgNetworkDeviceConnect.credentials:type_name -> CMsgNetworkDeviceConnect.Credentials
+	5,  // 8: CMsgNetworkDeviceConnect.ip4:type_name -> CMsgNetworkDeviceIP4Config
+	7,  // 9: CMsgNetworkDeviceConnect.ip6:type_name -> CMsgNetworkDeviceIP6Config
+	68, // 10: CMsgNetworkDeviceConnect.wireless:type_name -> CMsgNetworkDeviceConnect.Wireless
+	65, // 11: CMsgNetworkDeviceConnect.ap_known:type_name -> CMsgNetworkDeviceConnect.KnownAP
+	66, // 12: CMsgNetworkDeviceConnect.ap_custom:type_name -> CMsgNetworkDeviceConnect.CustomAP
+	69, // 13: CMsgNetworkDeviceSetOptions.wireless:type_name -> CMsgNetworkDeviceSetOptions.Wireless
+	70, // 14: CMsgStorageDevicesData.drives:type_name -> CMsgStorageDevicesData.Drive
+	71, // 15: CMsgStorageDevicesData.block_devices:type_name -> CMsgStorageDevicesData.BlockDevice
 	0,  // 16: CCloud_PendingRemoteOperation.operation:type_name -> ECloudPendingRemoteOperation
-	11, // 17: CMsgCloudPendingRemoteOperations.operations:type_name -> CCloud_PendingRemoteOperation
-	71, // 18: CMsgBluetoothDevicesData.adapters:type_name -> CMsgBluetoothDevicesData.Adapter
-	72, // 19: CMsgBluetoothDevicesData.devices:type_name -> CMsgBluetoothDevicesData.Device
-	73, // 20: CMsgBluetoothDevicesData.manager:type_name -> CMsgBluetoothDevicesData.Manager
-	14, // 21: CMsgSystemPerfDiagnosticInfo.entries:type_name -> CMsgSystemPerfDiagnosticEntry
-	15, // 22: CMsgSystemPerfDiagnosticInfo.interfaces:type_name -> CMsgSystemPerfNetworkInterface
-	81, // 23: CMsgSystemPerfLimits.gpu_performance_levels_available:type_name -> EGPUPerformanceLevel
-	82, // 24: CMsgSystemPerfLimits.split_scaling_filters_available:type_name -> ESplitScalingFilter
-	83, // 25: CMsgSystemPerfLimits.split_scaling_scalers_available:type_name -> ESplitScalingScaler
-	84, // 26: CMsgSystemPerfSettingsGlobal.graphics_profiling_service_state:type_name -> ESystemServiceState
-	84, // 27: CMsgSystemPerfSettingsGlobal.perf_overlay_service_state:type_name -> ESystemServiceState
-	85, // 28: CMsgSystemPerfSettingsGlobal.perf_overlay_level:type_name -> EGraphicsPerfOverlayLevel
-	86, // 29: CMsgSystemPerfSettingsGlobal.hdr_on_sdr_tonemap_operator:type_name -> EHDRToneMapOperator
-	87, // 30: CMsgSystemPerfSettingsPerApp.cpu_governor:type_name -> ECPUGovernor
-	81, // 31: CMsgSystemPerfSettingsPerApp.gpu_performance_level:type_name -> EGPUPerformanceLevel
-	82, // 32: CMsgSystemPerfSettingsPerApp.split_scaling_filter:type_name -> ESplitScalingFilter
-	83, // 33: CMsgSystemPerfSettingsPerApp.split_scaling_scaler:type_name -> ESplitScalingScaler
-	18, // 34: CMsgSystemPerfSettings.global:type_name -> CMsgSystemPerfSettingsGlobal
-	19, // 35: CMsgSystemPerfSettings.per_app:type_name -> CMsgSystemPerfSettingsPerApp
-	84, // 36: CMsgSystemPerfSettingsV1.system_trace_service_state:type_name -> ESystemServiceState
-	84, // 37: CMsgSystemPerfSettingsV1.graphics_profiling_service_state:type_name -> ESystemServiceState
-	84, // 38: CMsgSystemPerfSettingsV1.perf_overlay_service_state:type_name -> ESystemServiceState
-	85, // 39: CMsgSystemPerfSettingsV1.perf_overlay_level:type_name -> EGraphicsPerfOverlayLevel
-	81, // 40: CMsgSystemPerfSettingsV1.gpu_performance_level:type_name -> EGPUPerformanceLevel
-	87, // 41: CMsgSystemPerfSettingsV1.cpu_governor:type_name -> ECPUGovernor
-	17, // 42: CMsgSystemPerfState.limits:type_name -> CMsgSystemPerfLimits
-	20, // 43: CMsgSystemPerfState.settings:type_name -> CMsgSystemPerfSettings
-	20, // 44: CMsgSystemPerfUpdateSettings.settings_delta:type_name -> CMsgSystemPerfSettings
-	19, // 45: CMsgSystemPerfLegacySettingEntry.settings:type_name -> CMsgSystemPerfSettingsPerApp
-	18, // 46: CMsgSystemPerfLegacySettings.global:type_name -> CMsgSystemPerfSettingsGlobal
-	24, // 47: CMsgSystemPerfLegacySettings.per_app_settings:type_name -> CMsgSystemPerfLegacySettingEntry
-	88, // 48: CMsgSystemDockUpdateState.state:type_name -> EUpdaterState
-	26, // 49: CMsgSystemDockState.update_state:type_name -> CMsgSystemDockUpdateState
-	74, // 50: CMsgSystemAudioVolume.entries:type_name -> CMsgSystemAudioVolume.ChannelEntry
-	30, // 51: CMsgSystemAudioManagerDevice.base:type_name -> CMsgSystemAudioManagerObject
-	30, // 52: CMsgSystemAudioManagerNode.base:type_name -> CMsgSystemAudioManagerObject
-	89, // 53: CMsgSystemAudioManagerNode.edirection:type_name -> ESystemAudioDirection
-	29, // 54: CMsgSystemAudioManagerNode.volume:type_name -> CMsgSystemAudioVolume
-	30, // 55: CMsgSystemAudioManagerPort.base:type_name -> CMsgSystemAudioManagerObject
-	90, // 56: CMsgSystemAudioManagerPort.etype:type_name -> ESystemAudioPortType
-	91, // 57: CMsgSystemAudioManagerPort.edirection:type_name -> ESystemAudioPortDirection
-	30, // 58: CMsgSystemAudioManagerLink.base:type_name -> CMsgSystemAudioManagerObject
-	31, // 59: CMsgSystemAudioManagerStateHW.devices:type_name -> CMsgSystemAudioManagerDevice
-	32, // 60: CMsgSystemAudioManagerStateHW.nodes:type_name -> CMsgSystemAudioManagerNode
-	33, // 61: CMsgSystemAudioManagerStateHW.ports:type_name -> CMsgSystemAudioManagerPort
-	34, // 62: CMsgSystemAudioManagerStateHW.links:type_name -> CMsgSystemAudioManagerLink
-	35, // 63: CMsgSystemAudioManagerState.hw:type_name -> CMsgSystemAudioManagerStateHW
-	38, // 64: CMsgSystemDisplay.modes:type_name -> CMsgSystemDisplayMode
-	39, // 65: CMsgSystemDisplayManagerState.displays:type_name -> CMsgSystemDisplay
-	92, // 66: CMsgSystemDisplayManagerState.compatibility_mode:type_name -> ESystemDisplayCompatibilityMode
-	93, // 67: CMsgSystemManagerSettings.fan_control_mode:type_name -> ESystemFanControlMode
-	94, // 68: CMsgSystemManagerSettings.display_colorgamut_labelset:type_name -> EColorGamutLabelSet
-	95, // 69: CMsgSelectOSBranchParams.branch:type_name -> EOSBranch
-	96, // 70: CMsgSystemUpdateCheckResult.type:type_name -> EUpdaterType
-	96, // 71: CMsgSystemUpdateApplyParams.apply_types:type_name -> EUpdaterType
-	96, // 72: CMsgSystemUpdateApplyResult.type:type_name -> EUpdaterType
-	88, // 73: CMsgSystemUpdateState.state:type_name -> EUpdaterState
-	44, // 74: CMsgSystemUpdateState.progress:type_name -> CMsgSystemUpdateProgress
-	45, // 75: CMsgSystemUpdateState.update_check_results:type_name -> CMsgSystemUpdateCheckResult
-	47, // 76: CMsgSystemUpdateState.update_apply_results:type_name -> CMsgSystemUpdateApplyResult
-	75, // 77: CMsgCellList.cells:type_name -> CMsgCellList.Cell
-	51, // 78: CMsgShortcutInfos.shorcuts:type_name -> CMsgShortcutInfo
-	76, // 79: CMsgMonitorInfo.monitors:type_name -> CMsgMonitorInfo.MonitorInfo
-	58, // 80: CMsgClientShaderHitCache.entries:type_name -> CMsgClientShaderHitCacheEntry
-	4,  // 81: CMsgNetworkDevicesData.Device.ip4:type_name -> CMsgNetworkDeviceIP4Config
-	6,  // 82: CMsgNetworkDevicesData.Device.ip6:type_name -> CMsgNetworkDeviceIP6Config
-	61, // 83: CMsgNetworkDevicesData.Device.wired:type_name -> CMsgNetworkDevicesData.Device.Wired
-	62, // 84: CMsgNetworkDevicesData.Device.wireless:type_name -> CMsgNetworkDevicesData.Device.Wireless
-	63, // 85: CMsgNetworkDevicesData.Device.Wireless.aps:type_name -> CMsgNetworkDevicesData.Device.Wireless.AP
-	97, // 86: CMsgStorageDevicesData.Drive.media_type:type_name -> EStorageDriveMediaType
-	78, // 87: CMsgStorageDevicesData.BlockDevice.content_type:type_name -> EStorageBlockContentType
-	79, // 88: CMsgStorageDevicesData.BlockDevice.filesystem_type:type_name -> EStorageBlockFileSystemType
-	77, // 89: CMsgBluetoothDevicesData.Device.etype:type_name -> EBluetoothDeviceType
-	98, // 90: CMsgSystemAudioVolume.ChannelEntry.echannel:type_name -> ESystemAudioChannel
-	91, // [91:91] is the sub-list for method output_type
-	91, // [91:91] is the sub-list for method input_type
-	91, // [91:91] is the sub-list for extension type_name
-	91, // [91:91] is the sub-list for extension extendee
-	0,  // [0:91] is the sub-list for field type_name
+	12, // 17: CMsgCloudPendingRemoteOperations.operations:type_name -> CCloud_PendingRemoteOperation
+	72, // 18: CMsgBluetoothDevicesData.adapters:type_name -> CMsgBluetoothDevicesData.Adapter
+	73, // 19: CMsgBluetoothDevicesData.devices:type_name -> CMsgBluetoothDevicesData.Device
+	74, // 20: CMsgBluetoothDevicesData.manager:type_name -> CMsgBluetoothDevicesData.Manager
+	15, // 21: CMsgSystemPerfDiagnosticInfo.entries:type_name -> CMsgSystemPerfDiagnosticEntry
+	16, // 22: CMsgSystemPerfDiagnosticInfo.interfaces:type_name -> CMsgSystemPerfNetworkInterface
+	82, // 23: CMsgSystemPerfLimits.gpu_performance_levels_available:type_name -> EGPUPerformanceLevel
+	83, // 24: CMsgSystemPerfLimits.split_scaling_filters_available:type_name -> ESplitScalingFilter
+	84, // 25: CMsgSystemPerfLimits.split_scaling_scalers_available:type_name -> ESplitScalingScaler
+	85, // 26: CMsgSystemPerfSettingsGlobal.graphics_profiling_service_state:type_name -> ESystemServiceState
+	85, // 27: CMsgSystemPerfSettingsGlobal.perf_overlay_service_state:type_name -> ESystemServiceState
+	86, // 28: CMsgSystemPerfSettingsGlobal.perf_overlay_level:type_name -> EGraphicsPerfOverlayLevel
+	87, // 29: CMsgSystemPerfSettingsGlobal.hdr_on_sdr_tonemap_operator:type_name -> EHDRToneMapOperator
+	88, // 30: CMsgSystemPerfSettingsPerApp.cpu_governor:type_name -> ECPUGovernor
+	82, // 31: CMsgSystemPerfSettingsPerApp.gpu_performance_level:type_name -> EGPUPerformanceLevel
+	83, // 32: CMsgSystemPerfSettingsPerApp.split_scaling_filter:type_name -> ESplitScalingFilter
+	84, // 33: CMsgSystemPerfSettingsPerApp.split_scaling_scaler:type_name -> ESplitScalingScaler
+	19, // 34: CMsgSystemPerfSettings.global:type_name -> CMsgSystemPerfSettingsGlobal
+	20, // 35: CMsgSystemPerfSettings.per_app:type_name -> CMsgSystemPerfSettingsPerApp
+	85, // 36: CMsgSystemPerfSettingsV1.system_trace_service_state:type_name -> ESystemServiceState
+	85, // 37: CMsgSystemPerfSettingsV1.graphics_profiling_service_state:type_name -> ESystemServiceState
+	85, // 38: CMsgSystemPerfSettingsV1.perf_overlay_service_state:type_name -> ESystemServiceState
+	86, // 39: CMsgSystemPerfSettingsV1.perf_overlay_level:type_name -> EGraphicsPerfOverlayLevel
+	82, // 40: CMsgSystemPerfSettingsV1.gpu_performance_level:type_name -> EGPUPerformanceLevel
+	88, // 41: CMsgSystemPerfSettingsV1.cpu_governor:type_name -> ECPUGovernor
+	18, // 42: CMsgSystemPerfState.limits:type_name -> CMsgSystemPerfLimits
+	21, // 43: CMsgSystemPerfState.settings:type_name -> CMsgSystemPerfSettings
+	21, // 44: CMsgSystemPerfUpdateSettings.settings_delta:type_name -> CMsgSystemPerfSettings
+	20, // 45: CMsgSystemPerfLegacySettingEntry.settings:type_name -> CMsgSystemPerfSettingsPerApp
+	19, // 46: CMsgSystemPerfLegacySettings.global:type_name -> CMsgSystemPerfSettingsGlobal
+	25, // 47: CMsgSystemPerfLegacySettings.per_app_settings:type_name -> CMsgSystemPerfLegacySettingEntry
+	89, // 48: CMsgSystemDockUpdateState.state:type_name -> EUpdaterState
+	27, // 49: CMsgSystemDockState.update_state:type_name -> CMsgSystemDockUpdateState
+	75, // 50: CMsgSystemAudioVolume.entries:type_name -> CMsgSystemAudioVolume.ChannelEntry
+	31, // 51: CMsgSystemAudioManagerDevice.base:type_name -> CMsgSystemAudioManagerObject
+	31, // 52: CMsgSystemAudioManagerNode.base:type_name -> CMsgSystemAudioManagerObject
+	90, // 53: CMsgSystemAudioManagerNode.edirection:type_name -> ESystemAudioDirection
+	30, // 54: CMsgSystemAudioManagerNode.volume:type_name -> CMsgSystemAudioVolume
+	31, // 55: CMsgSystemAudioManagerPort.base:type_name -> CMsgSystemAudioManagerObject
+	91, // 56: CMsgSystemAudioManagerPort.etype:type_name -> ESystemAudioPortType
+	92, // 57: CMsgSystemAudioManagerPort.edirection:type_name -> ESystemAudioPortDirection
+	31, // 58: CMsgSystemAudioManagerLink.base:type_name -> CMsgSystemAudioManagerObject
+	32, // 59: CMsgSystemAudioManagerStateHW.devices:type_name -> CMsgSystemAudioManagerDevice
+	33, // 60: CMsgSystemAudioManagerStateHW.nodes:type_name -> CMsgSystemAudioManagerNode
+	34, // 61: CMsgSystemAudioManagerStateHW.ports:type_name -> CMsgSystemAudioManagerPort
+	35, // 62: CMsgSystemAudioManagerStateHW.links:type_name -> CMsgSystemAudioManagerLink
+	36, // 63: CMsgSystemAudioManagerState.hw:type_name -> CMsgSystemAudioManagerStateHW
+	39, // 64: CMsgSystemDisplay.modes:type_name -> CMsgSystemDisplayMode
+	1,  // 65: CMsgSystemDisplay.rgb_range:type_name -> EDisplayManagerRGBRange
+	40, // 66: CMsgSystemDisplayManagerState.displays:type_name -> CMsgSystemDisplay
+	93, // 67: CMsgSystemDisplayManagerState.compatibility_mode:type_name -> ESystemDisplayCompatibilityMode
+	1,  // 68: CMsgSystemDisplayManagerSetMode.rgb_range:type_name -> EDisplayManagerRGBRange
+	94, // 69: CMsgSystemManagerSettings.fan_control_mode:type_name -> ESystemFanControlMode
+	95, // 70: CMsgSystemManagerSettings.display_colorgamut_labelset:type_name -> EColorGamutLabelSet
+	96, // 71: CMsgSelectOSBranchParams.branch:type_name -> EOSBranch
+	97, // 72: CMsgSystemUpdateCheckResult.type:type_name -> EUpdaterType
+	97, // 73: CMsgSystemUpdateApplyParams.apply_types:type_name -> EUpdaterType
+	97, // 74: CMsgSystemUpdateApplyResult.type:type_name -> EUpdaterType
+	89, // 75: CMsgSystemUpdateState.state:type_name -> EUpdaterState
+	45, // 76: CMsgSystemUpdateState.progress:type_name -> CMsgSystemUpdateProgress
+	46, // 77: CMsgSystemUpdateState.update_check_results:type_name -> CMsgSystemUpdateCheckResult
+	48, // 78: CMsgSystemUpdateState.update_apply_results:type_name -> CMsgSystemUpdateApplyResult
+	76, // 79: CMsgCellList.cells:type_name -> CMsgCellList.Cell
+	52, // 80: CMsgShortcutInfos.shorcuts:type_name -> CMsgShortcutInfo
+	77, // 81: CMsgMonitorInfo.monitors:type_name -> CMsgMonitorInfo.MonitorInfo
+	59, // 82: CMsgClientShaderHitCache.entries:type_name -> CMsgClientShaderHitCacheEntry
+	5,  // 83: CMsgNetworkDevicesData.Device.ip4:type_name -> CMsgNetworkDeviceIP4Config
+	7,  // 84: CMsgNetworkDevicesData.Device.ip6:type_name -> CMsgNetworkDeviceIP6Config
+	62, // 85: CMsgNetworkDevicesData.Device.wired:type_name -> CMsgNetworkDevicesData.Device.Wired
+	63, // 86: CMsgNetworkDevicesData.Device.wireless:type_name -> CMsgNetworkDevicesData.Device.Wireless
+	64, // 87: CMsgNetworkDevicesData.Device.Wireless.aps:type_name -> CMsgNetworkDevicesData.Device.Wireless.AP
+	98, // 88: CMsgStorageDevicesData.Drive.media_type:type_name -> EStorageDriveMediaType
+	79, // 89: CMsgStorageDevicesData.BlockDevice.content_type:type_name -> EStorageBlockContentType
+	80, // 90: CMsgStorageDevicesData.BlockDevice.filesystem_type:type_name -> EStorageBlockFileSystemType
+	78, // 91: CMsgBluetoothDevicesData.Device.etype:type_name -> EBluetoothDeviceType
+	99, // 92: CMsgSystemAudioVolume.ChannelEntry.echannel:type_name -> ESystemAudioChannel
+	93, // [93:93] is the sub-list for method output_type
+	93, // [93:93] is the sub-list for method input_type
+	93, // [93:93] is the sub-list for extension type_name
+	93, // [93:93] is the sub-list for extension extendee
+	0,  // [0:93] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_client_objects_proto_init() }
@@ -7070,7 +7164,7 @@ func file_steammessages_client_objects_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_client_objects_proto_rawDesc), len(file_steammessages_client_objects_proto_rawDesc)),
-			NumEnums:      2,
+			NumEnums:      3,
 			NumMessages:   75,
 			NumExtensions: 0,
 			NumServices:   0,

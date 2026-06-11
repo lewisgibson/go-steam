@@ -2578,6 +2578,11 @@ type CPackageReservationStatus struct {
 	NotificatonToken               *string                `protobuf:"bytes,10,opt,name=notificaton_token,json=notificatonToken" json:"notificaton_token,omitempty"`
 	QueueHeadPositionAtReservation *int32                 `protobuf:"varint,11,opt,name=queue_head_position_at_reservation,json=queueHeadPositionAtReservation" json:"queue_head_position_at_reservation,omitempty"`
 	QueueHeadPositionNow           *int32                 `protobuf:"varint,12,opt,name=queue_head_position_now,json=queueHeadPositionNow" json:"queue_head_position_now,omitempty"`
+	PositionIsWaitlist             *bool                  `protobuf:"varint,13,opt,name=position_is_waitlist,json=positionIsWaitlist" json:"position_is_waitlist,omitempty"`
+	UserWaitlistToken              *string                `protobuf:"bytes,14,opt,name=user_waitlist_token,json=userWaitlistToken" json:"user_waitlist_token,omitempty"`
+	QueueInWaitlist                *bool                  `protobuf:"varint,15,opt,name=queue_in_waitlist,json=queueInWaitlist" json:"queue_in_waitlist,omitempty"`
+	QueueWaitlistToken             *string                `protobuf:"bytes,16,opt,name=queue_waitlist_token,json=queueWaitlistToken" json:"queue_waitlist_token,omitempty"`
+	ReservationType                *bool                  `protobuf:"varint,17,opt,name=reservation_type,json=reservationType" json:"reservation_type,omitempty"`
 	unknownFields                  protoimpl.UnknownFields
 	sizeCache                      protoimpl.SizeCache
 }
@@ -2694,6 +2699,41 @@ func (x *CPackageReservationStatus) GetQueueHeadPositionNow() int32 {
 		return *x.QueueHeadPositionNow
 	}
 	return 0
+}
+
+func (x *CPackageReservationStatus) GetPositionIsWaitlist() bool {
+	if x != nil && x.PositionIsWaitlist != nil {
+		return *x.PositionIsWaitlist
+	}
+	return false
+}
+
+func (x *CPackageReservationStatus) GetUserWaitlistToken() string {
+	if x != nil && x.UserWaitlistToken != nil {
+		return *x.UserWaitlistToken
+	}
+	return ""
+}
+
+func (x *CPackageReservationStatus) GetQueueInWaitlist() bool {
+	if x != nil && x.QueueInWaitlist != nil {
+		return *x.QueueInWaitlist
+	}
+	return false
+}
+
+func (x *CPackageReservationStatus) GetQueueWaitlistToken() string {
+	if x != nil && x.QueueWaitlistToken != nil {
+		return *x.QueueWaitlistToken
+	}
+	return ""
+}
+
+func (x *CPackageReservationStatus) GetReservationType() bool {
+	if x != nil && x.ReservationType != nil {
+		return *x.ReservationType
+	}
+	return false
 }
 
 type CMsgKeyValuePair struct {
@@ -3521,7 +3561,7 @@ const file_steammessages_base_proto_rawDesc = "" +
 	"\bpostcode\x18\b \x01(\tR\bpostcode\x12\x1b\n" +
 	"\tzip_plus4\x18\t \x01(\x05R\bzipPlus4\x12\x14\n" +
 	"\x05phone\x18\n" +
-	" \x01(\tR\x05phone\"\xc5\x04\n" +
+	" \x01(\tR\x05phone\"\xb0\x06\n" +
 	"\x19CPackageReservationStatus\x12\x1c\n" +
 	"\tpackageid\x18\x01 \x01(\rR\tpackageid\x12+\n" +
 	"\x11reservation_state\x18\x02 \x01(\x05R\x10reservationState\x12%\n" +
@@ -3535,7 +3575,12 @@ const file_steammessages_base_proto_rawDesc = "" +
 	"\x11notificaton_token\x18\n" +
 	" \x01(\tR\x10notificatonToken\x12J\n" +
 	"\"queue_head_position_at_reservation\x18\v \x01(\x05R\x1equeueHeadPositionAtReservation\x125\n" +
-	"\x17queue_head_position_now\x18\f \x01(\x05R\x14queueHeadPositionNow\"<\n" +
+	"\x17queue_head_position_now\x18\f \x01(\x05R\x14queueHeadPositionNow\x120\n" +
+	"\x14position_is_waitlist\x18\r \x01(\bR\x12positionIsWaitlist\x12.\n" +
+	"\x13user_waitlist_token\x18\x0e \x01(\tR\x11userWaitlistToken\x12*\n" +
+	"\x11queue_in_waitlist\x18\x0f \x01(\bR\x0fqueueInWaitlist\x120\n" +
+	"\x14queue_waitlist_token\x18\x10 \x01(\tR\x12queueWaitlistToken\x12)\n" +
+	"\x10reservation_type\x18\x11 \x01(\bR\x0freservationType\"<\n" +
 	"\x10CMsgKeyValuePair\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value\":\n" +

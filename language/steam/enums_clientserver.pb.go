@@ -4619,11 +4619,11 @@ func (ESteamReviewScore) EnumDescriptor() ([]byte, []int) {
 type ECodecUsagePlatform int32
 
 const (
-	ECodecUsagePlatform_k_ECodecUsagePlatformUnknown   ECodecUsagePlatform = 0
-	ECodecUsagePlatform_k_ECodecUsagePlatformWindows   ECodecUsagePlatform = 1
-	ECodecUsagePlatform_k_ECodecUsagePlatformMacOS     ECodecUsagePlatform = 2
-	ECodecUsagePlatform_k_ECodecUsagePlatformLinux     ECodecUsagePlatform = 3
-	ECodecUsagePlatform_k_ECodecUsagePlatformSteamDeck ECodecUsagePlatform = 4
+	ECodecUsagePlatform_k_ECodecUsagePlatformUnknown       ECodecUsagePlatform = 0
+	ECodecUsagePlatform_k_ECodecUsagePlatformWindows       ECodecUsagePlatform = 1
+	ECodecUsagePlatform_k_ECodecUsagePlatformMacOS         ECodecUsagePlatform = 2
+	ECodecUsagePlatform_k_ECodecUsagePlatformLinux         ECodecUsagePlatform = 3
+	ECodecUsagePlatform_k_ECodecUsagePlatformSteamHardware ECodecUsagePlatform = 4
 )
 
 // Enum value maps for ECodecUsagePlatform.
@@ -4633,14 +4633,14 @@ var (
 		1: "k_ECodecUsagePlatformWindows",
 		2: "k_ECodecUsagePlatformMacOS",
 		3: "k_ECodecUsagePlatformLinux",
-		4: "k_ECodecUsagePlatformSteamDeck",
+		4: "k_ECodecUsagePlatformSteamHardware",
 	}
 	ECodecUsagePlatform_value = map[string]int32{
-		"k_ECodecUsagePlatformUnknown":   0,
-		"k_ECodecUsagePlatformWindows":   1,
-		"k_ECodecUsagePlatformMacOS":     2,
-		"k_ECodecUsagePlatformLinux":     3,
-		"k_ECodecUsagePlatformSteamDeck": 4,
+		"k_ECodecUsagePlatformUnknown":       0,
+		"k_ECodecUsagePlatformWindows":       1,
+		"k_ECodecUsagePlatformMacOS":         2,
+		"k_ECodecUsagePlatformLinux":         3,
+		"k_ECodecUsagePlatformSteamHardware": 4,
 	}
 )
 
@@ -6234,13 +6234,13 @@ const file_enums_clientserver_proto_rawDesc = "" +
 	"\x1ck_ESteamReviewScore_Negative\x10\x03\x12$\n" +
 	" k_ESteamReviewScore_VeryNegative\x10\x02\x12.\n" +
 	"*k_ESteamReviewScore_OverwhelminglyNegative\x10\x01\x12\x1c\n" +
-	"\x18k_ESteamReviewScore_None\x10\x00*\xbd\x01\n" +
+	"\x18k_ESteamReviewScore_None\x10\x00*\xc1\x01\n" +
 	"\x13ECodecUsagePlatform\x12 \n" +
 	"\x1ck_ECodecUsagePlatformUnknown\x10\x00\x12 \n" +
 	"\x1ck_ECodecUsagePlatformWindows\x10\x01\x12\x1e\n" +
 	"\x1ak_ECodecUsagePlatformMacOS\x10\x02\x12\x1e\n" +
-	"\x1ak_ECodecUsagePlatformLinux\x10\x03\x12\"\n" +
-	"\x1ek_ECodecUsagePlatformSteamDeck\x10\x04*\xc3\x01\n" +
+	"\x1ak_ECodecUsagePlatformLinux\x10\x03\x12&\n" +
+	"\"k_ECodecUsagePlatformSteamHardware\x10\x04*\xc3\x01\n" +
 	"\x11ECodecUsageReason\x12\x1e\n" +
 	"\x1ak_ECodecUsageReasonUnknown\x10\x00\x12!\n" +
 	"\x1dk_ECodecUsageReasonRemotePlay\x10\x01\x12#\n" +

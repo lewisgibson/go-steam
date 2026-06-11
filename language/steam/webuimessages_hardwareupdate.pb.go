@@ -21,6 +21,139 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type EHardwareUpdateDeviceType int32
+
+const (
+	EHardwareUpdateDeviceType_Triton_BL   EHardwareUpdateDeviceType = 0
+	EHardwareUpdateDeviceType_Proteus_BL  EHardwareUpdateDeviceType = 1
+	EHardwareUpdateDeviceType_Triton_USB  EHardwareUpdateDeviceType = 2
+	EHardwareUpdateDeviceType_Triton_BLE  EHardwareUpdateDeviceType = 3
+	EHardwareUpdateDeviceType_Triton_ESB  EHardwareUpdateDeviceType = 4
+	EHardwareUpdateDeviceType_Proteus_USB EHardwareUpdateDeviceType = 5
+	EHardwareUpdateDeviceType_Nereid_USB  EHardwareUpdateDeviceType = 6
+)
+
+// Enum value maps for EHardwareUpdateDeviceType.
+var (
+	EHardwareUpdateDeviceType_name = map[int32]string{
+		0: "Triton_BL",
+		1: "Proteus_BL",
+		2: "Triton_USB",
+		3: "Triton_BLE",
+		4: "Triton_ESB",
+		5: "Proteus_USB",
+		6: "Nereid_USB",
+	}
+	EHardwareUpdateDeviceType_value = map[string]int32{
+		"Triton_BL":   0,
+		"Proteus_BL":  1,
+		"Triton_USB":  2,
+		"Triton_BLE":  3,
+		"Triton_ESB":  4,
+		"Proteus_USB": 5,
+		"Nereid_USB":  6,
+	}
+)
+
+func (x EHardwareUpdateDeviceType) Enum() *EHardwareUpdateDeviceType {
+	p := new(EHardwareUpdateDeviceType)
+	*p = x
+	return p
+}
+
+func (x EHardwareUpdateDeviceType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (EHardwareUpdateDeviceType) Descriptor() protoreflect.EnumDescriptor {
+	return file_webuimessages_hardwareupdate_proto_enumTypes[0].Descriptor()
+}
+
+func (EHardwareUpdateDeviceType) Type() protoreflect.EnumType {
+	return &file_webuimessages_hardwareupdate_proto_enumTypes[0]
+}
+
+func (x EHardwareUpdateDeviceType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *EHardwareUpdateDeviceType) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = EHardwareUpdateDeviceType(num)
+	return nil
+}
+
+// Deprecated: Use EHardwareUpdateDeviceType.Descriptor instead.
+func (EHardwareUpdateDeviceType) EnumDescriptor() ([]byte, []int) {
+	return file_webuimessages_hardwareupdate_proto_rawDescGZIP(), []int{0}
+}
+
+type EHardwareUpdatePriority int32
+
+const (
+	EHardwareUpdatePriority_Low       EHardwareUpdatePriority = 0
+	EHardwareUpdatePriority_Normal    EHardwareUpdatePriority = 1
+	EHardwareUpdatePriority_Suggested EHardwareUpdatePriority = 2
+	EHardwareUpdatePriority_Required  EHardwareUpdatePriority = 3
+)
+
+// Enum value maps for EHardwareUpdatePriority.
+var (
+	EHardwareUpdatePriority_name = map[int32]string{
+		0: "Low",
+		1: "Normal",
+		2: "Suggested",
+		3: "Required",
+	}
+	EHardwareUpdatePriority_value = map[string]int32{
+		"Low":       0,
+		"Normal":    1,
+		"Suggested": 2,
+		"Required":  3,
+	}
+)
+
+func (x EHardwareUpdatePriority) Enum() *EHardwareUpdatePriority {
+	p := new(EHardwareUpdatePriority)
+	*p = x
+	return p
+}
+
+func (x EHardwareUpdatePriority) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (EHardwareUpdatePriority) Descriptor() protoreflect.EnumDescriptor {
+	return file_webuimessages_hardwareupdate_proto_enumTypes[1].Descriptor()
+}
+
+func (EHardwareUpdatePriority) Type() protoreflect.EnumType {
+	return &file_webuimessages_hardwareupdate_proto_enumTypes[1]
+}
+
+func (x EHardwareUpdatePriority) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *EHardwareUpdatePriority) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = EHardwareUpdatePriority(num)
+	return nil
+}
+
+// Deprecated: Use EHardwareUpdatePriority.Descriptor instead.
+func (EHardwareUpdatePriority) EnumDescriptor() ([]byte, []int) {
+	return file_webuimessages_hardwareupdate_proto_rawDescGZIP(), []int{1}
+}
+
 type CHardwareUpdate_GetState_Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -182,16 +315,22 @@ func (*CHardwareUpdate_CheckForUpdates_Request) Descriptor() ([]byte, []int) {
 }
 
 type CMsgAvailableHardwareUpdate struct {
-	state           protoimpl.MessageState `protogen:"open.v1"`
-	Etype           *uint32                `protobuf:"varint,1,opt,name=etype" json:"etype,omitempty"`
-	HardwareId      *uint32                `protobuf:"varint,2,opt,name=hardware_id,json=hardwareId" json:"hardware_id,omitempty"`
-	SerialNumber    *string                `protobuf:"bytes,3,opt,name=serial_number,json=serialNumber" json:"serial_number,omitempty"`
-	CurrentTs       *string                `protobuf:"bytes,4,opt,name=current_ts,json=currentTs" json:"current_ts,omitempty"`
-	UpdateTs        *string                `protobuf:"bytes,5,opt,name=update_ts,json=updateTs" json:"update_ts,omitempty"`
-	MandatoryUpdate *bool                  `protobuf:"varint,6,opt,name=mandatory_update,json=mandatoryUpdate" json:"mandatory_update,omitempty"`
-	unknownFields   protoimpl.UnknownFields
-	sizeCache       protoimpl.SizeCache
+	state         protoimpl.MessageState     `protogen:"open.v1"`
+	Etype         *EHardwareUpdateDeviceType `protobuf:"varint,1,opt,name=etype,enum=EHardwareUpdateDeviceType,def=0" json:"etype,omitempty"`
+	SerialNumber  *string                    `protobuf:"bytes,3,opt,name=serial_number,json=serialNumber" json:"serial_number,omitempty"`
+	CurrentTs     *uint64                    `protobuf:"varint,4,opt,name=current_ts,json=currentTs" json:"current_ts,omitempty"`
+	UpdateTs      *uint64                    `protobuf:"varint,5,opt,name=update_ts,json=updateTs" json:"update_ts,omitempty"`
+	Priority      *EHardwareUpdatePriority   `protobuf:"varint,6,opt,name=priority,enum=EHardwareUpdatePriority,def=0" json:"priority,omitempty"`
+	IsDowngrade   *bool                      `protobuf:"varint,7,opt,name=is_downgrade,json=isDowngrade" json:"is_downgrade,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
+
+// Default values for CMsgAvailableHardwareUpdate fields.
+const (
+	Default_CMsgAvailableHardwareUpdate_Etype    = EHardwareUpdateDeviceType_Triton_BL
+	Default_CMsgAvailableHardwareUpdate_Priority = EHardwareUpdatePriority_Low
+)
 
 func (x *CMsgAvailableHardwareUpdate) Reset() {
 	*x = CMsgAvailableHardwareUpdate{}
@@ -223,18 +362,11 @@ func (*CMsgAvailableHardwareUpdate) Descriptor() ([]byte, []int) {
 	return file_webuimessages_hardwareupdate_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *CMsgAvailableHardwareUpdate) GetEtype() uint32 {
+func (x *CMsgAvailableHardwareUpdate) GetEtype() EHardwareUpdateDeviceType {
 	if x != nil && x.Etype != nil {
 		return *x.Etype
 	}
-	return 0
-}
-
-func (x *CMsgAvailableHardwareUpdate) GetHardwareId() uint32 {
-	if x != nil && x.HardwareId != nil {
-		return *x.HardwareId
-	}
-	return 0
+	return Default_CMsgAvailableHardwareUpdate_Etype
 }
 
 func (x *CMsgAvailableHardwareUpdate) GetSerialNumber() string {
@@ -244,23 +376,30 @@ func (x *CMsgAvailableHardwareUpdate) GetSerialNumber() string {
 	return ""
 }
 
-func (x *CMsgAvailableHardwareUpdate) GetCurrentTs() string {
+func (x *CMsgAvailableHardwareUpdate) GetCurrentTs() uint64 {
 	if x != nil && x.CurrentTs != nil {
 		return *x.CurrentTs
 	}
-	return ""
+	return 0
 }
 
-func (x *CMsgAvailableHardwareUpdate) GetUpdateTs() string {
+func (x *CMsgAvailableHardwareUpdate) GetUpdateTs() uint64 {
 	if x != nil && x.UpdateTs != nil {
 		return *x.UpdateTs
 	}
-	return ""
+	return 0
 }
 
-func (x *CMsgAvailableHardwareUpdate) GetMandatoryUpdate() bool {
-	if x != nil && x.MandatoryUpdate != nil {
-		return *x.MandatoryUpdate
+func (x *CMsgAvailableHardwareUpdate) GetPriority() EHardwareUpdatePriority {
+	if x != nil && x.Priority != nil {
+		return *x.Priority
+	}
+	return Default_CMsgAvailableHardwareUpdate_Priority
+}
+
+func (x *CMsgAvailableHardwareUpdate) GetIsDowngrade() bool {
+	if x != nil && x.IsDowngrade != nil {
+		return *x.IsDowngrade
 	}
 	return false
 }
@@ -557,6 +696,151 @@ func (*CHardwareUpdate_PrepForUpdate_Response) Descriptor() ([]byte, []int) {
 	return file_webuimessages_hardwareupdate_proto_rawDescGZIP(), []int{11}
 }
 
+type CHardwareUpdate_EnumerateDevices_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CHardwareUpdate_EnumerateDevices_Request) Reset() {
+	*x = CHardwareUpdate_EnumerateDevices_Request{}
+	mi := &file_webuimessages_hardwareupdate_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CHardwareUpdate_EnumerateDevices_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CHardwareUpdate_EnumerateDevices_Request) ProtoMessage() {}
+
+func (x *CHardwareUpdate_EnumerateDevices_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_hardwareupdate_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CHardwareUpdate_EnumerateDevices_Request.ProtoReflect.Descriptor instead.
+func (*CHardwareUpdate_EnumerateDevices_Request) Descriptor() ([]byte, []int) {
+	return file_webuimessages_hardwareupdate_proto_rawDescGZIP(), []int{12}
+}
+
+type CHardwareUpdate_EnumerateDevices_Response struct {
+	state         protoimpl.MessageState                              `protogen:"open.v1"`
+	Devices       []*CHardwareUpdate_EnumerateDevices_Response_Device `protobuf:"bytes,1,rep,name=devices" json:"devices,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CHardwareUpdate_EnumerateDevices_Response) Reset() {
+	*x = CHardwareUpdate_EnumerateDevices_Response{}
+	mi := &file_webuimessages_hardwareupdate_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CHardwareUpdate_EnumerateDevices_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CHardwareUpdate_EnumerateDevices_Response) ProtoMessage() {}
+
+func (x *CHardwareUpdate_EnumerateDevices_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_hardwareupdate_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CHardwareUpdate_EnumerateDevices_Response.ProtoReflect.Descriptor instead.
+func (*CHardwareUpdate_EnumerateDevices_Response) Descriptor() ([]byte, []int) {
+	return file_webuimessages_hardwareupdate_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *CHardwareUpdate_EnumerateDevices_Response) GetDevices() []*CHardwareUpdate_EnumerateDevices_Response_Device {
+	if x != nil {
+		return x.Devices
+	}
+	return nil
+}
+
+type CHardwareUpdate_EnumerateDevices_Response_Device struct {
+	state         protoimpl.MessageState     `protogen:"open.v1"`
+	Etype         *EHardwareUpdateDeviceType `protobuf:"varint,1,opt,name=etype,enum=EHardwareUpdateDeviceType,def=0" json:"etype,omitempty"`
+	SerialNumber  *string                    `protobuf:"bytes,2,opt,name=serial_number,json=serialNumber" json:"serial_number,omitempty"`
+	CurrentTs     *uint64                    `protobuf:"varint,3,opt,name=current_ts,json=currentTs" json:"current_ts,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+// Default values for CHardwareUpdate_EnumerateDevices_Response_Device fields.
+const (
+	Default_CHardwareUpdate_EnumerateDevices_Response_Device_Etype = EHardwareUpdateDeviceType_Triton_BL
+)
+
+func (x *CHardwareUpdate_EnumerateDevices_Response_Device) Reset() {
+	*x = CHardwareUpdate_EnumerateDevices_Response_Device{}
+	mi := &file_webuimessages_hardwareupdate_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CHardwareUpdate_EnumerateDevices_Response_Device) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CHardwareUpdate_EnumerateDevices_Response_Device) ProtoMessage() {}
+
+func (x *CHardwareUpdate_EnumerateDevices_Response_Device) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_hardwareupdate_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CHardwareUpdate_EnumerateDevices_Response_Device.ProtoReflect.Descriptor instead.
+func (*CHardwareUpdate_EnumerateDevices_Response_Device) Descriptor() ([]byte, []int) {
+	return file_webuimessages_hardwareupdate_proto_rawDescGZIP(), []int{13, 0}
+}
+
+func (x *CHardwareUpdate_EnumerateDevices_Response_Device) GetEtype() EHardwareUpdateDeviceType {
+	if x != nil && x.Etype != nil {
+		return *x.Etype
+	}
+	return Default_CHardwareUpdate_EnumerateDevices_Response_Device_Etype
+}
+
+func (x *CHardwareUpdate_EnumerateDevices_Response_Device) GetSerialNumber() string {
+	if x != nil && x.SerialNumber != nil {
+		return *x.SerialNumber
+	}
+	return ""
+}
+
+func (x *CHardwareUpdate_EnumerateDevices_Response_Device) GetCurrentTs() uint64 {
+	if x != nil && x.CurrentTs != nil {
+		return *x.CurrentTs
+	}
+	return 0
+}
+
 var File_webuimessages_hardwareupdate_proto protoreflect.FileDescriptor
 
 const file_webuimessages_hardwareupdate_proto_rawDesc = "" +
@@ -567,16 +851,15 @@ const file_webuimessages_hardwareupdate_proto_rawDesc = "" +
 	"\x14is_updater_supported\x18\x01 \x01(\bR\x12isUpdaterSupported\x120\n" +
 	"\x14has_seen_controllers\x18\x02 \x01(\bR\x12hasSeenControllers\"+\n" +
 	")CHardwareUpdate_StateChanged_Notification\")\n" +
-	"'CHardwareUpdate_CheckForUpdates_Request\"\xe0\x01\n" +
-	"\x1bCMsgAvailableHardwareUpdate\x12\x14\n" +
-	"\x05etype\x18\x01 \x01(\rR\x05etype\x12\x1f\n" +
-	"\vhardware_id\x18\x02 \x01(\rR\n" +
-	"hardwareId\x12#\n" +
+	"'CHardwareUpdate_CheckForUpdates_Request\"\x99\x02\n" +
+	"\x1bCMsgAvailableHardwareUpdate\x12;\n" +
+	"\x05etype\x18\x01 \x01(\x0e2\x1a.EHardwareUpdateDeviceType:\tTriton_BLR\x05etype\x12#\n" +
 	"\rserial_number\x18\x03 \x01(\tR\fserialNumber\x12\x1d\n" +
 	"\n" +
-	"current_ts\x18\x04 \x01(\tR\tcurrentTs\x12\x1b\n" +
-	"\tupdate_ts\x18\x05 \x01(\tR\bupdateTs\x12)\n" +
-	"\x10mandatory_update\x18\x06 \x01(\bR\x0fmandatoryUpdate\"b\n" +
+	"current_ts\x18\x04 \x01(\x04R\tcurrentTs\x12\x1b\n" +
+	"\tupdate_ts\x18\x05 \x01(\x04R\bupdateTs\x129\n" +
+	"\bpriority\x18\x06 \x01(\x0e2\x18.EHardwareUpdatePriority:\x03LowR\bpriority\x12!\n" +
+	"\fis_downgrade\x18\a \x01(\bR\visDowngrade\"b\n" +
 	"(CHardwareUpdate_CheckForUpdates_Response\x126\n" +
 	"\aupdates\x18\x01 \x03(\v2\x1c.CMsgAvailableHardwareUpdateR\aupdates\"d\n" +
 	"\x1eCHardwareUpdate_Update_Request\x12#\n" +
@@ -589,10 +872,38 @@ const file_webuimessages_hardwareupdate_proto_rawDesc = "" +
 	"/CHardwareUpdate_UpdateStateChanged_Notification\"L\n" +
 	"%CHardwareUpdate_PrepForUpdate_Request\x12#\n" +
 	"\rserial_number\x18\x01 \x01(\tR\fserialNumber\"(\n" +
-	"&CHardwareUpdate_PrepForUpdate_Response2\x8c\x05\n" +
+	"&CHardwareUpdate_PrepForUpdate_Response\"*\n" +
+	"(CHardwareUpdate_EnumerateDevices_Request\"\x84\x02\n" +
+	")CHardwareUpdate_EnumerateDevices_Response\x12K\n" +
+	"\adevices\x18\x01 \x03(\v21.CHardwareUpdate_EnumerateDevices_Response.DeviceR\adevices\x1a\x89\x01\n" +
+	"\x06Device\x12;\n" +
+	"\x05etype\x18\x01 \x01(\x0e2\x1a.EHardwareUpdateDeviceType:\tTriton_BLR\x05etype\x12#\n" +
+	"\rserial_number\x18\x02 \x01(\tR\fserialNumber\x12\x1d\n" +
+	"\n" +
+	"current_ts\x18\x03 \x01(\x04R\tcurrentTs*\x8b\x01\n" +
+	"\x19EHardwareUpdateDeviceType\x12\r\n" +
+	"\tTriton_BL\x10\x00\x12\x0e\n" +
+	"\n" +
+	"Proteus_BL\x10\x01\x12\x0e\n" +
+	"\n" +
+	"Triton_USB\x10\x02\x12\x0e\n" +
+	"\n" +
+	"Triton_BLE\x10\x03\x12\x0e\n" +
+	"\n" +
+	"Triton_ESB\x10\x04\x12\x0f\n" +
+	"\vProteus_USB\x10\x05\x12\x0e\n" +
+	"\n" +
+	"Nereid_USB\x10\x06*K\n" +
+	"\x17EHardwareUpdatePriority\x12\a\n" +
+	"\x03Low\x10\x00\x12\n" +
+	"\n" +
+	"\x06Normal\x10\x01\x12\r\n" +
+	"\tSuggested\x10\x02\x12\f\n" +
+	"\bRequired\x10\x032\xf7\x05\n" +
 	"\x0eHardwareUpdate\x12Q\n" +
 	"\bGetState\x12!.CHardwareUpdate_GetState_Request\x1a\".CHardwareUpdate_GetState_Response\x12R\n" +
-	"\x12NotifyStateChanged\x12*.CHardwareUpdate_StateChanged_Notification\x1a\x10.WebUINoResponse\x12f\n" +
+	"\x12NotifyStateChanged\x12*.CHardwareUpdate_StateChanged_Notification\x1a\x10.WebUINoResponse\x12i\n" +
+	"\x10EnumerateDevices\x12).CHardwareUpdate_EnumerateDevices_Request\x1a*.CHardwareUpdate_EnumerateDevices_Response\x12f\n" +
 	"\x0fCheckForUpdates\x12(.CHardwareUpdate_CheckForUpdates_Request\x1a).CHardwareUpdate_CheckForUpdates_Response\x12`\n" +
 	"\rPrepForUpdate\x12&.CHardwareUpdate_PrepForUpdate_Request\x1a'.CHardwareUpdate_PrepForUpdate_Response\x12K\n" +
 	"\x06Update\x12\x1f.CHardwareUpdate_Update_Request\x1a .CHardwareUpdate_Update_Response\x12V\n" +
@@ -611,43 +922,55 @@ func file_webuimessages_hardwareupdate_proto_rawDescGZIP() []byte {
 	return file_webuimessages_hardwareupdate_proto_rawDescData
 }
 
-var file_webuimessages_hardwareupdate_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_webuimessages_hardwareupdate_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_webuimessages_hardwareupdate_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
 var file_webuimessages_hardwareupdate_proto_goTypes = []any{
-	(*CHardwareUpdate_GetState_Request)(nil),                // 0: CHardwareUpdate_GetState_Request
-	(*CHardwareUpdate_GetState_Response)(nil),               // 1: CHardwareUpdate_GetState_Response
-	(*CHardwareUpdate_StateChanged_Notification)(nil),       // 2: CHardwareUpdate_StateChanged_Notification
-	(*CHardwareUpdate_CheckForUpdates_Request)(nil),         // 3: CHardwareUpdate_CheckForUpdates_Request
-	(*CMsgAvailableHardwareUpdate)(nil),                     // 4: CMsgAvailableHardwareUpdate
-	(*CHardwareUpdate_CheckForUpdates_Response)(nil),        // 5: CHardwareUpdate_CheckForUpdates_Response
-	(*CHardwareUpdate_Update_Request)(nil),                  // 6: CHardwareUpdate_Update_Request
-	(*CHardwareUpdate_Update_Response)(nil),                 // 7: CHardwareUpdate_Update_Response
-	(*CHardwareUpdate_UpdateProgress_Notification)(nil),     // 8: CHardwareUpdate_UpdateProgress_Notification
-	(*CHardwareUpdate_UpdateStateChanged_Notification)(nil), // 9: CHardwareUpdate_UpdateStateChanged_Notification
-	(*CHardwareUpdate_PrepForUpdate_Request)(nil),           // 10: CHardwareUpdate_PrepForUpdate_Request
-	(*CHardwareUpdate_PrepForUpdate_Response)(nil),          // 11: CHardwareUpdate_PrepForUpdate_Response
-	(*WebUINoResponse)(nil),                                 // 12: WebUINoResponse
+	(EHardwareUpdateDeviceType)(0),                           // 0: EHardwareUpdateDeviceType
+	(EHardwareUpdatePriority)(0),                             // 1: EHardwareUpdatePriority
+	(*CHardwareUpdate_GetState_Request)(nil),                 // 2: CHardwareUpdate_GetState_Request
+	(*CHardwareUpdate_GetState_Response)(nil),                // 3: CHardwareUpdate_GetState_Response
+	(*CHardwareUpdate_StateChanged_Notification)(nil),        // 4: CHardwareUpdate_StateChanged_Notification
+	(*CHardwareUpdate_CheckForUpdates_Request)(nil),          // 5: CHardwareUpdate_CheckForUpdates_Request
+	(*CMsgAvailableHardwareUpdate)(nil),                      // 6: CMsgAvailableHardwareUpdate
+	(*CHardwareUpdate_CheckForUpdates_Response)(nil),         // 7: CHardwareUpdate_CheckForUpdates_Response
+	(*CHardwareUpdate_Update_Request)(nil),                   // 8: CHardwareUpdate_Update_Request
+	(*CHardwareUpdate_Update_Response)(nil),                  // 9: CHardwareUpdate_Update_Response
+	(*CHardwareUpdate_UpdateProgress_Notification)(nil),      // 10: CHardwareUpdate_UpdateProgress_Notification
+	(*CHardwareUpdate_UpdateStateChanged_Notification)(nil),  // 11: CHardwareUpdate_UpdateStateChanged_Notification
+	(*CHardwareUpdate_PrepForUpdate_Request)(nil),            // 12: CHardwareUpdate_PrepForUpdate_Request
+	(*CHardwareUpdate_PrepForUpdate_Response)(nil),           // 13: CHardwareUpdate_PrepForUpdate_Response
+	(*CHardwareUpdate_EnumerateDevices_Request)(nil),         // 14: CHardwareUpdate_EnumerateDevices_Request
+	(*CHardwareUpdate_EnumerateDevices_Response)(nil),        // 15: CHardwareUpdate_EnumerateDevices_Response
+	(*CHardwareUpdate_EnumerateDevices_Response_Device)(nil), // 16: CHardwareUpdate_EnumerateDevices_Response.Device
+	(*WebUINoResponse)(nil),                                  // 17: WebUINoResponse
 }
 var file_webuimessages_hardwareupdate_proto_depIdxs = []int32{
-	4,  // 0: CHardwareUpdate_CheckForUpdates_Response.updates:type_name -> CMsgAvailableHardwareUpdate
-	0,  // 1: HardwareUpdate.GetState:input_type -> CHardwareUpdate_GetState_Request
-	2,  // 2: HardwareUpdate.NotifyStateChanged:input_type -> CHardwareUpdate_StateChanged_Notification
-	3,  // 3: HardwareUpdate.CheckForUpdates:input_type -> CHardwareUpdate_CheckForUpdates_Request
-	10, // 4: HardwareUpdate.PrepForUpdate:input_type -> CHardwareUpdate_PrepForUpdate_Request
-	6,  // 5: HardwareUpdate.Update:input_type -> CHardwareUpdate_Update_Request
-	8,  // 6: HardwareUpdate.NotifyUpdateProgress:input_type -> CHardwareUpdate_UpdateProgress_Notification
-	9,  // 7: HardwareUpdate.NotifyUpdateStateChanged:input_type -> CHardwareUpdate_UpdateStateChanged_Notification
-	1,  // 8: HardwareUpdate.GetState:output_type -> CHardwareUpdate_GetState_Response
-	12, // 9: HardwareUpdate.NotifyStateChanged:output_type -> WebUINoResponse
-	5,  // 10: HardwareUpdate.CheckForUpdates:output_type -> CHardwareUpdate_CheckForUpdates_Response
-	11, // 11: HardwareUpdate.PrepForUpdate:output_type -> CHardwareUpdate_PrepForUpdate_Response
-	7,  // 12: HardwareUpdate.Update:output_type -> CHardwareUpdate_Update_Response
-	12, // 13: HardwareUpdate.NotifyUpdateProgress:output_type -> WebUINoResponse
-	12, // 14: HardwareUpdate.NotifyUpdateStateChanged:output_type -> WebUINoResponse
-	8,  // [8:15] is the sub-list for method output_type
-	1,  // [1:8] is the sub-list for method input_type
-	1,  // [1:1] is the sub-list for extension type_name
-	1,  // [1:1] is the sub-list for extension extendee
-	0,  // [0:1] is the sub-list for field type_name
+	0,  // 0: CMsgAvailableHardwareUpdate.etype:type_name -> EHardwareUpdateDeviceType
+	1,  // 1: CMsgAvailableHardwareUpdate.priority:type_name -> EHardwareUpdatePriority
+	6,  // 2: CHardwareUpdate_CheckForUpdates_Response.updates:type_name -> CMsgAvailableHardwareUpdate
+	16, // 3: CHardwareUpdate_EnumerateDevices_Response.devices:type_name -> CHardwareUpdate_EnumerateDevices_Response.Device
+	0,  // 4: CHardwareUpdate_EnumerateDevices_Response.Device.etype:type_name -> EHardwareUpdateDeviceType
+	2,  // 5: HardwareUpdate.GetState:input_type -> CHardwareUpdate_GetState_Request
+	4,  // 6: HardwareUpdate.NotifyStateChanged:input_type -> CHardwareUpdate_StateChanged_Notification
+	14, // 7: HardwareUpdate.EnumerateDevices:input_type -> CHardwareUpdate_EnumerateDevices_Request
+	5,  // 8: HardwareUpdate.CheckForUpdates:input_type -> CHardwareUpdate_CheckForUpdates_Request
+	12, // 9: HardwareUpdate.PrepForUpdate:input_type -> CHardwareUpdate_PrepForUpdate_Request
+	8,  // 10: HardwareUpdate.Update:input_type -> CHardwareUpdate_Update_Request
+	10, // 11: HardwareUpdate.NotifyUpdateProgress:input_type -> CHardwareUpdate_UpdateProgress_Notification
+	11, // 12: HardwareUpdate.NotifyUpdateStateChanged:input_type -> CHardwareUpdate_UpdateStateChanged_Notification
+	3,  // 13: HardwareUpdate.GetState:output_type -> CHardwareUpdate_GetState_Response
+	17, // 14: HardwareUpdate.NotifyStateChanged:output_type -> WebUINoResponse
+	15, // 15: HardwareUpdate.EnumerateDevices:output_type -> CHardwareUpdate_EnumerateDevices_Response
+	7,  // 16: HardwareUpdate.CheckForUpdates:output_type -> CHardwareUpdate_CheckForUpdates_Response
+	13, // 17: HardwareUpdate.PrepForUpdate:output_type -> CHardwareUpdate_PrepForUpdate_Response
+	9,  // 18: HardwareUpdate.Update:output_type -> CHardwareUpdate_Update_Response
+	17, // 19: HardwareUpdate.NotifyUpdateProgress:output_type -> WebUINoResponse
+	17, // 20: HardwareUpdate.NotifyUpdateStateChanged:output_type -> WebUINoResponse
+	13, // [13:21] is the sub-list for method output_type
+	5,  // [5:13] is the sub-list for method input_type
+	5,  // [5:5] is the sub-list for extension type_name
+	5,  // [5:5] is the sub-list for extension extendee
+	0,  // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_webuimessages_hardwareupdate_proto_init() }
@@ -663,13 +986,14 @@ func file_webuimessages_hardwareupdate_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_webuimessages_hardwareupdate_proto_rawDesc), len(file_webuimessages_hardwareupdate_proto_rawDesc)),
-			NumEnums:      0,
-			NumMessages:   12,
+			NumEnums:      2,
+			NumMessages:   15,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
 		GoTypes:           file_webuimessages_hardwareupdate_proto_goTypes,
 		DependencyIndexes: file_webuimessages_hardwareupdate_proto_depIdxs,
+		EnumInfos:         file_webuimessages_hardwareupdate_proto_enumTypes,
 		MessageInfos:      file_webuimessages_hardwareupdate_proto_msgTypes,
 	}.Build()
 	File_webuimessages_hardwareupdate_proto = out.File

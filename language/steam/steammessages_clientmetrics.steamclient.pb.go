@@ -2123,6 +2123,7 @@ type CClientMetrics_ReportClientError_Notification_Error struct {
 	Message       *string                `protobuf:"bytes,2,opt,name=message" json:"message,omitempty"`
 	Count         *uint32                `protobuf:"varint,3,opt,name=count" json:"count,omitempty"`
 	Context       *string                `protobuf:"bytes,4,opt,name=context" json:"context,omitempty"`
+	Url           *string                `protobuf:"bytes,5,opt,name=url" json:"url,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2181,6 +2182,13 @@ func (x *CClientMetrics_ReportClientError_Notification_Error) GetCount() uint32 
 func (x *CClientMetrics_ReportClientError_Notification_Error) GetContext() string {
 	if x != nil && x.Context != nil {
 		return *x.Context
+	}
+	return ""
+}
+
+func (x *CClientMetrics_ReportClientError_Notification_Error) GetUrl() string {
+	if x != nil && x.Url != nil {
+		return *x.Url
 	}
 	return ""
 }
@@ -2537,19 +2545,20 @@ const file_steammessages_clientmetrics_steamclient_proto_rawDesc = "" +
 	"\n" +
 	"ActionData\x12\x16\n" +
 	"\x06action\x18\x01 \x01(\tR\x06action\x12\x14\n" +
-	"\x05count\x18\x02 \x01(\rR\x05count\"\xb8\x02\n" +
+	"\x05count\x18\x02 \x01(\rR\x05count\"\xcb\x02\n" +
 	"-CClientMetrics_ReportClientError_Notification\x12\x18\n" +
 	"\aproduct\x18\x01 \x01(\tR\aproduct\x12\x18\n" +
 	"\aversion\x18\x02 \x01(\tR\aversion\x12L\n" +
 	"\x06errors\x18\x03 \x03(\v24.CClientMetrics_ReportClientError_Notification.ErrorR\x06errors\x12\x12\n" +
-	"\x04tags\x18\x04 \x03(\tR\x04tags\x1aq\n" +
+	"\x04tags\x18\x04 \x03(\tR\x04tags\x1a\x83\x01\n" +
 	"\x05Error\x12\x1e\n" +
 	"\n" +
 	"identifier\x18\x01 \x01(\tR\n" +
 	"identifier\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12\x14\n" +
 	"\x05count\x18\x03 \x01(\rR\x05count\x12\x18\n" +
-	"\acontext\x18\x04 \x01(\tR\acontext\"p\n" +
+	"\acontext\x18\x04 \x01(\tR\acontext\x12\x10\n" +
+	"\x03url\x18\x05 \x01(\tR\x03url\"p\n" +
 	"+CClientMetrics_ClientBootstrap_Notification\x12A\n" +
 	"\asummary\x18\x01 \x01(\v2'.CClientMetrics_ClientBootstrap_SummaryR\asummary\"\xb9\x05\n" +
 	")CClientMetrics_DownloadRates_Notification\x12\x17\n" +

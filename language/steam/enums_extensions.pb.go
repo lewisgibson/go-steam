@@ -469,6 +469,13 @@ func (x EProtoAppType) EncodeValues(key string, v *url.Values) error {
 	return nil
 }
 
+// EncodeValues implements the query.Encoder interface for EAppTestType.
+// This allows the enum to be encoded as its numerical value in URL parameters.
+func (x EAppTestType) EncodeValues(key string, v *url.Values) error {
+	v.Add(key, strconv.FormatInt(int64(x), 10))
+	return nil
+}
+
 // EncodeValues implements the query.Encoder interface for EChildProcessQueryCommand.
 // This allows the enum to be encoded as its numerical value in URL parameters.
 func (x EChildProcessQueryCommand) EncodeValues(key string, v *url.Values) error {

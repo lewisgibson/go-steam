@@ -14,6 +14,13 @@ func (x ECloudPendingRemoteOperation) EncodeValues(key string, v *url.Values) er
 	return nil
 }
 
+// EncodeValues implements the query.Encoder interface for EDisplayManagerRGBRange.
+// This allows the enum to be encoded as its numerical value in URL parameters.
+func (x EDisplayManagerRGBRange) EncodeValues(key string, v *url.Values) error {
+	v.Add(key, strconv.FormatInt(int64(x), 10))
+	return nil
+}
+
 // EncodeValues implements the query.Encoder interface for ESteamDeckKeyboardLayout.
 // This allows the enum to be encoded as its numerical value in URL parameters.
 func (x ESteamDeckKeyboardLayout) EncodeValues(key string, v *url.Values) error {

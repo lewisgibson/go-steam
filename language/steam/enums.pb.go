@@ -4659,6 +4659,80 @@ func (EProtoAppType) EnumDescriptor() ([]byte, []int) {
 	return file_enums_proto_rawDescGZIP(), []int{65}
 }
 
+type EAppTestType int32
+
+const (
+	EAppTestType_k_EAppTestType_BuildReview                                EAppTestType = 0
+	EAppTestType_k_EAppTestType_StorePageReview                            EAppTestType = 1
+	EAppTestType_k_EAppTestType_SteamChina_BuildReview                     EAppTestType = 2
+	EAppTestType_k_EAppTestType_SteamChina_StorePageReview                 EAppTestType = 3
+	EAppTestType_k_EAppTestType_SteamChinaPlatformOperator_StorePageReview EAppTestType = 4
+	EAppTestType_k_EAppTestType_SteamChinaPlatformOperator_BuildReview     EAppTestType = 5
+	EAppTestType_k_EAppTestType_SteamDeckCompatibilityReview               EAppTestType = 6
+	EAppTestType_k_EAppTestType_SteamFrameCompatibilityReview              EAppTestType = 7
+)
+
+// Enum value maps for EAppTestType.
+var (
+	EAppTestType_name = map[int32]string{
+		0: "k_EAppTestType_BuildReview",
+		1: "k_EAppTestType_StorePageReview",
+		2: "k_EAppTestType_SteamChina_BuildReview",
+		3: "k_EAppTestType_SteamChina_StorePageReview",
+		4: "k_EAppTestType_SteamChinaPlatformOperator_StorePageReview",
+		5: "k_EAppTestType_SteamChinaPlatformOperator_BuildReview",
+		6: "k_EAppTestType_SteamDeckCompatibilityReview",
+		7: "k_EAppTestType_SteamFrameCompatibilityReview",
+	}
+	EAppTestType_value = map[string]int32{
+		"k_EAppTestType_BuildReview":                                0,
+		"k_EAppTestType_StorePageReview":                            1,
+		"k_EAppTestType_SteamChina_BuildReview":                     2,
+		"k_EAppTestType_SteamChina_StorePageReview":                 3,
+		"k_EAppTestType_SteamChinaPlatformOperator_StorePageReview": 4,
+		"k_EAppTestType_SteamChinaPlatformOperator_BuildReview":     5,
+		"k_EAppTestType_SteamDeckCompatibilityReview":               6,
+		"k_EAppTestType_SteamFrameCompatibilityReview":              7,
+	}
+)
+
+func (x EAppTestType) Enum() *EAppTestType {
+	p := new(EAppTestType)
+	*p = x
+	return p
+}
+
+func (x EAppTestType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (EAppTestType) Descriptor() protoreflect.EnumDescriptor {
+	return file_enums_proto_enumTypes[66].Descriptor()
+}
+
+func (EAppTestType) Type() protoreflect.EnumType {
+	return &file_enums_proto_enumTypes[66]
+}
+
+func (x EAppTestType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *EAppTestType) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = EAppTestType(num)
+	return nil
+}
+
+// Deprecated: Use EAppTestType.Descriptor instead.
+func (EAppTestType) EnumDescriptor() ([]byte, []int) {
+	return file_enums_proto_rawDescGZIP(), []int{66}
+}
+
 type EChildProcessQueryCommand int32
 
 const (
@@ -4692,11 +4766,11 @@ func (x EChildProcessQueryCommand) String() string {
 }
 
 func (EChildProcessQueryCommand) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[66].Descriptor()
+	return file_enums_proto_enumTypes[67].Descriptor()
 }
 
 func (EChildProcessQueryCommand) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[66]
+	return &file_enums_proto_enumTypes[67]
 }
 
 func (x EChildProcessQueryCommand) Number() protoreflect.EnumNumber {
@@ -4715,7 +4789,7 @@ func (x *EChildProcessQueryCommand) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EChildProcessQueryCommand.Descriptor instead.
 func (EChildProcessQueryCommand) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{66}
+	return file_enums_proto_rawDescGZIP(), []int{67}
 }
 
 type EChildProcessQueryExitCode int32
@@ -4760,11 +4834,11 @@ func (x EChildProcessQueryExitCode) String() string {
 }
 
 func (EChildProcessQueryExitCode) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[67].Descriptor()
+	return file_enums_proto_enumTypes[68].Descriptor()
 }
 
 func (EChildProcessQueryExitCode) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[67]
+	return &file_enums_proto_enumTypes[68]
 }
 
 func (x EChildProcessQueryExitCode) Number() protoreflect.EnumNumber {
@@ -4783,7 +4857,7 @@ func (x *EChildProcessQueryExitCode) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EChildProcessQueryExitCode.Descriptor instead.
 func (EChildProcessQueryExitCode) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{67}
+	return file_enums_proto_rawDescGZIP(), []int{68}
 }
 
 type EWindowsUpdateInstallationImpact int32
@@ -4822,11 +4896,11 @@ func (x EWindowsUpdateInstallationImpact) String() string {
 }
 
 func (EWindowsUpdateInstallationImpact) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[68].Descriptor()
+	return file_enums_proto_enumTypes[69].Descriptor()
 }
 
 func (EWindowsUpdateInstallationImpact) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[68]
+	return &file_enums_proto_enumTypes[69]
 }
 
 func (x EWindowsUpdateInstallationImpact) Number() protoreflect.EnumNumber {
@@ -4845,7 +4919,7 @@ func (x *EWindowsUpdateInstallationImpact) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EWindowsUpdateInstallationImpact.Descriptor instead.
 func (EWindowsUpdateInstallationImpact) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{68}
+	return file_enums_proto_rawDescGZIP(), []int{69}
 }
 
 type EWindowsUpdateRebootBehavior int32
@@ -4884,11 +4958,11 @@ func (x EWindowsUpdateRebootBehavior) String() string {
 }
 
 func (EWindowsUpdateRebootBehavior) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[69].Descriptor()
+	return file_enums_proto_enumTypes[70].Descriptor()
 }
 
 func (EWindowsUpdateRebootBehavior) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[69]
+	return &file_enums_proto_enumTypes[70]
 }
 
 func (x EWindowsUpdateRebootBehavior) Number() protoreflect.EnumNumber {
@@ -4907,7 +4981,7 @@ func (x *EWindowsUpdateRebootBehavior) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EWindowsUpdateRebootBehavior.Descriptor instead.
 func (EWindowsUpdateRebootBehavior) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{69}
+	return file_enums_proto_rawDescGZIP(), []int{70}
 }
 
 type EExternalSaleEventType int32
@@ -4952,11 +5026,11 @@ func (x EExternalSaleEventType) String() string {
 }
 
 func (EExternalSaleEventType) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[70].Descriptor()
+	return file_enums_proto_enumTypes[71].Descriptor()
 }
 
 func (EExternalSaleEventType) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[70]
+	return &file_enums_proto_enumTypes[71]
 }
 
 func (x EExternalSaleEventType) Number() protoreflect.EnumNumber {
@@ -4975,7 +5049,7 @@ func (x *EExternalSaleEventType) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EExternalSaleEventType.Descriptor instead.
 func (EExternalSaleEventType) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{70}
+	return file_enums_proto_rawDescGZIP(), []int{71}
 }
 
 type EEnhancedMarketAppearanceStatus int32
@@ -5014,11 +5088,11 @@ func (x EEnhancedMarketAppearanceStatus) String() string {
 }
 
 func (EEnhancedMarketAppearanceStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[71].Descriptor()
+	return file_enums_proto_enumTypes[72].Descriptor()
 }
 
 func (EEnhancedMarketAppearanceStatus) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[71]
+	return &file_enums_proto_enumTypes[72]
 }
 
 func (x EEnhancedMarketAppearanceStatus) Number() protoreflect.EnumNumber {
@@ -5037,7 +5111,7 @@ func (x *EEnhancedMarketAppearanceStatus) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EEnhancedMarketAppearanceStatus.Descriptor instead.
 func (EEnhancedMarketAppearanceStatus) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{71}
+	return file_enums_proto_rawDescGZIP(), []int{72}
 }
 
 type EContentReportSubjectType int32
@@ -5088,11 +5162,11 @@ func (x EContentReportSubjectType) String() string {
 }
 
 func (EContentReportSubjectType) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[72].Descriptor()
+	return file_enums_proto_enumTypes[73].Descriptor()
 }
 
 func (EContentReportSubjectType) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[72]
+	return &file_enums_proto_enumTypes[73]
 }
 
 func (x EContentReportSubjectType) Number() protoreflect.EnumNumber {
@@ -5111,7 +5185,7 @@ func (x *EContentReportSubjectType) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EContentReportSubjectType.Descriptor instead.
 func (EContentReportSubjectType) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{72}
+	return file_enums_proto_rawDescGZIP(), []int{73}
 }
 
 type EControlledLegalCategoryStatus int32
@@ -5150,11 +5224,11 @@ func (x EControlledLegalCategoryStatus) String() string {
 }
 
 func (EControlledLegalCategoryStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[73].Descriptor()
+	return file_enums_proto_enumTypes[74].Descriptor()
 }
 
 func (EControlledLegalCategoryStatus) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[73]
+	return &file_enums_proto_enumTypes[74]
 }
 
 func (x EControlledLegalCategoryStatus) Number() protoreflect.EnumNumber {
@@ -5173,7 +5247,7 @@ func (x *EControlledLegalCategoryStatus) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EControlledLegalCategoryStatus.Descriptor instead.
 func (EControlledLegalCategoryStatus) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{73}
+	return file_enums_proto_rawDescGZIP(), []int{74}
 }
 
 type EContentModeratorLevel int32
@@ -5212,11 +5286,11 @@ func (x EContentModeratorLevel) String() string {
 }
 
 func (EContentModeratorLevel) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[74].Descriptor()
+	return file_enums_proto_enumTypes[75].Descriptor()
 }
 
 func (EContentModeratorLevel) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[74]
+	return &file_enums_proto_enumTypes[75]
 }
 
 func (x EContentModeratorLevel) Number() protoreflect.EnumNumber {
@@ -5235,7 +5309,7 @@ func (x *EContentModeratorLevel) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EContentModeratorLevel.Descriptor instead.
 func (EContentModeratorLevel) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{74}
+	return file_enums_proto_rawDescGZIP(), []int{75}
 }
 
 type EContentReportResolution int32
@@ -5316,11 +5390,11 @@ func (x EContentReportResolution) String() string {
 }
 
 func (EContentReportResolution) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[75].Descriptor()
+	return file_enums_proto_enumTypes[76].Descriptor()
 }
 
 func (EContentReportResolution) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[75]
+	return &file_enums_proto_enumTypes[76]
 }
 
 func (x EContentReportResolution) Number() protoreflect.EnumNumber {
@@ -5339,7 +5413,7 @@ func (x *EContentReportResolution) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EContentReportResolution.Descriptor instead.
 func (EContentReportResolution) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{75}
+	return file_enums_proto_rawDescGZIP(), []int{76}
 }
 
 type EContentModerationSanction int32
@@ -5402,11 +5476,11 @@ func (x EContentModerationSanction) String() string {
 }
 
 func (EContentModerationSanction) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[76].Descriptor()
+	return file_enums_proto_enumTypes[77].Descriptor()
 }
 
 func (EContentModerationSanction) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[76]
+	return &file_enums_proto_enumTypes[77]
 }
 
 func (x EContentModerationSanction) Number() protoreflect.EnumNumber {
@@ -5425,7 +5499,7 @@ func (x *EContentModerationSanction) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EContentModerationSanction.Descriptor instead.
 func (EContentModerationSanction) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{76}
+	return file_enums_proto_rawDescGZIP(), []int{77}
 }
 
 type EContentReportSubjectAction int32
@@ -5524,11 +5598,11 @@ func (x EContentReportSubjectAction) String() string {
 }
 
 func (EContentReportSubjectAction) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[77].Descriptor()
+	return file_enums_proto_enumTypes[78].Descriptor()
 }
 
 func (EContentReportSubjectAction) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[77]
+	return &file_enums_proto_enumTypes[78]
 }
 
 func (x EContentReportSubjectAction) Number() protoreflect.EnumNumber {
@@ -5547,7 +5621,7 @@ func (x *EContentReportSubjectAction) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EContentReportSubjectAction.Descriptor instead.
 func (EContentReportSubjectAction) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{77}
+	return file_enums_proto_rawDescGZIP(), []int{78}
 }
 
 type EContentReportReason int32
@@ -5617,7 +5691,8 @@ const (
 	EContentReportReason_k_EContentReportReason_NegativeEffectonDiscourseOrElections         EContentReportReason = 61
 	EContentReportReason_k_EContentReportReason_QuotesModeratedContent                       EContentReportReason = 62
 	EContentReportReason_k_EContentReportReason_CredibleThreatOfViolence                     EContentReportReason = 63
-	EContentReportReason_k_EContentReportReason_MAX                                          EContentReportReason = 64
+	EContentReportReason_k_EContentReportReason_AutoCreatedOnModeration                      EContentReportReason = 64
+	EContentReportReason_k_EContentReportReason_MAX                                          EContentReportReason = 65
 )
 
 // Enum value maps for EContentReportReason.
@@ -5687,7 +5762,8 @@ var (
 		61: "k_EContentReportReason_NegativeEffectonDiscourseOrElections",
 		62: "k_EContentReportReason_QuotesModeratedContent",
 		63: "k_EContentReportReason_CredibleThreatOfViolence",
-		64: "k_EContentReportReason_MAX",
+		64: "k_EContentReportReason_AutoCreatedOnModeration",
+		65: "k_EContentReportReason_MAX",
 	}
 	EContentReportReason_value = map[string]int32{
 		"k_EContentReportReason_Invalid":                                      0,
@@ -5754,7 +5830,8 @@ var (
 		"k_EContentReportReason_NegativeEffectonDiscourseOrElections":         61,
 		"k_EContentReportReason_QuotesModeratedContent":                       62,
 		"k_EContentReportReason_CredibleThreatOfViolence":                     63,
-		"k_EContentReportReason_MAX":                                          64,
+		"k_EContentReportReason_AutoCreatedOnModeration":                      64,
+		"k_EContentReportReason_MAX":                                          65,
 	}
 )
 
@@ -5769,11 +5846,11 @@ func (x EContentReportReason) String() string {
 }
 
 func (EContentReportReason) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[78].Descriptor()
+	return file_enums_proto_enumTypes[79].Descriptor()
 }
 
 func (EContentReportReason) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[78]
+	return &file_enums_proto_enumTypes[79]
 }
 
 func (x EContentReportReason) Number() protoreflect.EnumNumber {
@@ -5792,7 +5869,7 @@ func (x *EContentReportReason) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EContentReportReason.Descriptor instead.
 func (EContentReportReason) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{78}
+	return file_enums_proto_rawDescGZIP(), []int{79}
 }
 
 type EResolutionAutomation int32
@@ -5831,11 +5908,11 @@ func (x EResolutionAutomation) String() string {
 }
 
 func (EResolutionAutomation) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[79].Descriptor()
+	return file_enums_proto_enumTypes[80].Descriptor()
 }
 
 func (EResolutionAutomation) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[79]
+	return &file_enums_proto_enumTypes[80]
 }
 
 func (x EResolutionAutomation) Number() protoreflect.EnumNumber {
@@ -5854,7 +5931,7 @@ func (x *EResolutionAutomation) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EResolutionAutomation.Descriptor instead.
 func (EResolutionAutomation) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{79}
+	return file_enums_proto_rawDescGZIP(), []int{80}
 }
 
 type EPressOutletAction int32
@@ -5923,11 +6000,11 @@ func (x EPressOutletAction) String() string {
 }
 
 func (EPressOutletAction) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[80].Descriptor()
+	return file_enums_proto_enumTypes[81].Descriptor()
 }
 
 func (EPressOutletAction) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[80]
+	return &file_enums_proto_enumTypes[81]
 }
 
 func (x EPressOutletAction) Number() protoreflect.EnumNumber {
@@ -5946,7 +6023,7 @@ func (x *EPressOutletAction) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EPressOutletAction.Descriptor instead.
 func (EPressOutletAction) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{80}
+	return file_enums_proto_rawDescGZIP(), []int{81}
 }
 
 type EPressOutletMemberPendingState int32
@@ -5985,11 +6062,11 @@ func (x EPressOutletMemberPendingState) String() string {
 }
 
 func (EPressOutletMemberPendingState) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[81].Descriptor()
+	return file_enums_proto_enumTypes[82].Descriptor()
 }
 
 func (EPressOutletMemberPendingState) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[81]
+	return &file_enums_proto_enumTypes[82]
 }
 
 func (x EPressOutletMemberPendingState) Number() protoreflect.EnumNumber {
@@ -6008,7 +6085,7 @@ func (x *EPressOutletMemberPendingState) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EPressOutletMemberPendingState.Descriptor instead.
 func (EPressOutletMemberPendingState) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{81}
+	return file_enums_proto_rawDescGZIP(), []int{82}
 }
 
 type ECommentDeleteReason int32
@@ -6056,11 +6133,11 @@ func (x ECommentDeleteReason) String() string {
 }
 
 func (ECommentDeleteReason) Descriptor() protoreflect.EnumDescriptor {
-	return file_enums_proto_enumTypes[82].Descriptor()
+	return file_enums_proto_enumTypes[83].Descriptor()
 }
 
 func (ECommentDeleteReason) Type() protoreflect.EnumType {
-	return &file_enums_proto_enumTypes[82]
+	return &file_enums_proto_enumTypes[83]
 }
 
 func (x ECommentDeleteReason) Number() protoreflect.EnumNumber {
@@ -6079,7 +6156,7 @@ func (x *ECommentDeleteReason) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use ECommentDeleteReason.Descriptor instead.
 func (ECommentDeleteReason) EnumDescriptor() ([]byte, []int) {
-	return file_enums_proto_rawDescGZIP(), []int{82}
+	return file_enums_proto_rawDescGZIP(), []int{83}
 }
 
 var File_enums_proto protoreflect.FileDescriptor
@@ -6610,7 +6687,16 @@ const file_enums_proto_rawDesc = "" +
 	"\x0fk_EAppTypeComic\x10\x80\x80\x02\x12\x14\n" +
 	"\x0ek_EAppTypeBeta\x10\x80\x80\x04\x12\x1a\n" +
 	"\x12k_EAppTypeShortcut\x10\x80\x80\x80\x80\x04\x12 \n" +
-	"\x13k_EAppTypeDepotOnly\x10\x80\x80\x80\x80\xf8\xff\xff\xff\xff\x01*\x96\x01\n" +
+	"\x13k_EAppTypeDepotOnly\x10\x80\x80\x80\x80\xf8\xff\xff\xff\xff\x01*\x89\x03\n" +
+	"\fEAppTestType\x12\x1e\n" +
+	"\x1ak_EAppTestType_BuildReview\x10\x00\x12\"\n" +
+	"\x1ek_EAppTestType_StorePageReview\x10\x01\x12)\n" +
+	"%k_EAppTestType_SteamChina_BuildReview\x10\x02\x12-\n" +
+	")k_EAppTestType_SteamChina_StorePageReview\x10\x03\x12=\n" +
+	"9k_EAppTestType_SteamChinaPlatformOperator_StorePageReview\x10\x04\x129\n" +
+	"5k_EAppTestType_SteamChinaPlatformOperator_BuildReview\x10\x05\x12/\n" +
+	"+k_EAppTestType_SteamDeckCompatibilityReview\x10\x06\x120\n" +
+	",k_EAppTestType_SteamFrameCompatibilityReview\x10\a*\x96\x01\n" +
 	"\x19EChildProcessQueryCommand\x12'\n" +
 	"#k_EChildProcessQueryCommand_Invalid\x10\x00\x12+\n" +
 	"'k_EChildProcessQueryCommand_GpuTopology\x10\x01\x12#\n" +
@@ -6723,7 +6809,7 @@ const file_enums_proto_rawDesc = "" +
 	"%k_EContentReportSubjectAction_Claimed\x10\x14\x12*\n" +
 	"&k_EContentReportSubjectAction_Released\x10\x15\x121\n" +
 	"-k_EContentReportSubjectAction_PrivateMessaged\x10\x16\x12/\n" +
-	"+k_EContentReportSubjectAction_OwnerDisputed\x10\x17*\xa9\x18\n" +
+	"+k_EContentReportSubjectAction_OwnerDisputed\x10\x17*\xdd\x18\n" +
 	"\x14EContentReportReason\x12\"\n" +
 	"\x1ek_EContentReportReason_Invalid\x10\x00\x12\x1f\n" +
 	"\x1bk_EContentReportReason_None\x10\x01\x12\"\n" +
@@ -6789,8 +6875,9 @@ const file_enums_proto_rawDesc = "" +
 	"1k_EContentReportReason_FakedNonConsensualMaterial\x10<\x12?\n" +
 	";k_EContentReportReason_NegativeEffectonDiscourseOrElections\x10=\x121\n" +
 	"-k_EContentReportReason_QuotesModeratedContent\x10>\x123\n" +
-	"/k_EContentReportReason_CredibleThreatOfViolence\x10?\x12\x1e\n" +
-	"\x1ak_EContentReportReason_MAX\x10@*\xb8\x01\n" +
+	"/k_EContentReportReason_CredibleThreatOfViolence\x10?\x122\n" +
+	".k_EContentReportReason_AutoCreatedOnModeration\x10@\x12\x1e\n" +
+	"\x1ak_EContentReportReason_MAX\x10A*\xb8\x01\n" +
 	"\x15EResolutionAutomation\x12\"\n" +
 	"\x1ek_EResolutionAutomation_Manual\x10\x00\x12.\n" +
 	"*k_EResolutionAutomation_PartiallyAutomated\x10\x01\x12*\n" +
@@ -6838,7 +6925,7 @@ func file_enums_proto_rawDescGZIP() []byte {
 	return file_enums_proto_rawDescData
 }
 
-var file_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 83)
+var file_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 84)
 var file_enums_proto_goTypes = []any{
 	(EPublishedFileQueryType)(0),                  // 0: EPublishedFileQueryType
 	(EPublishedFileInappropriateProvider)(0),      // 1: EPublishedFileInappropriateProvider
@@ -6906,23 +6993,24 @@ var file_enums_proto_goTypes = []any{
 	(EGRMode)(0),                                  // 63: EGRMode
 	(EExportCodec)(0),                             // 64: EExportCodec
 	(EProtoAppType)(0),                            // 65: EProtoAppType
-	(EChildProcessQueryCommand)(0),                // 66: EChildProcessQueryCommand
-	(EChildProcessQueryExitCode)(0),               // 67: EChildProcessQueryExitCode
-	(EWindowsUpdateInstallationImpact)(0),         // 68: EWindowsUpdateInstallationImpact
-	(EWindowsUpdateRebootBehavior)(0),             // 69: EWindowsUpdateRebootBehavior
-	(EExternalSaleEventType)(0),                   // 70: EExternalSaleEventType
-	(EEnhancedMarketAppearanceStatus)(0),          // 71: EEnhancedMarketAppearanceStatus
-	(EContentReportSubjectType)(0),                // 72: EContentReportSubjectType
-	(EControlledLegalCategoryStatus)(0),           // 73: EControlledLegalCategoryStatus
-	(EContentModeratorLevel)(0),                   // 74: EContentModeratorLevel
-	(EContentReportResolution)(0),                 // 75: EContentReportResolution
-	(EContentModerationSanction)(0),               // 76: EContentModerationSanction
-	(EContentReportSubjectAction)(0),              // 77: EContentReportSubjectAction
-	(EContentReportReason)(0),                     // 78: EContentReportReason
-	(EResolutionAutomation)(0),                    // 79: EResolutionAutomation
-	(EPressOutletAction)(0),                       // 80: EPressOutletAction
-	(EPressOutletMemberPendingState)(0),           // 81: EPressOutletMemberPendingState
-	(ECommentDeleteReason)(0),                     // 82: ECommentDeleteReason
+	(EAppTestType)(0),                             // 66: EAppTestType
+	(EChildProcessQueryCommand)(0),                // 67: EChildProcessQueryCommand
+	(EChildProcessQueryExitCode)(0),               // 68: EChildProcessQueryExitCode
+	(EWindowsUpdateInstallationImpact)(0),         // 69: EWindowsUpdateInstallationImpact
+	(EWindowsUpdateRebootBehavior)(0),             // 70: EWindowsUpdateRebootBehavior
+	(EExternalSaleEventType)(0),                   // 71: EExternalSaleEventType
+	(EEnhancedMarketAppearanceStatus)(0),          // 72: EEnhancedMarketAppearanceStatus
+	(EContentReportSubjectType)(0),                // 73: EContentReportSubjectType
+	(EControlledLegalCategoryStatus)(0),           // 74: EControlledLegalCategoryStatus
+	(EContentModeratorLevel)(0),                   // 75: EContentModeratorLevel
+	(EContentReportResolution)(0),                 // 76: EContentReportResolution
+	(EContentModerationSanction)(0),               // 77: EContentModerationSanction
+	(EContentReportSubjectAction)(0),              // 78: EContentReportSubjectAction
+	(EContentReportReason)(0),                     // 79: EContentReportReason
+	(EResolutionAutomation)(0),                    // 80: EResolutionAutomation
+	(EPressOutletAction)(0),                       // 81: EPressOutletAction
+	(EPressOutletMemberPendingState)(0),           // 82: EPressOutletMemberPendingState
+	(ECommentDeleteReason)(0),                     // 83: ECommentDeleteReason
 }
 var file_enums_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -6942,7 +7030,7 @@ func file_enums_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_enums_proto_rawDesc), len(file_enums_proto_rawDesc)),
-			NumEnums:      83,
+			NumEnums:      84,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,

@@ -4647,6 +4647,122 @@ func (*CGameRecording_SwitchBackgroundRecordingGame_Response) Descriptor() ([]by
 	return file_webuimessages_gamerecording_proto_rawDescGZIP(), []int{78}
 }
 
+type CGameRecording_GetState_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CGameRecording_GetState_Request) Reset() {
+	*x = CGameRecording_GetState_Request{}
+	mi := &file_webuimessages_gamerecording_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CGameRecording_GetState_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CGameRecording_GetState_Request) ProtoMessage() {}
+
+func (x *CGameRecording_GetState_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_gamerecording_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CGameRecording_GetState_Request.ProtoReflect.Descriptor instead.
+func (*CGameRecording_GetState_Request) Descriptor() ([]byte, []int) {
+	return file_webuimessages_gamerecording_proto_rawDescGZIP(), []int{79}
+}
+
+type CGameRecording_GetState_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	IsH265Enabled *bool                  `protobuf:"varint,1,opt,name=is_h265_enabled,json=isH265Enabled" json:"is_h265_enabled,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CGameRecording_GetState_Response) Reset() {
+	*x = CGameRecording_GetState_Response{}
+	mi := &file_webuimessages_gamerecording_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CGameRecording_GetState_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CGameRecording_GetState_Response) ProtoMessage() {}
+
+func (x *CGameRecording_GetState_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_gamerecording_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CGameRecording_GetState_Response.ProtoReflect.Descriptor instead.
+func (*CGameRecording_GetState_Response) Descriptor() ([]byte, []int) {
+	return file_webuimessages_gamerecording_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *CGameRecording_GetState_Response) GetIsH265Enabled() bool {
+	if x != nil && x.IsH265Enabled != nil {
+		return *x.IsH265Enabled
+	}
+	return false
+}
+
+type CGameRecording_StateChanged_Notification struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CGameRecording_StateChanged_Notification) Reset() {
+	*x = CGameRecording_StateChanged_Notification{}
+	mi := &file_webuimessages_gamerecording_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CGameRecording_StateChanged_Notification) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CGameRecording_StateChanged_Notification) ProtoMessage() {}
+
+func (x *CGameRecording_StateChanged_Notification) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_gamerecording_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CGameRecording_StateChanged_Notification.ProtoReflect.Descriptor instead.
+func (*CGameRecording_StateChanged_Notification) Descriptor() ([]byte, []int) {
+	return file_webuimessages_gamerecording_proto_rawDescGZIP(), []int{81}
+}
+
 type CGameRecording_GetAppsWithBackgroundVideo_Response_App struct {
 	state                   protoimpl.MessageState `protogen:"open.v1"`
 	GameId                  *uint64                `protobuf:"varint,1,opt,name=game_id,json=gameId" json:"game_id,omitempty"`
@@ -4667,7 +4783,7 @@ const (
 
 func (x *CGameRecording_GetAppsWithBackgroundVideo_Response_App) Reset() {
 	*x = CGameRecording_GetAppsWithBackgroundVideo_Response_App{}
-	mi := &file_webuimessages_gamerecording_proto_msgTypes[79]
+	mi := &file_webuimessages_gamerecording_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4679,7 +4795,7 @@ func (x *CGameRecording_GetAppsWithBackgroundVideo_Response_App) String() string
 func (*CGameRecording_GetAppsWithBackgroundVideo_Response_App) ProtoMessage() {}
 
 func (x *CGameRecording_GetAppsWithBackgroundVideo_Response_App) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_gamerecording_proto_msgTypes[79]
+	mi := &file_webuimessages_gamerecording_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4754,7 +4870,7 @@ type CGameRecording_QueryPhases_Request_Tag struct {
 
 func (x *CGameRecording_QueryPhases_Request_Tag) Reset() {
 	*x = CGameRecording_QueryPhases_Request_Tag{}
-	mi := &file_webuimessages_gamerecording_proto_msgTypes[80]
+	mi := &file_webuimessages_gamerecording_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4766,7 +4882,7 @@ func (x *CGameRecording_QueryPhases_Request_Tag) String() string {
 func (*CGameRecording_QueryPhases_Request_Tag) ProtoMessage() {}
 
 func (x *CGameRecording_QueryPhases_Request_Tag) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_gamerecording_proto_msgTypes[80]
+	mi := &file_webuimessages_gamerecording_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4823,7 +4939,7 @@ const (
 
 func (x *CGameRecording_QueryPhases_Response_Phase) Reset() {
 	*x = CGameRecording_QueryPhases_Response_Phase{}
-	mi := &file_webuimessages_gamerecording_proto_msgTypes[81]
+	mi := &file_webuimessages_gamerecording_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4835,7 +4951,7 @@ func (x *CGameRecording_QueryPhases_Response_Phase) String() string {
 func (*CGameRecording_QueryPhases_Response_Phase) ProtoMessage() {}
 
 func (x *CGameRecording_QueryPhases_Response_Phase) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_gamerecording_proto_msgTypes[81]
+	mi := &file_webuimessages_gamerecording_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4960,7 +5076,7 @@ type CGameRecording_QueryPhases_Response_Phase_BackgroundRecording struct {
 
 func (x *CGameRecording_QueryPhases_Response_Phase_BackgroundRecording) Reset() {
 	*x = CGameRecording_QueryPhases_Response_Phase_BackgroundRecording{}
-	mi := &file_webuimessages_gamerecording_proto_msgTypes[82]
+	mi := &file_webuimessages_gamerecording_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4972,7 +5088,7 @@ func (x *CGameRecording_QueryPhases_Response_Phase_BackgroundRecording) String()
 func (*CGameRecording_QueryPhases_Response_Phase_BackgroundRecording) ProtoMessage() {}
 
 func (x *CGameRecording_QueryPhases_Response_Phase_BackgroundRecording) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_gamerecording_proto_msgTypes[82]
+	mi := &file_webuimessages_gamerecording_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5019,7 +5135,7 @@ type CGameRecording_SaveClip_Request_Position struct {
 
 func (x *CGameRecording_SaveClip_Request_Position) Reset() {
 	*x = CGameRecording_SaveClip_Request_Position{}
-	mi := &file_webuimessages_gamerecording_proto_msgTypes[83]
+	mi := &file_webuimessages_gamerecording_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5031,7 +5147,7 @@ func (x *CGameRecording_SaveClip_Request_Position) String() string {
 func (*CGameRecording_SaveClip_Request_Position) ProtoMessage() {}
 
 func (x *CGameRecording_SaveClip_Request_Position) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_gamerecording_proto_msgTypes[83]
+	mi := &file_webuimessages_gamerecording_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5072,7 +5188,7 @@ type CGameRecording_GetThumbnails_Response_Thumbnail struct {
 
 func (x *CGameRecording_GetThumbnails_Response_Thumbnail) Reset() {
 	*x = CGameRecording_GetThumbnails_Response_Thumbnail{}
-	mi := &file_webuimessages_gamerecording_proto_msgTypes[84]
+	mi := &file_webuimessages_gamerecording_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5084,7 +5200,7 @@ func (x *CGameRecording_GetThumbnails_Response_Thumbnail) String() string {
 func (*CGameRecording_GetThumbnails_Response_Thumbnail) ProtoMessage() {}
 
 func (x *CGameRecording_GetThumbnails_Response_Thumbnail) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_gamerecording_proto_msgTypes[84]
+	mi := &file_webuimessages_gamerecording_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5441,7 +5557,11 @@ const file_webuimessages_gamerecording_proto_rawDesc = "" +
 	"\aeresult\x18\x03 \x01(\x05R\aeresult\"O\n" +
 	"4CGameRecording_SwitchBackgroundRecordingGame_Request\x12\x17\n" +
 	"\agame_id\x18\x01 \x01(\x04R\x06gameId\"7\n" +
-	"5CGameRecording_SwitchBackgroundRecordingGame_Response*\xf6\x02\n" +
+	"5CGameRecording_SwitchBackgroundRecordingGame_Response\"!\n" +
+	"\x1fCGameRecording_GetState_Request\"J\n" +
+	" CGameRecording_GetState_Response\x12&\n" +
+	"\x0fis_h265_enabled\x18\x01 \x01(\bR\risH265Enabled\"*\n" +
+	"(CGameRecording_StateChanged_Notification*\xf6\x02\n" +
 	"\x12ETimelineEntryType\x12 \n" +
 	"\x1ck_ETimelineEntryType_Invalid\x10\x00\x12!\n" +
 	"\x1dk_ETimelineEntryType_GameMode\x10\x01\x12\x1e\n" +
@@ -5479,7 +5599,7 @@ const file_webuimessages_gamerecording_proto_rawDesc = "" +
 	"\x10EThumbnailFormat\x12\v\n" +
 	"\ak_eJPEG\x10\x01\x12\n" +
 	"\n" +
-	"\x06k_eRGB\x10\x022\xca$\n" +
+	"\x06k_eRGB\x10\x022\xee%\n" +
 	"\rGameRecording\x12\x85\x01\n" +
 	"\x1aGetAppsWithBackgroundVideo\x122.CGameRecording_GetAppsWithBackgroundVideo_Request\x1a3.CGameRecording_GetAppsWithBackgroundVideo_Response\x12m\n" +
 	"\x12GetTimelinesForApp\x12*.CGameRecording_GetTimelinesForApp_Request\x1a+.CGameRecording_GetTimelinesForApp_Response\x12p\n" +
@@ -5526,7 +5646,9 @@ const file_webuimessages_gamerecording_proto_rawDesc = "" +
 	"\x17UserRemoveTimelineEntry\x12/.CGameRecording_UserRemoveTimelineEntry_Request\x1a0.CGameRecording_UserRemoveTimelineEntry_Response\x12\x94\x01\n" +
 	"\x1fManuallyDeleteRecordingsForApps\x127.CGameRecording_ManuallyDeleteRecordingsForApps_Request\x1a8.CGameRecording_ManuallyDeleteRecordingsForApps_Response\x12y\n" +
 	"\x16GetTotalDiskSpaceUsage\x12..CGameRecording_GetTotalDiskSpaceUsage_Request\x1a/.CGameRecording_GetTotalDiskSpaceUsage_Response\x12\x8e\x01\n" +
-	"\x1dSwitchBackgroundRecordingGame\x125.CGameRecording_SwitchBackgroundRecordingGame_Request\x1a6.CGameRecording_SwitchBackgroundRecordingGame_Response\x1a\x04\x80\x97\"\x01B\x05H\x01\x80\x01\x01"
+	"\x1dSwitchBackgroundRecordingGame\x125.CGameRecording_SwitchBackgroundRecordingGame_Request\x1a6.CGameRecording_SwitchBackgroundRecordingGame_Response\x12O\n" +
+	"\bGetState\x12 .CGameRecording_GetState_Request\x1a!.CGameRecording_GetState_Response\x12Q\n" +
+	"\x12NotifyStateChanged\x12).CGameRecording_StateChanged_Notification\x1a\x10.WebUINoResponse\x1a\x04\x80\x97\"\x01B\x05H\x01\x80\x01\x01"
 
 var (
 	file_webuimessages_gamerecording_proto_rawDescOnce sync.Once
@@ -5541,7 +5663,7 @@ func file_webuimessages_gamerecording_proto_rawDescGZIP() []byte {
 }
 
 var file_webuimessages_gamerecording_proto_enumTypes = make([]protoimpl.EnumInfo, 7)
-var file_webuimessages_gamerecording_proto_msgTypes = make([]protoimpl.MessageInfo, 85)
+var file_webuimessages_gamerecording_proto_msgTypes = make([]protoimpl.MessageInfo, 88)
 var file_webuimessages_gamerecording_proto_goTypes = []any{
 	(ETimelineEntryType)(0),                                               // 0: ETimelineEntryType
 	(EPhaseResultType)(0),                                                 // 1: EPhaseResultType
@@ -5629,154 +5751,161 @@ var file_webuimessages_gamerecording_proto_goTypes = []any{
 	(*CGameRecording_UploadProgress_Notification)(nil),                    // 83: CGameRecording_UploadProgress_Notification
 	(*CGameRecording_SwitchBackgroundRecordingGame_Request)(nil),          // 84: CGameRecording_SwitchBackgroundRecordingGame_Request
 	(*CGameRecording_SwitchBackgroundRecordingGame_Response)(nil),         // 85: CGameRecording_SwitchBackgroundRecordingGame_Response
-	(*CGameRecording_GetAppsWithBackgroundVideo_Response_App)(nil),        // 86: CGameRecording_GetAppsWithBackgroundVideo_Response.App
-	(*CGameRecording_QueryPhases_Request_Tag)(nil),                        // 87: CGameRecording_QueryPhases_Request.Tag
-	(*CGameRecording_QueryPhases_Response_Phase)(nil),                     // 88: CGameRecording_QueryPhases_Response.Phase
-	(*CGameRecording_QueryPhases_Response_Phase_BackgroundRecording)(nil), // 89: CGameRecording_QueryPhases_Response.Phase.BackgroundRecording
-	(*CGameRecording_SaveClip_Request_Position)(nil),                      // 90: CGameRecording_SaveClip_Request.Position
-	(*CGameRecording_GetThumbnails_Response_Thumbnail)(nil),               // 91: CGameRecording_GetThumbnails_Response.Thumbnail
-	(*CGameRecordingTimelineMetadata)(nil),                                // 92: CGameRecordingTimelineMetadata
-	(*CTimelineTag)(nil),                                                  // 93: CTimelineTag
-	(EGameRecordingType)(0),                                               // 94: EGameRecordingType
-	(*CPhaseAttribute)(nil),                                               // 95: CPhaseAttribute
-	(EExportCodec)(0),                                                     // 96: EExportCodec
-	(*CGameRecordingTimelineEvent)(nil),                                   // 97: CGameRecordingTimelineEvent
-	(*WebUINoResponse)(nil),                                               // 98: WebUINoResponse
+	(*CGameRecording_GetState_Request)(nil),                               // 86: CGameRecording_GetState_Request
+	(*CGameRecording_GetState_Response)(nil),                              // 87: CGameRecording_GetState_Response
+	(*CGameRecording_StateChanged_Notification)(nil),                      // 88: CGameRecording_StateChanged_Notification
+	(*CGameRecording_GetAppsWithBackgroundVideo_Response_App)(nil),        // 89: CGameRecording_GetAppsWithBackgroundVideo_Response.App
+	(*CGameRecording_QueryPhases_Request_Tag)(nil),                        // 90: CGameRecording_QueryPhases_Request.Tag
+	(*CGameRecording_QueryPhases_Response_Phase)(nil),                     // 91: CGameRecording_QueryPhases_Response.Phase
+	(*CGameRecording_QueryPhases_Response_Phase_BackgroundRecording)(nil), // 92: CGameRecording_QueryPhases_Response.Phase.BackgroundRecording
+	(*CGameRecording_SaveClip_Request_Position)(nil),                      // 93: CGameRecording_SaveClip_Request.Position
+	(*CGameRecording_GetThumbnails_Response_Thumbnail)(nil),               // 94: CGameRecording_GetThumbnails_Response.Thumbnail
+	(*CGameRecordingTimelineMetadata)(nil),                                // 95: CGameRecordingTimelineMetadata
+	(*CTimelineTag)(nil),                                                  // 96: CTimelineTag
+	(EGameRecordingType)(0),                                               // 97: EGameRecordingType
+	(*CPhaseAttribute)(nil),                                               // 98: CPhaseAttribute
+	(EExportCodec)(0),                                                     // 99: EExportCodec
+	(*CGameRecordingTimelineEvent)(nil),                                   // 100: CGameRecordingTimelineEvent
+	(*WebUINoResponse)(nil),                                               // 101: WebUINoResponse
 }
 var file_webuimessages_gamerecording_proto_depIdxs = []int32{
-	86, // 0: CGameRecording_GetAppsWithBackgroundVideo_Response.apps:type_name -> CGameRecording_GetAppsWithBackgroundVideo_Response.App
-	92, // 1: CGameRecording_GetTimelinesForApp_Response.timelines:type_name -> CGameRecordingTimelineMetadata
-	92, // 2: CGameRecording_GetTimelinesForClip_Response.timelines:type_name -> CGameRecordingTimelineMetadata
-	87, // 3: CGameRecording_QueryPhases_Request.filter_tags:type_name -> CGameRecording_QueryPhases_Request.Tag
-	88, // 4: CGameRecording_QueryPhases_Response.phases:type_name -> CGameRecording_QueryPhases_Response.Phase
-	93, // 5: CGameRecording_GetTags_Response.tags:type_name -> CTimelineTag
-	2,  // 6: CGameRecording_TimelineChanged_Notification.notification_type:type_name -> ETimelineChangeNotificationType
-	3,  // 7: CGameRecording_RecordingSessionChanged_Notification.notification_type:type_name -> ERecordingSessionChangeNotificationType
-	94, // 8: CGameRecording_RecordingSessionChanged_Notification.recording_type:type_name -> EGameRecordingType
-	0,  // 9: CTimelineEntry.type:type_name -> ETimelineEntryType
-	93, // 10: CTimelineEntry.tag:type_name -> CTimelineTag
-	95, // 11: CTimelineEntry.attributes:type_name -> CPhaseAttribute
-	23, // 12: CGameRecording_TimelineEntryChanged_Notification.entry:type_name -> CTimelineEntry
-	90, // 13: CGameRecording_SaveClip_Request.start:type_name -> CGameRecording_SaveClip_Request.Position
-	90, // 14: CGameRecording_SaveClip_Request.end:type_name -> CGameRecording_SaveClip_Request.Position
-	31, // 15: CGameRecording_SaveClip_Response.summary:type_name -> CGameRecording_ClipSummary
-	96, // 16: CGameRecording_ExportClip_Settings.codec:type_name -> EExportCodec
-	36, // 17: CGameRecording_ExportClip_Request.settings:type_name -> CGameRecording_ExportClip_Settings
-	36, // 18: CGameRecording_ExportClipPreview_Request.settings:type_name -> CGameRecording_ExportClip_Settings
-	36, // 19: CGameRecording_ExportClipPreview_Response.settings:type_name -> CGameRecording_ExportClip_Settings
-	31, // 20: CGameRecording_UploadClipToSteam_Response.summary:type_name -> CGameRecording_ClipSummary
-	31, // 21: CGameRecording_GetClips_Response.clip:type_name -> CGameRecording_ClipSummary
-	97, // 22: CGameRecording_GetAndTrimPostGameHighlights_Response.events:type_name -> CGameRecordingTimelineEvent
-	23, // 23: CGameRecording_UserAddTimelineEntry_Request.entry:type_name -> CTimelineEntry
-	23, // 24: CGameRecording_UserUpdateTimelineEntry_Request.entry:type_name -> CTimelineEntry
-	4,  // 25: CGameRecording_GetTotalDiskSpaceUsage_Request.type:type_name -> EDiskSpaceType
-	5,  // 26: CGameRecording_GetThumbnails_Request.time_precision:type_name -> EThumbnailTimePrecision
-	6,  // 27: CGameRecording_GetThumbnails_Request.format:type_name -> EThumbnailFormat
-	91, // 28: CGameRecording_GetThumbnails_Response.thumbnails:type_name -> CGameRecording_GetThumbnails_Response.Thumbnail
-	31, // 29: CGameRecording_StopRecording_Response.summary:type_name -> CGameRecording_ClipSummary
-	31, // 30: CGameRecording_ClipCreated_Notification.summary:type_name -> CGameRecording_ClipSummary
-	76, // 31: CGameRecording_GetPerGameSettings_Response.settings:type_name -> CGameRecording_PerGameSettings
-	76, // 32: CGameRecording_SetPerGameSettings_Request.game_settings:type_name -> CGameRecording_PerGameSettings
-	94, // 33: CGameRecording_GetAppsWithBackgroundVideo_Response.App.recording_type:type_name -> EGameRecordingType
-	93, // 34: CGameRecording_QueryPhases_Response.Phase.tags:type_name -> CTimelineTag
-	93, // 35: CGameRecording_QueryPhases_Response.Phase.contained_tags:type_name -> CTimelineTag
-	89, // 36: CGameRecording_QueryPhases_Response.Phase.background_recording:type_name -> CGameRecording_QueryPhases_Response.Phase.BackgroundRecording
-	1,  // 37: CGameRecording_QueryPhases_Response.Phase.type:type_name -> EPhaseResultType
-	23, // 38: CGameRecording_QueryPhases_Response.Phase.significant_events:type_name -> CTimelineEntry
-	95, // 39: CGameRecording_QueryPhases_Response.Phase.attributes:type_name -> CPhaseAttribute
-	7,  // 40: GameRecording.GetAppsWithBackgroundVideo:input_type -> CGameRecording_GetAppsWithBackgroundVideo_Request
-	9,  // 41: GameRecording.GetTimelinesForApp:input_type -> CGameRecording_GetTimelinesForApp_Request
-	11, // 42: GameRecording.GetTimelinesForClip:input_type -> CGameRecording_GetTimelinesForClip_Request
-	13, // 43: GameRecording.QueryPhases:input_type -> CGameRecording_QueryPhases_Request
-	15, // 44: GameRecording.GetTags:input_type -> CGameRecording_GetTags_Request
-	17, // 45: GameRecording.GetEnoughDiskSpace:input_type -> CGameRecording_GetEnoughDiskSpace_Request
-	19, // 46: GameRecording.GetAvailableDiskSpace:input_type -> CGameRecording_GetAvailableDiskSpace_Request
-	32, // 47: GameRecording.SaveClip:input_type -> CGameRecording_SaveClip_Request
-	34, // 48: GameRecording.DeleteClip:input_type -> CGameRecording_DeleteClip_Request
-	47, // 49: GameRecording.GetClips:input_type -> CGameRecording_GetClips_Request
-	43, // 50: GameRecording.UploadClipToSteam:input_type -> CGameRecording_UploadClipToSteam_Request
-	37, // 51: GameRecording.ExportClip:input_type -> CGameRecording_ExportClip_Request
-	39, // 52: GameRecording.ExportClipPreview:input_type -> CGameRecording_ExportClipPreview_Request
-	41, // 53: GameRecording.TakeScreenshot:input_type -> CGameRecording_TakeScreenshot_Request
-	45, // 54: GameRecording.ZipClip:input_type -> CGameRecording_ZipClip_Request
-	63, // 55: GameRecording.StartRecording:input_type -> CGameRecording_StartRecording_Request
-	65, // 56: GameRecording.StopRecording:input_type -> CGameRecording_StopRecording_Request
-	67, // 57: GameRecording.GetBackgroundRecordingFileSize:input_type -> CGameRecording_GetRecordingSize_Request
-	69, // 58: GameRecording.CleanupBackgroundRecordings:input_type -> CGameRecording_CleanupBackgroundRecordings_Request
-	49, // 59: GameRecording.GetAndTrimPostGameHighlights:input_type -> CGameRecording_GetAndTrimPostGameHighlights_Request
-	61, // 60: GameRecording.GetThumbnails:input_type -> CGameRecording_GetThumbnails_Request
-	71, // 61: GameRecording.GetPlatformCapabilities:input_type -> CGameRecording_GetPlatformCapabilities_Request
-	21, // 62: GameRecording.NotifyTimelineChanged:input_type -> CGameRecording_TimelineChanged_Notification
-	22, // 63: GameRecording.NotifyRecordingSessionChanged:input_type -> CGameRecording_RecordingSessionChanged_Notification
-	24, // 64: GameRecording.NotifyTimelineEntryChanged:input_type -> CGameRecording_TimelineEntryChanged_Notification
-	25, // 65: GameRecording.NotifyTimelineEntryRemoved:input_type -> CGameRecording_TimelineEntryRemoved_Notification
-	73, // 66: GameRecording.NotifyClipCreated:input_type -> CGameRecording_ClipCreated_Notification
-	74, // 67: GameRecording.NotifyClipDeleted:input_type -> CGameRecording_ClipDeleted_Notification
-	75, // 68: GameRecording.NotifyExportProgress:input_type -> CGameRecording_ExportProgress_Notification
-	83, // 69: GameRecording.NotifyUploadProgress:input_type -> CGameRecording_UploadProgress_Notification
-	26, // 70: GameRecording.NotifyLowDiskSpace:input_type -> CGameRecording_LowDiskSpace_Notification
-	27, // 71: GameRecording.NotifyPostGameHighlightsChanged:input_type -> CGameRecording_PostGameHighlightsChanged_Notification
-	28, // 72: GameRecording.NotifyOpenOverlayToGamePhase:input_type -> CGameRecording_OpenOverlayToGamePhase_Notification
-	29, // 73: GameRecording.NotifyOpenOverlayToTimelineEvent:input_type -> CGameRecording_OpenOverlayToTimelineEvent_Notification
-	30, // 74: GameRecording.NotifyPhaseListChanged:input_type -> CGameRecording_PhaseListChanged_Notification
-	77, // 75: GameRecording.GetPerGameSettings:input_type -> CGameRecording_GetPerGameSettings_Request
-	79, // 76: GameRecording.SetPerGameSettings:input_type -> CGameRecording_SetPerGameSettings_Request
-	81, // 77: GameRecording.DeletePerGameSettings:input_type -> CGameRecording_DeletePerGameSettings_Request
-	51, // 78: GameRecording.UserAddTimelineEntry:input_type -> CGameRecording_UserAddTimelineEntry_Request
-	53, // 79: GameRecording.UserUpdateTimelineEntry:input_type -> CGameRecording_UserUpdateTimelineEntry_Request
-	55, // 80: GameRecording.UserRemoveTimelineEntry:input_type -> CGameRecording_UserRemoveTimelineEntry_Request
-	57, // 81: GameRecording.ManuallyDeleteRecordingsForApps:input_type -> CGameRecording_ManuallyDeleteRecordingsForApps_Request
-	59, // 82: GameRecording.GetTotalDiskSpaceUsage:input_type -> CGameRecording_GetTotalDiskSpaceUsage_Request
-	84, // 83: GameRecording.SwitchBackgroundRecordingGame:input_type -> CGameRecording_SwitchBackgroundRecordingGame_Request
-	8,  // 84: GameRecording.GetAppsWithBackgroundVideo:output_type -> CGameRecording_GetAppsWithBackgroundVideo_Response
-	10, // 85: GameRecording.GetTimelinesForApp:output_type -> CGameRecording_GetTimelinesForApp_Response
-	12, // 86: GameRecording.GetTimelinesForClip:output_type -> CGameRecording_GetTimelinesForClip_Response
-	14, // 87: GameRecording.QueryPhases:output_type -> CGameRecording_QueryPhases_Response
-	16, // 88: GameRecording.GetTags:output_type -> CGameRecording_GetTags_Response
-	18, // 89: GameRecording.GetEnoughDiskSpace:output_type -> CGameRecording_GetEnoughDiskSpace_Response
-	20, // 90: GameRecording.GetAvailableDiskSpace:output_type -> CGameRecording_GetAvailableDiskSpace_Response
-	33, // 91: GameRecording.SaveClip:output_type -> CGameRecording_SaveClip_Response
-	35, // 92: GameRecording.DeleteClip:output_type -> CGameRecording_DeleteClip_Response
-	48, // 93: GameRecording.GetClips:output_type -> CGameRecording_GetClips_Response
-	44, // 94: GameRecording.UploadClipToSteam:output_type -> CGameRecording_UploadClipToSteam_Response
-	38, // 95: GameRecording.ExportClip:output_type -> CGameRecording_ExportClip_Response
-	40, // 96: GameRecording.ExportClipPreview:output_type -> CGameRecording_ExportClipPreview_Response
-	42, // 97: GameRecording.TakeScreenshot:output_type -> CGameRecording_TakeScreenshot_Response
-	46, // 98: GameRecording.ZipClip:output_type -> CGameRecording_ZipClip_Response
-	64, // 99: GameRecording.StartRecording:output_type -> CGameRecording_StartRecording_Response
-	66, // 100: GameRecording.StopRecording:output_type -> CGameRecording_StopRecording_Response
-	68, // 101: GameRecording.GetBackgroundRecordingFileSize:output_type -> CGameRecording_GetRecordingSize_Response
-	70, // 102: GameRecording.CleanupBackgroundRecordings:output_type -> CGameRecording_CleanupBackgroundRecordings_Response
-	50, // 103: GameRecording.GetAndTrimPostGameHighlights:output_type -> CGameRecording_GetAndTrimPostGameHighlights_Response
-	62, // 104: GameRecording.GetThumbnails:output_type -> CGameRecording_GetThumbnails_Response
-	72, // 105: GameRecording.GetPlatformCapabilities:output_type -> CGameRecording_GetPlatformCapabilities_Response
-	98, // 106: GameRecording.NotifyTimelineChanged:output_type -> WebUINoResponse
-	98, // 107: GameRecording.NotifyRecordingSessionChanged:output_type -> WebUINoResponse
-	98, // 108: GameRecording.NotifyTimelineEntryChanged:output_type -> WebUINoResponse
-	98, // 109: GameRecording.NotifyTimelineEntryRemoved:output_type -> WebUINoResponse
-	98, // 110: GameRecording.NotifyClipCreated:output_type -> WebUINoResponse
-	98, // 111: GameRecording.NotifyClipDeleted:output_type -> WebUINoResponse
-	98, // 112: GameRecording.NotifyExportProgress:output_type -> WebUINoResponse
-	98, // 113: GameRecording.NotifyUploadProgress:output_type -> WebUINoResponse
-	98, // 114: GameRecording.NotifyLowDiskSpace:output_type -> WebUINoResponse
-	98, // 115: GameRecording.NotifyPostGameHighlightsChanged:output_type -> WebUINoResponse
-	98, // 116: GameRecording.NotifyOpenOverlayToGamePhase:output_type -> WebUINoResponse
-	98, // 117: GameRecording.NotifyOpenOverlayToTimelineEvent:output_type -> WebUINoResponse
-	98, // 118: GameRecording.NotifyPhaseListChanged:output_type -> WebUINoResponse
-	78, // 119: GameRecording.GetPerGameSettings:output_type -> CGameRecording_GetPerGameSettings_Response
-	80, // 120: GameRecording.SetPerGameSettings:output_type -> CGameRecording_SetPerGameSettings_Response
-	82, // 121: GameRecording.DeletePerGameSettings:output_type -> CGameRecording_DeletePerGameSettings_Response
-	52, // 122: GameRecording.UserAddTimelineEntry:output_type -> CGameRecording_UserAddTimelineEntry_Response
-	54, // 123: GameRecording.UserUpdateTimelineEntry:output_type -> CGameRecording_UserUpdateTimelineEntry_Response
-	56, // 124: GameRecording.UserRemoveTimelineEntry:output_type -> CGameRecording_UserRemoveTimelineEntry_Response
-	58, // 125: GameRecording.ManuallyDeleteRecordingsForApps:output_type -> CGameRecording_ManuallyDeleteRecordingsForApps_Response
-	60, // 126: GameRecording.GetTotalDiskSpaceUsage:output_type -> CGameRecording_GetTotalDiskSpaceUsage_Response
-	85, // 127: GameRecording.SwitchBackgroundRecordingGame:output_type -> CGameRecording_SwitchBackgroundRecordingGame_Response
-	84, // [84:128] is the sub-list for method output_type
-	40, // [40:84] is the sub-list for method input_type
-	40, // [40:40] is the sub-list for extension type_name
-	40, // [40:40] is the sub-list for extension extendee
-	0,  // [0:40] is the sub-list for field type_name
+	89,  // 0: CGameRecording_GetAppsWithBackgroundVideo_Response.apps:type_name -> CGameRecording_GetAppsWithBackgroundVideo_Response.App
+	95,  // 1: CGameRecording_GetTimelinesForApp_Response.timelines:type_name -> CGameRecordingTimelineMetadata
+	95,  // 2: CGameRecording_GetTimelinesForClip_Response.timelines:type_name -> CGameRecordingTimelineMetadata
+	90,  // 3: CGameRecording_QueryPhases_Request.filter_tags:type_name -> CGameRecording_QueryPhases_Request.Tag
+	91,  // 4: CGameRecording_QueryPhases_Response.phases:type_name -> CGameRecording_QueryPhases_Response.Phase
+	96,  // 5: CGameRecording_GetTags_Response.tags:type_name -> CTimelineTag
+	2,   // 6: CGameRecording_TimelineChanged_Notification.notification_type:type_name -> ETimelineChangeNotificationType
+	3,   // 7: CGameRecording_RecordingSessionChanged_Notification.notification_type:type_name -> ERecordingSessionChangeNotificationType
+	97,  // 8: CGameRecording_RecordingSessionChanged_Notification.recording_type:type_name -> EGameRecordingType
+	0,   // 9: CTimelineEntry.type:type_name -> ETimelineEntryType
+	96,  // 10: CTimelineEntry.tag:type_name -> CTimelineTag
+	98,  // 11: CTimelineEntry.attributes:type_name -> CPhaseAttribute
+	23,  // 12: CGameRecording_TimelineEntryChanged_Notification.entry:type_name -> CTimelineEntry
+	93,  // 13: CGameRecording_SaveClip_Request.start:type_name -> CGameRecording_SaveClip_Request.Position
+	93,  // 14: CGameRecording_SaveClip_Request.end:type_name -> CGameRecording_SaveClip_Request.Position
+	31,  // 15: CGameRecording_SaveClip_Response.summary:type_name -> CGameRecording_ClipSummary
+	99,  // 16: CGameRecording_ExportClip_Settings.codec:type_name -> EExportCodec
+	36,  // 17: CGameRecording_ExportClip_Request.settings:type_name -> CGameRecording_ExportClip_Settings
+	36,  // 18: CGameRecording_ExportClipPreview_Request.settings:type_name -> CGameRecording_ExportClip_Settings
+	36,  // 19: CGameRecording_ExportClipPreview_Response.settings:type_name -> CGameRecording_ExportClip_Settings
+	31,  // 20: CGameRecording_UploadClipToSteam_Response.summary:type_name -> CGameRecording_ClipSummary
+	31,  // 21: CGameRecording_GetClips_Response.clip:type_name -> CGameRecording_ClipSummary
+	100, // 22: CGameRecording_GetAndTrimPostGameHighlights_Response.events:type_name -> CGameRecordingTimelineEvent
+	23,  // 23: CGameRecording_UserAddTimelineEntry_Request.entry:type_name -> CTimelineEntry
+	23,  // 24: CGameRecording_UserUpdateTimelineEntry_Request.entry:type_name -> CTimelineEntry
+	4,   // 25: CGameRecording_GetTotalDiskSpaceUsage_Request.type:type_name -> EDiskSpaceType
+	5,   // 26: CGameRecording_GetThumbnails_Request.time_precision:type_name -> EThumbnailTimePrecision
+	6,   // 27: CGameRecording_GetThumbnails_Request.format:type_name -> EThumbnailFormat
+	94,  // 28: CGameRecording_GetThumbnails_Response.thumbnails:type_name -> CGameRecording_GetThumbnails_Response.Thumbnail
+	31,  // 29: CGameRecording_StopRecording_Response.summary:type_name -> CGameRecording_ClipSummary
+	31,  // 30: CGameRecording_ClipCreated_Notification.summary:type_name -> CGameRecording_ClipSummary
+	76,  // 31: CGameRecording_GetPerGameSettings_Response.settings:type_name -> CGameRecording_PerGameSettings
+	76,  // 32: CGameRecording_SetPerGameSettings_Request.game_settings:type_name -> CGameRecording_PerGameSettings
+	97,  // 33: CGameRecording_GetAppsWithBackgroundVideo_Response.App.recording_type:type_name -> EGameRecordingType
+	96,  // 34: CGameRecording_QueryPhases_Response.Phase.tags:type_name -> CTimelineTag
+	96,  // 35: CGameRecording_QueryPhases_Response.Phase.contained_tags:type_name -> CTimelineTag
+	92,  // 36: CGameRecording_QueryPhases_Response.Phase.background_recording:type_name -> CGameRecording_QueryPhases_Response.Phase.BackgroundRecording
+	1,   // 37: CGameRecording_QueryPhases_Response.Phase.type:type_name -> EPhaseResultType
+	23,  // 38: CGameRecording_QueryPhases_Response.Phase.significant_events:type_name -> CTimelineEntry
+	98,  // 39: CGameRecording_QueryPhases_Response.Phase.attributes:type_name -> CPhaseAttribute
+	7,   // 40: GameRecording.GetAppsWithBackgroundVideo:input_type -> CGameRecording_GetAppsWithBackgroundVideo_Request
+	9,   // 41: GameRecording.GetTimelinesForApp:input_type -> CGameRecording_GetTimelinesForApp_Request
+	11,  // 42: GameRecording.GetTimelinesForClip:input_type -> CGameRecording_GetTimelinesForClip_Request
+	13,  // 43: GameRecording.QueryPhases:input_type -> CGameRecording_QueryPhases_Request
+	15,  // 44: GameRecording.GetTags:input_type -> CGameRecording_GetTags_Request
+	17,  // 45: GameRecording.GetEnoughDiskSpace:input_type -> CGameRecording_GetEnoughDiskSpace_Request
+	19,  // 46: GameRecording.GetAvailableDiskSpace:input_type -> CGameRecording_GetAvailableDiskSpace_Request
+	32,  // 47: GameRecording.SaveClip:input_type -> CGameRecording_SaveClip_Request
+	34,  // 48: GameRecording.DeleteClip:input_type -> CGameRecording_DeleteClip_Request
+	47,  // 49: GameRecording.GetClips:input_type -> CGameRecording_GetClips_Request
+	43,  // 50: GameRecording.UploadClipToSteam:input_type -> CGameRecording_UploadClipToSteam_Request
+	37,  // 51: GameRecording.ExportClip:input_type -> CGameRecording_ExportClip_Request
+	39,  // 52: GameRecording.ExportClipPreview:input_type -> CGameRecording_ExportClipPreview_Request
+	41,  // 53: GameRecording.TakeScreenshot:input_type -> CGameRecording_TakeScreenshot_Request
+	45,  // 54: GameRecording.ZipClip:input_type -> CGameRecording_ZipClip_Request
+	63,  // 55: GameRecording.StartRecording:input_type -> CGameRecording_StartRecording_Request
+	65,  // 56: GameRecording.StopRecording:input_type -> CGameRecording_StopRecording_Request
+	67,  // 57: GameRecording.GetBackgroundRecordingFileSize:input_type -> CGameRecording_GetRecordingSize_Request
+	69,  // 58: GameRecording.CleanupBackgroundRecordings:input_type -> CGameRecording_CleanupBackgroundRecordings_Request
+	49,  // 59: GameRecording.GetAndTrimPostGameHighlights:input_type -> CGameRecording_GetAndTrimPostGameHighlights_Request
+	61,  // 60: GameRecording.GetThumbnails:input_type -> CGameRecording_GetThumbnails_Request
+	71,  // 61: GameRecording.GetPlatformCapabilities:input_type -> CGameRecording_GetPlatformCapabilities_Request
+	21,  // 62: GameRecording.NotifyTimelineChanged:input_type -> CGameRecording_TimelineChanged_Notification
+	22,  // 63: GameRecording.NotifyRecordingSessionChanged:input_type -> CGameRecording_RecordingSessionChanged_Notification
+	24,  // 64: GameRecording.NotifyTimelineEntryChanged:input_type -> CGameRecording_TimelineEntryChanged_Notification
+	25,  // 65: GameRecording.NotifyTimelineEntryRemoved:input_type -> CGameRecording_TimelineEntryRemoved_Notification
+	73,  // 66: GameRecording.NotifyClipCreated:input_type -> CGameRecording_ClipCreated_Notification
+	74,  // 67: GameRecording.NotifyClipDeleted:input_type -> CGameRecording_ClipDeleted_Notification
+	75,  // 68: GameRecording.NotifyExportProgress:input_type -> CGameRecording_ExportProgress_Notification
+	83,  // 69: GameRecording.NotifyUploadProgress:input_type -> CGameRecording_UploadProgress_Notification
+	26,  // 70: GameRecording.NotifyLowDiskSpace:input_type -> CGameRecording_LowDiskSpace_Notification
+	27,  // 71: GameRecording.NotifyPostGameHighlightsChanged:input_type -> CGameRecording_PostGameHighlightsChanged_Notification
+	28,  // 72: GameRecording.NotifyOpenOverlayToGamePhase:input_type -> CGameRecording_OpenOverlayToGamePhase_Notification
+	29,  // 73: GameRecording.NotifyOpenOverlayToTimelineEvent:input_type -> CGameRecording_OpenOverlayToTimelineEvent_Notification
+	30,  // 74: GameRecording.NotifyPhaseListChanged:input_type -> CGameRecording_PhaseListChanged_Notification
+	77,  // 75: GameRecording.GetPerGameSettings:input_type -> CGameRecording_GetPerGameSettings_Request
+	79,  // 76: GameRecording.SetPerGameSettings:input_type -> CGameRecording_SetPerGameSettings_Request
+	81,  // 77: GameRecording.DeletePerGameSettings:input_type -> CGameRecording_DeletePerGameSettings_Request
+	51,  // 78: GameRecording.UserAddTimelineEntry:input_type -> CGameRecording_UserAddTimelineEntry_Request
+	53,  // 79: GameRecording.UserUpdateTimelineEntry:input_type -> CGameRecording_UserUpdateTimelineEntry_Request
+	55,  // 80: GameRecording.UserRemoveTimelineEntry:input_type -> CGameRecording_UserRemoveTimelineEntry_Request
+	57,  // 81: GameRecording.ManuallyDeleteRecordingsForApps:input_type -> CGameRecording_ManuallyDeleteRecordingsForApps_Request
+	59,  // 82: GameRecording.GetTotalDiskSpaceUsage:input_type -> CGameRecording_GetTotalDiskSpaceUsage_Request
+	84,  // 83: GameRecording.SwitchBackgroundRecordingGame:input_type -> CGameRecording_SwitchBackgroundRecordingGame_Request
+	86,  // 84: GameRecording.GetState:input_type -> CGameRecording_GetState_Request
+	88,  // 85: GameRecording.NotifyStateChanged:input_type -> CGameRecording_StateChanged_Notification
+	8,   // 86: GameRecording.GetAppsWithBackgroundVideo:output_type -> CGameRecording_GetAppsWithBackgroundVideo_Response
+	10,  // 87: GameRecording.GetTimelinesForApp:output_type -> CGameRecording_GetTimelinesForApp_Response
+	12,  // 88: GameRecording.GetTimelinesForClip:output_type -> CGameRecording_GetTimelinesForClip_Response
+	14,  // 89: GameRecording.QueryPhases:output_type -> CGameRecording_QueryPhases_Response
+	16,  // 90: GameRecording.GetTags:output_type -> CGameRecording_GetTags_Response
+	18,  // 91: GameRecording.GetEnoughDiskSpace:output_type -> CGameRecording_GetEnoughDiskSpace_Response
+	20,  // 92: GameRecording.GetAvailableDiskSpace:output_type -> CGameRecording_GetAvailableDiskSpace_Response
+	33,  // 93: GameRecording.SaveClip:output_type -> CGameRecording_SaveClip_Response
+	35,  // 94: GameRecording.DeleteClip:output_type -> CGameRecording_DeleteClip_Response
+	48,  // 95: GameRecording.GetClips:output_type -> CGameRecording_GetClips_Response
+	44,  // 96: GameRecording.UploadClipToSteam:output_type -> CGameRecording_UploadClipToSteam_Response
+	38,  // 97: GameRecording.ExportClip:output_type -> CGameRecording_ExportClip_Response
+	40,  // 98: GameRecording.ExportClipPreview:output_type -> CGameRecording_ExportClipPreview_Response
+	42,  // 99: GameRecording.TakeScreenshot:output_type -> CGameRecording_TakeScreenshot_Response
+	46,  // 100: GameRecording.ZipClip:output_type -> CGameRecording_ZipClip_Response
+	64,  // 101: GameRecording.StartRecording:output_type -> CGameRecording_StartRecording_Response
+	66,  // 102: GameRecording.StopRecording:output_type -> CGameRecording_StopRecording_Response
+	68,  // 103: GameRecording.GetBackgroundRecordingFileSize:output_type -> CGameRecording_GetRecordingSize_Response
+	70,  // 104: GameRecording.CleanupBackgroundRecordings:output_type -> CGameRecording_CleanupBackgroundRecordings_Response
+	50,  // 105: GameRecording.GetAndTrimPostGameHighlights:output_type -> CGameRecording_GetAndTrimPostGameHighlights_Response
+	62,  // 106: GameRecording.GetThumbnails:output_type -> CGameRecording_GetThumbnails_Response
+	72,  // 107: GameRecording.GetPlatformCapabilities:output_type -> CGameRecording_GetPlatformCapabilities_Response
+	101, // 108: GameRecording.NotifyTimelineChanged:output_type -> WebUINoResponse
+	101, // 109: GameRecording.NotifyRecordingSessionChanged:output_type -> WebUINoResponse
+	101, // 110: GameRecording.NotifyTimelineEntryChanged:output_type -> WebUINoResponse
+	101, // 111: GameRecording.NotifyTimelineEntryRemoved:output_type -> WebUINoResponse
+	101, // 112: GameRecording.NotifyClipCreated:output_type -> WebUINoResponse
+	101, // 113: GameRecording.NotifyClipDeleted:output_type -> WebUINoResponse
+	101, // 114: GameRecording.NotifyExportProgress:output_type -> WebUINoResponse
+	101, // 115: GameRecording.NotifyUploadProgress:output_type -> WebUINoResponse
+	101, // 116: GameRecording.NotifyLowDiskSpace:output_type -> WebUINoResponse
+	101, // 117: GameRecording.NotifyPostGameHighlightsChanged:output_type -> WebUINoResponse
+	101, // 118: GameRecording.NotifyOpenOverlayToGamePhase:output_type -> WebUINoResponse
+	101, // 119: GameRecording.NotifyOpenOverlayToTimelineEvent:output_type -> WebUINoResponse
+	101, // 120: GameRecording.NotifyPhaseListChanged:output_type -> WebUINoResponse
+	78,  // 121: GameRecording.GetPerGameSettings:output_type -> CGameRecording_GetPerGameSettings_Response
+	80,  // 122: GameRecording.SetPerGameSettings:output_type -> CGameRecording_SetPerGameSettings_Response
+	82,  // 123: GameRecording.DeletePerGameSettings:output_type -> CGameRecording_DeletePerGameSettings_Response
+	52,  // 124: GameRecording.UserAddTimelineEntry:output_type -> CGameRecording_UserAddTimelineEntry_Response
+	54,  // 125: GameRecording.UserUpdateTimelineEntry:output_type -> CGameRecording_UserUpdateTimelineEntry_Response
+	56,  // 126: GameRecording.UserRemoveTimelineEntry:output_type -> CGameRecording_UserRemoveTimelineEntry_Response
+	58,  // 127: GameRecording.ManuallyDeleteRecordingsForApps:output_type -> CGameRecording_ManuallyDeleteRecordingsForApps_Response
+	60,  // 128: GameRecording.GetTotalDiskSpaceUsage:output_type -> CGameRecording_GetTotalDiskSpaceUsage_Response
+	85,  // 129: GameRecording.SwitchBackgroundRecordingGame:output_type -> CGameRecording_SwitchBackgroundRecordingGame_Response
+	87,  // 130: GameRecording.GetState:output_type -> CGameRecording_GetState_Response
+	101, // 131: GameRecording.NotifyStateChanged:output_type -> WebUINoResponse
+	86,  // [86:132] is the sub-list for method output_type
+	40,  // [40:86] is the sub-list for method input_type
+	40,  // [40:40] is the sub-list for extension type_name
+	40,  // [40:40] is the sub-list for extension extendee
+	0,   // [0:40] is the sub-list for field type_name
 }
 
 func init() { file_webuimessages_gamerecording_proto_init() }
@@ -5794,7 +5923,7 @@ func file_webuimessages_gamerecording_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_webuimessages_gamerecording_proto_rawDesc), len(file_webuimessages_gamerecording_proto_rawDesc)),
 			NumEnums:      7,
-			NumMessages:   85,
+			NumMessages:   88,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

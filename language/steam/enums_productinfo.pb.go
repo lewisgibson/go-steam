@@ -89,6 +89,113 @@ func (EContentDescriptorID) EnumDescriptor() ([]byte, []int) {
 	return file_enums_productinfo_proto_rawDescGZIP(), []int{0}
 }
 
+type ERatingAgency int32
+
+const (
+	ERatingAgency_k_ERatingAgency_Invalid         ERatingAgency = 0
+	ERatingAgency_k_ERatingAgency_ESRB            ERatingAgency = 1
+	ERatingAgency_k_ERatingAgency_PEGI            ERatingAgency = 2
+	ERatingAgency_k_ERatingAgency_BBFC            ERatingAgency = 3
+	ERatingAgency_k_ERatingAgency_USK             ERatingAgency = 4
+	ERatingAgency_k_ERatingAgency_OFLC_AU         ERatingAgency = 5
+	ERatingAgency_k_ERatingAgency_OFLC_NZ         ERatingAgency = 6
+	ERatingAgency_k_ERatingAgency_CERO            ERatingAgency = 7
+	ERatingAgency_k_ERatingAgency_GRAC            ERatingAgency = 8
+	ERatingAgency_k_ERatingAgency_GMEDIA          ERatingAgency = 9
+	ERatingAgency_k_ERatingAgency_DEJUS           ERatingAgency = 10
+	ERatingAgency_k_ERatingAgency_IMDA            ERatingAgency = 11
+	ERatingAgency_k_ERatingAgency_FPB             ERatingAgency = 12
+	ERatingAgency_k_ERatingAgency_TESRI           ERatingAgency = 13
+	ERatingAgency_k_ERatingAgency_RARS            ERatingAgency = 14
+	ERatingAgency_k_ERatingAgency_AGCOM           ERatingAgency = 15
+	ERatingAgency_k_ERatingAgency_IGRS            ERatingAgency = 16
+	ERatingAgency_k_ERatingAgency_Steam_Germany   ERatingAgency = 17
+	ERatingAgency_k_ERatingAgency_Steam_Australia ERatingAgency = 18
+)
+
+// Enum value maps for ERatingAgency.
+var (
+	ERatingAgency_name = map[int32]string{
+		0:  "k_ERatingAgency_Invalid",
+		1:  "k_ERatingAgency_ESRB",
+		2:  "k_ERatingAgency_PEGI",
+		3:  "k_ERatingAgency_BBFC",
+		4:  "k_ERatingAgency_USK",
+		5:  "k_ERatingAgency_OFLC_AU",
+		6:  "k_ERatingAgency_OFLC_NZ",
+		7:  "k_ERatingAgency_CERO",
+		8:  "k_ERatingAgency_GRAC",
+		9:  "k_ERatingAgency_GMEDIA",
+		10: "k_ERatingAgency_DEJUS",
+		11: "k_ERatingAgency_IMDA",
+		12: "k_ERatingAgency_FPB",
+		13: "k_ERatingAgency_TESRI",
+		14: "k_ERatingAgency_RARS",
+		15: "k_ERatingAgency_AGCOM",
+		16: "k_ERatingAgency_IGRS",
+		17: "k_ERatingAgency_Steam_Germany",
+		18: "k_ERatingAgency_Steam_Australia",
+	}
+	ERatingAgency_value = map[string]int32{
+		"k_ERatingAgency_Invalid":         0,
+		"k_ERatingAgency_ESRB":            1,
+		"k_ERatingAgency_PEGI":            2,
+		"k_ERatingAgency_BBFC":            3,
+		"k_ERatingAgency_USK":             4,
+		"k_ERatingAgency_OFLC_AU":         5,
+		"k_ERatingAgency_OFLC_NZ":         6,
+		"k_ERatingAgency_CERO":            7,
+		"k_ERatingAgency_GRAC":            8,
+		"k_ERatingAgency_GMEDIA":          9,
+		"k_ERatingAgency_DEJUS":           10,
+		"k_ERatingAgency_IMDA":            11,
+		"k_ERatingAgency_FPB":             12,
+		"k_ERatingAgency_TESRI":           13,
+		"k_ERatingAgency_RARS":            14,
+		"k_ERatingAgency_AGCOM":           15,
+		"k_ERatingAgency_IGRS":            16,
+		"k_ERatingAgency_Steam_Germany":   17,
+		"k_ERatingAgency_Steam_Australia": 18,
+	}
+)
+
+func (x ERatingAgency) Enum() *ERatingAgency {
+	p := new(ERatingAgency)
+	*p = x
+	return p
+}
+
+func (x ERatingAgency) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ERatingAgency) Descriptor() protoreflect.EnumDescriptor {
+	return file_enums_productinfo_proto_enumTypes[1].Descriptor()
+}
+
+func (ERatingAgency) Type() protoreflect.EnumType {
+	return &file_enums_productinfo_proto_enumTypes[1]
+}
+
+func (x ERatingAgency) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *ERatingAgency) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = ERatingAgency(num)
+	return nil
+}
+
+// Deprecated: Use ERatingAgency.Descriptor instead.
+func (ERatingAgency) EnumDescriptor() ([]byte, []int) {
+	return file_enums_productinfo_proto_rawDescGZIP(), []int{1}
+}
+
 var File_enums_productinfo_proto protoreflect.FileDescriptor
 
 const file_enums_productinfo_proto_rawDesc = "" +
@@ -100,7 +207,28 @@ const file_enums_productinfo_proto_rawDesc = "" +
 	"+k_EContentDescriptor_AdultOnlySexualContent\x10\x03\x120\n" +
 	",k_EContentDescriptor_GratuitousSexualContent\x10\x04\x12)\n" +
 	"%k_EContentDescriptor_AnyMatureContent\x10\x05\x12\x1b\n" +
-	"\x17k_EContentDescriptorMAX\x10\x06B\x02H\x01"
+	"\x17k_EContentDescriptorMAX\x10\x06*\x9d\x04\n" +
+	"\rERatingAgency\x12\x1b\n" +
+	"\x17k_ERatingAgency_Invalid\x10\x00\x12\x18\n" +
+	"\x14k_ERatingAgency_ESRB\x10\x01\x12\x18\n" +
+	"\x14k_ERatingAgency_PEGI\x10\x02\x12\x18\n" +
+	"\x14k_ERatingAgency_BBFC\x10\x03\x12\x17\n" +
+	"\x13k_ERatingAgency_USK\x10\x04\x12\x1b\n" +
+	"\x17k_ERatingAgency_OFLC_AU\x10\x05\x12\x1b\n" +
+	"\x17k_ERatingAgency_OFLC_NZ\x10\x06\x12\x18\n" +
+	"\x14k_ERatingAgency_CERO\x10\a\x12\x18\n" +
+	"\x14k_ERatingAgency_GRAC\x10\b\x12\x1a\n" +
+	"\x16k_ERatingAgency_GMEDIA\x10\t\x12\x19\n" +
+	"\x15k_ERatingAgency_DEJUS\x10\n" +
+	"\x12\x18\n" +
+	"\x14k_ERatingAgency_IMDA\x10\v\x12\x17\n" +
+	"\x13k_ERatingAgency_FPB\x10\f\x12\x19\n" +
+	"\x15k_ERatingAgency_TESRI\x10\r\x12\x18\n" +
+	"\x14k_ERatingAgency_RARS\x10\x0e\x12\x19\n" +
+	"\x15k_ERatingAgency_AGCOM\x10\x0f\x12\x18\n" +
+	"\x14k_ERatingAgency_IGRS\x10\x10\x12!\n" +
+	"\x1dk_ERatingAgency_Steam_Germany\x10\x11\x12#\n" +
+	"\x1fk_ERatingAgency_Steam_Australia\x10\x12B\x02H\x01"
 
 var (
 	file_enums_productinfo_proto_rawDescOnce sync.Once
@@ -114,9 +242,10 @@ func file_enums_productinfo_proto_rawDescGZIP() []byte {
 	return file_enums_productinfo_proto_rawDescData
 }
 
-var file_enums_productinfo_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_enums_productinfo_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_enums_productinfo_proto_goTypes = []any{
 	(EContentDescriptorID)(0), // 0: EContentDescriptorID
+	(ERatingAgency)(0),        // 1: ERatingAgency
 }
 var file_enums_productinfo_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -136,7 +265,7 @@ func file_enums_productinfo_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_enums_productinfo_proto_rawDesc), len(file_enums_productinfo_proto_rawDesc)),
-			NumEnums:      1,
+			NumEnums:      2,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,

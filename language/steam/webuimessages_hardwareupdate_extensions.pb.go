@@ -7,16 +7,16 @@ import (
 	"strconv"
 )
 
-// EncodeValues implements the query.Encoder interface for EContentDescriptorID.
+// EncodeValues implements the query.Encoder interface for EHardwareUpdateDeviceType.
 // This allows the enum to be encoded as its numerical value in URL parameters.
-func (x EContentDescriptorID) EncodeValues(key string, v *url.Values) error {
+func (x EHardwareUpdateDeviceType) EncodeValues(key string, v *url.Values) error {
 	v.Add(key, strconv.FormatInt(int64(x), 10))
 	return nil
 }
 
-// EncodeValues implements the query.Encoder interface for ERatingAgency.
+// EncodeValues implements the query.Encoder interface for EHardwareUpdatePriority.
 // This allows the enum to be encoded as its numerical value in URL parameters.
-func (x ERatingAgency) EncodeValues(key string, v *url.Values) error {
+func (x EHardwareUpdatePriority) EncodeValues(key string, v *url.Values) error {
 	v.Add(key, strconv.FormatInt(int64(x), 10))
 	return nil
 }
