@@ -1360,11 +1360,8 @@ type CMsgSystemPerfLimits struct {
 	CpuGovernorManualMaxMhz              *int32                 `protobuf:"varint,2,opt,name=cpu_governor_manual_max_mhz,json=cpuGovernorManualMaxMhz" json:"cpu_governor_manual_max_mhz,omitempty"`
 	FsrSharpnessMin                      *int32                 `protobuf:"varint,3,opt,name=fsr_sharpness_min,json=fsrSharpnessMin" json:"fsr_sharpness_min,omitempty"`
 	FsrSharpnessMax                      *int32                 `protobuf:"varint,4,opt,name=fsr_sharpness_max,json=fsrSharpnessMax" json:"fsr_sharpness_max,omitempty"`
-	GpuPerformanceManualMinMhz           *int32                 `protobuf:"varint,5,opt,name=gpu_performance_manual_min_mhz,json=gpuPerformanceManualMinMhz" json:"gpu_performance_manual_min_mhz,omitempty"`
-	GpuPerformanceManualMaxMhz           *int32                 `protobuf:"varint,6,opt,name=gpu_performance_manual_max_mhz,json=gpuPerformanceManualMaxMhz" json:"gpu_performance_manual_max_mhz,omitempty"`
 	PerfOverlayIsStandalone              *bool                  `protobuf:"varint,7,opt,name=perf_overlay_is_standalone,json=perfOverlayIsStandalone" json:"perf_overlay_is_standalone,omitempty"`
 	IsManualDisplayRefreshRateAvailable  *bool                  `protobuf:"varint,9,opt,name=is_manual_display_refresh_rate_available,json=isManualDisplayRefreshRateAvailable" json:"is_manual_display_refresh_rate_available,omitempty"`
-	GpuPerformanceLevelsAvailable        []EGPUPerformanceLevel `protobuf:"varint,10,rep,name=gpu_performance_levels_available,json=gpuPerformanceLevelsAvailable,enum=EGPUPerformanceLevel" json:"gpu_performance_levels_available,omitempty"`
 	DisplayRefreshManualHzMin            *int32                 `protobuf:"varint,11,opt,name=display_refresh_manual_hz_min,json=displayRefreshManualHzMin" json:"display_refresh_manual_hz_min,omitempty"`
 	DisplayRefreshManualHzMax            *int32                 `protobuf:"varint,12,opt,name=display_refresh_manual_hz_max,json=displayRefreshManualHzMax" json:"display_refresh_manual_hz_max,omitempty"`
 	FpsLimitOptions                      []int32                `protobuf:"varint,13,rep,name=fps_limit_options,json=fpsLimitOptions" json:"fps_limit_options,omitempty"`
@@ -1440,20 +1437,6 @@ func (x *CMsgSystemPerfLimits) GetFsrSharpnessMax() int32 {
 	return 0
 }
 
-func (x *CMsgSystemPerfLimits) GetGpuPerformanceManualMinMhz() int32 {
-	if x != nil && x.GpuPerformanceManualMinMhz != nil {
-		return *x.GpuPerformanceManualMinMhz
-	}
-	return 0
-}
-
-func (x *CMsgSystemPerfLimits) GetGpuPerformanceManualMaxMhz() int32 {
-	if x != nil && x.GpuPerformanceManualMaxMhz != nil {
-		return *x.GpuPerformanceManualMaxMhz
-	}
-	return 0
-}
-
 func (x *CMsgSystemPerfLimits) GetPerfOverlayIsStandalone() bool {
 	if x != nil && x.PerfOverlayIsStandalone != nil {
 		return *x.PerfOverlayIsStandalone
@@ -1466,13 +1449,6 @@ func (x *CMsgSystemPerfLimits) GetIsManualDisplayRefreshRateAvailable() bool {
 		return *x.IsManualDisplayRefreshRateAvailable
 	}
 	return false
-}
-
-func (x *CMsgSystemPerfLimits) GetGpuPerformanceLevelsAvailable() []EGPUPerformanceLevel {
-	if x != nil {
-		return x.GpuPerformanceLevelsAvailable
-	}
-	return nil
 }
 
 func (x *CMsgSystemPerfLimits) GetDisplayRefreshManualHzMin() int32 {
@@ -1709,7 +1685,6 @@ func (x *CMsgSystemPerfSettingsGlobal) GetIsColorManagementEnabled() bool {
 
 type CMsgSystemPerfSettingsPerApp struct {
 	state                          protoimpl.MessageState `protogen:"open.v1"`
-	GpuPerformanceManualMhz        *int32                 `protobuf:"varint,1,opt,name=gpu_performance_manual_mhz,json=gpuPerformanceManualMhz" json:"gpu_performance_manual_mhz,omitempty"`
 	FpsLimit                       *int32                 `protobuf:"varint,2,opt,name=fps_limit,json=fpsLimit" json:"fps_limit,omitempty"`
 	IsVariableResolutionEnabled    *bool                  `protobuf:"varint,3,opt,name=is_variable_resolution_enabled,json=isVariableResolutionEnabled" json:"is_variable_resolution_enabled,omitempty"`
 	IsDynamicRefreshRateEnabled    *bool                  `protobuf:"varint,4,opt,name=is_dynamic_refresh_rate_enabled,json=isDynamicRefreshRateEnabled" json:"is_dynamic_refresh_rate_enabled,omitempty"`
@@ -1723,7 +1698,6 @@ type CMsgSystemPerfSettingsPerApp struct {
 	IsLowLatencyModeEnabled        *bool                  `protobuf:"varint,12,opt,name=is_low_latency_mode_enabled,json=isLowLatencyModeEnabled" json:"is_low_latency_mode_enabled,omitempty"`
 	DisplayRefreshManualHz         *int32                 `protobuf:"varint,13,opt,name=display_refresh_manual_hz,json=displayRefreshManualHz" json:"display_refresh_manual_hz,omitempty"`
 	IsGamePerfProfileEnabled       *bool                  `protobuf:"varint,14,opt,name=is_game_perf_profile_enabled,json=isGamePerfProfileEnabled" json:"is_game_perf_profile_enabled,omitempty"`
-	GpuPerformanceLevel            *EGPUPerformanceLevel  `protobuf:"varint,15,opt,name=gpu_performance_level,json=gpuPerformanceLevel,enum=EGPUPerformanceLevel,def=0" json:"gpu_performance_level,omitempty"`
 	DisplayExternalRefreshManualHz *int32                 `protobuf:"varint,17,opt,name=display_external_refresh_manual_hz,json=displayExternalRefreshManualHz" json:"display_external_refresh_manual_hz,omitempty"`
 	FpsLimitExternal               *int32                 `protobuf:"varint,18,opt,name=fps_limit_external,json=fpsLimitExternal" json:"fps_limit_external,omitempty"`
 	IsTearingEnabled               *bool                  `protobuf:"varint,19,opt,name=is_tearing_enabled,json=isTearingEnabled" json:"is_tearing_enabled,omitempty"`
@@ -1737,10 +1711,9 @@ type CMsgSystemPerfSettingsPerApp struct {
 
 // Default values for CMsgSystemPerfSettingsPerApp fields.
 const (
-	Default_CMsgSystemPerfSettingsPerApp_CpuGovernor         = ECPUGovernor_k_ECPUGovernor_Invalid
-	Default_CMsgSystemPerfSettingsPerApp_GpuPerformanceLevel = EGPUPerformanceLevel_k_EGPUPerformanceLevel_Invalid
-	Default_CMsgSystemPerfSettingsPerApp_SplitScalingFilter  = ESplitScalingFilter_k_ESplitScalingFilter_Invalid
-	Default_CMsgSystemPerfSettingsPerApp_SplitScalingScaler  = ESplitScalingScaler_k_ESplitScalingScaler_Invalid
+	Default_CMsgSystemPerfSettingsPerApp_CpuGovernor        = ECPUGovernor_k_ECPUGovernor_Invalid
+	Default_CMsgSystemPerfSettingsPerApp_SplitScalingFilter = ESplitScalingFilter_k_ESplitScalingFilter_Invalid
+	Default_CMsgSystemPerfSettingsPerApp_SplitScalingScaler = ESplitScalingScaler_k_ESplitScalingScaler_Invalid
 )
 
 func (x *CMsgSystemPerfSettingsPerApp) Reset() {
@@ -1771,13 +1744,6 @@ func (x *CMsgSystemPerfSettingsPerApp) ProtoReflect() protoreflect.Message {
 // Deprecated: Use CMsgSystemPerfSettingsPerApp.ProtoReflect.Descriptor instead.
 func (*CMsgSystemPerfSettingsPerApp) Descriptor() ([]byte, []int) {
 	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *CMsgSystemPerfSettingsPerApp) GetGpuPerformanceManualMhz() int32 {
-	if x != nil && x.GpuPerformanceManualMhz != nil {
-		return *x.GpuPerformanceManualMhz
-	}
-	return 0
 }
 
 func (x *CMsgSystemPerfSettingsPerApp) GetFpsLimit() int32 {
@@ -1869,13 +1835,6 @@ func (x *CMsgSystemPerfSettingsPerApp) GetIsGamePerfProfileEnabled() bool {
 		return *x.IsGamePerfProfileEnabled
 	}
 	return false
-}
-
-func (x *CMsgSystemPerfSettingsPerApp) GetGpuPerformanceLevel() EGPUPerformanceLevel {
-	if x != nil && x.GpuPerformanceLevel != nil {
-		return *x.GpuPerformanceLevel
-	}
-	return Default_CMsgSystemPerfSettingsPerApp_GpuPerformanceLevel
 }
 
 func (x *CMsgSystemPerfSettingsPerApp) GetDisplayExternalRefreshManualHz() int32 {
@@ -6544,18 +6503,14 @@ const file_steammessages_client_objects_proto_rawDesc = "" +
 	"\n" +
 	"interfaces\x18\x02 \x03(\v2\x1f.CMsgSystemPerfNetworkInterfaceR\n" +
 	"interfaces\x12$\n" +
-	"\x0ebattery_temp_c\x18\x03 \x01(\x02R\fbatteryTempC\"\xc6\v\n" +
+	"\x0ebattery_temp_c\x18\x03 \x01(\x02R\fbatteryTempC\"\xde\t\n" +
 	"\x14CMsgSystemPerfLimits\x12<\n" +
 	"\x1bcpu_governor_manual_min_mhz\x18\x01 \x01(\x05R\x17cpuGovernorManualMinMhz\x12<\n" +
 	"\x1bcpu_governor_manual_max_mhz\x18\x02 \x01(\x05R\x17cpuGovernorManualMaxMhz\x12*\n" +
 	"\x11fsr_sharpness_min\x18\x03 \x01(\x05R\x0ffsrSharpnessMin\x12*\n" +
-	"\x11fsr_sharpness_max\x18\x04 \x01(\x05R\x0ffsrSharpnessMax\x12B\n" +
-	"\x1egpu_performance_manual_min_mhz\x18\x05 \x01(\x05R\x1agpuPerformanceManualMinMhz\x12B\n" +
-	"\x1egpu_performance_manual_max_mhz\x18\x06 \x01(\x05R\x1agpuPerformanceManualMaxMhz\x12;\n" +
+	"\x11fsr_sharpness_max\x18\x04 \x01(\x05R\x0ffsrSharpnessMax\x12;\n" +
 	"\x1aperf_overlay_is_standalone\x18\a \x01(\bR\x17perfOverlayIsStandalone\x12U\n" +
-	"(is_manual_display_refresh_rate_available\x18\t \x01(\bR#isManualDisplayRefreshRateAvailable\x12^\n" +
-	" gpu_performance_levels_available\x18\n" +
-	" \x03(\x0e2\x15.EGPUPerformanceLevelR\x1dgpuPerformanceLevelsAvailable\x12@\n" +
+	"(is_manual_display_refresh_rate_available\x18\t \x01(\bR#isManualDisplayRefreshRateAvailable\x12@\n" +
 	"\x1ddisplay_refresh_manual_hz_min\x18\v \x01(\x05R\x19displayRefreshManualHzMin\x12@\n" +
 	"\x1ddisplay_refresh_manual_hz_max\x18\f \x01(\x05R\x19displayRefreshManualHzMax\x12*\n" +
 	"\x11fps_limit_options\x18\r \x03(\x05R\x0ffpsLimitOptions\x12\"\n" +
@@ -6581,10 +6536,8 @@ const file_steammessages_client_objects_proto_rawDesc = "" +
 	"\x1cis_hdr_debug_heatmap_enabled\x18\r \x01(\bR\x18isHdrDebugHeatmapEnabled\x12E\n" +
 	"\x1dforce_hdr_wide_gammut_for_sdr\x18\x0f \x01(\b:\x04trueR\x18forceHdrWideGammutForSdr\x121\n" +
 	"\x15sdr_to_hdr_brightness\x18\x16 \x01(\x02R\x12sdrToHdrBrightness\x12=\n" +
-	"\x1bis_color_management_enabled\x18\x15 \x01(\bR\x18isColorManagementEnabled\"\xd8\n" +
-	"\n" +
-	"\x1cCMsgSystemPerfSettingsPerApp\x12;\n" +
-	"\x1agpu_performance_manual_mhz\x18\x01 \x01(\x05R\x17gpuPerformanceManualMhz\x12\x1b\n" +
+	"\x1bis_color_management_enabled\x18\x15 \x01(\bR\x18isColorManagementEnabled\"\xb0\t\n" +
+	"\x1cCMsgSystemPerfSettingsPerApp\x12\x1b\n" +
 	"\tfps_limit\x18\x02 \x01(\x05R\bfpsLimit\x12C\n" +
 	"\x1eis_variable_resolution_enabled\x18\x03 \x01(\bR\x1bisVariableResolutionEnabled\x12D\n" +
 	"\x1fis_dynamic_refresh_rate_enabled\x18\x04 \x01(\bR\x1bisDynamicRefreshRateEnabled\x12\x1b\n" +
@@ -6598,8 +6551,7 @@ const file_steammessages_client_objects_proto_rawDesc = "" +
 	"\x14is_tdp_limit_enabled\x18\v \x01(\bR\x11isTdpLimitEnabled\x12<\n" +
 	"\x1bis_low_latency_mode_enabled\x18\f \x01(\bR\x17isLowLatencyModeEnabled\x129\n" +
 	"\x19display_refresh_manual_hz\x18\r \x01(\x05R\x16displayRefreshManualHz\x12>\n" +
-	"\x1cis_game_perf_profile_enabled\x18\x0e \x01(\bR\x18isGamePerfProfileEnabled\x12i\n" +
-	"\x15gpu_performance_level\x18\x0f \x01(\x0e2\x15.EGPUPerformanceLevel:\x1ek_EGPUPerformanceLevel_InvalidR\x13gpuPerformanceLevel\x12J\n" +
+	"\x1cis_game_perf_profile_enabled\x18\x0e \x01(\bR\x18isGamePerfProfileEnabled\x12J\n" +
 	"\"display_external_refresh_manual_hz\x18\x11 \x01(\x05R\x1edisplayExternalRefreshManualHz\x12,\n" +
 	"\x12fps_limit_external\x18\x12 \x01(\x05R\x10fpsLimitExternal\x12,\n" +
 	"\x12is_tearing_enabled\x18\x13 \x01(\bR\x10isTearingEnabled\x12$\n" +
@@ -7025,13 +6977,13 @@ var file_steammessages_client_objects_proto_goTypes = []any{
 	(EStorageBlockContentType)(0),                            // 79: EStorageBlockContentType
 	(EStorageBlockFileSystemType)(0),                         // 80: EStorageBlockFileSystemType
 	(ESDCardFormatStage)(0),                                  // 81: ESDCardFormatStage
-	(EGPUPerformanceLevel)(0),                                // 82: EGPUPerformanceLevel
-	(ESplitScalingFilter)(0),                                 // 83: ESplitScalingFilter
-	(ESplitScalingScaler)(0),                                 // 84: ESplitScalingScaler
-	(ESystemServiceState)(0),                                 // 85: ESystemServiceState
-	(EGraphicsPerfOverlayLevel)(0),                           // 86: EGraphicsPerfOverlayLevel
-	(EHDRToneMapOperator)(0),                                 // 87: EHDRToneMapOperator
-	(ECPUGovernor)(0),                                        // 88: ECPUGovernor
+	(ESplitScalingFilter)(0),                                 // 82: ESplitScalingFilter
+	(ESplitScalingScaler)(0),                                 // 83: ESplitScalingScaler
+	(ESystemServiceState)(0),                                 // 84: ESystemServiceState
+	(EGraphicsPerfOverlayLevel)(0),                           // 85: EGraphicsPerfOverlayLevel
+	(EHDRToneMapOperator)(0),                                 // 86: EHDRToneMapOperator
+	(ECPUGovernor)(0),                                        // 87: ECPUGovernor
+	(EGPUPerformanceLevel)(0),                                // 88: EGPUPerformanceLevel
 	(EUpdaterState)(0),                                       // 89: EUpdaterState
 	(ESystemAudioDirection)(0),                               // 90: ESystemAudioDirection
 	(ESystemAudioPortType)(0),                                // 91: ESystemAudioPortType
@@ -7068,81 +7020,79 @@ var file_steammessages_client_objects_proto_depIdxs = []int32{
 	74, // 20: CMsgBluetoothDevicesData.manager:type_name -> CMsgBluetoothDevicesData.Manager
 	15, // 21: CMsgSystemPerfDiagnosticInfo.entries:type_name -> CMsgSystemPerfDiagnosticEntry
 	16, // 22: CMsgSystemPerfDiagnosticInfo.interfaces:type_name -> CMsgSystemPerfNetworkInterface
-	82, // 23: CMsgSystemPerfLimits.gpu_performance_levels_available:type_name -> EGPUPerformanceLevel
-	83, // 24: CMsgSystemPerfLimits.split_scaling_filters_available:type_name -> ESplitScalingFilter
-	84, // 25: CMsgSystemPerfLimits.split_scaling_scalers_available:type_name -> ESplitScalingScaler
-	85, // 26: CMsgSystemPerfSettingsGlobal.graphics_profiling_service_state:type_name -> ESystemServiceState
-	85, // 27: CMsgSystemPerfSettingsGlobal.perf_overlay_service_state:type_name -> ESystemServiceState
-	86, // 28: CMsgSystemPerfSettingsGlobal.perf_overlay_level:type_name -> EGraphicsPerfOverlayLevel
-	87, // 29: CMsgSystemPerfSettingsGlobal.hdr_on_sdr_tonemap_operator:type_name -> EHDRToneMapOperator
-	88, // 30: CMsgSystemPerfSettingsPerApp.cpu_governor:type_name -> ECPUGovernor
-	82, // 31: CMsgSystemPerfSettingsPerApp.gpu_performance_level:type_name -> EGPUPerformanceLevel
-	83, // 32: CMsgSystemPerfSettingsPerApp.split_scaling_filter:type_name -> ESplitScalingFilter
-	84, // 33: CMsgSystemPerfSettingsPerApp.split_scaling_scaler:type_name -> ESplitScalingScaler
-	19, // 34: CMsgSystemPerfSettings.global:type_name -> CMsgSystemPerfSettingsGlobal
-	20, // 35: CMsgSystemPerfSettings.per_app:type_name -> CMsgSystemPerfSettingsPerApp
-	85, // 36: CMsgSystemPerfSettingsV1.system_trace_service_state:type_name -> ESystemServiceState
-	85, // 37: CMsgSystemPerfSettingsV1.graphics_profiling_service_state:type_name -> ESystemServiceState
-	85, // 38: CMsgSystemPerfSettingsV1.perf_overlay_service_state:type_name -> ESystemServiceState
-	86, // 39: CMsgSystemPerfSettingsV1.perf_overlay_level:type_name -> EGraphicsPerfOverlayLevel
-	82, // 40: CMsgSystemPerfSettingsV1.gpu_performance_level:type_name -> EGPUPerformanceLevel
-	88, // 41: CMsgSystemPerfSettingsV1.cpu_governor:type_name -> ECPUGovernor
-	18, // 42: CMsgSystemPerfState.limits:type_name -> CMsgSystemPerfLimits
-	21, // 43: CMsgSystemPerfState.settings:type_name -> CMsgSystemPerfSettings
-	21, // 44: CMsgSystemPerfUpdateSettings.settings_delta:type_name -> CMsgSystemPerfSettings
-	20, // 45: CMsgSystemPerfLegacySettingEntry.settings:type_name -> CMsgSystemPerfSettingsPerApp
-	19, // 46: CMsgSystemPerfLegacySettings.global:type_name -> CMsgSystemPerfSettingsGlobal
-	25, // 47: CMsgSystemPerfLegacySettings.per_app_settings:type_name -> CMsgSystemPerfLegacySettingEntry
-	89, // 48: CMsgSystemDockUpdateState.state:type_name -> EUpdaterState
-	27, // 49: CMsgSystemDockState.update_state:type_name -> CMsgSystemDockUpdateState
-	75, // 50: CMsgSystemAudioVolume.entries:type_name -> CMsgSystemAudioVolume.ChannelEntry
-	31, // 51: CMsgSystemAudioManagerDevice.base:type_name -> CMsgSystemAudioManagerObject
-	31, // 52: CMsgSystemAudioManagerNode.base:type_name -> CMsgSystemAudioManagerObject
-	90, // 53: CMsgSystemAudioManagerNode.edirection:type_name -> ESystemAudioDirection
-	30, // 54: CMsgSystemAudioManagerNode.volume:type_name -> CMsgSystemAudioVolume
-	31, // 55: CMsgSystemAudioManagerPort.base:type_name -> CMsgSystemAudioManagerObject
-	91, // 56: CMsgSystemAudioManagerPort.etype:type_name -> ESystemAudioPortType
-	92, // 57: CMsgSystemAudioManagerPort.edirection:type_name -> ESystemAudioPortDirection
-	31, // 58: CMsgSystemAudioManagerLink.base:type_name -> CMsgSystemAudioManagerObject
-	32, // 59: CMsgSystemAudioManagerStateHW.devices:type_name -> CMsgSystemAudioManagerDevice
-	33, // 60: CMsgSystemAudioManagerStateHW.nodes:type_name -> CMsgSystemAudioManagerNode
-	34, // 61: CMsgSystemAudioManagerStateHW.ports:type_name -> CMsgSystemAudioManagerPort
-	35, // 62: CMsgSystemAudioManagerStateHW.links:type_name -> CMsgSystemAudioManagerLink
-	36, // 63: CMsgSystemAudioManagerState.hw:type_name -> CMsgSystemAudioManagerStateHW
-	39, // 64: CMsgSystemDisplay.modes:type_name -> CMsgSystemDisplayMode
-	1,  // 65: CMsgSystemDisplay.rgb_range:type_name -> EDisplayManagerRGBRange
-	40, // 66: CMsgSystemDisplayManagerState.displays:type_name -> CMsgSystemDisplay
-	93, // 67: CMsgSystemDisplayManagerState.compatibility_mode:type_name -> ESystemDisplayCompatibilityMode
-	1,  // 68: CMsgSystemDisplayManagerSetMode.rgb_range:type_name -> EDisplayManagerRGBRange
-	94, // 69: CMsgSystemManagerSettings.fan_control_mode:type_name -> ESystemFanControlMode
-	95, // 70: CMsgSystemManagerSettings.display_colorgamut_labelset:type_name -> EColorGamutLabelSet
-	96, // 71: CMsgSelectOSBranchParams.branch:type_name -> EOSBranch
-	97, // 72: CMsgSystemUpdateCheckResult.type:type_name -> EUpdaterType
-	97, // 73: CMsgSystemUpdateApplyParams.apply_types:type_name -> EUpdaterType
-	97, // 74: CMsgSystemUpdateApplyResult.type:type_name -> EUpdaterType
-	89, // 75: CMsgSystemUpdateState.state:type_name -> EUpdaterState
-	45, // 76: CMsgSystemUpdateState.progress:type_name -> CMsgSystemUpdateProgress
-	46, // 77: CMsgSystemUpdateState.update_check_results:type_name -> CMsgSystemUpdateCheckResult
-	48, // 78: CMsgSystemUpdateState.update_apply_results:type_name -> CMsgSystemUpdateApplyResult
-	76, // 79: CMsgCellList.cells:type_name -> CMsgCellList.Cell
-	52, // 80: CMsgShortcutInfos.shorcuts:type_name -> CMsgShortcutInfo
-	77, // 81: CMsgMonitorInfo.monitors:type_name -> CMsgMonitorInfo.MonitorInfo
-	59, // 82: CMsgClientShaderHitCache.entries:type_name -> CMsgClientShaderHitCacheEntry
-	5,  // 83: CMsgNetworkDevicesData.Device.ip4:type_name -> CMsgNetworkDeviceIP4Config
-	7,  // 84: CMsgNetworkDevicesData.Device.ip6:type_name -> CMsgNetworkDeviceIP6Config
-	62, // 85: CMsgNetworkDevicesData.Device.wired:type_name -> CMsgNetworkDevicesData.Device.Wired
-	63, // 86: CMsgNetworkDevicesData.Device.wireless:type_name -> CMsgNetworkDevicesData.Device.Wireless
-	64, // 87: CMsgNetworkDevicesData.Device.Wireless.aps:type_name -> CMsgNetworkDevicesData.Device.Wireless.AP
-	98, // 88: CMsgStorageDevicesData.Drive.media_type:type_name -> EStorageDriveMediaType
-	79, // 89: CMsgStorageDevicesData.BlockDevice.content_type:type_name -> EStorageBlockContentType
-	80, // 90: CMsgStorageDevicesData.BlockDevice.filesystem_type:type_name -> EStorageBlockFileSystemType
-	78, // 91: CMsgBluetoothDevicesData.Device.etype:type_name -> EBluetoothDeviceType
-	99, // 92: CMsgSystemAudioVolume.ChannelEntry.echannel:type_name -> ESystemAudioChannel
-	93, // [93:93] is the sub-list for method output_type
-	93, // [93:93] is the sub-list for method input_type
-	93, // [93:93] is the sub-list for extension type_name
-	93, // [93:93] is the sub-list for extension extendee
-	0,  // [0:93] is the sub-list for field type_name
+	82, // 23: CMsgSystemPerfLimits.split_scaling_filters_available:type_name -> ESplitScalingFilter
+	83, // 24: CMsgSystemPerfLimits.split_scaling_scalers_available:type_name -> ESplitScalingScaler
+	84, // 25: CMsgSystemPerfSettingsGlobal.graphics_profiling_service_state:type_name -> ESystemServiceState
+	84, // 26: CMsgSystemPerfSettingsGlobal.perf_overlay_service_state:type_name -> ESystemServiceState
+	85, // 27: CMsgSystemPerfSettingsGlobal.perf_overlay_level:type_name -> EGraphicsPerfOverlayLevel
+	86, // 28: CMsgSystemPerfSettingsGlobal.hdr_on_sdr_tonemap_operator:type_name -> EHDRToneMapOperator
+	87, // 29: CMsgSystemPerfSettingsPerApp.cpu_governor:type_name -> ECPUGovernor
+	82, // 30: CMsgSystemPerfSettingsPerApp.split_scaling_filter:type_name -> ESplitScalingFilter
+	83, // 31: CMsgSystemPerfSettingsPerApp.split_scaling_scaler:type_name -> ESplitScalingScaler
+	19, // 32: CMsgSystemPerfSettings.global:type_name -> CMsgSystemPerfSettingsGlobal
+	20, // 33: CMsgSystemPerfSettings.per_app:type_name -> CMsgSystemPerfSettingsPerApp
+	84, // 34: CMsgSystemPerfSettingsV1.system_trace_service_state:type_name -> ESystemServiceState
+	84, // 35: CMsgSystemPerfSettingsV1.graphics_profiling_service_state:type_name -> ESystemServiceState
+	84, // 36: CMsgSystemPerfSettingsV1.perf_overlay_service_state:type_name -> ESystemServiceState
+	85, // 37: CMsgSystemPerfSettingsV1.perf_overlay_level:type_name -> EGraphicsPerfOverlayLevel
+	88, // 38: CMsgSystemPerfSettingsV1.gpu_performance_level:type_name -> EGPUPerformanceLevel
+	87, // 39: CMsgSystemPerfSettingsV1.cpu_governor:type_name -> ECPUGovernor
+	18, // 40: CMsgSystemPerfState.limits:type_name -> CMsgSystemPerfLimits
+	21, // 41: CMsgSystemPerfState.settings:type_name -> CMsgSystemPerfSettings
+	21, // 42: CMsgSystemPerfUpdateSettings.settings_delta:type_name -> CMsgSystemPerfSettings
+	20, // 43: CMsgSystemPerfLegacySettingEntry.settings:type_name -> CMsgSystemPerfSettingsPerApp
+	19, // 44: CMsgSystemPerfLegacySettings.global:type_name -> CMsgSystemPerfSettingsGlobal
+	25, // 45: CMsgSystemPerfLegacySettings.per_app_settings:type_name -> CMsgSystemPerfLegacySettingEntry
+	89, // 46: CMsgSystemDockUpdateState.state:type_name -> EUpdaterState
+	27, // 47: CMsgSystemDockState.update_state:type_name -> CMsgSystemDockUpdateState
+	75, // 48: CMsgSystemAudioVolume.entries:type_name -> CMsgSystemAudioVolume.ChannelEntry
+	31, // 49: CMsgSystemAudioManagerDevice.base:type_name -> CMsgSystemAudioManagerObject
+	31, // 50: CMsgSystemAudioManagerNode.base:type_name -> CMsgSystemAudioManagerObject
+	90, // 51: CMsgSystemAudioManagerNode.edirection:type_name -> ESystemAudioDirection
+	30, // 52: CMsgSystemAudioManagerNode.volume:type_name -> CMsgSystemAudioVolume
+	31, // 53: CMsgSystemAudioManagerPort.base:type_name -> CMsgSystemAudioManagerObject
+	91, // 54: CMsgSystemAudioManagerPort.etype:type_name -> ESystemAudioPortType
+	92, // 55: CMsgSystemAudioManagerPort.edirection:type_name -> ESystemAudioPortDirection
+	31, // 56: CMsgSystemAudioManagerLink.base:type_name -> CMsgSystemAudioManagerObject
+	32, // 57: CMsgSystemAudioManagerStateHW.devices:type_name -> CMsgSystemAudioManagerDevice
+	33, // 58: CMsgSystemAudioManagerStateHW.nodes:type_name -> CMsgSystemAudioManagerNode
+	34, // 59: CMsgSystemAudioManagerStateHW.ports:type_name -> CMsgSystemAudioManagerPort
+	35, // 60: CMsgSystemAudioManagerStateHW.links:type_name -> CMsgSystemAudioManagerLink
+	36, // 61: CMsgSystemAudioManagerState.hw:type_name -> CMsgSystemAudioManagerStateHW
+	39, // 62: CMsgSystemDisplay.modes:type_name -> CMsgSystemDisplayMode
+	1,  // 63: CMsgSystemDisplay.rgb_range:type_name -> EDisplayManagerRGBRange
+	40, // 64: CMsgSystemDisplayManagerState.displays:type_name -> CMsgSystemDisplay
+	93, // 65: CMsgSystemDisplayManagerState.compatibility_mode:type_name -> ESystemDisplayCompatibilityMode
+	1,  // 66: CMsgSystemDisplayManagerSetMode.rgb_range:type_name -> EDisplayManagerRGBRange
+	94, // 67: CMsgSystemManagerSettings.fan_control_mode:type_name -> ESystemFanControlMode
+	95, // 68: CMsgSystemManagerSettings.display_colorgamut_labelset:type_name -> EColorGamutLabelSet
+	96, // 69: CMsgSelectOSBranchParams.branch:type_name -> EOSBranch
+	97, // 70: CMsgSystemUpdateCheckResult.type:type_name -> EUpdaterType
+	97, // 71: CMsgSystemUpdateApplyParams.apply_types:type_name -> EUpdaterType
+	97, // 72: CMsgSystemUpdateApplyResult.type:type_name -> EUpdaterType
+	89, // 73: CMsgSystemUpdateState.state:type_name -> EUpdaterState
+	45, // 74: CMsgSystemUpdateState.progress:type_name -> CMsgSystemUpdateProgress
+	46, // 75: CMsgSystemUpdateState.update_check_results:type_name -> CMsgSystemUpdateCheckResult
+	48, // 76: CMsgSystemUpdateState.update_apply_results:type_name -> CMsgSystemUpdateApplyResult
+	76, // 77: CMsgCellList.cells:type_name -> CMsgCellList.Cell
+	52, // 78: CMsgShortcutInfos.shorcuts:type_name -> CMsgShortcutInfo
+	77, // 79: CMsgMonitorInfo.monitors:type_name -> CMsgMonitorInfo.MonitorInfo
+	59, // 80: CMsgClientShaderHitCache.entries:type_name -> CMsgClientShaderHitCacheEntry
+	5,  // 81: CMsgNetworkDevicesData.Device.ip4:type_name -> CMsgNetworkDeviceIP4Config
+	7,  // 82: CMsgNetworkDevicesData.Device.ip6:type_name -> CMsgNetworkDeviceIP6Config
+	62, // 83: CMsgNetworkDevicesData.Device.wired:type_name -> CMsgNetworkDevicesData.Device.Wired
+	63, // 84: CMsgNetworkDevicesData.Device.wireless:type_name -> CMsgNetworkDevicesData.Device.Wireless
+	64, // 85: CMsgNetworkDevicesData.Device.Wireless.aps:type_name -> CMsgNetworkDevicesData.Device.Wireless.AP
+	98, // 86: CMsgStorageDevicesData.Drive.media_type:type_name -> EStorageDriveMediaType
+	79, // 87: CMsgStorageDevicesData.BlockDevice.content_type:type_name -> EStorageBlockContentType
+	80, // 88: CMsgStorageDevicesData.BlockDevice.filesystem_type:type_name -> EStorageBlockFileSystemType
+	78, // 89: CMsgBluetoothDevicesData.Device.etype:type_name -> EBluetoothDeviceType
+	99, // 90: CMsgSystemAudioVolume.ChannelEntry.echannel:type_name -> ESystemAudioChannel
+	91, // [91:91] is the sub-list for method output_type
+	91, // [91:91] is the sub-list for method input_type
+	91, // [91:91] is the sub-list for extension type_name
+	91, // [91:91] is the sub-list for extension extendee
+	0,  // [0:91] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_client_objects_proto_init() }
