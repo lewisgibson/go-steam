@@ -1270,6 +1270,8 @@ type CMsgGMSClientServerQueryResponse_Server struct {
 	GametypeStrindex        *uint32                `protobuf:"varint,27,opt,name=gametype_strindex,json=gametypeStrindex" json:"gametype_strindex,omitempty"`
 	SpectatorNameStr        *string                `protobuf:"bytes,30,opt,name=spectator_name_str,json=spectatorNameStr" json:"spectator_name_str,omitempty"`
 	SpectatorNameStrindex   *uint32                `protobuf:"varint,31,opt,name=spectator_name_strindex,json=spectatorNameStrindex" json:"spectator_name_strindex,omitempty"`
+	Friends                 []uint64               `protobuf:"fixed64,33,rep,name=friends" json:"friends,omitempty"`
+	FriendsCount            *uint32                `protobuf:"varint,34,opt,name=friends_count,json=friendsCount" json:"friends_count,omitempty"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -1507,6 +1509,20 @@ func (x *CMsgGMSClientServerQueryResponse_Server) GetSpectatorNameStrindex() uin
 	return 0
 }
 
+func (x *CMsgGMSClientServerQueryResponse_Server) GetFriends() []uint64 {
+	if x != nil {
+		return x.Friends
+	}
+	return nil
+}
+
+func (x *CMsgGMSClientServerQueryResponse_Server) GetFriendsCount() uint32 {
+	if x != nil && x.FriendsCount != nil {
+		return *x.FriendsCount
+	}
+	return 0
+}
+
 var File_steammessages_clientserver_gameservers_proto protoreflect.FileDescriptor
 
 const file_steammessages_clientserver_gameservers_proto_rawDesc = "" +
@@ -1585,13 +1601,12 @@ const file_steammessages_clientserver_gameservers_proto_rawDesc = "" +
 	"filterText\x12\x1f\n" +
 	"\vmax_servers\x18\x05 \x01(\rR\n" +
 	"maxServers\x12*\n" +
-	"\x11sdr_ping_location\x18\x06 \x01(\tR\x0fsdrPingLocation\"\xd8\n" +
-	"\n" +
+	"\x11sdr_ping_location\x18\x06 \x01(\tR\x0fsdrPingLocation\"\x97\v\n" +
 	" CMsgGMSClientServerQueryResponse\x12B\n" +
 	"\aservers\x18\x01 \x03(\v2(.CMsgGMSClientServerQueryResponse.ServerR\aservers\x12\x14\n" +
 	"\x05error\x18\x02 \x01(\tR\x05error\x12X\n" +
 	"\x13default_server_data\x18\x03 \x01(\v2(.CMsgGMSClientServerQueryResponse.ServerR\x11defaultServerData\x12%\n" +
-	"\x0eserver_strings\x18\x04 \x03(\tR\rserverStrings\x1a\xa1\b\n" +
+	"\x0eserver_strings\x18\x04 \x03(\tR\rserverStrings\x1a\xe0\b\n" +
 	"\x06Server\x120\n" +
 	"\x14deprecated_server_ip\x18\x01 \x01(\rR\x12deprecatedServerIp\x12\x1d\n" +
 	"\n" +
@@ -1626,7 +1641,9 @@ const file_steammessages_clientserver_gameservers_proto_rawDesc = "" +
 	"\fgametype_str\x18\x1a \x01(\tR\vgametypeStr\x12+\n" +
 	"\x11gametype_strindex\x18\x1b \x01(\rR\x10gametypeStrindex\x12,\n" +
 	"\x12spectator_name_str\x18\x1e \x01(\tR\x10spectatorNameStr\x126\n" +
-	"\x17spectator_name_strindex\x18\x1f \x01(\rR\x15spectatorNameStrindex\"5\n" +
+	"\x17spectator_name_strindex\x18\x1f \x01(\rR\x15spectatorNameStrindex\x12\x18\n" +
+	"\afriends\x18! \x03(\x06R\afriends\x12#\n" +
+	"\rfriends_count\x18\" \x01(\rR\ffriendsCount\"5\n" +
 	"\x06EFlags\x12\x17\n" +
 	"\x13k_EFlag_HasPassword\x10\x01\x12\x12\n" +
 	"\x0ek_EFlag_Secure\x10\x02\"k\n" +

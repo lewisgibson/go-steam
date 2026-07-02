@@ -405,6 +405,7 @@ const (
 	EMarketingMessageLookupType_k_EMarketingMessageLookupActive          EMarketingMessageLookupType = 2
 	EMarketingMessageLookupType_k_EMarketingMessageLookupByTitleWithType EMarketingMessageLookupType = 3
 	EMarketingMessageLookupType_k_EMarketingMessageLookupByGIDList       EMarketingMessageLookupType = 4
+	EMarketingMessageLookupType_k_EMarketingMessageLookupByAssociatedID  EMarketingMessageLookupType = 5
 )
 
 // Enum value maps for EMarketingMessageLookupType.
@@ -415,6 +416,7 @@ var (
 		2: "k_EMarketingMessageLookupActive",
 		3: "k_EMarketingMessageLookupByTitleWithType",
 		4: "k_EMarketingMessageLookupByGIDList",
+		5: "k_EMarketingMessageLookupByAssociatedID",
 	}
 	EMarketingMessageLookupType_value = map[string]int32{
 		"k_EMarketingMessageLookupInvalid":         0,
@@ -422,6 +424,7 @@ var (
 		"k_EMarketingMessageLookupActive":          2,
 		"k_EMarketingMessageLookupByTitleWithType": 3,
 		"k_EMarketingMessageLookupByGIDList":       4,
+		"k_EMarketingMessageLookupByAssociatedID":  5,
 	}
 )
 
@@ -1878,6 +1881,7 @@ type CMarketingMessages_FindMarketingMessages_Request struct {
 	MessageType   *EMarketingMessageType       `protobuf:"varint,3,opt,name=message_type,json=messageType,enum=EMarketingMessageType,def=0" json:"message_type,omitempty"`
 	Gidlist       []uint64                     `protobuf:"fixed64,4,rep,name=gidlist" json:"gidlist,omitempty"`
 	Title         *string                      `protobuf:"bytes,5,opt,name=title" json:"title,omitempty"`
+	AssociatedId  *uint32                      `protobuf:"varint,6,opt,name=associated_id,json=associatedId" json:"associated_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1951,6 +1955,13 @@ func (x *CMarketingMessages_FindMarketingMessages_Request) GetTitle() string {
 		return *x.Title
 	}
 	return ""
+}
+
+func (x *CMarketingMessages_FindMarketingMessages_Request) GetAssociatedId() uint32 {
+	if x != nil && x.AssociatedId != nil {
+		return *x.AssociatedId
+	}
+	return 0
 }
 
 type CMarketingMessages_FindMarketingMessages_Response struct {
@@ -3042,14 +3053,15 @@ const file_steammessages_marketingmessages_steamclient_proto_rawDesc = "" +
 	"2CMarketingMessages_UpdateMarketingMessage_Response\"E\n" +
 	"1CMarketingMessages_DeleteMarketingMessage_Request\x12\x10\n" +
 	"\x03gid\x18\x01 \x01(\x06R\x03gid\"4\n" +
-	"2CMarketingMessages_DeleteMarketingMessage_Response\"\xac\x02\n" +
+	"2CMarketingMessages_DeleteMarketingMessage_Response\"\xd1\x02\n" +
 	"0CMarketingMessages_FindMarketingMessages_Request\x12_\n" +
 	"\vlookup_type\x18\x01 \x01(\x0e2\x1c.EMarketingMessageLookupType: k_EMarketingMessageLookupInvalidR\n" +
 	"lookupType\x12\x10\n" +
 	"\x03gid\x18\x02 \x01(\x06R\x03gid\x12U\n" +
 	"\fmessage_type\x18\x03 \x01(\x0e2\x16.EMarketingMessageType:\x1ak_EMarketingMessageInvalidR\vmessageType\x12\x18\n" +
 	"\agidlist\x18\x04 \x03(\x06R\agidlist\x12\x14\n" +
-	"\x05title\x18\x05 \x01(\tR\x05title\"h\n" +
+	"\x05title\x18\x05 \x01(\tR\x05title\x12#\n" +
+	"\rassociated_id\x18\x06 \x01(\rR\fassociatedId\"h\n" +
 	"1CMarketingMessages_FindMarketingMessages_Response\x123\n" +
 	"\bmessages\x18\x01 \x03(\v2\x17.CMarketingMessageProtoR\bmessages\"M\n" +
 	"9CMarketingMessages_GetMarketingMessageViewerStats_Request\x12\x10\n" +
@@ -3148,13 +3160,14 @@ const file_steammessages_marketingmessages_steamclient_proto_rawDesc = "" +
 	"+k_EMarketingMessageClickLocation_DlcCapsule\x10\x03\x12/\n" +
 	"+k_EMarketingMessageClickLocation_HeaderArea\x10\x04\x120\n" +
 	",k_EMarketingMessageClickLocation_GameCapsule\x10\x05\x121\n" +
-	"-k_EMarketingMessageClickLocation_PartnerEvent\x10\x06*\xe2\x01\n" +
+	"-k_EMarketingMessageClickLocation_PartnerEvent\x10\x06*\x8f\x02\n" +
 	"\x1bEMarketingMessageLookupType\x12$\n" +
 	" k_EMarketingMessageLookupInvalid\x10\x00\x12\"\n" +
 	"\x1ek_EMarketingMessageLookupByGID\x10\x01\x12#\n" +
 	"\x1fk_EMarketingMessageLookupActive\x10\x02\x12,\n" +
 	"(k_EMarketingMessageLookupByTitleWithType\x10\x03\x12&\n" +
-	"\"k_EMarketingMessageLookupByGIDList\x10\x042\x9a\x18\n" +
+	"\"k_EMarketingMessageLookupByGIDList\x10\x04\x12+\n" +
+	"'k_EMarketingMessageLookupByAssociatedID\x10\x052\x9a\x18\n" +
 	"\x11MarketingMessages\x12\x8d\x01\n" +
 	"\x1aGetActiveMarketingMessages\x126.CMarketingMessages_GetActiveMarketingMessages_Request\x1a7.CMarketingMessages_GetActiveMarketingMessages_Response\x12\x87\x01\n" +
 	"\x18GetPastMarketingMessages\x124.CMarketingMessages_GetPastMarketingMessages_Request\x1a5.CMarketingMessages_GetPastMarketingMessages_Response\x12\x90\x01\n" +

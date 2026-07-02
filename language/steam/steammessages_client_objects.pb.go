@@ -3515,13 +3515,67 @@ func (x *CMsgSystemDisplay) GetRgbRange() EDisplayManagerRGBRange {
 	return Default_CMsgSystemDisplay_RgbRange
 }
 
+type CMsgSystemDisplayManagerGameResolution struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Width         *uint32                `protobuf:"varint,1,opt,name=width" json:"width,omitempty"`
+	Height        *uint32                `protobuf:"varint,2,opt,name=height" json:"height,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgSystemDisplayManagerGameResolution) Reset() {
+	*x = CMsgSystemDisplayManagerGameResolution{}
+	mi := &file_steammessages_client_objects_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgSystemDisplayManagerGameResolution) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgSystemDisplayManagerGameResolution) ProtoMessage() {}
+
+func (x *CMsgSystemDisplayManagerGameResolution) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_client_objects_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgSystemDisplayManagerGameResolution.ProtoReflect.Descriptor instead.
+func (*CMsgSystemDisplayManagerGameResolution) Descriptor() ([]byte, []int) {
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *CMsgSystemDisplayManagerGameResolution) GetWidth() uint32 {
+	if x != nil && x.Width != nil {
+		return *x.Width
+	}
+	return 0
+}
+
+func (x *CMsgSystemDisplayManagerGameResolution) GetHeight() uint32 {
+	if x != nil && x.Height != nil {
+		return *x.Height
+	}
+	return 0
+}
+
 type CMsgSystemDisplayManagerState struct {
-	state                    protoimpl.MessageState           `protogen:"open.v1"`
-	Displays                 []*CMsgSystemDisplay             `protobuf:"bytes,1,rep,name=displays" json:"displays,omitempty"`
-	IsModeSwitchingSupported *bool                            `protobuf:"varint,2,opt,name=is_mode_switching_supported,json=isModeSwitchingSupported" json:"is_mode_switching_supported,omitempty"`
-	CompatibilityMode        *ESystemDisplayCompatibilityMode `protobuf:"varint,3,opt,name=compatibility_mode,json=compatibilityMode,enum=ESystemDisplayCompatibilityMode,def=0" json:"compatibility_mode,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state                         protoimpl.MessageState                  `protogen:"open.v1"`
+	Displays                      []*CMsgSystemDisplay                    `protobuf:"bytes,1,rep,name=displays" json:"displays,omitempty"`
+	IsModeSwitchingSupported      *bool                                   `protobuf:"varint,2,opt,name=is_mode_switching_supported,json=isModeSwitchingSupported" json:"is_mode_switching_supported,omitempty"`
+	CompatibilityMode             *ESystemDisplayCompatibilityMode        `protobuf:"varint,3,opt,name=compatibility_mode,json=compatibilityMode,enum=ESystemDisplayCompatibilityMode,def=0" json:"compatibility_mode,omitempty"`
+	GameResolutionOverrideNative  *CMsgSystemDisplayManagerGameResolution `protobuf:"bytes,4,opt,name=game_resolution_override_native,json=gameResolutionOverrideNative" json:"game_resolution_override_native,omitempty"`
+	GameResolutionOverrideDefault *CMsgSystemDisplayManagerGameResolution `protobuf:"bytes,5,opt,name=game_resolution_override_default,json=gameResolutionOverrideDefault" json:"game_resolution_override_default,omitempty"`
+	unknownFields                 protoimpl.UnknownFields
+	sizeCache                     protoimpl.SizeCache
 }
 
 // Default values for CMsgSystemDisplayManagerState fields.
@@ -3531,7 +3585,7 @@ const (
 
 func (x *CMsgSystemDisplayManagerState) Reset() {
 	*x = CMsgSystemDisplayManagerState{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[38]
+	mi := &file_steammessages_client_objects_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3543,7 +3597,7 @@ func (x *CMsgSystemDisplayManagerState) String() string {
 func (*CMsgSystemDisplayManagerState) ProtoMessage() {}
 
 func (x *CMsgSystemDisplayManagerState) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[38]
+	mi := &file_steammessages_client_objects_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3556,7 +3610,7 @@ func (x *CMsgSystemDisplayManagerState) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSystemDisplayManagerState.ProtoReflect.Descriptor instead.
 func (*CMsgSystemDisplayManagerState) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{38}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *CMsgSystemDisplayManagerState) GetDisplays() []*CMsgSystemDisplay {
@@ -3580,6 +3634,20 @@ func (x *CMsgSystemDisplayManagerState) GetCompatibilityMode() ESystemDisplayCom
 	return Default_CMsgSystemDisplayManagerState_CompatibilityMode
 }
 
+func (x *CMsgSystemDisplayManagerState) GetGameResolutionOverrideNative() *CMsgSystemDisplayManagerGameResolution {
+	if x != nil {
+		return x.GameResolutionOverrideNative
+	}
+	return nil
+}
+
+func (x *CMsgSystemDisplayManagerState) GetGameResolutionOverrideDefault() *CMsgSystemDisplayManagerGameResolution {
+	if x != nil {
+		return x.GameResolutionOverrideDefault
+	}
+	return nil
+}
+
 type CMsgSystemDisplayManagerSetMode struct {
 	state         protoimpl.MessageState   `protogen:"open.v1"`
 	DisplayId     *int32                   `protobuf:"varint,1,opt,name=display_id,json=displayId" json:"display_id,omitempty"`
@@ -3596,7 +3664,7 @@ const (
 
 func (x *CMsgSystemDisplayManagerSetMode) Reset() {
 	*x = CMsgSystemDisplayManagerSetMode{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[39]
+	mi := &file_steammessages_client_objects_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3608,7 +3676,7 @@ func (x *CMsgSystemDisplayManagerSetMode) String() string {
 func (*CMsgSystemDisplayManagerSetMode) ProtoMessage() {}
 
 func (x *CMsgSystemDisplayManagerSetMode) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[39]
+	mi := &file_steammessages_client_objects_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3621,7 +3689,7 @@ func (x *CMsgSystemDisplayManagerSetMode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSystemDisplayManagerSetMode.ProtoReflect.Descriptor instead.
 func (*CMsgSystemDisplayManagerSetMode) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{39}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *CMsgSystemDisplayManagerSetMode) GetDisplayId() int32 {
@@ -3691,7 +3759,7 @@ const (
 
 func (x *CMsgSystemManagerSettings) Reset() {
 	*x = CMsgSystemManagerSettings{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[40]
+	mi := &file_steammessages_client_objects_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3703,7 +3771,7 @@ func (x *CMsgSystemManagerSettings) String() string {
 func (*CMsgSystemManagerSettings) ProtoMessage() {}
 
 func (x *CMsgSystemManagerSettings) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[40]
+	mi := &file_steammessages_client_objects_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3716,7 +3784,7 @@ func (x *CMsgSystemManagerSettings) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSystemManagerSettings.ProtoReflect.Descriptor instead.
 func (*CMsgSystemManagerSettings) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{40}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *CMsgSystemManagerSettings) GetIdleBacklightDimBatterySeconds() float32 {
@@ -3958,7 +4026,7 @@ const (
 
 func (x *CMsgSelectOSBranchParams) Reset() {
 	*x = CMsgSelectOSBranchParams{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[41]
+	mi := &file_steammessages_client_objects_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3970,7 +4038,7 @@ func (x *CMsgSelectOSBranchParams) String() string {
 func (*CMsgSelectOSBranchParams) ProtoMessage() {}
 
 func (x *CMsgSelectOSBranchParams) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[41]
+	mi := &file_steammessages_client_objects_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3983,7 +4051,7 @@ func (x *CMsgSelectOSBranchParams) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSelectOSBranchParams.ProtoReflect.Descriptor instead.
 func (*CMsgSelectOSBranchParams) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{41}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *CMsgSelectOSBranchParams) GetBranch() EOSBranch {
@@ -4011,7 +4079,7 @@ type CMsgSystemUpdateProgress struct {
 
 func (x *CMsgSystemUpdateProgress) Reset() {
 	*x = CMsgSystemUpdateProgress{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[42]
+	mi := &file_steammessages_client_objects_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4023,7 +4091,7 @@ func (x *CMsgSystemUpdateProgress) String() string {
 func (*CMsgSystemUpdateProgress) ProtoMessage() {}
 
 func (x *CMsgSystemUpdateProgress) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[42]
+	mi := &file_steammessages_client_objects_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4036,7 +4104,7 @@ func (x *CMsgSystemUpdateProgress) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSystemUpdateProgress.ProtoReflect.Descriptor instead.
 func (*CMsgSystemUpdateProgress) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{42}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *CMsgSystemUpdateProgress) GetStageProgress() float32 {
@@ -4081,7 +4149,7 @@ const (
 
 func (x *CMsgSystemUpdateCheckResult) Reset() {
 	*x = CMsgSystemUpdateCheckResult{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[43]
+	mi := &file_steammessages_client_objects_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4093,7 +4161,7 @@ func (x *CMsgSystemUpdateCheckResult) String() string {
 func (*CMsgSystemUpdateCheckResult) ProtoMessage() {}
 
 func (x *CMsgSystemUpdateCheckResult) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[43]
+	mi := &file_steammessages_client_objects_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4106,7 +4174,7 @@ func (x *CMsgSystemUpdateCheckResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSystemUpdateCheckResult.ProtoReflect.Descriptor instead.
 func (*CMsgSystemUpdateCheckResult) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{43}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *CMsgSystemUpdateCheckResult) GetType() EUpdaterType {
@@ -4167,7 +4235,7 @@ type CMsgSystemUpdateApplyParams struct {
 
 func (x *CMsgSystemUpdateApplyParams) Reset() {
 	*x = CMsgSystemUpdateApplyParams{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[44]
+	mi := &file_steammessages_client_objects_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4179,7 +4247,7 @@ func (x *CMsgSystemUpdateApplyParams) String() string {
 func (*CMsgSystemUpdateApplyParams) ProtoMessage() {}
 
 func (x *CMsgSystemUpdateApplyParams) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[44]
+	mi := &file_steammessages_client_objects_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4192,7 +4260,7 @@ func (x *CMsgSystemUpdateApplyParams) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSystemUpdateApplyParams.ProtoReflect.Descriptor instead.
 func (*CMsgSystemUpdateApplyParams) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{44}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *CMsgSystemUpdateApplyParams) GetApplyTypes() []EUpdaterType {
@@ -4222,7 +4290,7 @@ const (
 
 func (x *CMsgSystemUpdateApplyResult) Reset() {
 	*x = CMsgSystemUpdateApplyResult{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[45]
+	mi := &file_steammessages_client_objects_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4234,7 +4302,7 @@ func (x *CMsgSystemUpdateApplyResult) String() string {
 func (*CMsgSystemUpdateApplyResult) ProtoMessage() {}
 
 func (x *CMsgSystemUpdateApplyResult) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[45]
+	mi := &file_steammessages_client_objects_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4247,7 +4315,7 @@ func (x *CMsgSystemUpdateApplyResult) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSystemUpdateApplyResult.ProtoReflect.Descriptor instead.
 func (*CMsgSystemUpdateApplyResult) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{45}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *CMsgSystemUpdateApplyResult) GetType() EUpdaterType {
@@ -4296,7 +4364,7 @@ const (
 
 func (x *CMsgSystemUpdateState) Reset() {
 	*x = CMsgSystemUpdateState{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[46]
+	mi := &file_steammessages_client_objects_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4308,7 +4376,7 @@ func (x *CMsgSystemUpdateState) String() string {
 func (*CMsgSystemUpdateState) ProtoMessage() {}
 
 func (x *CMsgSystemUpdateState) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[46]
+	mi := &file_steammessages_client_objects_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4321,7 +4389,7 @@ func (x *CMsgSystemUpdateState) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSystemUpdateState.ProtoReflect.Descriptor instead.
 func (*CMsgSystemUpdateState) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{46}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *CMsgSystemUpdateState) GetState() EUpdaterState {
@@ -4368,7 +4436,7 @@ type CMsgAchievementChange struct {
 
 func (x *CMsgAchievementChange) Reset() {
 	*x = CMsgAchievementChange{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[47]
+	mi := &file_steammessages_client_objects_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4380,7 +4448,7 @@ func (x *CMsgAchievementChange) String() string {
 func (*CMsgAchievementChange) ProtoMessage() {}
 
 func (x *CMsgAchievementChange) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[47]
+	mi := &file_steammessages_client_objects_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4393,7 +4461,7 @@ func (x *CMsgAchievementChange) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgAchievementChange.ProtoReflect.Descriptor instead.
 func (*CMsgAchievementChange) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{47}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *CMsgAchievementChange) GetAppid() uint32 {
@@ -4412,7 +4480,7 @@ type CMsgCellList struct {
 
 func (x *CMsgCellList) Reset() {
 	*x = CMsgCellList{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[48]
+	mi := &file_steammessages_client_objects_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4424,7 +4492,7 @@ func (x *CMsgCellList) String() string {
 func (*CMsgCellList) ProtoMessage() {}
 
 func (x *CMsgCellList) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[48]
+	mi := &file_steammessages_client_objects_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4437,7 +4505,7 @@ func (x *CMsgCellList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgCellList.ProtoReflect.Descriptor instead.
 func (*CMsgCellList) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{48}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *CMsgCellList) GetCells() []*CMsgCellList_Cell {
@@ -4476,7 +4544,7 @@ type CMsgShortcutInfo struct {
 
 func (x *CMsgShortcutInfo) Reset() {
 	*x = CMsgShortcutInfo{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[49]
+	mi := &file_steammessages_client_objects_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4488,7 +4556,7 @@ func (x *CMsgShortcutInfo) String() string {
 func (*CMsgShortcutInfo) ProtoMessage() {}
 
 func (x *CMsgShortcutInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[49]
+	mi := &file_steammessages_client_objects_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4501,7 +4569,7 @@ func (x *CMsgShortcutInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgShortcutInfo.ProtoReflect.Descriptor instead.
 func (*CMsgShortcutInfo) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{49}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *CMsgShortcutInfo) GetAppid() uint32 {
@@ -4660,7 +4728,7 @@ type CMsgShortcutInfos struct {
 
 func (x *CMsgShortcutInfos) Reset() {
 	*x = CMsgShortcutInfos{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[50]
+	mi := &file_steammessages_client_objects_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4672,7 +4740,7 @@ func (x *CMsgShortcutInfos) String() string {
 func (*CMsgShortcutInfos) ProtoMessage() {}
 
 func (x *CMsgShortcutInfos) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[50]
+	mi := &file_steammessages_client_objects_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4685,7 +4753,7 @@ func (x *CMsgShortcutInfos) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgShortcutInfos.ProtoReflect.Descriptor instead.
 func (*CMsgShortcutInfos) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{50}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *CMsgShortcutInfos) GetShorcuts() []*CMsgShortcutInfo {
@@ -4704,7 +4772,7 @@ type CMsgShortcutAppIds struct {
 
 func (x *CMsgShortcutAppIds) Reset() {
 	*x = CMsgShortcutAppIds{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[51]
+	mi := &file_steammessages_client_objects_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4716,7 +4784,7 @@ func (x *CMsgShortcutAppIds) String() string {
 func (*CMsgShortcutAppIds) ProtoMessage() {}
 
 func (x *CMsgShortcutAppIds) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[51]
+	mi := &file_steammessages_client_objects_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4729,7 +4797,7 @@ func (x *CMsgShortcutAppIds) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgShortcutAppIds.ProtoReflect.Descriptor instead.
 func (*CMsgShortcutAppIds) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{51}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *CMsgShortcutAppIds) GetAppids() []uint32 {
@@ -4749,7 +4817,7 @@ type CMsgMonitorInfo struct {
 
 func (x *CMsgMonitorInfo) Reset() {
 	*x = CMsgMonitorInfo{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[52]
+	mi := &file_steammessages_client_objects_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4761,7 +4829,7 @@ func (x *CMsgMonitorInfo) String() string {
 func (*CMsgMonitorInfo) ProtoMessage() {}
 
 func (x *CMsgMonitorInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[52]
+	mi := &file_steammessages_client_objects_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4774,7 +4842,7 @@ func (x *CMsgMonitorInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgMonitorInfo.ProtoReflect.Descriptor instead.
 func (*CMsgMonitorInfo) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{52}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *CMsgMonitorInfo) GetSelectedDeviceName() string {
@@ -4800,7 +4868,7 @@ type CMsgGenerateSystemReportReply struct {
 
 func (x *CMsgGenerateSystemReportReply) Reset() {
 	*x = CMsgGenerateSystemReportReply{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[53]
+	mi := &file_steammessages_client_objects_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4812,7 +4880,7 @@ func (x *CMsgGenerateSystemReportReply) String() string {
 func (*CMsgGenerateSystemReportReply) ProtoMessage() {}
 
 func (x *CMsgGenerateSystemReportReply) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[53]
+	mi := &file_steammessages_client_objects_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4825,7 +4893,7 @@ func (x *CMsgGenerateSystemReportReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGenerateSystemReportReply.ProtoReflect.Descriptor instead.
 func (*CMsgGenerateSystemReportReply) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{53}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *CMsgGenerateSystemReportReply) GetReportId() string {
@@ -4845,7 +4913,7 @@ type CMsgWebUITransportInfo struct {
 
 func (x *CMsgWebUITransportInfo) Reset() {
 	*x = CMsgWebUITransportInfo{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[54]
+	mi := &file_steammessages_client_objects_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4857,7 +4925,7 @@ func (x *CMsgWebUITransportInfo) String() string {
 func (*CMsgWebUITransportInfo) ProtoMessage() {}
 
 func (x *CMsgWebUITransportInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[54]
+	mi := &file_steammessages_client_objects_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4870,7 +4938,7 @@ func (x *CMsgWebUITransportInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgWebUITransportInfo.ProtoReflect.Descriptor instead.
 func (*CMsgWebUITransportInfo) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{54}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *CMsgWebUITransportInfo) GetPort() uint32 {
@@ -4896,7 +4964,7 @@ type CMsgWebUITransportFailure struct {
 
 func (x *CMsgWebUITransportFailure) Reset() {
 	*x = CMsgWebUITransportFailure{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[55]
+	mi := &file_steammessages_client_objects_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4908,7 +4976,7 @@ func (x *CMsgWebUITransportFailure) String() string {
 func (*CMsgWebUITransportFailure) ProtoMessage() {}
 
 func (x *CMsgWebUITransportFailure) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[55]
+	mi := &file_steammessages_client_objects_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4921,7 +4989,7 @@ func (x *CMsgWebUITransportFailure) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgWebUITransportFailure.ProtoReflect.Descriptor instead.
 func (*CMsgWebUITransportFailure) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{55}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *CMsgWebUITransportFailure) GetConnectCount() uint32 {
@@ -4942,7 +5010,7 @@ type CMsgClientShaderHitCacheEntry struct {
 
 func (x *CMsgClientShaderHitCacheEntry) Reset() {
 	*x = CMsgClientShaderHitCacheEntry{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[56]
+	mi := &file_steammessages_client_objects_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4954,7 +5022,7 @@ func (x *CMsgClientShaderHitCacheEntry) String() string {
 func (*CMsgClientShaderHitCacheEntry) ProtoMessage() {}
 
 func (x *CMsgClientShaderHitCacheEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[56]
+	mi := &file_steammessages_client_objects_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4967,7 +5035,7 @@ func (x *CMsgClientShaderHitCacheEntry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientShaderHitCacheEntry.ProtoReflect.Descriptor instead.
 func (*CMsgClientShaderHitCacheEntry) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{56}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *CMsgClientShaderHitCacheEntry) GetKeySha() []byte {
@@ -5000,7 +5068,7 @@ type CMsgClientShaderHitCache struct {
 
 func (x *CMsgClientShaderHitCache) Reset() {
 	*x = CMsgClientShaderHitCache{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[57]
+	mi := &file_steammessages_client_objects_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5012,7 +5080,7 @@ func (x *CMsgClientShaderHitCache) String() string {
 func (*CMsgClientShaderHitCache) ProtoMessage() {}
 
 func (x *CMsgClientShaderHitCache) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[57]
+	mi := &file_steammessages_client_objects_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5025,7 +5093,7 @@ func (x *CMsgClientShaderHitCache) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientShaderHitCache.ProtoReflect.Descriptor instead.
 func (*CMsgClientShaderHitCache) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{57}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *CMsgClientShaderHitCache) GetEntries() []*CMsgClientShaderHitCacheEntry {
@@ -5058,7 +5126,7 @@ const (
 
 func (x *CMsgNetworkDevicesData_Device) Reset() {
 	*x = CMsgNetworkDevicesData_Device{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[58]
+	mi := &file_steammessages_client_objects_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5070,7 +5138,7 @@ func (x *CMsgNetworkDevicesData_Device) String() string {
 func (*CMsgNetworkDevicesData_Device) ProtoMessage() {}
 
 func (x *CMsgNetworkDevicesData_Device) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[58]
+	mi := &file_steammessages_client_objects_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5172,7 +5240,7 @@ const (
 
 func (x *CMsgNetworkDevicesData_Device_Wired) Reset() {
 	*x = CMsgNetworkDevicesData_Device_Wired{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[59]
+	mi := &file_steammessages_client_objects_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5184,7 +5252,7 @@ func (x *CMsgNetworkDevicesData_Device_Wired) String() string {
 func (*CMsgNetworkDevicesData_Device_Wired) ProtoMessage() {}
 
 func (x *CMsgNetworkDevicesData_Device_Wired) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[59]
+	mi := &file_steammessages_client_objects_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5231,7 +5299,7 @@ type CMsgNetworkDevicesData_Device_Wireless struct {
 
 func (x *CMsgNetworkDevicesData_Device_Wireless) Reset() {
 	*x = CMsgNetworkDevicesData_Device_Wireless{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[60]
+	mi := &file_steammessages_client_objects_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5243,7 +5311,7 @@ func (x *CMsgNetworkDevicesData_Device_Wireless) String() string {
 func (*CMsgNetworkDevicesData_Device_Wireless) ProtoMessage() {}
 
 func (x *CMsgNetworkDevicesData_Device_Wireless) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[60]
+	mi := &file_steammessages_client_objects_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5298,7 +5366,7 @@ const (
 
 func (x *CMsgNetworkDevicesData_Device_Wireless_AP) Reset() {
 	*x = CMsgNetworkDevicesData_Device_Wireless_AP{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[61]
+	mi := &file_steammessages_client_objects_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5310,7 +5378,7 @@ func (x *CMsgNetworkDevicesData_Device_Wireless_AP) String() string {
 func (*CMsgNetworkDevicesData_Device_Wireless_AP) ProtoMessage() {}
 
 func (x *CMsgNetworkDevicesData_Device_Wireless_AP) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[61]
+	mi := &file_steammessages_client_objects_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5419,7 +5487,7 @@ type CMsgNetworkDeviceConnect_KnownAP struct {
 
 func (x *CMsgNetworkDeviceConnect_KnownAP) Reset() {
 	*x = CMsgNetworkDeviceConnect_KnownAP{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[62]
+	mi := &file_steammessages_client_objects_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5431,7 +5499,7 @@ func (x *CMsgNetworkDeviceConnect_KnownAP) String() string {
 func (*CMsgNetworkDeviceConnect_KnownAP) ProtoMessage() {}
 
 func (x *CMsgNetworkDeviceConnect_KnownAP) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[62]
+	mi := &file_steammessages_client_objects_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5464,7 +5532,7 @@ type CMsgNetworkDeviceConnect_CustomAP struct {
 
 func (x *CMsgNetworkDeviceConnect_CustomAP) Reset() {
 	*x = CMsgNetworkDeviceConnect_CustomAP{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[63]
+	mi := &file_steammessages_client_objects_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5476,7 +5544,7 @@ func (x *CMsgNetworkDeviceConnect_CustomAP) String() string {
 func (*CMsgNetworkDeviceConnect_CustomAP) ProtoMessage() {}
 
 func (x *CMsgNetworkDeviceConnect_CustomAP) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[63]
+	mi := &file_steammessages_client_objects_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5516,7 +5584,7 @@ type CMsgNetworkDeviceConnect_Credentials struct {
 
 func (x *CMsgNetworkDeviceConnect_Credentials) Reset() {
 	*x = CMsgNetworkDeviceConnect_Credentials{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[64]
+	mi := &file_steammessages_client_objects_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5528,7 +5596,7 @@ func (x *CMsgNetworkDeviceConnect_Credentials) String() string {
 func (*CMsgNetworkDeviceConnect_Credentials) ProtoMessage() {}
 
 func (x *CMsgNetworkDeviceConnect_Credentials) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[64]
+	mi := &file_steammessages_client_objects_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5567,7 +5635,7 @@ type CMsgNetworkDeviceConnect_Wireless struct {
 
 func (x *CMsgNetworkDeviceConnect_Wireless) Reset() {
 	*x = CMsgNetworkDeviceConnect_Wireless{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[65]
+	mi := &file_steammessages_client_objects_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5579,7 +5647,7 @@ func (x *CMsgNetworkDeviceConnect_Wireless) String() string {
 func (*CMsgNetworkDeviceConnect_Wireless) ProtoMessage() {}
 
 func (x *CMsgNetworkDeviceConnect_Wireless) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[65]
+	mi := &file_steammessages_client_objects_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5613,7 +5681,7 @@ type CMsgNetworkDeviceSetOptions_Wireless struct {
 
 func (x *CMsgNetworkDeviceSetOptions_Wireless) Reset() {
 	*x = CMsgNetworkDeviceSetOptions_Wireless{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[66]
+	mi := &file_steammessages_client_objects_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5625,7 +5693,7 @@ func (x *CMsgNetworkDeviceSetOptions_Wireless) String() string {
 func (*CMsgNetworkDeviceSetOptions_Wireless) ProtoMessage() {}
 
 func (x *CMsgNetworkDeviceSetOptions_Wireless) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[66]
+	mi := &file_steammessages_client_objects_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5683,7 +5751,7 @@ const (
 
 func (x *CMsgStorageDevicesData_Drive) Reset() {
 	*x = CMsgStorageDevicesData_Drive{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[67]
+	mi := &file_steammessages_client_objects_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5695,7 +5763,7 @@ func (x *CMsgStorageDevicesData_Drive) String() string {
 func (*CMsgStorageDevicesData_Drive) ProtoMessage() {}
 
 func (x *CMsgStorageDevicesData_Drive) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[67]
+	mi := &file_steammessages_client_objects_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5788,7 +5856,7 @@ const (
 
 func (x *CMsgStorageDevicesData_BlockDevice) Reset() {
 	*x = CMsgStorageDevicesData_BlockDevice{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[68]
+	mi := &file_steammessages_client_objects_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5800,7 +5868,7 @@ func (x *CMsgStorageDevicesData_BlockDevice) String() string {
 func (*CMsgStorageDevicesData_BlockDevice) ProtoMessage() {}
 
 func (x *CMsgStorageDevicesData_BlockDevice) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[68]
+	mi := &file_steammessages_client_objects_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5918,7 +5986,7 @@ const (
 
 func (x *CMsgBluetoothDevicesData_Adapter) Reset() {
 	*x = CMsgBluetoothDevicesData_Adapter{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[69]
+	mi := &file_steammessages_client_objects_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5930,7 +5998,7 @@ func (x *CMsgBluetoothDevicesData_Adapter) String() string {
 func (*CMsgBluetoothDevicesData_Adapter) ProtoMessage() {}
 
 func (x *CMsgBluetoothDevicesData_Adapter) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[69]
+	mi := &file_steammessages_client_objects_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6007,7 +6075,7 @@ const (
 
 func (x *CMsgBluetoothDevicesData_Device) Reset() {
 	*x = CMsgBluetoothDevicesData_Device{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[70]
+	mi := &file_steammessages_client_objects_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6019,7 +6087,7 @@ func (x *CMsgBluetoothDevicesData_Device) String() string {
 func (*CMsgBluetoothDevicesData_Device) ProtoMessage() {}
 
 func (x *CMsgBluetoothDevicesData_Device) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[70]
+	mi := &file_steammessages_client_objects_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6121,7 +6189,7 @@ type CMsgBluetoothDevicesData_Manager struct {
 
 func (x *CMsgBluetoothDevicesData_Manager) Reset() {
 	*x = CMsgBluetoothDevicesData_Manager{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[71]
+	mi := &file_steammessages_client_objects_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6133,7 +6201,7 @@ func (x *CMsgBluetoothDevicesData_Manager) String() string {
 func (*CMsgBluetoothDevicesData_Manager) ProtoMessage() {}
 
 func (x *CMsgBluetoothDevicesData_Manager) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[71]
+	mi := &file_steammessages_client_objects_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6171,7 +6239,7 @@ const (
 
 func (x *CMsgSystemAudioVolume_ChannelEntry) Reset() {
 	*x = CMsgSystemAudioVolume_ChannelEntry{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[72]
+	mi := &file_steammessages_client_objects_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6183,7 +6251,7 @@ func (x *CMsgSystemAudioVolume_ChannelEntry) String() string {
 func (*CMsgSystemAudioVolume_ChannelEntry) ProtoMessage() {}
 
 func (x *CMsgSystemAudioVolume_ChannelEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[72]
+	mi := &file_steammessages_client_objects_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6223,7 +6291,7 @@ type CMsgCellList_Cell struct {
 
 func (x *CMsgCellList_Cell) Reset() {
 	*x = CMsgCellList_Cell{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[73]
+	mi := &file_steammessages_client_objects_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6235,7 +6303,7 @@ func (x *CMsgCellList_Cell) String() string {
 func (*CMsgCellList_Cell) ProtoMessage() {}
 
 func (x *CMsgCellList_Cell) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[73]
+	mi := &file_steammessages_client_objects_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6248,7 +6316,7 @@ func (x *CMsgCellList_Cell) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgCellList_Cell.ProtoReflect.Descriptor instead.
 func (*CMsgCellList_Cell) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{48, 0}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{49, 0}
 }
 
 func (x *CMsgCellList_Cell) GetCellId() uint32 {
@@ -6275,7 +6343,7 @@ type CMsgMonitorInfo_MonitorInfo struct {
 
 func (x *CMsgMonitorInfo_MonitorInfo) Reset() {
 	*x = CMsgMonitorInfo_MonitorInfo{}
-	mi := &file_steammessages_client_objects_proto_msgTypes[74]
+	mi := &file_steammessages_client_objects_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6287,7 +6355,7 @@ func (x *CMsgMonitorInfo_MonitorInfo) String() string {
 func (*CMsgMonitorInfo_MonitorInfo) ProtoMessage() {}
 
 func (x *CMsgMonitorInfo_MonitorInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_client_objects_proto_msgTypes[74]
+	mi := &file_steammessages_client_objects_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6300,7 +6368,7 @@ func (x *CMsgMonitorInfo_MonitorInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgMonitorInfo_MonitorInfo.ProtoReflect.Descriptor instead.
 func (*CMsgMonitorInfo_MonitorInfo) Descriptor() ([]byte, []int) {
-	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{52, 0}
+	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{53, 0}
 }
 
 func (x *CMsgMonitorInfo_MonitorInfo) GetMonitorDeviceName() string {
@@ -6704,11 +6772,16 @@ const file_steammessages_client_objects_proto_rawDesc = "" +
 	"\x0eis_hdr_capable\x18\x10 \x01(\bR\fisHdrCapable\x12/\n" +
 	"\x14is_hdr_output_active\x18\x11 \x01(\bR\x11isHdrOutputActive\x126\n" +
 	"\x17supported_refresh_rates\x18\x12 \x03(\x05R\x15supportedRefreshRates\x12Z\n" +
-	"\trgb_range\x18\x13 \x01(\x0e2\x18.EDisplayManagerRGBRange:#k_EDisplayManagerRGBRange_AutomaticR\brgbRange\"\x8a\x02\n" +
+	"\trgb_range\x18\x13 \x01(\x0e2\x18.EDisplayManagerRGBRange:#k_EDisplayManagerRGBRange_AutomaticR\brgbRange\"V\n" +
+	"&CMsgSystemDisplayManagerGameResolution\x12\x14\n" +
+	"\x05width\x18\x01 \x01(\rR\x05width\x12\x16\n" +
+	"\x06height\x18\x02 \x01(\rR\x06height\"\xec\x03\n" +
 	"\x1dCMsgSystemDisplayManagerState\x12.\n" +
 	"\bdisplays\x18\x01 \x03(\v2\x12.CMsgSystemDisplayR\bdisplays\x12=\n" +
 	"\x1bis_mode_switching_supported\x18\x02 \x01(\bR\x18isModeSwitchingSupported\x12z\n" +
-	"\x12compatibility_mode\x18\x03 \x01(\x0e2 .ESystemDisplayCompatibilityMode:)k_ESystemDisplayCompatibilityMode_InvalidR\x11compatibilityMode\"\xb5\x01\n" +
+	"\x12compatibility_mode\x18\x03 \x01(\x0e2 .ESystemDisplayCompatibilityMode:)k_ESystemDisplayCompatibilityMode_InvalidR\x11compatibilityMode\x12n\n" +
+	"\x1fgame_resolution_override_native\x18\x04 \x01(\v2'.CMsgSystemDisplayManagerGameResolutionR\x1cgameResolutionOverrideNative\x12p\n" +
+	" game_resolution_override_default\x18\x05 \x01(\v2'.CMsgSystemDisplayManagerGameResolutionR\x1dgameResolutionOverrideDefault\"\xb5\x01\n" +
 	"\x1fCMsgSystemDisplayManagerSetMode\x12\x1d\n" +
 	"\n" +
 	"display_id\x18\x01 \x01(\x05R\tdisplayId\x12\x17\n" +
@@ -6893,7 +6966,7 @@ func file_steammessages_client_objects_proto_rawDescGZIP() []byte {
 }
 
 var file_steammessages_client_objects_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
-var file_steammessages_client_objects_proto_msgTypes = make([]protoimpl.MessageInfo, 75)
+var file_steammessages_client_objects_proto_msgTypes = make([]protoimpl.MessageInfo, 76)
 var file_steammessages_client_objects_proto_goTypes = []any{
 	(ECloudPendingRemoteOperation)(0),                        // 0: ECloudPendingRemoteOperation
 	(EDisplayManagerRGBRange)(0),                             // 1: EDisplayManagerRGBRange
@@ -6936,163 +7009,166 @@ var file_steammessages_client_objects_proto_goTypes = []any{
 	(*CMsgSystemAudioManagerUpdateSomething)(nil),            // 38: CMsgSystemAudioManagerUpdateSomething
 	(*CMsgSystemDisplayMode)(nil),                            // 39: CMsgSystemDisplayMode
 	(*CMsgSystemDisplay)(nil),                                // 40: CMsgSystemDisplay
-	(*CMsgSystemDisplayManagerState)(nil),                    // 41: CMsgSystemDisplayManagerState
-	(*CMsgSystemDisplayManagerSetMode)(nil),                  // 42: CMsgSystemDisplayManagerSetMode
-	(*CMsgSystemManagerSettings)(nil),                        // 43: CMsgSystemManagerSettings
-	(*CMsgSelectOSBranchParams)(nil),                         // 44: CMsgSelectOSBranchParams
-	(*CMsgSystemUpdateProgress)(nil),                         // 45: CMsgSystemUpdateProgress
-	(*CMsgSystemUpdateCheckResult)(nil),                      // 46: CMsgSystemUpdateCheckResult
-	(*CMsgSystemUpdateApplyParams)(nil),                      // 47: CMsgSystemUpdateApplyParams
-	(*CMsgSystemUpdateApplyResult)(nil),                      // 48: CMsgSystemUpdateApplyResult
-	(*CMsgSystemUpdateState)(nil),                            // 49: CMsgSystemUpdateState
-	(*CMsgAchievementChange)(nil),                            // 50: CMsgAchievementChange
-	(*CMsgCellList)(nil),                                     // 51: CMsgCellList
-	(*CMsgShortcutInfo)(nil),                                 // 52: CMsgShortcutInfo
-	(*CMsgShortcutInfos)(nil),                                // 53: CMsgShortcutInfos
-	(*CMsgShortcutAppIds)(nil),                               // 54: CMsgShortcutAppIds
-	(*CMsgMonitorInfo)(nil),                                  // 55: CMsgMonitorInfo
-	(*CMsgGenerateSystemReportReply)(nil),                    // 56: CMsgGenerateSystemReportReply
-	(*CMsgWebUITransportInfo)(nil),                           // 57: CMsgWebUITransportInfo
-	(*CMsgWebUITransportFailure)(nil),                        // 58: CMsgWebUITransportFailure
-	(*CMsgClientShaderHitCacheEntry)(nil),                    // 59: CMsgClientShaderHitCacheEntry
-	(*CMsgClientShaderHitCache)(nil),                         // 60: CMsgClientShaderHitCache
-	(*CMsgNetworkDevicesData_Device)(nil),                    // 61: CMsgNetworkDevicesData.Device
-	(*CMsgNetworkDevicesData_Device_Wired)(nil),              // 62: CMsgNetworkDevicesData.Device.Wired
-	(*CMsgNetworkDevicesData_Device_Wireless)(nil),           // 63: CMsgNetworkDevicesData.Device.Wireless
-	(*CMsgNetworkDevicesData_Device_Wireless_AP)(nil),        // 64: CMsgNetworkDevicesData.Device.Wireless.AP
-	(*CMsgNetworkDeviceConnect_KnownAP)(nil),                 // 65: CMsgNetworkDeviceConnect.KnownAP
-	(*CMsgNetworkDeviceConnect_CustomAP)(nil),                // 66: CMsgNetworkDeviceConnect.CustomAP
-	(*CMsgNetworkDeviceConnect_Credentials)(nil),             // 67: CMsgNetworkDeviceConnect.Credentials
-	(*CMsgNetworkDeviceConnect_Wireless)(nil),                // 68: CMsgNetworkDeviceConnect.Wireless
-	(*CMsgNetworkDeviceSetOptions_Wireless)(nil),             // 69: CMsgNetworkDeviceSetOptions.Wireless
-	(*CMsgStorageDevicesData_Drive)(nil),                     // 70: CMsgStorageDevicesData.Drive
-	(*CMsgStorageDevicesData_BlockDevice)(nil),               // 71: CMsgStorageDevicesData.BlockDevice
-	(*CMsgBluetoothDevicesData_Adapter)(nil),                 // 72: CMsgBluetoothDevicesData.Adapter
-	(*CMsgBluetoothDevicesData_Device)(nil),                  // 73: CMsgBluetoothDevicesData.Device
-	(*CMsgBluetoothDevicesData_Manager)(nil),                 // 74: CMsgBluetoothDevicesData.Manager
-	(*CMsgSystemAudioVolume_ChannelEntry)(nil),               // 75: CMsgSystemAudioVolume.ChannelEntry
-	(*CMsgCellList_Cell)(nil),                                // 76: CMsgCellList.Cell
-	(*CMsgMonitorInfo_MonitorInfo)(nil),                      // 77: CMsgMonitorInfo.MonitorInfo
-	(EBluetoothDeviceType)(0),                                // 78: EBluetoothDeviceType
-	(EStorageBlockContentType)(0),                            // 79: EStorageBlockContentType
-	(EStorageBlockFileSystemType)(0),                         // 80: EStorageBlockFileSystemType
-	(ESDCardFormatStage)(0),                                  // 81: ESDCardFormatStage
-	(ESplitScalingFilter)(0),                                 // 82: ESplitScalingFilter
-	(ESplitScalingScaler)(0),                                 // 83: ESplitScalingScaler
-	(ESystemServiceState)(0),                                 // 84: ESystemServiceState
-	(EGraphicsPerfOverlayLevel)(0),                           // 85: EGraphicsPerfOverlayLevel
-	(EHDRToneMapOperator)(0),                                 // 86: EHDRToneMapOperator
-	(ECPUGovernor)(0),                                        // 87: ECPUGovernor
-	(EGPUPerformanceLevel)(0),                                // 88: EGPUPerformanceLevel
-	(EUpdaterState)(0),                                       // 89: EUpdaterState
-	(ESystemAudioDirection)(0),                               // 90: ESystemAudioDirection
-	(ESystemAudioPortType)(0),                                // 91: ESystemAudioPortType
-	(ESystemAudioPortDirection)(0),                           // 92: ESystemAudioPortDirection
-	(ESystemDisplayCompatibilityMode)(0),                     // 93: ESystemDisplayCompatibilityMode
-	(ESystemFanControlMode)(0),                               // 94: ESystemFanControlMode
-	(EColorGamutLabelSet)(0),                                 // 95: EColorGamutLabelSet
-	(EOSBranch)(0),                                           // 96: EOSBranch
-	(EUpdaterType)(0),                                        // 97: EUpdaterType
-	(EStorageDriveMediaType)(0),                              // 98: EStorageDriveMediaType
-	(ESystemAudioChannel)(0),                                 // 99: ESystemAudioChannel
+	(*CMsgSystemDisplayManagerGameResolution)(nil),           // 41: CMsgSystemDisplayManagerGameResolution
+	(*CMsgSystemDisplayManagerState)(nil),                    // 42: CMsgSystemDisplayManagerState
+	(*CMsgSystemDisplayManagerSetMode)(nil),                  // 43: CMsgSystemDisplayManagerSetMode
+	(*CMsgSystemManagerSettings)(nil),                        // 44: CMsgSystemManagerSettings
+	(*CMsgSelectOSBranchParams)(nil),                         // 45: CMsgSelectOSBranchParams
+	(*CMsgSystemUpdateProgress)(nil),                         // 46: CMsgSystemUpdateProgress
+	(*CMsgSystemUpdateCheckResult)(nil),                      // 47: CMsgSystemUpdateCheckResult
+	(*CMsgSystemUpdateApplyParams)(nil),                      // 48: CMsgSystemUpdateApplyParams
+	(*CMsgSystemUpdateApplyResult)(nil),                      // 49: CMsgSystemUpdateApplyResult
+	(*CMsgSystemUpdateState)(nil),                            // 50: CMsgSystemUpdateState
+	(*CMsgAchievementChange)(nil),                            // 51: CMsgAchievementChange
+	(*CMsgCellList)(nil),                                     // 52: CMsgCellList
+	(*CMsgShortcutInfo)(nil),                                 // 53: CMsgShortcutInfo
+	(*CMsgShortcutInfos)(nil),                                // 54: CMsgShortcutInfos
+	(*CMsgShortcutAppIds)(nil),                               // 55: CMsgShortcutAppIds
+	(*CMsgMonitorInfo)(nil),                                  // 56: CMsgMonitorInfo
+	(*CMsgGenerateSystemReportReply)(nil),                    // 57: CMsgGenerateSystemReportReply
+	(*CMsgWebUITransportInfo)(nil),                           // 58: CMsgWebUITransportInfo
+	(*CMsgWebUITransportFailure)(nil),                        // 59: CMsgWebUITransportFailure
+	(*CMsgClientShaderHitCacheEntry)(nil),                    // 60: CMsgClientShaderHitCacheEntry
+	(*CMsgClientShaderHitCache)(nil),                         // 61: CMsgClientShaderHitCache
+	(*CMsgNetworkDevicesData_Device)(nil),                    // 62: CMsgNetworkDevicesData.Device
+	(*CMsgNetworkDevicesData_Device_Wired)(nil),              // 63: CMsgNetworkDevicesData.Device.Wired
+	(*CMsgNetworkDevicesData_Device_Wireless)(nil),           // 64: CMsgNetworkDevicesData.Device.Wireless
+	(*CMsgNetworkDevicesData_Device_Wireless_AP)(nil),        // 65: CMsgNetworkDevicesData.Device.Wireless.AP
+	(*CMsgNetworkDeviceConnect_KnownAP)(nil),                 // 66: CMsgNetworkDeviceConnect.KnownAP
+	(*CMsgNetworkDeviceConnect_CustomAP)(nil),                // 67: CMsgNetworkDeviceConnect.CustomAP
+	(*CMsgNetworkDeviceConnect_Credentials)(nil),             // 68: CMsgNetworkDeviceConnect.Credentials
+	(*CMsgNetworkDeviceConnect_Wireless)(nil),                // 69: CMsgNetworkDeviceConnect.Wireless
+	(*CMsgNetworkDeviceSetOptions_Wireless)(nil),             // 70: CMsgNetworkDeviceSetOptions.Wireless
+	(*CMsgStorageDevicesData_Drive)(nil),                     // 71: CMsgStorageDevicesData.Drive
+	(*CMsgStorageDevicesData_BlockDevice)(nil),               // 72: CMsgStorageDevicesData.BlockDevice
+	(*CMsgBluetoothDevicesData_Adapter)(nil),                 // 73: CMsgBluetoothDevicesData.Adapter
+	(*CMsgBluetoothDevicesData_Device)(nil),                  // 74: CMsgBluetoothDevicesData.Device
+	(*CMsgBluetoothDevicesData_Manager)(nil),                 // 75: CMsgBluetoothDevicesData.Manager
+	(*CMsgSystemAudioVolume_ChannelEntry)(nil),               // 76: CMsgSystemAudioVolume.ChannelEntry
+	(*CMsgCellList_Cell)(nil),                                // 77: CMsgCellList.Cell
+	(*CMsgMonitorInfo_MonitorInfo)(nil),                      // 78: CMsgMonitorInfo.MonitorInfo
+	(EBluetoothDeviceType)(0),                                // 79: EBluetoothDeviceType
+	(EStorageBlockContentType)(0),                            // 80: EStorageBlockContentType
+	(EStorageBlockFileSystemType)(0),                         // 81: EStorageBlockFileSystemType
+	(ESDCardFormatStage)(0),                                  // 82: ESDCardFormatStage
+	(ESplitScalingFilter)(0),                                 // 83: ESplitScalingFilter
+	(ESplitScalingScaler)(0),                                 // 84: ESplitScalingScaler
+	(ESystemServiceState)(0),                                 // 85: ESystemServiceState
+	(EGraphicsPerfOverlayLevel)(0),                           // 86: EGraphicsPerfOverlayLevel
+	(EHDRToneMapOperator)(0),                                 // 87: EHDRToneMapOperator
+	(ECPUGovernor)(0),                                        // 88: ECPUGovernor
+	(EGPUPerformanceLevel)(0),                                // 89: EGPUPerformanceLevel
+	(EUpdaterState)(0),                                       // 90: EUpdaterState
+	(ESystemAudioDirection)(0),                               // 91: ESystemAudioDirection
+	(ESystemAudioPortType)(0),                                // 92: ESystemAudioPortType
+	(ESystemAudioPortDirection)(0),                           // 93: ESystemAudioPortDirection
+	(ESystemDisplayCompatibilityMode)(0),                     // 94: ESystemDisplayCompatibilityMode
+	(ESystemFanControlMode)(0),                               // 95: ESystemFanControlMode
+	(EColorGamutLabelSet)(0),                                 // 96: EColorGamutLabelSet
+	(EOSBranch)(0),                                           // 97: EOSBranch
+	(EUpdaterType)(0),                                        // 98: EUpdaterType
+	(EStorageDriveMediaType)(0),                              // 99: EStorageDriveMediaType
+	(ESystemAudioChannel)(0),                                 // 100: ESystemAudioChannel
 }
 var file_steammessages_client_objects_proto_depIdxs = []int32{
-	78, // 0: SteamMessagesClientIClientForcedEnumDependencies.a:type_name -> EBluetoothDeviceType
-	79, // 1: SteamMessagesClientIClientForcedEnumDependencies.b:type_name -> EStorageBlockContentType
-	80, // 2: SteamMessagesClientIClientForcedEnumDependencies.c:type_name -> EStorageBlockFileSystemType
-	81, // 3: SteamMessagesClientIClientForcedEnumDependencies.d:type_name -> ESDCardFormatStage
-	4,  // 4: CMsgNetworkDeviceIP4Config.addresses:type_name -> CMsgNetworkDeviceIP4Address
-	6,  // 5: CMsgNetworkDeviceIP6Config.addresses:type_name -> CMsgNetworkDeviceIP6Address
-	61, // 6: CMsgNetworkDevicesData.devices:type_name -> CMsgNetworkDevicesData.Device
-	67, // 7: CMsgNetworkDeviceConnect.credentials:type_name -> CMsgNetworkDeviceConnect.Credentials
-	5,  // 8: CMsgNetworkDeviceConnect.ip4:type_name -> CMsgNetworkDeviceIP4Config
-	7,  // 9: CMsgNetworkDeviceConnect.ip6:type_name -> CMsgNetworkDeviceIP6Config
-	68, // 10: CMsgNetworkDeviceConnect.wireless:type_name -> CMsgNetworkDeviceConnect.Wireless
-	65, // 11: CMsgNetworkDeviceConnect.ap_known:type_name -> CMsgNetworkDeviceConnect.KnownAP
-	66, // 12: CMsgNetworkDeviceConnect.ap_custom:type_name -> CMsgNetworkDeviceConnect.CustomAP
-	69, // 13: CMsgNetworkDeviceSetOptions.wireless:type_name -> CMsgNetworkDeviceSetOptions.Wireless
-	70, // 14: CMsgStorageDevicesData.drives:type_name -> CMsgStorageDevicesData.Drive
-	71, // 15: CMsgStorageDevicesData.block_devices:type_name -> CMsgStorageDevicesData.BlockDevice
-	0,  // 16: CCloud_PendingRemoteOperation.operation:type_name -> ECloudPendingRemoteOperation
-	12, // 17: CMsgCloudPendingRemoteOperations.operations:type_name -> CCloud_PendingRemoteOperation
-	72, // 18: CMsgBluetoothDevicesData.adapters:type_name -> CMsgBluetoothDevicesData.Adapter
-	73, // 19: CMsgBluetoothDevicesData.devices:type_name -> CMsgBluetoothDevicesData.Device
-	74, // 20: CMsgBluetoothDevicesData.manager:type_name -> CMsgBluetoothDevicesData.Manager
-	15, // 21: CMsgSystemPerfDiagnosticInfo.entries:type_name -> CMsgSystemPerfDiagnosticEntry
-	16, // 22: CMsgSystemPerfDiagnosticInfo.interfaces:type_name -> CMsgSystemPerfNetworkInterface
-	82, // 23: CMsgSystemPerfLimits.split_scaling_filters_available:type_name -> ESplitScalingFilter
-	83, // 24: CMsgSystemPerfLimits.split_scaling_scalers_available:type_name -> ESplitScalingScaler
-	84, // 25: CMsgSystemPerfSettingsGlobal.graphics_profiling_service_state:type_name -> ESystemServiceState
-	84, // 26: CMsgSystemPerfSettingsGlobal.perf_overlay_service_state:type_name -> ESystemServiceState
-	85, // 27: CMsgSystemPerfSettingsGlobal.perf_overlay_level:type_name -> EGraphicsPerfOverlayLevel
-	86, // 28: CMsgSystemPerfSettingsGlobal.hdr_on_sdr_tonemap_operator:type_name -> EHDRToneMapOperator
-	87, // 29: CMsgSystemPerfSettingsPerApp.cpu_governor:type_name -> ECPUGovernor
-	82, // 30: CMsgSystemPerfSettingsPerApp.split_scaling_filter:type_name -> ESplitScalingFilter
-	83, // 31: CMsgSystemPerfSettingsPerApp.split_scaling_scaler:type_name -> ESplitScalingScaler
-	19, // 32: CMsgSystemPerfSettings.global:type_name -> CMsgSystemPerfSettingsGlobal
-	20, // 33: CMsgSystemPerfSettings.per_app:type_name -> CMsgSystemPerfSettingsPerApp
-	84, // 34: CMsgSystemPerfSettingsV1.system_trace_service_state:type_name -> ESystemServiceState
-	84, // 35: CMsgSystemPerfSettingsV1.graphics_profiling_service_state:type_name -> ESystemServiceState
-	84, // 36: CMsgSystemPerfSettingsV1.perf_overlay_service_state:type_name -> ESystemServiceState
-	85, // 37: CMsgSystemPerfSettingsV1.perf_overlay_level:type_name -> EGraphicsPerfOverlayLevel
-	88, // 38: CMsgSystemPerfSettingsV1.gpu_performance_level:type_name -> EGPUPerformanceLevel
-	87, // 39: CMsgSystemPerfSettingsV1.cpu_governor:type_name -> ECPUGovernor
-	18, // 40: CMsgSystemPerfState.limits:type_name -> CMsgSystemPerfLimits
-	21, // 41: CMsgSystemPerfState.settings:type_name -> CMsgSystemPerfSettings
-	21, // 42: CMsgSystemPerfUpdateSettings.settings_delta:type_name -> CMsgSystemPerfSettings
-	20, // 43: CMsgSystemPerfLegacySettingEntry.settings:type_name -> CMsgSystemPerfSettingsPerApp
-	19, // 44: CMsgSystemPerfLegacySettings.global:type_name -> CMsgSystemPerfSettingsGlobal
-	25, // 45: CMsgSystemPerfLegacySettings.per_app_settings:type_name -> CMsgSystemPerfLegacySettingEntry
-	89, // 46: CMsgSystemDockUpdateState.state:type_name -> EUpdaterState
-	27, // 47: CMsgSystemDockState.update_state:type_name -> CMsgSystemDockUpdateState
-	75, // 48: CMsgSystemAudioVolume.entries:type_name -> CMsgSystemAudioVolume.ChannelEntry
-	31, // 49: CMsgSystemAudioManagerDevice.base:type_name -> CMsgSystemAudioManagerObject
-	31, // 50: CMsgSystemAudioManagerNode.base:type_name -> CMsgSystemAudioManagerObject
-	90, // 51: CMsgSystemAudioManagerNode.edirection:type_name -> ESystemAudioDirection
-	30, // 52: CMsgSystemAudioManagerNode.volume:type_name -> CMsgSystemAudioVolume
-	31, // 53: CMsgSystemAudioManagerPort.base:type_name -> CMsgSystemAudioManagerObject
-	91, // 54: CMsgSystemAudioManagerPort.etype:type_name -> ESystemAudioPortType
-	92, // 55: CMsgSystemAudioManagerPort.edirection:type_name -> ESystemAudioPortDirection
-	31, // 56: CMsgSystemAudioManagerLink.base:type_name -> CMsgSystemAudioManagerObject
-	32, // 57: CMsgSystemAudioManagerStateHW.devices:type_name -> CMsgSystemAudioManagerDevice
-	33, // 58: CMsgSystemAudioManagerStateHW.nodes:type_name -> CMsgSystemAudioManagerNode
-	34, // 59: CMsgSystemAudioManagerStateHW.ports:type_name -> CMsgSystemAudioManagerPort
-	35, // 60: CMsgSystemAudioManagerStateHW.links:type_name -> CMsgSystemAudioManagerLink
-	36, // 61: CMsgSystemAudioManagerState.hw:type_name -> CMsgSystemAudioManagerStateHW
-	39, // 62: CMsgSystemDisplay.modes:type_name -> CMsgSystemDisplayMode
-	1,  // 63: CMsgSystemDisplay.rgb_range:type_name -> EDisplayManagerRGBRange
-	40, // 64: CMsgSystemDisplayManagerState.displays:type_name -> CMsgSystemDisplay
-	93, // 65: CMsgSystemDisplayManagerState.compatibility_mode:type_name -> ESystemDisplayCompatibilityMode
-	1,  // 66: CMsgSystemDisplayManagerSetMode.rgb_range:type_name -> EDisplayManagerRGBRange
-	94, // 67: CMsgSystemManagerSettings.fan_control_mode:type_name -> ESystemFanControlMode
-	95, // 68: CMsgSystemManagerSettings.display_colorgamut_labelset:type_name -> EColorGamutLabelSet
-	96, // 69: CMsgSelectOSBranchParams.branch:type_name -> EOSBranch
-	97, // 70: CMsgSystemUpdateCheckResult.type:type_name -> EUpdaterType
-	97, // 71: CMsgSystemUpdateApplyParams.apply_types:type_name -> EUpdaterType
-	97, // 72: CMsgSystemUpdateApplyResult.type:type_name -> EUpdaterType
-	89, // 73: CMsgSystemUpdateState.state:type_name -> EUpdaterState
-	45, // 74: CMsgSystemUpdateState.progress:type_name -> CMsgSystemUpdateProgress
-	46, // 75: CMsgSystemUpdateState.update_check_results:type_name -> CMsgSystemUpdateCheckResult
-	48, // 76: CMsgSystemUpdateState.update_apply_results:type_name -> CMsgSystemUpdateApplyResult
-	76, // 77: CMsgCellList.cells:type_name -> CMsgCellList.Cell
-	52, // 78: CMsgShortcutInfos.shorcuts:type_name -> CMsgShortcutInfo
-	77, // 79: CMsgMonitorInfo.monitors:type_name -> CMsgMonitorInfo.MonitorInfo
-	59, // 80: CMsgClientShaderHitCache.entries:type_name -> CMsgClientShaderHitCacheEntry
-	5,  // 81: CMsgNetworkDevicesData.Device.ip4:type_name -> CMsgNetworkDeviceIP4Config
-	7,  // 82: CMsgNetworkDevicesData.Device.ip6:type_name -> CMsgNetworkDeviceIP6Config
-	62, // 83: CMsgNetworkDevicesData.Device.wired:type_name -> CMsgNetworkDevicesData.Device.Wired
-	63, // 84: CMsgNetworkDevicesData.Device.wireless:type_name -> CMsgNetworkDevicesData.Device.Wireless
-	64, // 85: CMsgNetworkDevicesData.Device.Wireless.aps:type_name -> CMsgNetworkDevicesData.Device.Wireless.AP
-	98, // 86: CMsgStorageDevicesData.Drive.media_type:type_name -> EStorageDriveMediaType
-	79, // 87: CMsgStorageDevicesData.BlockDevice.content_type:type_name -> EStorageBlockContentType
-	80, // 88: CMsgStorageDevicesData.BlockDevice.filesystem_type:type_name -> EStorageBlockFileSystemType
-	78, // 89: CMsgBluetoothDevicesData.Device.etype:type_name -> EBluetoothDeviceType
-	99, // 90: CMsgSystemAudioVolume.ChannelEntry.echannel:type_name -> ESystemAudioChannel
-	91, // [91:91] is the sub-list for method output_type
-	91, // [91:91] is the sub-list for method input_type
-	91, // [91:91] is the sub-list for extension type_name
-	91, // [91:91] is the sub-list for extension extendee
-	0,  // [0:91] is the sub-list for field type_name
+	79,  // 0: SteamMessagesClientIClientForcedEnumDependencies.a:type_name -> EBluetoothDeviceType
+	80,  // 1: SteamMessagesClientIClientForcedEnumDependencies.b:type_name -> EStorageBlockContentType
+	81,  // 2: SteamMessagesClientIClientForcedEnumDependencies.c:type_name -> EStorageBlockFileSystemType
+	82,  // 3: SteamMessagesClientIClientForcedEnumDependencies.d:type_name -> ESDCardFormatStage
+	4,   // 4: CMsgNetworkDeviceIP4Config.addresses:type_name -> CMsgNetworkDeviceIP4Address
+	6,   // 5: CMsgNetworkDeviceIP6Config.addresses:type_name -> CMsgNetworkDeviceIP6Address
+	62,  // 6: CMsgNetworkDevicesData.devices:type_name -> CMsgNetworkDevicesData.Device
+	68,  // 7: CMsgNetworkDeviceConnect.credentials:type_name -> CMsgNetworkDeviceConnect.Credentials
+	5,   // 8: CMsgNetworkDeviceConnect.ip4:type_name -> CMsgNetworkDeviceIP4Config
+	7,   // 9: CMsgNetworkDeviceConnect.ip6:type_name -> CMsgNetworkDeviceIP6Config
+	69,  // 10: CMsgNetworkDeviceConnect.wireless:type_name -> CMsgNetworkDeviceConnect.Wireless
+	66,  // 11: CMsgNetworkDeviceConnect.ap_known:type_name -> CMsgNetworkDeviceConnect.KnownAP
+	67,  // 12: CMsgNetworkDeviceConnect.ap_custom:type_name -> CMsgNetworkDeviceConnect.CustomAP
+	70,  // 13: CMsgNetworkDeviceSetOptions.wireless:type_name -> CMsgNetworkDeviceSetOptions.Wireless
+	71,  // 14: CMsgStorageDevicesData.drives:type_name -> CMsgStorageDevicesData.Drive
+	72,  // 15: CMsgStorageDevicesData.block_devices:type_name -> CMsgStorageDevicesData.BlockDevice
+	0,   // 16: CCloud_PendingRemoteOperation.operation:type_name -> ECloudPendingRemoteOperation
+	12,  // 17: CMsgCloudPendingRemoteOperations.operations:type_name -> CCloud_PendingRemoteOperation
+	73,  // 18: CMsgBluetoothDevicesData.adapters:type_name -> CMsgBluetoothDevicesData.Adapter
+	74,  // 19: CMsgBluetoothDevicesData.devices:type_name -> CMsgBluetoothDevicesData.Device
+	75,  // 20: CMsgBluetoothDevicesData.manager:type_name -> CMsgBluetoothDevicesData.Manager
+	15,  // 21: CMsgSystemPerfDiagnosticInfo.entries:type_name -> CMsgSystemPerfDiagnosticEntry
+	16,  // 22: CMsgSystemPerfDiagnosticInfo.interfaces:type_name -> CMsgSystemPerfNetworkInterface
+	83,  // 23: CMsgSystemPerfLimits.split_scaling_filters_available:type_name -> ESplitScalingFilter
+	84,  // 24: CMsgSystemPerfLimits.split_scaling_scalers_available:type_name -> ESplitScalingScaler
+	85,  // 25: CMsgSystemPerfSettingsGlobal.graphics_profiling_service_state:type_name -> ESystemServiceState
+	85,  // 26: CMsgSystemPerfSettingsGlobal.perf_overlay_service_state:type_name -> ESystemServiceState
+	86,  // 27: CMsgSystemPerfSettingsGlobal.perf_overlay_level:type_name -> EGraphicsPerfOverlayLevel
+	87,  // 28: CMsgSystemPerfSettingsGlobal.hdr_on_sdr_tonemap_operator:type_name -> EHDRToneMapOperator
+	88,  // 29: CMsgSystemPerfSettingsPerApp.cpu_governor:type_name -> ECPUGovernor
+	83,  // 30: CMsgSystemPerfSettingsPerApp.split_scaling_filter:type_name -> ESplitScalingFilter
+	84,  // 31: CMsgSystemPerfSettingsPerApp.split_scaling_scaler:type_name -> ESplitScalingScaler
+	19,  // 32: CMsgSystemPerfSettings.global:type_name -> CMsgSystemPerfSettingsGlobal
+	20,  // 33: CMsgSystemPerfSettings.per_app:type_name -> CMsgSystemPerfSettingsPerApp
+	85,  // 34: CMsgSystemPerfSettingsV1.system_trace_service_state:type_name -> ESystemServiceState
+	85,  // 35: CMsgSystemPerfSettingsV1.graphics_profiling_service_state:type_name -> ESystemServiceState
+	85,  // 36: CMsgSystemPerfSettingsV1.perf_overlay_service_state:type_name -> ESystemServiceState
+	86,  // 37: CMsgSystemPerfSettingsV1.perf_overlay_level:type_name -> EGraphicsPerfOverlayLevel
+	89,  // 38: CMsgSystemPerfSettingsV1.gpu_performance_level:type_name -> EGPUPerformanceLevel
+	88,  // 39: CMsgSystemPerfSettingsV1.cpu_governor:type_name -> ECPUGovernor
+	18,  // 40: CMsgSystemPerfState.limits:type_name -> CMsgSystemPerfLimits
+	21,  // 41: CMsgSystemPerfState.settings:type_name -> CMsgSystemPerfSettings
+	21,  // 42: CMsgSystemPerfUpdateSettings.settings_delta:type_name -> CMsgSystemPerfSettings
+	20,  // 43: CMsgSystemPerfLegacySettingEntry.settings:type_name -> CMsgSystemPerfSettingsPerApp
+	19,  // 44: CMsgSystemPerfLegacySettings.global:type_name -> CMsgSystemPerfSettingsGlobal
+	25,  // 45: CMsgSystemPerfLegacySettings.per_app_settings:type_name -> CMsgSystemPerfLegacySettingEntry
+	90,  // 46: CMsgSystemDockUpdateState.state:type_name -> EUpdaterState
+	27,  // 47: CMsgSystemDockState.update_state:type_name -> CMsgSystemDockUpdateState
+	76,  // 48: CMsgSystemAudioVolume.entries:type_name -> CMsgSystemAudioVolume.ChannelEntry
+	31,  // 49: CMsgSystemAudioManagerDevice.base:type_name -> CMsgSystemAudioManagerObject
+	31,  // 50: CMsgSystemAudioManagerNode.base:type_name -> CMsgSystemAudioManagerObject
+	91,  // 51: CMsgSystemAudioManagerNode.edirection:type_name -> ESystemAudioDirection
+	30,  // 52: CMsgSystemAudioManagerNode.volume:type_name -> CMsgSystemAudioVolume
+	31,  // 53: CMsgSystemAudioManagerPort.base:type_name -> CMsgSystemAudioManagerObject
+	92,  // 54: CMsgSystemAudioManagerPort.etype:type_name -> ESystemAudioPortType
+	93,  // 55: CMsgSystemAudioManagerPort.edirection:type_name -> ESystemAudioPortDirection
+	31,  // 56: CMsgSystemAudioManagerLink.base:type_name -> CMsgSystemAudioManagerObject
+	32,  // 57: CMsgSystemAudioManagerStateHW.devices:type_name -> CMsgSystemAudioManagerDevice
+	33,  // 58: CMsgSystemAudioManagerStateHW.nodes:type_name -> CMsgSystemAudioManagerNode
+	34,  // 59: CMsgSystemAudioManagerStateHW.ports:type_name -> CMsgSystemAudioManagerPort
+	35,  // 60: CMsgSystemAudioManagerStateHW.links:type_name -> CMsgSystemAudioManagerLink
+	36,  // 61: CMsgSystemAudioManagerState.hw:type_name -> CMsgSystemAudioManagerStateHW
+	39,  // 62: CMsgSystemDisplay.modes:type_name -> CMsgSystemDisplayMode
+	1,   // 63: CMsgSystemDisplay.rgb_range:type_name -> EDisplayManagerRGBRange
+	40,  // 64: CMsgSystemDisplayManagerState.displays:type_name -> CMsgSystemDisplay
+	94,  // 65: CMsgSystemDisplayManagerState.compatibility_mode:type_name -> ESystemDisplayCompatibilityMode
+	41,  // 66: CMsgSystemDisplayManagerState.game_resolution_override_native:type_name -> CMsgSystemDisplayManagerGameResolution
+	41,  // 67: CMsgSystemDisplayManagerState.game_resolution_override_default:type_name -> CMsgSystemDisplayManagerGameResolution
+	1,   // 68: CMsgSystemDisplayManagerSetMode.rgb_range:type_name -> EDisplayManagerRGBRange
+	95,  // 69: CMsgSystemManagerSettings.fan_control_mode:type_name -> ESystemFanControlMode
+	96,  // 70: CMsgSystemManagerSettings.display_colorgamut_labelset:type_name -> EColorGamutLabelSet
+	97,  // 71: CMsgSelectOSBranchParams.branch:type_name -> EOSBranch
+	98,  // 72: CMsgSystemUpdateCheckResult.type:type_name -> EUpdaterType
+	98,  // 73: CMsgSystemUpdateApplyParams.apply_types:type_name -> EUpdaterType
+	98,  // 74: CMsgSystemUpdateApplyResult.type:type_name -> EUpdaterType
+	90,  // 75: CMsgSystemUpdateState.state:type_name -> EUpdaterState
+	46,  // 76: CMsgSystemUpdateState.progress:type_name -> CMsgSystemUpdateProgress
+	47,  // 77: CMsgSystemUpdateState.update_check_results:type_name -> CMsgSystemUpdateCheckResult
+	49,  // 78: CMsgSystemUpdateState.update_apply_results:type_name -> CMsgSystemUpdateApplyResult
+	77,  // 79: CMsgCellList.cells:type_name -> CMsgCellList.Cell
+	53,  // 80: CMsgShortcutInfos.shorcuts:type_name -> CMsgShortcutInfo
+	78,  // 81: CMsgMonitorInfo.monitors:type_name -> CMsgMonitorInfo.MonitorInfo
+	60,  // 82: CMsgClientShaderHitCache.entries:type_name -> CMsgClientShaderHitCacheEntry
+	5,   // 83: CMsgNetworkDevicesData.Device.ip4:type_name -> CMsgNetworkDeviceIP4Config
+	7,   // 84: CMsgNetworkDevicesData.Device.ip6:type_name -> CMsgNetworkDeviceIP6Config
+	63,  // 85: CMsgNetworkDevicesData.Device.wired:type_name -> CMsgNetworkDevicesData.Device.Wired
+	64,  // 86: CMsgNetworkDevicesData.Device.wireless:type_name -> CMsgNetworkDevicesData.Device.Wireless
+	65,  // 87: CMsgNetworkDevicesData.Device.Wireless.aps:type_name -> CMsgNetworkDevicesData.Device.Wireless.AP
+	99,  // 88: CMsgStorageDevicesData.Drive.media_type:type_name -> EStorageDriveMediaType
+	80,  // 89: CMsgStorageDevicesData.BlockDevice.content_type:type_name -> EStorageBlockContentType
+	81,  // 90: CMsgStorageDevicesData.BlockDevice.filesystem_type:type_name -> EStorageBlockFileSystemType
+	79,  // 91: CMsgBluetoothDevicesData.Device.etype:type_name -> EBluetoothDeviceType
+	100, // 92: CMsgSystemAudioVolume.ChannelEntry.echannel:type_name -> ESystemAudioChannel
+	93,  // [93:93] is the sub-list for method output_type
+	93,  // [93:93] is the sub-list for method input_type
+	93,  // [93:93] is the sub-list for extension type_name
+	93,  // [93:93] is the sub-list for extension extendee
+	0,   // [0:93] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_client_objects_proto_init() }
@@ -7115,7 +7191,7 @@ func file_steammessages_client_objects_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_client_objects_proto_rawDesc), len(file_steammessages_client_objects_proto_rawDesc)),
 			NumEnums:      3,
-			NumMessages:   75,
+			NumMessages:   76,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

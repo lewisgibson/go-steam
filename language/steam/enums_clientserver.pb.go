@@ -567,7 +567,6 @@ const (
 	EMsg_k_EMsgSMExpensiveReport                                           EMsg = 2902
 	EMsg_k_EMsgSMHourlyReport                                              EMsg = 2903
 	EMsg_k_EMsgSMPartitionRenames                                          EMsg = 2905
-	EMsg_k_EMsgSMMonitorSpace                                              EMsg = 2906
 	EMsg_k_EMsgSMTestNextBuildSchemaConversion                             EMsg = 2907
 	EMsg_k_EMsgSMTestNextBuildSchemaConversionResponse                     EMsg = 2908
 	EMsg_k_EMsgBaseTest                                                    EMsg = 3000
@@ -2009,7 +2008,6 @@ var (
 		2902: "k_EMsgSMExpensiveReport",
 		2903: "k_EMsgSMHourlyReport",
 		2905: "k_EMsgSMPartitionRenames",
-		2906: "k_EMsgSMMonitorSpace",
 		2907: "k_EMsgSMTestNextBuildSchemaConversion",
 		2908: "k_EMsgSMTestNextBuildSchemaConversionResponse",
 		3000: "k_EMsgBaseTest",
@@ -3448,7 +3446,6 @@ var (
 		"k_EMsgSMExpensiveReport":                                           2902,
 		"k_EMsgSMHourlyReport":                                              2903,
 		"k_EMsgSMPartitionRenames":                                          2905,
-		"k_EMsgSMMonitorSpace":                                              2906,
 		"k_EMsgSMTestNextBuildSchemaConversion":                             2907,
 		"k_EMsgSMTestNextBuildSchemaConversionResponse":                     2908,
 		"k_EMsgBaseTest":                                                    3000,
@@ -4750,7 +4747,7 @@ var File_enums_clientserver_proto protoreflect.FileDescriptor
 
 const file_enums_clientserver_proto_rawDesc = "" +
 	"\n" +
-	"\x18enums_clientserver.proto*\xfd\x92\x03\n" +
+	"\x18enums_clientserver.proto*\xe2\x92\x03\n" +
 	"\x04EMsg\x12\x11\n" +
 	"\rk_EMsgInvalid\x10\x00\x12\x0f\n" +
 	"\vk_EMsgMulti\x10\x01\x12\x19\n" +
@@ -5309,8 +5306,7 @@ const file_enums_clientserver_proto_rawDesc = "" +
 	"\fk_EMsgBaseSM\x10\xd4\x16\x12\x1c\n" +
 	"\x17k_EMsgSMExpensiveReport\x10\xd6\x16\x12\x19\n" +
 	"\x14k_EMsgSMHourlyReport\x10\xd7\x16\x12\x1d\n" +
-	"\x18k_EMsgSMPartitionRenames\x10\xd9\x16\x12\x19\n" +
-	"\x14k_EMsgSMMonitorSpace\x10\xda\x16\x12*\n" +
+	"\x18k_EMsgSMPartitionRenames\x10\xd9\x16\x12*\n" +
 	"%k_EMsgSMTestNextBuildSchemaConversion\x10\xdb\x16\x122\n" +
 	"-k_EMsgSMTestNextBuildSchemaConversionResponse\x10\xdc\x16\x12\x13\n" +
 	"\x0ek_EMsgBaseTest\x10\xb8\x17\x12\x15\n" +

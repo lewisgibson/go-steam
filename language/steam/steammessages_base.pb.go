@@ -1592,7 +1592,6 @@ func (x *CMsgAppRights) GetEditStoreDisplayContent() bool {
 
 type CCuratorPreferences struct {
 	state                protoimpl.MessageState `protogen:"open.v1"`
-	SupportedLanguages   *uint32                `protobuf:"varint,1,opt,name=supported_languages,json=supportedLanguages" json:"supported_languages,omitempty"`
 	PlatformWindows      *bool                  `protobuf:"varint,2,opt,name=platform_windows,json=platformWindows" json:"platform_windows,omitempty"`
 	PlatformMac          *bool                  `protobuf:"varint,3,opt,name=platform_mac,json=platformMac" json:"platform_mac,omitempty"`
 	PlatformLinux        *bool                  `protobuf:"varint,4,opt,name=platform_linux,json=platformLinux" json:"platform_linux,omitempty"`
@@ -1638,13 +1637,6 @@ func (x *CCuratorPreferences) ProtoReflect() protoreflect.Message {
 // Deprecated: Use CCuratorPreferences.ProtoReflect.Descriptor instead.
 func (*CCuratorPreferences) Descriptor() ([]byte, []int) {
 	return file_steammessages_base_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *CCuratorPreferences) GetSupportedLanguages() uint32 {
-	if x != nil && x.SupportedLanguages != nil {
-		return *x.SupportedLanguages
-	}
-	return 0
 }
 
 func (x *CCuratorPreferences) GetPlatformWindows() bool {
@@ -2582,7 +2574,7 @@ type CPackageReservationStatus struct {
 	UserWaitlistToken              *string                `protobuf:"bytes,14,opt,name=user_waitlist_token,json=userWaitlistToken" json:"user_waitlist_token,omitempty"`
 	QueueInWaitlist                *bool                  `protobuf:"varint,15,opt,name=queue_in_waitlist,json=queueInWaitlist" json:"queue_in_waitlist,omitempty"`
 	QueueWaitlistToken             *string                `protobuf:"bytes,16,opt,name=queue_waitlist_token,json=queueWaitlistToken" json:"queue_waitlist_token,omitempty"`
-	ReservationType                *bool                  `protobuf:"varint,17,opt,name=reservation_type,json=reservationType" json:"reservation_type,omitempty"`
+	CollectionTimeActive           *uint32                `protobuf:"varint,17,opt,name=collection_time_active,json=collectionTimeActive" json:"collection_time_active,omitempty"`
 	unknownFields                  protoimpl.UnknownFields
 	sizeCache                      protoimpl.SizeCache
 }
@@ -2729,11 +2721,11 @@ func (x *CPackageReservationStatus) GetQueueWaitlistToken() string {
 	return ""
 }
 
-func (x *CPackageReservationStatus) GetReservationType() bool {
-	if x != nil && x.ReservationType != nil {
-		return *x.ReservationType
+func (x *CPackageReservationStatus) GetCollectionTimeActive() uint32 {
+	if x != nil && x.CollectionTimeActive != nil {
+		return *x.CollectionTimeActive
 	}
-	return false
+	return 0
 }
 
 type CMsgKeyValuePair struct {
@@ -3449,9 +3441,8 @@ const file_steammessages_base_proto_rawDesc = "" +
 	"\x0emanage_pricing\x18\x0e \x01(\bR\rmanagePricing\x12%\n" +
 	"\x0ebroadcast_live\x18\x0f \x01(\bR\rbroadcastLive\x124\n" +
 	"\x16view_marketing_traffic\x18\x10 \x01(\bR\x14viewMarketingTraffic\x12;\n" +
-	"\x1aedit_store_display_content\x18\x11 \x01(\bR\x17editStoreDisplayContent\"\xcd\x04\n" +
-	"\x13CCuratorPreferences\x12/\n" +
-	"\x13supported_languages\x18\x01 \x01(\rR\x12supportedLanguages\x12)\n" +
+	"\x1aedit_store_display_content\x18\x11 \x01(\bR\x17editStoreDisplayContent\"\x9c\x04\n" +
+	"\x13CCuratorPreferences\x12)\n" +
 	"\x10platform_windows\x18\x02 \x01(\bR\x0fplatformWindows\x12!\n" +
 	"\fplatform_mac\x18\x03 \x01(\bR\vplatformMac\x12%\n" +
 	"\x0eplatform_linux\x18\x04 \x01(\bR\rplatformLinux\x12\x1d\n" +
@@ -3561,7 +3552,7 @@ const file_steammessages_base_proto_rawDesc = "" +
 	"\bpostcode\x18\b \x01(\tR\bpostcode\x12\x1b\n" +
 	"\tzip_plus4\x18\t \x01(\x05R\bzipPlus4\x12\x14\n" +
 	"\x05phone\x18\n" +
-	" \x01(\tR\x05phone\"\xb0\x06\n" +
+	" \x01(\tR\x05phone\"\xbb\x06\n" +
 	"\x19CPackageReservationStatus\x12\x1c\n" +
 	"\tpackageid\x18\x01 \x01(\rR\tpackageid\x12+\n" +
 	"\x11reservation_state\x18\x02 \x01(\x05R\x10reservationState\x12%\n" +
@@ -3579,8 +3570,8 @@ const file_steammessages_base_proto_rawDesc = "" +
 	"\x14position_is_waitlist\x18\r \x01(\bR\x12positionIsWaitlist\x12.\n" +
 	"\x13user_waitlist_token\x18\x0e \x01(\tR\x11userWaitlistToken\x12*\n" +
 	"\x11queue_in_waitlist\x18\x0f \x01(\bR\x0fqueueInWaitlist\x120\n" +
-	"\x14queue_waitlist_token\x18\x10 \x01(\tR\x12queueWaitlistToken\x12)\n" +
-	"\x10reservation_type\x18\x11 \x01(\bR\x0freservationType\"<\n" +
+	"\x14queue_waitlist_token\x18\x10 \x01(\tR\x12queueWaitlistToken\x124\n" +
+	"\x16collection_time_active\x18\x11 \x01(\rR\x14collectionTimeActive\"<\n" +
 	"\x10CMsgKeyValuePair\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value\":\n" +

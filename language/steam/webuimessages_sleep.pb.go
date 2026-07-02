@@ -259,6 +259,7 @@ func (*CSleepManager_StateChanged_Notification) Descriptor() ([]byte, []int) {
 type CSleepManager_RequestSuspend_Notification struct {
 	state                                   protoimpl.MessageState `protogen:"open.v1"`
 	OptionallyTransitionToLowPowerDownloads *bool                  `protobuf:"varint,1,opt,name=optionally_transition_to_low_power_downloads,json=optionallyTransitionToLowPowerDownloads" json:"optionally_transition_to_low_power_downloads,omitempty"`
+	SuppressActualSuspend                   *bool                  `protobuf:"varint,2,opt,name=suppress_actual_suspend,json=suppressActualSuspend" json:"suppress_actual_suspend,omitempty"`
 	unknownFields                           protoimpl.UnknownFields
 	sizeCache                               protoimpl.SizeCache
 }
@@ -296,6 +297,13 @@ func (*CSleepManager_RequestSuspend_Notification) Descriptor() ([]byte, []int) {
 func (x *CSleepManager_RequestSuspend_Notification) GetOptionallyTransitionToLowPowerDownloads() bool {
 	if x != nil && x.OptionallyTransitionToLowPowerDownloads != nil {
 		return *x.OptionallyTransitionToLowPowerDownloads
+	}
+	return false
+}
+
+func (x *CSleepManager_RequestSuspend_Notification) GetSuppressActualSuspend() bool {
+	if x != nil && x.SuppressActualSuspend != nil {
+		return *x.SuppressActualSuspend
 	}
 	return false
 }
@@ -548,9 +556,10 @@ const file_webuimessages_sleep_proto_rawDesc = "" +
 	"\x1eCSleepManager_GetState_Request\"O\n" +
 	"\x1fCSleepManager_GetState_Response\x12,\n" +
 	"\x05state\x18\x01 \x01(\v2\x16.CMsgSleepManagerStateR\x05state\")\n" +
-	"'CSleepManager_StateChanged_Notification\"\x8a\x01\n" +
+	"'CSleepManager_StateChanged_Notification\"\xc2\x01\n" +
 	")CSleepManager_RequestSuspend_Notification\x12]\n" +
-	",optionally_transition_to_low_power_downloads\x18\x01 \x01(\bR'optionallyTransitionToLowPowerDownloads\".\n" +
+	",optionally_transition_to_low_power_downloads\x18\x01 \x01(\bR'optionallyTransitionToLowPowerDownloads\x126\n" +
+	"\x17suppress_actual_suspend\x18\x02 \x01(\bR\x15suppressActualSuspend\".\n" +
 	",CSleepManager_ResumeFromSuspend_Notification\"*\n" +
 	"(CSleepManager_ShowPowerMenu_Notification\"\x89\x01\n" +
 	"(CSleepManager_SwitchToPowerState_Request\x12E\n" +

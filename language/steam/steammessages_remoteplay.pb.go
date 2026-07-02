@@ -619,15 +619,14 @@ func (EStreamAudioCodec) EnumDescriptor() ([]byte, []int) {
 type EStreamVideoCodec int32
 
 const (
-	EStreamVideoCodec_k_EStreamVideoCodecNone  EStreamVideoCodec = 0
-	EStreamVideoCodec_k_EStreamVideoCodecRaw   EStreamVideoCodec = 1
-	EStreamVideoCodec_k_EStreamVideoCodecVP8   EStreamVideoCodec = 2
-	EStreamVideoCodec_k_EStreamVideoCodecVP9   EStreamVideoCodec = 3
-	EStreamVideoCodec_k_EStreamVideoCodecH264  EStreamVideoCodec = 4
-	EStreamVideoCodec_k_EStreamVideoCodecHEVC  EStreamVideoCodec = 5
-	EStreamVideoCodec_k_EStreamVideoCodecORBX1 EStreamVideoCodec = 6
-	EStreamVideoCodec_k_EStreamVideoCodecORBX2 EStreamVideoCodec = 7
-	EStreamVideoCodec_k_EStreamVideoCodecAV1   EStreamVideoCodec = 8
+	EStreamVideoCodec_k_EStreamVideoCodecNone     EStreamVideoCodec = 0
+	EStreamVideoCodec_k_EStreamVideoCodecRaw      EStreamVideoCodec = 1
+	EStreamVideoCodec_k_EStreamVideoCodecVP8      EStreamVideoCodec = 2
+	EStreamVideoCodec_k_EStreamVideoCodecVP9      EStreamVideoCodec = 3
+	EStreamVideoCodec_k_EStreamVideoCodecH264     EStreamVideoCodec = 4
+	EStreamVideoCodec_k_EStreamVideoCodecHEVC     EStreamVideoCodec = 5
+	EStreamVideoCodec_k_EStreamVideoCodecAV1      EStreamVideoCodec = 8
+	EStreamVideoCodec_k_EStreamVideoCodecPyrowave EStreamVideoCodec = 9
 )
 
 // Enum value maps for EStreamVideoCodec.
@@ -639,20 +638,18 @@ var (
 		3: "k_EStreamVideoCodecVP9",
 		4: "k_EStreamVideoCodecH264",
 		5: "k_EStreamVideoCodecHEVC",
-		6: "k_EStreamVideoCodecORBX1",
-		7: "k_EStreamVideoCodecORBX2",
 		8: "k_EStreamVideoCodecAV1",
+		9: "k_EStreamVideoCodecPyrowave",
 	}
 	EStreamVideoCodec_value = map[string]int32{
-		"k_EStreamVideoCodecNone":  0,
-		"k_EStreamVideoCodecRaw":   1,
-		"k_EStreamVideoCodecVP8":   2,
-		"k_EStreamVideoCodecVP9":   3,
-		"k_EStreamVideoCodecH264":  4,
-		"k_EStreamVideoCodecHEVC":  5,
-		"k_EStreamVideoCodecORBX1": 6,
-		"k_EStreamVideoCodecORBX2": 7,
-		"k_EStreamVideoCodecAV1":   8,
+		"k_EStreamVideoCodecNone":     0,
+		"k_EStreamVideoCodecRaw":      1,
+		"k_EStreamVideoCodecVP8":      2,
+		"k_EStreamVideoCodecVP9":      3,
+		"k_EStreamVideoCodecH264":     4,
+		"k_EStreamVideoCodecHEVC":     5,
+		"k_EStreamVideoCodecAV1":      8,
+		"k_EStreamVideoCodecPyrowave": 9,
 	}
 )
 
@@ -3025,6 +3022,7 @@ type CStreamingClientConfig struct {
 	WindowPositionY                *int32                    `protobuf:"varint,32,opt,name=window_position_y,json=windowPositionY" json:"window_position_y,omitempty"`
 	WindowFrameOffsetX             *int32                    `protobuf:"varint,33,opt,name=window_frame_offset_x,json=windowFrameOffsetX" json:"window_frame_offset_x,omitempty"`
 	WindowFrameOffsetY             *int32                    `protobuf:"varint,34,opt,name=window_frame_offset_y,json=windowFrameOffsetY" json:"window_frame_offset_y,omitempty"`
+	EnableVideoPyrowave            *bool                     `protobuf:"varint,35,opt,name=enable_video_pyrowave,json=enableVideoPyrowave,def=0" json:"enable_video_pyrowave,omitempty"`
 	unknownFields                  protoimpl.UnknownFields
 	sizeCache                      protoimpl.SizeCache
 }
@@ -3047,6 +3045,7 @@ const (
 	Default_CStreamingClientConfig_EnableAudioUncompressed        = bool(false)
 	Default_CStreamingClientConfig_EnableUnreliableFec            = bool(false)
 	Default_CStreamingClientConfig_EnableVideoAv1                 = bool(false)
+	Default_CStreamingClientConfig_EnableVideoPyrowave            = bool(false)
 )
 
 func (x *CStreamingClientConfig) Reset() {
@@ -3308,6 +3307,13 @@ func (x *CStreamingClientConfig) GetWindowFrameOffsetY() int32 {
 		return *x.WindowFrameOffsetY
 	}
 	return 0
+}
+
+func (x *CStreamingClientConfig) GetEnableVideoPyrowave() bool {
+	if x != nil && x.EnableVideoPyrowave != nil {
+		return *x.EnableVideoPyrowave
+	}
+	return Default_CStreamingClientConfig_EnableVideoPyrowave
 }
 
 type CStreamingServerConfig struct {
@@ -9212,7 +9218,7 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x15supported_colorspaces\x18\r \x03(\x0e2\x12.EStreamColorspaceR\x14supportedColorspaces\x12H\n" +
 	"\x16supported_audio_codecs\x18\x0e \x03(\x0e2\x12.EStreamAudioCodecR\x14supportedAudioCodecs\x12H\n" +
 	"\x16supported_video_codecs\x18\x0f \x03(\x0e2\x12.EStreamVideoCodecR\x14supportedVideoCodecs\x122\n" +
-	"\x15can_toggle_fullscreen\x18\x10 \x01(\bR\x13canToggleFullscreen\"\xe0\x0e\n" +
+	"\x15can_toggle_fullscreen\x18\x10 \x01(\bR\x13canToggleFullscreen\"\x9b\x0f\n" +
 	"\x16CStreamingClientConfig\x12M\n" +
 	"\aquality\x18\x01 \x01(\x0e2\x19.EStreamQualityPreference:\x18k_EStreamQualityBalancedR\aquality\x120\n" +
 	"\x14desired_resolution_x\x18\x02 \x01(\rR\x12desiredResolutionX\x120\n" +
@@ -9247,7 +9253,8 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x11window_position_x\x18\x1f \x01(\x05R\x0fwindowPositionX\x12*\n" +
 	"\x11window_position_y\x18  \x01(\x05R\x0fwindowPositionY\x121\n" +
 	"\x15window_frame_offset_x\x18! \x01(\x05R\x12windowFrameOffsetX\x121\n" +
-	"\x15window_frame_offset_y\x18\" \x01(\x05R\x12windowFrameOffsetY\"\xe5\a\n" +
+	"\x15window_frame_offset_y\x18\" \x01(\x05R\x12windowFrameOffsetY\x129\n" +
+	"\x15enable_video_pyrowave\x18# \x01(\b:\x05falseR\x13enableVideoPyrowave\"\xe5\a\n" +
 	"\x16CStreamingServerConfig\x12f\n" +
 	"\x0fhost_play_audio\x18\x01 \x01(\x0e2\x1f.EStreamHostPlayAudioPreference:\x1dk_EStreamHostPlayAudioDefaultR\rhostPlayAudio\x122\n" +
 	"\x15custom_display_device\x18\x02 \x01(\tR\x13customDisplayDevice\x12y\n" +
@@ -9754,17 +9761,16 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x19k_EStreamAudioCodecVorbis\x10\x02\x12\x1b\n" +
 	"\x17k_EStreamAudioCodecOpus\x10\x03\x12\x1a\n" +
 	"\x16k_EStreamAudioCodecMP3\x10\x04\x12\x1a\n" +
-	"\x16k_EStreamAudioCodecAAC\x10\x05*\x96\x02\n" +
+	"\x16k_EStreamAudioCodecAAC\x10\x05*\xfb\x01\n" +
 	"\x11EStreamVideoCodec\x12\x1b\n" +
 	"\x17k_EStreamVideoCodecNone\x10\x00\x12\x1a\n" +
 	"\x16k_EStreamVideoCodecRaw\x10\x01\x12\x1a\n" +
 	"\x16k_EStreamVideoCodecVP8\x10\x02\x12\x1a\n" +
 	"\x16k_EStreamVideoCodecVP9\x10\x03\x12\x1b\n" +
 	"\x17k_EStreamVideoCodecH264\x10\x04\x12\x1b\n" +
-	"\x17k_EStreamVideoCodecHEVC\x10\x05\x12\x1c\n" +
-	"\x18k_EStreamVideoCodecORBX1\x10\x06\x12\x1c\n" +
-	"\x18k_EStreamVideoCodecORBX2\x10\a\x12\x1a\n" +
-	"\x16k_EStreamVideoCodecAV1\x10\b*\x99\x01\n" +
+	"\x17k_EStreamVideoCodecHEVC\x10\x05\x12\x1a\n" +
+	"\x16k_EStreamVideoCodecAV1\x10\b\x12\x1f\n" +
+	"\x1bk_EStreamVideoCodecPyrowave\x10\t*\x99\x01\n" +
 	"\x18EStreamQualityPreference\x12&\n" +
 	"\x19k_EStreamQualityAutomatic\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x18\n" +
 	"\x14k_EStreamQualityFast\x10\x01\x12\x1c\n" +

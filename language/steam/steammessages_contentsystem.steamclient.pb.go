@@ -247,6 +247,7 @@ type CContentServerDirectory_ServerInfo struct {
 	AllowedAppIds            []uint32               `protobuf:"varint,13,rep,name=allowed_app_ids,json=allowedAppIds" json:"allowed_app_ids,omitempty"`
 	PriorityClass            *uint32                `protobuf:"varint,15,opt,name=priority_class,json=priorityClass" json:"priority_class,omitempty"`
 	BypassProxiesOfType      []string               `protobuf:"bytes,16,rep,name=bypass_proxies_of_type,json=bypassProxiesOfType" json:"bypass_proxies_of_type,omitempty"`
+	Group                    *string                `protobuf:"bytes,17,opt,name=group" json:"group,omitempty"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
@@ -384,6 +385,13 @@ func (x *CContentServerDirectory_ServerInfo) GetBypassProxiesOfType() []string {
 		return x.BypassProxiesOfType
 	}
 	return nil
+}
+
+func (x *CContentServerDirectory_ServerInfo) GetGroup() string {
+	if x != nil && x.Group != nil {
+		return *x.Group
+	}
+	return ""
 }
 
 type CContentServerDirectory_GetServersForSteamPipe_Response struct {
@@ -1321,7 +1329,7 @@ const file_steammessages_contentsystem_steamclient_proto_rawDesc = "" +
 	"\rlauncher_type\x18\x04 \x01(\x05:\x010R\flauncherType\x12\x1f\n" +
 	"\vipv6_public\x18\x05 \x01(\tR\n" +
 	"ipv6Public\x12f\n" +
-	"\x13current_connections\x18\x06 \x03(\v25.CContentServerDirectory_ConnectedSteamPipeServerInfoR\x12currentConnections\"\xc1\x04\n" +
+	"\x13current_connections\x18\x06 \x03(\v25.CContentServerDirectory_ConnectedSteamPipeServerInfoR\x12currentConnections\"\xd7\x04\n" +
 	"\"CContentServerDirectory_ServerInfo\x12\x12\n" +
 	"\x04type\x18\x01 \x01(\tR\x04type\x12\x1b\n" +
 	"\tsource_id\x18\x02 \x01(\x05R\bsourceId\x12\x17\n" +
@@ -1339,7 +1347,8 @@ const file_steammessages_contentsystem_steamclient_proto_rawDesc = "" +
 	"\rhttps_support\x18\f \x01(\tR\fhttpsSupport\x12&\n" +
 	"\x0fallowed_app_ids\x18\r \x03(\rR\rallowedAppIds\x12%\n" +
 	"\x0epriority_class\x18\x0f \x01(\rR\rpriorityClass\x123\n" +
-	"\x16bypass_proxies_of_type\x18\x10 \x03(\tR\x13bypassProxiesOfType\"\x95\x01\n" +
+	"\x16bypass_proxies_of_type\x18\x10 \x03(\tR\x13bypassProxiesOfType\x12\x14\n" +
+	"\x05group\x18\x11 \x01(\tR\x05group\"\x95\x01\n" +
 	"7CContentServerDirectory_GetServersForSteamPipe_Response\x12=\n" +
 	"\aservers\x18\x01 \x03(\v2#.CContentServerDirectory_ServerInfoR\aservers\x12\x1b\n" +
 	"\tno_change\x18\x02 \x01(\bR\bnoChange\"\xbd\x01\n" +

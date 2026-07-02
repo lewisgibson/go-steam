@@ -640,6 +640,126 @@ func (x *CGameServers_GameServerQuery_Response) GetRulesData() *CMsgGameServerRu
 	return nil
 }
 
+type CGameServers_FriendsQuery_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ServerIp      *uint32                `protobuf:"varint,1,opt,name=server_ip,json=serverIp" json:"server_ip,omitempty"`
+	ServerPort    *uint32                `protobuf:"varint,2,opt,name=server_port,json=serverPort" json:"server_port,omitempty"`
+	AppId         *uint32                `protobuf:"varint,3,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CGameServers_FriendsQuery_Request) Reset() {
+	*x = CGameServers_FriendsQuery_Request{}
+	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CGameServers_FriendsQuery_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CGameServers_FriendsQuery_Request) ProtoMessage() {}
+
+func (x *CGameServers_FriendsQuery_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CGameServers_FriendsQuery_Request.ProtoReflect.Descriptor instead.
+func (*CGameServers_FriendsQuery_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_gameservers_steamclient_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *CGameServers_FriendsQuery_Request) GetServerIp() uint32 {
+	if x != nil && x.ServerIp != nil {
+		return *x.ServerIp
+	}
+	return 0
+}
+
+func (x *CGameServers_FriendsQuery_Request) GetServerPort() uint32 {
+	if x != nil && x.ServerPort != nil {
+		return *x.ServerPort
+	}
+	return 0
+}
+
+func (x *CGameServers_FriendsQuery_Request) GetAppId() uint32 {
+	if x != nil && x.AppId != nil {
+		return *x.AppId
+	}
+	return 0
+}
+
+type CGameServers_FriendsQuery_Response struct {
+	state         protoimpl.MessageState                       `protogen:"open.v1"`
+	Players       []*CGameServers_FriendsQuery_Response_Player `protobuf:"bytes,1,rep,name=players" json:"players,omitempty"`
+	Steamid       *uint64                                      `protobuf:"fixed64,2,opt,name=steamid" json:"steamid,omitempty"`
+	AppId         *uint32                                      `protobuf:"varint,3,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CGameServers_FriendsQuery_Response) Reset() {
+	*x = CGameServers_FriendsQuery_Response{}
+	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CGameServers_FriendsQuery_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CGameServers_FriendsQuery_Response) ProtoMessage() {}
+
+func (x *CGameServers_FriendsQuery_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CGameServers_FriendsQuery_Response.ProtoReflect.Descriptor instead.
+func (*CGameServers_FriendsQuery_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_gameservers_steamclient_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *CGameServers_FriendsQuery_Response) GetPlayers() []*CGameServers_FriendsQuery_Response_Player {
+	if x != nil {
+		return x.Players
+	}
+	return nil
+}
+
+func (x *CGameServers_FriendsQuery_Response) GetSteamid() uint64 {
+	if x != nil && x.Steamid != nil {
+		return *x.Steamid
+	}
+	return 0
+}
+
+func (x *CGameServers_FriendsQuery_Response) GetAppId() uint32 {
+	if x != nil && x.AppId != nil {
+		return *x.AppId
+	}
+	return 0
+}
+
 type CGameServers_ReportServerPingReply_Notification struct {
 	state                   protoimpl.MessageState       `protogen:"open.v1"`
 	ServerData              *CMsgGameServerPingQueryData `protobuf:"bytes,1,opt,name=server_data,json=serverData" json:"server_data,omitempty"`
@@ -651,7 +771,7 @@ type CGameServers_ReportServerPingReply_Notification struct {
 
 func (x *CGameServers_ReportServerPingReply_Notification) Reset() {
 	*x = CGameServers_ReportServerPingReply_Notification{}
-	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[8]
+	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -663,7 +783,7 @@ func (x *CGameServers_ReportServerPingReply_Notification) String() string {
 func (*CGameServers_ReportServerPingReply_Notification) ProtoMessage() {}
 
 func (x *CGameServers_ReportServerPingReply_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[8]
+	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -676,7 +796,7 @@ func (x *CGameServers_ReportServerPingReply_Notification) ProtoReflect() protore
 
 // Deprecated: Use CGameServers_ReportServerPingReply_Notification.ProtoReflect.Descriptor instead.
 func (*CGameServers_ReportServerPingReply_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_gameservers_steamclient_proto_rawDescGZIP(), []int{8}
+	return file_steammessages_gameservers_steamclient_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *CGameServers_ReportServerPingReply_Notification) GetServerData() *CMsgGameServerPingQueryData {
@@ -708,7 +828,7 @@ type GameServerClient_QueryServerData_Request struct {
 
 func (x *GameServerClient_QueryServerData_Request) Reset() {
 	*x = GameServerClient_QueryServerData_Request{}
-	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[9]
+	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -720,7 +840,7 @@ func (x *GameServerClient_QueryServerData_Request) String() string {
 func (*GameServerClient_QueryServerData_Request) ProtoMessage() {}
 
 func (x *GameServerClient_QueryServerData_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[9]
+	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -733,7 +853,7 @@ func (x *GameServerClient_QueryServerData_Request) ProtoReflect() protoreflect.M
 
 // Deprecated: Use GameServerClient_QueryServerData_Request.ProtoReflect.Descriptor instead.
 func (*GameServerClient_QueryServerData_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_gameservers_steamclient_proto_rawDescGZIP(), []int{9}
+	return file_steammessages_gameservers_steamclient_proto_rawDescGZIP(), []int{11}
 }
 
 type GameServerClient_QueryServerData_Response struct {
@@ -747,7 +867,7 @@ type GameServerClient_QueryServerData_Response struct {
 
 func (x *GameServerClient_QueryServerData_Response) Reset() {
 	*x = GameServerClient_QueryServerData_Response{}
-	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[10]
+	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -759,7 +879,7 @@ func (x *GameServerClient_QueryServerData_Response) String() string {
 func (*GameServerClient_QueryServerData_Response) ProtoMessage() {}
 
 func (x *GameServerClient_QueryServerData_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[10]
+	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -772,7 +892,7 @@ func (x *GameServerClient_QueryServerData_Response) ProtoReflect() protoreflect.
 
 // Deprecated: Use GameServerClient_QueryServerData_Response.ProtoReflect.Descriptor instead.
 func (*GameServerClient_QueryServerData_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_gameservers_steamclient_proto_rawDescGZIP(), []int{10}
+	return file_steammessages_gameservers_steamclient_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GameServerClient_QueryServerData_Response) GetPingData() *CMsgGameServerPingQueryData {
@@ -806,7 +926,7 @@ type CGameServers_IPsWithSteamIDs_Response_Server struct {
 
 func (x *CGameServers_IPsWithSteamIDs_Response_Server) Reset() {
 	*x = CGameServers_IPsWithSteamIDs_Response_Server{}
-	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[11]
+	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -818,7 +938,7 @@ func (x *CGameServers_IPsWithSteamIDs_Response_Server) String() string {
 func (*CGameServers_IPsWithSteamIDs_Response_Server) ProtoMessage() {}
 
 func (x *CGameServers_IPsWithSteamIDs_Response_Server) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[11]
+	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -859,7 +979,7 @@ type CMsgGameServerPlayersQueryData_Player struct {
 
 func (x *CMsgGameServerPlayersQueryData_Player) Reset() {
 	*x = CMsgGameServerPlayersQueryData_Player{}
-	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[12]
+	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -871,7 +991,7 @@ func (x *CMsgGameServerPlayersQueryData_Player) String() string {
 func (*CMsgGameServerPlayersQueryData_Player) ProtoMessage() {}
 
 func (x *CMsgGameServerPlayersQueryData_Player) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[12]
+	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -918,7 +1038,7 @@ type CMsgGameServerRulesQueryData_Rule struct {
 
 func (x *CMsgGameServerRulesQueryData_Rule) Reset() {
 	*x = CMsgGameServerRulesQueryData_Rule{}
-	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[13]
+	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -930,7 +1050,7 @@ func (x *CMsgGameServerRulesQueryData_Rule) String() string {
 func (*CMsgGameServerRulesQueryData_Rule) ProtoMessage() {}
 
 func (x *CMsgGameServerRulesQueryData_Rule) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[13]
+	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -958,6 +1078,58 @@ func (x *CMsgGameServerRulesQueryData_Rule) GetValue() string {
 		return *x.Value
 	}
 	return ""
+}
+
+type CGameServers_FriendsQuery_Response_Player struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Steamid       *uint64                `protobuf:"fixed64,1,opt,name=steamid" json:"steamid,omitempty"`
+	TimePlayed    *uint32                `protobuf:"varint,2,opt,name=time_played,json=timePlayed" json:"time_played,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CGameServers_FriendsQuery_Response_Player) Reset() {
+	*x = CGameServers_FriendsQuery_Response_Player{}
+	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CGameServers_FriendsQuery_Response_Player) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CGameServers_FriendsQuery_Response_Player) ProtoMessage() {}
+
+func (x *CGameServers_FriendsQuery_Response_Player) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_gameservers_steamclient_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CGameServers_FriendsQuery_Response_Player.ProtoReflect.Descriptor instead.
+func (*CGameServers_FriendsQuery_Response_Player) Descriptor() ([]byte, []int) {
+	return file_steammessages_gameservers_steamclient_proto_rawDescGZIP(), []int{9, 0}
+}
+
+func (x *CGameServers_FriendsQuery_Response_Player) GetSteamid() uint64 {
+	if x != nil && x.Steamid != nil {
+		return *x.Steamid
+	}
+	return 0
+}
+
+func (x *CGameServers_FriendsQuery_Response_Player) GetTimePlayed() uint32 {
+	if x != nil && x.TimePlayed != nil {
+		return *x.TimePlayed
+	}
+	return 0
 }
 
 var File_steammessages_gameservers_steamclient_proto protoreflect.FileDescriptor
@@ -1031,7 +1203,20 @@ const file_steammessages_gameservers_steamclient_proto_rawDesc = "" +
 	"\tping_data\x18\x01 \x01(\v2\x1c.CMsgGameServerPingQueryDataR\bpingData\x12B\n" +
 	"\fplayers_data\x18\x02 \x01(\v2\x1f.CMsgGameServerPlayersQueryDataR\vplayersData\x12<\n" +
 	"\n" +
-	"rules_data\x18\x03 \x01(\v2\x1d.CMsgGameServerRulesQueryDataR\trulesData\"\xc6\x01\n" +
+	"rules_data\x18\x03 \x01(\v2\x1d.CMsgGameServerRulesQueryDataR\trulesData\"x\n" +
+	"!CGameServers_FriendsQuery_Request\x12\x1b\n" +
+	"\tserver_ip\x18\x01 \x01(\rR\bserverIp\x12\x1f\n" +
+	"\vserver_port\x18\x02 \x01(\rR\n" +
+	"serverPort\x12\x15\n" +
+	"\x06app_id\x18\x03 \x01(\rR\x05appId\"\xe0\x01\n" +
+	"\"CGameServers_FriendsQuery_Response\x12D\n" +
+	"\aplayers\x18\x01 \x03(\v2*.CGameServers_FriendsQuery_Response.PlayerR\aplayers\x12\x18\n" +
+	"\asteamid\x18\x02 \x01(\x06R\asteamid\x12\x15\n" +
+	"\x06app_id\x18\x03 \x01(\rR\x05appId\x1aC\n" +
+	"\x06Player\x12\x18\n" +
+	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12\x1f\n" +
+	"\vtime_played\x18\x02 \x01(\rR\n" +
+	"timePlayed\"\xc6\x01\n" +
 	"/CGameServers_ReportServerPingReply_Notification\x12=\n" +
 	"\vserver_data\x18\x01 \x01(\v2\x1c.CMsgGameServerPingQueryDataR\n" +
 	"serverData\x12\x17\n" +
@@ -1042,11 +1227,12 @@ const file_steammessages_gameservers_steamclient_proto_rawDesc = "" +
 	"\tping_data\x18\x01 \x01(\v2\x1c.CMsgGameServerPingQueryDataR\bpingData\x12B\n" +
 	"\fplayers_data\x18\x02 \x01(\v2\x1f.CMsgGameServerPlayersQueryDataR\vplayersData\x12<\n" +
 	"\n" +
-	"rules_data\x18\x03 \x01(\v2\x1d.CMsgGameServerRulesQueryDataR\trulesData2\x9f\x03\n" +
+	"rules_data\x18\x03 \x01(\v2\x1d.CMsgGameServerRulesQueryDataR\trulesData2\xf8\x03\n" +
 	"\vGameServers\x12l\n" +
 	"\x15GetServerSteamIDsByIP\x12+.CGameServers_GetServerSteamIDsByIP_Request\x1a&.CGameServers_IPsWithSteamIDs_Response\x12l\n" +
 	"\x15GetServerIPsBySteamID\x12+.CGameServers_GetServerIPsBySteamID_Request\x1a&.CGameServers_IPsWithSteamIDs_Response\x12\\\n" +
-	"\rQueryByFakeIP\x12#.CGameServers_QueryByFakeIP_Request\x1a&.CGameServers_GameServerQuery_Response\x12V\n" +
+	"\rQueryByFakeIP\x12#.CGameServers_QueryByFakeIP_Request\x1a&.CGameServers_GameServerQuery_Response\x12W\n" +
+	"\fFriendsQuery\x12\".CGameServers_FriendsQuery_Request\x1a#.CGameServers_FriendsQuery_Response\x12V\n" +
 	"\x15ReportServerPingReply\x120.CGameServers_ReportServerPingReply_Notification\x1a\v.NoResponse2\x82\x01\n" +
 	"\x10GameServerClient\x12h\n" +
 	"\x0fQueryServerData\x12).GameServerClient_QueryServerData_Request\x1a*.GameServerClient_QueryServerData_Response\x1a\x04\xc0\xb5\x18\x02B\x03\x80\x01\x01"
@@ -1064,7 +1250,7 @@ func file_steammessages_gameservers_steamclient_proto_rawDescGZIP() []byte {
 }
 
 var file_steammessages_gameservers_steamclient_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_steammessages_gameservers_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
+var file_steammessages_gameservers_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
 var file_steammessages_gameservers_steamclient_proto_goTypes = []any{
 	(CGameServers_QueryByFakeIP_Request_EQueryType)(0),      // 0: CGameServers_QueryByFakeIP_Request.EQueryType
 	(*CGameServers_GetServerSteamIDsByIP_Request)(nil),      // 1: CGameServers_GetServerSteamIDsByIP_Request
@@ -1075,43 +1261,49 @@ var file_steammessages_gameservers_steamclient_proto_goTypes = []any{
 	(*CMsgGameServerPlayersQueryData)(nil),                  // 6: CMsgGameServerPlayersQueryData
 	(*CMsgGameServerRulesQueryData)(nil),                    // 7: CMsgGameServerRulesQueryData
 	(*CGameServers_GameServerQuery_Response)(nil),           // 8: CGameServers_GameServerQuery_Response
-	(*CGameServers_ReportServerPingReply_Notification)(nil), // 9: CGameServers_ReportServerPingReply_Notification
-	(*GameServerClient_QueryServerData_Request)(nil),        // 10: GameServerClient_QueryServerData_Request
-	(*GameServerClient_QueryServerData_Response)(nil),       // 11: GameServerClient_QueryServerData_Response
-	(*CGameServers_IPsWithSteamIDs_Response_Server)(nil),    // 12: CGameServers_IPsWithSteamIDs_Response.Server
-	(*CMsgGameServerPlayersQueryData_Player)(nil),           // 13: CMsgGameServerPlayersQueryData.Player
-	(*CMsgGameServerRulesQueryData_Rule)(nil),               // 14: CMsgGameServerRulesQueryData.Rule
-	(*CMsgIPAddress)(nil),                                   // 15: CMsgIPAddress
-	(*NoResponse)(nil),                                      // 16: NoResponse
+	(*CGameServers_FriendsQuery_Request)(nil),               // 9: CGameServers_FriendsQuery_Request
+	(*CGameServers_FriendsQuery_Response)(nil),              // 10: CGameServers_FriendsQuery_Response
+	(*CGameServers_ReportServerPingReply_Notification)(nil), // 11: CGameServers_ReportServerPingReply_Notification
+	(*GameServerClient_QueryServerData_Request)(nil),        // 12: GameServerClient_QueryServerData_Request
+	(*GameServerClient_QueryServerData_Response)(nil),       // 13: GameServerClient_QueryServerData_Response
+	(*CGameServers_IPsWithSteamIDs_Response_Server)(nil),    // 14: CGameServers_IPsWithSteamIDs_Response.Server
+	(*CMsgGameServerPlayersQueryData_Player)(nil),           // 15: CMsgGameServerPlayersQueryData.Player
+	(*CMsgGameServerRulesQueryData_Rule)(nil),               // 16: CMsgGameServerRulesQueryData.Rule
+	(*CGameServers_FriendsQuery_Response_Player)(nil),       // 17: CGameServers_FriendsQuery_Response.Player
+	(*CMsgIPAddress)(nil),                                   // 18: CMsgIPAddress
+	(*NoResponse)(nil),                                      // 19: NoResponse
 }
 var file_steammessages_gameservers_steamclient_proto_depIdxs = []int32{
-	12, // 0: CGameServers_IPsWithSteamIDs_Response.servers:type_name -> CGameServers_IPsWithSteamIDs_Response.Server
+	14, // 0: CGameServers_IPsWithSteamIDs_Response.servers:type_name -> CGameServers_IPsWithSteamIDs_Response.Server
 	0,  // 1: CGameServers_QueryByFakeIP_Request.query_type:type_name -> CGameServers_QueryByFakeIP_Request.EQueryType
-	15, // 2: CMsgGameServerPingQueryData.server_ip:type_name -> CMsgIPAddress
-	13, // 3: CMsgGameServerPlayersQueryData.players:type_name -> CMsgGameServerPlayersQueryData.Player
-	14, // 4: CMsgGameServerRulesQueryData.rules:type_name -> CMsgGameServerRulesQueryData.Rule
+	18, // 2: CMsgGameServerPingQueryData.server_ip:type_name -> CMsgIPAddress
+	15, // 3: CMsgGameServerPlayersQueryData.players:type_name -> CMsgGameServerPlayersQueryData.Player
+	16, // 4: CMsgGameServerRulesQueryData.rules:type_name -> CMsgGameServerRulesQueryData.Rule
 	5,  // 5: CGameServers_GameServerQuery_Response.ping_data:type_name -> CMsgGameServerPingQueryData
 	6,  // 6: CGameServers_GameServerQuery_Response.players_data:type_name -> CMsgGameServerPlayersQueryData
 	7,  // 7: CGameServers_GameServerQuery_Response.rules_data:type_name -> CMsgGameServerRulesQueryData
-	5,  // 8: CGameServers_ReportServerPingReply_Notification.server_data:type_name -> CMsgGameServerPingQueryData
-	5,  // 9: GameServerClient_QueryServerData_Response.ping_data:type_name -> CMsgGameServerPingQueryData
-	6,  // 10: GameServerClient_QueryServerData_Response.players_data:type_name -> CMsgGameServerPlayersQueryData
-	7,  // 11: GameServerClient_QueryServerData_Response.rules_data:type_name -> CMsgGameServerRulesQueryData
-	1,  // 12: GameServers.GetServerSteamIDsByIP:input_type -> CGameServers_GetServerSteamIDsByIP_Request
-	3,  // 13: GameServers.GetServerIPsBySteamID:input_type -> CGameServers_GetServerIPsBySteamID_Request
-	4,  // 14: GameServers.QueryByFakeIP:input_type -> CGameServers_QueryByFakeIP_Request
-	9,  // 15: GameServers.ReportServerPingReply:input_type -> CGameServers_ReportServerPingReply_Notification
-	10, // 16: GameServerClient.QueryServerData:input_type -> GameServerClient_QueryServerData_Request
-	2,  // 17: GameServers.GetServerSteamIDsByIP:output_type -> CGameServers_IPsWithSteamIDs_Response
-	2,  // 18: GameServers.GetServerIPsBySteamID:output_type -> CGameServers_IPsWithSteamIDs_Response
-	8,  // 19: GameServers.QueryByFakeIP:output_type -> CGameServers_GameServerQuery_Response
-	16, // 20: GameServers.ReportServerPingReply:output_type -> NoResponse
-	11, // 21: GameServerClient.QueryServerData:output_type -> GameServerClient_QueryServerData_Response
-	17, // [17:22] is the sub-list for method output_type
-	12, // [12:17] is the sub-list for method input_type
-	12, // [12:12] is the sub-list for extension type_name
-	12, // [12:12] is the sub-list for extension extendee
-	0,  // [0:12] is the sub-list for field type_name
+	17, // 8: CGameServers_FriendsQuery_Response.players:type_name -> CGameServers_FriendsQuery_Response.Player
+	5,  // 9: CGameServers_ReportServerPingReply_Notification.server_data:type_name -> CMsgGameServerPingQueryData
+	5,  // 10: GameServerClient_QueryServerData_Response.ping_data:type_name -> CMsgGameServerPingQueryData
+	6,  // 11: GameServerClient_QueryServerData_Response.players_data:type_name -> CMsgGameServerPlayersQueryData
+	7,  // 12: GameServerClient_QueryServerData_Response.rules_data:type_name -> CMsgGameServerRulesQueryData
+	1,  // 13: GameServers.GetServerSteamIDsByIP:input_type -> CGameServers_GetServerSteamIDsByIP_Request
+	3,  // 14: GameServers.GetServerIPsBySteamID:input_type -> CGameServers_GetServerIPsBySteamID_Request
+	4,  // 15: GameServers.QueryByFakeIP:input_type -> CGameServers_QueryByFakeIP_Request
+	9,  // 16: GameServers.FriendsQuery:input_type -> CGameServers_FriendsQuery_Request
+	11, // 17: GameServers.ReportServerPingReply:input_type -> CGameServers_ReportServerPingReply_Notification
+	12, // 18: GameServerClient.QueryServerData:input_type -> GameServerClient_QueryServerData_Request
+	2,  // 19: GameServers.GetServerSteamIDsByIP:output_type -> CGameServers_IPsWithSteamIDs_Response
+	2,  // 20: GameServers.GetServerIPsBySteamID:output_type -> CGameServers_IPsWithSteamIDs_Response
+	8,  // 21: GameServers.QueryByFakeIP:output_type -> CGameServers_GameServerQuery_Response
+	10, // 22: GameServers.FriendsQuery:output_type -> CGameServers_FriendsQuery_Response
+	19, // 23: GameServers.ReportServerPingReply:output_type -> NoResponse
+	13, // 24: GameServerClient.QueryServerData:output_type -> GameServerClient_QueryServerData_Response
+	19, // [19:25] is the sub-list for method output_type
+	13, // [13:19] is the sub-list for method input_type
+	13, // [13:13] is the sub-list for extension type_name
+	13, // [13:13] is the sub-list for extension extendee
+	0,  // [0:13] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_gameservers_steamclient_proto_init() }
@@ -1127,7 +1319,7 @@ func file_steammessages_gameservers_steamclient_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_gameservers_steamclient_proto_rawDesc), len(file_steammessages_gameservers_steamclient_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   14,
+			NumMessages:   17,
 			NumExtensions: 0,
 			NumServices:   2,
 		},

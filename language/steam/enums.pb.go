@@ -1076,6 +1076,7 @@ const (
 	ESpeakerConfiguration_k_ESpeakerConfiguration_Stereo ESpeakerConfiguration = 1
 	ESpeakerConfiguration_k_ESpeakerConfiguration_51     ESpeakerConfiguration = 2
 	ESpeakerConfiguration_k_ESpeakerConfiguration_71     ESpeakerConfiguration = 3
+	ESpeakerConfiguration_k_ESpeakerConfiguration_51_Ac3 ESpeakerConfiguration = 4
 )
 
 // Enum value maps for ESpeakerConfiguration.
@@ -1085,12 +1086,14 @@ var (
 		1: "k_ESpeakerConfiguration_Stereo",
 		2: "k_ESpeakerConfiguration_51",
 		3: "k_ESpeakerConfiguration_71",
+		4: "k_ESpeakerConfiguration_51_Ac3",
 	}
 	ESpeakerConfiguration_value = map[string]int32{
 		"k_ESpeakerConfiguration_Other":  0,
 		"k_ESpeakerConfiguration_Stereo": 1,
 		"k_ESpeakerConfiguration_51":     2,
 		"k_ESpeakerConfiguration_71":     3,
+		"k_ESpeakerConfiguration_51_Ac3": 4,
 	}
 )
 
@@ -5119,7 +5122,7 @@ type EContentReportSubjectType int32
 const (
 	EContentReportSubjectType_k_EContentReportSubjectType_Invalid       EContentReportSubjectType = 0
 	EContentReportSubjectType_k_EContentReportSubjectType_ForumPost     EContentReportSubjectType = 1
-	EContentReportSubjectType_k_EContentReportSubjectType_Unused        EContentReportSubjectType = 2
+	EContentReportSubjectType_k_EContentReportSubjectType_CommentThread EContentReportSubjectType = 2
 	EContentReportSubjectType_k_EContentReportSubjectType_UGCFile       EContentReportSubjectType = 3
 	EContentReportSubjectType_k_EContentReportSubjectType_FriendChatMsg EContentReportSubjectType = 4
 	EContentReportSubjectType_k_EContentReportSubjectType_ChatRoomMsg   EContentReportSubjectType = 5
@@ -5132,7 +5135,7 @@ var (
 	EContentReportSubjectType_name = map[int32]string{
 		0: "k_EContentReportSubjectType_Invalid",
 		1: "k_EContentReportSubjectType_ForumPost",
-		2: "k_EContentReportSubjectType_Unused",
+		2: "k_EContentReportSubjectType_CommentThread",
 		3: "k_EContentReportSubjectType_UGCFile",
 		4: "k_EContentReportSubjectType_FriendChatMsg",
 		5: "k_EContentReportSubjectType_ChatRoomMsg",
@@ -5142,7 +5145,7 @@ var (
 	EContentReportSubjectType_value = map[string]int32{
 		"k_EContentReportSubjectType_Invalid":       0,
 		"k_EContentReportSubjectType_ForumPost":     1,
-		"k_EContentReportSubjectType_Unused":        2,
+		"k_EContentReportSubjectType_CommentThread": 2,
 		"k_EContentReportSubjectType_UGCFile":       3,
 		"k_EContentReportSubjectType_FriendChatMsg": 4,
 		"k_EContentReportSubjectType_ChatRoomMsg":   5,
@@ -5513,7 +5516,7 @@ const (
 	EContentReportSubjectAction_k_EContentReportSubjectAction_Updated               EContentReportSubjectAction = 5
 	EContentReportSubjectAction_k_EContentReportSubjectAction_Escalated             EContentReportSubjectAction = 6
 	EContentReportSubjectAction_k_EContentReportSubjectAction_Disputed              EContentReportSubjectAction = 7
-	EContentReportSubjectAction_k_EContentReportSubjectAction_SustainedOnDispute    EContentReportSubjectAction = 8
+	EContentReportSubjectAction_k_EContentReportSubjectAction_Sustained             EContentReportSubjectAction = 8
 	EContentReportSubjectAction_k_EContentReportSubjectAction_Locked                EContentReportSubjectAction = 9
 	EContentReportSubjectAction_k_EContentReportSubjectAction_Unlocked              EContentReportSubjectAction = 10
 	EContentReportSubjectAction_k_EContentReportSubjectAction_Deleted               EContentReportSubjectAction = 11
@@ -5542,7 +5545,7 @@ var (
 		5:  "k_EContentReportSubjectAction_Updated",
 		6:  "k_EContentReportSubjectAction_Escalated",
 		7:  "k_EContentReportSubjectAction_Disputed",
-		8:  "k_EContentReportSubjectAction_SustainedOnDispute",
+		8:  "k_EContentReportSubjectAction_Sustained",
 		9:  "k_EContentReportSubjectAction_Locked",
 		10: "k_EContentReportSubjectAction_Unlocked",
 		11: "k_EContentReportSubjectAction_Deleted",
@@ -5568,7 +5571,7 @@ var (
 		"k_EContentReportSubjectAction_Updated":               5,
 		"k_EContentReportSubjectAction_Escalated":             6,
 		"k_EContentReportSubjectAction_Disputed":              7,
-		"k_EContentReportSubjectAction_SustainedOnDispute":    8,
+		"k_EContentReportSubjectAction_Sustained":             8,
 		"k_EContentReportSubjectAction_Locked":                9,
 		"k_EContentReportSubjectAction_Unlocked":              10,
 		"k_EContentReportSubjectAction_Deleted":               11,
@@ -6297,12 +6300,13 @@ const file_enums_proto_rawDesc = "" +
 	"\x1ek_BluetoothDeviceType_Joystick\x10\t\x12!\n" +
 	"\x1dk_BluetoothDeviceType_Gamepad\x10\n" +
 	"\x12\"\n" +
-	"\x1ek_BluetoothDeviceType_Keyboard\x10\v*\x9e\x01\n" +
+	"\x1ek_BluetoothDeviceType_Keyboard\x10\v*\xc2\x01\n" +
 	"\x15ESpeakerConfiguration\x12!\n" +
 	"\x1dk_ESpeakerConfiguration_Other\x10\x00\x12\"\n" +
 	"\x1ek_ESpeakerConfiguration_Stereo\x10\x01\x12\x1e\n" +
 	"\x1ak_ESpeakerConfiguration_51\x10\x02\x12\x1e\n" +
-	"\x1ak_ESpeakerConfiguration_71\x10\x03*\x80\x01\n" +
+	"\x1ak_ESpeakerConfiguration_71\x10\x03\x12\"\n" +
+	"\x1ek_ESpeakerConfiguration_51_Ac3\x10\x04*\x80\x01\n" +
 	"\x15ESystemAudioDirection\x12\"\n" +
 	"\x1ek_SystemAudioDirection_Invalid\x10\x00\x12 \n" +
 	"\x1ck_SystemAudioDirection_Input\x10\x01\x12!\n" +
@@ -6729,11 +6733,11 @@ const file_enums_proto_rawDesc = "" +
 	"%k_EnhancedMarketAppearanceStatus_None\x10\x00\x12,\n" +
 	"(k_EnhancedMarketAppearanceStatus_Pending\x10\x01\x12/\n" +
 	"+k_EnhancedMarketAppearanceStatus_InProgress\x10\x02\x12.\n" +
-	"*k_EnhancedMarketAppearanceStatus_Completed\x10\x03*\xec\x02\n" +
+	"*k_EnhancedMarketAppearanceStatus_Completed\x10\x03*\xf3\x02\n" +
 	"\x19EContentReportSubjectType\x12'\n" +
 	"#k_EContentReportSubjectType_Invalid\x10\x00\x12)\n" +
-	"%k_EContentReportSubjectType_ForumPost\x10\x01\x12&\n" +
-	"\"k_EContentReportSubjectType_Unused\x10\x02\x12'\n" +
+	"%k_EContentReportSubjectType_ForumPost\x10\x01\x12-\n" +
+	")k_EContentReportSubjectType_CommentThread\x10\x02\x12'\n" +
 	"#k_EContentReportSubjectType_UGCFile\x10\x03\x12-\n" +
 	")k_EContentReportSubjectType_FriendChatMsg\x10\x04\x12+\n" +
 	"'k_EContentReportSubjectType_ChatRoomMsg\x10\x05\x12)\n" +
@@ -6783,7 +6787,7 @@ const file_enums_proto_rawDesc = "" +
 	",k_EContentModerationSanction_KickedFromGroup\x10\t\x121\n" +
 	"-k_EContentModerationSanction_HarassmentBanned\x10\n" +
 	"\x12$\n" +
-	" k_EContentModerationSanction_MAX\x10\v*\x88\t\n" +
+	" k_EContentModerationSanction_MAX\x10\v*\xff\b\n" +
 	"\x1bEContentReportSubjectAction\x12)\n" +
 	"%k_EContentReportSubjectAction_Invalid\x10\x00\x12,\n" +
 	"(k_EContentReportSubjectAction_Unresolved\x10\x01\x12,\n" +
@@ -6792,8 +6796,8 @@ const file_enums_proto_rawDesc = "" +
 	"'k_EContentReportSubjectAction_Cancelled\x10\x04\x12)\n" +
 	"%k_EContentReportSubjectAction_Updated\x10\x05\x12+\n" +
 	"'k_EContentReportSubjectAction_Escalated\x10\x06\x12*\n" +
-	"&k_EContentReportSubjectAction_Disputed\x10\a\x124\n" +
-	"0k_EContentReportSubjectAction_SustainedOnDispute\x10\b\x12(\n" +
+	"&k_EContentReportSubjectAction_Disputed\x10\a\x12+\n" +
+	"'k_EContentReportSubjectAction_Sustained\x10\b\x12(\n" +
 	"$k_EContentReportSubjectAction_Locked\x10\t\x12*\n" +
 	"&k_EContentReportSubjectAction_Unlocked\x10\n" +
 	"\x12)\n" +
