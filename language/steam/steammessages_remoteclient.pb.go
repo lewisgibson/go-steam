@@ -92,6 +92,62 @@ func (ERemoteClientPairWifiAPResult) EnumDescriptor() ([]byte, []int) {
 	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{0}
 }
 
+type EStreamingDongleFixResult int32
+
+const (
+	EStreamingDongleFixResult_k_EStreamingDongleFixResultSuccess EStreamingDongleFixResult = 1
+	EStreamingDongleFixResult_k_EStreamingDongleFixResultFailure EStreamingDongleFixResult = 2
+)
+
+// Enum value maps for EStreamingDongleFixResult.
+var (
+	EStreamingDongleFixResult_name = map[int32]string{
+		1: "k_EStreamingDongleFixResultSuccess",
+		2: "k_EStreamingDongleFixResultFailure",
+	}
+	EStreamingDongleFixResult_value = map[string]int32{
+		"k_EStreamingDongleFixResultSuccess": 1,
+		"k_EStreamingDongleFixResultFailure": 2,
+	}
+)
+
+func (x EStreamingDongleFixResult) Enum() *EStreamingDongleFixResult {
+	p := new(EStreamingDongleFixResult)
+	*p = x
+	return p
+}
+
+func (x EStreamingDongleFixResult) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (EStreamingDongleFixResult) Descriptor() protoreflect.EnumDescriptor {
+	return file_steammessages_remoteclient_proto_enumTypes[1].Descriptor()
+}
+
+func (EStreamingDongleFixResult) Type() protoreflect.EnumType {
+	return &file_steammessages_remoteclient_proto_enumTypes[1]
+}
+
+func (x EStreamingDongleFixResult) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *EStreamingDongleFixResult) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = EStreamingDongleFixResult(num)
+	return nil
+}
+
+// Deprecated: Use EStreamingDongleFixResult.Descriptor instead.
+func (EStreamingDongleFixResult) EnumDescriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{1}
+}
+
 type CMsgRemoteClientStatus struct {
 	state         protoimpl.MessageState           `protogen:"open.v1"`
 	ClientId      *uint64                          `protobuf:"varint,1,opt,name=client_id,json=clientId" json:"client_id,omitempty"`
@@ -1329,6 +1385,7 @@ type CMsgRemoteClientStartStream struct {
 	MaximumFramerateNumerator   *int32                                         `protobuf:"varint,12,opt,name=maximum_framerate_numerator,json=maximumFramerateNumerator" json:"maximum_framerate_numerator,omitempty"`
 	MaximumFramerateDenominator *int32                                         `protobuf:"varint,13,opt,name=maximum_framerate_denominator,json=maximumFramerateDenominator" json:"maximum_framerate_denominator,omitempty"`
 	DisplayHdr                  *bool                                          `protobuf:"varint,14,opt,name=display_hdr,json=displayHdr" json:"display_hdr,omitempty"`
+	LaunchOnly                  *bool                                          `protobuf:"varint,15,opt,name=launch_only,json=launchOnly,def=0" json:"launch_only,omitempty"`
 	unknownFields               protoimpl.UnknownFields
 	sizeCache                   protoimpl.SizeCache
 }
@@ -1338,6 +1395,7 @@ const (
 	Default_CMsgRemoteClientStartStream_LaunchOption      = int32(-1)
 	Default_CMsgRemoteClientStartStream_LockParentalLock  = bool(false)
 	Default_CMsgRemoteClientStartStream_AudioChannelCount = int32(2)
+	Default_CMsgRemoteClientStartStream_LaunchOnly        = bool(false)
 )
 
 func (x *CMsgRemoteClientStartStream) Reset() {
@@ -1468,6 +1526,13 @@ func (x *CMsgRemoteClientStartStream) GetDisplayHdr() bool {
 	return false
 }
 
+func (x *CMsgRemoteClientStartStream) GetLaunchOnly() bool {
+	if x != nil && x.LaunchOnly != nil {
+		return *x.LaunchOnly
+	}
+	return Default_CMsgRemoteClientStartStream_LaunchOnly
+}
+
 type CMsgRemoteClientStartStreamResponse struct {
 	state              protoimpl.MessageState `protogen:"open.v1"`
 	ELaunchResult      *int32                 `protobuf:"varint,1,opt,name=e_launch_result,json=eLaunchResult,def=2" json:"e_launch_result,omitempty"`
@@ -1481,6 +1546,7 @@ type CMsgRemoteClientStartStreamResponse struct {
 	LaunchTasksDone    *int32                 `protobuf:"varint,9,opt,name=launch_tasks_done,json=launchTasksDone" json:"launch_tasks_done,omitempty"`
 	LaunchTasksTotal   *int32                 `protobuf:"varint,10,opt,name=launch_tasks_total,json=launchTasksTotal" json:"launch_tasks_total,omitempty"`
 	VrConnectionParams *string                `protobuf:"bytes,11,opt,name=vr_connection_params,json=vrConnectionParams" json:"vr_connection_params,omitempty"`
+	LaunchOnly         *bool                  `protobuf:"varint,12,opt,name=launch_only,json=launchOnly,def=0" json:"launch_only,omitempty"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
@@ -1489,6 +1555,7 @@ type CMsgRemoteClientStartStreamResponse struct {
 const (
 	Default_CMsgRemoteClientStartStreamResponse_ELaunchResult = int32(2)
 	Default_CMsgRemoteClientStartStreamResponse_Transport     = EStreamTransport_k_EStreamTransportUDP
+	Default_CMsgRemoteClientStartStreamResponse_LaunchOnly    = bool(false)
 )
 
 func (x *CMsgRemoteClientStartStreamResponse) Reset() {
@@ -1596,6 +1663,13 @@ func (x *CMsgRemoteClientStartStreamResponse) GetVrConnectionParams() string {
 		return *x.VrConnectionParams
 	}
 	return ""
+}
+
+func (x *CMsgRemoteClientStartStreamResponse) GetLaunchOnly() bool {
+	if x != nil && x.LaunchOnly != nil {
+		return *x.LaunchOnly
+	}
+	return Default_CMsgRemoteClientStartStreamResponse_LaunchOnly
 }
 
 type CMsgRemoteClientPing struct {
@@ -2584,7 +2658,7 @@ const file_steammessages_remoteclient_proto_rawDesc = "" +
 	" CMsgRemoteClientDownloadingAppID\x12,\n" +
 	"\x12downloading_app_id\x18\x01 \x01(\rR\x10downloadingAppId\x12/\n" +
 	"\vupdate_info\x18\x02 \x01(\v2\x0e.AppUpdateInfoR\n" +
-	"updateInfo\"\xc0\x06\n" +
+	"updateInfo\"\xe8\x06\n" +
 	"\x1bCMsgRemoteClientStartStream\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12 \n" +
 	"\venvironment\x18\x02 \x01(\x05R\venvironment\x12#\n" +
@@ -2601,10 +2675,12 @@ const file_steammessages_remoteclient_proto_rawDesc = "" +
 	"\x1bmaximum_framerate_numerator\x18\f \x01(\x05R\x19maximumFramerateNumerator\x12B\n" +
 	"\x1dmaximum_framerate_denominator\x18\r \x01(\x05R\x1bmaximumFramerateDenominator\x12\x1f\n" +
 	"\vdisplay_hdr\x18\x0e \x01(\bR\n" +
-	"displayHdr\x1ai\n" +
+	"displayHdr\x12&\n" +
+	"\vlaunch_only\x18\x0f \x01(\b:\x05falseR\n" +
+	"launchOnly\x1ai\n" +
 	"\x0fReservedGamepad\x12'\n" +
 	"\x0fcontroller_type\x18\x01 \x01(\rR\x0econtrollerType\x12-\n" +
-	"\x12controller_subtype\x18\x02 \x01(\rR\x11controllerSubtype\"\xfd\x03\n" +
+	"\x12controller_subtype\x18\x02 \x01(\rR\x11controllerSubtype\"\xa5\x04\n" +
 	"#CMsgRemoteClientStartStreamResponse\x12)\n" +
 	"\x0fe_launch_result\x18\x01 \x01(\x05:\x012R\reLaunchResult\x12\x1f\n" +
 	"\vstream_port\x18\x02 \x01(\rR\n" +
@@ -2620,7 +2696,9 @@ const file_steammessages_remoteclient_proto_rawDesc = "" +
 	"\x11launch_tasks_done\x18\t \x01(\x05R\x0flaunchTasksDone\x12,\n" +
 	"\x12launch_tasks_total\x18\n" +
 	" \x01(\x05R\x10launchTasksTotal\x120\n" +
-	"\x14vr_connection_params\x18\v \x01(\tR\x12vrConnectionParams\"\x16\n" +
+	"\x14vr_connection_params\x18\v \x01(\tR\x12vrConnectionParams\x12&\n" +
+	"\vlaunch_only\x18\f \x01(\b:\x05falseR\n" +
+	"launchOnly\"\x16\n" +
 	"\x14CMsgRemoteClientPing\"\x1e\n" +
 	"\x1cCMsgRemoteClientPingResponse\"o\n" +
 	"\x1aCMsgRemoteClientAcceptEULA\x12\x15\n" +
@@ -2658,7 +2736,10 @@ const file_steammessages_remoteclient_proto_rawDesc = "" +
 	"%k_ERemoteClientPairWifiAPUnauthorized\x10\x04\x12,\n" +
 	"(k_ERemoteClientPairWifiAPNoDonglePresent\x10\x05\x12$\n" +
 	" k_ERemoteClientPairWifiAPTimeout\x10\x06\x12%\n" +
-	"!k_ERemoteClientPairWifiAPCanceled\x10\aB\x05H\x01\x80\x01\x00"
+	"!k_ERemoteClientPairWifiAPCanceled\x10\a*k\n" +
+	"\x19EStreamingDongleFixResult\x12&\n" +
+	"\"k_EStreamingDongleFixResultSuccess\x10\x01\x12&\n" +
+	"\"k_EStreamingDongleFixResultFailure\x10\x02B\x05H\x01\x80\x01\x00"
 
 var (
 	file_steammessages_remoteclient_proto_rawDescOnce sync.Once
@@ -2672,62 +2753,63 @@ func file_steammessages_remoteclient_proto_rawDescGZIP() []byte {
 	return file_steammessages_remoteclient_proto_rawDescData
 }
 
-var file_steammessages_remoteclient_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_steammessages_remoteclient_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_steammessages_remoteclient_proto_msgTypes = make([]protoimpl.MessageInfo, 35)
 var file_steammessages_remoteclient_proto_goTypes = []any{
 	(ERemoteClientPairWifiAPResult)(0),                                  // 0: ERemoteClientPairWifiAPResult
-	(*CMsgRemoteClientStatus)(nil),                                      // 1: CMsgRemoteClientStatus
-	(*CMsgRemoteClientDownloadStatus)(nil),                              // 2: CMsgRemoteClientDownloadStatus
-	(*CMsgRemoteClientUploadStatus)(nil),                                // 3: CMsgRemoteClientUploadStatus
-	(*CMsgRemoteClientRestrictAutoUpdates)(nil),                         // 4: CMsgRemoteClientRestrictAutoUpdates
-	(*AppStageProgress)(nil),                                            // 5: AppStageProgress
-	(*AppUpdateInfo)(nil),                                               // 6: AppUpdateInfo
-	(*AppCloudStatus)(nil),                                              // 7: AppCloudStatus
-	(*CMsgRemoteClientAppStatus)(nil),                                   // 8: CMsgRemoteClientAppStatus
-	(*CMsgRemoteClientDownloadsManagement)(nil),                         // 9: CMsgRemoteClientDownloadsManagement
-	(*CMsgRemoteClientUpdateDownloadsController)(nil),                   // 10: CMsgRemoteClientUpdateDownloadsController
-	(*CMsgRemoteClientPeerContentServerChanged)(nil),                    // 11: CMsgRemoteClientPeerContentServerChanged
-	(*CMsgRemoteClientDownloadingAppChanged)(nil),                       // 12: CMsgRemoteClientDownloadingAppChanged
-	(*CMsgRemoteClientSuspendLanPeerContent)(nil),                       // 13: CMsgRemoteClientSuspendLanPeerContent
-	(*CMsgRemoteClientDownloadScheduleChanged)(nil),                     // 14: CMsgRemoteClientDownloadScheduleChanged
-	(*CMsgRemoteClientDownloadScheduleItemChanged)(nil),                 // 15: CMsgRemoteClientDownloadScheduleItemChanged
-	(*CMsgRemoteClientAppUpdateStopped)(nil),                            // 16: CMsgRemoteClientAppUpdateStopped
-	(*CMsgRemoteClientAppUpdateInfoComplete)(nil),                       // 17: CMsgRemoteClientAppUpdateInfoComplete
-	(*CMsgRemoteClientDownloadingAppID)(nil),                            // 18: CMsgRemoteClientDownloadingAppID
-	(*CMsgRemoteClientStartStream)(nil),                                 // 19: CMsgRemoteClientStartStream
-	(*CMsgRemoteClientStartStreamResponse)(nil),                         // 20: CMsgRemoteClientStartStreamResponse
-	(*CMsgRemoteClientPing)(nil),                                        // 21: CMsgRemoteClientPing
-	(*CMsgRemoteClientPingResponse)(nil),                                // 22: CMsgRemoteClientPingResponse
-	(*CMsgRemoteClientAcceptEULA)(nil),                                  // 23: CMsgRemoteClientAcceptEULA
-	(*CMsgRemoteClientAcceptAllEULAs)(nil),                              // 24: CMsgRemoteClientAcceptAllEULAs
-	(*CMsgRemoteClientGetControllerConfig)(nil),                         // 25: CMsgRemoteClientGetControllerConfig
-	(*CMsgRemoteClientGetControllerConfigResponse)(nil),                 // 26: CMsgRemoteClientGetControllerConfigResponse
-	(*CMsgRemoteClientStreamingEnabled)(nil),                            // 27: CMsgRemoteClientStreamingEnabled
-	(*CMsgRemoteClientWifiAPStatus)(nil),                                // 28: CMsgRemoteClientWifiAPStatus
-	(*CMsgRemoteClientPairWifiAP)(nil),                                  // 29: CMsgRemoteClientPairWifiAP
-	(*CMsgRemoteClientPairWifiAPResponse)(nil),                          // 30: CMsgRemoteClientPairWifiAPResponse
-	(*CMsgRemoteClientAppStatus_AppStatus)(nil),                         // 31: CMsgRemoteClientAppStatus.AppStatus
-	(*CMsgRemoteClientAppStatus_ShortcutInfo)(nil),                      // 32: CMsgRemoteClientAppStatus.ShortcutInfo
-	(*CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement)(nil), // 33: CMsgRemoteClientDownloadsManagement.ChangeAppQueuePlacement
-	(*CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex)(nil),     // 34: CMsgRemoteClientDownloadsManagement.ChangeDownloadIndex
-	(*CMsgRemoteClientStartStream_ReservedGamepad)(nil),                 // 35: CMsgRemoteClientStartStream.ReservedGamepad
-	(*CMsgRemoteClientBroadcastStatus)(nil),                             // 36: CMsgRemoteClientBroadcastStatus
-	(EStreamTransport)(0),                                               // 37: EStreamTransport
+	(EStreamingDongleFixResult)(0),                                      // 1: EStreamingDongleFixResult
+	(*CMsgRemoteClientStatus)(nil),                                      // 2: CMsgRemoteClientStatus
+	(*CMsgRemoteClientDownloadStatus)(nil),                              // 3: CMsgRemoteClientDownloadStatus
+	(*CMsgRemoteClientUploadStatus)(nil),                                // 4: CMsgRemoteClientUploadStatus
+	(*CMsgRemoteClientRestrictAutoUpdates)(nil),                         // 5: CMsgRemoteClientRestrictAutoUpdates
+	(*AppStageProgress)(nil),                                            // 6: AppStageProgress
+	(*AppUpdateInfo)(nil),                                               // 7: AppUpdateInfo
+	(*AppCloudStatus)(nil),                                              // 8: AppCloudStatus
+	(*CMsgRemoteClientAppStatus)(nil),                                   // 9: CMsgRemoteClientAppStatus
+	(*CMsgRemoteClientDownloadsManagement)(nil),                         // 10: CMsgRemoteClientDownloadsManagement
+	(*CMsgRemoteClientUpdateDownloadsController)(nil),                   // 11: CMsgRemoteClientUpdateDownloadsController
+	(*CMsgRemoteClientPeerContentServerChanged)(nil),                    // 12: CMsgRemoteClientPeerContentServerChanged
+	(*CMsgRemoteClientDownloadingAppChanged)(nil),                       // 13: CMsgRemoteClientDownloadingAppChanged
+	(*CMsgRemoteClientSuspendLanPeerContent)(nil),                       // 14: CMsgRemoteClientSuspendLanPeerContent
+	(*CMsgRemoteClientDownloadScheduleChanged)(nil),                     // 15: CMsgRemoteClientDownloadScheduleChanged
+	(*CMsgRemoteClientDownloadScheduleItemChanged)(nil),                 // 16: CMsgRemoteClientDownloadScheduleItemChanged
+	(*CMsgRemoteClientAppUpdateStopped)(nil),                            // 17: CMsgRemoteClientAppUpdateStopped
+	(*CMsgRemoteClientAppUpdateInfoComplete)(nil),                       // 18: CMsgRemoteClientAppUpdateInfoComplete
+	(*CMsgRemoteClientDownloadingAppID)(nil),                            // 19: CMsgRemoteClientDownloadingAppID
+	(*CMsgRemoteClientStartStream)(nil),                                 // 20: CMsgRemoteClientStartStream
+	(*CMsgRemoteClientStartStreamResponse)(nil),                         // 21: CMsgRemoteClientStartStreamResponse
+	(*CMsgRemoteClientPing)(nil),                                        // 22: CMsgRemoteClientPing
+	(*CMsgRemoteClientPingResponse)(nil),                                // 23: CMsgRemoteClientPingResponse
+	(*CMsgRemoteClientAcceptEULA)(nil),                                  // 24: CMsgRemoteClientAcceptEULA
+	(*CMsgRemoteClientAcceptAllEULAs)(nil),                              // 25: CMsgRemoteClientAcceptAllEULAs
+	(*CMsgRemoteClientGetControllerConfig)(nil),                         // 26: CMsgRemoteClientGetControllerConfig
+	(*CMsgRemoteClientGetControllerConfigResponse)(nil),                 // 27: CMsgRemoteClientGetControllerConfigResponse
+	(*CMsgRemoteClientStreamingEnabled)(nil),                            // 28: CMsgRemoteClientStreamingEnabled
+	(*CMsgRemoteClientWifiAPStatus)(nil),                                // 29: CMsgRemoteClientWifiAPStatus
+	(*CMsgRemoteClientPairWifiAP)(nil),                                  // 30: CMsgRemoteClientPairWifiAP
+	(*CMsgRemoteClientPairWifiAPResponse)(nil),                          // 31: CMsgRemoteClientPairWifiAPResponse
+	(*CMsgRemoteClientAppStatus_AppStatus)(nil),                         // 32: CMsgRemoteClientAppStatus.AppStatus
+	(*CMsgRemoteClientAppStatus_ShortcutInfo)(nil),                      // 33: CMsgRemoteClientAppStatus.ShortcutInfo
+	(*CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement)(nil), // 34: CMsgRemoteClientDownloadsManagement.ChangeAppQueuePlacement
+	(*CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex)(nil),     // 35: CMsgRemoteClientDownloadsManagement.ChangeDownloadIndex
+	(*CMsgRemoteClientStartStream_ReservedGamepad)(nil),                 // 36: CMsgRemoteClientStartStream.ReservedGamepad
+	(*CMsgRemoteClientBroadcastStatus)(nil),                             // 37: CMsgRemoteClientBroadcastStatus
+	(EStreamTransport)(0),                                               // 38: EStreamTransport
 }
 var file_steammessages_remoteclient_proto_depIdxs = []int32{
-	36, // 0: CMsgRemoteClientStatus.status:type_name -> CMsgRemoteClientBroadcastStatus
-	5,  // 1: AppUpdateInfo.progress_weights:type_name -> AppStageProgress
-	31, // 2: CMsgRemoteClientAppStatus.status_updates:type_name -> CMsgRemoteClientAppStatus.AppStatus
-	33, // 3: CMsgRemoteClientDownloadsManagement.change_queue_placement:type_name -> CMsgRemoteClientDownloadsManagement.ChangeAppQueuePlacement
-	34, // 4: CMsgRemoteClientDownloadsManagement.change_download_index:type_name -> CMsgRemoteClientDownloadsManagement.ChangeDownloadIndex
-	6,  // 5: CMsgRemoteClientAppUpdateStopped.update_info:type_name -> AppUpdateInfo
-	6,  // 6: CMsgRemoteClientDownloadingAppID.update_info:type_name -> AppUpdateInfo
-	35, // 7: CMsgRemoteClientStartStream.gamepads:type_name -> CMsgRemoteClientStartStream.ReservedGamepad
-	37, // 8: CMsgRemoteClientStartStream.supported_transport:type_name -> EStreamTransport
-	37, // 9: CMsgRemoteClientStartStreamResponse.transport:type_name -> EStreamTransport
-	6,  // 10: CMsgRemoteClientAppStatus.AppStatus.update_info:type_name -> AppUpdateInfo
-	32, // 11: CMsgRemoteClientAppStatus.AppStatus.shortcut_info:type_name -> CMsgRemoteClientAppStatus.ShortcutInfo
-	7,  // 12: CMsgRemoteClientAppStatus.AppStatus.cloud_status:type_name -> AppCloudStatus
+	37, // 0: CMsgRemoteClientStatus.status:type_name -> CMsgRemoteClientBroadcastStatus
+	6,  // 1: AppUpdateInfo.progress_weights:type_name -> AppStageProgress
+	32, // 2: CMsgRemoteClientAppStatus.status_updates:type_name -> CMsgRemoteClientAppStatus.AppStatus
+	34, // 3: CMsgRemoteClientDownloadsManagement.change_queue_placement:type_name -> CMsgRemoteClientDownloadsManagement.ChangeAppQueuePlacement
+	35, // 4: CMsgRemoteClientDownloadsManagement.change_download_index:type_name -> CMsgRemoteClientDownloadsManagement.ChangeDownloadIndex
+	7,  // 5: CMsgRemoteClientAppUpdateStopped.update_info:type_name -> AppUpdateInfo
+	7,  // 6: CMsgRemoteClientDownloadingAppID.update_info:type_name -> AppUpdateInfo
+	36, // 7: CMsgRemoteClientStartStream.gamepads:type_name -> CMsgRemoteClientStartStream.ReservedGamepad
+	38, // 8: CMsgRemoteClientStartStream.supported_transport:type_name -> EStreamTransport
+	38, // 9: CMsgRemoteClientStartStreamResponse.transport:type_name -> EStreamTransport
+	7,  // 10: CMsgRemoteClientAppStatus.AppStatus.update_info:type_name -> AppUpdateInfo
+	33, // 11: CMsgRemoteClientAppStatus.AppStatus.shortcut_info:type_name -> CMsgRemoteClientAppStatus.ShortcutInfo
+	8,  // 12: CMsgRemoteClientAppStatus.AppStatus.cloud_status:type_name -> AppCloudStatus
 	13, // [13:13] is the sub-list for method output_type
 	13, // [13:13] is the sub-list for method input_type
 	13, // [13:13] is the sub-list for extension type_name
@@ -2747,7 +2829,7 @@ func file_steammessages_remoteclient_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_remoteclient_proto_rawDesc), len(file_steammessages_remoteclient_proto_rawDesc)),
-			NumEnums:      1,
+			NumEnums:      2,
 			NumMessages:   35,
 			NumExtensions: 0,
 			NumServices:   0,

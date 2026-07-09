@@ -897,6 +897,8 @@ type CMsgClientSettings struct {
 	RemotePlayWifiApShowAdvanced          *bool                     `protobuf:"varint,27008,opt,name=remote_play_wifi_ap_show_advanced,json=remotePlayWifiApShowAdvanced" json:"remote_play_wifi_ap_show_advanced,omitempty"`
 	RemotePlayWifiApPairedSsid            *string                   `protobuf:"bytes,27009,opt,name=remote_play_wifi_ap_paired_ssid,json=remotePlayWifiApPairedSsid" json:"remote_play_wifi_ap_paired_ssid,omitempty"`
 	SkipSteamframePairingDialog           *bool                     `protobuf:"varint,27010,opt,name=skip_steamframe_pairing_dialog,json=skipSteamframePairingDialog" json:"skip_steamframe_pairing_dialog,omitempty"`
+	SkipSteamframeTroubleshootingDialog   *bool                     `protobuf:"varint,27011,opt,name=skip_steamframe_troubleshooting_dialog,json=skipSteamframeTroubleshootingDialog" json:"skip_steamframe_troubleshooting_dialog,omitempty"`
+	SkipSteamframeAirplaneDialog          *bool                     `protobuf:"varint,27012,opt,name=skip_steamframe_airplane_dialog,json=skipSteamframeAirplaneDialog" json:"skip_steamframe_airplane_dialog,omitempty"`
 	OobeCompleted                         *bool                     `protobuf:"varint,28001,opt,name=oobe_completed,json=oobeCompleted" json:"oobe_completed,omitempty"`
 	OobeTestModeEnabled                   *bool                     `protobuf:"varint,28002,opt,name=oobe_test_mode_enabled,json=oobeTestModeEnabled" json:"oobe_test_mode_enabled,omitempty"`
 	ForceOobe                             *bool                     `protobuf:"varint,28003,opt,name=force_oobe,json=forceOobe" json:"force_oobe,omitempty"`
@@ -2755,6 +2757,20 @@ func (x *CMsgClientSettings) GetSkipSteamframePairingDialog() bool {
 	return false
 }
 
+func (x *CMsgClientSettings) GetSkipSteamframeTroubleshootingDialog() bool {
+	if x != nil && x.SkipSteamframeTroubleshootingDialog != nil {
+		return *x.SkipSteamframeTroubleshootingDialog
+	}
+	return false
+}
+
+func (x *CMsgClientSettings) GetSkipSteamframeAirplaneDialog() bool {
+	if x != nil && x.SkipSteamframeAirplaneDialog != nil {
+		return *x.SkipSteamframeAirplaneDialog
+	}
+	return false
+}
+
 func (x *CMsgClientSettings) GetOobeCompleted() bool {
 	if x != nil && x.OobeCompleted != nil {
 		return *x.OobeCompleted
@@ -2958,7 +2974,7 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"valueFloat\x12#\n" +
 	"\fvalue_string\x18\a \x01(\tH\x00R\vvalueString\x120\n" +
 	"\fvalue_hotkey\x18\b \x01(\v2\v.CMsgHotkeyH\x00R\vvalueHotkeyB\a\n" +
-	"\x05value\"\xfc\xd8\x01\n" +
+	"\x05value\"\x9d\xdb\x01\n" +
 	"\x12CMsgClientSettings\x12b\n" +
 	"\x15no_save_personal_info\x18\x01 \x01(\bB/\x80\xa6\x1d\x01\x8a\xa6\x1d'Software\\Valve\\Steam\\NoSavePersonalInfoR\x12noSavePersonalInfo\x12.\n" +
 	"\x0ein_client_beta\x18\x03 \x01(\bB\b\x80\xa6\x1d\x05\x90\xa6\x1d\x01R\finClientBeta\x128\n" +
@@ -3221,7 +3237,9 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"#remote_play_wifi_ap_hotspot_routing\x18\xff\xd2\x01 \x01(\tB4\x80\xa6\x1d\x01\x8a\xa6\x1d!streaming_v2\\WifiAPHotspotRouting\xba\xa6\x1d\anorouteR\x1eremotePlayWifiApHotspotRouting\x12v\n" +
 	"!remote_play_wifi_ap_show_advanced\x18\x80\xd3\x01 \x01(\bB+\x80\xa6\x1d\x03\x8a\xa6\x1d\x1fstreaming_v2/WifiAPShowAdvanced\x98\xa6\x1d\x00R\x1cremotePlayWifiApShowAdvanced\x12p\n" +
 	"\x1fremote_play_wifi_ap_paired_ssid\x18\x81\xd3\x01 \x01(\tB)\x80\xa6\x1d\x01\x8a\xa6\x1d\x1dstreaming_v2\\WifiAPPairedSSID\xba\xa6\x1d\x00R\x1aremotePlayWifiApPairedSsid\x12|\n" +
-	"\x1eskip_steamframe_pairing_dialog\x18\x82\xd3\x01 \x01(\bB5\x80\xa6\x1d\x03\x8a\xa6\x1d-system\\SteamFrameWirelessAdapterPairingDialogR\x1bskipSteamframePairingDialog\x12\x85\x01\n" +
+	"\x1eskip_steamframe_pairing_dialog\x18\x82\xd3\x01 \x01(\bB5\x80\xa6\x1d\x03\x8a\xa6\x1d-system\\SteamFrameWirelessAdapterPairingDialogR\x1bskipSteamframePairingDialog\x12\x98\x01\n" +
+	"&skip_steamframe_troubleshooting_dialog\x18\x83\xd3\x01 \x01(\bBA\x80\xa6\x1d\x03\x8a\xa6\x1d9system\\SteamFrameWirelessAdapterTroubleshootingDialogSkipR#skipSteamframeTroubleshootingDialog\x12\x83\x01\n" +
+	"\x1fskip_steamframe_airplane_dialog\x18\x84\xd3\x01 \x01(\bB:\x80\xa6\x1d\x03\x8a\xa6\x1d2system\\SteamFrameWirelessAdapterAirplaneDialogSkipR\x1cskipSteamframeAirplaneDialog\x12\x85\x01\n" +
 	"\x0eoobe_completed\x18\xe1\xda\x01 \x01(\bB\\\x80\xa6\x1d\x05\x90\xa6\x1d\x01ʦ\x1dPTrue if OOBE stage 1 has completed or we're on a platform where we don't do OOBER\roobeCompleted\x12\xba\x01\n" +
 	"\x16oobe_test_mode_enabled\x18\xe2\xda\x01 \x01(\bB\x82\x01\x80\xa6\x1d\x05\x90\xa6\x1d\x01\xc0\xa6\x1d\x01ʦ\x1drOOBE test mode is enabled either by passing -testoobe on the command line or setting the force_oobe client settingR\x13oobeTestModeEnabled\x12]\n" +
 	"\n" +
