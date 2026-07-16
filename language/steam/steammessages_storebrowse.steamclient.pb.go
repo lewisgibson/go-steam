@@ -3526,23 +3526,25 @@ func (x *StoreItem_ReleaseInfo) GetAdvanceAccessDate() uint32 {
 }
 
 type StoreItem_Platforms struct {
-	state                    protoimpl.MessageState           `protogen:"open.v1"`
-	Windows                  *bool                            `protobuf:"varint,1,opt,name=windows" json:"windows,omitempty"`
-	Mac                      *bool                            `protobuf:"varint,2,opt,name=mac" json:"mac,omitempty"`
-	SteamosLinux             *bool                            `protobuf:"varint,3,opt,name=steamos_linux,json=steamosLinux" json:"steamos_linux,omitempty"`
-	VrSupport                *StoreItem_Platforms_VRSupport   `protobuf:"bytes,10,opt,name=vr_support,json=vrSupport" json:"vr_support,omitempty"`
-	SteamDeckCompatCategory  *ESteamDeckCompatibilityCategory `protobuf:"varint,11,opt,name=steam_deck_compat_category,json=steamDeckCompatCategory,enum=ESteamDeckCompatibilityCategory,def=0" json:"steam_deck_compat_category,omitempty"`
-	SteamOsCompatCategory    *ESteamOSCompatibilityCategory   `protobuf:"varint,12,opt,name=steam_os_compat_category,json=steamOsCompatCategory,enum=ESteamOSCompatibilityCategory,def=0" json:"steam_os_compat_category,omitempty"`
-	SteamFrameCompatCategory *ESteamDeckCompatibilityCategory `protobuf:"varint,13,opt,name=steam_frame_compat_category,json=steamFrameCompatCategory,enum=ESteamDeckCompatibilityCategory,def=0" json:"steam_frame_compat_category,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state                      protoimpl.MessageState           `protogen:"open.v1"`
+	Windows                    *bool                            `protobuf:"varint,1,opt,name=windows" json:"windows,omitempty"`
+	Mac                        *bool                            `protobuf:"varint,2,opt,name=mac" json:"mac,omitempty"`
+	SteamosLinux               *bool                            `protobuf:"varint,3,opt,name=steamos_linux,json=steamosLinux" json:"steamos_linux,omitempty"`
+	VrSupport                  *StoreItem_Platforms_VRSupport   `protobuf:"bytes,10,opt,name=vr_support,json=vrSupport" json:"vr_support,omitempty"`
+	SteamDeckCompatCategory    *ESteamDeckCompatibilityCategory `protobuf:"varint,11,opt,name=steam_deck_compat_category,json=steamDeckCompatCategory,enum=ESteamDeckCompatibilityCategory,def=0" json:"steam_deck_compat_category,omitempty"`
+	SteamOsCompatCategory      *ESteamOSCompatibilityCategory   `protobuf:"varint,12,opt,name=steam_os_compat_category,json=steamOsCompatCategory,enum=ESteamOSCompatibilityCategory,def=0" json:"steam_os_compat_category,omitempty"`
+	SteamFrameCompatCategory   *ESteamDeckCompatibilityCategory `protobuf:"varint,13,opt,name=steam_frame_compat_category,json=steamFrameCompatCategory,enum=ESteamDeckCompatibilityCategory,def=0" json:"steam_frame_compat_category,omitempty"`
+	SteamMachineCompatCategory *ESteamDeckCompatibilityCategory `protobuf:"varint,14,opt,name=steam_machine_compat_category,json=steamMachineCompatCategory,enum=ESteamDeckCompatibilityCategory,def=0" json:"steam_machine_compat_category,omitempty"`
+	unknownFields              protoimpl.UnknownFields
+	sizeCache                  protoimpl.SizeCache
 }
 
 // Default values for StoreItem_Platforms fields.
 const (
-	Default_StoreItem_Platforms_SteamDeckCompatCategory  = ESteamDeckCompatibilityCategory_k_ESteamDeckCompatibilityCategory_Unknown
-	Default_StoreItem_Platforms_SteamOsCompatCategory    = ESteamOSCompatibilityCategory_k_ESteamOSCompatibilityCategory_Unknown
-	Default_StoreItem_Platforms_SteamFrameCompatCategory = ESteamDeckCompatibilityCategory_k_ESteamDeckCompatibilityCategory_Unknown
+	Default_StoreItem_Platforms_SteamDeckCompatCategory    = ESteamDeckCompatibilityCategory_k_ESteamDeckCompatibilityCategory_Unknown
+	Default_StoreItem_Platforms_SteamOsCompatCategory      = ESteamOSCompatibilityCategory_k_ESteamOSCompatibilityCategory_Unknown
+	Default_StoreItem_Platforms_SteamFrameCompatCategory   = ESteamDeckCompatibilityCategory_k_ESteamDeckCompatibilityCategory_Unknown
+	Default_StoreItem_Platforms_SteamMachineCompatCategory = ESteamDeckCompatibilityCategory_k_ESteamDeckCompatibilityCategory_Unknown
 )
 
 func (x *StoreItem_Platforms) Reset() {
@@ -3622,6 +3624,13 @@ func (x *StoreItem_Platforms) GetSteamFrameCompatCategory() ESteamDeckCompatibil
 		return *x.SteamFrameCompatCategory
 	}
 	return Default_StoreItem_Platforms_SteamFrameCompatCategory
+}
+
+func (x *StoreItem_Platforms) GetSteamMachineCompatCategory() ESteamDeckCompatibilityCategory {
+	if x != nil && x.SteamMachineCompatCategory != nil {
+		return *x.SteamMachineCompatCategory
+	}
+	return Default_StoreItem_Platforms_SteamMachineCompatCategory
 }
 
 type StoreItem_PurchaseOption struct {
@@ -5462,7 +5471,7 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\x1dCStoreBrowse_GetItems_Request\x12\x1e\n" +
 	"\x03ids\x18\x01 \x03(\v2\f.StoreItemIDR\x03ids\x12-\n" +
 	"\acontext\x18\x02 \x01(\v2\x13.StoreBrowseContextR\acontext\x12>\n" +
-	"\fdata_request\x18\x03 \x01(\v2\x1b.StoreBrowseItemDataRequestR\vdataRequest\"\xc7R\n" +
+	"\fdata_request\x18\x03 \x01(\v2\x1b.StoreBrowseItemDataRequestR\vdataRequest\"\xd8S\n" +
 	"\tStoreItem\x12F\n" +
 	"\titem_type\x18\x01 \x01(\x0e2\x0f.EStoreItemType:\x18k_EStoreItemType_InvalidR\bitemType\x12\x0e\n" +
 	"\x02id\x18\x02 \x01(\rR\x02id\x12\x18\n" +
@@ -5616,7 +5625,7 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\x10mac_release_date\x18\x14 \x01(\rR\x0emacReleaseDate\x12,\n" +
 	"\x12linux_release_date\x18\x15 \x01(\rR\x10linuxReleaseDate\x122\n" +
 	"\x15limited_launch_active\x18\x16 \x01(\bR\x13limitedLaunchActive\x12.\n" +
-	"\x13advance_access_date\x18\x17 \x01(\rR\x11advanceAccessDate\x1a\xf5\x05\n" +
+	"\x13advance_access_date\x18\x17 \x01(\rR\x11advanceAccessDate\x1a\x86\a\n" +
 	"\tPlatforms\x12\x18\n" +
 	"\awindows\x18\x01 \x01(\bR\awindows\x12\x10\n" +
 	"\x03mac\x18\x02 \x01(\bR\x03mac\x12#\n" +
@@ -5626,7 +5635,8 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	" \x01(\v2\x1e.StoreItem.Platforms.VRSupportR\tvrSupport\x12\x88\x01\n" +
 	"\x1asteam_deck_compat_category\x18\v \x01(\x0e2 .ESteamDeckCompatibilityCategory:)k_ESteamDeckCompatibilityCategory_UnknownR\x17steamDeckCompatCategory\x12\x80\x01\n" +
 	"\x18steam_os_compat_category\x18\f \x01(\x0e2\x1e.ESteamOSCompatibilityCategory:'k_ESteamOSCompatibilityCategory_UnknownR\x15steamOsCompatCategory\x12\x8a\x01\n" +
-	"\x1bsteam_frame_compat_category\x18\r \x01(\x0e2 .ESteamDeckCompatibilityCategory:)k_ESteamDeckCompatibilityCategory_UnknownR\x18steamFrameCompatCategory\x1a\xbc\x01\n" +
+	"\x1bsteam_frame_compat_category\x18\r \x01(\x0e2 .ESteamDeckCompatibilityCategory:)k_ESteamDeckCompatibilityCategory_UnknownR\x18steamFrameCompatCategory\x12\x8e\x01\n" +
+	"\x1dsteam_machine_compat_category\x18\x0e \x01(\x0e2 .ESteamDeckCompatibilityCategory:)k_ESteamDeckCompatibilityCategory_UnknownR\x1asteamMachineCompatCategory\x1a\xbc\x01\n" +
 	"\tVRSupport\x12\x14\n" +
 	"\x05vrhmd\x18\x01 \x01(\bR\x05vrhmd\x12\x1d\n" +
 	"\n" +
@@ -6129,38 +6139,39 @@ var file_steammessages_storebrowse_steamclient_proto_depIdxs = []int32{
 	65, // 61: StoreItem.Platforms.steam_deck_compat_category:type_name -> ESteamDeckCompatibilityCategory
 	66, // 62: StoreItem.Platforms.steam_os_compat_category:type_name -> ESteamOSCompatibilityCategory
 	65, // 63: StoreItem.Platforms.steam_frame_compat_category:type_name -> ESteamDeckCompatibilityCategory
-	51, // 64: StoreItem.PurchaseOption.active_discounts:type_name -> StoreItem.PurchaseOption.Discount
-	52, // 65: StoreItem.PurchaseOption.recurrence_info:type_name -> StoreItem.PurchaseOption.RecurrenceInfo
-	53, // 66: StoreItem.Screenshots.all_ages_screenshots:type_name -> StoreItem.Screenshots.Screenshot
-	53, // 67: StoreItem.Screenshots.mature_content_screenshots:type_name -> StoreItem.Screenshots.Screenshot
-	56, // 68: StoreItem.Trailers.highlights:type_name -> StoreItem.Trailers.Trailer
-	56, // 69: StoreItem.Trailers.other_trailers:type_name -> StoreItem.Trailers.Trailer
-	5,  // 70: StoreItem.Link.link_type:type_name -> EStoreLinkType
-	7,  // 71: StoreItem.PackageGroup.display_type:type_name -> StoreItem.PackageGroup.EPackageGroupDisplayType
-	2,  // 72: StoreItem.Reviews.StoreReviewSummary.review_score:type_name -> EUserReviewScore
-	3,  // 73: StoreItem.Trailers.Trailer.trailer_category:type_name -> ETrailerCategory
-	54, // 74: StoreItem.Trailers.Trailer.microtrailer:type_name -> StoreItem.Trailers.VideoSource
-	55, // 75: StoreItem.Trailers.Trailer.adaptive_trailers:type_name -> StoreItem.Trailers.AdaptiveTrailer
-	6,  // 76: CStoreBrowse_GetStoreCategories_Response.Category.type:type_name -> EStoreCategoryType
-	11, // 77: StoreBrowse.GetItems:input_type -> CStoreBrowse_GetItems_Request
-	16, // 78: StoreBrowse.GetStoreCategories:input_type -> CStoreBrowse_GetStoreCategories_Request
-	18, // 79: StoreBrowse.GetContentHubConfig:input_type -> CStoreBrowse_GetContentHubConfig_Request
-	20, // 80: StoreBrowse.GetPriceStops:input_type -> CStoreBrowse_GetPriceStops_Request
-	22, // 81: StoreBrowse.GetDLCForApps:input_type -> CStoreBrowse_GetDLCForApps_Request
-	24, // 82: StoreBrowse.GetDLCForAppsSolr:input_type -> CStoreBrowse_GetDLCForAppsSolr_Request
-	26, // 83: StoreBrowse.GetHardwareItems:input_type -> CStoreBrowse_GetHardwareItems_Request
-	15, // 84: StoreBrowse.GetItems:output_type -> CStoreBrowse_GetItems_Response
-	17, // 85: StoreBrowse.GetStoreCategories:output_type -> CStoreBrowse_GetStoreCategories_Response
-	19, // 86: StoreBrowse.GetContentHubConfig:output_type -> CStoreBrowse_GetContentHubConfig_Response
-	21, // 87: StoreBrowse.GetPriceStops:output_type -> CStoreBrowse_GetPriceStops_Response
-	23, // 88: StoreBrowse.GetDLCForApps:output_type -> CStoreBrowse_GetDLCForApps_Response
-	25, // 89: StoreBrowse.GetDLCForAppsSolr:output_type -> CStoreBrowse_GetDLCForAppsSolr_Response
-	28, // 90: StoreBrowse.GetHardwareItems:output_type -> CStoreBrowse_GetHardwareItems_Response
-	84, // [84:91] is the sub-list for method output_type
-	77, // [77:84] is the sub-list for method input_type
-	77, // [77:77] is the sub-list for extension type_name
-	77, // [77:77] is the sub-list for extension extendee
-	0,  // [0:77] is the sub-list for field type_name
+	65, // 64: StoreItem.Platforms.steam_machine_compat_category:type_name -> ESteamDeckCompatibilityCategory
+	51, // 65: StoreItem.PurchaseOption.active_discounts:type_name -> StoreItem.PurchaseOption.Discount
+	52, // 66: StoreItem.PurchaseOption.recurrence_info:type_name -> StoreItem.PurchaseOption.RecurrenceInfo
+	53, // 67: StoreItem.Screenshots.all_ages_screenshots:type_name -> StoreItem.Screenshots.Screenshot
+	53, // 68: StoreItem.Screenshots.mature_content_screenshots:type_name -> StoreItem.Screenshots.Screenshot
+	56, // 69: StoreItem.Trailers.highlights:type_name -> StoreItem.Trailers.Trailer
+	56, // 70: StoreItem.Trailers.other_trailers:type_name -> StoreItem.Trailers.Trailer
+	5,  // 71: StoreItem.Link.link_type:type_name -> EStoreLinkType
+	7,  // 72: StoreItem.PackageGroup.display_type:type_name -> StoreItem.PackageGroup.EPackageGroupDisplayType
+	2,  // 73: StoreItem.Reviews.StoreReviewSummary.review_score:type_name -> EUserReviewScore
+	3,  // 74: StoreItem.Trailers.Trailer.trailer_category:type_name -> ETrailerCategory
+	54, // 75: StoreItem.Trailers.Trailer.microtrailer:type_name -> StoreItem.Trailers.VideoSource
+	55, // 76: StoreItem.Trailers.Trailer.adaptive_trailers:type_name -> StoreItem.Trailers.AdaptiveTrailer
+	6,  // 77: CStoreBrowse_GetStoreCategories_Response.Category.type:type_name -> EStoreCategoryType
+	11, // 78: StoreBrowse.GetItems:input_type -> CStoreBrowse_GetItems_Request
+	16, // 79: StoreBrowse.GetStoreCategories:input_type -> CStoreBrowse_GetStoreCategories_Request
+	18, // 80: StoreBrowse.GetContentHubConfig:input_type -> CStoreBrowse_GetContentHubConfig_Request
+	20, // 81: StoreBrowse.GetPriceStops:input_type -> CStoreBrowse_GetPriceStops_Request
+	22, // 82: StoreBrowse.GetDLCForApps:input_type -> CStoreBrowse_GetDLCForApps_Request
+	24, // 83: StoreBrowse.GetDLCForAppsSolr:input_type -> CStoreBrowse_GetDLCForAppsSolr_Request
+	26, // 84: StoreBrowse.GetHardwareItems:input_type -> CStoreBrowse_GetHardwareItems_Request
+	15, // 85: StoreBrowse.GetItems:output_type -> CStoreBrowse_GetItems_Response
+	17, // 86: StoreBrowse.GetStoreCategories:output_type -> CStoreBrowse_GetStoreCategories_Response
+	19, // 87: StoreBrowse.GetContentHubConfig:output_type -> CStoreBrowse_GetContentHubConfig_Response
+	21, // 88: StoreBrowse.GetPriceStops:output_type -> CStoreBrowse_GetPriceStops_Response
+	23, // 89: StoreBrowse.GetDLCForApps:output_type -> CStoreBrowse_GetDLCForApps_Response
+	25, // 90: StoreBrowse.GetDLCForAppsSolr:output_type -> CStoreBrowse_GetDLCForAppsSolr_Response
+	28, // 91: StoreBrowse.GetHardwareItems:output_type -> CStoreBrowse_GetHardwareItems_Response
+	85, // [85:92] is the sub-list for method output_type
+	78, // [78:85] is the sub-list for method input_type
+	78, // [78:78] is the sub-list for extension type_name
+	78, // [78:78] is the sub-list for extension extendee
+	0,  // [0:78] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_storebrowse_steamclient_proto_init() }
