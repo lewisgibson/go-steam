@@ -124,6 +124,7 @@ type CSteamOSManagerState struct {
 	DesktopSessionDefault                *string                `protobuf:"bytes,33,opt,name=desktop_session_default,json=desktopSessionDefault" json:"desktop_session_default,omitempty"`
 	IsExtendedCecAvailable               *bool                  `protobuf:"varint,34,opt,name=is_extended_cec_available,json=isExtendedCecAvailable" json:"is_extended_cec_available,omitempty"`
 	IsExtendedCecWakeDeviceSupported     *bool                  `protobuf:"varint,35,opt,name=is_extended_cec_wake_device_supported,json=isExtendedCecWakeDeviceSupported" json:"is_extended_cec_wake_device_supported,omitempty"`
+	IsEcLoggingAvailable                 *bool                  `protobuf:"varint,36,opt,name=is_ec_logging_available,json=isEcLoggingAvailable" json:"is_ec_logging_available,omitempty"`
 	unknownFields                        protoimpl.UnknownFields
 	sizeCache                            protoimpl.SizeCache
 }
@@ -385,6 +386,13 @@ func (x *CSteamOSManagerState) GetIsExtendedCecAvailable() bool {
 func (x *CSteamOSManagerState) GetIsExtendedCecWakeDeviceSupported() bool {
 	if x != nil && x.IsExtendedCecWakeDeviceSupported != nil {
 		return *x.IsExtendedCecWakeDeviceSupported
+	}
+	return false
+}
+
+func (x *CSteamOSManagerState) GetIsEcLoggingAvailable() bool {
+	if x != nil && x.IsEcLoggingAvailable != nil {
+		return *x.IsEcLoggingAvailable
 	}
 	return false
 }
@@ -1391,14 +1399,14 @@ func (x *CSteamVRPathRecord) GetVersion() string {
 }
 
 type CSteamOSManager_GetSteamVRPaths_Response struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	ActivePath       *string                `protobuf:"bytes,1,opt,name=active_path,json=activePath" json:"active_path,omitempty"`
-	DefaultPath      *CSteamVRPathRecord    `protobuf:"bytes,2,opt,name=default_path,json=defaultPath" json:"default_path,omitempty"`
-	MainLowerdirPath *string                `protobuf:"bytes,3,opt,name=main_lowerdir_path,json=mainLowerdirPath" json:"main_lowerdir_path,omitempty"`
-	RelLowerdirPath  *string                `protobuf:"bytes,4,opt,name=rel_lowerdir_path,json=relLowerdirPath" json:"rel_lowerdir_path,omitempty"`
-	SideloadedPaths  []*CSteamVRPathRecord  `protobuf:"bytes,5,rep,name=sideloaded_paths,json=sideloadedPaths" json:"sideloaded_paths,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
+	state                protoimpl.MessageState `protogen:"open.v1"`
+	ActivePath           *string                `protobuf:"bytes,1,opt,name=active_path,json=activePath" json:"active_path,omitempty"`
+	DefaultPath          *CSteamVRPathRecord    `protobuf:"bytes,2,opt,name=default_path,json=defaultPath" json:"default_path,omitempty"`
+	SteamSteamvrMainPath *CSteamVRPathRecord    `protobuf:"bytes,3,opt,name=steam_steamvr_main_path,json=steamSteamvrMainPath" json:"steam_steamvr_main_path,omitempty"`
+	SteamSteamvrRelPath  *CSteamVRPathRecord    `protobuf:"bytes,4,opt,name=steam_steamvr_rel_path,json=steamSteamvrRelPath" json:"steam_steamvr_rel_path,omitempty"`
+	SideloadedPaths      []*CSteamVRPathRecord  `protobuf:"bytes,5,rep,name=sideloaded_paths,json=sideloadedPaths" json:"sideloaded_paths,omitempty"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
 }
 
 func (x *CSteamOSManager_GetSteamVRPaths_Response) Reset() {
@@ -1445,18 +1453,18 @@ func (x *CSteamOSManager_GetSteamVRPaths_Response) GetDefaultPath() *CSteamVRPat
 	return nil
 }
 
-func (x *CSteamOSManager_GetSteamVRPaths_Response) GetMainLowerdirPath() string {
-	if x != nil && x.MainLowerdirPath != nil {
-		return *x.MainLowerdirPath
+func (x *CSteamOSManager_GetSteamVRPaths_Response) GetSteamSteamvrMainPath() *CSteamVRPathRecord {
+	if x != nil {
+		return x.SteamSteamvrMainPath
 	}
-	return ""
+	return nil
 }
 
-func (x *CSteamOSManager_GetSteamVRPaths_Response) GetRelLowerdirPath() string {
-	if x != nil && x.RelLowerdirPath != nil {
-		return *x.RelLowerdirPath
+func (x *CSteamOSManager_GetSteamVRPaths_Response) GetSteamSteamvrRelPath() *CSteamVRPathRecord {
+	if x != nil {
+		return x.SteamSteamvrRelPath
 	}
-	return ""
+	return nil
 }
 
 func (x *CSteamOSManager_GetSteamVRPaths_Response) GetSideloadedPaths() []*CSteamVRPathRecord {
@@ -1970,7 +1978,7 @@ const file_webuimessages_steamos_proto_rawDesc = "" +
 	"is_running\x18\x01 \x01(\bR\tisRunning\x12\x1a\n" +
 	"\bprogress\x18\x02 \x01(\x05R\bprogress\x12,\n" +
 	"\x12is_restart_pending\x18\x03 \x01(\bR\x10isRestartPending\x12<\n" +
-	"\x1artime_estimated_completion\x18\x04 \x01(\aR\x18rtimeEstimatedCompletion\"\xb4\x0f\n" +
+	"\x1artime_estimated_completion\x18\x04 \x01(\aR\x18rtimeEstimatedCompletion\"\xeb\x0f\n" +
 	"\x14CSteamOSManagerState\x120\n" +
 	"\x14is_service_available\x18\x01 \x01(\bR\x12isServiceAvailable\x12\x1d\n" +
 	"\n" +
@@ -2006,7 +2014,8 @@ const file_webuimessages_steamos_proto_rawDesc = "" +
 	"\x1adesktop_sessions_available\x18  \x03(\tR\x18desktopSessionsAvailable\x126\n" +
 	"\x17desktop_session_default\x18! \x01(\tR\x15desktopSessionDefault\x129\n" +
 	"\x19is_extended_cec_available\x18\" \x01(\bR\x16isExtendedCecAvailable\x12O\n" +
-	"%is_extended_cec_wake_device_supported\x18# \x01(\bR isExtendedCecWakeDeviceSupported\"\"\n" +
+	"%is_extended_cec_wake_device_supported\x18# \x01(\bR isExtendedCecWakeDeviceSupported\x125\n" +
+	"\x17is_ec_logging_available\x18$ \x01(\bR\x14isEcLoggingAvailable\"\"\n" +
 	" CSteamOSManager_GetState_Request\"P\n" +
 	"!CSteamOSManager_GetState_Response\x12+\n" +
 	"\x05state\x18\x01 \x01(\v2\x15.CSteamOSManagerStateR\x05state\"+\n" +
@@ -2043,13 +2052,13 @@ const file_webuimessages_steamos_proto_rawDesc = "" +
 	"'CSteamOSManager_GetSteamVRPaths_Request\"B\n" +
 	"\x12CSteamVRPathRecord\x12\x12\n" +
 	"\x04path\x18\x01 \x01(\tR\x04path\x12\x18\n" +
-	"\aversion\x18\x02 \x01(\tR\aversion\"\x9d\x02\n" +
+	"\aversion\x18\x02 \x01(\tR\aversion\"\xd9\x02\n" +
 	"(CSteamOSManager_GetSteamVRPaths_Response\x12\x1f\n" +
 	"\vactive_path\x18\x01 \x01(\tR\n" +
 	"activePath\x126\n" +
-	"\fdefault_path\x18\x02 \x01(\v2\x13.CSteamVRPathRecordR\vdefaultPath\x12,\n" +
-	"\x12main_lowerdir_path\x18\x03 \x01(\tR\x10mainLowerdirPath\x12*\n" +
-	"\x11rel_lowerdir_path\x18\x04 \x01(\tR\x0frelLowerdirPath\x12>\n" +
+	"\fdefault_path\x18\x02 \x01(\v2\x13.CSteamVRPathRecordR\vdefaultPath\x12J\n" +
+	"\x17steam_steamvr_main_path\x18\x03 \x01(\v2\x13.CSteamVRPathRecordR\x14steamSteamvrMainPath\x12H\n" +
+	"\x16steam_steamvr_rel_path\x18\x04 \x01(\v2\x13.CSteamVRPathRecordR\x13steamSteamvrRelPath\x12>\n" +
 	"\x10sideloaded_paths\x18\x05 \x03(\v2\x13.CSteamVRPathRecordR\x0fsideloadedPaths\"<\n" +
 	"&CSteamOSManager_SetSteamVRPath_Request\x12\x12\n" +
 	"\x04path\x18\x01 \x01(\tR\x04path\")\n" +
@@ -2158,50 +2167,52 @@ var file_webuimessages_steamos_proto_depIdxs = []int32{
 	1,  // 1: CSteamOSManager_GetState_Response.state:type_name -> CSteamOSManagerState
 	39, // 2: CSteamOSManager_IsTelemetryHelperAvailable_Request.etype:type_name -> ESLSHelper
 	26, // 3: CSteamOSManager_GetSteamVRPaths_Response.default_path:type_name -> CSteamVRPathRecord
-	26, // 4: CSteamOSManager_GetSteamVRPaths_Response.sideloaded_paths:type_name -> CSteamVRPathRecord
-	39, // 5: CSteamOSSLSPlugin.etype:type_name -> ESLSHelper
-	30, // 6: CSteamOSSLSState.plugins:type_name -> CSteamOSSLSPlugin
-	31, // 7: CSteamOSSLS_GetState_Response.state:type_name -> CSteamOSSLSState
-	39, // 8: CSteamOSSLS_SetPluginEnabled_Request.etype:type_name -> ESLSHelper
-	2,  // 9: SteamOSManager.GetState:input_type -> CSteamOSManager_GetState_Request
-	4,  // 10: SteamOSManager.NotifyStateChanged:input_type -> CSteamOSManager_StateChanged_Notification
-	7,  // 11: SteamOSManager.OptOutOfSideloadedClient:input_type -> CSteamOSManager_OptOutOfSideloadedClient_Request
-	9,  // 12: SteamOSManager.ApplyMandatoryUpdate:input_type -> CSteamOSManager_ApplyMandatoryUpdate_Request
-	11, // 13: SteamOSManager.FactoryReset:input_type -> CSteamOSManager_FactoryReset_Request
-	19, // 14: SteamOSManager.PrepareFactoryImageTest:input_type -> CSteamOSManager_PrepareFactoryImageTest_Request
-	13, // 15: SteamOSManager.RefreshScreenReaderAutoLocale:input_type -> CSteamOSManager_RefreshScreenReaderAutoLocale_Request
-	15, // 16: SteamOSManager.SetUserPassword:input_type -> CSteamOS_SetUserPassword_Request
-	17, // 17: SteamOSManager.GetUserHasPassword:input_type -> CSteamOS_GetUserHasPassword_Request
-	21, // 18: SteamOSManager.SwitchToDesktop:input_type -> CSteamOSManager_SwitchToDesktop_Request
-	23, // 19: SteamOSManager.SetDefaultDesktopSession:input_type -> CSteamOSManager_SetDefaultDesktopSession_Request
-	25, // 20: SteamOSManager.GetSteamVRPaths:input_type -> CSteamOSManager_GetSteamVRPaths_Request
-	28, // 21: SteamOSManager.SetSteamVRPath:input_type -> CSteamOSManager_SetSteamVRPath_Request
-	32, // 22: SteamOSSLS.GetState:input_type -> CSteamOSSLS_GetState_Request
-	34, // 23: SteamOSSLS.NotifyStateChanged:input_type -> CSteamOSSLS_StateChanged_Notification
-	35, // 24: SteamOSSLS.SetEnabled:input_type -> CSteamOSSLS_SetEnabled_Request
-	37, // 25: SteamOSSLS.SetPluginEnabled:input_type -> CSteamOSSLS_SetPluginEnabled_Request
-	3,  // 26: SteamOSManager.GetState:output_type -> CSteamOSManager_GetState_Response
-	40, // 27: SteamOSManager.NotifyStateChanged:output_type -> WebUINoResponse
-	8,  // 28: SteamOSManager.OptOutOfSideloadedClient:output_type -> CSteamOSManager_OptOutOfSideloadedClient_Response
-	10, // 29: SteamOSManager.ApplyMandatoryUpdate:output_type -> CSteamOSManager_ApplyMandatoryUpdate_Response
-	12, // 30: SteamOSManager.FactoryReset:output_type -> CSteamOSManager_FactoryReset_Response
-	20, // 31: SteamOSManager.PrepareFactoryImageTest:output_type -> CSteamOSManager_PrepareFactoryImageTest_Response
-	14, // 32: SteamOSManager.RefreshScreenReaderAutoLocale:output_type -> CSteamOSManager_RefreshScreenReaderAutoLocale_Response
-	16, // 33: SteamOSManager.SetUserPassword:output_type -> CSteamOS_SetUserPassword_Response
-	18, // 34: SteamOSManager.GetUserHasPassword:output_type -> CSteamOS_GetUserHasPassword_Response
-	22, // 35: SteamOSManager.SwitchToDesktop:output_type -> CSteamOSManager_SwitchToDesktop_Response
-	24, // 36: SteamOSManager.SetDefaultDesktopSession:output_type -> CSteamOSManager_SetDefaultDesktopSession_Response
-	27, // 37: SteamOSManager.GetSteamVRPaths:output_type -> CSteamOSManager_GetSteamVRPaths_Response
-	29, // 38: SteamOSManager.SetSteamVRPath:output_type -> CSteamOSManager_SetSteamVRPath_Response
-	33, // 39: SteamOSSLS.GetState:output_type -> CSteamOSSLS_GetState_Response
-	40, // 40: SteamOSSLS.NotifyStateChanged:output_type -> WebUINoResponse
-	36, // 41: SteamOSSLS.SetEnabled:output_type -> CSteamOSSLS_SetEnabled_Response
-	38, // 42: SteamOSSLS.SetPluginEnabled:output_type -> CSteamOSSLS_SetPluginEnabled_Response
-	26, // [26:43] is the sub-list for method output_type
-	9,  // [9:26] is the sub-list for method input_type
-	9,  // [9:9] is the sub-list for extension type_name
-	9,  // [9:9] is the sub-list for extension extendee
-	0,  // [0:9] is the sub-list for field type_name
+	26, // 4: CSteamOSManager_GetSteamVRPaths_Response.steam_steamvr_main_path:type_name -> CSteamVRPathRecord
+	26, // 5: CSteamOSManager_GetSteamVRPaths_Response.steam_steamvr_rel_path:type_name -> CSteamVRPathRecord
+	26, // 6: CSteamOSManager_GetSteamVRPaths_Response.sideloaded_paths:type_name -> CSteamVRPathRecord
+	39, // 7: CSteamOSSLSPlugin.etype:type_name -> ESLSHelper
+	30, // 8: CSteamOSSLSState.plugins:type_name -> CSteamOSSLSPlugin
+	31, // 9: CSteamOSSLS_GetState_Response.state:type_name -> CSteamOSSLSState
+	39, // 10: CSteamOSSLS_SetPluginEnabled_Request.etype:type_name -> ESLSHelper
+	2,  // 11: SteamOSManager.GetState:input_type -> CSteamOSManager_GetState_Request
+	4,  // 12: SteamOSManager.NotifyStateChanged:input_type -> CSteamOSManager_StateChanged_Notification
+	7,  // 13: SteamOSManager.OptOutOfSideloadedClient:input_type -> CSteamOSManager_OptOutOfSideloadedClient_Request
+	9,  // 14: SteamOSManager.ApplyMandatoryUpdate:input_type -> CSteamOSManager_ApplyMandatoryUpdate_Request
+	11, // 15: SteamOSManager.FactoryReset:input_type -> CSteamOSManager_FactoryReset_Request
+	19, // 16: SteamOSManager.PrepareFactoryImageTest:input_type -> CSteamOSManager_PrepareFactoryImageTest_Request
+	13, // 17: SteamOSManager.RefreshScreenReaderAutoLocale:input_type -> CSteamOSManager_RefreshScreenReaderAutoLocale_Request
+	15, // 18: SteamOSManager.SetUserPassword:input_type -> CSteamOS_SetUserPassword_Request
+	17, // 19: SteamOSManager.GetUserHasPassword:input_type -> CSteamOS_GetUserHasPassword_Request
+	21, // 20: SteamOSManager.SwitchToDesktop:input_type -> CSteamOSManager_SwitchToDesktop_Request
+	23, // 21: SteamOSManager.SetDefaultDesktopSession:input_type -> CSteamOSManager_SetDefaultDesktopSession_Request
+	25, // 22: SteamOSManager.GetSteamVRPaths:input_type -> CSteamOSManager_GetSteamVRPaths_Request
+	28, // 23: SteamOSManager.SetSteamVRPath:input_type -> CSteamOSManager_SetSteamVRPath_Request
+	32, // 24: SteamOSSLS.GetState:input_type -> CSteamOSSLS_GetState_Request
+	34, // 25: SteamOSSLS.NotifyStateChanged:input_type -> CSteamOSSLS_StateChanged_Notification
+	35, // 26: SteamOSSLS.SetEnabled:input_type -> CSteamOSSLS_SetEnabled_Request
+	37, // 27: SteamOSSLS.SetPluginEnabled:input_type -> CSteamOSSLS_SetPluginEnabled_Request
+	3,  // 28: SteamOSManager.GetState:output_type -> CSteamOSManager_GetState_Response
+	40, // 29: SteamOSManager.NotifyStateChanged:output_type -> WebUINoResponse
+	8,  // 30: SteamOSManager.OptOutOfSideloadedClient:output_type -> CSteamOSManager_OptOutOfSideloadedClient_Response
+	10, // 31: SteamOSManager.ApplyMandatoryUpdate:output_type -> CSteamOSManager_ApplyMandatoryUpdate_Response
+	12, // 32: SteamOSManager.FactoryReset:output_type -> CSteamOSManager_FactoryReset_Response
+	20, // 33: SteamOSManager.PrepareFactoryImageTest:output_type -> CSteamOSManager_PrepareFactoryImageTest_Response
+	14, // 34: SteamOSManager.RefreshScreenReaderAutoLocale:output_type -> CSteamOSManager_RefreshScreenReaderAutoLocale_Response
+	16, // 35: SteamOSManager.SetUserPassword:output_type -> CSteamOS_SetUserPassword_Response
+	18, // 36: SteamOSManager.GetUserHasPassword:output_type -> CSteamOS_GetUserHasPassword_Response
+	22, // 37: SteamOSManager.SwitchToDesktop:output_type -> CSteamOSManager_SwitchToDesktop_Response
+	24, // 38: SteamOSManager.SetDefaultDesktopSession:output_type -> CSteamOSManager_SetDefaultDesktopSession_Response
+	27, // 39: SteamOSManager.GetSteamVRPaths:output_type -> CSteamOSManager_GetSteamVRPaths_Response
+	29, // 40: SteamOSManager.SetSteamVRPath:output_type -> CSteamOSManager_SetSteamVRPath_Response
+	33, // 41: SteamOSSLS.GetState:output_type -> CSteamOSSLS_GetState_Response
+	40, // 42: SteamOSSLS.NotifyStateChanged:output_type -> WebUINoResponse
+	36, // 43: SteamOSSLS.SetEnabled:output_type -> CSteamOSSLS_SetEnabled_Response
+	38, // 44: SteamOSSLS.SetPluginEnabled:output_type -> CSteamOSSLS_SetPluginEnabled_Response
+	28, // [28:45] is the sub-list for method output_type
+	11, // [11:28] is the sub-list for method input_type
+	11, // [11:11] is the sub-list for extension type_name
+	11, // [11:11] is the sub-list for extension extendee
+	0,  // [0:11] is the sub-list for field type_name
 }
 
 func init() { file_webuimessages_steamos_proto_init() }

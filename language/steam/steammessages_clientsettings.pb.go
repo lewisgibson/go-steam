@@ -640,8 +640,6 @@ func (*CMsgSettingVariant_ValueHotkey) isCMsgSettingVariant_Value() {}
 type CMsgClientSettings struct {
 	state                                 protoimpl.MessageState    `protogen:"open.v1"`
 	NoSavePersonalInfo                    *bool                     `protobuf:"varint,1,opt,name=no_save_personal_info,json=noSavePersonalInfo" json:"no_save_personal_info,omitempty"`
-	InClientBeta                          *bool                     `protobuf:"varint,3,opt,name=in_client_beta,json=inClientBeta" json:"in_client_beta,omitempty"`
-	IsSteamSideloaded                     *bool                     `protobuf:"varint,4,opt,name=is_steam_sideloaded,json=isSteamSideloaded" json:"is_steam_sideloaded,omitempty"`
 	PreferredMonitor                      *string                   `protobuf:"bytes,5,opt,name=preferred_monitor,json=preferredMonitor" json:"preferred_monitor,omitempty"`
 	SteamCefGpuBlocklistDisabled          *bool                     `protobuf:"varint,6,opt,name=steam_cef_gpu_blocklist_disabled,json=steamCefGpuBlocklistDisabled" json:"steam_cef_gpu_blocklist_disabled,omitempty"`
 	BigpictureWindowed                    *bool                     `protobuf:"varint,7,opt,name=bigpicture_windowed,json=bigpictureWindowed" json:"bigpicture_windowed,omitempty"`
@@ -855,6 +853,7 @@ type CMsgClientSettings struct {
 	SteamosCecSuspendDevice               *bool                     `protobuf:"varint,22021,opt,name=steamos_cec_suspend_device,json=steamosCecSuspendDevice" json:"steamos_cec_suspend_device,omitempty"`
 	SteamosCecWakeTv                      *bool                     `protobuf:"varint,22022,opt,name=steamos_cec_wake_tv,json=steamosCecWakeTv" json:"steamos_cec_wake_tv,omitempty"`
 	SteamosCecWakeDevice                  *bool                     `protobuf:"varint,22023,opt,name=steamos_cec_wake_device,json=steamosCecWakeDevice" json:"steamos_cec_wake_device,omitempty"`
+	SteamosEcLoggingEnabled               *bool                     `protobuf:"varint,22024,opt,name=steamos_ec_logging_enabled,json=steamosEcLoggingEnabled" json:"steamos_ec_logging_enabled,omitempty"`
 	SettingValidationBool                 *bool                     `protobuf:"varint,23001,opt,name=setting_validation_bool,json=settingValidationBool" json:"setting_validation_bool,omitempty"`
 	SettingValidationEnum                 *EHDRVisualization        `protobuf:"varint,23002,opt,name=setting_validation_enum,json=settingValidationEnum,enum=EHDRVisualization,def=0" json:"setting_validation_enum,omitempty"`
 	SettingValidationInt32                *int32                    `protobuf:"varint,23003,opt,name=setting_validation_int32,json=settingValidationInt32" json:"setting_validation_int32,omitempty"`
@@ -954,20 +953,6 @@ func (*CMsgClientSettings) Descriptor() ([]byte, []int) {
 func (x *CMsgClientSettings) GetNoSavePersonalInfo() bool {
 	if x != nil && x.NoSavePersonalInfo != nil {
 		return *x.NoSavePersonalInfo
-	}
-	return false
-}
-
-func (x *CMsgClientSettings) GetInClientBeta() bool {
-	if x != nil && x.InClientBeta != nil {
-		return *x.InClientBeta
-	}
-	return false
-}
-
-func (x *CMsgClientSettings) GetIsSteamSideloaded() bool {
-	if x != nil && x.IsSteamSideloaded != nil {
-		return *x.IsSteamSideloaded
 	}
 	return false
 }
@@ -2463,6 +2448,13 @@ func (x *CMsgClientSettings) GetSteamosCecWakeDevice() bool {
 	return false
 }
 
+func (x *CMsgClientSettings) GetSteamosEcLoggingEnabled() bool {
+	if x != nil && x.SteamosEcLoggingEnabled != nil {
+		return *x.SteamosEcLoggingEnabled
+	}
+	return false
+}
+
 func (x *CMsgClientSettings) GetSettingValidationBool() bool {
 	if x != nil && x.SettingValidationBool != nil {
 		return *x.SettingValidationBool
@@ -2974,11 +2966,9 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"valueFloat\x12#\n" +
 	"\fvalue_string\x18\a \x01(\tH\x00R\vvalueString\x120\n" +
 	"\fvalue_hotkey\x18\b \x01(\v2\v.CMsgHotkeyH\x00R\vvalueHotkeyB\a\n" +
-	"\x05value\"\x9d\xdb\x01\n" +
+	"\x05value\"\x98\xdb\x01\n" +
 	"\x12CMsgClientSettings\x12b\n" +
-	"\x15no_save_personal_info\x18\x01 \x01(\bB/\x80\xa6\x1d\x01\x8a\xa6\x1d'Software\\Valve\\Steam\\NoSavePersonalInfoR\x12noSavePersonalInfo\x12.\n" +
-	"\x0ein_client_beta\x18\x03 \x01(\bB\b\x80\xa6\x1d\x05\x90\xa6\x1d\x01R\finClientBeta\x128\n" +
-	"\x13is_steam_sideloaded\x18\x04 \x01(\bB\b\x80\xa6\x1d\x05\x90\xa6\x1d\x01R\x11isSteamSideloaded\x12G\n" +
+	"\x15no_save_personal_info\x18\x01 \x01(\bB/\x80\xa6\x1d\x01\x8a\xa6\x1d'Software\\Valve\\Steam\\NoSavePersonalInfoR\x12noSavePersonalInfo\x12G\n" +
 	"\x11preferred_monitor\x18\x05 \x01(\tB\x1a\x80\xa6\x1d\x01\x8a\xa6\x1d\x12BigPicture/MonitorR\x10preferredMonitor\x12\x8e\x01\n" +
 	" steam_cef_gpu_blocklist_disabled\x18\x06 \x01(\bBF\x80\xa6\x1d\x04\x8a\xa6\x1d>HKEY_CURRENT_USER\\Software\\Valve\\Steam\\CEFGPUBlocklistDisabledR\x1csteamCefGpuBlocklistDisabled\x12P\n" +
 	"\x13bigpicture_windowed\x18\a \x01(\bB\x1f\x80\xa6\x1d\x01\x8a\xa6\x1d\x13BigPicture/Windowed\x90\xa6\x1d\x01R\x12bigpictureWindowed\x12B\n" +
@@ -3195,7 +3185,8 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"\x16steamos_cec_suspend_tv\x18\x84\xac\x01 \x01(\bB \x80\xa6\x1d\x01\x8a\xa6\x1d\x14SteamOS/CECSuspendTV\x98\xa6\x1d\x01R\x13steamosCecSuspendTv\x12c\n" +
 	"\x1asteamos_cec_suspend_device\x18\x85\xac\x01 \x01(\bB$\x80\xa6\x1d\x01\x8a\xa6\x1d\x18SteamOS/CECSuspendDevice\x98\xa6\x1d\x01R\x17steamosCecSuspendDevice\x12N\n" +
 	"\x13steamos_cec_wake_tv\x18\x86\xac\x01 \x01(\bB\x1d\x80\xa6\x1d\x01\x8a\xa6\x1d\x11SteamOS/CECWakeTV\x98\xa6\x1d\x01R\x10steamosCecWakeTv\x12Z\n" +
-	"\x17steamos_cec_wake_device\x18\x87\xac\x01 \x01(\bB!\x80\xa6\x1d\x01\x8a\xa6\x1d\x15SteamOS/CECWakeDevice\x98\xa6\x1d\x01R\x14steamosCecWakeDevice\x12]\n" +
+	"\x17steamos_cec_wake_device\x18\x87\xac\x01 \x01(\bB!\x80\xa6\x1d\x01\x8a\xa6\x1d\x15SteamOS/CECWakeDevice\x98\xa6\x1d\x01R\x14steamosCecWakeDevice\x12c\n" +
+	"\x1asteamos_ec_logging_enabled\x18\x88\xac\x01 \x01(\bB$\x80\xa6\x1d\x01\x8a\xa6\x1d\x18SteamOS/ECLoggingEnabled\x98\xa6\x1d\x00R\x17steamosEcLoggingEnabled\x12]\n" +
 	"\x17setting_validation_bool\x18ٳ\x01 \x01(\bB#\x80\xa6\x1d\x01\x8a\xa6\x1d\x1bSettingValidation/DummyBoolR\x15settingValidationBool\x12\x8b\x01\n" +
 	"\x17setting_validation_enum\x18ڳ\x01 \x01(\x0e2\x12.EHDRVisualization:\x18k_EHDRVisualization_NoneB#\x80\xa6\x1d\x01\x8a\xa6\x1d\x1bSettingValidation/DummyEnumR\x15settingValidationEnum\x12`\n" +
 	"\x18setting_validation_int32\x18۳\x01 \x01(\x05B$\x80\xa6\x1d\x01\x8a\xa6\x1d\x1cSettingValidation/DummyInt32R\x16settingValidationInt32\x12c\n" +

@@ -2341,6 +2341,7 @@ func (x *CGameRecording_ExportClip_Request) GetUseUniqueFilename() bool {
 
 type CGameRecording_ExportClip_Response struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        *int32                 `protobuf:"varint,1,opt,name=result" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2373,6 +2374,13 @@ func (x *CGameRecording_ExportClip_Response) ProtoReflect() protoreflect.Message
 // Deprecated: Use CGameRecording_ExportClip_Response.ProtoReflect.Descriptor instead.
 func (*CGameRecording_ExportClip_Response) Descriptor() ([]byte, []int) {
 	return file_webuimessages_gamerecording_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *CGameRecording_ExportClip_Response) GetResult() int32 {
+	if x != nil && x.Result != nil {
+		return *x.Result
+	}
+	return 0
 }
 
 type CGameRecording_ExportClipPreview_Request struct {
@@ -2439,6 +2447,7 @@ type CGameRecording_ExportClipPreview_Response struct {
 	state         protoimpl.MessageState              `protogen:"open.v1"`
 	EstimatedSize *uint64                             `protobuf:"varint,1,opt,name=estimated_size,json=estimatedSize" json:"estimated_size,omitempty"`
 	Settings      *CGameRecording_ExportClip_Settings `protobuf:"bytes,2,opt,name=settings" json:"settings,omitempty"`
+	Result        *int32                              `protobuf:"varint,3,opt,name=result" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2485,6 +2494,13 @@ func (x *CGameRecording_ExportClipPreview_Response) GetSettings() *CGameRecordin
 		return x.Settings
 	}
 	return nil
+}
+
+func (x *CGameRecording_ExportClipPreview_Response) GetResult() int32 {
+	if x != nil && x.Result != nil {
+		return *x.Result
+	}
+	return 0
 }
 
 type CGameRecording_TakeScreenshot_Request struct {
@@ -4135,7 +4151,6 @@ type CGameRecording_ExportProgress_Notification struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Progress      *float32               `protobuf:"fixed32,1,opt,name=progress" json:"progress,omitempty"`
 	ClipId        *string                `protobuf:"bytes,2,opt,name=clip_id,json=clipId" json:"clip_id,omitempty"`
-	Eresult       *int32                 `protobuf:"varint,3,opt,name=eresult" json:"eresult,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -4182,13 +4197,6 @@ func (x *CGameRecording_ExportProgress_Notification) GetClipId() string {
 		return *x.ClipId
 	}
 	return ""
-}
-
-func (x *CGameRecording_ExportProgress_Notification) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return 0
 }
 
 type CGameRecording_PerGameSettings struct {
@@ -5423,15 +5431,17 @@ const file_webuimessages_gamerecording_proto_rawDesc = "" +
 	"\aclip_id\x18\x01 \x01(\tR\x06clipId\x12&\n" +
 	"\x0fexport_mp4_path\x18\x02 \x01(\tR\rexportMp4Path\x12?\n" +
 	"\bsettings\x18\x03 \x01(\v2#.CGameRecording_ExportClip_SettingsR\bsettings\x12.\n" +
-	"\x13use_unique_filename\x18\x04 \x01(\bR\x11useUniqueFilename\"$\n" +
-	"\"CGameRecording_ExportClip_Response\"\xb0\x01\n" +
+	"\x13use_unique_filename\x18\x04 \x01(\bR\x11useUniqueFilename\"<\n" +
+	"\"CGameRecording_ExportClip_Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\xb0\x01\n" +
 	"(CGameRecording_ExportClipPreview_Request\x12\x17\n" +
 	"\aclip_id\x18\x01 \x01(\tR\x06clipId\x12?\n" +
 	"\bsettings\x18\x02 \x01(\v2#.CGameRecording_ExportClip_SettingsR\bsettings\x12*\n" +
-	"\x11run_policy_checks\x18\x03 \x01(\bR\x0frunPolicyChecks\"\x93\x01\n" +
+	"\x11run_policy_checks\x18\x03 \x01(\bR\x0frunPolicyChecks\"\xab\x01\n" +
 	")CGameRecording_ExportClipPreview_Response\x12%\n" +
 	"\x0eestimated_size\x18\x01 \x01(\x04R\restimatedSize\x12?\n" +
-	"\bsettings\x18\x02 \x01(\v2#.CGameRecording_ExportClip_SettingsR\bsettings\"\xb5\x01\n" +
+	"\bsettings\x18\x02 \x01(\v2#.CGameRecording_ExportClip_SettingsR\bsettings\x12\x16\n" +
+	"\x06result\x18\x03 \x01(\x05R\x06result\"\xb5\x01\n" +
 	"%CGameRecording_TakeScreenshot_Request\x12\x17\n" +
 	"\agame_id\x18\x01 \x01(\x06R\x06gameId\x12\x1f\n" +
 	"\vtimeline_id\x18\x02 \x01(\tR\n" +
@@ -5531,11 +5541,10 @@ const file_webuimessages_gamerecording_proto_rawDesc = "" +
 	"\asummary\x18\x01 \x01(\v2\x1b.CGameRecording_ClipSummaryR\asummary\"[\n" +
 	"'CGameRecording_ClipDeleted_Notification\x12\x17\n" +
 	"\aclip_id\x18\x01 \x01(\tR\x06clipId\x12\x17\n" +
-	"\agame_id\x18\x02 \x01(\x04R\x06gameId\"{\n" +
+	"\agame_id\x18\x02 \x01(\x04R\x06gameId\"a\n" +
 	"*CGameRecording_ExportProgress_Notification\x12\x1a\n" +
 	"\bprogress\x18\x01 \x01(\x02R\bprogress\x12\x17\n" +
-	"\aclip_id\x18\x02 \x01(\tR\x06clipId\x12\x18\n" +
-	"\aeresult\x18\x03 \x01(\x05R\aeresult\"\xa2\x01\n" +
+	"\aclip_id\x18\x02 \x01(\tR\x06clipId\"\xa2\x01\n" +
 	"\x1eCGameRecording_PerGameSettings\x12\x16\n" +
 	"\x06gameid\x18\x01 \x01(\x06R\x06gameid\x12\x18\n" +
 	"\aenabled\x18\x02 \x01(\bR\aenabled\x12\x18\n" +

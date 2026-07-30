@@ -58,12 +58,13 @@ func (*CAudio_GetSupportedFeatures_Request) Descriptor() ([]byte, []int) {
 }
 
 type CAudio_GetSupportedFeatures_Response struct {
-	state              protoimpl.MessageState `protogen:"open.v1"`
-	MonoDownmix        *bool                  `protobuf:"varint,1,opt,name=mono_downmix,json=monoDownmix" json:"mono_downmix,omitempty"`
-	UseBluetoothForMic *bool                  `protobuf:"varint,2,opt,name=use_bluetooth_for_mic,json=useBluetoothForMic" json:"use_bluetooth_for_mic,omitempty"`
-	ResetConfig        *bool                  `protobuf:"varint,3,opt,name=reset_config,json=resetConfig" json:"reset_config,omitempty"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
+	state                    protoimpl.MessageState `protogen:"open.v1"`
+	MonoDownmix              *bool                  `protobuf:"varint,1,opt,name=mono_downmix,json=monoDownmix" json:"mono_downmix,omitempty"`
+	UseBluetoothForMic       *bool                  `protobuf:"varint,2,opt,name=use_bluetooth_for_mic,json=useBluetoothForMic" json:"use_bluetooth_for_mic,omitempty"`
+	ResetConfig              *bool                  `protobuf:"varint,3,opt,name=reset_config,json=resetConfig" json:"reset_config,omitempty"`
+	BluetoothAudioPreference *bool                  `protobuf:"varint,4,opt,name=bluetooth_audio_preference,json=bluetoothAudioPreference" json:"bluetooth_audio_preference,omitempty"`
+	unknownFields            protoimpl.UnknownFields
+	sizeCache                protoimpl.SizeCache
 }
 
 func (x *CAudio_GetSupportedFeatures_Response) Reset() {
@@ -113,6 +114,13 @@ func (x *CAudio_GetSupportedFeatures_Response) GetUseBluetoothForMic() bool {
 func (x *CAudio_GetSupportedFeatures_Response) GetResetConfig() bool {
 	if x != nil && x.ResetConfig != nil {
 		return *x.ResetConfig
+	}
+	return false
+}
+
+func (x *CAudio_GetSupportedFeatures_Response) GetBluetoothAudioPreference() bool {
+	if x != nil && x.BluetoothAudioPreference != nil {
+		return *x.BluetoothAudioPreference
 	}
 	return false
 }
@@ -437,6 +445,176 @@ func (*CAudio_SetUseBluetoothForMic_Response) Descriptor() ([]byte, []int) {
 	return file_webuimessages_audio_proto_rawDescGZIP(), []int{9}
 }
 
+type CAudio_GetBluetoothAudioPreference_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CAudio_GetBluetoothAudioPreference_Request) Reset() {
+	*x = CAudio_GetBluetoothAudioPreference_Request{}
+	mi := &file_webuimessages_audio_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CAudio_GetBluetoothAudioPreference_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CAudio_GetBluetoothAudioPreference_Request) ProtoMessage() {}
+
+func (x *CAudio_GetBluetoothAudioPreference_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_audio_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CAudio_GetBluetoothAudioPreference_Request.ProtoReflect.Descriptor instead.
+func (*CAudio_GetBluetoothAudioPreference_Request) Descriptor() ([]byte, []int) {
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{10}
+}
+
+type CAudio_GetBluetoothAudioPreference_Response struct {
+	state         protoimpl.MessageState     `protogen:"open.v1"`
+	Preference    *EBluetoothAudioPreference `protobuf:"varint,1,opt,name=preference,enum=EBluetoothAudioPreference,def=0" json:"preference,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+// Default values for CAudio_GetBluetoothAudioPreference_Response fields.
+const (
+	Default_CAudio_GetBluetoothAudioPreference_Response_Preference = EBluetoothAudioPreference_k_EBluetoothAudioPreference_Quality
+)
+
+func (x *CAudio_GetBluetoothAudioPreference_Response) Reset() {
+	*x = CAudio_GetBluetoothAudioPreference_Response{}
+	mi := &file_webuimessages_audio_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CAudio_GetBluetoothAudioPreference_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CAudio_GetBluetoothAudioPreference_Response) ProtoMessage() {}
+
+func (x *CAudio_GetBluetoothAudioPreference_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_audio_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CAudio_GetBluetoothAudioPreference_Response.ProtoReflect.Descriptor instead.
+func (*CAudio_GetBluetoothAudioPreference_Response) Descriptor() ([]byte, []int) {
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *CAudio_GetBluetoothAudioPreference_Response) GetPreference() EBluetoothAudioPreference {
+	if x != nil && x.Preference != nil {
+		return *x.Preference
+	}
+	return Default_CAudio_GetBluetoothAudioPreference_Response_Preference
+}
+
+type CAudio_SetBluetoothAudioPreference_Request struct {
+	state         protoimpl.MessageState     `protogen:"open.v1"`
+	Preference    *EBluetoothAudioPreference `protobuf:"varint,1,opt,name=preference,enum=EBluetoothAudioPreference,def=0" json:"preference,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+// Default values for CAudio_SetBluetoothAudioPreference_Request fields.
+const (
+	Default_CAudio_SetBluetoothAudioPreference_Request_Preference = EBluetoothAudioPreference_k_EBluetoothAudioPreference_Quality
+)
+
+func (x *CAudio_SetBluetoothAudioPreference_Request) Reset() {
+	*x = CAudio_SetBluetoothAudioPreference_Request{}
+	mi := &file_webuimessages_audio_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CAudio_SetBluetoothAudioPreference_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CAudio_SetBluetoothAudioPreference_Request) ProtoMessage() {}
+
+func (x *CAudio_SetBluetoothAudioPreference_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_audio_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CAudio_SetBluetoothAudioPreference_Request.ProtoReflect.Descriptor instead.
+func (*CAudio_SetBluetoothAudioPreference_Request) Descriptor() ([]byte, []int) {
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *CAudio_SetBluetoothAudioPreference_Request) GetPreference() EBluetoothAudioPreference {
+	if x != nil && x.Preference != nil {
+		return *x.Preference
+	}
+	return Default_CAudio_SetBluetoothAudioPreference_Request_Preference
+}
+
+type CAudio_SetBluetoothAudioPreference_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CAudio_SetBluetoothAudioPreference_Response) Reset() {
+	*x = CAudio_SetBluetoothAudioPreference_Response{}
+	mi := &file_webuimessages_audio_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CAudio_SetBluetoothAudioPreference_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CAudio_SetBluetoothAudioPreference_Response) ProtoMessage() {}
+
+func (x *CAudio_SetBluetoothAudioPreference_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_audio_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CAudio_SetBluetoothAudioPreference_Response.ProtoReflect.Descriptor instead.
+func (*CAudio_SetBluetoothAudioPreference_Response) Descriptor() ([]byte, []int) {
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{13}
+}
+
 type CAudio_SupportsHdmiCec_Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	SinkId        *int32                 `protobuf:"varint,1,opt,name=sink_id,json=sinkId" json:"sink_id,omitempty"`
@@ -446,7 +624,7 @@ type CAudio_SupportsHdmiCec_Request struct {
 
 func (x *CAudio_SupportsHdmiCec_Request) Reset() {
 	*x = CAudio_SupportsHdmiCec_Request{}
-	mi := &file_webuimessages_audio_proto_msgTypes[10]
+	mi := &file_webuimessages_audio_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -458,7 +636,7 @@ func (x *CAudio_SupportsHdmiCec_Request) String() string {
 func (*CAudio_SupportsHdmiCec_Request) ProtoMessage() {}
 
 func (x *CAudio_SupportsHdmiCec_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_audio_proto_msgTypes[10]
+	mi := &file_webuimessages_audio_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -471,7 +649,7 @@ func (x *CAudio_SupportsHdmiCec_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CAudio_SupportsHdmiCec_Request.ProtoReflect.Descriptor instead.
 func (*CAudio_SupportsHdmiCec_Request) Descriptor() ([]byte, []int) {
-	return file_webuimessages_audio_proto_rawDescGZIP(), []int{10}
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CAudio_SupportsHdmiCec_Request) GetSinkId() int32 {
@@ -490,7 +668,7 @@ type CAudio_SupportsHdmiCec_Response struct {
 
 func (x *CAudio_SupportsHdmiCec_Response) Reset() {
 	*x = CAudio_SupportsHdmiCec_Response{}
-	mi := &file_webuimessages_audio_proto_msgTypes[11]
+	mi := &file_webuimessages_audio_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -502,7 +680,7 @@ func (x *CAudio_SupportsHdmiCec_Response) String() string {
 func (*CAudio_SupportsHdmiCec_Response) ProtoMessage() {}
 
 func (x *CAudio_SupportsHdmiCec_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_audio_proto_msgTypes[11]
+	mi := &file_webuimessages_audio_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -515,7 +693,7 @@ func (x *CAudio_SupportsHdmiCec_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CAudio_SupportsHdmiCec_Response.ProtoReflect.Descriptor instead.
 func (*CAudio_SupportsHdmiCec_Response) Descriptor() ([]byte, []int) {
-	return file_webuimessages_audio_proto_rawDescGZIP(), []int{11}
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *CAudio_SupportsHdmiCec_Response) GetEnabled() bool {
@@ -534,7 +712,7 @@ type CAudio_GetHdmiCecEnabled_Request struct {
 
 func (x *CAudio_GetHdmiCecEnabled_Request) Reset() {
 	*x = CAudio_GetHdmiCecEnabled_Request{}
-	mi := &file_webuimessages_audio_proto_msgTypes[12]
+	mi := &file_webuimessages_audio_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -546,7 +724,7 @@ func (x *CAudio_GetHdmiCecEnabled_Request) String() string {
 func (*CAudio_GetHdmiCecEnabled_Request) ProtoMessage() {}
 
 func (x *CAudio_GetHdmiCecEnabled_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_audio_proto_msgTypes[12]
+	mi := &file_webuimessages_audio_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -559,7 +737,7 @@ func (x *CAudio_GetHdmiCecEnabled_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CAudio_GetHdmiCecEnabled_Request.ProtoReflect.Descriptor instead.
 func (*CAudio_GetHdmiCecEnabled_Request) Descriptor() ([]byte, []int) {
-	return file_webuimessages_audio_proto_rawDescGZIP(), []int{12}
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *CAudio_GetHdmiCecEnabled_Request) GetSinkId() int32 {
@@ -578,7 +756,7 @@ type CAudio_GetHdmiCecEnabled_Response struct {
 
 func (x *CAudio_GetHdmiCecEnabled_Response) Reset() {
 	*x = CAudio_GetHdmiCecEnabled_Response{}
-	mi := &file_webuimessages_audio_proto_msgTypes[13]
+	mi := &file_webuimessages_audio_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -590,7 +768,7 @@ func (x *CAudio_GetHdmiCecEnabled_Response) String() string {
 func (*CAudio_GetHdmiCecEnabled_Response) ProtoMessage() {}
 
 func (x *CAudio_GetHdmiCecEnabled_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_audio_proto_msgTypes[13]
+	mi := &file_webuimessages_audio_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -603,7 +781,7 @@ func (x *CAudio_GetHdmiCecEnabled_Response) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CAudio_GetHdmiCecEnabled_Response.ProtoReflect.Descriptor instead.
 func (*CAudio_GetHdmiCecEnabled_Response) Descriptor() ([]byte, []int) {
-	return file_webuimessages_audio_proto_rawDescGZIP(), []int{13}
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *CAudio_GetHdmiCecEnabled_Response) GetEnabled() bool {
@@ -622,7 +800,7 @@ type CAudio_GetHdmiCecActive_Request struct {
 
 func (x *CAudio_GetHdmiCecActive_Request) Reset() {
 	*x = CAudio_GetHdmiCecActive_Request{}
-	mi := &file_webuimessages_audio_proto_msgTypes[14]
+	mi := &file_webuimessages_audio_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -634,7 +812,7 @@ func (x *CAudio_GetHdmiCecActive_Request) String() string {
 func (*CAudio_GetHdmiCecActive_Request) ProtoMessage() {}
 
 func (x *CAudio_GetHdmiCecActive_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_audio_proto_msgTypes[14]
+	mi := &file_webuimessages_audio_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -647,7 +825,7 @@ func (x *CAudio_GetHdmiCecActive_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CAudio_GetHdmiCecActive_Request.ProtoReflect.Descriptor instead.
 func (*CAudio_GetHdmiCecActive_Request) Descriptor() ([]byte, []int) {
-	return file_webuimessages_audio_proto_rawDescGZIP(), []int{14}
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *CAudio_GetHdmiCecActive_Request) GetSinkId() int32 {
@@ -666,7 +844,7 @@ type CAudio_GetHdmiCecActive_Response struct {
 
 func (x *CAudio_GetHdmiCecActive_Response) Reset() {
 	*x = CAudio_GetHdmiCecActive_Response{}
-	mi := &file_webuimessages_audio_proto_msgTypes[15]
+	mi := &file_webuimessages_audio_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -678,7 +856,7 @@ func (x *CAudio_GetHdmiCecActive_Response) String() string {
 func (*CAudio_GetHdmiCecActive_Response) ProtoMessage() {}
 
 func (x *CAudio_GetHdmiCecActive_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_audio_proto_msgTypes[15]
+	mi := &file_webuimessages_audio_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -691,7 +869,7 @@ func (x *CAudio_GetHdmiCecActive_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CAudio_GetHdmiCecActive_Response.ProtoReflect.Descriptor instead.
 func (*CAudio_GetHdmiCecActive_Response) Descriptor() ([]byte, []int) {
-	return file_webuimessages_audio_proto_rawDescGZIP(), []int{15}
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *CAudio_GetHdmiCecActive_Response) GetActive() bool {
@@ -711,7 +889,7 @@ type CAudio_SetHdmiCecEnabled_Request struct {
 
 func (x *CAudio_SetHdmiCecEnabled_Request) Reset() {
 	*x = CAudio_SetHdmiCecEnabled_Request{}
-	mi := &file_webuimessages_audio_proto_msgTypes[16]
+	mi := &file_webuimessages_audio_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -723,7 +901,7 @@ func (x *CAudio_SetHdmiCecEnabled_Request) String() string {
 func (*CAudio_SetHdmiCecEnabled_Request) ProtoMessage() {}
 
 func (x *CAudio_SetHdmiCecEnabled_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_audio_proto_msgTypes[16]
+	mi := &file_webuimessages_audio_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -736,7 +914,7 @@ func (x *CAudio_SetHdmiCecEnabled_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CAudio_SetHdmiCecEnabled_Request.ProtoReflect.Descriptor instead.
 func (*CAudio_SetHdmiCecEnabled_Request) Descriptor() ([]byte, []int) {
-	return file_webuimessages_audio_proto_rawDescGZIP(), []int{16}
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *CAudio_SetHdmiCecEnabled_Request) GetSinkId() int32 {
@@ -761,7 +939,7 @@ type CAudio_SetHdmiCecEnabled_Response struct {
 
 func (x *CAudio_SetHdmiCecEnabled_Response) Reset() {
 	*x = CAudio_SetHdmiCecEnabled_Response{}
-	mi := &file_webuimessages_audio_proto_msgTypes[17]
+	mi := &file_webuimessages_audio_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -773,7 +951,7 @@ func (x *CAudio_SetHdmiCecEnabled_Response) String() string {
 func (*CAudio_SetHdmiCecEnabled_Response) ProtoMessage() {}
 
 func (x *CAudio_SetHdmiCecEnabled_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_audio_proto_msgTypes[17]
+	mi := &file_webuimessages_audio_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -786,7 +964,7 @@ func (x *CAudio_SetHdmiCecEnabled_Response) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CAudio_SetHdmiCecEnabled_Response.ProtoReflect.Descriptor instead.
 func (*CAudio_SetHdmiCecEnabled_Response) Descriptor() ([]byte, []int) {
-	return file_webuimessages_audio_proto_rawDescGZIP(), []int{17}
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{21}
 }
 
 type CAudio_SendHdmiCecVolume_Request struct {
@@ -799,7 +977,7 @@ type CAudio_SendHdmiCecVolume_Request struct {
 
 func (x *CAudio_SendHdmiCecVolume_Request) Reset() {
 	*x = CAudio_SendHdmiCecVolume_Request{}
-	mi := &file_webuimessages_audio_proto_msgTypes[18]
+	mi := &file_webuimessages_audio_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -811,7 +989,7 @@ func (x *CAudio_SendHdmiCecVolume_Request) String() string {
 func (*CAudio_SendHdmiCecVolume_Request) ProtoMessage() {}
 
 func (x *CAudio_SendHdmiCecVolume_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_audio_proto_msgTypes[18]
+	mi := &file_webuimessages_audio_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -824,7 +1002,7 @@ func (x *CAudio_SendHdmiCecVolume_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CAudio_SendHdmiCecVolume_Request.ProtoReflect.Descriptor instead.
 func (*CAudio_SendHdmiCecVolume_Request) Descriptor() ([]byte, []int) {
-	return file_webuimessages_audio_proto_rawDescGZIP(), []int{18}
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *CAudio_SendHdmiCecVolume_Request) GetSinkId() int32 {
@@ -849,7 +1027,7 @@ type CAudio_SendHdmiCecVolume_Response struct {
 
 func (x *CAudio_SendHdmiCecVolume_Response) Reset() {
 	*x = CAudio_SendHdmiCecVolume_Response{}
-	mi := &file_webuimessages_audio_proto_msgTypes[19]
+	mi := &file_webuimessages_audio_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -861,7 +1039,7 @@ func (x *CAudio_SendHdmiCecVolume_Response) String() string {
 func (*CAudio_SendHdmiCecVolume_Response) ProtoMessage() {}
 
 func (x *CAudio_SendHdmiCecVolume_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_audio_proto_msgTypes[19]
+	mi := &file_webuimessages_audio_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -874,7 +1052,7 @@ func (x *CAudio_SendHdmiCecVolume_Response) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CAudio_SendHdmiCecVolume_Response.ProtoReflect.Descriptor instead.
 func (*CAudio_SendHdmiCecVolume_Response) Descriptor() ([]byte, []int) {
-	return file_webuimessages_audio_proto_rawDescGZIP(), []int{19}
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{23}
 }
 
 type CAudio_ToggleHdmiCecMute_Request struct {
@@ -886,7 +1064,7 @@ type CAudio_ToggleHdmiCecMute_Request struct {
 
 func (x *CAudio_ToggleHdmiCecMute_Request) Reset() {
 	*x = CAudio_ToggleHdmiCecMute_Request{}
-	mi := &file_webuimessages_audio_proto_msgTypes[20]
+	mi := &file_webuimessages_audio_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -898,7 +1076,7 @@ func (x *CAudio_ToggleHdmiCecMute_Request) String() string {
 func (*CAudio_ToggleHdmiCecMute_Request) ProtoMessage() {}
 
 func (x *CAudio_ToggleHdmiCecMute_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_audio_proto_msgTypes[20]
+	mi := &file_webuimessages_audio_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -911,7 +1089,7 @@ func (x *CAudio_ToggleHdmiCecMute_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CAudio_ToggleHdmiCecMute_Request.ProtoReflect.Descriptor instead.
 func (*CAudio_ToggleHdmiCecMute_Request) Descriptor() ([]byte, []int) {
-	return file_webuimessages_audio_proto_rawDescGZIP(), []int{20}
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *CAudio_ToggleHdmiCecMute_Request) GetSinkId() int32 {
@@ -929,7 +1107,7 @@ type CAudio_ToggleHdmiCecMute_Response struct {
 
 func (x *CAudio_ToggleHdmiCecMute_Response) Reset() {
 	*x = CAudio_ToggleHdmiCecMute_Response{}
-	mi := &file_webuimessages_audio_proto_msgTypes[21]
+	mi := &file_webuimessages_audio_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -941,7 +1119,7 @@ func (x *CAudio_ToggleHdmiCecMute_Response) String() string {
 func (*CAudio_ToggleHdmiCecMute_Response) ProtoMessage() {}
 
 func (x *CAudio_ToggleHdmiCecMute_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_audio_proto_msgTypes[21]
+	mi := &file_webuimessages_audio_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -954,7 +1132,7 @@ func (x *CAudio_ToggleHdmiCecMute_Response) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CAudio_ToggleHdmiCecMute_Response.ProtoReflect.Descriptor instead.
 func (*CAudio_ToggleHdmiCecMute_Response) Descriptor() ([]byte, []int) {
-	return file_webuimessages_audio_proto_rawDescGZIP(), []int{21}
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{25}
 }
 
 type CAudio_ResetConfig_Request struct {
@@ -965,7 +1143,7 @@ type CAudio_ResetConfig_Request struct {
 
 func (x *CAudio_ResetConfig_Request) Reset() {
 	*x = CAudio_ResetConfig_Request{}
-	mi := &file_webuimessages_audio_proto_msgTypes[22]
+	mi := &file_webuimessages_audio_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -977,7 +1155,7 @@ func (x *CAudio_ResetConfig_Request) String() string {
 func (*CAudio_ResetConfig_Request) ProtoMessage() {}
 
 func (x *CAudio_ResetConfig_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_audio_proto_msgTypes[22]
+	mi := &file_webuimessages_audio_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -990,7 +1168,7 @@ func (x *CAudio_ResetConfig_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CAudio_ResetConfig_Request.ProtoReflect.Descriptor instead.
 func (*CAudio_ResetConfig_Request) Descriptor() ([]byte, []int) {
-	return file_webuimessages_audio_proto_rawDescGZIP(), []int{22}
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{26}
 }
 
 type CAudio_ResetConfig_Response struct {
@@ -1001,7 +1179,7 @@ type CAudio_ResetConfig_Response struct {
 
 func (x *CAudio_ResetConfig_Response) Reset() {
 	*x = CAudio_ResetConfig_Response{}
-	mi := &file_webuimessages_audio_proto_msgTypes[23]
+	mi := &file_webuimessages_audio_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1013,7 +1191,7 @@ func (x *CAudio_ResetConfig_Response) String() string {
 func (*CAudio_ResetConfig_Response) ProtoMessage() {}
 
 func (x *CAudio_ResetConfig_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_audio_proto_msgTypes[23]
+	mi := &file_webuimessages_audio_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1026,7 +1204,7 @@ func (x *CAudio_ResetConfig_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CAudio_ResetConfig_Response.ProtoReflect.Descriptor instead.
 func (*CAudio_ResetConfig_Response) Descriptor() ([]byte, []int) {
-	return file_webuimessages_audio_proto_rawDescGZIP(), []int{23}
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{27}
 }
 
 type CAudio_PlaySpeakerTestOnChannel_Request struct {
@@ -1038,7 +1216,7 @@ type CAudio_PlaySpeakerTestOnChannel_Request struct {
 
 func (x *CAudio_PlaySpeakerTestOnChannel_Request) Reset() {
 	*x = CAudio_PlaySpeakerTestOnChannel_Request{}
-	mi := &file_webuimessages_audio_proto_msgTypes[24]
+	mi := &file_webuimessages_audio_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1050,7 +1228,7 @@ func (x *CAudio_PlaySpeakerTestOnChannel_Request) String() string {
 func (*CAudio_PlaySpeakerTestOnChannel_Request) ProtoMessage() {}
 
 func (x *CAudio_PlaySpeakerTestOnChannel_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_audio_proto_msgTypes[24]
+	mi := &file_webuimessages_audio_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1063,7 +1241,7 @@ func (x *CAudio_PlaySpeakerTestOnChannel_Request) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CAudio_PlaySpeakerTestOnChannel_Request.ProtoReflect.Descriptor instead.
 func (*CAudio_PlaySpeakerTestOnChannel_Request) Descriptor() ([]byte, []int) {
-	return file_webuimessages_audio_proto_rawDescGZIP(), []int{24}
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *CAudio_PlaySpeakerTestOnChannel_Request) GetChannelNum() int32 {
@@ -1082,7 +1260,7 @@ type CAudio_PlaySpeakerTestOnChannel_Response struct {
 
 func (x *CAudio_PlaySpeakerTestOnChannel_Response) Reset() {
 	*x = CAudio_PlaySpeakerTestOnChannel_Response{}
-	mi := &file_webuimessages_audio_proto_msgTypes[25]
+	mi := &file_webuimessages_audio_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1094,7 +1272,7 @@ func (x *CAudio_PlaySpeakerTestOnChannel_Response) String() string {
 func (*CAudio_PlaySpeakerTestOnChannel_Response) ProtoMessage() {}
 
 func (x *CAudio_PlaySpeakerTestOnChannel_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_audio_proto_msgTypes[25]
+	mi := &file_webuimessages_audio_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1107,7 +1285,7 @@ func (x *CAudio_PlaySpeakerTestOnChannel_Response) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CAudio_PlaySpeakerTestOnChannel_Response.ProtoReflect.Descriptor instead.
 func (*CAudio_PlaySpeakerTestOnChannel_Response) Descriptor() ([]byte, []int) {
-	return file_webuimessages_audio_proto_rawDescGZIP(), []int{25}
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *CAudio_PlaySpeakerTestOnChannel_Response) GetSuccess() bool {
@@ -1132,7 +1310,7 @@ const (
 
 func (x *CAudio_SetSpeakerConfiguration_Request) Reset() {
 	*x = CAudio_SetSpeakerConfiguration_Request{}
-	mi := &file_webuimessages_audio_proto_msgTypes[26]
+	mi := &file_webuimessages_audio_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1144,7 +1322,7 @@ func (x *CAudio_SetSpeakerConfiguration_Request) String() string {
 func (*CAudio_SetSpeakerConfiguration_Request) ProtoMessage() {}
 
 func (x *CAudio_SetSpeakerConfiguration_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_audio_proto_msgTypes[26]
+	mi := &file_webuimessages_audio_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1157,7 +1335,7 @@ func (x *CAudio_SetSpeakerConfiguration_Request) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CAudio_SetSpeakerConfiguration_Request.ProtoReflect.Descriptor instead.
 func (*CAudio_SetSpeakerConfiguration_Request) Descriptor() ([]byte, []int) {
-	return file_webuimessages_audio_proto_rawDescGZIP(), []int{26}
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *CAudio_SetSpeakerConfiguration_Request) GetSinkId() int32 {
@@ -1190,7 +1368,7 @@ const (
 
 func (x *CAudio_SetSpeakerConfiguration_Response) Reset() {
 	*x = CAudio_SetSpeakerConfiguration_Response{}
-	mi := &file_webuimessages_audio_proto_msgTypes[27]
+	mi := &file_webuimessages_audio_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1202,7 +1380,7 @@ func (x *CAudio_SetSpeakerConfiguration_Response) String() string {
 func (*CAudio_SetSpeakerConfiguration_Response) ProtoMessage() {}
 
 func (x *CAudio_SetSpeakerConfiguration_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_audio_proto_msgTypes[27]
+	mi := &file_webuimessages_audio_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1215,7 +1393,7 @@ func (x *CAudio_SetSpeakerConfiguration_Response) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CAudio_SetSpeakerConfiguration_Response.ProtoReflect.Descriptor instead.
 func (*CAudio_SetSpeakerConfiguration_Response) Descriptor() ([]byte, []int) {
-	return file_webuimessages_audio_proto_rawDescGZIP(), []int{27}
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *CAudio_SetSpeakerConfiguration_Response) GetConfig() ESpeakerConfiguration {
@@ -1244,11 +1422,12 @@ var File_webuimessages_audio_proto protoreflect.FileDescriptor
 const file_webuimessages_audio_proto_rawDesc = "" +
 	"\n" +
 	"\x19webuimessages_audio.proto\x1a\x18steammessages_base.proto\x1a\x18webuimessages_base.proto\x1a\venums.proto\"%\n" +
-	"#CAudio_GetSupportedFeatures_Request\"\x9f\x01\n" +
+	"#CAudio_GetSupportedFeatures_Request\"\xdd\x01\n" +
 	"$CAudio_GetSupportedFeatures_Response\x12!\n" +
 	"\fmono_downmix\x18\x01 \x01(\bR\vmonoDownmix\x121\n" +
 	"\x15use_bluetooth_for_mic\x18\x02 \x01(\bR\x12useBluetoothForMic\x12!\n" +
-	"\freset_config\x18\x03 \x01(\bR\vresetConfig\"&\n" +
+	"\freset_config\x18\x03 \x01(\bR\vresetConfig\x12<\n" +
+	"\x1abluetooth_audio_preference\x18\x04 \x01(\bR\x18bluetoothAudioPreference\"&\n" +
 	"$CAudio_GetMonoDownmixEnabled_Request\"A\n" +
 	"%CAudio_GetMonoDownmixEnabled_Response\x12\x18\n" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\"@\n" +
@@ -1260,7 +1439,17 @@ const file_webuimessages_audio_proto_rawDesc = "" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\"@\n" +
 	"$CAudio_SetUseBluetoothForMic_Request\x12\x18\n" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\"'\n" +
-	"%CAudio_SetUseBluetoothForMic_Response\"9\n" +
+	"%CAudio_SetUseBluetoothForMic_Response\",\n" +
+	"*CAudio_GetBluetoothAudioPreference_Request\"\x8e\x01\n" +
+	"+CAudio_GetBluetoothAudioPreference_Response\x12_\n" +
+	"\n" +
+	"preference\x18\x01 \x01(\x0e2\x1a.EBluetoothAudioPreference:#k_EBluetoothAudioPreference_QualityR\n" +
+	"preference\"\x8d\x01\n" +
+	"*CAudio_SetBluetoothAudioPreference_Request\x12_\n" +
+	"\n" +
+	"preference\x18\x01 \x01(\x0e2\x1a.EBluetoothAudioPreference:#k_EBluetoothAudioPreference_QualityR\n" +
+	"preference\"-\n" +
+	"+CAudio_SetBluetoothAudioPreference_Response\"9\n" +
 	"\x1eCAudio_SupportsHdmiCec_Request\x12\x17\n" +
 	"\asink_id\x18\x01 \x01(\x05R\x06sinkId\";\n" +
 	"\x1fCAudio_SupportsHdmiCec_Response\x12\x18\n" +
@@ -1297,14 +1486,15 @@ const file_webuimessages_audio_proto_rawDesc = "" +
 	"'CAudio_SetSpeakerConfiguration_Response\x12M\n" +
 	"\x06config\x18\x01 \x01(\x0e2\x16.ESpeakerConfiguration:\x1dk_ESpeakerConfiguration_OtherR\x06config\x12\x1a\n" +
 	"\bchannels\x18\x02 \x01(\x05R\bchannels\x12\"\n" +
-	"\fsdescription\x18\x03 \x01(\tR\fsdescription2\xda\n" +
-	"\n" +
+	"\fsdescription\x18\x03 \x01(\tR\fsdescription2\xce\f\n" +
 	"\x05Audio\x12c\n" +
 	"\x14GetSupportedFeatures\x12$.CAudio_GetSupportedFeatures_Request\x1a%.CAudio_GetSupportedFeatures_Response\x12f\n" +
 	"\x15GetMonoDownmixEnabled\x12%.CAudio_GetMonoDownmixEnabled_Request\x1a&.CAudio_GetMonoDownmixEnabled_Response\x12f\n" +
 	"\x15SetMonoDownmixEnabled\x12%.CAudio_SetMonoDownmixEnabled_Request\x1a&.CAudio_SetMonoDownmixEnabled_Response\x12f\n" +
 	"\x15GetUseBluetoothForMic\x12%.CAudio_GetUseBluetoothForMic_Request\x1a&.CAudio_GetUseBluetoothForMic_Response\x12f\n" +
-	"\x15SetUseBluetoothForMic\x12%.CAudio_SetUseBluetoothForMic_Request\x1a&.CAudio_SetUseBluetoothForMic_Response\x12T\n" +
+	"\x15SetUseBluetoothForMic\x12%.CAudio_SetUseBluetoothForMic_Request\x1a&.CAudio_SetUseBluetoothForMic_Response\x12x\n" +
+	"\x1bGetBluetoothAudioPreference\x12+.CAudio_GetBluetoothAudioPreference_Request\x1a,.CAudio_GetBluetoothAudioPreference_Response\x12x\n" +
+	"\x1bSetBluetoothAudioPreference\x12+.CAudio_SetBluetoothAudioPreference_Request\x1a,.CAudio_SetBluetoothAudioPreference_Response\x12T\n" +
 	"\x0fSupportsHdmiCec\x12\x1f.CAudio_SupportsHdmiCec_Request\x1a .CAudio_SupportsHdmiCec_Response\x12Z\n" +
 	"\x11GetHdmiCecEnabled\x12!.CAudio_GetHdmiCecEnabled_Request\x1a\".CAudio_GetHdmiCecEnabled_Response\x12W\n" +
 	"\x10GetHdmiCecActive\x12 .CAudio_GetHdmiCecActive_Request\x1a!.CAudio_GetHdmiCecActive_Response\x12Z\n" +
@@ -1327,74 +1517,85 @@ func file_webuimessages_audio_proto_rawDescGZIP() []byte {
 	return file_webuimessages_audio_proto_rawDescData
 }
 
-var file_webuimessages_audio_proto_msgTypes = make([]protoimpl.MessageInfo, 28)
+var file_webuimessages_audio_proto_msgTypes = make([]protoimpl.MessageInfo, 32)
 var file_webuimessages_audio_proto_goTypes = []any{
-	(*CAudio_GetSupportedFeatures_Request)(nil),      // 0: CAudio_GetSupportedFeatures_Request
-	(*CAudio_GetSupportedFeatures_Response)(nil),     // 1: CAudio_GetSupportedFeatures_Response
-	(*CAudio_GetMonoDownmixEnabled_Request)(nil),     // 2: CAudio_GetMonoDownmixEnabled_Request
-	(*CAudio_GetMonoDownmixEnabled_Response)(nil),    // 3: CAudio_GetMonoDownmixEnabled_Response
-	(*CAudio_SetMonoDownmixEnabled_Request)(nil),     // 4: CAudio_SetMonoDownmixEnabled_Request
-	(*CAudio_SetMonoDownmixEnabled_Response)(nil),    // 5: CAudio_SetMonoDownmixEnabled_Response
-	(*CAudio_GetUseBluetoothForMic_Request)(nil),     // 6: CAudio_GetUseBluetoothForMic_Request
-	(*CAudio_GetUseBluetoothForMic_Response)(nil),    // 7: CAudio_GetUseBluetoothForMic_Response
-	(*CAudio_SetUseBluetoothForMic_Request)(nil),     // 8: CAudio_SetUseBluetoothForMic_Request
-	(*CAudio_SetUseBluetoothForMic_Response)(nil),    // 9: CAudio_SetUseBluetoothForMic_Response
-	(*CAudio_SupportsHdmiCec_Request)(nil),           // 10: CAudio_SupportsHdmiCec_Request
-	(*CAudio_SupportsHdmiCec_Response)(nil),          // 11: CAudio_SupportsHdmiCec_Response
-	(*CAudio_GetHdmiCecEnabled_Request)(nil),         // 12: CAudio_GetHdmiCecEnabled_Request
-	(*CAudio_GetHdmiCecEnabled_Response)(nil),        // 13: CAudio_GetHdmiCecEnabled_Response
-	(*CAudio_GetHdmiCecActive_Request)(nil),          // 14: CAudio_GetHdmiCecActive_Request
-	(*CAudio_GetHdmiCecActive_Response)(nil),         // 15: CAudio_GetHdmiCecActive_Response
-	(*CAudio_SetHdmiCecEnabled_Request)(nil),         // 16: CAudio_SetHdmiCecEnabled_Request
-	(*CAudio_SetHdmiCecEnabled_Response)(nil),        // 17: CAudio_SetHdmiCecEnabled_Response
-	(*CAudio_SendHdmiCecVolume_Request)(nil),         // 18: CAudio_SendHdmiCecVolume_Request
-	(*CAudio_SendHdmiCecVolume_Response)(nil),        // 19: CAudio_SendHdmiCecVolume_Response
-	(*CAudio_ToggleHdmiCecMute_Request)(nil),         // 20: CAudio_ToggleHdmiCecMute_Request
-	(*CAudio_ToggleHdmiCecMute_Response)(nil),        // 21: CAudio_ToggleHdmiCecMute_Response
-	(*CAudio_ResetConfig_Request)(nil),               // 22: CAudio_ResetConfig_Request
-	(*CAudio_ResetConfig_Response)(nil),              // 23: CAudio_ResetConfig_Response
-	(*CAudio_PlaySpeakerTestOnChannel_Request)(nil),  // 24: CAudio_PlaySpeakerTestOnChannel_Request
-	(*CAudio_PlaySpeakerTestOnChannel_Response)(nil), // 25: CAudio_PlaySpeakerTestOnChannel_Response
-	(*CAudio_SetSpeakerConfiguration_Request)(nil),   // 26: CAudio_SetSpeakerConfiguration_Request
-	(*CAudio_SetSpeakerConfiguration_Response)(nil),  // 27: CAudio_SetSpeakerConfiguration_Response
-	(ESpeakerConfiguration)(0),                       // 28: ESpeakerConfiguration
+	(*CAudio_GetSupportedFeatures_Request)(nil),         // 0: CAudio_GetSupportedFeatures_Request
+	(*CAudio_GetSupportedFeatures_Response)(nil),        // 1: CAudio_GetSupportedFeatures_Response
+	(*CAudio_GetMonoDownmixEnabled_Request)(nil),        // 2: CAudio_GetMonoDownmixEnabled_Request
+	(*CAudio_GetMonoDownmixEnabled_Response)(nil),       // 3: CAudio_GetMonoDownmixEnabled_Response
+	(*CAudio_SetMonoDownmixEnabled_Request)(nil),        // 4: CAudio_SetMonoDownmixEnabled_Request
+	(*CAudio_SetMonoDownmixEnabled_Response)(nil),       // 5: CAudio_SetMonoDownmixEnabled_Response
+	(*CAudio_GetUseBluetoothForMic_Request)(nil),        // 6: CAudio_GetUseBluetoothForMic_Request
+	(*CAudio_GetUseBluetoothForMic_Response)(nil),       // 7: CAudio_GetUseBluetoothForMic_Response
+	(*CAudio_SetUseBluetoothForMic_Request)(nil),        // 8: CAudio_SetUseBluetoothForMic_Request
+	(*CAudio_SetUseBluetoothForMic_Response)(nil),       // 9: CAudio_SetUseBluetoothForMic_Response
+	(*CAudio_GetBluetoothAudioPreference_Request)(nil),  // 10: CAudio_GetBluetoothAudioPreference_Request
+	(*CAudio_GetBluetoothAudioPreference_Response)(nil), // 11: CAudio_GetBluetoothAudioPreference_Response
+	(*CAudio_SetBluetoothAudioPreference_Request)(nil),  // 12: CAudio_SetBluetoothAudioPreference_Request
+	(*CAudio_SetBluetoothAudioPreference_Response)(nil), // 13: CAudio_SetBluetoothAudioPreference_Response
+	(*CAudio_SupportsHdmiCec_Request)(nil),              // 14: CAudio_SupportsHdmiCec_Request
+	(*CAudio_SupportsHdmiCec_Response)(nil),             // 15: CAudio_SupportsHdmiCec_Response
+	(*CAudio_GetHdmiCecEnabled_Request)(nil),            // 16: CAudio_GetHdmiCecEnabled_Request
+	(*CAudio_GetHdmiCecEnabled_Response)(nil),           // 17: CAudio_GetHdmiCecEnabled_Response
+	(*CAudio_GetHdmiCecActive_Request)(nil),             // 18: CAudio_GetHdmiCecActive_Request
+	(*CAudio_GetHdmiCecActive_Response)(nil),            // 19: CAudio_GetHdmiCecActive_Response
+	(*CAudio_SetHdmiCecEnabled_Request)(nil),            // 20: CAudio_SetHdmiCecEnabled_Request
+	(*CAudio_SetHdmiCecEnabled_Response)(nil),           // 21: CAudio_SetHdmiCecEnabled_Response
+	(*CAudio_SendHdmiCecVolume_Request)(nil),            // 22: CAudio_SendHdmiCecVolume_Request
+	(*CAudio_SendHdmiCecVolume_Response)(nil),           // 23: CAudio_SendHdmiCecVolume_Response
+	(*CAudio_ToggleHdmiCecMute_Request)(nil),            // 24: CAudio_ToggleHdmiCecMute_Request
+	(*CAudio_ToggleHdmiCecMute_Response)(nil),           // 25: CAudio_ToggleHdmiCecMute_Response
+	(*CAudio_ResetConfig_Request)(nil),                  // 26: CAudio_ResetConfig_Request
+	(*CAudio_ResetConfig_Response)(nil),                 // 27: CAudio_ResetConfig_Response
+	(*CAudio_PlaySpeakerTestOnChannel_Request)(nil),     // 28: CAudio_PlaySpeakerTestOnChannel_Request
+	(*CAudio_PlaySpeakerTestOnChannel_Response)(nil),    // 29: CAudio_PlaySpeakerTestOnChannel_Response
+	(*CAudio_SetSpeakerConfiguration_Request)(nil),      // 30: CAudio_SetSpeakerConfiguration_Request
+	(*CAudio_SetSpeakerConfiguration_Response)(nil),     // 31: CAudio_SetSpeakerConfiguration_Response
+	(EBluetoothAudioPreference)(0),                      // 32: EBluetoothAudioPreference
+	(ESpeakerConfiguration)(0),                          // 33: ESpeakerConfiguration
 }
 var file_webuimessages_audio_proto_depIdxs = []int32{
-	28, // 0: CAudio_SetSpeakerConfiguration_Request.config:type_name -> ESpeakerConfiguration
-	28, // 1: CAudio_SetSpeakerConfiguration_Response.config:type_name -> ESpeakerConfiguration
-	0,  // 2: Audio.GetSupportedFeatures:input_type -> CAudio_GetSupportedFeatures_Request
-	2,  // 3: Audio.GetMonoDownmixEnabled:input_type -> CAudio_GetMonoDownmixEnabled_Request
-	4,  // 4: Audio.SetMonoDownmixEnabled:input_type -> CAudio_SetMonoDownmixEnabled_Request
-	6,  // 5: Audio.GetUseBluetoothForMic:input_type -> CAudio_GetUseBluetoothForMic_Request
-	8,  // 6: Audio.SetUseBluetoothForMic:input_type -> CAudio_SetUseBluetoothForMic_Request
-	10, // 7: Audio.SupportsHdmiCec:input_type -> CAudio_SupportsHdmiCec_Request
-	12, // 8: Audio.GetHdmiCecEnabled:input_type -> CAudio_GetHdmiCecEnabled_Request
-	14, // 9: Audio.GetHdmiCecActive:input_type -> CAudio_GetHdmiCecActive_Request
-	16, // 10: Audio.SetHdmiCecEnabled:input_type -> CAudio_SetHdmiCecEnabled_Request
-	18, // 11: Audio.SendHdmiCecVolume:input_type -> CAudio_SendHdmiCecVolume_Request
-	20, // 12: Audio.ToggleHdmiCecMute:input_type -> CAudio_ToggleHdmiCecMute_Request
-	22, // 13: Audio.ResetConfig:input_type -> CAudio_ResetConfig_Request
-	24, // 14: Audio.PlaySpeakerTestOnChannel:input_type -> CAudio_PlaySpeakerTestOnChannel_Request
-	26, // 15: Audio.SetSpeakerConfiguration:input_type -> CAudio_SetSpeakerConfiguration_Request
-	1,  // 16: Audio.GetSupportedFeatures:output_type -> CAudio_GetSupportedFeatures_Response
-	3,  // 17: Audio.GetMonoDownmixEnabled:output_type -> CAudio_GetMonoDownmixEnabled_Response
-	5,  // 18: Audio.SetMonoDownmixEnabled:output_type -> CAudio_SetMonoDownmixEnabled_Response
-	7,  // 19: Audio.GetUseBluetoothForMic:output_type -> CAudio_GetUseBluetoothForMic_Response
-	9,  // 20: Audio.SetUseBluetoothForMic:output_type -> CAudio_SetUseBluetoothForMic_Response
-	11, // 21: Audio.SupportsHdmiCec:output_type -> CAudio_SupportsHdmiCec_Response
-	13, // 22: Audio.GetHdmiCecEnabled:output_type -> CAudio_GetHdmiCecEnabled_Response
-	15, // 23: Audio.GetHdmiCecActive:output_type -> CAudio_GetHdmiCecActive_Response
-	17, // 24: Audio.SetHdmiCecEnabled:output_type -> CAudio_SetHdmiCecEnabled_Response
-	19, // 25: Audio.SendHdmiCecVolume:output_type -> CAudio_SendHdmiCecVolume_Response
-	21, // 26: Audio.ToggleHdmiCecMute:output_type -> CAudio_ToggleHdmiCecMute_Response
-	23, // 27: Audio.ResetConfig:output_type -> CAudio_ResetConfig_Response
-	25, // 28: Audio.PlaySpeakerTestOnChannel:output_type -> CAudio_PlaySpeakerTestOnChannel_Response
-	27, // 29: Audio.SetSpeakerConfiguration:output_type -> CAudio_SetSpeakerConfiguration_Response
-	16, // [16:30] is the sub-list for method output_type
-	2,  // [2:16] is the sub-list for method input_type
-	2,  // [2:2] is the sub-list for extension type_name
-	2,  // [2:2] is the sub-list for extension extendee
-	0,  // [0:2] is the sub-list for field type_name
+	32, // 0: CAudio_GetBluetoothAudioPreference_Response.preference:type_name -> EBluetoothAudioPreference
+	32, // 1: CAudio_SetBluetoothAudioPreference_Request.preference:type_name -> EBluetoothAudioPreference
+	33, // 2: CAudio_SetSpeakerConfiguration_Request.config:type_name -> ESpeakerConfiguration
+	33, // 3: CAudio_SetSpeakerConfiguration_Response.config:type_name -> ESpeakerConfiguration
+	0,  // 4: Audio.GetSupportedFeatures:input_type -> CAudio_GetSupportedFeatures_Request
+	2,  // 5: Audio.GetMonoDownmixEnabled:input_type -> CAudio_GetMonoDownmixEnabled_Request
+	4,  // 6: Audio.SetMonoDownmixEnabled:input_type -> CAudio_SetMonoDownmixEnabled_Request
+	6,  // 7: Audio.GetUseBluetoothForMic:input_type -> CAudio_GetUseBluetoothForMic_Request
+	8,  // 8: Audio.SetUseBluetoothForMic:input_type -> CAudio_SetUseBluetoothForMic_Request
+	10, // 9: Audio.GetBluetoothAudioPreference:input_type -> CAudio_GetBluetoothAudioPreference_Request
+	12, // 10: Audio.SetBluetoothAudioPreference:input_type -> CAudio_SetBluetoothAudioPreference_Request
+	14, // 11: Audio.SupportsHdmiCec:input_type -> CAudio_SupportsHdmiCec_Request
+	16, // 12: Audio.GetHdmiCecEnabled:input_type -> CAudio_GetHdmiCecEnabled_Request
+	18, // 13: Audio.GetHdmiCecActive:input_type -> CAudio_GetHdmiCecActive_Request
+	20, // 14: Audio.SetHdmiCecEnabled:input_type -> CAudio_SetHdmiCecEnabled_Request
+	22, // 15: Audio.SendHdmiCecVolume:input_type -> CAudio_SendHdmiCecVolume_Request
+	24, // 16: Audio.ToggleHdmiCecMute:input_type -> CAudio_ToggleHdmiCecMute_Request
+	26, // 17: Audio.ResetConfig:input_type -> CAudio_ResetConfig_Request
+	28, // 18: Audio.PlaySpeakerTestOnChannel:input_type -> CAudio_PlaySpeakerTestOnChannel_Request
+	30, // 19: Audio.SetSpeakerConfiguration:input_type -> CAudio_SetSpeakerConfiguration_Request
+	1,  // 20: Audio.GetSupportedFeatures:output_type -> CAudio_GetSupportedFeatures_Response
+	3,  // 21: Audio.GetMonoDownmixEnabled:output_type -> CAudio_GetMonoDownmixEnabled_Response
+	5,  // 22: Audio.SetMonoDownmixEnabled:output_type -> CAudio_SetMonoDownmixEnabled_Response
+	7,  // 23: Audio.GetUseBluetoothForMic:output_type -> CAudio_GetUseBluetoothForMic_Response
+	9,  // 24: Audio.SetUseBluetoothForMic:output_type -> CAudio_SetUseBluetoothForMic_Response
+	11, // 25: Audio.GetBluetoothAudioPreference:output_type -> CAudio_GetBluetoothAudioPreference_Response
+	13, // 26: Audio.SetBluetoothAudioPreference:output_type -> CAudio_SetBluetoothAudioPreference_Response
+	15, // 27: Audio.SupportsHdmiCec:output_type -> CAudio_SupportsHdmiCec_Response
+	17, // 28: Audio.GetHdmiCecEnabled:output_type -> CAudio_GetHdmiCecEnabled_Response
+	19, // 29: Audio.GetHdmiCecActive:output_type -> CAudio_GetHdmiCecActive_Response
+	21, // 30: Audio.SetHdmiCecEnabled:output_type -> CAudio_SetHdmiCecEnabled_Response
+	23, // 31: Audio.SendHdmiCecVolume:output_type -> CAudio_SendHdmiCecVolume_Response
+	25, // 32: Audio.ToggleHdmiCecMute:output_type -> CAudio_ToggleHdmiCecMute_Response
+	27, // 33: Audio.ResetConfig:output_type -> CAudio_ResetConfig_Response
+	29, // 34: Audio.PlaySpeakerTestOnChannel:output_type -> CAudio_PlaySpeakerTestOnChannel_Response
+	31, // 35: Audio.SetSpeakerConfiguration:output_type -> CAudio_SetSpeakerConfiguration_Response
+	20, // [20:36] is the sub-list for method output_type
+	4,  // [4:20] is the sub-list for method input_type
+	4,  // [4:4] is the sub-list for extension type_name
+	4,  // [4:4] is the sub-list for extension extendee
+	0,  // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_webuimessages_audio_proto_init() }
@@ -1411,7 +1612,7 @@ func file_webuimessages_audio_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_webuimessages_audio_proto_rawDesc), len(file_webuimessages_audio_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   28,
+			NumMessages:   32,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

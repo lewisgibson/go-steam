@@ -147,13 +147,6 @@ func (x EAudioFormat) EncodeValues(key string, v *url.Values) error {
 	return nil
 }
 
-// EncodeValues implements the query.Encoder interface for EVideoFormat.
-// This allows the enum to be encoded as its numerical value in URL parameters.
-func (x EVideoFormat) EncodeValues(key string, v *url.Values) error {
-	v.Add(key, strconv.FormatInt(int64(x), 10))
-	return nil
-}
-
 // EncodeValues implements the query.Encoder interface for EStreamStatsMessage.
 // This allows the enum to be encoded as its numerical value in URL parameters.
 func (x EStreamStatsMessage) EncodeValues(key string, v *url.Values) error {

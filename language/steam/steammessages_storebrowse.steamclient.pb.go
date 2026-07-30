@@ -2348,6 +2348,7 @@ type CHardwarePackageDetails struct {
 	QueueWaitlistToken                      *string                `protobuf:"bytes,25,opt,name=queue_waitlist_token,json=queueWaitlistToken" json:"queue_waitlist_token,omitempty"`
 	CollectionTimeActive                    *uint32                `protobuf:"varint,26,opt,name=collection_time_active,json=collectionTimeActive" json:"collection_time_active,omitempty"`
 	ReservationNotAllowed                   *bool                  `protobuf:"varint,27,opt,name=reservation_not_allowed,json=reservationNotAllowed" json:"reservation_not_allowed,omitempty"`
+	RequiresSignature                       *bool                  `protobuf:"varint,28,opt,name=requires_signature,json=requiresSignature" json:"requires_signature,omitempty"`
 	unknownFields                           protoimpl.UnknownFields
 	sizeCache                               protoimpl.SizeCache
 }
@@ -2553,6 +2554,13 @@ func (x *CHardwarePackageDetails) GetCollectionTimeActive() uint32 {
 func (x *CHardwarePackageDetails) GetReservationNotAllowed() bool {
 	if x != nil && x.ReservationNotAllowed != nil {
 		return *x.ReservationNotAllowed
+	}
+	return false
+}
+
+func (x *CHardwarePackageDetails) GetRequiresSignature() bool {
+	if x != nil && x.RequiresSignature != nil {
+		return *x.RequiresSignature
 	}
 	return false
 }
@@ -2782,6 +2790,7 @@ type StoreItem_RelatedItems struct {
 	StandaloneDemos     []*StoreItem_Demo      `protobuf:"bytes,5,rep,name=standalone_demos,json=standaloneDemos" json:"standalone_demos,omitempty"`
 	Playtests           []*StoreItem_Playtest  `protobuf:"bytes,6,rep,name=playtests" json:"playtests,omitempty"`
 	RelatedF2P          *StoreItem_RelatedF2P  `protobuf:"bytes,7,opt,name=related_f2p,json=relatedF2p" json:"related_f2p,omitempty"`
+	DlcParentAppids     []uint32               `protobuf:"varint,9,rep,name=dlc_parent_appids,json=dlcParentAppids" json:"dlc_parent_appids,omitempty"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -2861,6 +2870,13 @@ func (x *StoreItem_RelatedItems) GetPlaytests() []*StoreItem_Playtest {
 func (x *StoreItem_RelatedItems) GetRelatedF2P() *StoreItem_RelatedF2P {
 	if x != nil {
 		return x.RelatedF2P
+	}
+	return nil
+}
+
+func (x *StoreItem_RelatedItems) GetDlcParentAppids() []uint32 {
+	if x != nil {
+		return x.DlcParentAppids
 	}
 	return nil
 }
@@ -5471,7 +5487,7 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\x1dCStoreBrowse_GetItems_Request\x12\x1e\n" +
 	"\x03ids\x18\x01 \x03(\v2\f.StoreItemIDR\x03ids\x12-\n" +
 	"\acontext\x18\x02 \x01(\v2\x13.StoreBrowseContextR\acontext\x12>\n" +
-	"\fdata_request\x18\x03 \x01(\v2\x1b.StoreBrowseItemDataRequestR\vdataRequest\"\xd8S\n" +
+	"\fdata_request\x18\x03 \x01(\v2\x1b.StoreBrowseItemDataRequestR\vdataRequest\"\x84T\n" +
 	"\tStoreItem\x12F\n" +
 	"\titem_type\x18\x01 \x01(\x0e2\x0f.EStoreItemType:\x18k_EStoreItemType_InvalidR\bitemType\x12\x0e\n" +
 	"\x02id\x18\x02 \x01(\rR\x02id\x12\x18\n" +
@@ -5535,7 +5551,7 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1f\n" +
 	"\vheader_text\x18\x02 \x01(\tR\n" +
 	"headerText\x12)\n" +
-	"\x10description_text\x18\x03 \x01(\tR\x0fdescriptionText\x1a\xd2\x02\n" +
+	"\x10description_text\x18\x03 \x01(\tR\x0fdescriptionText\x1a\xfe\x02\n" +
 	"\fRelatedItems\x12!\n" +
 	"\fparent_appid\x18\x01 \x01(\rR\vparentAppid\x12\x1d\n" +
 	"\n" +
@@ -5545,7 +5561,8 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\x10standalone_demos\x18\x05 \x03(\v2\x0f.StoreItem.DemoR\x0fstandaloneDemos\x121\n" +
 	"\tplaytests\x18\x06 \x03(\v2\x13.StoreItem.PlaytestR\tplaytests\x126\n" +
 	"\vrelated_f2p\x18\a \x01(\v2\x15.StoreItem.RelatedF2PR\n" +
-	"relatedF2p\x1a\xb0\x01\n" +
+	"relatedF2p\x12*\n" +
+	"\x11dlc_parent_appids\x18\t \x03(\rR\x0fdlcParentAppids\x1a\xb0\x01\n" +
 	"\rIncludedItems\x12/\n" +
 	"\rincluded_apps\x18\x01 \x03(\v2\n" +
 	".StoreItemR\fincludedApps\x127\n" +
@@ -5864,7 +5881,7 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"dlc_appids\x18\x02 \x03(\rR\tdlcAppids\"t\n" +
 	"%CStoreBrowse_GetHardwareItems_Request\x12\x1c\n" +
 	"\tpackageid\x18\x01 \x03(\rR\tpackageid\x12-\n" +
-	"\acontext\x18\x02 \x01(\v2\x13.StoreBrowseContextR\acontext\"\xa9\v\n" +
+	"\acontext\x18\x02 \x01(\v2\x13.StoreBrowseContextR\acontext\"\xd8\v\n" +
 	"\x17CHardwarePackageDetails\x12\x1c\n" +
 	"\tpackageid\x18\x01 \x01(\rR\tpackageid\x12/\n" +
 	"\x13inventory_available\x18\x03 \x01(\bR\x12inventoryAvailable\x12.\n" +
@@ -5891,7 +5908,8 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\x11queue_in_waitlist\x18\x18 \x01(\bR\x0fqueueInWaitlist\x120\n" +
 	"\x14queue_waitlist_token\x18\x19 \x01(\tR\x12queueWaitlistToken\x124\n" +
 	"\x16collection_time_active\x18\x1a \x01(\rR\x14collectionTimeActive\x126\n" +
-	"\x17reservation_not_allowed\x18\x1b \x01(\bR\x15reservationNotAllowed\"\\\n" +
+	"\x17reservation_not_allowed\x18\x1b \x01(\bR\x15reservationNotAllowed\x12-\n" +
+	"\x12requires_signature\x18\x1c \x01(\bR\x11requiresSignature\"\\\n" +
 	"&CStoreBrowse_GetHardwareItems_Response\x122\n" +
 	"\adetails\x18\x01 \x03(\v2\x18.CHardwarePackageDetailsR\adetails*\x80\x02\n" +
 	"\x0eEStoreItemType\x12%\n" +

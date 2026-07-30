@@ -21,6 +21,65 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type EChildProcessQueryCommand int32
+
+const (
+	EChildProcessQueryCommand_k_EChildProcessQueryCommand_Invalid     EChildProcessQueryCommand = 0
+	EChildProcessQueryCommand_k_EChildProcessQueryCommand_GpuTopology EChildProcessQueryCommand = 1
+	EChildProcessQueryCommand_k_EChildProcessQueryCommand_Max         EChildProcessQueryCommand = 2
+)
+
+// Enum value maps for EChildProcessQueryCommand.
+var (
+	EChildProcessQueryCommand_name = map[int32]string{
+		0: "k_EChildProcessQueryCommand_Invalid",
+		1: "k_EChildProcessQueryCommand_GpuTopology",
+		2: "k_EChildProcessQueryCommand_Max",
+	}
+	EChildProcessQueryCommand_value = map[string]int32{
+		"k_EChildProcessQueryCommand_Invalid":     0,
+		"k_EChildProcessQueryCommand_GpuTopology": 1,
+		"k_EChildProcessQueryCommand_Max":         2,
+	}
+)
+
+func (x EChildProcessQueryCommand) Enum() *EChildProcessQueryCommand {
+	p := new(EChildProcessQueryCommand)
+	*p = x
+	return p
+}
+
+func (x EChildProcessQueryCommand) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (EChildProcessQueryCommand) Descriptor() protoreflect.EnumDescriptor {
+	return file_steammessages_childprocessquery_proto_enumTypes[0].Descriptor()
+}
+
+func (EChildProcessQueryCommand) Type() protoreflect.EnumType {
+	return &file_steammessages_childprocessquery_proto_enumTypes[0]
+}
+
+func (x EChildProcessQueryCommand) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *EChildProcessQueryCommand) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = EChildProcessQueryCommand(num)
+	return nil
+}
+
+// Deprecated: Use EChildProcessQueryCommand.Descriptor instead.
+func (EChildProcessQueryCommand) EnumDescriptor() ([]byte, []int) {
+	return file_steammessages_childprocessquery_proto_rawDescGZIP(), []int{0}
+}
+
 type CMsgChildProcessQueryResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Types that are valid to be assigned to Response:
@@ -264,7 +323,11 @@ const file_steammessages_childprocessquery_proto_rawDesc = "" +
 	"\x14driver_version_major\x18\x05 \x01(\x05R\x12driverVersionMajor\x120\n" +
 	"\x14driver_version_minor\x18\x06 \x01(\x05R\x12driverVersionMinor\x120\n" +
 	"\x14driver_version_patch\x18\a \x01(\x05R\x12driverVersionPatch\x12\x12\n" +
-	"\x04luid\x18\b \x01(\x04R\x04luidB\x05H\x01\x80\x01\x00"
+	"\x04luid\x18\b \x01(\x04R\x04luid*\x96\x01\n" +
+	"\x19EChildProcessQueryCommand\x12'\n" +
+	"#k_EChildProcessQueryCommand_Invalid\x10\x00\x12+\n" +
+	"'k_EChildProcessQueryCommand_GpuTopology\x10\x01\x12#\n" +
+	"\x1fk_EChildProcessQueryCommand_Max\x10\x02B\x05H\x01\x80\x01\x00"
 
 var (
 	file_steammessages_childprocessquery_proto_rawDescOnce sync.Once
@@ -278,17 +341,19 @@ func file_steammessages_childprocessquery_proto_rawDescGZIP() []byte {
 	return file_steammessages_childprocessquery_proto_rawDescData
 }
 
+var file_steammessages_childprocessquery_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_steammessages_childprocessquery_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_steammessages_childprocessquery_proto_goTypes = []any{
-	(*CMsgChildProcessQueryResponse)(nil),            // 0: CMsgChildProcessQueryResponse
-	(*CMsgChildProcessQueryGpuTopology)(nil),         // 1: CMsgChildProcessQueryGpuTopology
-	(*CMsgChildProcessQueryGpuTopology_GpuInfo)(nil), // 2: CMsgChildProcessQueryGpuTopology.GpuInfo
-	(EGpuDriverId)(0),                                // 3: EGpuDriverId
+	(EChildProcessQueryCommand)(0),                   // 0: EChildProcessQueryCommand
+	(*CMsgChildProcessQueryResponse)(nil),            // 1: CMsgChildProcessQueryResponse
+	(*CMsgChildProcessQueryGpuTopology)(nil),         // 2: CMsgChildProcessQueryGpuTopology
+	(*CMsgChildProcessQueryGpuTopology_GpuInfo)(nil), // 3: CMsgChildProcessQueryGpuTopology.GpuInfo
+	(EGpuDriverId)(0),                                // 4: EGpuDriverId
 }
 var file_steammessages_childprocessquery_proto_depIdxs = []int32{
-	1, // 0: CMsgChildProcessQueryResponse.gpu_topology:type_name -> CMsgChildProcessQueryGpuTopology
-	2, // 1: CMsgChildProcessQueryGpuTopology.gpus:type_name -> CMsgChildProcessQueryGpuTopology.GpuInfo
-	3, // 2: CMsgChildProcessQueryGpuTopology.GpuInfo.driver_id:type_name -> EGpuDriverId
+	2, // 0: CMsgChildProcessQueryResponse.gpu_topology:type_name -> CMsgChildProcessQueryGpuTopology
+	3, // 1: CMsgChildProcessQueryGpuTopology.gpus:type_name -> CMsgChildProcessQueryGpuTopology.GpuInfo
+	4, // 2: CMsgChildProcessQueryGpuTopology.GpuInfo.driver_id:type_name -> EGpuDriverId
 	3, // [3:3] is the sub-list for method output_type
 	3, // [3:3] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
@@ -310,13 +375,14 @@ func file_steammessages_childprocessquery_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_childprocessquery_proto_rawDesc), len(file_steammessages_childprocessquery_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_steammessages_childprocessquery_proto_goTypes,
 		DependencyIndexes: file_steammessages_childprocessquery_proto_depIdxs,
+		EnumInfos:         file_steammessages_childprocessquery_proto_enumTypes,
 		MessageInfos:      file_steammessages_childprocessquery_proto_msgTypes,
 	}.Build()
 	File_steammessages_childprocessquery_proto = out.File
