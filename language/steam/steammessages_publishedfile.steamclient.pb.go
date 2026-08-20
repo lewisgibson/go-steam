@@ -4978,13 +4978,14 @@ func (x *CPublishedFile_GetUserVoteSummary_Response) GetSummaries() []*CPublishe
 }
 
 type CPublishedFile_GetItemChanges_Request struct {
-	state           protoimpl.MessageState  `protogen:"open.v1"`
-	Appid           *uint32                 `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
-	LastTimeUpdated *uint32                 `protobuf:"varint,2,opt,name=last_time_updated,json=lastTimeUpdated" json:"last_time_updated,omitempty"`
-	NumItemsMax     *uint32                 `protobuf:"varint,3,opt,name=num_items_max,json=numItemsMax" json:"num_items_max,omitempty"`
-	DesiredRevision *EPublishedFileRevision `protobuf:"varint,4,opt,name=desired_revision,json=desiredRevision,enum=EPublishedFileRevision,def=0" json:"desired_revision,omitempty"`
-	unknownFields   protoimpl.UnknownFields
-	sizeCache       protoimpl.SizeCache
+	state              protoimpl.MessageState  `protogen:"open.v1"`
+	Appid              *uint32                 `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	LastTimeUpdated    *uint32                 `protobuf:"varint,2,opt,name=last_time_updated,json=lastTimeUpdated" json:"last_time_updated,omitempty"`
+	NumItemsMax        *uint32                 `protobuf:"varint,3,opt,name=num_items_max,json=numItemsMax" json:"num_items_max,omitempty"`
+	DesiredRevision    *EPublishedFileRevision `protobuf:"varint,4,opt,name=desired_revision,json=desiredRevision,enum=EPublishedFileRevision,def=0" json:"desired_revision,omitempty"`
+	IncludeLegacyItems *bool                   `protobuf:"varint,5,opt,name=include_legacy_items,json=includeLegacyItems" json:"include_legacy_items,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
 }
 
 // Default values for CPublishedFile_GetItemChanges_Request fields.
@@ -5048,6 +5049,13 @@ func (x *CPublishedFile_GetItemChanges_Request) GetDesiredRevision() EPublishedF
 		return *x.DesiredRevision
 	}
 	return Default_CPublishedFile_GetItemChanges_Request_DesiredRevision
+}
+
+func (x *CPublishedFile_GetItemChanges_Request) GetIncludeLegacyItems() bool {
+	if x != nil && x.IncludeLegacyItems != nil {
+		return *x.IncludeLegacyItems
+	}
+	return false
 }
 
 type CPublishedFile_GetItemChanges_Response struct {
@@ -7021,6 +7029,7 @@ type CPublishedFile_GetItemChanges_Response_WorkshopItemInfo struct {
 	TimeUpdated     *uint32                        `protobuf:"varint,2,opt,name=time_updated,json=timeUpdated" json:"time_updated,omitempty"`
 	ManifestId      *uint64                        `protobuf:"fixed64,3,opt,name=manifest_id,json=manifestId" json:"manifest_id,omitempty"`
 	AuthorSnapshots []*PublishedFileAuthorSnapshot `protobuf:"bytes,4,rep,name=author_snapshots,json=authorSnapshots" json:"author_snapshots,omitempty"`
+	Flags           *uint32                        `protobuf:"varint,5,opt,name=flags" json:"flags,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -7081,6 +7090,13 @@ func (x *CPublishedFile_GetItemChanges_Response_WorkshopItemInfo) GetAuthorSnaps
 		return x.AuthorSnapshots
 	}
 	return nil
+}
+
+func (x *CPublishedFile_GetItemChanges_Response_WorkshopItemInfo) GetFlags() uint32 {
+	if x != nil && x.Flags != nil {
+		return *x.Flags
+	}
+	return 0
 }
 
 type CPublishedFile_GetContentDescriptors_Response_ContentDescriptor struct {
@@ -7762,22 +7778,24 @@ const file_steammessages_publishedfile_steamclient_proto_rawDesc = "" +
 	"\x0fpublishedfileid\x18\x01 \x01(\x06R\x0fpublishedfileid\x12\x19\n" +
 	"\bvote_for\x18\x02 \x01(\bR\avoteFor\x12!\n" +
 	"\fvote_against\x18\x03 \x01(\bR\vvoteAgainst\x12\x1a\n" +
-	"\breported\x18\x04 \x01(\bR\breported\"\xf3\x01\n" +
+	"\breported\x18\x04 \x01(\bR\breported\"\xa5\x02\n" +
 	"%CPublishedFile_GetItemChanges_Request\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12*\n" +
 	"\x11last_time_updated\x18\x02 \x01(\rR\x0flastTimeUpdated\x12\"\n" +
 	"\rnum_items_max\x18\x03 \x01(\rR\vnumItemsMax\x12d\n" +
-	"\x10desired_revision\x18\x04 \x01(\x0e2\x17.EPublishedFileRevision: k_EPublishedFileRevision_DefaultR\x0fdesiredRevision\"\xf8\x02\n" +
+	"\x10desired_revision\x18\x04 \x01(\x0e2\x17.EPublishedFileRevision: k_EPublishedFileRevision_DefaultR\x0fdesiredRevision\x120\n" +
+	"\x14include_legacy_items\x18\x05 \x01(\bR\x12includeLegacyItems\"\x8e\x03\n" +
 	"&CPublishedFile_GetItemChanges_Response\x12\x1f\n" +
 	"\vupdate_time\x18\x01 \x01(\rR\n" +
 	"updateTime\x12_\n" +
-	"\x0eworkshop_items\x18\x02 \x03(\v28.CPublishedFile_GetItemChanges_Response.WorkshopItemInfoR\rworkshopItems\x1a\xcb\x01\n" +
+	"\x0eworkshop_items\x18\x02 \x03(\v28.CPublishedFile_GetItemChanges_Response.WorkshopItemInfoR\rworkshopItems\x1a\xe1\x01\n" +
 	"\x10WorkshopItemInfo\x12*\n" +
 	"\x11published_file_id\x18\x01 \x01(\x06R\x0fpublishedFileId\x12!\n" +
 	"\ftime_updated\x18\x02 \x01(\rR\vtimeUpdated\x12\x1f\n" +
 	"\vmanifest_id\x18\x03 \x01(\x06R\n" +
 	"manifestId\x12G\n" +
-	"\x10author_snapshots\x18\x04 \x03(\v2\x1c.PublishedFileAuthorSnapshotR\x0fauthorSnapshots\"X\n" +
+	"\x10author_snapshots\x18\x04 \x03(\v2\x1c.PublishedFileAuthorSnapshotR\x0fauthorSnapshots\x12\x14\n" +
+	"\x05flags\x18\x05 \x01(\rR\x05flags\"X\n" +
 	",CPublishedFile_GetContentDescriptors_Request\x12(\n" +
 	"\x0fpublishedfileid\x18\x01 \x01(\x06R\x0fpublishedfileid\"\x80\x03\n" +
 	"-CPublishedFile_GetContentDescriptors_Response\x12q\n" +
