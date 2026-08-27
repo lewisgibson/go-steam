@@ -2002,6 +2002,7 @@ type CPublishedFile_GetItemInfo_Request struct {
 	LastTimeUpdated *uint32                                            `protobuf:"varint,2,opt,name=last_time_updated,json=lastTimeUpdated" json:"last_time_updated,omitempty"`
 	WorkshopItems   []*CPublishedFile_GetItemInfo_Request_WorkshopItem `protobuf:"bytes,3,rep,name=workshop_items,json=workshopItems" json:"workshop_items,omitempty"`
 	DesiredRevision *EPublishedFileRevision                            `protobuf:"varint,4,opt,name=desired_revision,json=desiredRevision,enum=EPublishedFileRevision,def=0" json:"desired_revision,omitempty"`
+	FullReconcile   *bool                                              `protobuf:"varint,5,opt,name=full_reconcile,json=fullReconcile" json:"full_reconcile,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -2067,6 +2068,13 @@ func (x *CPublishedFile_GetItemInfo_Request) GetDesiredRevision() EPublishedFile
 		return *x.DesiredRevision
 	}
 	return Default_CPublishedFile_GetItemInfo_Request_DesiredRevision
+}
+
+func (x *CPublishedFile_GetItemInfo_Request) GetFullReconcile() bool {
+	if x != nil && x.FullReconcile != nil {
+		return *x.FullReconcile
+	}
+	return false
 }
 
 type CPublishedFile_GetItemInfo_Response struct {
@@ -7469,12 +7477,13 @@ const file_steammessages_publishedfile_steamclient_proto_rawDesc = "" +
 	"reactionid\x12\x14\n" +
 	"\x05count\x18\x02 \x01(\rR\x05count\"o\n" +
 	"\"CPublishedFile_GetDetails_Response\x12I\n" +
-	"\x14publishedfiledetails\x18\x01 \x03(\v2\x15.PublishedFileDetailsR\x14publishedfiledetails\"\xeb\x03\n" +
+	"\x14publishedfiledetails\x18\x01 \x03(\v2\x15.PublishedFileDetailsR\x14publishedfiledetails\"\x92\x04\n" +
 	"\"CPublishedFile_GetItemInfo_Request\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12*\n" +
 	"\x11last_time_updated\x18\x02 \x01(\rR\x0flastTimeUpdated\x12W\n" +
 	"\x0eworkshop_items\x18\x03 \x03(\v20.CPublishedFile_GetItemInfo_Request.WorkshopItemR\rworkshopItems\x12d\n" +
-	"\x10desired_revision\x18\x04 \x01(\x0e2\x17.EPublishedFileRevision: k_EPublishedFileRevision_DefaultR\x0fdesiredRevision\x1a\xc3\x01\n" +
+	"\x10desired_revision\x18\x04 \x01(\x0e2\x17.EPublishedFileRevision: k_EPublishedFileRevision_DefaultR\x0fdesiredRevision\x12%\n" +
+	"\x0efull_reconcile\x18\x05 \x01(\bR\rfullReconcile\x1a\xc3\x01\n" +
 	"\fWorkshopItem\x12*\n" +
 	"\x11published_file_id\x18\x01 \x01(\x06R\x0fpublishedFileId\x12!\n" +
 	"\ftime_updated\x18\x02 \x01(\rR\vtimeUpdated\x12d\n" +
