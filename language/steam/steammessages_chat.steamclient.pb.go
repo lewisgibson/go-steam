@@ -370,6 +370,62 @@ func (EChatRoomMessageReactionType) EnumDescriptor() ([]byte, []int) {
 	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{4}
 }
 
+type EChatRoomNotice int32
+
+const (
+	EChatRoomNotice_k_EChatRoomNotice_Invalid    EChatRoomNotice = 0
+	EChatRoomNotice_k_EChatRoomNotice_Suspicious EChatRoomNotice = 1
+)
+
+// Enum value maps for EChatRoomNotice.
+var (
+	EChatRoomNotice_name = map[int32]string{
+		0: "k_EChatRoomNotice_Invalid",
+		1: "k_EChatRoomNotice_Suspicious",
+	}
+	EChatRoomNotice_value = map[string]int32{
+		"k_EChatRoomNotice_Invalid":    0,
+		"k_EChatRoomNotice_Suspicious": 1,
+	}
+)
+
+func (x EChatRoomNotice) Enum() *EChatRoomNotice {
+	p := new(EChatRoomNotice)
+	*p = x
+	return p
+}
+
+func (x EChatRoomNotice) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (EChatRoomNotice) Descriptor() protoreflect.EnumDescriptor {
+	return file_steammessages_chat_steamclient_proto_enumTypes[5].Descriptor()
+}
+
+func (EChatRoomNotice) Type() protoreflect.EnumType {
+	return &file_steammessages_chat_steamclient_proto_enumTypes[5]
+}
+
+func (x EChatRoomNotice) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *EChatRoomNotice) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = EChatRoomNotice(num)
+	return nil
+}
+
+// Deprecated: Use EChatRoomNotice.Descriptor instead.
+func (EChatRoomNotice) EnumDescriptor() ([]byte, []int) {
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{5}
+}
+
 type EChatRoomMemberStateChange int32
 
 const (
@@ -424,11 +480,11 @@ func (x EChatRoomMemberStateChange) String() string {
 }
 
 func (EChatRoomMemberStateChange) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_chat_steamclient_proto_enumTypes[5].Descriptor()
+	return file_steammessages_chat_steamclient_proto_enumTypes[6].Descriptor()
 }
 
 func (EChatRoomMemberStateChange) Type() protoreflect.EnumType {
-	return &file_steammessages_chat_steamclient_proto_enumTypes[5]
+	return &file_steammessages_chat_steamclient_proto_enumTypes[6]
 }
 
 func (x EChatRoomMemberStateChange) Number() protoreflect.EnumNumber {
@@ -447,7 +503,7 @@ func (x *EChatRoomMemberStateChange) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EChatRoomMemberStateChange.Descriptor instead.
 func (EChatRoomMemberStateChange) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{5}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{6}
 }
 
 type CChat_RequestFriendPersonaStates_Request struct {
@@ -6256,17 +6312,127 @@ func (x *CChatRoom_SetSessionActiveChatRoomGroups_Request) GetVirtualizeMembersT
 	return 0
 }
 
+type CChatRoomMemberNotice struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Accountid     *uint32                `protobuf:"varint,1,opt,name=accountid" json:"accountid,omitempty"`
+	NoticeType    *EChatRoomNotice       `protobuf:"varint,2,opt,name=notice_type,json=noticeType,enum=EChatRoomNotice,def=0" json:"notice_type,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+// Default values for CChatRoomMemberNotice fields.
+const (
+	Default_CChatRoomMemberNotice_NoticeType = EChatRoomNotice_k_EChatRoomNotice_Invalid
+)
+
+func (x *CChatRoomMemberNotice) Reset() {
+	*x = CChatRoomMemberNotice{}
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CChatRoomMemberNotice) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CChatRoomMemberNotice) ProtoMessage() {}
+
+func (x *CChatRoomMemberNotice) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CChatRoomMemberNotice.ProtoReflect.Descriptor instead.
+func (*CChatRoomMemberNotice) Descriptor() ([]byte, []int) {
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *CChatRoomMemberNotice) GetAccountid() uint32 {
+	if x != nil && x.Accountid != nil {
+		return *x.Accountid
+	}
+	return 0
+}
+
+func (x *CChatRoomMemberNotice) GetNoticeType() EChatRoomNotice {
+	if x != nil && x.NoticeType != nil {
+		return *x.NoticeType
+	}
+	return Default_CChatRoomMemberNotice_NoticeType
+}
+
+type CChatRoomGroupMemberNotices struct {
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	ChatGroupId   *uint64                  `protobuf:"varint,1,opt,name=chat_group_id,json=chatGroupId" json:"chat_group_id,omitempty"`
+	MemberNotices []*CChatRoomMemberNotice `protobuf:"bytes,2,rep,name=member_notices,json=memberNotices" json:"member_notices,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CChatRoomGroupMemberNotices) Reset() {
+	*x = CChatRoomGroupMemberNotices{}
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CChatRoomGroupMemberNotices) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CChatRoomGroupMemberNotices) ProtoMessage() {}
+
+func (x *CChatRoomGroupMemberNotices) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CChatRoomGroupMemberNotices.ProtoReflect.Descriptor instead.
+func (*CChatRoomGroupMemberNotices) Descriptor() ([]byte, []int) {
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{105}
+}
+
+func (x *CChatRoomGroupMemberNotices) GetChatGroupId() uint64 {
+	if x != nil && x.ChatGroupId != nil {
+		return *x.ChatGroupId
+	}
+	return 0
+}
+
+func (x *CChatRoomGroupMemberNotices) GetMemberNotices() []*CChatRoomMemberNotice {
+	if x != nil {
+		return x.MemberNotices
+	}
+	return nil
+}
+
 type CChatRoom_SetSessionActiveChatRoomGroups_Response struct {
-	state                         protoimpl.MessageState `protogen:"open.v1"`
-	ChatStates                    []*CChatRoomGroupState `protobuf:"bytes,1,rep,name=chat_states,json=chatStates" json:"chat_states,omitempty"`
-	VirtualizeMembersChatGroupIds []uint64               `protobuf:"varint,2,rep,name=virtualize_members_chat_group_ids,json=virtualizeMembersChatGroupIds" json:"virtualize_members_chat_group_ids,omitempty"`
+	state                         protoimpl.MessageState         `protogen:"open.v1"`
+	ChatStates                    []*CChatRoomGroupState         `protobuf:"bytes,1,rep,name=chat_states,json=chatStates" json:"chat_states,omitempty"`
+	VirtualizeMembersChatGroupIds []uint64                       `protobuf:"varint,2,rep,name=virtualize_members_chat_group_ids,json=virtualizeMembersChatGroupIds" json:"virtualize_members_chat_group_ids,omitempty"`
+	ChatGroupNotices              []*CChatRoomGroupMemberNotices `protobuf:"bytes,3,rep,name=chat_group_notices,json=chatGroupNotices" json:"chat_group_notices,omitempty"`
 	unknownFields                 protoimpl.UnknownFields
 	sizeCache                     protoimpl.SizeCache
 }
 
 func (x *CChatRoom_SetSessionActiveChatRoomGroups_Response) Reset() {
 	*x = CChatRoom_SetSessionActiveChatRoomGroups_Response{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[104]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6278,7 +6444,7 @@ func (x *CChatRoom_SetSessionActiveChatRoomGroups_Response) String() string {
 func (*CChatRoom_SetSessionActiveChatRoomGroups_Response) ProtoMessage() {}
 
 func (x *CChatRoom_SetSessionActiveChatRoomGroups_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[104]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6291,7 +6457,7 @@ func (x *CChatRoom_SetSessionActiveChatRoomGroups_Response) ProtoReflect() proto
 
 // Deprecated: Use CChatRoom_SetSessionActiveChatRoomGroups_Response.ProtoReflect.Descriptor instead.
 func (*CChatRoom_SetSessionActiveChatRoomGroups_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{104}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{106}
 }
 
 func (x *CChatRoom_SetSessionActiveChatRoomGroups_Response) GetChatStates() []*CChatRoomGroupState {
@@ -6308,6 +6474,13 @@ func (x *CChatRoom_SetSessionActiveChatRoomGroups_Response) GetVirtualizeMembers
 	return nil
 }
 
+func (x *CChatRoom_SetSessionActiveChatRoomGroups_Response) GetChatGroupNotices() []*CChatRoomGroupMemberNotices {
+	if x != nil {
+		return x.ChatGroupNotices
+	}
+	return nil
+}
+
 type CChatRoom_SetUserChatGroupPreferences_Request struct {
 	state                protoimpl.MessageState                                               `protogen:"open.v1"`
 	ChatGroupId          *uint64                                                              `protobuf:"varint,1,opt,name=chat_group_id,json=chatGroupId" json:"chat_group_id,omitempty"`
@@ -6319,7 +6492,7 @@ type CChatRoom_SetUserChatGroupPreferences_Request struct {
 
 func (x *CChatRoom_SetUserChatGroupPreferences_Request) Reset() {
 	*x = CChatRoom_SetUserChatGroupPreferences_Request{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[105]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6331,7 +6504,7 @@ func (x *CChatRoom_SetUserChatGroupPreferences_Request) String() string {
 func (*CChatRoom_SetUserChatGroupPreferences_Request) ProtoMessage() {}
 
 func (x *CChatRoom_SetUserChatGroupPreferences_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[105]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6344,7 +6517,7 @@ func (x *CChatRoom_SetUserChatGroupPreferences_Request) ProtoReflect() protorefl
 
 // Deprecated: Use CChatRoom_SetUserChatGroupPreferences_Request.ProtoReflect.Descriptor instead.
 func (*CChatRoom_SetUserChatGroupPreferences_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{105}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{107}
 }
 
 func (x *CChatRoom_SetUserChatGroupPreferences_Request) GetChatGroupId() uint64 {
@@ -6376,7 +6549,7 @@ type CChatRoom_SetUserChatGroupPreferences_Response struct {
 
 func (x *CChatRoom_SetUserChatGroupPreferences_Response) Reset() {
 	*x = CChatRoom_SetUserChatGroupPreferences_Response{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[106]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6388,7 +6561,7 @@ func (x *CChatRoom_SetUserChatGroupPreferences_Response) String() string {
 func (*CChatRoom_SetUserChatGroupPreferences_Response) ProtoMessage() {}
 
 func (x *CChatRoom_SetUserChatGroupPreferences_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[106]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6401,7 +6574,7 @@ func (x *CChatRoom_SetUserChatGroupPreferences_Response) ProtoReflect() protoref
 
 // Deprecated: Use CChatRoom_SetUserChatGroupPreferences_Response.ProtoReflect.Descriptor instead.
 func (*CChatRoom_SetUserChatGroupPreferences_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{106}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{108}
 }
 
 type CChatRoom_DeleteChatMessages_Request struct {
@@ -6415,7 +6588,7 @@ type CChatRoom_DeleteChatMessages_Request struct {
 
 func (x *CChatRoom_DeleteChatMessages_Request) Reset() {
 	*x = CChatRoom_DeleteChatMessages_Request{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[107]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6427,7 +6600,7 @@ func (x *CChatRoom_DeleteChatMessages_Request) String() string {
 func (*CChatRoom_DeleteChatMessages_Request) ProtoMessage() {}
 
 func (x *CChatRoom_DeleteChatMessages_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[107]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6440,7 +6613,7 @@ func (x *CChatRoom_DeleteChatMessages_Request) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CChatRoom_DeleteChatMessages_Request.ProtoReflect.Descriptor instead.
 func (*CChatRoom_DeleteChatMessages_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{107}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{109}
 }
 
 func (x *CChatRoom_DeleteChatMessages_Request) GetChatGroupId() uint64 {
@@ -6472,7 +6645,7 @@ type CChatRoom_DeleteChatMessages_Response struct {
 
 func (x *CChatRoom_DeleteChatMessages_Response) Reset() {
 	*x = CChatRoom_DeleteChatMessages_Response{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[108]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6484,7 +6657,7 @@ func (x *CChatRoom_DeleteChatMessages_Response) String() string {
 func (*CChatRoom_DeleteChatMessages_Response) ProtoMessage() {}
 
 func (x *CChatRoom_DeleteChatMessages_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[108]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6497,7 +6670,72 @@ func (x *CChatRoom_DeleteChatMessages_Response) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CChatRoom_DeleteChatMessages_Response.ProtoReflect.Descriptor instead.
 func (*CChatRoom_DeleteChatMessages_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{108}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{110}
+}
+
+type CChatRoom_DismissChatRoomNotice_Notification struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChatGroupId   *uint64                `protobuf:"varint,1,opt,name=chat_group_id,json=chatGroupId" json:"chat_group_id,omitempty"`
+	SteamidSender *uint64                `protobuf:"fixed64,2,opt,name=steamid_sender,json=steamidSender" json:"steamid_sender,omitempty"`
+	NoticeType    *EChatRoomNotice       `protobuf:"varint,3,opt,name=notice_type,json=noticeType,enum=EChatRoomNotice,def=0" json:"notice_type,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+// Default values for CChatRoom_DismissChatRoomNotice_Notification fields.
+const (
+	Default_CChatRoom_DismissChatRoomNotice_Notification_NoticeType = EChatRoomNotice_k_EChatRoomNotice_Invalid
+)
+
+func (x *CChatRoom_DismissChatRoomNotice_Notification) Reset() {
+	*x = CChatRoom_DismissChatRoomNotice_Notification{}
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CChatRoom_DismissChatRoomNotice_Notification) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CChatRoom_DismissChatRoomNotice_Notification) ProtoMessage() {}
+
+func (x *CChatRoom_DismissChatRoomNotice_Notification) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CChatRoom_DismissChatRoomNotice_Notification.ProtoReflect.Descriptor instead.
+func (*CChatRoom_DismissChatRoomNotice_Notification) Descriptor() ([]byte, []int) {
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{111}
+}
+
+func (x *CChatRoom_DismissChatRoomNotice_Notification) GetChatGroupId() uint64 {
+	if x != nil && x.ChatGroupId != nil {
+		return *x.ChatGroupId
+	}
+	return 0
+}
+
+func (x *CChatRoom_DismissChatRoomNotice_Notification) GetSteamidSender() uint64 {
+	if x != nil && x.SteamidSender != nil {
+		return *x.SteamidSender
+	}
+	return 0
+}
+
+func (x *CChatRoom_DismissChatRoomNotice_Notification) GetNoticeType() EChatRoomNotice {
+	if x != nil && x.NoticeType != nil {
+		return *x.NoticeType
+	}
+	return Default_CChatRoom_DismissChatRoomNotice_Notification_NoticeType
 }
 
 type CChatRoom_UpdateMemberListView_Notification struct {
@@ -6516,7 +6754,7 @@ type CChatRoom_UpdateMemberListView_Notification struct {
 
 func (x *CChatRoom_UpdateMemberListView_Notification) Reset() {
 	*x = CChatRoom_UpdateMemberListView_Notification{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[109]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6528,7 +6766,7 @@ func (x *CChatRoom_UpdateMemberListView_Notification) String() string {
 func (*CChatRoom_UpdateMemberListView_Notification) ProtoMessage() {}
 
 func (x *CChatRoom_UpdateMemberListView_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[109]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6541,7 +6779,7 @@ func (x *CChatRoom_UpdateMemberListView_Notification) ProtoReflect() protoreflec
 
 // Deprecated: Use CChatRoom_UpdateMemberListView_Notification.ProtoReflect.Descriptor instead.
 func (*CChatRoom_UpdateMemberListView_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{109}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{112}
 }
 
 func (x *CChatRoom_UpdateMemberListView_Notification) GetChatGroupId() uint64 {
@@ -6612,7 +6850,7 @@ type CChatRoom_SearchMembers_Request struct {
 
 func (x *CChatRoom_SearchMembers_Request) Reset() {
 	*x = CChatRoom_SearchMembers_Request{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[110]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6624,7 +6862,7 @@ func (x *CChatRoom_SearchMembers_Request) String() string {
 func (*CChatRoom_SearchMembers_Request) ProtoMessage() {}
 
 func (x *CChatRoom_SearchMembers_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[110]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6637,7 +6875,7 @@ func (x *CChatRoom_SearchMembers_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CChatRoom_SearchMembers_Request.ProtoReflect.Descriptor instead.
 func (*CChatRoom_SearchMembers_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{110}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{113}
 }
 
 func (x *CChatRoom_SearchMembers_Request) GetChatGroupId() uint64 {
@@ -6678,7 +6916,7 @@ type CChatRoom_SearchMembers_Response struct {
 
 func (x *CChatRoom_SearchMembers_Response) Reset() {
 	*x = CChatRoom_SearchMembers_Response{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[111]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6690,7 +6928,7 @@ func (x *CChatRoom_SearchMembers_Response) String() string {
 func (*CChatRoom_SearchMembers_Response) ProtoMessage() {}
 
 func (x *CChatRoom_SearchMembers_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[111]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6703,7 +6941,7 @@ func (x *CChatRoom_SearchMembers_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CChatRoom_SearchMembers_Response.ProtoReflect.Descriptor instead.
 func (*CChatRoom_SearchMembers_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{111}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{114}
 }
 
 func (x *CChatRoom_SearchMembers_Response) GetMatchingMembers() []*CChatRoom_SearchMembers_Response_MemberMatch {
@@ -6740,7 +6978,7 @@ const (
 
 func (x *CChatRoom_UpdateMessageReaction_Request) Reset() {
 	*x = CChatRoom_UpdateMessageReaction_Request{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[112]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6752,7 +6990,7 @@ func (x *CChatRoom_UpdateMessageReaction_Request) String() string {
 func (*CChatRoom_UpdateMessageReaction_Request) ProtoMessage() {}
 
 func (x *CChatRoom_UpdateMessageReaction_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[112]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6765,7 +7003,7 @@ func (x *CChatRoom_UpdateMessageReaction_Request) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CChatRoom_UpdateMessageReaction_Request.ProtoReflect.Descriptor instead.
 func (*CChatRoom_UpdateMessageReaction_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{112}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{115}
 }
 
 func (x *CChatRoom_UpdateMessageReaction_Request) GetChatGroupId() uint64 {
@@ -6826,7 +7064,7 @@ type CChatRoom_UpdateMessageReaction_Response struct {
 
 func (x *CChatRoom_UpdateMessageReaction_Response) Reset() {
 	*x = CChatRoom_UpdateMessageReaction_Response{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[113]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6838,7 +7076,7 @@ func (x *CChatRoom_UpdateMessageReaction_Response) String() string {
 func (*CChatRoom_UpdateMessageReaction_Response) ProtoMessage() {}
 
 func (x *CChatRoom_UpdateMessageReaction_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[113]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6851,7 +7089,7 @@ func (x *CChatRoom_UpdateMessageReaction_Response) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CChatRoom_UpdateMessageReaction_Response.ProtoReflect.Descriptor instead.
 func (*CChatRoom_UpdateMessageReaction_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{113}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{116}
 }
 
 func (x *CChatRoom_UpdateMessageReaction_Response) GetNumReactors() uint32 {
@@ -6881,7 +7119,7 @@ const (
 
 func (x *CChatRoom_GetMessageReactionReactors_Request) Reset() {
 	*x = CChatRoom_GetMessageReactionReactors_Request{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[114]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6893,7 +7131,7 @@ func (x *CChatRoom_GetMessageReactionReactors_Request) String() string {
 func (*CChatRoom_GetMessageReactionReactors_Request) ProtoMessage() {}
 
 func (x *CChatRoom_GetMessageReactionReactors_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[114]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6906,7 +7144,7 @@ func (x *CChatRoom_GetMessageReactionReactors_Request) ProtoReflect() protorefle
 
 // Deprecated: Use CChatRoom_GetMessageReactionReactors_Request.ProtoReflect.Descriptor instead.
 func (*CChatRoom_GetMessageReactionReactors_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{114}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{117}
 }
 
 func (x *CChatRoom_GetMessageReactionReactors_Request) GetChatGroupId() uint64 {
@@ -6967,7 +7205,7 @@ type CChatRoom_GetMessageReactionReactors_Response struct {
 
 func (x *CChatRoom_GetMessageReactionReactors_Response) Reset() {
 	*x = CChatRoom_GetMessageReactionReactors_Response{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[115]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[118]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6979,7 +7217,7 @@ func (x *CChatRoom_GetMessageReactionReactors_Response) String() string {
 func (*CChatRoom_GetMessageReactionReactors_Response) ProtoMessage() {}
 
 func (x *CChatRoom_GetMessageReactionReactors_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[115]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[118]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6992,7 +7230,7 @@ func (x *CChatRoom_GetMessageReactionReactors_Response) ProtoReflect() protorefl
 
 // Deprecated: Use CChatRoom_GetMessageReactionReactors_Response.ProtoReflect.Descriptor instead.
 func (*CChatRoom_GetMessageReactionReactors_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{115}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{118}
 }
 
 func (x *CChatRoom_GetMessageReactionReactors_Response) GetReactors() []uint32 {
@@ -7025,7 +7263,7 @@ const (
 
 func (x *CChatRoom_ReportMessage_Request) Reset() {
 	*x = CChatRoom_ReportMessage_Request{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[116]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[119]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7037,7 +7275,7 @@ func (x *CChatRoom_ReportMessage_Request) String() string {
 func (*CChatRoom_ReportMessage_Request) ProtoMessage() {}
 
 func (x *CChatRoom_ReportMessage_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[116]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[119]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7050,7 +7288,7 @@ func (x *CChatRoom_ReportMessage_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CChatRoom_ReportMessage_Request.ProtoReflect.Descriptor instead.
 func (*CChatRoom_ReportMessage_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{116}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{119}
 }
 
 func (x *CChatRoom_ReportMessage_Request) GetChatGroupId() uint64 {
@@ -7124,7 +7362,7 @@ type CChatRoom_ReportMessage_Response struct {
 
 func (x *CChatRoom_ReportMessage_Response) Reset() {
 	*x = CChatRoom_ReportMessage_Response{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[117]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[120]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7136,7 +7374,7 @@ func (x *CChatRoom_ReportMessage_Response) String() string {
 func (*CChatRoom_ReportMessage_Response) ProtoMessage() {}
 
 func (x *CChatRoom_ReportMessage_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[117]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[120]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7149,7 +7387,7 @@ func (x *CChatRoom_ReportMessage_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CChatRoom_ReportMessage_Response.ProtoReflect.Descriptor instead.
 func (*CChatRoom_ReportMessage_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{117}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{120}
 }
 
 type CChatRoom_ResolveReport_Request struct {
@@ -7175,7 +7413,7 @@ const (
 
 func (x *CChatRoom_ResolveReport_Request) Reset() {
 	*x = CChatRoom_ResolveReport_Request{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[118]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[121]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7187,7 +7425,7 @@ func (x *CChatRoom_ResolveReport_Request) String() string {
 func (*CChatRoom_ResolveReport_Request) ProtoMessage() {}
 
 func (x *CChatRoom_ResolveReport_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[118]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[121]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7200,7 +7438,7 @@ func (x *CChatRoom_ResolveReport_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CChatRoom_ResolveReport_Request.ProtoReflect.Descriptor instead.
 func (*CChatRoom_ResolveReport_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{118}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{121}
 }
 
 func (x *CChatRoom_ResolveReport_Request) GetSubjectGroupId() uint64 {
@@ -7267,7 +7505,7 @@ type CChatRoom_ResolveReport_Response struct {
 
 func (x *CChatRoom_ResolveReport_Response) Reset() {
 	*x = CChatRoom_ResolveReport_Response{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[119]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[122]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7279,7 +7517,7 @@ func (x *CChatRoom_ResolveReport_Response) String() string {
 func (*CChatRoom_ResolveReport_Response) ProtoMessage() {}
 
 func (x *CChatRoom_ResolveReport_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[119]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[122]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7292,7 +7530,7 @@ func (x *CChatRoom_ResolveReport_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CChatRoom_ResolveReport_Response.ProtoReflect.Descriptor instead.
 func (*CChatRoom_ResolveReport_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{119}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{122}
 }
 
 type CClanChatRooms_GetClanChatRoomInfo_Request struct {
@@ -7310,7 +7548,7 @@ const (
 
 func (x *CClanChatRooms_GetClanChatRoomInfo_Request) Reset() {
 	*x = CClanChatRooms_GetClanChatRoomInfo_Request{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[120]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[123]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7322,7 +7560,7 @@ func (x *CClanChatRooms_GetClanChatRoomInfo_Request) String() string {
 func (*CClanChatRooms_GetClanChatRoomInfo_Request) ProtoMessage() {}
 
 func (x *CClanChatRooms_GetClanChatRoomInfo_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[120]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[123]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7335,7 +7573,7 @@ func (x *CClanChatRooms_GetClanChatRoomInfo_Request) ProtoReflect() protoreflect
 
 // Deprecated: Use CClanChatRooms_GetClanChatRoomInfo_Request.ProtoReflect.Descriptor instead.
 func (*CClanChatRooms_GetClanChatRoomInfo_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{120}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{123}
 }
 
 func (x *CClanChatRooms_GetClanChatRoomInfo_Request) GetSteamid() uint64 {
@@ -7361,7 +7599,7 @@ type CClanChatRooms_GetClanChatRoomInfo_Response struct {
 
 func (x *CClanChatRooms_GetClanChatRoomInfo_Response) Reset() {
 	*x = CClanChatRooms_GetClanChatRoomInfo_Response{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[121]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[124]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7373,7 +7611,7 @@ func (x *CClanChatRooms_GetClanChatRoomInfo_Response) String() string {
 func (*CClanChatRooms_GetClanChatRoomInfo_Response) ProtoMessage() {}
 
 func (x *CClanChatRooms_GetClanChatRoomInfo_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[121]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[124]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7386,7 +7624,7 @@ func (x *CClanChatRooms_GetClanChatRoomInfo_Response) ProtoReflect() protoreflec
 
 // Deprecated: Use CClanChatRooms_GetClanChatRoomInfo_Response.ProtoReflect.Descriptor instead.
 func (*CClanChatRooms_GetClanChatRoomInfo_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{121}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{124}
 }
 
 func (x *CClanChatRooms_GetClanChatRoomInfo_Response) GetChatGroupSummary() *CChatRoom_GetChatRoomGroupSummary_Response {
@@ -7406,7 +7644,7 @@ type CClanChatRooms_SetClanChatRoomPrivate_Request struct {
 
 func (x *CClanChatRooms_SetClanChatRoomPrivate_Request) Reset() {
 	*x = CClanChatRooms_SetClanChatRoomPrivate_Request{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[122]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[125]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7418,7 +7656,7 @@ func (x *CClanChatRooms_SetClanChatRoomPrivate_Request) String() string {
 func (*CClanChatRooms_SetClanChatRoomPrivate_Request) ProtoMessage() {}
 
 func (x *CClanChatRooms_SetClanChatRoomPrivate_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[122]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[125]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7431,7 +7669,7 @@ func (x *CClanChatRooms_SetClanChatRoomPrivate_Request) ProtoReflect() protorefl
 
 // Deprecated: Use CClanChatRooms_SetClanChatRoomPrivate_Request.ProtoReflect.Descriptor instead.
 func (*CClanChatRooms_SetClanChatRoomPrivate_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{122}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{125}
 }
 
 func (x *CClanChatRooms_SetClanChatRoomPrivate_Request) GetSteamid() uint64 {
@@ -7457,7 +7695,7 @@ type CClanChatRooms_SetClanChatRoomPrivate_Response struct {
 
 func (x *CClanChatRooms_SetClanChatRoomPrivate_Response) Reset() {
 	*x = CClanChatRooms_SetClanChatRoomPrivate_Response{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[123]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[126]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7469,7 +7707,7 @@ func (x *CClanChatRooms_SetClanChatRoomPrivate_Response) String() string {
 func (*CClanChatRooms_SetClanChatRoomPrivate_Response) ProtoMessage() {}
 
 func (x *CClanChatRooms_SetClanChatRoomPrivate_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[123]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[126]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7482,7 +7720,7 @@ func (x *CClanChatRooms_SetClanChatRoomPrivate_Response) ProtoReflect() protoref
 
 // Deprecated: Use CClanChatRooms_SetClanChatRoomPrivate_Response.ProtoReflect.Descriptor instead.
 func (*CClanChatRooms_SetClanChatRoomPrivate_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{123}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{126}
 }
 
 func (x *CClanChatRooms_SetClanChatRoomPrivate_Response) GetChatRoomPrivate() bool {
@@ -7503,7 +7741,7 @@ type CChatMentions struct {
 
 func (x *CChatMentions) Reset() {
 	*x = CChatMentions{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[124]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[127]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7515,7 +7753,7 @@ func (x *CChatMentions) String() string {
 func (*CChatMentions) ProtoMessage() {}
 
 func (x *CChatMentions) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[124]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[127]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7528,7 +7766,7 @@ func (x *CChatMentions) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CChatMentions.ProtoReflect.Descriptor instead.
 func (*CChatMentions) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{124}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{127}
 }
 
 func (x *CChatMentions) GetMentionAll() bool {
@@ -7571,7 +7809,7 @@ type CChatRoom_IncomingChatMessage_Notification struct {
 
 func (x *CChatRoom_IncomingChatMessage_Notification) Reset() {
 	*x = CChatRoom_IncomingChatMessage_Notification{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[125]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[128]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7583,7 +7821,7 @@ func (x *CChatRoom_IncomingChatMessage_Notification) String() string {
 func (*CChatRoom_IncomingChatMessage_Notification) ProtoMessage() {}
 
 func (x *CChatRoom_IncomingChatMessage_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[125]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[128]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7596,7 +7834,7 @@ func (x *CChatRoom_IncomingChatMessage_Notification) ProtoReflect() protoreflect
 
 // Deprecated: Use CChatRoom_IncomingChatMessage_Notification.ProtoReflect.Descriptor instead.
 func (*CChatRoom_IncomingChatMessage_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{125}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{128}
 }
 
 func (x *CChatRoom_IncomingChatMessage_Notification) GetChatGroupId() uint64 {
@@ -7687,7 +7925,7 @@ type CChatRoom_ChatMessageModified_Notification struct {
 
 func (x *CChatRoom_ChatMessageModified_Notification) Reset() {
 	*x = CChatRoom_ChatMessageModified_Notification{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[126]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[129]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7699,7 +7937,7 @@ func (x *CChatRoom_ChatMessageModified_Notification) String() string {
 func (*CChatRoom_ChatMessageModified_Notification) ProtoMessage() {}
 
 func (x *CChatRoom_ChatMessageModified_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[126]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[129]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7712,7 +7950,7 @@ func (x *CChatRoom_ChatMessageModified_Notification) ProtoReflect() protoreflect
 
 // Deprecated: Use CChatRoom_ChatMessageModified_Notification.ProtoReflect.Descriptor instead.
 func (*CChatRoom_ChatMessageModified_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{126}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{129}
 }
 
 func (x *CChatRoom_ChatMessageModified_Notification) GetChatGroupId() uint64 {
@@ -7752,7 +7990,7 @@ const (
 
 func (x *CChatRoom_MemberStateChange_Notification) Reset() {
 	*x = CChatRoom_MemberStateChange_Notification{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[127]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[130]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7764,7 +8002,7 @@ func (x *CChatRoom_MemberStateChange_Notification) String() string {
 func (*CChatRoom_MemberStateChange_Notification) ProtoMessage() {}
 
 func (x *CChatRoom_MemberStateChange_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[127]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[130]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7777,7 +8015,7 @@ func (x *CChatRoom_MemberStateChange_Notification) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CChatRoom_MemberStateChange_Notification.ProtoReflect.Descriptor instead.
 func (*CChatRoom_MemberStateChange_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{127}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{130}
 }
 
 func (x *CChatRoom_MemberStateChange_Notification) GetChatGroupId() uint64 {
@@ -7810,7 +8048,7 @@ type CChatRoom_ChatRoomHeaderState_Notification struct {
 
 func (x *CChatRoom_ChatRoomHeaderState_Notification) Reset() {
 	*x = CChatRoom_ChatRoomHeaderState_Notification{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[128]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[131]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7822,7 +8060,7 @@ func (x *CChatRoom_ChatRoomHeaderState_Notification) String() string {
 func (*CChatRoom_ChatRoomHeaderState_Notification) ProtoMessage() {}
 
 func (x *CChatRoom_ChatRoomHeaderState_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[128]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[131]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7835,7 +8073,7 @@ func (x *CChatRoom_ChatRoomHeaderState_Notification) ProtoReflect() protoreflect
 
 // Deprecated: Use CChatRoom_ChatRoomHeaderState_Notification.ProtoReflect.Descriptor instead.
 func (*CChatRoom_ChatRoomHeaderState_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{128}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{131}
 }
 
 func (x *CChatRoom_ChatRoomHeaderState_Notification) GetHeaderState() *CChatRoomGroupHeaderState {
@@ -7856,7 +8094,7 @@ type CChatRoom_ChatRoomGroupRoomsChange_Notification struct {
 
 func (x *CChatRoom_ChatRoomGroupRoomsChange_Notification) Reset() {
 	*x = CChatRoom_ChatRoomGroupRoomsChange_Notification{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[129]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[132]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7868,7 +8106,7 @@ func (x *CChatRoom_ChatRoomGroupRoomsChange_Notification) String() string {
 func (*CChatRoom_ChatRoomGroupRoomsChange_Notification) ProtoMessage() {}
 
 func (x *CChatRoom_ChatRoomGroupRoomsChange_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[129]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[132]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7881,7 +8119,7 @@ func (x *CChatRoom_ChatRoomGroupRoomsChange_Notification) ProtoReflect() protore
 
 // Deprecated: Use CChatRoom_ChatRoomGroupRoomsChange_Notification.ProtoReflect.Descriptor instead.
 func (*CChatRoom_ChatRoomGroupRoomsChange_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{129}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{132}
 }
 
 func (x *CChatRoom_ChatRoomGroupRoomsChange_Notification) GetChatGroupId() uint64 {
@@ -7915,7 +8153,7 @@ type CChatRoom_NotifyShouldRejoinChatRoomVoiceChat_Notification struct {
 
 func (x *CChatRoom_NotifyShouldRejoinChatRoomVoiceChat_Notification) Reset() {
 	*x = CChatRoom_NotifyShouldRejoinChatRoomVoiceChat_Notification{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[130]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[133]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7927,7 +8165,7 @@ func (x *CChatRoom_NotifyShouldRejoinChatRoomVoiceChat_Notification) String() st
 func (*CChatRoom_NotifyShouldRejoinChatRoomVoiceChat_Notification) ProtoMessage() {}
 
 func (x *CChatRoom_NotifyShouldRejoinChatRoomVoiceChat_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[130]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[133]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7940,7 +8178,7 @@ func (x *CChatRoom_NotifyShouldRejoinChatRoomVoiceChat_Notification) ProtoReflec
 
 // Deprecated: Use CChatRoom_NotifyShouldRejoinChatRoomVoiceChat_Notification.ProtoReflect.Descriptor instead.
 func (*CChatRoom_NotifyShouldRejoinChatRoomVoiceChat_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{130}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{133}
 }
 
 func (x *CChatRoom_NotifyShouldRejoinChatRoomVoiceChat_Notification) GetChatId() uint64 {
@@ -7974,7 +8212,7 @@ const (
 
 func (x *ChatRoomClient_NotifyChatGroupUserStateChanged_Notification) Reset() {
 	*x = ChatRoomClient_NotifyChatGroupUserStateChanged_Notification{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[131]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[134]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7986,7 +8224,7 @@ func (x *ChatRoomClient_NotifyChatGroupUserStateChanged_Notification) String() s
 func (*ChatRoomClient_NotifyChatGroupUserStateChanged_Notification) ProtoMessage() {}
 
 func (x *ChatRoomClient_NotifyChatGroupUserStateChanged_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[131]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[134]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7999,7 +8237,7 @@ func (x *ChatRoomClient_NotifyChatGroupUserStateChanged_Notification) ProtoRefle
 
 // Deprecated: Use ChatRoomClient_NotifyChatGroupUserStateChanged_Notification.ProtoReflect.Descriptor instead.
 func (*ChatRoomClient_NotifyChatGroupUserStateChanged_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{131}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{134}
 }
 
 func (x *ChatRoomClient_NotifyChatGroupUserStateChanged_Notification) GetChatGroupId() uint64 {
@@ -8039,7 +8277,7 @@ type ChatRoomClient_NotifyChatRoomDisconnect_Notification struct {
 
 func (x *ChatRoomClient_NotifyChatRoomDisconnect_Notification) Reset() {
 	*x = ChatRoomClient_NotifyChatRoomDisconnect_Notification{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[132]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[135]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8051,7 +8289,7 @@ func (x *ChatRoomClient_NotifyChatRoomDisconnect_Notification) String() string {
 func (*ChatRoomClient_NotifyChatRoomDisconnect_Notification) ProtoMessage() {}
 
 func (x *ChatRoomClient_NotifyChatRoomDisconnect_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[132]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[135]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8064,7 +8302,7 @@ func (x *ChatRoomClient_NotifyChatRoomDisconnect_Notification) ProtoReflect() pr
 
 // Deprecated: Use ChatRoomClient_NotifyChatRoomDisconnect_Notification.ProtoReflect.Descriptor instead.
 func (*ChatRoomClient_NotifyChatRoomDisconnect_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{132}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{135}
 }
 
 func (x *ChatRoomClient_NotifyChatRoomDisconnect_Notification) GetChatGroupIds() []uint64 {
@@ -8087,7 +8325,7 @@ type CChatRoomMemberListView struct {
 
 func (x *CChatRoomMemberListView) Reset() {
 	*x = CChatRoomMemberListView{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[133]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[136]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8099,7 +8337,7 @@ func (x *CChatRoomMemberListView) String() string {
 func (*CChatRoomMemberListView) ProtoMessage() {}
 
 func (x *CChatRoomMemberListView) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[133]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[136]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8112,7 +8350,7 @@ func (x *CChatRoomMemberListView) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CChatRoomMemberListView.ProtoReflect.Descriptor instead.
 func (*CChatRoomMemberListView) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{133}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{136}
 }
 
 func (x *CChatRoomMemberListView) GetStart() int32 {
@@ -8161,7 +8399,7 @@ type CChatRoomMemberSummaryCounts struct {
 
 func (x *CChatRoomMemberSummaryCounts) Reset() {
 	*x = CChatRoomMemberSummaryCounts{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[134]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[137]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8173,7 +8411,7 @@ func (x *CChatRoomMemberSummaryCounts) String() string {
 func (*CChatRoomMemberSummaryCounts) ProtoMessage() {}
 
 func (x *CChatRoomMemberSummaryCounts) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[134]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[137]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8186,7 +8424,7 @@ func (x *CChatRoomMemberSummaryCounts) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CChatRoomMemberSummaryCounts.ProtoReflect.Descriptor instead.
 func (*CChatRoomMemberSummaryCounts) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{134}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{137}
 }
 
 func (x *CChatRoomMemberSummaryCounts) GetIngame() int32 {
@@ -8225,7 +8463,7 @@ type CChatRoomClient_MemberListViewUpdated_Notification struct {
 
 func (x *CChatRoomClient_MemberListViewUpdated_Notification) Reset() {
 	*x = CChatRoomClient_MemberListViewUpdated_Notification{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[135]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[138]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8237,7 +8475,7 @@ func (x *CChatRoomClient_MemberListViewUpdated_Notification) String() string {
 func (*CChatRoomClient_MemberListViewUpdated_Notification) ProtoMessage() {}
 
 func (x *CChatRoomClient_MemberListViewUpdated_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[135]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[138]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8250,7 +8488,7 @@ func (x *CChatRoomClient_MemberListViewUpdated_Notification) ProtoReflect() prot
 
 // Deprecated: Use CChatRoomClient_MemberListViewUpdated_Notification.ProtoReflect.Descriptor instead.
 func (*CChatRoomClient_MemberListViewUpdated_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{135}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{138}
 }
 
 func (x *CChatRoomClient_MemberListViewUpdated_Notification) GetChatGroupId() uint64 {
@@ -8323,7 +8561,7 @@ const (
 
 func (x *CChatRoom_MessageReaction_Notification) Reset() {
 	*x = CChatRoom_MessageReaction_Notification{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[136]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[139]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8335,7 +8573,7 @@ func (x *CChatRoom_MessageReaction_Notification) String() string {
 func (*CChatRoom_MessageReaction_Notification) ProtoMessage() {}
 
 func (x *CChatRoom_MessageReaction_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[136]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[139]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8348,7 +8586,7 @@ func (x *CChatRoom_MessageReaction_Notification) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CChatRoom_MessageReaction_Notification.ProtoReflect.Descriptor instead.
 func (*CChatRoom_MessageReaction_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{136}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{139}
 }
 
 func (x *CChatRoom_MessageReaction_Notification) GetChatGroupId() uint64 {
@@ -8407,6 +8645,79 @@ func (x *CChatRoom_MessageReaction_Notification) GetIsAdd() bool {
 	return false
 }
 
+type CChatRoom_ChatRoomNotice_Notification struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChatGroupId   *uint64                `protobuf:"varint,1,opt,name=chat_group_id,json=chatGroupId" json:"chat_group_id,omitempty"`
+	SteamidSender *uint64                `protobuf:"fixed64,2,opt,name=steamid_sender,json=steamidSender" json:"steamid_sender,omitempty"`
+	NoticeType    *EChatRoomNotice       `protobuf:"varint,3,opt,name=notice_type,json=noticeType,enum=EChatRoomNotice,def=0" json:"notice_type,omitempty"`
+	Active        *bool                  `protobuf:"varint,4,opt,name=active" json:"active,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+// Default values for CChatRoom_ChatRoomNotice_Notification fields.
+const (
+	Default_CChatRoom_ChatRoomNotice_Notification_NoticeType = EChatRoomNotice_k_EChatRoomNotice_Invalid
+)
+
+func (x *CChatRoom_ChatRoomNotice_Notification) Reset() {
+	*x = CChatRoom_ChatRoomNotice_Notification{}
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CChatRoom_ChatRoomNotice_Notification) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CChatRoom_ChatRoomNotice_Notification) ProtoMessage() {}
+
+func (x *CChatRoom_ChatRoomNotice_Notification) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CChatRoom_ChatRoomNotice_Notification.ProtoReflect.Descriptor instead.
+func (*CChatRoom_ChatRoomNotice_Notification) Descriptor() ([]byte, []int) {
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{140}
+}
+
+func (x *CChatRoom_ChatRoomNotice_Notification) GetChatGroupId() uint64 {
+	if x != nil && x.ChatGroupId != nil {
+		return *x.ChatGroupId
+	}
+	return 0
+}
+
+func (x *CChatRoom_ChatRoomNotice_Notification) GetSteamidSender() uint64 {
+	if x != nil && x.SteamidSender != nil {
+		return *x.SteamidSender
+	}
+	return 0
+}
+
+func (x *CChatRoom_ChatRoomNotice_Notification) GetNoticeType() EChatRoomNotice {
+	if x != nil && x.NoticeType != nil {
+		return *x.NoticeType
+	}
+	return Default_CChatRoom_ChatRoomNotice_Notification_NoticeType
+}
+
+func (x *CChatRoom_ChatRoomNotice_Notification) GetActive() bool {
+	if x != nil && x.Active != nil {
+		return *x.Active
+	}
+	return false
+}
+
 type CChatUsability_ClientUsabilityMetrics_Notification struct {
 	state          protoimpl.MessageState                                            `protogen:"open.v1"`
 	MetricsRunId   *uint32                                                           `protobuf:"varint,1,opt,name=metrics_run_id,json=metricsRunId" json:"metrics_run_id,omitempty"`
@@ -8423,7 +8734,7 @@ type CChatUsability_ClientUsabilityMetrics_Notification struct {
 
 func (x *CChatUsability_ClientUsabilityMetrics_Notification) Reset() {
 	*x = CChatUsability_ClientUsabilityMetrics_Notification{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[137]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[141]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8435,7 +8746,7 @@ func (x *CChatUsability_ClientUsabilityMetrics_Notification) String() string {
 func (*CChatUsability_ClientUsabilityMetrics_Notification) ProtoMessage() {}
 
 func (x *CChatUsability_ClientUsabilityMetrics_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[137]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[141]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8448,7 +8759,7 @@ func (x *CChatUsability_ClientUsabilityMetrics_Notification) ProtoReflect() prot
 
 // Deprecated: Use CChatUsability_ClientUsabilityMetrics_Notification.ProtoReflect.Descriptor instead.
 func (*CChatUsability_ClientUsabilityMetrics_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{137}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{141}
 }
 
 func (x *CChatUsability_ClientUsabilityMetrics_Notification) GetMetricsRunId() uint32 {
@@ -8516,7 +8827,7 @@ type CChatUsability_RequestClientUsabilityMetrics_Notification struct {
 
 func (x *CChatUsability_RequestClientUsabilityMetrics_Notification) Reset() {
 	*x = CChatUsability_RequestClientUsabilityMetrics_Notification{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[138]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[142]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8528,7 +8839,7 @@ func (x *CChatUsability_RequestClientUsabilityMetrics_Notification) String() str
 func (*CChatUsability_RequestClientUsabilityMetrics_Notification) ProtoMessage() {}
 
 func (x *CChatUsability_RequestClientUsabilityMetrics_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[138]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[142]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8541,7 +8852,7 @@ func (x *CChatUsability_RequestClientUsabilityMetrics_Notification) ProtoReflect
 
 // Deprecated: Use CChatUsability_RequestClientUsabilityMetrics_Notification.ProtoReflect.Descriptor instead.
 func (*CChatUsability_RequestClientUsabilityMetrics_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{138}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{142}
 }
 
 func (x *CChatUsability_RequestClientUsabilityMetrics_Notification) GetMetricsRunId() uint32 {
@@ -8566,7 +8877,7 @@ type CChatRoom_GetMessageHistory_Response_ChatMessage struct {
 
 func (x *CChatRoom_GetMessageHistory_Response_ChatMessage) Reset() {
 	*x = CChatRoom_GetMessageHistory_Response_ChatMessage{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[139]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[143]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8578,7 +8889,7 @@ func (x *CChatRoom_GetMessageHistory_Response_ChatMessage) String() string {
 func (*CChatRoom_GetMessageHistory_Response_ChatMessage) ProtoMessage() {}
 
 func (x *CChatRoom_GetMessageHistory_Response_ChatMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[139]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[143]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8660,7 +8971,7 @@ const (
 
 func (x *CChatRoom_GetMessageHistory_Response_ChatMessage_MessageReaction) Reset() {
 	*x = CChatRoom_GetMessageHistory_Response_ChatMessage_MessageReaction{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[140]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[144]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8672,7 +8983,7 @@ func (x *CChatRoom_GetMessageHistory_Response_ChatMessage_MessageReaction) Strin
 func (*CChatRoom_GetMessageHistory_Response_ChatMessage_MessageReaction) ProtoMessage() {}
 
 func (x *CChatRoom_GetMessageHistory_Response_ChatMessage_MessageReaction) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[140]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[144]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8728,7 +9039,7 @@ type CChatRoom_GetInviteLinksForGroup_Response_LinkInfo struct {
 
 func (x *CChatRoom_GetInviteLinksForGroup_Response_LinkInfo) Reset() {
 	*x = CChatRoom_GetInviteLinksForGroup_Response_LinkInfo{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[141]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[145]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8740,7 +9051,7 @@ func (x *CChatRoom_GetInviteLinksForGroup_Response_LinkInfo) String() string {
 func (*CChatRoom_GetInviteLinksForGroup_Response_LinkInfo) ProtoMessage() {}
 
 func (x *CChatRoom_GetInviteLinksForGroup_Response_LinkInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[141]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[145]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8796,7 +9107,7 @@ type CChatRoom_GetBanList_Response_BanInfo struct {
 
 func (x *CChatRoom_GetBanList_Response_BanInfo) Reset() {
 	*x = CChatRoom_GetBanList_Response_BanInfo{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[142]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[146]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8808,7 +9119,7 @@ func (x *CChatRoom_GetBanList_Response_BanInfo) String() string {
 func (*CChatRoom_GetBanList_Response_BanInfo) ProtoMessage() {}
 
 func (x *CChatRoom_GetBanList_Response_BanInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[142]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[146]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8870,7 +9181,7 @@ const (
 
 func (x *CChatRoom_SetUserChatGroupPreferences_Request_ChatGroupPreferences) Reset() {
 	*x = CChatRoom_SetUserChatGroupPreferences_Request_ChatGroupPreferences{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[143]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[147]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8882,7 +9193,7 @@ func (x *CChatRoom_SetUserChatGroupPreferences_Request_ChatGroupPreferences) Str
 func (*CChatRoom_SetUserChatGroupPreferences_Request_ChatGroupPreferences) ProtoMessage() {}
 
 func (x *CChatRoom_SetUserChatGroupPreferences_Request_ChatGroupPreferences) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[143]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[147]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8895,7 +9206,7 @@ func (x *CChatRoom_SetUserChatGroupPreferences_Request_ChatGroupPreferences) Pro
 
 // Deprecated: Use CChatRoom_SetUserChatGroupPreferences_Request_ChatGroupPreferences.ProtoReflect.Descriptor instead.
 func (*CChatRoom_SetUserChatGroupPreferences_Request_ChatGroupPreferences) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{105, 0}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{107, 0}
 }
 
 func (x *CChatRoom_SetUserChatGroupPreferences_Request_ChatGroupPreferences) GetDesktopNotificationLevel() EChatRoomNotificationLevel {
@@ -8944,7 +9255,7 @@ const (
 
 func (x *CChatRoom_SetUserChatGroupPreferences_Request_ChatRoomPreferences) Reset() {
 	*x = CChatRoom_SetUserChatGroupPreferences_Request_ChatRoomPreferences{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[144]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[148]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8956,7 +9267,7 @@ func (x *CChatRoom_SetUserChatGroupPreferences_Request_ChatRoomPreferences) Stri
 func (*CChatRoom_SetUserChatGroupPreferences_Request_ChatRoomPreferences) ProtoMessage() {}
 
 func (x *CChatRoom_SetUserChatGroupPreferences_Request_ChatRoomPreferences) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[144]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[148]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8969,7 +9280,7 @@ func (x *CChatRoom_SetUserChatGroupPreferences_Request_ChatRoomPreferences) Prot
 
 // Deprecated: Use CChatRoom_SetUserChatGroupPreferences_Request_ChatRoomPreferences.ProtoReflect.Descriptor instead.
 func (*CChatRoom_SetUserChatGroupPreferences_Request_ChatRoomPreferences) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{105, 1}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{107, 1}
 }
 
 func (x *CChatRoom_SetUserChatGroupPreferences_Request_ChatRoomPreferences) GetChatId() uint64 {
@@ -9010,7 +9321,7 @@ type CChatRoom_DeleteChatMessages_Request_Message struct {
 
 func (x *CChatRoom_DeleteChatMessages_Request_Message) Reset() {
 	*x = CChatRoom_DeleteChatMessages_Request_Message{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[145]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[149]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9022,7 +9333,7 @@ func (x *CChatRoom_DeleteChatMessages_Request_Message) String() string {
 func (*CChatRoom_DeleteChatMessages_Request_Message) ProtoMessage() {}
 
 func (x *CChatRoom_DeleteChatMessages_Request_Message) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[145]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[149]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9035,7 +9346,7 @@ func (x *CChatRoom_DeleteChatMessages_Request_Message) ProtoReflect() protorefle
 
 // Deprecated: Use CChatRoom_DeleteChatMessages_Request_Message.ProtoReflect.Descriptor instead.
 func (*CChatRoom_DeleteChatMessages_Request_Message) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{107, 0}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{109, 0}
 }
 
 func (x *CChatRoom_DeleteChatMessages_Request_Message) GetServerTimestamp() uint32 {
@@ -9062,7 +9373,7 @@ type CChatRoom_SearchMembers_Response_MemberMatch struct {
 
 func (x *CChatRoom_SearchMembers_Response_MemberMatch) Reset() {
 	*x = CChatRoom_SearchMembers_Response_MemberMatch{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[146]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[150]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9074,7 +9385,7 @@ func (x *CChatRoom_SearchMembers_Response_MemberMatch) String() string {
 func (*CChatRoom_SearchMembers_Response_MemberMatch) ProtoMessage() {}
 
 func (x *CChatRoom_SearchMembers_Response_MemberMatch) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[146]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[150]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9087,7 +9398,7 @@ func (x *CChatRoom_SearchMembers_Response_MemberMatch) ProtoReflect() protorefle
 
 // Deprecated: Use CChatRoom_SearchMembers_Response_MemberMatch.ProtoReflect.Descriptor instead.
 func (*CChatRoom_SearchMembers_Response_MemberMatch) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{111, 0}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{114, 0}
 }
 
 func (x *CChatRoom_SearchMembers_Response_MemberMatch) GetAccountid() int32 {
@@ -9115,7 +9426,7 @@ type CChatRoom_ChatMessageModified_Notification_ChatMessage struct {
 
 func (x *CChatRoom_ChatMessageModified_Notification_ChatMessage) Reset() {
 	*x = CChatRoom_ChatMessageModified_Notification_ChatMessage{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[147]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[151]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9127,7 +9438,7 @@ func (x *CChatRoom_ChatMessageModified_Notification_ChatMessage) String() string
 func (*CChatRoom_ChatMessageModified_Notification_ChatMessage) ProtoMessage() {}
 
 func (x *CChatRoom_ChatMessageModified_Notification_ChatMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[147]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[151]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9140,7 +9451,7 @@ func (x *CChatRoom_ChatMessageModified_Notification_ChatMessage) ProtoReflect() 
 
 // Deprecated: Use CChatRoom_ChatMessageModified_Notification_ChatMessage.ProtoReflect.Descriptor instead.
 func (*CChatRoom_ChatMessageModified_Notification_ChatMessage) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{126, 0}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{129, 0}
 }
 
 func (x *CChatRoom_ChatMessageModified_Notification_ChatMessage) GetServerTimestamp() uint32 {
@@ -9175,7 +9486,7 @@ type CChatRoomClient_MemberListViewUpdated_Notification_MemberListViewEntry stru
 
 func (x *CChatRoomClient_MemberListViewUpdated_Notification_MemberListViewEntry) Reset() {
 	*x = CChatRoomClient_MemberListViewUpdated_Notification_MemberListViewEntry{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[148]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[152]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9187,7 +9498,7 @@ func (x *CChatRoomClient_MemberListViewUpdated_Notification_MemberListViewEntry)
 func (*CChatRoomClient_MemberListViewUpdated_Notification_MemberListViewEntry) ProtoMessage() {}
 
 func (x *CChatRoomClient_MemberListViewUpdated_Notification_MemberListViewEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[148]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[152]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9200,7 +9511,7 @@ func (x *CChatRoomClient_MemberListViewUpdated_Notification_MemberListViewEntry)
 
 // Deprecated: Use CChatRoomClient_MemberListViewUpdated_Notification_MemberListViewEntry.ProtoReflect.Descriptor instead.
 func (*CChatRoomClient_MemberListViewUpdated_Notification_MemberListViewEntry) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{135, 0}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{138, 0}
 }
 
 func (x *CChatRoomClient_MemberListViewUpdated_Notification_MemberListViewEntry) GetRank() int32 {
@@ -9257,7 +9568,7 @@ type CChatUsability_ClientUsabilityMetrics_Notification_Settings struct {
 
 func (x *CChatUsability_ClientUsabilityMetrics_Notification_Settings) Reset() {
 	*x = CChatUsability_ClientUsabilityMetrics_Notification_Settings{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[149]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[153]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9269,7 +9580,7 @@ func (x *CChatUsability_ClientUsabilityMetrics_Notification_Settings) String() s
 func (*CChatUsability_ClientUsabilityMetrics_Notification_Settings) ProtoMessage() {}
 
 func (x *CChatUsability_ClientUsabilityMetrics_Notification_Settings) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[149]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[153]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9282,7 +9593,7 @@ func (x *CChatUsability_ClientUsabilityMetrics_Notification_Settings) ProtoRefle
 
 // Deprecated: Use CChatUsability_ClientUsabilityMetrics_Notification_Settings.ProtoReflect.Descriptor instead.
 func (*CChatUsability_ClientUsabilityMetrics_Notification_Settings) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{137, 0}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{141, 0}
 }
 
 func (x *CChatUsability_ClientUsabilityMetrics_Notification_Settings) GetNotificationsShowIngame() bool {
@@ -9479,7 +9790,7 @@ type CChatUsability_ClientUsabilityMetrics_Notification_VoiceSettings struct {
 
 func (x *CChatUsability_ClientUsabilityMetrics_Notification_VoiceSettings) Reset() {
 	*x = CChatUsability_ClientUsabilityMetrics_Notification_VoiceSettings{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[150]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[154]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9491,7 +9802,7 @@ func (x *CChatUsability_ClientUsabilityMetrics_Notification_VoiceSettings) Strin
 func (*CChatUsability_ClientUsabilityMetrics_Notification_VoiceSettings) ProtoMessage() {}
 
 func (x *CChatUsability_ClientUsabilityMetrics_Notification_VoiceSettings) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[150]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[154]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9504,7 +9815,7 @@ func (x *CChatUsability_ClientUsabilityMetrics_Notification_VoiceSettings) Proto
 
 // Deprecated: Use CChatUsability_ClientUsabilityMetrics_Notification_VoiceSettings.ProtoReflect.Descriptor instead.
 func (*CChatUsability_ClientUsabilityMetrics_Notification_VoiceSettings) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{137, 1}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{141, 1}
 }
 
 func (x *CChatUsability_ClientUsabilityMetrics_Notification_VoiceSettings) GetVoiceInputGain() float32 {
@@ -9608,7 +9919,7 @@ type CChatUsability_ClientUsabilityMetrics_Notification_UIState struct {
 
 func (x *CChatUsability_ClientUsabilityMetrics_Notification_UIState) Reset() {
 	*x = CChatUsability_ClientUsabilityMetrics_Notification_UIState{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[151]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[155]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9620,7 +9931,7 @@ func (x *CChatUsability_ClientUsabilityMetrics_Notification_UIState) String() st
 func (*CChatUsability_ClientUsabilityMetrics_Notification_UIState) ProtoMessage() {}
 
 func (x *CChatUsability_ClientUsabilityMetrics_Notification_UIState) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[151]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[155]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9633,7 +9944,7 @@ func (x *CChatUsability_ClientUsabilityMetrics_Notification_UIState) ProtoReflec
 
 // Deprecated: Use CChatUsability_ClientUsabilityMetrics_Notification_UIState.ProtoReflect.Descriptor instead.
 func (*CChatUsability_ClientUsabilityMetrics_Notification_UIState) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{137, 2}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{141, 2}
 }
 
 func (x *CChatUsability_ClientUsabilityMetrics_Notification_UIState) GetFriendsListHeight() int32 {
@@ -9766,7 +10077,7 @@ type CChatUsability_ClientUsabilityMetrics_Notification_Metrics struct {
 
 func (x *CChatUsability_ClientUsabilityMetrics_Notification_Metrics) Reset() {
 	*x = CChatUsability_ClientUsabilityMetrics_Notification_Metrics{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[152]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[156]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9778,7 +10089,7 @@ func (x *CChatUsability_ClientUsabilityMetrics_Notification_Metrics) String() st
 func (*CChatUsability_ClientUsabilityMetrics_Notification_Metrics) ProtoMessage() {}
 
 func (x *CChatUsability_ClientUsabilityMetrics_Notification_Metrics) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[152]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[156]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9791,7 +10102,7 @@ func (x *CChatUsability_ClientUsabilityMetrics_Notification_Metrics) ProtoReflec
 
 // Deprecated: Use CChatUsability_ClientUsabilityMetrics_Notification_Metrics.ProtoReflect.Descriptor instead.
 func (*CChatUsability_ClientUsabilityMetrics_Notification_Metrics) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{137, 3}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{141, 3}
 }
 
 func (x *CChatUsability_ClientUsabilityMetrics_Notification_Metrics) GetFriendsCount() int32 {
@@ -9877,7 +10188,7 @@ type CChatUsability_ClientUsabilityMetrics_Notification_UIState_CategoryCollapse
 
 func (x *CChatUsability_ClientUsabilityMetrics_Notification_UIState_CategoryCollapseState) Reset() {
 	*x = CChatUsability_ClientUsabilityMetrics_Notification_UIState_CategoryCollapseState{}
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[153]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[157]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9890,7 +10201,7 @@ func (*CChatUsability_ClientUsabilityMetrics_Notification_UIState_CategoryCollap
 }
 
 func (x *CChatUsability_ClientUsabilityMetrics_Notification_UIState_CategoryCollapseState) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_chat_steamclient_proto_msgTypes[153]
+	mi := &file_steammessages_chat_steamclient_proto_msgTypes[157]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9903,7 +10214,7 @@ func (x *CChatUsability_ClientUsabilityMetrics_Notification_UIState_CategoryColl
 
 // Deprecated: Use CChatUsability_ClientUsabilityMetrics_Notification_UIState_CategoryCollapseState.ProtoReflect.Descriptor instead.
 func (*CChatUsability_ClientUsabilityMetrics_Notification_UIState_CategoryCollapseState) Descriptor() ([]byte, []int) {
-	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{137, 2, 0}
+	return file_steammessages_chat_steamclient_proto_rawDescGZIP(), []int{141, 2, 0}
 }
 
 func (x *CChatUsability_ClientUsabilityMetrics_Notification_UIState_CategoryCollapseState) GetInGameCollapsed() bool {
@@ -10358,11 +10669,19 @@ const file_steammessages_chat_steamclient_proto_rawDesc = "" +
 	"0CChatRoom_SetSessionActiveChatRoomGroups_Request\x12$\n" +
 	"\x0echat_group_ids\x18\x01 \x03(\x04R\fchatGroupIds\x12;\n" +
 	"\x1achat_groups_data_requested\x18\x02 \x03(\x04R\x17chatGroupsDataRequested\x12@\n" +
-	"\x1cvirtualize_members_threshold\x18\x03 \x01(\x05R\x1avirtualizeMembersThreshold\"\xb4\x01\n" +
+	"\x1cvirtualize_members_threshold\x18\x03 \x01(\x05R\x1avirtualizeMembersThreshold\"\x83\x01\n" +
+	"\x15CChatRoomMemberNotice\x12\x1c\n" +
+	"\taccountid\x18\x01 \x01(\rR\taccountid\x12L\n" +
+	"\vnotice_type\x18\x02 \x01(\x0e2\x10.EChatRoomNotice:\x19k_EChatRoomNotice_InvalidR\n" +
+	"noticeType\"\x80\x01\n" +
+	"\x1bCChatRoomGroupMemberNotices\x12\"\n" +
+	"\rchat_group_id\x18\x01 \x01(\x04R\vchatGroupId\x12=\n" +
+	"\x0emember_notices\x18\x02 \x03(\v2\x16.CChatRoomMemberNoticeR\rmemberNotices\"\x80\x02\n" +
 	"1CChatRoom_SetSessionActiveChatRoomGroups_Response\x125\n" +
 	"\vchat_states\x18\x01 \x03(\v2\x14.CChatRoomGroupStateR\n" +
 	"chatStates\x12H\n" +
-	"!virtualize_members_chat_group_ids\x18\x02 \x03(\x04R\x1dvirtualizeMembersChatGroupIds\"\xb4\b\n" +
+	"!virtualize_members_chat_group_ids\x18\x02 \x03(\x04R\x1dvirtualizeMembersChatGroupIds\x12J\n" +
+	"\x12chat_group_notices\x18\x03 \x03(\v2\x1c.CChatRoomGroupMemberNoticesR\x10chatGroupNotices\"\xb4\b\n" +
 	"-CChatRoom_SetUserChatGroupPreferences_Request\x12\"\n" +
 	"\rchat_group_id\x18\x01 \x01(\x04R\vchatGroupId\x12y\n" +
 	"\x16chat_group_preferences\x18\x02 \x01(\v2C.CChatRoom_SetUserChatGroupPreferences_Request.ChatGroupPreferencesR\x14chatGroupPreferences\x12v\n" +
@@ -10385,7 +10704,12 @@ const file_steammessages_chat_steamclient_proto_rawDesc = "" +
 	"\aMessage\x12)\n" +
 	"\x10server_timestamp\x18\x01 \x01(\rR\x0fserverTimestamp\x12\x18\n" +
 	"\aordinal\x18\x02 \x01(\rR\aordinal\"'\n" +
-	"%CChatRoom_DeleteChatMessages_Response\"\xec\x02\n" +
+	"%CChatRoom_DeleteChatMessages_Response\"\xc7\x01\n" +
+	",CChatRoom_DismissChatRoomNotice_Notification\x12\"\n" +
+	"\rchat_group_id\x18\x01 \x01(\x04R\vchatGroupId\x12%\n" +
+	"\x0esteamid_sender\x18\x02 \x01(\x06R\rsteamidSender\x12L\n" +
+	"\vnotice_type\x18\x03 \x01(\x0e2\x10.EChatRoomNotice:\x19k_EChatRoomNotice_InvalidR\n" +
+	"noticeType\"\xec\x02\n" +
 	"+CChatRoom_UpdateMemberListView_Notification\x12\"\n" +
 	"\rchat_group_id\x18\x01 \x01(\x04R\vchatGroupId\x12\x17\n" +
 	"\aview_id\x18\x02 \x01(\x04R\x06viewId\x12\x14\n" +
@@ -10545,7 +10869,13 @@ const file_steammessages_chat_steamclient_proto_rawDesc = "" +
 	"\areactor\x18\x05 \x01(\x06R\areactor\x12j\n" +
 	"\rreaction_type\x18\x06 \x01(\x0e2\x1d.EChatRoomMessageReactionType:&k_EChatRoomMessageReactionType_InvalidR\freactionType\x12\x1a\n" +
 	"\breaction\x18\a \x01(\tR\breaction\x12\x15\n" +
-	"\x06is_add\x18\b \x01(\bR\x05isAdd\"\xe6!\n" +
+	"\x06is_add\x18\b \x01(\bR\x05isAdd\"\xd8\x01\n" +
+	"%CChatRoom_ChatRoomNotice_Notification\x12\"\n" +
+	"\rchat_group_id\x18\x01 \x01(\x04R\vchatGroupId\x12%\n" +
+	"\x0esteamid_sender\x18\x02 \x01(\x06R\rsteamidSender\x12L\n" +
+	"\vnotice_type\x18\x03 \x01(\x0e2\x10.EChatRoomNotice:\x19k_EChatRoomNotice_InvalidR\n" +
+	"noticeType\x12\x16\n" +
+	"\x06active\x18\x04 \x01(\bR\x06active\"\xe6!\n" +
 	"2CChatUsability_ClientUsabilityMetrics_Notification\x12$\n" +
 	"\x0emetrics_run_id\x18\x01 \x01(\rR\fmetricsRunId\x12!\n" +
 	"\fclient_build\x18\x02 \x01(\rR\vclientBuild\x12'\n" +
@@ -10673,7 +11003,10 @@ const file_steammessages_chat_steamclient_proto_rawDesc = "" +
 	"\x1cEChatRoomMessageReactionType\x12*\n" +
 	"&k_EChatRoomMessageReactionType_Invalid\x10\x00\x12+\n" +
 	"'k_EChatRoomMessageReactionType_Emoticon\x10\x01\x12*\n" +
-	"&k_EChatRoomMessageReactionType_Sticker\x10\x02*\xcb\x03\n" +
+	"&k_EChatRoomMessageReactionType_Sticker\x10\x02*R\n" +
+	"\x0fEChatRoomNotice\x12\x1d\n" +
+	"\x19k_EChatRoomNotice_Invalid\x10\x00\x12 \n" +
+	"\x1ck_EChatRoomNotice_Suspicious\x10\x01*\xcb\x03\n" +
 	"\x1aEChatRoomMemberStateChange\x12(\n" +
 	"$k_EChatRoomMemberStateChange_Invalid\x10\x00\x12'\n" +
 	"#k_EChatRoomMemberStateChange_Joined\x10\x01\x12'\n" +
@@ -10687,7 +11020,7 @@ const file_steammessages_chat_steamclient_proto_rawDesc = "" +
 	"\x12-\n" +
 	")k_EChatRoomMemberStateChange_RolesChanged\x10\f2{\n" +
 	"\x04Chat\x12s\n" +
-	"\x1aRequestFriendPersonaStates\x12).CChat_RequestFriendPersonaStates_Request\x1a*.CChat_RequestFriendPersonaStates_Response2\xc9)\n" +
+	"\x1aRequestFriendPersonaStates\x12).CChat_RequestFriendPersonaStates_Request\x1a*.CChat_RequestFriendPersonaStates_Response2\x9e*\n" +
 	"\bChatRoom\x12f\n" +
 	"\x13CreateChatRoomGroup\x12&.CChatRoom_CreateChatRoomGroup_Request\x1a'.CChatRoom_CreateChatRoomGroup_Response\x12`\n" +
 	"\x11SaveChatRoomGroup\x12$.CChatRoom_SaveChatRoomGroup_Request\x1a%.CChatRoom_SaveChatRoomGroup_Response\x12f\n" +
@@ -10740,7 +11073,8 @@ const file_steammessages_chat_steamclient_proto_rawDesc = "" +
 	"\x10DeleteInviteLink\x12#.CChatRoom_DeleteInviteLink_Request\x1a$.CChatRoom_DeleteInviteLink_Response\x12\x87\x01\n" +
 	"\x1eSetSessionActiveChatRoomGroups\x121.CChatRoom_SetSessionActiveChatRoomGroups_Request\x1a2.CChatRoom_SetSessionActiveChatRoomGroups_Response\x12~\n" +
 	"\x1bSetUserChatGroupPreferences\x12..CChatRoom_SetUserChatGroupPreferences_Request\x1a/.CChatRoom_SetUserChatGroupPreferences_Response\x12c\n" +
-	"\x12DeleteChatMessages\x12%.CChatRoom_DeleteChatMessages_Request\x1a&.CChatRoom_DeleteChatMessages_Response\x12Q\n" +
+	"\x12DeleteChatMessages\x12%.CChatRoom_DeleteChatMessages_Request\x1a&.CChatRoom_DeleteChatMessages_Response\x12S\n" +
+	"\x15DismissChatRoomNotice\x12-.CChatRoom_DismissChatRoomNotice_Notification\x1a\v.NoResponse\x12Q\n" +
 	"\x14UpdateMemberListView\x12,.CChatRoom_UpdateMemberListView_Notification\x1a\v.NoResponse\x12T\n" +
 	"\rSearchMembers\x12 .CChatRoom_SearchMembers_Request\x1a!.CChatRoom_SearchMembers_Response\x12l\n" +
 	"\x15UpdateMessageReaction\x12(.CChatRoom_UpdateMessageReaction_Request\x1a).CChatRoom_UpdateMessageReaction_Response\x12{\n" +
@@ -10749,7 +11083,7 @@ const file_steammessages_chat_steamclient_proto_rawDesc = "" +
 	"\rResolveReport\x12 .CChatRoom_ResolveReport_Request\x1a!.CChatRoom_ResolveReport_Response2\xfc\x01\n" +
 	"\rClanChatRooms\x12p\n" +
 	"\x13GetClanChatRoomInfo\x12+.CClanChatRooms_GetClanChatRoomInfo_Request\x1a,.CClanChatRooms_GetClanChatRoomInfo_Response\x12y\n" +
-	"\x16SetClanChatRoomPrivate\x12..CClanChatRooms_SetClanChatRoomPrivate_Request\x1a/.CClanChatRooms_SetClanChatRoomPrivate_Response2\x95\b\n" +
+	"\x16SetClanChatRoomPrivate\x12..CClanChatRooms_SetClanChatRoomPrivate_Request\x1a/.CClanChatRooms_SetClanChatRoomPrivate_Response2\xe2\b\n" +
 	"\x0eChatRoomClient\x12U\n" +
 	"\x19NotifyIncomingChatMessage\x12+.CChatRoom_IncomingChatMessage_Notification\x1a\v.NoResponse\x12U\n" +
 	"\x19NotifyChatMessageModified\x12+.CChatRoom_ChatMessageModified_Notification\x1a\v.NoResponse\x12Q\n" +
@@ -10761,7 +11095,8 @@ const file_steammessages_chat_steamclient_proto_rawDesc = "" +
 	"\x18NotifyAckChatMessageEcho\x12&.CChatRoom_AckChatMessage_Notification\x1a\v.NoResponse\x12^\n" +
 	"\x18NotifyChatRoomDisconnect\x125.ChatRoomClient_NotifyChatRoomDisconnect_Notification\x1a\v.NoResponse\x12_\n" +
 	"\x1bNotifyMemberListViewUpdated\x123.CChatRoomClient_MemberListViewUpdated_Notification\x1a\v.NoResponse\x12M\n" +
-	"\x15NotifyMessageReaction\x12'.CChatRoom_MessageReaction_Notification\x1a\v.NoResponse\x1a\x04\xc0\xb5\x18\x022q\n" +
+	"\x15NotifyMessageReaction\x12'.CChatRoom_MessageReaction_Notification\x1a\v.NoResponse\x12K\n" +
+	"\x14NotifyChatRoomNotice\x12&.CChatRoom_ChatRoomNotice_Notification\x1a\v.NoResponse\x1a\x04\xc0\xb5\x18\x022q\n" +
 	"\rChatUsability\x12`\n" +
 	"\x1cNotifyClientUsabilityMetrics\x123.CChatUsability_ClientUsabilityMetrics_Notification\x1a\v.NoResponse2\x8b\x01\n" +
 	"\x13ChatUsabilityClient\x12n\n" +
@@ -10779,402 +11114,416 @@ func file_steammessages_chat_steamclient_proto_rawDescGZIP() []byte {
 	return file_steammessages_chat_steamclient_proto_rawDescData
 }
 
-var file_steammessages_chat_steamclient_proto_enumTypes = make([]protoimpl.EnumInfo, 6)
-var file_steammessages_chat_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 154)
+var file_steammessages_chat_steamclient_proto_enumTypes = make([]protoimpl.EnumInfo, 7)
+var file_steammessages_chat_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 158)
 var file_steammessages_chat_steamclient_proto_goTypes = []any{
 	(EChatRoomJoinState)(0),                                                                  // 0: EChatRoomJoinState
 	(EChatRoomGroupRank)(0),                                                                  // 1: EChatRoomGroupRank
 	(EChatRoomNotificationLevel)(0),                                                          // 2: EChatRoomNotificationLevel
 	(EChatRoomServerMessage)(0),                                                              // 3: EChatRoomServerMessage
 	(EChatRoomMessageReactionType)(0),                                                        // 4: EChatRoomMessageReactionType
-	(EChatRoomMemberStateChange)(0),                                                          // 5: EChatRoomMemberStateChange
-	(*CChat_RequestFriendPersonaStates_Request)(nil),                                         // 6: CChat_RequestFriendPersonaStates_Request
-	(*CChat_RequestFriendPersonaStates_Response)(nil),                                        // 7: CChat_RequestFriendPersonaStates_Response
-	(*CChatRoom_CreateChatRoomGroup_Request)(nil),                                            // 8: CChatRoom_CreateChatRoomGroup_Request
-	(*CChatRole)(nil),                                                                        // 9: CChatRole
-	(*CChatRoleActions)(nil),                                                                 // 10: CChatRoleActions
-	(*CChatPartyBeacon)(nil),                                                                 // 11: CChatPartyBeacon
-	(*CChatRoomGroupHeaderState)(nil),                                                        // 12: CChatRoomGroupHeaderState
-	(*CChatRoomMember)(nil),                                                                  // 13: CChatRoomMember
-	(*CChatRoomState)(nil),                                                                   // 14: CChatRoomState
-	(*CChatRoomGroupState)(nil),                                                              // 15: CChatRoomGroupState
-	(*CUserChatRoomState)(nil),                                                               // 16: CUserChatRoomState
-	(*CUserChatRoomGroupState)(nil),                                                          // 17: CUserChatRoomGroupState
-	(*CChatRoom_CreateChatRoomGroup_Response)(nil),                                           // 18: CChatRoom_CreateChatRoomGroup_Response
-	(*CChatRoom_SaveChatRoomGroup_Request)(nil),                                              // 19: CChatRoom_SaveChatRoomGroup_Request
-	(*CChatRoom_SaveChatRoomGroup_Response)(nil),                                             // 20: CChatRoom_SaveChatRoomGroup_Response
-	(*CChatRoom_RenameChatRoomGroup_Request)(nil),                                            // 21: CChatRoom_RenameChatRoomGroup_Request
-	(*CChatRoom_RenameChatRoomGroup_Response)(nil),                                           // 22: CChatRoom_RenameChatRoomGroup_Response
-	(*CChatRoom_SetChatRoomGroupTagline_Request)(nil),                                        // 23: CChatRoom_SetChatRoomGroupTagline_Request
-	(*CChatRoom_SetChatRoomGroupTagline_Response)(nil),                                       // 24: CChatRoom_SetChatRoomGroupTagline_Response
-	(*CChatRoom_SetChatRoomGroupAvatar_Request)(nil),                                         // 25: CChatRoom_SetChatRoomGroupAvatar_Request
-	(*CChatRoom_SetChatRoomGroupAvatar_Response)(nil),                                        // 26: CChatRoom_SetChatRoomGroupAvatar_Response
-	(*CChatRoom_SetChatRoomGroupWatchingBroadcast_Request)(nil),                              // 27: CChatRoom_SetChatRoomGroupWatchingBroadcast_Request
-	(*CChatRoom_SetChatRoomGroupWatchingBroadcast_Response)(nil),                             // 28: CChatRoom_SetChatRoomGroupWatchingBroadcast_Response
-	(*CChatRoom_JoinMiniGameForChatRoomGroup_Request)(nil),                                   // 29: CChatRoom_JoinMiniGameForChatRoomGroup_Request
-	(*CChatRoom_JoinMiniGameForChatRoomGroup_Response)(nil),                                  // 30: CChatRoom_JoinMiniGameForChatRoomGroup_Response
-	(*CChatRoom_EndMiniGameForChatRoomGroup_Request)(nil),                                    // 31: CChatRoom_EndMiniGameForChatRoomGroup_Request
-	(*CChatRoom_EndMiniGameForChatRoomGroup_Response)(nil),                                   // 32: CChatRoom_EndMiniGameForChatRoomGroup_Response
-	(*CChatRoom_MuteUser_Request)(nil),                                                       // 33: CChatRoom_MuteUser_Request
-	(*CChatRoom_MuteUser_Response)(nil),                                                      // 34: CChatRoom_MuteUser_Response
-	(*CChatRoom_KickUser_Request)(nil),                                                       // 35: CChatRoom_KickUser_Request
-	(*CChatRoom_KickUser_Response)(nil),                                                      // 36: CChatRoom_KickUser_Response
-	(*CChatRoom_SetUserBanState_Request)(nil),                                                // 37: CChatRoom_SetUserBanState_Request
-	(*CChatRoom_SetUserBanState_Response)(nil),                                               // 38: CChatRoom_SetUserBanState_Response
-	(*CChatRoom_RevokeInvite_Request)(nil),                                                   // 39: CChatRoom_RevokeInvite_Request
-	(*CChatRoom_RevokeInvite_Response)(nil),                                                  // 40: CChatRoom_RevokeInvite_Response
-	(*CChatRoom_CreateRole_Request)(nil),                                                     // 41: CChatRoom_CreateRole_Request
-	(*CChatRoom_CreateRole_Response)(nil),                                                    // 42: CChatRoom_CreateRole_Response
-	(*CChatRoom_GetRoles_Request)(nil),                                                       // 43: CChatRoom_GetRoles_Request
-	(*CChatRoom_GetRoles_Response)(nil),                                                      // 44: CChatRoom_GetRoles_Response
-	(*CChatRoom_RenameRole_Request)(nil),                                                     // 45: CChatRoom_RenameRole_Request
-	(*CChatRoom_RenameRole_Response)(nil),                                                    // 46: CChatRoom_RenameRole_Response
-	(*CChatRoom_ReorderRole_Request)(nil),                                                    // 47: CChatRoom_ReorderRole_Request
-	(*CChatRoom_ReorderRole_Response)(nil),                                                   // 48: CChatRoom_ReorderRole_Response
-	(*CChatRoom_DeleteRole_Request)(nil),                                                     // 49: CChatRoom_DeleteRole_Request
-	(*CChatRoom_DeleteRole_Response)(nil),                                                    // 50: CChatRoom_DeleteRole_Response
-	(*CChatRoom_GetRoleActions_Request)(nil),                                                 // 51: CChatRoom_GetRoleActions_Request
-	(*CChatRoom_GetRoleActions_Response)(nil),                                                // 52: CChatRoom_GetRoleActions_Response
-	(*CChatRoom_ReplaceRoleActions_Request)(nil),                                             // 53: CChatRoom_ReplaceRoleActions_Request
-	(*CChatRoom_ReplaceRoleActions_Response)(nil),                                            // 54: CChatRoom_ReplaceRoleActions_Response
-	(*CChatRoom_AddRoleToUser_Request)(nil),                                                  // 55: CChatRoom_AddRoleToUser_Request
-	(*CChatRoom_AddRoleToUser_Response)(nil),                                                 // 56: CChatRoom_AddRoleToUser_Response
-	(*CChatRoom_GetRolesForUser_Request)(nil),                                                // 57: CChatRoom_GetRolesForUser_Request
-	(*CChatRoom_GetRolesForUser_Response)(nil),                                               // 58: CChatRoom_GetRolesForUser_Response
-	(*CChatRoom_DeleteRoleFromUser_Request)(nil),                                             // 59: CChatRoom_DeleteRoleFromUser_Request
-	(*CChatRoom_DeleteRoleFromUser_Response)(nil),                                            // 60: CChatRoom_DeleteRoleFromUser_Response
-	(*CChatRoom_JoinChatRoomGroup_Request)(nil),                                              // 61: CChatRoom_JoinChatRoomGroup_Request
-	(*CChatRoom_JoinChatRoomGroup_Response)(nil),                                             // 62: CChatRoom_JoinChatRoomGroup_Response
-	(*CChatRoom_InviteFriendToChatRoomGroup_Request)(nil),                                    // 63: CChatRoom_InviteFriendToChatRoomGroup_Request
-	(*CChatRoom_InviteFriendToChatRoomGroup_Response)(nil),                                   // 64: CChatRoom_InviteFriendToChatRoomGroup_Response
-	(*CChatRoom_LeaveChatRoomGroup_Request)(nil),                                             // 65: CChatRoom_LeaveChatRoomGroup_Request
-	(*CChatRoom_LeaveChatRoomGroup_Response)(nil),                                            // 66: CChatRoom_LeaveChatRoomGroup_Response
-	(*CChatRoom_CreateChatRoom_Request)(nil),                                                 // 67: CChatRoom_CreateChatRoom_Request
-	(*CChatRoom_CreateChatRoom_Response)(nil),                                                // 68: CChatRoom_CreateChatRoom_Response
-	(*CChatRoom_DeleteChatRoom_Request)(nil),                                                 // 69: CChatRoom_DeleteChatRoom_Request
-	(*CChatRoom_DeleteChatRoom_Response)(nil),                                                // 70: CChatRoom_DeleteChatRoom_Response
-	(*CChatRoom_RenameChatRoom_Request)(nil),                                                 // 71: CChatRoom_RenameChatRoom_Request
-	(*CChatRoom_RenameChatRoom_Response)(nil),                                                // 72: CChatRoom_RenameChatRoom_Response
-	(*CChatRoom_ReorderChatRoom_Request)(nil),                                                // 73: CChatRoom_ReorderChatRoom_Request
-	(*CChatRoom_ReorderChatRoom_Response)(nil),                                               // 74: CChatRoom_ReorderChatRoom_Response
-	(*CChatRoom_SendChatMessage_Request)(nil),                                                // 75: CChatRoom_SendChatMessage_Request
-	(*CChatRoom_SendChatMessage_Response)(nil),                                               // 76: CChatRoom_SendChatMessage_Response
-	(*CChatRoom_JoinVoiceChat_Request)(nil),                                                  // 77: CChatRoom_JoinVoiceChat_Request
-	(*CChatRoom_JoinVoiceChat_Response)(nil),                                                 // 78: CChatRoom_JoinVoiceChat_Response
-	(*CChatRoom_LeaveVoiceChat_Request)(nil),                                                 // 79: CChatRoom_LeaveVoiceChat_Request
-	(*CChatRoom_LeaveVoiceChat_Response)(nil),                                                // 80: CChatRoom_LeaveVoiceChat_Response
-	(*CChatRoom_GetMessageHistory_Request)(nil),                                              // 81: CChatRoom_GetMessageHistory_Request
-	(*ServerMessage)(nil),                                                                    // 82: ServerMessage
-	(*CChatRoom_GetMessageHistory_Response)(nil),                                             // 83: CChatRoom_GetMessageHistory_Response
-	(*CChatRoom_GetMyChatRoomGroups_Request)(nil),                                            // 84: CChatRoom_GetMyChatRoomGroups_Request
-	(*CChatRoom_GetChatRoomGroupSummary_Response)(nil),                                       // 85: CChatRoom_GetChatRoomGroupSummary_Response
-	(*CChatRoomSummaryPair)(nil),                                                             // 86: CChatRoomSummaryPair
-	(*CChatRoom_GetMyChatRoomGroups_Response)(nil),                                           // 87: CChatRoom_GetMyChatRoomGroups_Response
-	(*CChatRoom_GetChatRoomGroupState_Request)(nil),                                          // 88: CChatRoom_GetChatRoomGroupState_Request
-	(*CChatRoom_GetChatRoomGroupState_Response)(nil),                                         // 89: CChatRoom_GetChatRoomGroupState_Response
-	(*CChatRoom_SetAppChatRoomGroupForceActive_Request)(nil),                                 // 90: CChatRoom_SetAppChatRoomGroupForceActive_Request
-	(*CChatRoom_SetAppChatRoomGroupForceActive_Response)(nil),                                // 91: CChatRoom_SetAppChatRoomGroupForceActive_Response
-	(*CChatRoom_SetAppChatRoomGroupStopForceActive_Notification)(nil),                        // 92: CChatRoom_SetAppChatRoomGroupStopForceActive_Notification
-	(*CChatRoom_AckChatMessage_Notification)(nil),                                            // 93: CChatRoom_AckChatMessage_Notification
-	(*CChatRoom_CreateInviteLink_Request)(nil),                                               // 94: CChatRoom_CreateInviteLink_Request
-	(*CChatRoom_CreateInviteLink_Response)(nil),                                              // 95: CChatRoom_CreateInviteLink_Response
-	(*CChatRoom_GetInviteLinkInfo_Request)(nil),                                              // 96: CChatRoom_GetInviteLinkInfo_Request
-	(*CChatRoom_GetInviteLinkInfo_Response)(nil),                                             // 97: CChatRoom_GetInviteLinkInfo_Response
-	(*CChatRoom_GetInviteInfo_Request)(nil),                                                  // 98: CChatRoom_GetInviteInfo_Request
-	(*CChatRoom_GetInviteInfo_Response)(nil),                                                 // 99: CChatRoom_GetInviteInfo_Response
-	(*CChatRoom_GetInviteLinksForGroup_Request)(nil),                                         // 100: CChatRoom_GetInviteLinksForGroup_Request
-	(*CChatRoom_GetInviteLinksForGroup_Response)(nil),                                        // 101: CChatRoom_GetInviteLinksForGroup_Response
-	(*CChatRoom_GetBanList_Request)(nil),                                                     // 102: CChatRoom_GetBanList_Request
-	(*CChatRoom_GetBanList_Response)(nil),                                                    // 103: CChatRoom_GetBanList_Response
-	(*CChatRoom_GetInviteList_Request)(nil),                                                  // 104: CChatRoom_GetInviteList_Request
-	(*CChatRoomGroupInvite)(nil),                                                             // 105: CChatRoomGroupInvite
-	(*CChatRoom_GetInviteList_Response)(nil),                                                 // 106: CChatRoom_GetInviteList_Response
-	(*CChatRoom_DeleteInviteLink_Request)(nil),                                               // 107: CChatRoom_DeleteInviteLink_Request
-	(*CChatRoom_DeleteInviteLink_Response)(nil),                                              // 108: CChatRoom_DeleteInviteLink_Response
-	(*CChatRoom_SetSessionActiveChatRoomGroups_Request)(nil),                                 // 109: CChatRoom_SetSessionActiveChatRoomGroups_Request
-	(*CChatRoom_SetSessionActiveChatRoomGroups_Response)(nil),                                // 110: CChatRoom_SetSessionActiveChatRoomGroups_Response
-	(*CChatRoom_SetUserChatGroupPreferences_Request)(nil),                                    // 111: CChatRoom_SetUserChatGroupPreferences_Request
-	(*CChatRoom_SetUserChatGroupPreferences_Response)(nil),                                   // 112: CChatRoom_SetUserChatGroupPreferences_Response
-	(*CChatRoom_DeleteChatMessages_Request)(nil),                                             // 113: CChatRoom_DeleteChatMessages_Request
-	(*CChatRoom_DeleteChatMessages_Response)(nil),                                            // 114: CChatRoom_DeleteChatMessages_Response
-	(*CChatRoom_UpdateMemberListView_Notification)(nil),                                      // 115: CChatRoom_UpdateMemberListView_Notification
-	(*CChatRoom_SearchMembers_Request)(nil),                                                  // 116: CChatRoom_SearchMembers_Request
-	(*CChatRoom_SearchMembers_Response)(nil),                                                 // 117: CChatRoom_SearchMembers_Response
-	(*CChatRoom_UpdateMessageReaction_Request)(nil),                                          // 118: CChatRoom_UpdateMessageReaction_Request
-	(*CChatRoom_UpdateMessageReaction_Response)(nil),                                         // 119: CChatRoom_UpdateMessageReaction_Response
-	(*CChatRoom_GetMessageReactionReactors_Request)(nil),                                     // 120: CChatRoom_GetMessageReactionReactors_Request
-	(*CChatRoom_GetMessageReactionReactors_Response)(nil),                                    // 121: CChatRoom_GetMessageReactionReactors_Response
-	(*CChatRoom_ReportMessage_Request)(nil),                                                  // 122: CChatRoom_ReportMessage_Request
-	(*CChatRoom_ReportMessage_Response)(nil),                                                 // 123: CChatRoom_ReportMessage_Response
-	(*CChatRoom_ResolveReport_Request)(nil),                                                  // 124: CChatRoom_ResolveReport_Request
-	(*CChatRoom_ResolveReport_Response)(nil),                                                 // 125: CChatRoom_ResolveReport_Response
-	(*CClanChatRooms_GetClanChatRoomInfo_Request)(nil),                                       // 126: CClanChatRooms_GetClanChatRoomInfo_Request
-	(*CClanChatRooms_GetClanChatRoomInfo_Response)(nil),                                      // 127: CClanChatRooms_GetClanChatRoomInfo_Response
-	(*CClanChatRooms_SetClanChatRoomPrivate_Request)(nil),                                    // 128: CClanChatRooms_SetClanChatRoomPrivate_Request
-	(*CClanChatRooms_SetClanChatRoomPrivate_Response)(nil),                                   // 129: CClanChatRooms_SetClanChatRoomPrivate_Response
-	(*CChatMentions)(nil),                                                                    // 130: CChatMentions
-	(*CChatRoom_IncomingChatMessage_Notification)(nil),                                       // 131: CChatRoom_IncomingChatMessage_Notification
-	(*CChatRoom_ChatMessageModified_Notification)(nil),                                       // 132: CChatRoom_ChatMessageModified_Notification
-	(*CChatRoom_MemberStateChange_Notification)(nil),                                         // 133: CChatRoom_MemberStateChange_Notification
-	(*CChatRoom_ChatRoomHeaderState_Notification)(nil),                                       // 134: CChatRoom_ChatRoomHeaderState_Notification
-	(*CChatRoom_ChatRoomGroupRoomsChange_Notification)(nil),                                  // 135: CChatRoom_ChatRoomGroupRoomsChange_Notification
-	(*CChatRoom_NotifyShouldRejoinChatRoomVoiceChat_Notification)(nil),                       // 136: CChatRoom_NotifyShouldRejoinChatRoomVoiceChat_Notification
-	(*ChatRoomClient_NotifyChatGroupUserStateChanged_Notification)(nil),                      // 137: ChatRoomClient_NotifyChatGroupUserStateChanged_Notification
-	(*ChatRoomClient_NotifyChatRoomDisconnect_Notification)(nil),                             // 138: ChatRoomClient_NotifyChatRoomDisconnect_Notification
-	(*CChatRoomMemberListView)(nil),                                                          // 139: CChatRoomMemberListView
-	(*CChatRoomMemberSummaryCounts)(nil),                                                     // 140: CChatRoomMemberSummaryCounts
-	(*CChatRoomClient_MemberListViewUpdated_Notification)(nil),                               // 141: CChatRoomClient_MemberListViewUpdated_Notification
-	(*CChatRoom_MessageReaction_Notification)(nil),                                           // 142: CChatRoom_MessageReaction_Notification
-	(*CChatUsability_ClientUsabilityMetrics_Notification)(nil),                               // 143: CChatUsability_ClientUsabilityMetrics_Notification
-	(*CChatUsability_RequestClientUsabilityMetrics_Notification)(nil),                        // 144: CChatUsability_RequestClientUsabilityMetrics_Notification
-	(*CChatRoom_GetMessageHistory_Response_ChatMessage)(nil),                                 // 145: CChatRoom_GetMessageHistory_Response.ChatMessage
-	(*CChatRoom_GetMessageHistory_Response_ChatMessage_MessageReaction)(nil),                 // 146: CChatRoom_GetMessageHistory_Response.ChatMessage.MessageReaction
-	(*CChatRoom_GetInviteLinksForGroup_Response_LinkInfo)(nil),                               // 147: CChatRoom_GetInviteLinksForGroup_Response.LinkInfo
-	(*CChatRoom_GetBanList_Response_BanInfo)(nil),                                            // 148: CChatRoom_GetBanList_Response.BanInfo
-	(*CChatRoom_SetUserChatGroupPreferences_Request_ChatGroupPreferences)(nil),               // 149: CChatRoom_SetUserChatGroupPreferences_Request.ChatGroupPreferences
-	(*CChatRoom_SetUserChatGroupPreferences_Request_ChatRoomPreferences)(nil),                // 150: CChatRoom_SetUserChatGroupPreferences_Request.ChatRoomPreferences
-	(*CChatRoom_DeleteChatMessages_Request_Message)(nil),                                     // 151: CChatRoom_DeleteChatMessages_Request.Message
-	(*CChatRoom_SearchMembers_Response_MemberMatch)(nil),                                     // 152: CChatRoom_SearchMembers_Response.MemberMatch
-	(*CChatRoom_ChatMessageModified_Notification_ChatMessage)(nil),                           // 153: CChatRoom_ChatMessageModified_Notification.ChatMessage
-	(*CChatRoomClient_MemberListViewUpdated_Notification_MemberListViewEntry)(nil),           // 154: CChatRoomClient_MemberListViewUpdated_Notification.MemberListViewEntry
-	(*CChatUsability_ClientUsabilityMetrics_Notification_Settings)(nil),                      // 155: CChatUsability_ClientUsabilityMetrics_Notification.Settings
-	(*CChatUsability_ClientUsabilityMetrics_Notification_VoiceSettings)(nil),                 // 156: CChatUsability_ClientUsabilityMetrics_Notification.VoiceSettings
-	(*CChatUsability_ClientUsabilityMetrics_Notification_UIState)(nil),                       // 157: CChatUsability_ClientUsabilityMetrics_Notification.UIState
-	(*CChatUsability_ClientUsabilityMetrics_Notification_Metrics)(nil),                       // 158: CChatUsability_ClientUsabilityMetrics_Notification.Metrics
-	(*CChatUsability_ClientUsabilityMetrics_Notification_UIState_CategoryCollapseState)(nil), // 159: CChatUsability_ClientUsabilityMetrics_Notification.UIState.CategoryCollapseState
-	(EContentReportReason)(0),                                                                // 160: EContentReportReason
-	(EContentReportSubjectType)(0),                                                           // 161: EContentReportSubjectType
-	(EContentReportResolution)(0),                                                            // 162: EContentReportResolution
-	(*CMsgClientPersonaState_Friend)(nil),                                                    // 163: CMsgClientPersonaState.Friend
-	(*NoResponse)(nil),                                                                       // 164: NoResponse
+	(EChatRoomNotice)(0),                                                                     // 5: EChatRoomNotice
+	(EChatRoomMemberStateChange)(0),                                                          // 6: EChatRoomMemberStateChange
+	(*CChat_RequestFriendPersonaStates_Request)(nil),                                         // 7: CChat_RequestFriendPersonaStates_Request
+	(*CChat_RequestFriendPersonaStates_Response)(nil),                                        // 8: CChat_RequestFriendPersonaStates_Response
+	(*CChatRoom_CreateChatRoomGroup_Request)(nil),                                            // 9: CChatRoom_CreateChatRoomGroup_Request
+	(*CChatRole)(nil),                                                                        // 10: CChatRole
+	(*CChatRoleActions)(nil),                                                                 // 11: CChatRoleActions
+	(*CChatPartyBeacon)(nil),                                                                 // 12: CChatPartyBeacon
+	(*CChatRoomGroupHeaderState)(nil),                                                        // 13: CChatRoomGroupHeaderState
+	(*CChatRoomMember)(nil),                                                                  // 14: CChatRoomMember
+	(*CChatRoomState)(nil),                                                                   // 15: CChatRoomState
+	(*CChatRoomGroupState)(nil),                                                              // 16: CChatRoomGroupState
+	(*CUserChatRoomState)(nil),                                                               // 17: CUserChatRoomState
+	(*CUserChatRoomGroupState)(nil),                                                          // 18: CUserChatRoomGroupState
+	(*CChatRoom_CreateChatRoomGroup_Response)(nil),                                           // 19: CChatRoom_CreateChatRoomGroup_Response
+	(*CChatRoom_SaveChatRoomGroup_Request)(nil),                                              // 20: CChatRoom_SaveChatRoomGroup_Request
+	(*CChatRoom_SaveChatRoomGroup_Response)(nil),                                             // 21: CChatRoom_SaveChatRoomGroup_Response
+	(*CChatRoom_RenameChatRoomGroup_Request)(nil),                                            // 22: CChatRoom_RenameChatRoomGroup_Request
+	(*CChatRoom_RenameChatRoomGroup_Response)(nil),                                           // 23: CChatRoom_RenameChatRoomGroup_Response
+	(*CChatRoom_SetChatRoomGroupTagline_Request)(nil),                                        // 24: CChatRoom_SetChatRoomGroupTagline_Request
+	(*CChatRoom_SetChatRoomGroupTagline_Response)(nil),                                       // 25: CChatRoom_SetChatRoomGroupTagline_Response
+	(*CChatRoom_SetChatRoomGroupAvatar_Request)(nil),                                         // 26: CChatRoom_SetChatRoomGroupAvatar_Request
+	(*CChatRoom_SetChatRoomGroupAvatar_Response)(nil),                                        // 27: CChatRoom_SetChatRoomGroupAvatar_Response
+	(*CChatRoom_SetChatRoomGroupWatchingBroadcast_Request)(nil),                              // 28: CChatRoom_SetChatRoomGroupWatchingBroadcast_Request
+	(*CChatRoom_SetChatRoomGroupWatchingBroadcast_Response)(nil),                             // 29: CChatRoom_SetChatRoomGroupWatchingBroadcast_Response
+	(*CChatRoom_JoinMiniGameForChatRoomGroup_Request)(nil),                                   // 30: CChatRoom_JoinMiniGameForChatRoomGroup_Request
+	(*CChatRoom_JoinMiniGameForChatRoomGroup_Response)(nil),                                  // 31: CChatRoom_JoinMiniGameForChatRoomGroup_Response
+	(*CChatRoom_EndMiniGameForChatRoomGroup_Request)(nil),                                    // 32: CChatRoom_EndMiniGameForChatRoomGroup_Request
+	(*CChatRoom_EndMiniGameForChatRoomGroup_Response)(nil),                                   // 33: CChatRoom_EndMiniGameForChatRoomGroup_Response
+	(*CChatRoom_MuteUser_Request)(nil),                                                       // 34: CChatRoom_MuteUser_Request
+	(*CChatRoom_MuteUser_Response)(nil),                                                      // 35: CChatRoom_MuteUser_Response
+	(*CChatRoom_KickUser_Request)(nil),                                                       // 36: CChatRoom_KickUser_Request
+	(*CChatRoom_KickUser_Response)(nil),                                                      // 37: CChatRoom_KickUser_Response
+	(*CChatRoom_SetUserBanState_Request)(nil),                                                // 38: CChatRoom_SetUserBanState_Request
+	(*CChatRoom_SetUserBanState_Response)(nil),                                               // 39: CChatRoom_SetUserBanState_Response
+	(*CChatRoom_RevokeInvite_Request)(nil),                                                   // 40: CChatRoom_RevokeInvite_Request
+	(*CChatRoom_RevokeInvite_Response)(nil),                                                  // 41: CChatRoom_RevokeInvite_Response
+	(*CChatRoom_CreateRole_Request)(nil),                                                     // 42: CChatRoom_CreateRole_Request
+	(*CChatRoom_CreateRole_Response)(nil),                                                    // 43: CChatRoom_CreateRole_Response
+	(*CChatRoom_GetRoles_Request)(nil),                                                       // 44: CChatRoom_GetRoles_Request
+	(*CChatRoom_GetRoles_Response)(nil),                                                      // 45: CChatRoom_GetRoles_Response
+	(*CChatRoom_RenameRole_Request)(nil),                                                     // 46: CChatRoom_RenameRole_Request
+	(*CChatRoom_RenameRole_Response)(nil),                                                    // 47: CChatRoom_RenameRole_Response
+	(*CChatRoom_ReorderRole_Request)(nil),                                                    // 48: CChatRoom_ReorderRole_Request
+	(*CChatRoom_ReorderRole_Response)(nil),                                                   // 49: CChatRoom_ReorderRole_Response
+	(*CChatRoom_DeleteRole_Request)(nil),                                                     // 50: CChatRoom_DeleteRole_Request
+	(*CChatRoom_DeleteRole_Response)(nil),                                                    // 51: CChatRoom_DeleteRole_Response
+	(*CChatRoom_GetRoleActions_Request)(nil),                                                 // 52: CChatRoom_GetRoleActions_Request
+	(*CChatRoom_GetRoleActions_Response)(nil),                                                // 53: CChatRoom_GetRoleActions_Response
+	(*CChatRoom_ReplaceRoleActions_Request)(nil),                                             // 54: CChatRoom_ReplaceRoleActions_Request
+	(*CChatRoom_ReplaceRoleActions_Response)(nil),                                            // 55: CChatRoom_ReplaceRoleActions_Response
+	(*CChatRoom_AddRoleToUser_Request)(nil),                                                  // 56: CChatRoom_AddRoleToUser_Request
+	(*CChatRoom_AddRoleToUser_Response)(nil),                                                 // 57: CChatRoom_AddRoleToUser_Response
+	(*CChatRoom_GetRolesForUser_Request)(nil),                                                // 58: CChatRoom_GetRolesForUser_Request
+	(*CChatRoom_GetRolesForUser_Response)(nil),                                               // 59: CChatRoom_GetRolesForUser_Response
+	(*CChatRoom_DeleteRoleFromUser_Request)(nil),                                             // 60: CChatRoom_DeleteRoleFromUser_Request
+	(*CChatRoom_DeleteRoleFromUser_Response)(nil),                                            // 61: CChatRoom_DeleteRoleFromUser_Response
+	(*CChatRoom_JoinChatRoomGroup_Request)(nil),                                              // 62: CChatRoom_JoinChatRoomGroup_Request
+	(*CChatRoom_JoinChatRoomGroup_Response)(nil),                                             // 63: CChatRoom_JoinChatRoomGroup_Response
+	(*CChatRoom_InviteFriendToChatRoomGroup_Request)(nil),                                    // 64: CChatRoom_InviteFriendToChatRoomGroup_Request
+	(*CChatRoom_InviteFriendToChatRoomGroup_Response)(nil),                                   // 65: CChatRoom_InviteFriendToChatRoomGroup_Response
+	(*CChatRoom_LeaveChatRoomGroup_Request)(nil),                                             // 66: CChatRoom_LeaveChatRoomGroup_Request
+	(*CChatRoom_LeaveChatRoomGroup_Response)(nil),                                            // 67: CChatRoom_LeaveChatRoomGroup_Response
+	(*CChatRoom_CreateChatRoom_Request)(nil),                                                 // 68: CChatRoom_CreateChatRoom_Request
+	(*CChatRoom_CreateChatRoom_Response)(nil),                                                // 69: CChatRoom_CreateChatRoom_Response
+	(*CChatRoom_DeleteChatRoom_Request)(nil),                                                 // 70: CChatRoom_DeleteChatRoom_Request
+	(*CChatRoom_DeleteChatRoom_Response)(nil),                                                // 71: CChatRoom_DeleteChatRoom_Response
+	(*CChatRoom_RenameChatRoom_Request)(nil),                                                 // 72: CChatRoom_RenameChatRoom_Request
+	(*CChatRoom_RenameChatRoom_Response)(nil),                                                // 73: CChatRoom_RenameChatRoom_Response
+	(*CChatRoom_ReorderChatRoom_Request)(nil),                                                // 74: CChatRoom_ReorderChatRoom_Request
+	(*CChatRoom_ReorderChatRoom_Response)(nil),                                               // 75: CChatRoom_ReorderChatRoom_Response
+	(*CChatRoom_SendChatMessage_Request)(nil),                                                // 76: CChatRoom_SendChatMessage_Request
+	(*CChatRoom_SendChatMessage_Response)(nil),                                               // 77: CChatRoom_SendChatMessage_Response
+	(*CChatRoom_JoinVoiceChat_Request)(nil),                                                  // 78: CChatRoom_JoinVoiceChat_Request
+	(*CChatRoom_JoinVoiceChat_Response)(nil),                                                 // 79: CChatRoom_JoinVoiceChat_Response
+	(*CChatRoom_LeaveVoiceChat_Request)(nil),                                                 // 80: CChatRoom_LeaveVoiceChat_Request
+	(*CChatRoom_LeaveVoiceChat_Response)(nil),                                                // 81: CChatRoom_LeaveVoiceChat_Response
+	(*CChatRoom_GetMessageHistory_Request)(nil),                                              // 82: CChatRoom_GetMessageHistory_Request
+	(*ServerMessage)(nil),                                                                    // 83: ServerMessage
+	(*CChatRoom_GetMessageHistory_Response)(nil),                                             // 84: CChatRoom_GetMessageHistory_Response
+	(*CChatRoom_GetMyChatRoomGroups_Request)(nil),                                            // 85: CChatRoom_GetMyChatRoomGroups_Request
+	(*CChatRoom_GetChatRoomGroupSummary_Response)(nil),                                       // 86: CChatRoom_GetChatRoomGroupSummary_Response
+	(*CChatRoomSummaryPair)(nil),                                                             // 87: CChatRoomSummaryPair
+	(*CChatRoom_GetMyChatRoomGroups_Response)(nil),                                           // 88: CChatRoom_GetMyChatRoomGroups_Response
+	(*CChatRoom_GetChatRoomGroupState_Request)(nil),                                          // 89: CChatRoom_GetChatRoomGroupState_Request
+	(*CChatRoom_GetChatRoomGroupState_Response)(nil),                                         // 90: CChatRoom_GetChatRoomGroupState_Response
+	(*CChatRoom_SetAppChatRoomGroupForceActive_Request)(nil),                                 // 91: CChatRoom_SetAppChatRoomGroupForceActive_Request
+	(*CChatRoom_SetAppChatRoomGroupForceActive_Response)(nil),                                // 92: CChatRoom_SetAppChatRoomGroupForceActive_Response
+	(*CChatRoom_SetAppChatRoomGroupStopForceActive_Notification)(nil),                        // 93: CChatRoom_SetAppChatRoomGroupStopForceActive_Notification
+	(*CChatRoom_AckChatMessage_Notification)(nil),                                            // 94: CChatRoom_AckChatMessage_Notification
+	(*CChatRoom_CreateInviteLink_Request)(nil),                                               // 95: CChatRoom_CreateInviteLink_Request
+	(*CChatRoom_CreateInviteLink_Response)(nil),                                              // 96: CChatRoom_CreateInviteLink_Response
+	(*CChatRoom_GetInviteLinkInfo_Request)(nil),                                              // 97: CChatRoom_GetInviteLinkInfo_Request
+	(*CChatRoom_GetInviteLinkInfo_Response)(nil),                                             // 98: CChatRoom_GetInviteLinkInfo_Response
+	(*CChatRoom_GetInviteInfo_Request)(nil),                                                  // 99: CChatRoom_GetInviteInfo_Request
+	(*CChatRoom_GetInviteInfo_Response)(nil),                                                 // 100: CChatRoom_GetInviteInfo_Response
+	(*CChatRoom_GetInviteLinksForGroup_Request)(nil),                                         // 101: CChatRoom_GetInviteLinksForGroup_Request
+	(*CChatRoom_GetInviteLinksForGroup_Response)(nil),                                        // 102: CChatRoom_GetInviteLinksForGroup_Response
+	(*CChatRoom_GetBanList_Request)(nil),                                                     // 103: CChatRoom_GetBanList_Request
+	(*CChatRoom_GetBanList_Response)(nil),                                                    // 104: CChatRoom_GetBanList_Response
+	(*CChatRoom_GetInviteList_Request)(nil),                                                  // 105: CChatRoom_GetInviteList_Request
+	(*CChatRoomGroupInvite)(nil),                                                             // 106: CChatRoomGroupInvite
+	(*CChatRoom_GetInviteList_Response)(nil),                                                 // 107: CChatRoom_GetInviteList_Response
+	(*CChatRoom_DeleteInviteLink_Request)(nil),                                               // 108: CChatRoom_DeleteInviteLink_Request
+	(*CChatRoom_DeleteInviteLink_Response)(nil),                                              // 109: CChatRoom_DeleteInviteLink_Response
+	(*CChatRoom_SetSessionActiveChatRoomGroups_Request)(nil),                                 // 110: CChatRoom_SetSessionActiveChatRoomGroups_Request
+	(*CChatRoomMemberNotice)(nil),                                                            // 111: CChatRoomMemberNotice
+	(*CChatRoomGroupMemberNotices)(nil),                                                      // 112: CChatRoomGroupMemberNotices
+	(*CChatRoom_SetSessionActiveChatRoomGroups_Response)(nil),                                // 113: CChatRoom_SetSessionActiveChatRoomGroups_Response
+	(*CChatRoom_SetUserChatGroupPreferences_Request)(nil),                                    // 114: CChatRoom_SetUserChatGroupPreferences_Request
+	(*CChatRoom_SetUserChatGroupPreferences_Response)(nil),                                   // 115: CChatRoom_SetUserChatGroupPreferences_Response
+	(*CChatRoom_DeleteChatMessages_Request)(nil),                                             // 116: CChatRoom_DeleteChatMessages_Request
+	(*CChatRoom_DeleteChatMessages_Response)(nil),                                            // 117: CChatRoom_DeleteChatMessages_Response
+	(*CChatRoom_DismissChatRoomNotice_Notification)(nil),                                     // 118: CChatRoom_DismissChatRoomNotice_Notification
+	(*CChatRoom_UpdateMemberListView_Notification)(nil),                                      // 119: CChatRoom_UpdateMemberListView_Notification
+	(*CChatRoom_SearchMembers_Request)(nil),                                                  // 120: CChatRoom_SearchMembers_Request
+	(*CChatRoom_SearchMembers_Response)(nil),                                                 // 121: CChatRoom_SearchMembers_Response
+	(*CChatRoom_UpdateMessageReaction_Request)(nil),                                          // 122: CChatRoom_UpdateMessageReaction_Request
+	(*CChatRoom_UpdateMessageReaction_Response)(nil),                                         // 123: CChatRoom_UpdateMessageReaction_Response
+	(*CChatRoom_GetMessageReactionReactors_Request)(nil),                                     // 124: CChatRoom_GetMessageReactionReactors_Request
+	(*CChatRoom_GetMessageReactionReactors_Response)(nil),                                    // 125: CChatRoom_GetMessageReactionReactors_Response
+	(*CChatRoom_ReportMessage_Request)(nil),                                                  // 126: CChatRoom_ReportMessage_Request
+	(*CChatRoom_ReportMessage_Response)(nil),                                                 // 127: CChatRoom_ReportMessage_Response
+	(*CChatRoom_ResolveReport_Request)(nil),                                                  // 128: CChatRoom_ResolveReport_Request
+	(*CChatRoom_ResolveReport_Response)(nil),                                                 // 129: CChatRoom_ResolveReport_Response
+	(*CClanChatRooms_GetClanChatRoomInfo_Request)(nil),                                       // 130: CClanChatRooms_GetClanChatRoomInfo_Request
+	(*CClanChatRooms_GetClanChatRoomInfo_Response)(nil),                                      // 131: CClanChatRooms_GetClanChatRoomInfo_Response
+	(*CClanChatRooms_SetClanChatRoomPrivate_Request)(nil),                                    // 132: CClanChatRooms_SetClanChatRoomPrivate_Request
+	(*CClanChatRooms_SetClanChatRoomPrivate_Response)(nil),                                   // 133: CClanChatRooms_SetClanChatRoomPrivate_Response
+	(*CChatMentions)(nil),                                                                    // 134: CChatMentions
+	(*CChatRoom_IncomingChatMessage_Notification)(nil),                                       // 135: CChatRoom_IncomingChatMessage_Notification
+	(*CChatRoom_ChatMessageModified_Notification)(nil),                                       // 136: CChatRoom_ChatMessageModified_Notification
+	(*CChatRoom_MemberStateChange_Notification)(nil),                                         // 137: CChatRoom_MemberStateChange_Notification
+	(*CChatRoom_ChatRoomHeaderState_Notification)(nil),                                       // 138: CChatRoom_ChatRoomHeaderState_Notification
+	(*CChatRoom_ChatRoomGroupRoomsChange_Notification)(nil),                                  // 139: CChatRoom_ChatRoomGroupRoomsChange_Notification
+	(*CChatRoom_NotifyShouldRejoinChatRoomVoiceChat_Notification)(nil),                       // 140: CChatRoom_NotifyShouldRejoinChatRoomVoiceChat_Notification
+	(*ChatRoomClient_NotifyChatGroupUserStateChanged_Notification)(nil),                      // 141: ChatRoomClient_NotifyChatGroupUserStateChanged_Notification
+	(*ChatRoomClient_NotifyChatRoomDisconnect_Notification)(nil),                             // 142: ChatRoomClient_NotifyChatRoomDisconnect_Notification
+	(*CChatRoomMemberListView)(nil),                                                          // 143: CChatRoomMemberListView
+	(*CChatRoomMemberSummaryCounts)(nil),                                                     // 144: CChatRoomMemberSummaryCounts
+	(*CChatRoomClient_MemberListViewUpdated_Notification)(nil),                               // 145: CChatRoomClient_MemberListViewUpdated_Notification
+	(*CChatRoom_MessageReaction_Notification)(nil),                                           // 146: CChatRoom_MessageReaction_Notification
+	(*CChatRoom_ChatRoomNotice_Notification)(nil),                                            // 147: CChatRoom_ChatRoomNotice_Notification
+	(*CChatUsability_ClientUsabilityMetrics_Notification)(nil),                               // 148: CChatUsability_ClientUsabilityMetrics_Notification
+	(*CChatUsability_RequestClientUsabilityMetrics_Notification)(nil),                        // 149: CChatUsability_RequestClientUsabilityMetrics_Notification
+	(*CChatRoom_GetMessageHistory_Response_ChatMessage)(nil),                                 // 150: CChatRoom_GetMessageHistory_Response.ChatMessage
+	(*CChatRoom_GetMessageHistory_Response_ChatMessage_MessageReaction)(nil),                 // 151: CChatRoom_GetMessageHistory_Response.ChatMessage.MessageReaction
+	(*CChatRoom_GetInviteLinksForGroup_Response_LinkInfo)(nil),                               // 152: CChatRoom_GetInviteLinksForGroup_Response.LinkInfo
+	(*CChatRoom_GetBanList_Response_BanInfo)(nil),                                            // 153: CChatRoom_GetBanList_Response.BanInfo
+	(*CChatRoom_SetUserChatGroupPreferences_Request_ChatGroupPreferences)(nil),               // 154: CChatRoom_SetUserChatGroupPreferences_Request.ChatGroupPreferences
+	(*CChatRoom_SetUserChatGroupPreferences_Request_ChatRoomPreferences)(nil),                // 155: CChatRoom_SetUserChatGroupPreferences_Request.ChatRoomPreferences
+	(*CChatRoom_DeleteChatMessages_Request_Message)(nil),                                     // 156: CChatRoom_DeleteChatMessages_Request.Message
+	(*CChatRoom_SearchMembers_Response_MemberMatch)(nil),                                     // 157: CChatRoom_SearchMembers_Response.MemberMatch
+	(*CChatRoom_ChatMessageModified_Notification_ChatMessage)(nil),                           // 158: CChatRoom_ChatMessageModified_Notification.ChatMessage
+	(*CChatRoomClient_MemberListViewUpdated_Notification_MemberListViewEntry)(nil),           // 159: CChatRoomClient_MemberListViewUpdated_Notification.MemberListViewEntry
+	(*CChatUsability_ClientUsabilityMetrics_Notification_Settings)(nil),                      // 160: CChatUsability_ClientUsabilityMetrics_Notification.Settings
+	(*CChatUsability_ClientUsabilityMetrics_Notification_VoiceSettings)(nil),                 // 161: CChatUsability_ClientUsabilityMetrics_Notification.VoiceSettings
+	(*CChatUsability_ClientUsabilityMetrics_Notification_UIState)(nil),                       // 162: CChatUsability_ClientUsabilityMetrics_Notification.UIState
+	(*CChatUsability_ClientUsabilityMetrics_Notification_Metrics)(nil),                       // 163: CChatUsability_ClientUsabilityMetrics_Notification.Metrics
+	(*CChatUsability_ClientUsabilityMetrics_Notification_UIState_CategoryCollapseState)(nil), // 164: CChatUsability_ClientUsabilityMetrics_Notification.UIState.CategoryCollapseState
+	(EContentReportReason)(0),                                                                // 165: EContentReportReason
+	(EContentReportSubjectType)(0),                                                           // 166: EContentReportSubjectType
+	(EContentReportResolution)(0),                                                            // 167: EContentReportResolution
+	(*CMsgClientPersonaState_Friend)(nil),                                                    // 168: CMsgClientPersonaState.Friend
+	(*NoResponse)(nil),                                                                       // 169: NoResponse
 }
 var file_steammessages_chat_steamclient_proto_depIdxs = []int32{
-	9,   // 0: CChatRoomGroupHeaderState.roles:type_name -> CChatRole
-	10,  // 1: CChatRoomGroupHeaderState.role_actions:type_name -> CChatRoleActions
-	11,  // 2: CChatRoomGroupHeaderState.party_beacons:type_name -> CChatPartyBeacon
+	10,  // 0: CChatRoomGroupHeaderState.roles:type_name -> CChatRole
+	11,  // 1: CChatRoomGroupHeaderState.role_actions:type_name -> CChatRoleActions
+	12,  // 2: CChatRoomGroupHeaderState.party_beacons:type_name -> CChatPartyBeacon
 	0,   // 3: CChatRoomMember.state:type_name -> EChatRoomJoinState
 	1,   // 4: CChatRoomMember.rank:type_name -> EChatRoomGroupRank
-	12,  // 5: CChatRoomGroupState.header_state:type_name -> CChatRoomGroupHeaderState
-	13,  // 6: CChatRoomGroupState.members:type_name -> CChatRoomMember
-	14,  // 7: CChatRoomGroupState.chat_rooms:type_name -> CChatRoomState
-	13,  // 8: CChatRoomGroupState.kicked:type_name -> CChatRoomMember
+	13,  // 5: CChatRoomGroupState.header_state:type_name -> CChatRoomGroupHeaderState
+	14,  // 6: CChatRoomGroupState.members:type_name -> CChatRoomMember
+	15,  // 7: CChatRoomGroupState.chat_rooms:type_name -> CChatRoomState
+	14,  // 8: CChatRoomGroupState.kicked:type_name -> CChatRoomMember
 	2,   // 9: CUserChatRoomState.desktop_notification_level:type_name -> EChatRoomNotificationLevel
 	2,   // 10: CUserChatRoomState.mobile_notification_level:type_name -> EChatRoomNotificationLevel
-	16,  // 11: CUserChatRoomGroupState.user_chat_room_state:type_name -> CUserChatRoomState
+	17,  // 11: CUserChatRoomGroupState.user_chat_room_state:type_name -> CUserChatRoomState
 	2,   // 12: CUserChatRoomGroupState.desktop_notification_level:type_name -> EChatRoomNotificationLevel
 	2,   // 13: CUserChatRoomGroupState.mobile_notification_level:type_name -> EChatRoomNotificationLevel
-	15,  // 14: CChatRoom_CreateChatRoomGroup_Response.state:type_name -> CChatRoomGroupState
-	17,  // 15: CChatRoom_CreateChatRoomGroup_Response.user_chat_state:type_name -> CUserChatRoomGroupState
-	10,  // 16: CChatRoom_CreateRole_Response.actions:type_name -> CChatRoleActions
-	9,   // 17: CChatRoom_GetRoles_Response.roles:type_name -> CChatRole
-	10,  // 18: CChatRoom_GetRoleActions_Response.actions:type_name -> CChatRoleActions
-	10,  // 19: CChatRoom_ReplaceRoleActions_Request.actions:type_name -> CChatRoleActions
-	15,  // 20: CChatRoom_JoinChatRoomGroup_Response.state:type_name -> CChatRoomGroupState
-	17,  // 21: CChatRoom_JoinChatRoomGroup_Response.user_chat_state:type_name -> CUserChatRoomGroupState
-	14,  // 22: CChatRoom_CreateChatRoom_Response.chat_room:type_name -> CChatRoomState
+	16,  // 14: CChatRoom_CreateChatRoomGroup_Response.state:type_name -> CChatRoomGroupState
+	18,  // 15: CChatRoom_CreateChatRoomGroup_Response.user_chat_state:type_name -> CUserChatRoomGroupState
+	11,  // 16: CChatRoom_CreateRole_Response.actions:type_name -> CChatRoleActions
+	10,  // 17: CChatRoom_GetRoles_Response.roles:type_name -> CChatRole
+	11,  // 18: CChatRoom_GetRoleActions_Response.actions:type_name -> CChatRoleActions
+	11,  // 19: CChatRoom_ReplaceRoleActions_Request.actions:type_name -> CChatRoleActions
+	16,  // 20: CChatRoom_JoinChatRoomGroup_Response.state:type_name -> CChatRoomGroupState
+	18,  // 21: CChatRoom_JoinChatRoomGroup_Response.user_chat_state:type_name -> CUserChatRoomGroupState
+	15,  // 22: CChatRoom_CreateChatRoom_Response.chat_room:type_name -> CChatRoomState
 	3,   // 23: ServerMessage.message:type_name -> EChatRoomServerMessage
-	145, // 24: CChatRoom_GetMessageHistory_Response.messages:type_name -> CChatRoom_GetMessageHistory_Response.ChatMessage
-	14,  // 25: CChatRoom_GetChatRoomGroupSummary_Response.chat_rooms:type_name -> CChatRoomState
+	150, // 24: CChatRoom_GetMessageHistory_Response.messages:type_name -> CChatRoom_GetMessageHistory_Response.ChatMessage
+	15,  // 25: CChatRoom_GetChatRoomGroupSummary_Response.chat_rooms:type_name -> CChatRoomState
 	1,   // 26: CChatRoom_GetChatRoomGroupSummary_Response.rank:type_name -> EChatRoomGroupRank
-	10,  // 27: CChatRoom_GetChatRoomGroupSummary_Response.role_actions:type_name -> CChatRoleActions
-	11,  // 28: CChatRoom_GetChatRoomGroupSummary_Response.party_beacons:type_name -> CChatPartyBeacon
-	17,  // 29: CChatRoomSummaryPair.user_chat_group_state:type_name -> CUserChatRoomGroupState
-	85,  // 30: CChatRoomSummaryPair.group_summary:type_name -> CChatRoom_GetChatRoomGroupSummary_Response
-	86,  // 31: CChatRoom_GetMyChatRoomGroups_Response.chat_room_groups:type_name -> CChatRoomSummaryPair
-	15,  // 32: CChatRoom_GetChatRoomGroupState_Response.state:type_name -> CChatRoomGroupState
-	85,  // 33: CChatRoom_GetInviteLinkInfo_Response.group_summary:type_name -> CChatRoom_GetChatRoomGroupSummary_Response
-	17,  // 34: CChatRoom_GetInviteLinkInfo_Response.user_chat_group_state:type_name -> CUserChatRoomGroupState
-	85,  // 35: CChatRoom_GetInviteInfo_Response.group_summary:type_name -> CChatRoom_GetChatRoomGroupSummary_Response
-	147, // 36: CChatRoom_GetInviteLinksForGroup_Response.invite_links:type_name -> CChatRoom_GetInviteLinksForGroup_Response.LinkInfo
-	148, // 37: CChatRoom_GetBanList_Response.bans:type_name -> CChatRoom_GetBanList_Response.BanInfo
-	105, // 38: CChatRoom_GetInviteList_Response.invites:type_name -> CChatRoomGroupInvite
-	15,  // 39: CChatRoom_SetSessionActiveChatRoomGroups_Response.chat_states:type_name -> CChatRoomGroupState
-	149, // 40: CChatRoom_SetUserChatGroupPreferences_Request.chat_group_preferences:type_name -> CChatRoom_SetUserChatGroupPreferences_Request.ChatGroupPreferences
-	150, // 41: CChatRoom_SetUserChatGroupPreferences_Request.chat_room_preferences:type_name -> CChatRoom_SetUserChatGroupPreferences_Request.ChatRoomPreferences
-	151, // 42: CChatRoom_DeleteChatMessages_Request.messages:type_name -> CChatRoom_DeleteChatMessages_Request.Message
-	152, // 43: CChatRoom_SearchMembers_Response.matching_members:type_name -> CChatRoom_SearchMembers_Response.MemberMatch
-	4,   // 44: CChatRoom_UpdateMessageReaction_Request.reaction_type:type_name -> EChatRoomMessageReactionType
-	4,   // 45: CChatRoom_GetMessageReactionReactors_Request.reaction_type:type_name -> EChatRoomMessageReactionType
-	160, // 46: CChatRoom_ReportMessage_Request.report_reason:type_name -> EContentReportReason
-	161, // 47: CChatRoom_ReportMessage_Request.subject_type:type_name -> EContentReportSubjectType
-	162, // 48: CChatRoom_ResolveReport_Request.resolution:type_name -> EContentReportResolution
-	160, // 49: CChatRoom_ResolveReport_Request.reason:type_name -> EContentReportReason
-	161, // 50: CChatRoom_ResolveReport_Request.subject_type:type_name -> EContentReportSubjectType
-	85,  // 51: CClanChatRooms_GetClanChatRoomInfo_Response.chat_group_summary:type_name -> CChatRoom_GetChatRoomGroupSummary_Response
-	130, // 52: CChatRoom_IncomingChatMessage_Notification.mentions:type_name -> CChatMentions
-	82,  // 53: CChatRoom_IncomingChatMessage_Notification.server_message:type_name -> ServerMessage
-	153, // 54: CChatRoom_ChatMessageModified_Notification.messages:type_name -> CChatRoom_ChatMessageModified_Notification.ChatMessage
-	13,  // 55: CChatRoom_MemberStateChange_Notification.member:type_name -> CChatRoomMember
-	5,   // 56: CChatRoom_MemberStateChange_Notification.change:type_name -> EChatRoomMemberStateChange
-	12,  // 57: CChatRoom_ChatRoomHeaderState_Notification.header_state:type_name -> CChatRoomGroupHeaderState
-	14,  // 58: CChatRoom_ChatRoomGroupRoomsChange_Notification.chat_rooms:type_name -> CChatRoomState
-	17,  // 59: ChatRoomClient_NotifyChatGroupUserStateChanged_Notification.user_chat_group_state:type_name -> CUserChatRoomGroupState
-	85,  // 60: ChatRoomClient_NotifyChatGroupUserStateChanged_Notification.group_summary:type_name -> CChatRoom_GetChatRoomGroupSummary_Response
-	5,   // 61: ChatRoomClient_NotifyChatGroupUserStateChanged_Notification.user_action:type_name -> EChatRoomMemberStateChange
-	139, // 62: CChatRoomClient_MemberListViewUpdated_Notification.view:type_name -> CChatRoomMemberListView
-	154, // 63: CChatRoomClient_MemberListViewUpdated_Notification.members:type_name -> CChatRoomClient_MemberListViewUpdated_Notification.MemberListViewEntry
-	140, // 64: CChatRoomClient_MemberListViewUpdated_Notification.member_summary:type_name -> CChatRoomMemberSummaryCounts
-	163, // 65: CChatRoomClient_MemberListViewUpdated_Notification.subscribed_personas:type_name -> CMsgClientPersonaState.Friend
-	4,   // 66: CChatRoom_MessageReaction_Notification.reaction_type:type_name -> EChatRoomMessageReactionType
-	155, // 67: CChatUsability_ClientUsabilityMetrics_Notification.settings:type_name -> CChatUsability_ClientUsabilityMetrics_Notification.Settings
-	156, // 68: CChatUsability_ClientUsabilityMetrics_Notification.voice_settings:type_name -> CChatUsability_ClientUsabilityMetrics_Notification.VoiceSettings
-	157, // 69: CChatUsability_ClientUsabilityMetrics_Notification.ui_state:type_name -> CChatUsability_ClientUsabilityMetrics_Notification.UIState
-	158, // 70: CChatUsability_ClientUsabilityMetrics_Notification.metrics:type_name -> CChatUsability_ClientUsabilityMetrics_Notification.Metrics
-	82,  // 71: CChatRoom_GetMessageHistory_Response.ChatMessage.server_message:type_name -> ServerMessage
-	146, // 72: CChatRoom_GetMessageHistory_Response.ChatMessage.reactions:type_name -> CChatRoom_GetMessageHistory_Response.ChatMessage.MessageReaction
-	4,   // 73: CChatRoom_GetMessageHistory_Response.ChatMessage.MessageReaction.reaction_type:type_name -> EChatRoomMessageReactionType
-	2,   // 74: CChatRoom_SetUserChatGroupPreferences_Request.ChatGroupPreferences.desktop_notification_level:type_name -> EChatRoomNotificationLevel
-	2,   // 75: CChatRoom_SetUserChatGroupPreferences_Request.ChatGroupPreferences.mobile_notification_level:type_name -> EChatRoomNotificationLevel
-	2,   // 76: CChatRoom_SetUserChatGroupPreferences_Request.ChatRoomPreferences.desktop_notification_level:type_name -> EChatRoomNotificationLevel
-	2,   // 77: CChatRoom_SetUserChatGroupPreferences_Request.ChatRoomPreferences.mobile_notification_level:type_name -> EChatRoomNotificationLevel
-	163, // 78: CChatRoom_SearchMembers_Response.MemberMatch.persona:type_name -> CMsgClientPersonaState.Friend
-	163, // 79: CChatRoomClient_MemberListViewUpdated_Notification.MemberListViewEntry.persona:type_name -> CMsgClientPersonaState.Friend
-	159, // 80: CChatUsability_ClientUsabilityMetrics_Notification.UIState.category_collapse:type_name -> CChatUsability_ClientUsabilityMetrics_Notification.UIState.CategoryCollapseState
-	6,   // 81: Chat.RequestFriendPersonaStates:input_type -> CChat_RequestFriendPersonaStates_Request
-	8,   // 82: ChatRoom.CreateChatRoomGroup:input_type -> CChatRoom_CreateChatRoomGroup_Request
-	19,  // 83: ChatRoom.SaveChatRoomGroup:input_type -> CChatRoom_SaveChatRoomGroup_Request
-	21,  // 84: ChatRoom.RenameChatRoomGroup:input_type -> CChatRoom_RenameChatRoomGroup_Request
-	23,  // 85: ChatRoom.SetChatRoomGroupTagline:input_type -> CChatRoom_SetChatRoomGroupTagline_Request
-	25,  // 86: ChatRoom.SetChatRoomGroupAvatar:input_type -> CChatRoom_SetChatRoomGroupAvatar_Request
-	27,  // 87: ChatRoom.SetChatRoomGroupWatchingBroadcast:input_type -> CChatRoom_SetChatRoomGroupWatchingBroadcast_Request
-	29,  // 88: ChatRoom.JoinMiniGameForChatRoomGroup:input_type -> CChatRoom_JoinMiniGameForChatRoomGroup_Request
-	31,  // 89: ChatRoom.EndMiniGameForChatRoomGroup:input_type -> CChatRoom_EndMiniGameForChatRoomGroup_Request
-	33,  // 90: ChatRoom.MuteUserInGroup:input_type -> CChatRoom_MuteUser_Request
-	35,  // 91: ChatRoom.KickUserFromGroup:input_type -> CChatRoom_KickUser_Request
-	37,  // 92: ChatRoom.SetUserBanState:input_type -> CChatRoom_SetUserBanState_Request
-	39,  // 93: ChatRoom.RevokeInviteToGroup:input_type -> CChatRoom_RevokeInvite_Request
-	41,  // 94: ChatRoom.CreateRole:input_type -> CChatRoom_CreateRole_Request
-	43,  // 95: ChatRoom.GetRoles:input_type -> CChatRoom_GetRoles_Request
-	45,  // 96: ChatRoom.RenameRole:input_type -> CChatRoom_RenameRole_Request
-	47,  // 97: ChatRoom.ReorderRole:input_type -> CChatRoom_ReorderRole_Request
-	49,  // 98: ChatRoom.DeleteRole:input_type -> CChatRoom_DeleteRole_Request
-	51,  // 99: ChatRoom.GetRoleActions:input_type -> CChatRoom_GetRoleActions_Request
-	53,  // 100: ChatRoom.ReplaceRoleActions:input_type -> CChatRoom_ReplaceRoleActions_Request
-	55,  // 101: ChatRoom.AddRoleToUser:input_type -> CChatRoom_AddRoleToUser_Request
-	57,  // 102: ChatRoom.GetRolesForUser:input_type -> CChatRoom_GetRolesForUser_Request
-	59,  // 103: ChatRoom.DeleteRoleFromUser:input_type -> CChatRoom_DeleteRoleFromUser_Request
-	61,  // 104: ChatRoom.JoinChatRoomGroup:input_type -> CChatRoom_JoinChatRoomGroup_Request
-	63,  // 105: ChatRoom.InviteFriendToChatRoomGroup:input_type -> CChatRoom_InviteFriendToChatRoomGroup_Request
-	65,  // 106: ChatRoom.LeaveChatRoomGroup:input_type -> CChatRoom_LeaveChatRoomGroup_Request
-	67,  // 107: ChatRoom.CreateChatRoom:input_type -> CChatRoom_CreateChatRoom_Request
-	69,  // 108: ChatRoom.DeleteChatRoom:input_type -> CChatRoom_DeleteChatRoom_Request
-	71,  // 109: ChatRoom.RenameChatRoom:input_type -> CChatRoom_RenameChatRoom_Request
-	73,  // 110: ChatRoom.ReorderChatRoom:input_type -> CChatRoom_ReorderChatRoom_Request
-	75,  // 111: ChatRoom.SendChatMessage:input_type -> CChatRoom_SendChatMessage_Request
-	77,  // 112: ChatRoom.JoinVoiceChat:input_type -> CChatRoom_JoinVoiceChat_Request
-	79,  // 113: ChatRoom.LeaveVoiceChat:input_type -> CChatRoom_LeaveVoiceChat_Request
-	81,  // 114: ChatRoom.GetMessageHistory:input_type -> CChatRoom_GetMessageHistory_Request
-	84,  // 115: ChatRoom.GetMyChatRoomGroups:input_type -> CChatRoom_GetMyChatRoomGroups_Request
-	88,  // 116: ChatRoom.GetChatRoomGroupState:input_type -> CChatRoom_GetChatRoomGroupState_Request
-	90,  // 117: ChatRoom.SetAppChatRoomGroupForceActive:input_type -> CChatRoom_SetAppChatRoomGroupForceActive_Request
-	92,  // 118: ChatRoom.SetAppChatRoomGroupStopForceActive:input_type -> CChatRoom_SetAppChatRoomGroupStopForceActive_Notification
-	93,  // 119: ChatRoom.AckChatMessage:input_type -> CChatRoom_AckChatMessage_Notification
-	94,  // 120: ChatRoom.CreateInviteLink:input_type -> CChatRoom_CreateInviteLink_Request
-	96,  // 121: ChatRoom.GetInviteLinkInfo:input_type -> CChatRoom_GetInviteLinkInfo_Request
-	98,  // 122: ChatRoom.GetInviteInfo:input_type -> CChatRoom_GetInviteInfo_Request
-	100, // 123: ChatRoom.GetInviteLinksForGroup:input_type -> CChatRoom_GetInviteLinksForGroup_Request
-	102, // 124: ChatRoom.GetBanList:input_type -> CChatRoom_GetBanList_Request
-	104, // 125: ChatRoom.GetInviteList:input_type -> CChatRoom_GetInviteList_Request
-	107, // 126: ChatRoom.DeleteInviteLink:input_type -> CChatRoom_DeleteInviteLink_Request
-	109, // 127: ChatRoom.SetSessionActiveChatRoomGroups:input_type -> CChatRoom_SetSessionActiveChatRoomGroups_Request
-	111, // 128: ChatRoom.SetUserChatGroupPreferences:input_type -> CChatRoom_SetUserChatGroupPreferences_Request
-	113, // 129: ChatRoom.DeleteChatMessages:input_type -> CChatRoom_DeleteChatMessages_Request
-	115, // 130: ChatRoom.UpdateMemberListView:input_type -> CChatRoom_UpdateMemberListView_Notification
-	116, // 131: ChatRoom.SearchMembers:input_type -> CChatRoom_SearchMembers_Request
-	118, // 132: ChatRoom.UpdateMessageReaction:input_type -> CChatRoom_UpdateMessageReaction_Request
-	120, // 133: ChatRoom.GetMessageReactionReactors:input_type -> CChatRoom_GetMessageReactionReactors_Request
-	122, // 134: ChatRoom.ReportMessage:input_type -> CChatRoom_ReportMessage_Request
-	124, // 135: ChatRoom.ResolveReport:input_type -> CChatRoom_ResolveReport_Request
-	126, // 136: ClanChatRooms.GetClanChatRoomInfo:input_type -> CClanChatRooms_GetClanChatRoomInfo_Request
-	128, // 137: ClanChatRooms.SetClanChatRoomPrivate:input_type -> CClanChatRooms_SetClanChatRoomPrivate_Request
-	131, // 138: ChatRoomClient.NotifyIncomingChatMessage:input_type -> CChatRoom_IncomingChatMessage_Notification
-	132, // 139: ChatRoomClient.NotifyChatMessageModified:input_type -> CChatRoom_ChatMessageModified_Notification
-	133, // 140: ChatRoomClient.NotifyMemberStateChange:input_type -> CChatRoom_MemberStateChange_Notification
-	134, // 141: ChatRoomClient.NotifyChatRoomHeaderStateChange:input_type -> CChatRoom_ChatRoomHeaderState_Notification
-	135, // 142: ChatRoomClient.NotifyChatRoomGroupRoomsChange:input_type -> CChatRoom_ChatRoomGroupRoomsChange_Notification
-	136, // 143: ChatRoomClient.NotifyShouldRejoinChatRoomVoiceChat:input_type -> CChatRoom_NotifyShouldRejoinChatRoomVoiceChat_Notification
-	137, // 144: ChatRoomClient.NotifyChatGroupUserStateChanged:input_type -> ChatRoomClient_NotifyChatGroupUserStateChanged_Notification
-	93,  // 145: ChatRoomClient.NotifyAckChatMessageEcho:input_type -> CChatRoom_AckChatMessage_Notification
-	138, // 146: ChatRoomClient.NotifyChatRoomDisconnect:input_type -> ChatRoomClient_NotifyChatRoomDisconnect_Notification
-	141, // 147: ChatRoomClient.NotifyMemberListViewUpdated:input_type -> CChatRoomClient_MemberListViewUpdated_Notification
-	142, // 148: ChatRoomClient.NotifyMessageReaction:input_type -> CChatRoom_MessageReaction_Notification
-	143, // 149: ChatUsability.NotifyClientUsabilityMetrics:input_type -> CChatUsability_ClientUsabilityMetrics_Notification
-	144, // 150: ChatUsabilityClient.NotifyRequestClientUsabilityMetrics:input_type -> CChatUsability_RequestClientUsabilityMetrics_Notification
-	7,   // 151: Chat.RequestFriendPersonaStates:output_type -> CChat_RequestFriendPersonaStates_Response
-	18,  // 152: ChatRoom.CreateChatRoomGroup:output_type -> CChatRoom_CreateChatRoomGroup_Response
-	20,  // 153: ChatRoom.SaveChatRoomGroup:output_type -> CChatRoom_SaveChatRoomGroup_Response
-	22,  // 154: ChatRoom.RenameChatRoomGroup:output_type -> CChatRoom_RenameChatRoomGroup_Response
-	24,  // 155: ChatRoom.SetChatRoomGroupTagline:output_type -> CChatRoom_SetChatRoomGroupTagline_Response
-	26,  // 156: ChatRoom.SetChatRoomGroupAvatar:output_type -> CChatRoom_SetChatRoomGroupAvatar_Response
-	28,  // 157: ChatRoom.SetChatRoomGroupWatchingBroadcast:output_type -> CChatRoom_SetChatRoomGroupWatchingBroadcast_Response
-	30,  // 158: ChatRoom.JoinMiniGameForChatRoomGroup:output_type -> CChatRoom_JoinMiniGameForChatRoomGroup_Response
-	32,  // 159: ChatRoom.EndMiniGameForChatRoomGroup:output_type -> CChatRoom_EndMiniGameForChatRoomGroup_Response
-	34,  // 160: ChatRoom.MuteUserInGroup:output_type -> CChatRoom_MuteUser_Response
-	36,  // 161: ChatRoom.KickUserFromGroup:output_type -> CChatRoom_KickUser_Response
-	38,  // 162: ChatRoom.SetUserBanState:output_type -> CChatRoom_SetUserBanState_Response
-	40,  // 163: ChatRoom.RevokeInviteToGroup:output_type -> CChatRoom_RevokeInvite_Response
-	42,  // 164: ChatRoom.CreateRole:output_type -> CChatRoom_CreateRole_Response
-	44,  // 165: ChatRoom.GetRoles:output_type -> CChatRoom_GetRoles_Response
-	46,  // 166: ChatRoom.RenameRole:output_type -> CChatRoom_RenameRole_Response
-	48,  // 167: ChatRoom.ReorderRole:output_type -> CChatRoom_ReorderRole_Response
-	50,  // 168: ChatRoom.DeleteRole:output_type -> CChatRoom_DeleteRole_Response
-	52,  // 169: ChatRoom.GetRoleActions:output_type -> CChatRoom_GetRoleActions_Response
-	54,  // 170: ChatRoom.ReplaceRoleActions:output_type -> CChatRoom_ReplaceRoleActions_Response
-	56,  // 171: ChatRoom.AddRoleToUser:output_type -> CChatRoom_AddRoleToUser_Response
-	58,  // 172: ChatRoom.GetRolesForUser:output_type -> CChatRoom_GetRolesForUser_Response
-	60,  // 173: ChatRoom.DeleteRoleFromUser:output_type -> CChatRoom_DeleteRoleFromUser_Response
-	62,  // 174: ChatRoom.JoinChatRoomGroup:output_type -> CChatRoom_JoinChatRoomGroup_Response
-	64,  // 175: ChatRoom.InviteFriendToChatRoomGroup:output_type -> CChatRoom_InviteFriendToChatRoomGroup_Response
-	66,  // 176: ChatRoom.LeaveChatRoomGroup:output_type -> CChatRoom_LeaveChatRoomGroup_Response
-	68,  // 177: ChatRoom.CreateChatRoom:output_type -> CChatRoom_CreateChatRoom_Response
-	70,  // 178: ChatRoom.DeleteChatRoom:output_type -> CChatRoom_DeleteChatRoom_Response
-	72,  // 179: ChatRoom.RenameChatRoom:output_type -> CChatRoom_RenameChatRoom_Response
-	74,  // 180: ChatRoom.ReorderChatRoom:output_type -> CChatRoom_ReorderChatRoom_Response
-	76,  // 181: ChatRoom.SendChatMessage:output_type -> CChatRoom_SendChatMessage_Response
-	78,  // 182: ChatRoom.JoinVoiceChat:output_type -> CChatRoom_JoinVoiceChat_Response
-	80,  // 183: ChatRoom.LeaveVoiceChat:output_type -> CChatRoom_LeaveVoiceChat_Response
-	83,  // 184: ChatRoom.GetMessageHistory:output_type -> CChatRoom_GetMessageHistory_Response
-	87,  // 185: ChatRoom.GetMyChatRoomGroups:output_type -> CChatRoom_GetMyChatRoomGroups_Response
-	89,  // 186: ChatRoom.GetChatRoomGroupState:output_type -> CChatRoom_GetChatRoomGroupState_Response
-	91,  // 187: ChatRoom.SetAppChatRoomGroupForceActive:output_type -> CChatRoom_SetAppChatRoomGroupForceActive_Response
-	164, // 188: ChatRoom.SetAppChatRoomGroupStopForceActive:output_type -> NoResponse
-	164, // 189: ChatRoom.AckChatMessage:output_type -> NoResponse
-	95,  // 190: ChatRoom.CreateInviteLink:output_type -> CChatRoom_CreateInviteLink_Response
-	97,  // 191: ChatRoom.GetInviteLinkInfo:output_type -> CChatRoom_GetInviteLinkInfo_Response
-	99,  // 192: ChatRoom.GetInviteInfo:output_type -> CChatRoom_GetInviteInfo_Response
-	101, // 193: ChatRoom.GetInviteLinksForGroup:output_type -> CChatRoom_GetInviteLinksForGroup_Response
-	103, // 194: ChatRoom.GetBanList:output_type -> CChatRoom_GetBanList_Response
-	106, // 195: ChatRoom.GetInviteList:output_type -> CChatRoom_GetInviteList_Response
-	108, // 196: ChatRoom.DeleteInviteLink:output_type -> CChatRoom_DeleteInviteLink_Response
-	110, // 197: ChatRoom.SetSessionActiveChatRoomGroups:output_type -> CChatRoom_SetSessionActiveChatRoomGroups_Response
-	112, // 198: ChatRoom.SetUserChatGroupPreferences:output_type -> CChatRoom_SetUserChatGroupPreferences_Response
-	114, // 199: ChatRoom.DeleteChatMessages:output_type -> CChatRoom_DeleteChatMessages_Response
-	164, // 200: ChatRoom.UpdateMemberListView:output_type -> NoResponse
-	117, // 201: ChatRoom.SearchMembers:output_type -> CChatRoom_SearchMembers_Response
-	119, // 202: ChatRoom.UpdateMessageReaction:output_type -> CChatRoom_UpdateMessageReaction_Response
-	121, // 203: ChatRoom.GetMessageReactionReactors:output_type -> CChatRoom_GetMessageReactionReactors_Response
-	123, // 204: ChatRoom.ReportMessage:output_type -> CChatRoom_ReportMessage_Response
-	125, // 205: ChatRoom.ResolveReport:output_type -> CChatRoom_ResolveReport_Response
-	127, // 206: ClanChatRooms.GetClanChatRoomInfo:output_type -> CClanChatRooms_GetClanChatRoomInfo_Response
-	129, // 207: ClanChatRooms.SetClanChatRoomPrivate:output_type -> CClanChatRooms_SetClanChatRoomPrivate_Response
-	164, // 208: ChatRoomClient.NotifyIncomingChatMessage:output_type -> NoResponse
-	164, // 209: ChatRoomClient.NotifyChatMessageModified:output_type -> NoResponse
-	164, // 210: ChatRoomClient.NotifyMemberStateChange:output_type -> NoResponse
-	164, // 211: ChatRoomClient.NotifyChatRoomHeaderStateChange:output_type -> NoResponse
-	164, // 212: ChatRoomClient.NotifyChatRoomGroupRoomsChange:output_type -> NoResponse
-	164, // 213: ChatRoomClient.NotifyShouldRejoinChatRoomVoiceChat:output_type -> NoResponse
-	164, // 214: ChatRoomClient.NotifyChatGroupUserStateChanged:output_type -> NoResponse
-	164, // 215: ChatRoomClient.NotifyAckChatMessageEcho:output_type -> NoResponse
-	164, // 216: ChatRoomClient.NotifyChatRoomDisconnect:output_type -> NoResponse
-	164, // 217: ChatRoomClient.NotifyMemberListViewUpdated:output_type -> NoResponse
-	164, // 218: ChatRoomClient.NotifyMessageReaction:output_type -> NoResponse
-	164, // 219: ChatUsability.NotifyClientUsabilityMetrics:output_type -> NoResponse
-	164, // 220: ChatUsabilityClient.NotifyRequestClientUsabilityMetrics:output_type -> NoResponse
-	151, // [151:221] is the sub-list for method output_type
-	81,  // [81:151] is the sub-list for method input_type
-	81,  // [81:81] is the sub-list for extension type_name
-	81,  // [81:81] is the sub-list for extension extendee
-	0,   // [0:81] is the sub-list for field type_name
+	11,  // 27: CChatRoom_GetChatRoomGroupSummary_Response.role_actions:type_name -> CChatRoleActions
+	12,  // 28: CChatRoom_GetChatRoomGroupSummary_Response.party_beacons:type_name -> CChatPartyBeacon
+	18,  // 29: CChatRoomSummaryPair.user_chat_group_state:type_name -> CUserChatRoomGroupState
+	86,  // 30: CChatRoomSummaryPair.group_summary:type_name -> CChatRoom_GetChatRoomGroupSummary_Response
+	87,  // 31: CChatRoom_GetMyChatRoomGroups_Response.chat_room_groups:type_name -> CChatRoomSummaryPair
+	16,  // 32: CChatRoom_GetChatRoomGroupState_Response.state:type_name -> CChatRoomGroupState
+	86,  // 33: CChatRoom_GetInviteLinkInfo_Response.group_summary:type_name -> CChatRoom_GetChatRoomGroupSummary_Response
+	18,  // 34: CChatRoom_GetInviteLinkInfo_Response.user_chat_group_state:type_name -> CUserChatRoomGroupState
+	86,  // 35: CChatRoom_GetInviteInfo_Response.group_summary:type_name -> CChatRoom_GetChatRoomGroupSummary_Response
+	152, // 36: CChatRoom_GetInviteLinksForGroup_Response.invite_links:type_name -> CChatRoom_GetInviteLinksForGroup_Response.LinkInfo
+	153, // 37: CChatRoom_GetBanList_Response.bans:type_name -> CChatRoom_GetBanList_Response.BanInfo
+	106, // 38: CChatRoom_GetInviteList_Response.invites:type_name -> CChatRoomGroupInvite
+	5,   // 39: CChatRoomMemberNotice.notice_type:type_name -> EChatRoomNotice
+	111, // 40: CChatRoomGroupMemberNotices.member_notices:type_name -> CChatRoomMemberNotice
+	16,  // 41: CChatRoom_SetSessionActiveChatRoomGroups_Response.chat_states:type_name -> CChatRoomGroupState
+	112, // 42: CChatRoom_SetSessionActiveChatRoomGroups_Response.chat_group_notices:type_name -> CChatRoomGroupMemberNotices
+	154, // 43: CChatRoom_SetUserChatGroupPreferences_Request.chat_group_preferences:type_name -> CChatRoom_SetUserChatGroupPreferences_Request.ChatGroupPreferences
+	155, // 44: CChatRoom_SetUserChatGroupPreferences_Request.chat_room_preferences:type_name -> CChatRoom_SetUserChatGroupPreferences_Request.ChatRoomPreferences
+	156, // 45: CChatRoom_DeleteChatMessages_Request.messages:type_name -> CChatRoom_DeleteChatMessages_Request.Message
+	5,   // 46: CChatRoom_DismissChatRoomNotice_Notification.notice_type:type_name -> EChatRoomNotice
+	157, // 47: CChatRoom_SearchMembers_Response.matching_members:type_name -> CChatRoom_SearchMembers_Response.MemberMatch
+	4,   // 48: CChatRoom_UpdateMessageReaction_Request.reaction_type:type_name -> EChatRoomMessageReactionType
+	4,   // 49: CChatRoom_GetMessageReactionReactors_Request.reaction_type:type_name -> EChatRoomMessageReactionType
+	165, // 50: CChatRoom_ReportMessage_Request.report_reason:type_name -> EContentReportReason
+	166, // 51: CChatRoom_ReportMessage_Request.subject_type:type_name -> EContentReportSubjectType
+	167, // 52: CChatRoom_ResolveReport_Request.resolution:type_name -> EContentReportResolution
+	165, // 53: CChatRoom_ResolveReport_Request.reason:type_name -> EContentReportReason
+	166, // 54: CChatRoom_ResolveReport_Request.subject_type:type_name -> EContentReportSubjectType
+	86,  // 55: CClanChatRooms_GetClanChatRoomInfo_Response.chat_group_summary:type_name -> CChatRoom_GetChatRoomGroupSummary_Response
+	134, // 56: CChatRoom_IncomingChatMessage_Notification.mentions:type_name -> CChatMentions
+	83,  // 57: CChatRoom_IncomingChatMessage_Notification.server_message:type_name -> ServerMessage
+	158, // 58: CChatRoom_ChatMessageModified_Notification.messages:type_name -> CChatRoom_ChatMessageModified_Notification.ChatMessage
+	14,  // 59: CChatRoom_MemberStateChange_Notification.member:type_name -> CChatRoomMember
+	6,   // 60: CChatRoom_MemberStateChange_Notification.change:type_name -> EChatRoomMemberStateChange
+	13,  // 61: CChatRoom_ChatRoomHeaderState_Notification.header_state:type_name -> CChatRoomGroupHeaderState
+	15,  // 62: CChatRoom_ChatRoomGroupRoomsChange_Notification.chat_rooms:type_name -> CChatRoomState
+	18,  // 63: ChatRoomClient_NotifyChatGroupUserStateChanged_Notification.user_chat_group_state:type_name -> CUserChatRoomGroupState
+	86,  // 64: ChatRoomClient_NotifyChatGroupUserStateChanged_Notification.group_summary:type_name -> CChatRoom_GetChatRoomGroupSummary_Response
+	6,   // 65: ChatRoomClient_NotifyChatGroupUserStateChanged_Notification.user_action:type_name -> EChatRoomMemberStateChange
+	143, // 66: CChatRoomClient_MemberListViewUpdated_Notification.view:type_name -> CChatRoomMemberListView
+	159, // 67: CChatRoomClient_MemberListViewUpdated_Notification.members:type_name -> CChatRoomClient_MemberListViewUpdated_Notification.MemberListViewEntry
+	144, // 68: CChatRoomClient_MemberListViewUpdated_Notification.member_summary:type_name -> CChatRoomMemberSummaryCounts
+	168, // 69: CChatRoomClient_MemberListViewUpdated_Notification.subscribed_personas:type_name -> CMsgClientPersonaState.Friend
+	4,   // 70: CChatRoom_MessageReaction_Notification.reaction_type:type_name -> EChatRoomMessageReactionType
+	5,   // 71: CChatRoom_ChatRoomNotice_Notification.notice_type:type_name -> EChatRoomNotice
+	160, // 72: CChatUsability_ClientUsabilityMetrics_Notification.settings:type_name -> CChatUsability_ClientUsabilityMetrics_Notification.Settings
+	161, // 73: CChatUsability_ClientUsabilityMetrics_Notification.voice_settings:type_name -> CChatUsability_ClientUsabilityMetrics_Notification.VoiceSettings
+	162, // 74: CChatUsability_ClientUsabilityMetrics_Notification.ui_state:type_name -> CChatUsability_ClientUsabilityMetrics_Notification.UIState
+	163, // 75: CChatUsability_ClientUsabilityMetrics_Notification.metrics:type_name -> CChatUsability_ClientUsabilityMetrics_Notification.Metrics
+	83,  // 76: CChatRoom_GetMessageHistory_Response.ChatMessage.server_message:type_name -> ServerMessage
+	151, // 77: CChatRoom_GetMessageHistory_Response.ChatMessage.reactions:type_name -> CChatRoom_GetMessageHistory_Response.ChatMessage.MessageReaction
+	4,   // 78: CChatRoom_GetMessageHistory_Response.ChatMessage.MessageReaction.reaction_type:type_name -> EChatRoomMessageReactionType
+	2,   // 79: CChatRoom_SetUserChatGroupPreferences_Request.ChatGroupPreferences.desktop_notification_level:type_name -> EChatRoomNotificationLevel
+	2,   // 80: CChatRoom_SetUserChatGroupPreferences_Request.ChatGroupPreferences.mobile_notification_level:type_name -> EChatRoomNotificationLevel
+	2,   // 81: CChatRoom_SetUserChatGroupPreferences_Request.ChatRoomPreferences.desktop_notification_level:type_name -> EChatRoomNotificationLevel
+	2,   // 82: CChatRoom_SetUserChatGroupPreferences_Request.ChatRoomPreferences.mobile_notification_level:type_name -> EChatRoomNotificationLevel
+	168, // 83: CChatRoom_SearchMembers_Response.MemberMatch.persona:type_name -> CMsgClientPersonaState.Friend
+	168, // 84: CChatRoomClient_MemberListViewUpdated_Notification.MemberListViewEntry.persona:type_name -> CMsgClientPersonaState.Friend
+	164, // 85: CChatUsability_ClientUsabilityMetrics_Notification.UIState.category_collapse:type_name -> CChatUsability_ClientUsabilityMetrics_Notification.UIState.CategoryCollapseState
+	7,   // 86: Chat.RequestFriendPersonaStates:input_type -> CChat_RequestFriendPersonaStates_Request
+	9,   // 87: ChatRoom.CreateChatRoomGroup:input_type -> CChatRoom_CreateChatRoomGroup_Request
+	20,  // 88: ChatRoom.SaveChatRoomGroup:input_type -> CChatRoom_SaveChatRoomGroup_Request
+	22,  // 89: ChatRoom.RenameChatRoomGroup:input_type -> CChatRoom_RenameChatRoomGroup_Request
+	24,  // 90: ChatRoom.SetChatRoomGroupTagline:input_type -> CChatRoom_SetChatRoomGroupTagline_Request
+	26,  // 91: ChatRoom.SetChatRoomGroupAvatar:input_type -> CChatRoom_SetChatRoomGroupAvatar_Request
+	28,  // 92: ChatRoom.SetChatRoomGroupWatchingBroadcast:input_type -> CChatRoom_SetChatRoomGroupWatchingBroadcast_Request
+	30,  // 93: ChatRoom.JoinMiniGameForChatRoomGroup:input_type -> CChatRoom_JoinMiniGameForChatRoomGroup_Request
+	32,  // 94: ChatRoom.EndMiniGameForChatRoomGroup:input_type -> CChatRoom_EndMiniGameForChatRoomGroup_Request
+	34,  // 95: ChatRoom.MuteUserInGroup:input_type -> CChatRoom_MuteUser_Request
+	36,  // 96: ChatRoom.KickUserFromGroup:input_type -> CChatRoom_KickUser_Request
+	38,  // 97: ChatRoom.SetUserBanState:input_type -> CChatRoom_SetUserBanState_Request
+	40,  // 98: ChatRoom.RevokeInviteToGroup:input_type -> CChatRoom_RevokeInvite_Request
+	42,  // 99: ChatRoom.CreateRole:input_type -> CChatRoom_CreateRole_Request
+	44,  // 100: ChatRoom.GetRoles:input_type -> CChatRoom_GetRoles_Request
+	46,  // 101: ChatRoom.RenameRole:input_type -> CChatRoom_RenameRole_Request
+	48,  // 102: ChatRoom.ReorderRole:input_type -> CChatRoom_ReorderRole_Request
+	50,  // 103: ChatRoom.DeleteRole:input_type -> CChatRoom_DeleteRole_Request
+	52,  // 104: ChatRoom.GetRoleActions:input_type -> CChatRoom_GetRoleActions_Request
+	54,  // 105: ChatRoom.ReplaceRoleActions:input_type -> CChatRoom_ReplaceRoleActions_Request
+	56,  // 106: ChatRoom.AddRoleToUser:input_type -> CChatRoom_AddRoleToUser_Request
+	58,  // 107: ChatRoom.GetRolesForUser:input_type -> CChatRoom_GetRolesForUser_Request
+	60,  // 108: ChatRoom.DeleteRoleFromUser:input_type -> CChatRoom_DeleteRoleFromUser_Request
+	62,  // 109: ChatRoom.JoinChatRoomGroup:input_type -> CChatRoom_JoinChatRoomGroup_Request
+	64,  // 110: ChatRoom.InviteFriendToChatRoomGroup:input_type -> CChatRoom_InviteFriendToChatRoomGroup_Request
+	66,  // 111: ChatRoom.LeaveChatRoomGroup:input_type -> CChatRoom_LeaveChatRoomGroup_Request
+	68,  // 112: ChatRoom.CreateChatRoom:input_type -> CChatRoom_CreateChatRoom_Request
+	70,  // 113: ChatRoom.DeleteChatRoom:input_type -> CChatRoom_DeleteChatRoom_Request
+	72,  // 114: ChatRoom.RenameChatRoom:input_type -> CChatRoom_RenameChatRoom_Request
+	74,  // 115: ChatRoom.ReorderChatRoom:input_type -> CChatRoom_ReorderChatRoom_Request
+	76,  // 116: ChatRoom.SendChatMessage:input_type -> CChatRoom_SendChatMessage_Request
+	78,  // 117: ChatRoom.JoinVoiceChat:input_type -> CChatRoom_JoinVoiceChat_Request
+	80,  // 118: ChatRoom.LeaveVoiceChat:input_type -> CChatRoom_LeaveVoiceChat_Request
+	82,  // 119: ChatRoom.GetMessageHistory:input_type -> CChatRoom_GetMessageHistory_Request
+	85,  // 120: ChatRoom.GetMyChatRoomGroups:input_type -> CChatRoom_GetMyChatRoomGroups_Request
+	89,  // 121: ChatRoom.GetChatRoomGroupState:input_type -> CChatRoom_GetChatRoomGroupState_Request
+	91,  // 122: ChatRoom.SetAppChatRoomGroupForceActive:input_type -> CChatRoom_SetAppChatRoomGroupForceActive_Request
+	93,  // 123: ChatRoom.SetAppChatRoomGroupStopForceActive:input_type -> CChatRoom_SetAppChatRoomGroupStopForceActive_Notification
+	94,  // 124: ChatRoom.AckChatMessage:input_type -> CChatRoom_AckChatMessage_Notification
+	95,  // 125: ChatRoom.CreateInviteLink:input_type -> CChatRoom_CreateInviteLink_Request
+	97,  // 126: ChatRoom.GetInviteLinkInfo:input_type -> CChatRoom_GetInviteLinkInfo_Request
+	99,  // 127: ChatRoom.GetInviteInfo:input_type -> CChatRoom_GetInviteInfo_Request
+	101, // 128: ChatRoom.GetInviteLinksForGroup:input_type -> CChatRoom_GetInviteLinksForGroup_Request
+	103, // 129: ChatRoom.GetBanList:input_type -> CChatRoom_GetBanList_Request
+	105, // 130: ChatRoom.GetInviteList:input_type -> CChatRoom_GetInviteList_Request
+	108, // 131: ChatRoom.DeleteInviteLink:input_type -> CChatRoom_DeleteInviteLink_Request
+	110, // 132: ChatRoom.SetSessionActiveChatRoomGroups:input_type -> CChatRoom_SetSessionActiveChatRoomGroups_Request
+	114, // 133: ChatRoom.SetUserChatGroupPreferences:input_type -> CChatRoom_SetUserChatGroupPreferences_Request
+	116, // 134: ChatRoom.DeleteChatMessages:input_type -> CChatRoom_DeleteChatMessages_Request
+	118, // 135: ChatRoom.DismissChatRoomNotice:input_type -> CChatRoom_DismissChatRoomNotice_Notification
+	119, // 136: ChatRoom.UpdateMemberListView:input_type -> CChatRoom_UpdateMemberListView_Notification
+	120, // 137: ChatRoom.SearchMembers:input_type -> CChatRoom_SearchMembers_Request
+	122, // 138: ChatRoom.UpdateMessageReaction:input_type -> CChatRoom_UpdateMessageReaction_Request
+	124, // 139: ChatRoom.GetMessageReactionReactors:input_type -> CChatRoom_GetMessageReactionReactors_Request
+	126, // 140: ChatRoom.ReportMessage:input_type -> CChatRoom_ReportMessage_Request
+	128, // 141: ChatRoom.ResolveReport:input_type -> CChatRoom_ResolveReport_Request
+	130, // 142: ClanChatRooms.GetClanChatRoomInfo:input_type -> CClanChatRooms_GetClanChatRoomInfo_Request
+	132, // 143: ClanChatRooms.SetClanChatRoomPrivate:input_type -> CClanChatRooms_SetClanChatRoomPrivate_Request
+	135, // 144: ChatRoomClient.NotifyIncomingChatMessage:input_type -> CChatRoom_IncomingChatMessage_Notification
+	136, // 145: ChatRoomClient.NotifyChatMessageModified:input_type -> CChatRoom_ChatMessageModified_Notification
+	137, // 146: ChatRoomClient.NotifyMemberStateChange:input_type -> CChatRoom_MemberStateChange_Notification
+	138, // 147: ChatRoomClient.NotifyChatRoomHeaderStateChange:input_type -> CChatRoom_ChatRoomHeaderState_Notification
+	139, // 148: ChatRoomClient.NotifyChatRoomGroupRoomsChange:input_type -> CChatRoom_ChatRoomGroupRoomsChange_Notification
+	140, // 149: ChatRoomClient.NotifyShouldRejoinChatRoomVoiceChat:input_type -> CChatRoom_NotifyShouldRejoinChatRoomVoiceChat_Notification
+	141, // 150: ChatRoomClient.NotifyChatGroupUserStateChanged:input_type -> ChatRoomClient_NotifyChatGroupUserStateChanged_Notification
+	94,  // 151: ChatRoomClient.NotifyAckChatMessageEcho:input_type -> CChatRoom_AckChatMessage_Notification
+	142, // 152: ChatRoomClient.NotifyChatRoomDisconnect:input_type -> ChatRoomClient_NotifyChatRoomDisconnect_Notification
+	145, // 153: ChatRoomClient.NotifyMemberListViewUpdated:input_type -> CChatRoomClient_MemberListViewUpdated_Notification
+	146, // 154: ChatRoomClient.NotifyMessageReaction:input_type -> CChatRoom_MessageReaction_Notification
+	147, // 155: ChatRoomClient.NotifyChatRoomNotice:input_type -> CChatRoom_ChatRoomNotice_Notification
+	148, // 156: ChatUsability.NotifyClientUsabilityMetrics:input_type -> CChatUsability_ClientUsabilityMetrics_Notification
+	149, // 157: ChatUsabilityClient.NotifyRequestClientUsabilityMetrics:input_type -> CChatUsability_RequestClientUsabilityMetrics_Notification
+	8,   // 158: Chat.RequestFriendPersonaStates:output_type -> CChat_RequestFriendPersonaStates_Response
+	19,  // 159: ChatRoom.CreateChatRoomGroup:output_type -> CChatRoom_CreateChatRoomGroup_Response
+	21,  // 160: ChatRoom.SaveChatRoomGroup:output_type -> CChatRoom_SaveChatRoomGroup_Response
+	23,  // 161: ChatRoom.RenameChatRoomGroup:output_type -> CChatRoom_RenameChatRoomGroup_Response
+	25,  // 162: ChatRoom.SetChatRoomGroupTagline:output_type -> CChatRoom_SetChatRoomGroupTagline_Response
+	27,  // 163: ChatRoom.SetChatRoomGroupAvatar:output_type -> CChatRoom_SetChatRoomGroupAvatar_Response
+	29,  // 164: ChatRoom.SetChatRoomGroupWatchingBroadcast:output_type -> CChatRoom_SetChatRoomGroupWatchingBroadcast_Response
+	31,  // 165: ChatRoom.JoinMiniGameForChatRoomGroup:output_type -> CChatRoom_JoinMiniGameForChatRoomGroup_Response
+	33,  // 166: ChatRoom.EndMiniGameForChatRoomGroup:output_type -> CChatRoom_EndMiniGameForChatRoomGroup_Response
+	35,  // 167: ChatRoom.MuteUserInGroup:output_type -> CChatRoom_MuteUser_Response
+	37,  // 168: ChatRoom.KickUserFromGroup:output_type -> CChatRoom_KickUser_Response
+	39,  // 169: ChatRoom.SetUserBanState:output_type -> CChatRoom_SetUserBanState_Response
+	41,  // 170: ChatRoom.RevokeInviteToGroup:output_type -> CChatRoom_RevokeInvite_Response
+	43,  // 171: ChatRoom.CreateRole:output_type -> CChatRoom_CreateRole_Response
+	45,  // 172: ChatRoom.GetRoles:output_type -> CChatRoom_GetRoles_Response
+	47,  // 173: ChatRoom.RenameRole:output_type -> CChatRoom_RenameRole_Response
+	49,  // 174: ChatRoom.ReorderRole:output_type -> CChatRoom_ReorderRole_Response
+	51,  // 175: ChatRoom.DeleteRole:output_type -> CChatRoom_DeleteRole_Response
+	53,  // 176: ChatRoom.GetRoleActions:output_type -> CChatRoom_GetRoleActions_Response
+	55,  // 177: ChatRoom.ReplaceRoleActions:output_type -> CChatRoom_ReplaceRoleActions_Response
+	57,  // 178: ChatRoom.AddRoleToUser:output_type -> CChatRoom_AddRoleToUser_Response
+	59,  // 179: ChatRoom.GetRolesForUser:output_type -> CChatRoom_GetRolesForUser_Response
+	61,  // 180: ChatRoom.DeleteRoleFromUser:output_type -> CChatRoom_DeleteRoleFromUser_Response
+	63,  // 181: ChatRoom.JoinChatRoomGroup:output_type -> CChatRoom_JoinChatRoomGroup_Response
+	65,  // 182: ChatRoom.InviteFriendToChatRoomGroup:output_type -> CChatRoom_InviteFriendToChatRoomGroup_Response
+	67,  // 183: ChatRoom.LeaveChatRoomGroup:output_type -> CChatRoom_LeaveChatRoomGroup_Response
+	69,  // 184: ChatRoom.CreateChatRoom:output_type -> CChatRoom_CreateChatRoom_Response
+	71,  // 185: ChatRoom.DeleteChatRoom:output_type -> CChatRoom_DeleteChatRoom_Response
+	73,  // 186: ChatRoom.RenameChatRoom:output_type -> CChatRoom_RenameChatRoom_Response
+	75,  // 187: ChatRoom.ReorderChatRoom:output_type -> CChatRoom_ReorderChatRoom_Response
+	77,  // 188: ChatRoom.SendChatMessage:output_type -> CChatRoom_SendChatMessage_Response
+	79,  // 189: ChatRoom.JoinVoiceChat:output_type -> CChatRoom_JoinVoiceChat_Response
+	81,  // 190: ChatRoom.LeaveVoiceChat:output_type -> CChatRoom_LeaveVoiceChat_Response
+	84,  // 191: ChatRoom.GetMessageHistory:output_type -> CChatRoom_GetMessageHistory_Response
+	88,  // 192: ChatRoom.GetMyChatRoomGroups:output_type -> CChatRoom_GetMyChatRoomGroups_Response
+	90,  // 193: ChatRoom.GetChatRoomGroupState:output_type -> CChatRoom_GetChatRoomGroupState_Response
+	92,  // 194: ChatRoom.SetAppChatRoomGroupForceActive:output_type -> CChatRoom_SetAppChatRoomGroupForceActive_Response
+	169, // 195: ChatRoom.SetAppChatRoomGroupStopForceActive:output_type -> NoResponse
+	169, // 196: ChatRoom.AckChatMessage:output_type -> NoResponse
+	96,  // 197: ChatRoom.CreateInviteLink:output_type -> CChatRoom_CreateInviteLink_Response
+	98,  // 198: ChatRoom.GetInviteLinkInfo:output_type -> CChatRoom_GetInviteLinkInfo_Response
+	100, // 199: ChatRoom.GetInviteInfo:output_type -> CChatRoom_GetInviteInfo_Response
+	102, // 200: ChatRoom.GetInviteLinksForGroup:output_type -> CChatRoom_GetInviteLinksForGroup_Response
+	104, // 201: ChatRoom.GetBanList:output_type -> CChatRoom_GetBanList_Response
+	107, // 202: ChatRoom.GetInviteList:output_type -> CChatRoom_GetInviteList_Response
+	109, // 203: ChatRoom.DeleteInviteLink:output_type -> CChatRoom_DeleteInviteLink_Response
+	113, // 204: ChatRoom.SetSessionActiveChatRoomGroups:output_type -> CChatRoom_SetSessionActiveChatRoomGroups_Response
+	115, // 205: ChatRoom.SetUserChatGroupPreferences:output_type -> CChatRoom_SetUserChatGroupPreferences_Response
+	117, // 206: ChatRoom.DeleteChatMessages:output_type -> CChatRoom_DeleteChatMessages_Response
+	169, // 207: ChatRoom.DismissChatRoomNotice:output_type -> NoResponse
+	169, // 208: ChatRoom.UpdateMemberListView:output_type -> NoResponse
+	121, // 209: ChatRoom.SearchMembers:output_type -> CChatRoom_SearchMembers_Response
+	123, // 210: ChatRoom.UpdateMessageReaction:output_type -> CChatRoom_UpdateMessageReaction_Response
+	125, // 211: ChatRoom.GetMessageReactionReactors:output_type -> CChatRoom_GetMessageReactionReactors_Response
+	127, // 212: ChatRoom.ReportMessage:output_type -> CChatRoom_ReportMessage_Response
+	129, // 213: ChatRoom.ResolveReport:output_type -> CChatRoom_ResolveReport_Response
+	131, // 214: ClanChatRooms.GetClanChatRoomInfo:output_type -> CClanChatRooms_GetClanChatRoomInfo_Response
+	133, // 215: ClanChatRooms.SetClanChatRoomPrivate:output_type -> CClanChatRooms_SetClanChatRoomPrivate_Response
+	169, // 216: ChatRoomClient.NotifyIncomingChatMessage:output_type -> NoResponse
+	169, // 217: ChatRoomClient.NotifyChatMessageModified:output_type -> NoResponse
+	169, // 218: ChatRoomClient.NotifyMemberStateChange:output_type -> NoResponse
+	169, // 219: ChatRoomClient.NotifyChatRoomHeaderStateChange:output_type -> NoResponse
+	169, // 220: ChatRoomClient.NotifyChatRoomGroupRoomsChange:output_type -> NoResponse
+	169, // 221: ChatRoomClient.NotifyShouldRejoinChatRoomVoiceChat:output_type -> NoResponse
+	169, // 222: ChatRoomClient.NotifyChatGroupUserStateChanged:output_type -> NoResponse
+	169, // 223: ChatRoomClient.NotifyAckChatMessageEcho:output_type -> NoResponse
+	169, // 224: ChatRoomClient.NotifyChatRoomDisconnect:output_type -> NoResponse
+	169, // 225: ChatRoomClient.NotifyMemberListViewUpdated:output_type -> NoResponse
+	169, // 226: ChatRoomClient.NotifyMessageReaction:output_type -> NoResponse
+	169, // 227: ChatRoomClient.NotifyChatRoomNotice:output_type -> NoResponse
+	169, // 228: ChatUsability.NotifyClientUsabilityMetrics:output_type -> NoResponse
+	169, // 229: ChatUsabilityClient.NotifyRequestClientUsabilityMetrics:output_type -> NoResponse
+	158, // [158:230] is the sub-list for method output_type
+	86,  // [86:158] is the sub-list for method input_type
+	86,  // [86:86] is the sub-list for extension type_name
+	86,  // [86:86] is the sub-list for extension extendee
+	0,   // [0:86] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_chat_steamclient_proto_init() }
@@ -11191,8 +11540,8 @@ func file_steammessages_chat_steamclient_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_chat_steamclient_proto_rawDesc), len(file_steammessages_chat_steamclient_proto_rawDesc)),
-			NumEnums:      6,
-			NumMessages:   154,
+			NumEnums:      7,
+			NumMessages:   158,
 			NumExtensions: 0,
 			NumServices:   6,
 		},
