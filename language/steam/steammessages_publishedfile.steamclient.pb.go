@@ -888,6 +888,7 @@ type CPublishedFile_Publish_Request struct {
 	CollectionType       *string                `protobuf:"bytes,14,opt,name=collection_type,json=collectionType" json:"collection_type,omitempty"`
 	GameType             *string                `protobuf:"bytes,15,opt,name=game_type,json=gameType" json:"game_type,omitempty"`
 	Url                  *string                `protobuf:"bytes,16,opt,name=url" json:"url,omitempty"`
+	Language             *int32                 `protobuf:"varint,17,opt,name=language" json:"language,omitempty"`
 	unknownFields        protoimpl.UnknownFields
 	sizeCache            protoimpl.SizeCache
 }
@@ -1032,6 +1033,13 @@ func (x *CPublishedFile_Publish_Request) GetUrl() string {
 		return *x.Url
 	}
 	return ""
+}
+
+func (x *CPublishedFile_Publish_Request) GetLanguage() int32 {
+	if x != nil && x.Language != nil {
+		return *x.Language
+	}
+	return 0
 }
 
 type CPublishedFile_Publish_Response struct {
@@ -2138,46 +2146,47 @@ func (x *CPublishedFile_GetItemInfo_Response) GetPrivateItems() []uint64 {
 }
 
 type CPublishedFile_GetUserFiles_Request struct {
-	state                      protoimpl.MessageState                          `protogen:"open.v1"`
-	Steamid                    *uint64                                         `protobuf:"fixed64,1,opt,name=steamid" json:"steamid,omitempty"`
-	Appid                      *uint32                                         `protobuf:"varint,2,opt,name=appid" json:"appid,omitempty"`
-	Shortcutid                 *uint32                                         `protobuf:"varint,3,opt,name=shortcutid" json:"shortcutid,omitempty"`
-	Page                       *uint32                                         `protobuf:"varint,4,opt,name=page,def=1" json:"page,omitempty"`
-	Numperpage                 *uint32                                         `protobuf:"varint,5,opt,name=numperpage,def=1" json:"numperpage,omitempty"`
-	Type                       *string                                         `protobuf:"bytes,6,opt,name=type,def=myfiles" json:"type,omitempty"`
-	Sortmethod                 *string                                         `protobuf:"bytes,7,opt,name=sortmethod,def=lastupdated" json:"sortmethod,omitempty"`
-	Privacy                    *uint32                                         `protobuf:"varint,9,opt,name=privacy" json:"privacy,omitempty"`
-	Requiredtags               []string                                        `protobuf:"bytes,10,rep,name=requiredtags" json:"requiredtags,omitempty"`
-	Excludedtags               []string                                        `protobuf:"bytes,11,rep,name=excludedtags" json:"excludedtags,omitempty"`
-	RequiredKvTags             []*CPublishedFile_GetUserFiles_Request_KVTag    `protobuf:"bytes,30,rep,name=required_kv_tags,json=requiredKvTags" json:"required_kv_tags,omitempty"`
-	Filetype                   *uint32                                         `protobuf:"varint,14,opt,name=filetype" json:"filetype,omitempty"`
-	CreatorAppid               *uint32                                         `protobuf:"varint,15,opt,name=creator_appid,json=creatorAppid" json:"creator_appid,omitempty"`
-	MatchCloudFilename         *string                                         `protobuf:"bytes,16,opt,name=match_cloud_filename,json=matchCloudFilename" json:"match_cloud_filename,omitempty"`
-	CacheMaxAgeSeconds         *uint32                                         `protobuf:"varint,27,opt,name=cache_max_age_seconds,json=cacheMaxAgeSeconds,def=0" json:"cache_max_age_seconds,omitempty"`
-	Language                   *int32                                          `protobuf:"varint,29,opt,name=language,def=0" json:"language,omitempty"`
-	Taggroups                  []*CPublishedFile_GetUserFiles_Request_TagGroup `protobuf:"bytes,34,rep,name=taggroups" json:"taggroups,omitempty"`
-	DateRangeCreated           *CPublishedFile_GetUserFiles_Request_DateRange  `protobuf:"bytes,39,opt,name=date_range_created,json=dateRangeCreated" json:"date_range_created,omitempty"`
-	DateRangeUpdated           *CPublishedFile_GetUserFiles_Request_DateRange  `protobuf:"bytes,40,opt,name=date_range_updated,json=dateRangeUpdated" json:"date_range_updated,omitempty"`
-	ExcludedContentDescriptors []EContentDescriptorID                          `protobuf:"varint,37,rep,name=excluded_content_descriptors,json=excludedContentDescriptors,enum=EContentDescriptorID" json:"excluded_content_descriptors,omitempty"`
-	AdminQuery                 *bool                                           `protobuf:"varint,38,opt,name=admin_query,json=adminQuery" json:"admin_query,omitempty"`
-	Totalonly                  *bool                                           `protobuf:"varint,17,opt,name=totalonly" json:"totalonly,omitempty"`
-	IdsOnly                    *bool                                           `protobuf:"varint,18,opt,name=ids_only,json=idsOnly" json:"ids_only,omitempty"`
-	ReturnVoteData             *bool                                           `protobuf:"varint,19,opt,name=return_vote_data,json=returnVoteData,def=1" json:"return_vote_data,omitempty"`
-	ReturnTags                 *bool                                           `protobuf:"varint,20,opt,name=return_tags,json=returnTags" json:"return_tags,omitempty"`
-	ReturnKvTags               *bool                                           `protobuf:"varint,21,opt,name=return_kv_tags,json=returnKvTags,def=1" json:"return_kv_tags,omitempty"`
-	ReturnPreviews             *bool                                           `protobuf:"varint,22,opt,name=return_previews,json=returnPreviews" json:"return_previews,omitempty"`
-	ReturnChildren             *bool                                           `protobuf:"varint,23,opt,name=return_children,json=returnChildren" json:"return_children,omitempty"`
-	ReturnShortDescription     *bool                                           `protobuf:"varint,24,opt,name=return_short_description,json=returnShortDescription,def=1" json:"return_short_description,omitempty"`
-	ReturnForSaleData          *bool                                           `protobuf:"varint,26,opt,name=return_for_sale_data,json=returnForSaleData" json:"return_for_sale_data,omitempty"`
-	ReturnMetadata             *bool                                           `protobuf:"varint,28,opt,name=return_metadata,json=returnMetadata,def=0" json:"return_metadata,omitempty"`
-	ReturnPlaytimeStats        *uint32                                         `protobuf:"varint,31,opt,name=return_playtime_stats,json=returnPlaytimeStats" json:"return_playtime_stats,omitempty"`
-	StripDescriptionBbcode     *bool                                           `protobuf:"varint,32,opt,name=strip_description_bbcode,json=stripDescriptionBbcode" json:"strip_description_bbcode,omitempty"`
-	ReturnReactions            *bool                                           `protobuf:"varint,35,opt,name=return_reactions,json=returnReactions,def=0" json:"return_reactions,omitempty"`
-	StartindexOverride         *uint32                                         `protobuf:"varint,25,opt,name=startindex_override,json=startindexOverride" json:"startindex_override,omitempty"`
-	DesiredRevision            *EPublishedFileRevision                         `protobuf:"varint,33,opt,name=desired_revision,json=desiredRevision,enum=EPublishedFileRevision,def=0" json:"desired_revision,omitempty"`
-	ReturnApps                 *bool                                           `protobuf:"varint,36,opt,name=return_apps,json=returnApps" json:"return_apps,omitempty"`
-	unknownFields              protoimpl.UnknownFields
-	sizeCache                  protoimpl.SizeCache
+	state                              protoimpl.MessageState                          `protogen:"open.v1"`
+	Steamid                            *uint64                                         `protobuf:"fixed64,1,opt,name=steamid" json:"steamid,omitempty"`
+	Appid                              *uint32                                         `protobuf:"varint,2,opt,name=appid" json:"appid,omitempty"`
+	Shortcutid                         *uint32                                         `protobuf:"varint,3,opt,name=shortcutid" json:"shortcutid,omitempty"`
+	Page                               *uint32                                         `protobuf:"varint,4,opt,name=page,def=1" json:"page,omitempty"`
+	Numperpage                         *uint32                                         `protobuf:"varint,5,opt,name=numperpage,def=1" json:"numperpage,omitempty"`
+	Type                               *string                                         `protobuf:"bytes,6,opt,name=type,def=myfiles" json:"type,omitempty"`
+	Sortmethod                         *string                                         `protobuf:"bytes,7,opt,name=sortmethod,def=lastupdated" json:"sortmethod,omitempty"`
+	Privacy                            *uint32                                         `protobuf:"varint,9,opt,name=privacy" json:"privacy,omitempty"`
+	Requiredtags                       []string                                        `protobuf:"bytes,10,rep,name=requiredtags" json:"requiredtags,omitempty"`
+	Excludedtags                       []string                                        `protobuf:"bytes,11,rep,name=excludedtags" json:"excludedtags,omitempty"`
+	RequiredKvTags                     []*CPublishedFile_GetUserFiles_Request_KVTag    `protobuf:"bytes,30,rep,name=required_kv_tags,json=requiredKvTags" json:"required_kv_tags,omitempty"`
+	Filetype                           *uint32                                         `protobuf:"varint,14,opt,name=filetype" json:"filetype,omitempty"`
+	CreatorAppid                       *uint32                                         `protobuf:"varint,15,opt,name=creator_appid,json=creatorAppid" json:"creator_appid,omitempty"`
+	MatchCloudFilename                 *string                                         `protobuf:"bytes,16,opt,name=match_cloud_filename,json=matchCloudFilename" json:"match_cloud_filename,omitempty"`
+	CacheMaxAgeSeconds                 *uint32                                         `protobuf:"varint,27,opt,name=cache_max_age_seconds,json=cacheMaxAgeSeconds,def=0" json:"cache_max_age_seconds,omitempty"`
+	Language                           *int32                                          `protobuf:"varint,29,opt,name=language,def=0" json:"language,omitempty"`
+	Taggroups                          []*CPublishedFile_GetUserFiles_Request_TagGroup `protobuf:"bytes,34,rep,name=taggroups" json:"taggroups,omitempty"`
+	DateRangeCreated                   *CPublishedFile_GetUserFiles_Request_DateRange  `protobuf:"bytes,39,opt,name=date_range_created,json=dateRangeCreated" json:"date_range_created,omitempty"`
+	DateRangeUpdated                   *CPublishedFile_GetUserFiles_Request_DateRange  `protobuf:"bytes,40,opt,name=date_range_updated,json=dateRangeUpdated" json:"date_range_updated,omitempty"`
+	ExcludedContentDescriptors         []EContentDescriptorID                          `protobuf:"varint,37,rep,name=excluded_content_descriptors,json=excludedContentDescriptors,enum=EContentDescriptorID" json:"excluded_content_descriptors,omitempty"`
+	AdminQuery                         *bool                                           `protobuf:"varint,38,opt,name=admin_query,json=adminQuery" json:"admin_query,omitempty"`
+	ExcludedAppsWithContentDescriptors []EContentDescriptorID                          `protobuf:"varint,41,rep,name=excluded_apps_with_content_descriptors,json=excludedAppsWithContentDescriptors,enum=EContentDescriptorID" json:"excluded_apps_with_content_descriptors,omitempty"`
+	Totalonly                          *bool                                           `protobuf:"varint,17,opt,name=totalonly" json:"totalonly,omitempty"`
+	IdsOnly                            *bool                                           `protobuf:"varint,18,opt,name=ids_only,json=idsOnly" json:"ids_only,omitempty"`
+	ReturnVoteData                     *bool                                           `protobuf:"varint,19,opt,name=return_vote_data,json=returnVoteData,def=1" json:"return_vote_data,omitempty"`
+	ReturnTags                         *bool                                           `protobuf:"varint,20,opt,name=return_tags,json=returnTags" json:"return_tags,omitempty"`
+	ReturnKvTags                       *bool                                           `protobuf:"varint,21,opt,name=return_kv_tags,json=returnKvTags,def=1" json:"return_kv_tags,omitempty"`
+	ReturnPreviews                     *bool                                           `protobuf:"varint,22,opt,name=return_previews,json=returnPreviews" json:"return_previews,omitempty"`
+	ReturnChildren                     *bool                                           `protobuf:"varint,23,opt,name=return_children,json=returnChildren" json:"return_children,omitempty"`
+	ReturnShortDescription             *bool                                           `protobuf:"varint,24,opt,name=return_short_description,json=returnShortDescription,def=1" json:"return_short_description,omitempty"`
+	ReturnForSaleData                  *bool                                           `protobuf:"varint,26,opt,name=return_for_sale_data,json=returnForSaleData" json:"return_for_sale_data,omitempty"`
+	ReturnMetadata                     *bool                                           `protobuf:"varint,28,opt,name=return_metadata,json=returnMetadata,def=0" json:"return_metadata,omitempty"`
+	ReturnPlaytimeStats                *uint32                                         `protobuf:"varint,31,opt,name=return_playtime_stats,json=returnPlaytimeStats" json:"return_playtime_stats,omitempty"`
+	StripDescriptionBbcode             *bool                                           `protobuf:"varint,32,opt,name=strip_description_bbcode,json=stripDescriptionBbcode" json:"strip_description_bbcode,omitempty"`
+	ReturnReactions                    *bool                                           `protobuf:"varint,35,opt,name=return_reactions,json=returnReactions,def=0" json:"return_reactions,omitempty"`
+	StartindexOverride                 *uint32                                         `protobuf:"varint,25,opt,name=startindex_override,json=startindexOverride" json:"startindex_override,omitempty"`
+	DesiredRevision                    *EPublishedFileRevision                         `protobuf:"varint,33,opt,name=desired_revision,json=desiredRevision,enum=EPublishedFileRevision,def=0" json:"desired_revision,omitempty"`
+	ReturnApps                         *bool                                           `protobuf:"varint,36,opt,name=return_apps,json=returnApps" json:"return_apps,omitempty"`
+	unknownFields                      protoimpl.UnknownFields
+	sizeCache                          protoimpl.SizeCache
 }
 
 // Default values for CPublishedFile_GetUserFiles_Request fields.
@@ -2371,6 +2380,13 @@ func (x *CPublishedFile_GetUserFiles_Request) GetAdminQuery() bool {
 		return *x.AdminQuery
 	}
 	return false
+}
+
+func (x *CPublishedFile_GetUserFiles_Request) GetExcludedAppsWithContentDescriptors() []EContentDescriptorID {
+	if x != nil {
+		return x.ExcludedAppsWithContentDescriptors
+	}
+	return nil
 }
 
 func (x *CPublishedFile_GetUserFiles_Request) GetTotalonly() bool {
@@ -2684,9 +2700,11 @@ type CPublishedFile_Update_Request struct {
 	Filename        *string                `protobuf:"bytes,7,opt,name=filename" json:"filename,omitempty"`
 	PreviewFilename *string                `protobuf:"bytes,8,opt,name=preview_filename,json=previewFilename" json:"preview_filename,omitempty"`
 	SpoilerTag      *bool                  `protobuf:"varint,10,opt,name=spoiler_tag,json=spoilerTag" json:"spoiler_tag,omitempty"`
+	Collectiontype  *string                `protobuf:"bytes,14,opt,name=collectiontype" json:"collectiontype,omitempty"`
 	ImageWidth      *uint32                `protobuf:"varint,15,opt,name=image_width,json=imageWidth" json:"image_width,omitempty"`
 	ImageHeight     *uint32                `protobuf:"varint,16,opt,name=image_height,json=imageHeight" json:"image_height,omitempty"`
 	Language        *int32                 `protobuf:"varint,17,opt,name=language" json:"language,omitempty"`
+	UpdateTags      *bool                  `protobuf:"varint,18,opt,name=update_tags,json=updateTags" json:"update_tags,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -2784,6 +2802,13 @@ func (x *CPublishedFile_Update_Request) GetSpoilerTag() bool {
 	return false
 }
 
+func (x *CPublishedFile_Update_Request) GetCollectiontype() string {
+	if x != nil && x.Collectiontype != nil {
+		return *x.Collectiontype
+	}
+	return ""
+}
+
 func (x *CPublishedFile_Update_Request) GetImageWidth() uint32 {
 	if x != nil && x.ImageWidth != nil {
 		return *x.ImageWidth
@@ -2803,6 +2828,13 @@ func (x *CPublishedFile_Update_Request) GetLanguage() int32 {
 		return *x.Language
 	}
 	return 0
+}
+
+func (x *CPublishedFile_Update_Request) GetUpdateTags() bool {
+	if x != nil && x.UpdateTags != nil {
+		return *x.UpdateTags
+	}
+	return false
 }
 
 type CPublishedFile_Update_Response struct {
@@ -7299,7 +7331,7 @@ const file_steammessages_publishedfile_steamclient_proto_rawDesc = "" +
 	"\n" +
 	"sort_order\x18\x04 \x01(\rR\tsortOrder\"h\n" +
 	")CPublishedFile_GetSubSectionData_Response\x12;\n" +
-	"\fsub_sections\x18\x01 \x03(\v2\x18.PublishedFileSubSectionR\vsubSections\"\xcf\x04\n" +
+	"\fsub_sections\x18\x01 \x03(\v2\x18.PublishedFileSubSectionR\vsubSections\"\xeb\x04\n" +
 	"\x1eCPublishedFile_Publish_Request\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12%\n" +
 	"\x0econsumer_appid\x18\x02 \x01(\rR\rconsumerAppid\x12$\n" +
@@ -7319,7 +7351,8 @@ const file_steammessages_publishedfile_steamclient_proto_rawDesc = "" +
 	"\x04tags\x18\r \x03(\tR\x04tags\x12'\n" +
 	"\x0fcollection_type\x18\x0e \x01(\tR\x0ecollectionType\x12\x1b\n" +
 	"\tgame_type\x18\x0f \x01(\tR\bgameType\x12\x10\n" +
-	"\x03url\x18\x10 \x01(\tR\x03url\"n\n" +
+	"\x03url\x18\x10 \x01(\tR\x03url\x12\x1a\n" +
+	"\blanguage\x18\x11 \x01(\x05R\blanguage\"n\n" +
 	"\x1fCPublishedFile_Publish_Response\x12(\n" +
 	"\x0fpublishedfileid\x18\x01 \x01(\x04R\x0fpublishedfileid\x12!\n" +
 	"\fredirect_uri\x18\x02 \x01(\tR\vredirectUri\"\x87\x06\n" +
@@ -7500,7 +7533,7 @@ const file_steammessages_publishedfile_steamclient_proto_rawDesc = "" +
 	"manifestId\x12\x14\n" +
 	"\x05flags\x18\x04 \x01(\rR\x05flags\x12U\n" +
 	"\brevision\x18\x05 \x01(\x0e2\x17.EPublishedFileRevision: k_EPublishedFileRevision_DefaultR\brevision\x12G\n" +
-	"\x10author_snapshots\x18\x06 \x03(\v2\x1c.PublishedFileAuthorSnapshotR\x0fauthorSnapshots\"\xa9\x0f\n" +
+	"\x10author_snapshots\x18\x06 \x03(\v2\x1c.PublishedFileAuthorSnapshotR\x0fauthorSnapshots\"\x94\x10\n" +
 	"#CPublishedFile_GetUserFiles_Request\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12\x14\n" +
 	"\x05appid\x18\x02 \x01(\rR\x05appid\x12\x1e\n" +
@@ -7530,7 +7563,8 @@ const file_steammessages_publishedfile_steamclient_proto_rawDesc = "" +
 	"\x12date_range_updated\x18( \x01(\v2..CPublishedFile_GetUserFiles_Request.DateRangeR\x10dateRangeUpdated\x12W\n" +
 	"\x1cexcluded_content_descriptors\x18% \x03(\x0e2\x15.EContentDescriptorIDR\x1aexcludedContentDescriptors\x12\x1f\n" +
 	"\vadmin_query\x18& \x01(\bR\n" +
-	"adminQuery\x12\x1c\n" +
+	"adminQuery\x12i\n" +
+	"&excluded_apps_with_content_descriptors\x18) \x03(\x0e2\x15.EContentDescriptorIDR\"excludedAppsWithContentDescriptors\x12\x1c\n" +
 	"\ttotalonly\x18\x11 \x01(\bR\ttotalonly\x12\x19\n" +
 	"\bids_only\x18\x12 \x01(\bR\aidsOnly\x12.\n" +
 	"\x10return_vote_data\x18\x13 \x01(\b:\x04trueR\x0ereturnVoteData\x12\x1f\n" +
@@ -7581,7 +7615,7 @@ const file_steammessages_publishedfile_steamclient_proto_rawDesc = "" +
 	"\x05files\x18\x01 \x03(\v2:.CPublishedFile_AreFilesInSubscriptionList_Response.InListR\x05files\x1aJ\n" +
 	"\x06InList\x12(\n" +
 	"\x0fpublishedfileid\x18\x01 \x01(\x06R\x0fpublishedfileid\x12\x16\n" +
-	"\x06inlist\x18\x02 \x01(\bR\x06inlist\"\x9c\x03\n" +
+	"\x06inlist\x18\x02 \x01(\bR\x06inlist\"\xe5\x03\n" +
 	"\x1dCPublishedFile_Update_Request\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12(\n" +
 	"\x0fpublishedfileid\x18\x02 \x01(\x06R\x0fpublishedfileid\x12\x14\n" +
@@ -7595,11 +7629,14 @@ const file_steammessages_publishedfile_steamclient_proto_rawDesc = "" +
 	"\x10preview_filename\x18\b \x01(\tR\x0fpreviewFilename\x12\x1f\n" +
 	"\vspoiler_tag\x18\n" +
 	" \x01(\bR\n" +
-	"spoilerTag\x12\x1f\n" +
+	"spoilerTag\x12&\n" +
+	"\x0ecollectiontype\x18\x0e \x01(\tR\x0ecollectiontype\x12\x1f\n" +
 	"\vimage_width\x18\x0f \x01(\rR\n" +
 	"imageWidth\x12!\n" +
 	"\fimage_height\x18\x10 \x01(\rR\vimageHeight\x12\x1a\n" +
-	"\blanguage\x18\x11 \x01(\x05R\blanguage\" \n" +
+	"\blanguage\x18\x11 \x01(\x05R\blanguage\x12\x1f\n" +
+	"\vupdate_tags\x18\x12 \x01(\bR\n" +
+	"updateTags\" \n" +
 	"\x1eCPublishedFile_Update_Response\"_\n" +
 	"\x1dCPublishedFile_Delete_Request\x12(\n" +
 	"\x0fpublishedfileid\x18\x01 \x01(\x06R\x0fpublishedfileid\x12\x14\n" +
@@ -8057,117 +8094,118 @@ var file_steammessages_publishedfile_steamclient_proto_depIdxs = []int32{
 	86,  // 22: CPublishedFile_GetUserFiles_Request.date_range_created:type_name -> CPublishedFile_GetUserFiles_Request.DateRange
 	86,  // 23: CPublishedFile_GetUserFiles_Request.date_range_updated:type_name -> CPublishedFile_GetUserFiles_Request.DateRange
 	101, // 24: CPublishedFile_GetUserFiles_Request.excluded_content_descriptors:type_name -> EContentDescriptorID
-	0,   // 25: CPublishedFile_GetUserFiles_Request.desired_revision:type_name -> EPublishedFileRevision
-	19,  // 26: CPublishedFile_GetUserFiles_Response.publishedfiledetails:type_name -> PublishedFileDetails
-	87,  // 27: CPublishedFile_GetUserFiles_Response.apps:type_name -> CPublishedFile_GetUserFiles_Response.App
-	88,  // 28: CPublishedFile_AreFilesInSubscriptionList_Response.files:type_name -> CPublishedFile_AreFilesInSubscriptionList_Response.InList
-	89,  // 29: CPublishedFile_GetChangeHistory_Response.changes:type_name -> CPublishedFile_GetChangeHistory_Response.ChangeLog
-	0,   // 30: CPublishedFile_RefreshVotingQueue_Request.desired_revision:type_name -> EPublishedFileRevision
-	90,  // 31: CPublishedFile_QueryFiles_Request.required_kv_tags:type_name -> CPublishedFile_QueryFiles_Request.KVTag
-	91,  // 32: CPublishedFile_QueryFiles_Request.taggroups:type_name -> CPublishedFile_QueryFiles_Request.TagGroup
-	92,  // 33: CPublishedFile_QueryFiles_Request.date_range_created:type_name -> CPublishedFile_QueryFiles_Request.DateRange
-	92,  // 34: CPublishedFile_QueryFiles_Request.date_range_updated:type_name -> CPublishedFile_QueryFiles_Request.DateRange
-	101, // 35: CPublishedFile_QueryFiles_Request.excluded_content_descriptors:type_name -> EContentDescriptorID
-	2,   // 36: CPublishedFile_QueryFiles_Request.special_filter:type_name -> EQueryFilesSpecialFilter
-	3,   // 37: CPublishedFile_QueryFiles_Request.search_text_target:type_name -> EQueryFilesSearchTextTarget
-	0,   // 38: CPublishedFile_QueryFiles_Request.desired_revision:type_name -> EPublishedFileRevision
-	19,  // 39: CPublishedFile_QueryFiles_Response.publishedfiledetails:type_name -> PublishedFileDetails
-	93,  // 40: CPublishedFile_GetAppRelationships_Response.app_relationships:type_name -> CPublishedFile_GetAppRelationships_Response.AppRelationship
-	95,  // 41: CPublishedFile_GetAppRelationshipsBatched_Response.relationships:type_name -> CPublishedFile_GetAppRelationshipsBatched_Response.PublishedFileAppRelationship
-	96,  // 42: CPublishedFile_SetPlaytimeForControllerConfigs_Request.controller_config_usage:type_name -> CPublishedFile_SetPlaytimeForControllerConfigs_Request.ControllerConfigUsage
-	97,  // 43: CPublishedFile_GetUserVoteSummary_Response.summaries:type_name -> CPublishedFile_GetUserVoteSummary_Response.VoteSummary
-	0,   // 44: CPublishedFile_GetItemChanges_Request.desired_revision:type_name -> EPublishedFileRevision
-	98,  // 45: CPublishedFile_GetItemChanges_Response.workshop_items:type_name -> CPublishedFile_GetItemChanges_Response.WorkshopItemInfo
-	99,  // 46: CPublishedFile_GetContentDescriptors_Response.content_descriptors:type_name -> CPublishedFile_GetContentDescriptors_Response.ContentDescriptor
-	101, // 47: CPublishedFile_UpdateContentDescriptors_Request.descriptors_to_add:type_name -> EContentDescriptorID
-	101, // 48: CPublishedFile_UpdateContentDescriptors_Request.descriptors_to_remove:type_name -> EContentDescriptorID
-	0,   // 49: CPublishedFile_FileSubscribed_Notification.revision:type_name -> EPublishedFileRevision
-	100, // 50: CPublishedFile_FileSubscribed_Notification.revisions:type_name -> CPublishedFile_FileSubscribed_Notification.RevisionData
-	1,   // 51: PublishedFileDetails.ForSaleData.estatus:type_name -> EPublishedFileForSaleStatus
-	0,   // 52: CPublishedFile_GetItemInfo_Request.WorkshopItem.desired_revision:type_name -> EPublishedFileRevision
-	0,   // 53: CPublishedFile_GetItemInfo_Response.WorkshopItemInfo.revision:type_name -> EPublishedFileRevision
-	18,  // 54: CPublishedFile_GetItemInfo_Response.WorkshopItemInfo.author_snapshots:type_name -> PublishedFileAuthorSnapshot
-	94,  // 55: CPublishedFile_GetAppRelationshipsBatched_Response.PublishedFileAppRelationship.app_relationships:type_name -> CPublishedFile_GetAppRelationshipsBatched_Response.AppRelationship
-	18,  // 56: CPublishedFile_GetItemChanges_Response.WorkshopItemInfo.author_snapshots:type_name -> PublishedFileAuthorSnapshot
-	101, // 57: CPublishedFile_GetContentDescriptors_Response.ContentDescriptor.descriptorid:type_name -> EContentDescriptorID
-	0,   // 58: CPublishedFile_FileSubscribed_Notification.RevisionData.revision:type_name -> EPublishedFileRevision
-	4,   // 59: PublishedFile.Vote:input_type -> CPublishedFile_Vote_Request
-	6,   // 60: PublishedFile.Subscribe:input_type -> CPublishedFile_Subscribe_Request
-	8,   // 61: PublishedFile.Unsubscribe:input_type -> CPublishedFile_Unsubscribe_Request
-	10,  // 62: PublishedFile.CanSubscribe:input_type -> CPublishedFile_CanSubscribe_Request
-	12,  // 63: PublishedFile.GetSubSectionData:input_type -> CPublishedFile_GetSubSectionData_Request
-	15,  // 64: PublishedFile.Publish:input_type -> CPublishedFile_Publish_Request
-	17,  // 65: PublishedFile.GetDetails:input_type -> CPublishedFile_GetDetails_Request
-	21,  // 66: PublishedFile.GetItemInfo:input_type -> CPublishedFile_GetItemInfo_Request
-	23,  // 67: PublishedFile.GetUserFiles:input_type -> CPublishedFile_GetUserFiles_Request
-	23,  // 68: PublishedFile.GetUserFileCount:input_type -> CPublishedFile_GetUserFiles_Request
-	25,  // 69: PublishedFile.AreFilesInSubscriptionList:input_type -> CPublishedFile_AreFilesInSubscriptionList_Request
-	27,  // 70: PublishedFile.Update:input_type -> CPublishedFile_Update_Request
-	29,  // 71: PublishedFile.Delete:input_type -> CPublishedFile_Delete_Request
-	31,  // 72: PublishedFile.GetChangeHistoryEntry:input_type -> CPublishedFile_GetChangeHistoryEntry_Request
-	33,  // 73: PublishedFile.GetChangeHistory:input_type -> CPublishedFile_GetChangeHistory_Request
-	35,  // 74: PublishedFile.RefreshVotingQueue:input_type -> CPublishedFile_RefreshVotingQueue_Request
-	37,  // 75: PublishedFile.QueryFiles:input_type -> CPublishedFile_QueryFiles_Request
-	39,  // 76: PublishedFile.AddAppRelationship:input_type -> CPublishedFile_AddAppRelationship_Request
-	41,  // 77: PublishedFile.RemoveAppRelationship:input_type -> CPublishedFile_RemoveAppRelationship_Request
-	43,  // 78: PublishedFile.GetAppRelationships:input_type -> CPublishedFile_GetAppRelationships_Request
-	45,  // 79: PublishedFile.GetAppRelationshipsBatched:input_type -> CPublishedFile_GetAppRelationshipsBatched_Request
-	47,  // 80: PublishedFile.StartPlaytimeTracking:input_type -> CPublishedFile_StartPlaytimeTracking_Request
-	49,  // 81: PublishedFile.StopPlaytimeTracking:input_type -> CPublishedFile_StopPlaytimeTracking_Request
-	51,  // 82: PublishedFile.StopPlaytimeTrackingForAllAppItems:input_type -> CPublishedFile_StopPlaytimeTrackingForAllAppItems_Request
-	53,  // 83: PublishedFile.SetPlaytimeForControllerConfigs:input_type -> CPublishedFile_SetPlaytimeForControllerConfigs_Request
-	55,  // 84: PublishedFile.AddChild:input_type -> CPublishedFile_AddChild_Request
-	57,  // 85: PublishedFile.RemoveChild:input_type -> CPublishedFile_RemoveChild_Request
-	59,  // 86: PublishedFile.SetCollectionChildren:input_type -> CPublishedFile_SetCollectionChildren_Request
-	61,  // 87: PublishedFile.SetSubscriptionListFromCollection:input_type -> CPublishedFile_SetSubscriptionListFromCollection_Request
-	63,  // 88: PublishedFile.GetUserVoteSummary:input_type -> CPublishedFile_GetUserVoteSummary_Request
-	65,  // 89: PublishedFile.GetItemChanges:input_type -> CPublishedFile_GetItemChanges_Request
-	67,  // 90: PublishedFile.GetContentDescriptors:input_type -> CPublishedFile_GetContentDescriptors_Request
-	69,  // 91: PublishedFile.UpdateContentDescriptors:input_type -> CPublishedFile_UpdateContentDescriptors_Request
-	71,  // 92: PublishedFileClient.NotifyFileSubscribed:input_type -> CPublishedFile_FileSubscribed_Notification
-	72,  // 93: PublishedFileClient.NotifyFileUnsubscribed:input_type -> CPublishedFile_FileUnsubscribed_Notification
-	73,  // 94: PublishedFileClient.NotifyFileDeleted:input_type -> CPublishedFile_FileDeleted_Client_Notification
-	5,   // 95: PublishedFile.Vote:output_type -> CPublishedFile_Vote_Response
-	7,   // 96: PublishedFile.Subscribe:output_type -> CPublishedFile_Subscribe_Response
-	9,   // 97: PublishedFile.Unsubscribe:output_type -> CPublishedFile_Unsubscribe_Response
-	11,  // 98: PublishedFile.CanSubscribe:output_type -> CPublishedFile_CanSubscribe_Response
-	14,  // 99: PublishedFile.GetSubSectionData:output_type -> CPublishedFile_GetSubSectionData_Response
-	16,  // 100: PublishedFile.Publish:output_type -> CPublishedFile_Publish_Response
-	20,  // 101: PublishedFile.GetDetails:output_type -> CPublishedFile_GetDetails_Response
-	22,  // 102: PublishedFile.GetItemInfo:output_type -> CPublishedFile_GetItemInfo_Response
-	24,  // 103: PublishedFile.GetUserFiles:output_type -> CPublishedFile_GetUserFiles_Response
-	24,  // 104: PublishedFile.GetUserFileCount:output_type -> CPublishedFile_GetUserFiles_Response
-	26,  // 105: PublishedFile.AreFilesInSubscriptionList:output_type -> CPublishedFile_AreFilesInSubscriptionList_Response
-	28,  // 106: PublishedFile.Update:output_type -> CPublishedFile_Update_Response
-	30,  // 107: PublishedFile.Delete:output_type -> CPublishedFile_Delete_Response
-	32,  // 108: PublishedFile.GetChangeHistoryEntry:output_type -> CPublishedFile_GetChangeHistoryEntry_Response
-	34,  // 109: PublishedFile.GetChangeHistory:output_type -> CPublishedFile_GetChangeHistory_Response
-	36,  // 110: PublishedFile.RefreshVotingQueue:output_type -> CPublishedFile_RefreshVotingQueue_Response
-	38,  // 111: PublishedFile.QueryFiles:output_type -> CPublishedFile_QueryFiles_Response
-	40,  // 112: PublishedFile.AddAppRelationship:output_type -> CPublishedFile_AddAppRelationship_Response
-	42,  // 113: PublishedFile.RemoveAppRelationship:output_type -> CPublishedFile_RemoveAppRelationship_Response
-	44,  // 114: PublishedFile.GetAppRelationships:output_type -> CPublishedFile_GetAppRelationships_Response
-	46,  // 115: PublishedFile.GetAppRelationshipsBatched:output_type -> CPublishedFile_GetAppRelationshipsBatched_Response
-	48,  // 116: PublishedFile.StartPlaytimeTracking:output_type -> CPublishedFile_StartPlaytimeTracking_Response
-	50,  // 117: PublishedFile.StopPlaytimeTracking:output_type -> CPublishedFile_StopPlaytimeTracking_Response
-	52,  // 118: PublishedFile.StopPlaytimeTrackingForAllAppItems:output_type -> CPublishedFile_StopPlaytimeTrackingForAllAppItems_Response
-	54,  // 119: PublishedFile.SetPlaytimeForControllerConfigs:output_type -> CPublishedFile_SetPlaytimeForControllerConfigs_Response
-	56,  // 120: PublishedFile.AddChild:output_type -> CPublishedFile_AddChild_Response
-	58,  // 121: PublishedFile.RemoveChild:output_type -> CPublishedFile_RemoveChild_Response
-	60,  // 122: PublishedFile.SetCollectionChildren:output_type -> CPublishedFile_SetCollectionChildren_Response
-	62,  // 123: PublishedFile.SetSubscriptionListFromCollection:output_type -> CPublishedFile_SetSubscriptionListFromCollection_Response
-	64,  // 124: PublishedFile.GetUserVoteSummary:output_type -> CPublishedFile_GetUserVoteSummary_Response
-	66,  // 125: PublishedFile.GetItemChanges:output_type -> CPublishedFile_GetItemChanges_Response
-	68,  // 126: PublishedFile.GetContentDescriptors:output_type -> CPublishedFile_GetContentDescriptors_Response
-	70,  // 127: PublishedFile.UpdateContentDescriptors:output_type -> CPublishedFile_UpdateContentDescriptors_Response
-	103, // 128: PublishedFileClient.NotifyFileSubscribed:output_type -> NoResponse
-	103, // 129: PublishedFileClient.NotifyFileUnsubscribed:output_type -> NoResponse
-	103, // 130: PublishedFileClient.NotifyFileDeleted:output_type -> NoResponse
-	95,  // [95:131] is the sub-list for method output_type
-	59,  // [59:95] is the sub-list for method input_type
-	59,  // [59:59] is the sub-list for extension type_name
-	59,  // [59:59] is the sub-list for extension extendee
-	0,   // [0:59] is the sub-list for field type_name
+	101, // 25: CPublishedFile_GetUserFiles_Request.excluded_apps_with_content_descriptors:type_name -> EContentDescriptorID
+	0,   // 26: CPublishedFile_GetUserFiles_Request.desired_revision:type_name -> EPublishedFileRevision
+	19,  // 27: CPublishedFile_GetUserFiles_Response.publishedfiledetails:type_name -> PublishedFileDetails
+	87,  // 28: CPublishedFile_GetUserFiles_Response.apps:type_name -> CPublishedFile_GetUserFiles_Response.App
+	88,  // 29: CPublishedFile_AreFilesInSubscriptionList_Response.files:type_name -> CPublishedFile_AreFilesInSubscriptionList_Response.InList
+	89,  // 30: CPublishedFile_GetChangeHistory_Response.changes:type_name -> CPublishedFile_GetChangeHistory_Response.ChangeLog
+	0,   // 31: CPublishedFile_RefreshVotingQueue_Request.desired_revision:type_name -> EPublishedFileRevision
+	90,  // 32: CPublishedFile_QueryFiles_Request.required_kv_tags:type_name -> CPublishedFile_QueryFiles_Request.KVTag
+	91,  // 33: CPublishedFile_QueryFiles_Request.taggroups:type_name -> CPublishedFile_QueryFiles_Request.TagGroup
+	92,  // 34: CPublishedFile_QueryFiles_Request.date_range_created:type_name -> CPublishedFile_QueryFiles_Request.DateRange
+	92,  // 35: CPublishedFile_QueryFiles_Request.date_range_updated:type_name -> CPublishedFile_QueryFiles_Request.DateRange
+	101, // 36: CPublishedFile_QueryFiles_Request.excluded_content_descriptors:type_name -> EContentDescriptorID
+	2,   // 37: CPublishedFile_QueryFiles_Request.special_filter:type_name -> EQueryFilesSpecialFilter
+	3,   // 38: CPublishedFile_QueryFiles_Request.search_text_target:type_name -> EQueryFilesSearchTextTarget
+	0,   // 39: CPublishedFile_QueryFiles_Request.desired_revision:type_name -> EPublishedFileRevision
+	19,  // 40: CPublishedFile_QueryFiles_Response.publishedfiledetails:type_name -> PublishedFileDetails
+	93,  // 41: CPublishedFile_GetAppRelationships_Response.app_relationships:type_name -> CPublishedFile_GetAppRelationships_Response.AppRelationship
+	95,  // 42: CPublishedFile_GetAppRelationshipsBatched_Response.relationships:type_name -> CPublishedFile_GetAppRelationshipsBatched_Response.PublishedFileAppRelationship
+	96,  // 43: CPublishedFile_SetPlaytimeForControllerConfigs_Request.controller_config_usage:type_name -> CPublishedFile_SetPlaytimeForControllerConfigs_Request.ControllerConfigUsage
+	97,  // 44: CPublishedFile_GetUserVoteSummary_Response.summaries:type_name -> CPublishedFile_GetUserVoteSummary_Response.VoteSummary
+	0,   // 45: CPublishedFile_GetItemChanges_Request.desired_revision:type_name -> EPublishedFileRevision
+	98,  // 46: CPublishedFile_GetItemChanges_Response.workshop_items:type_name -> CPublishedFile_GetItemChanges_Response.WorkshopItemInfo
+	99,  // 47: CPublishedFile_GetContentDescriptors_Response.content_descriptors:type_name -> CPublishedFile_GetContentDescriptors_Response.ContentDescriptor
+	101, // 48: CPublishedFile_UpdateContentDescriptors_Request.descriptors_to_add:type_name -> EContentDescriptorID
+	101, // 49: CPublishedFile_UpdateContentDescriptors_Request.descriptors_to_remove:type_name -> EContentDescriptorID
+	0,   // 50: CPublishedFile_FileSubscribed_Notification.revision:type_name -> EPublishedFileRevision
+	100, // 51: CPublishedFile_FileSubscribed_Notification.revisions:type_name -> CPublishedFile_FileSubscribed_Notification.RevisionData
+	1,   // 52: PublishedFileDetails.ForSaleData.estatus:type_name -> EPublishedFileForSaleStatus
+	0,   // 53: CPublishedFile_GetItemInfo_Request.WorkshopItem.desired_revision:type_name -> EPublishedFileRevision
+	0,   // 54: CPublishedFile_GetItemInfo_Response.WorkshopItemInfo.revision:type_name -> EPublishedFileRevision
+	18,  // 55: CPublishedFile_GetItemInfo_Response.WorkshopItemInfo.author_snapshots:type_name -> PublishedFileAuthorSnapshot
+	94,  // 56: CPublishedFile_GetAppRelationshipsBatched_Response.PublishedFileAppRelationship.app_relationships:type_name -> CPublishedFile_GetAppRelationshipsBatched_Response.AppRelationship
+	18,  // 57: CPublishedFile_GetItemChanges_Response.WorkshopItemInfo.author_snapshots:type_name -> PublishedFileAuthorSnapshot
+	101, // 58: CPublishedFile_GetContentDescriptors_Response.ContentDescriptor.descriptorid:type_name -> EContentDescriptorID
+	0,   // 59: CPublishedFile_FileSubscribed_Notification.RevisionData.revision:type_name -> EPublishedFileRevision
+	4,   // 60: PublishedFile.Vote:input_type -> CPublishedFile_Vote_Request
+	6,   // 61: PublishedFile.Subscribe:input_type -> CPublishedFile_Subscribe_Request
+	8,   // 62: PublishedFile.Unsubscribe:input_type -> CPublishedFile_Unsubscribe_Request
+	10,  // 63: PublishedFile.CanSubscribe:input_type -> CPublishedFile_CanSubscribe_Request
+	12,  // 64: PublishedFile.GetSubSectionData:input_type -> CPublishedFile_GetSubSectionData_Request
+	15,  // 65: PublishedFile.Publish:input_type -> CPublishedFile_Publish_Request
+	17,  // 66: PublishedFile.GetDetails:input_type -> CPublishedFile_GetDetails_Request
+	21,  // 67: PublishedFile.GetItemInfo:input_type -> CPublishedFile_GetItemInfo_Request
+	23,  // 68: PublishedFile.GetUserFiles:input_type -> CPublishedFile_GetUserFiles_Request
+	23,  // 69: PublishedFile.GetUserFileCount:input_type -> CPublishedFile_GetUserFiles_Request
+	25,  // 70: PublishedFile.AreFilesInSubscriptionList:input_type -> CPublishedFile_AreFilesInSubscriptionList_Request
+	27,  // 71: PublishedFile.Update:input_type -> CPublishedFile_Update_Request
+	29,  // 72: PublishedFile.Delete:input_type -> CPublishedFile_Delete_Request
+	31,  // 73: PublishedFile.GetChangeHistoryEntry:input_type -> CPublishedFile_GetChangeHistoryEntry_Request
+	33,  // 74: PublishedFile.GetChangeHistory:input_type -> CPublishedFile_GetChangeHistory_Request
+	35,  // 75: PublishedFile.RefreshVotingQueue:input_type -> CPublishedFile_RefreshVotingQueue_Request
+	37,  // 76: PublishedFile.QueryFiles:input_type -> CPublishedFile_QueryFiles_Request
+	39,  // 77: PublishedFile.AddAppRelationship:input_type -> CPublishedFile_AddAppRelationship_Request
+	41,  // 78: PublishedFile.RemoveAppRelationship:input_type -> CPublishedFile_RemoveAppRelationship_Request
+	43,  // 79: PublishedFile.GetAppRelationships:input_type -> CPublishedFile_GetAppRelationships_Request
+	45,  // 80: PublishedFile.GetAppRelationshipsBatched:input_type -> CPublishedFile_GetAppRelationshipsBatched_Request
+	47,  // 81: PublishedFile.StartPlaytimeTracking:input_type -> CPublishedFile_StartPlaytimeTracking_Request
+	49,  // 82: PublishedFile.StopPlaytimeTracking:input_type -> CPublishedFile_StopPlaytimeTracking_Request
+	51,  // 83: PublishedFile.StopPlaytimeTrackingForAllAppItems:input_type -> CPublishedFile_StopPlaytimeTrackingForAllAppItems_Request
+	53,  // 84: PublishedFile.SetPlaytimeForControllerConfigs:input_type -> CPublishedFile_SetPlaytimeForControllerConfigs_Request
+	55,  // 85: PublishedFile.AddChild:input_type -> CPublishedFile_AddChild_Request
+	57,  // 86: PublishedFile.RemoveChild:input_type -> CPublishedFile_RemoveChild_Request
+	59,  // 87: PublishedFile.SetCollectionChildren:input_type -> CPublishedFile_SetCollectionChildren_Request
+	61,  // 88: PublishedFile.SetSubscriptionListFromCollection:input_type -> CPublishedFile_SetSubscriptionListFromCollection_Request
+	63,  // 89: PublishedFile.GetUserVoteSummary:input_type -> CPublishedFile_GetUserVoteSummary_Request
+	65,  // 90: PublishedFile.GetItemChanges:input_type -> CPublishedFile_GetItemChanges_Request
+	67,  // 91: PublishedFile.GetContentDescriptors:input_type -> CPublishedFile_GetContentDescriptors_Request
+	69,  // 92: PublishedFile.UpdateContentDescriptors:input_type -> CPublishedFile_UpdateContentDescriptors_Request
+	71,  // 93: PublishedFileClient.NotifyFileSubscribed:input_type -> CPublishedFile_FileSubscribed_Notification
+	72,  // 94: PublishedFileClient.NotifyFileUnsubscribed:input_type -> CPublishedFile_FileUnsubscribed_Notification
+	73,  // 95: PublishedFileClient.NotifyFileDeleted:input_type -> CPublishedFile_FileDeleted_Client_Notification
+	5,   // 96: PublishedFile.Vote:output_type -> CPublishedFile_Vote_Response
+	7,   // 97: PublishedFile.Subscribe:output_type -> CPublishedFile_Subscribe_Response
+	9,   // 98: PublishedFile.Unsubscribe:output_type -> CPublishedFile_Unsubscribe_Response
+	11,  // 99: PublishedFile.CanSubscribe:output_type -> CPublishedFile_CanSubscribe_Response
+	14,  // 100: PublishedFile.GetSubSectionData:output_type -> CPublishedFile_GetSubSectionData_Response
+	16,  // 101: PublishedFile.Publish:output_type -> CPublishedFile_Publish_Response
+	20,  // 102: PublishedFile.GetDetails:output_type -> CPublishedFile_GetDetails_Response
+	22,  // 103: PublishedFile.GetItemInfo:output_type -> CPublishedFile_GetItemInfo_Response
+	24,  // 104: PublishedFile.GetUserFiles:output_type -> CPublishedFile_GetUserFiles_Response
+	24,  // 105: PublishedFile.GetUserFileCount:output_type -> CPublishedFile_GetUserFiles_Response
+	26,  // 106: PublishedFile.AreFilesInSubscriptionList:output_type -> CPublishedFile_AreFilesInSubscriptionList_Response
+	28,  // 107: PublishedFile.Update:output_type -> CPublishedFile_Update_Response
+	30,  // 108: PublishedFile.Delete:output_type -> CPublishedFile_Delete_Response
+	32,  // 109: PublishedFile.GetChangeHistoryEntry:output_type -> CPublishedFile_GetChangeHistoryEntry_Response
+	34,  // 110: PublishedFile.GetChangeHistory:output_type -> CPublishedFile_GetChangeHistory_Response
+	36,  // 111: PublishedFile.RefreshVotingQueue:output_type -> CPublishedFile_RefreshVotingQueue_Response
+	38,  // 112: PublishedFile.QueryFiles:output_type -> CPublishedFile_QueryFiles_Response
+	40,  // 113: PublishedFile.AddAppRelationship:output_type -> CPublishedFile_AddAppRelationship_Response
+	42,  // 114: PublishedFile.RemoveAppRelationship:output_type -> CPublishedFile_RemoveAppRelationship_Response
+	44,  // 115: PublishedFile.GetAppRelationships:output_type -> CPublishedFile_GetAppRelationships_Response
+	46,  // 116: PublishedFile.GetAppRelationshipsBatched:output_type -> CPublishedFile_GetAppRelationshipsBatched_Response
+	48,  // 117: PublishedFile.StartPlaytimeTracking:output_type -> CPublishedFile_StartPlaytimeTracking_Response
+	50,  // 118: PublishedFile.StopPlaytimeTracking:output_type -> CPublishedFile_StopPlaytimeTracking_Response
+	52,  // 119: PublishedFile.StopPlaytimeTrackingForAllAppItems:output_type -> CPublishedFile_StopPlaytimeTrackingForAllAppItems_Response
+	54,  // 120: PublishedFile.SetPlaytimeForControllerConfigs:output_type -> CPublishedFile_SetPlaytimeForControllerConfigs_Response
+	56,  // 121: PublishedFile.AddChild:output_type -> CPublishedFile_AddChild_Response
+	58,  // 122: PublishedFile.RemoveChild:output_type -> CPublishedFile_RemoveChild_Response
+	60,  // 123: PublishedFile.SetCollectionChildren:output_type -> CPublishedFile_SetCollectionChildren_Response
+	62,  // 124: PublishedFile.SetSubscriptionListFromCollection:output_type -> CPublishedFile_SetSubscriptionListFromCollection_Response
+	64,  // 125: PublishedFile.GetUserVoteSummary:output_type -> CPublishedFile_GetUserVoteSummary_Response
+	66,  // 126: PublishedFile.GetItemChanges:output_type -> CPublishedFile_GetItemChanges_Response
+	68,  // 127: PublishedFile.GetContentDescriptors:output_type -> CPublishedFile_GetContentDescriptors_Response
+	70,  // 128: PublishedFile.UpdateContentDescriptors:output_type -> CPublishedFile_UpdateContentDescriptors_Response
+	103, // 129: PublishedFileClient.NotifyFileSubscribed:output_type -> NoResponse
+	103, // 130: PublishedFileClient.NotifyFileUnsubscribed:output_type -> NoResponse
+	103, // 131: PublishedFileClient.NotifyFileDeleted:output_type -> NoResponse
+	96,  // [96:132] is the sub-list for method output_type
+	60,  // [60:96] is the sub-list for method input_type
+	60,  // [60:60] is the sub-list for extension type_name
+	60,  // [60:60] is the sub-list for extension extendee
+	0,   // [0:60] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_publishedfile_steamclient_proto_init() }

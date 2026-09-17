@@ -3181,6 +3181,94 @@ func (x *CPlayer_GetUserAchievements_Response) GetGroups() []*CPlayer_GetUserAch
 	return nil
 }
 
+type CPlayer_GetGlobalAchievementPercentages_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Request) Reset() {
+	*x = CPlayer_GetGlobalAchievementPercentages_Request{}
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CPlayer_GetGlobalAchievementPercentages_Request) ProtoMessage() {}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CPlayer_GetGlobalAchievementPercentages_Request.ProtoReflect.Descriptor instead.
+func (*CPlayer_GetGlobalAchievementPercentages_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Request) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
+	}
+	return 0
+}
+
+type CPlayer_GetGlobalAchievementPercentages_Response struct {
+	state         protoimpl.MessageState                                          `protogen:"open.v1"`
+	Achievements  []*CPlayer_GetGlobalAchievementPercentages_Response_Achievement `protobuf:"bytes,1,rep,name=achievements" json:"achievements,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Response) Reset() {
+	*x = CPlayer_GetGlobalAchievementPercentages_Response{}
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CPlayer_GetGlobalAchievementPercentages_Response) ProtoMessage() {}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CPlayer_GetGlobalAchievementPercentages_Response.ProtoReflect.Descriptor instead.
+func (*CPlayer_GetGlobalAchievementPercentages_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Response) GetAchievements() []*CPlayer_GetGlobalAchievementPercentages_Response_Achievement {
+	if x != nil {
+		return x.Achievements
+	}
+	return nil
+}
+
 type CPlayer_GetUserStats_Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Steamid       *uint64                `protobuf:"varint,1,opt,name=steamid" json:"steamid,omitempty"`
@@ -3194,7 +3282,7 @@ type CPlayer_GetUserStats_Request struct {
 
 func (x *CPlayer_GetUserStats_Request) Reset() {
 	*x = CPlayer_GetUserStats_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[54]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3206,7 +3294,7 @@ func (x *CPlayer_GetUserStats_Request) String() string {
 func (*CPlayer_GetUserStats_Request) ProtoMessage() {}
 
 func (x *CPlayer_GetUserStats_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[54]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3219,7 +3307,7 @@ func (x *CPlayer_GetUserStats_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_GetUserStats_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetUserStats_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{54}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *CPlayer_GetUserStats_Request) GetSteamid() uint64 {
@@ -3270,7 +3358,7 @@ type CPlayer_GetUserStats_Response struct {
 
 func (x *CPlayer_GetUserStats_Response) Reset() {
 	*x = CPlayer_GetUserStats_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[55]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3282,7 +3370,7 @@ func (x *CPlayer_GetUserStats_Response) String() string {
 func (*CPlayer_GetUserStats_Response) ProtoMessage() {}
 
 func (x *CPlayer_GetUserStats_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[55]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3295,7 +3383,7 @@ func (x *CPlayer_GetUserStats_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_GetUserStats_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetUserStats_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{55}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *CPlayer_GetUserStats_Response) GetShaSchema() []byte {
@@ -3342,7 +3430,7 @@ type CPlayer_GetFavoriteBadge_Request struct {
 
 func (x *CPlayer_GetFavoriteBadge_Request) Reset() {
 	*x = CPlayer_GetFavoriteBadge_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[56]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3354,7 +3442,7 @@ func (x *CPlayer_GetFavoriteBadge_Request) String() string {
 func (*CPlayer_GetFavoriteBadge_Request) ProtoMessage() {}
 
 func (x *CPlayer_GetFavoriteBadge_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[56]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3367,7 +3455,7 @@ func (x *CPlayer_GetFavoriteBadge_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_GetFavoriteBadge_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetFavoriteBadge_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{56}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *CPlayer_GetFavoriteBadge_Request) GetSteamid() uint64 {
@@ -3392,7 +3480,7 @@ type CPlayer_GetFavoriteBadge_Response struct {
 
 func (x *CPlayer_GetFavoriteBadge_Response) Reset() {
 	*x = CPlayer_GetFavoriteBadge_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[57]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3404,7 +3492,7 @@ func (x *CPlayer_GetFavoriteBadge_Response) String() string {
 func (*CPlayer_GetFavoriteBadge_Response) ProtoMessage() {}
 
 func (x *CPlayer_GetFavoriteBadge_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[57]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3417,7 +3505,7 @@ func (x *CPlayer_GetFavoriteBadge_Response) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CPlayer_GetFavoriteBadge_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetFavoriteBadge_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{57}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *CPlayer_GetFavoriteBadge_Response) GetHasFavoriteBadge() bool {
@@ -3479,7 +3567,7 @@ type CPlayer_SetFavoriteBadge_Request struct {
 
 func (x *CPlayer_SetFavoriteBadge_Request) Reset() {
 	*x = CPlayer_SetFavoriteBadge_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[58]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3491,7 +3579,7 @@ func (x *CPlayer_SetFavoriteBadge_Request) String() string {
 func (*CPlayer_SetFavoriteBadge_Request) ProtoMessage() {}
 
 func (x *CPlayer_SetFavoriteBadge_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[58]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3504,7 +3592,7 @@ func (x *CPlayer_SetFavoriteBadge_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_SetFavoriteBadge_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_SetFavoriteBadge_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{58}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *CPlayer_SetFavoriteBadge_Request) GetCommunityitemid() uint64 {
@@ -3529,7 +3617,7 @@ type CPlayer_SetFavoriteBadge_Response struct {
 
 func (x *CPlayer_SetFavoriteBadge_Response) Reset() {
 	*x = CPlayer_SetFavoriteBadge_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[59]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3541,7 +3629,7 @@ func (x *CPlayer_SetFavoriteBadge_Response) String() string {
 func (*CPlayer_SetFavoriteBadge_Response) ProtoMessage() {}
 
 func (x *CPlayer_SetFavoriteBadge_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[59]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3554,7 +3642,7 @@ func (x *CPlayer_SetFavoriteBadge_Response) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CPlayer_SetFavoriteBadge_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_SetFavoriteBadge_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{59}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{61}
 }
 
 type CPlayer_GetProfileCustomization_Request struct {
@@ -3568,7 +3656,7 @@ type CPlayer_GetProfileCustomization_Request struct {
 
 func (x *CPlayer_GetProfileCustomization_Request) Reset() {
 	*x = CPlayer_GetProfileCustomization_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[60]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3580,7 +3668,7 @@ func (x *CPlayer_GetProfileCustomization_Request) String() string {
 func (*CPlayer_GetProfileCustomization_Request) ProtoMessage() {}
 
 func (x *CPlayer_GetProfileCustomization_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[60]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3593,7 +3681,7 @@ func (x *CPlayer_GetProfileCustomization_Request) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CPlayer_GetProfileCustomization_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetProfileCustomization_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{60}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *CPlayer_GetProfileCustomization_Request) GetSteamid() uint64 {
@@ -3644,7 +3732,7 @@ const (
 
 func (x *ProfileCustomizationSlot) Reset() {
 	*x = ProfileCustomizationSlot{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[61]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3656,7 +3744,7 @@ func (x *ProfileCustomizationSlot) String() string {
 func (*ProfileCustomizationSlot) ProtoMessage() {}
 
 func (x *ProfileCustomizationSlot) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[61]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3669,7 +3757,7 @@ func (x *ProfileCustomizationSlot) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProfileCustomizationSlot.ProtoReflect.Descriptor instead.
 func (*ProfileCustomizationSlot) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{61}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *ProfileCustomizationSlot) GetSlot() uint32 {
@@ -3791,7 +3879,7 @@ const (
 
 func (x *ProfileCustomization) Reset() {
 	*x = ProfileCustomization{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[62]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3803,7 +3891,7 @@ func (x *ProfileCustomization) String() string {
 func (*ProfileCustomization) ProtoMessage() {}
 
 func (x *ProfileCustomization) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[62]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3816,7 +3904,7 @@ func (x *ProfileCustomization) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProfileCustomization.ProtoReflect.Descriptor instead.
 func (*ProfileCustomization) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{62}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *ProfileCustomization) GetCustomizationType() EProfileCustomizationType {
@@ -3878,7 +3966,7 @@ type ProfileTheme struct {
 
 func (x *ProfileTheme) Reset() {
 	*x = ProfileTheme{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[63]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3890,7 +3978,7 @@ func (x *ProfileTheme) String() string {
 func (*ProfileTheme) ProtoMessage() {}
 
 func (x *ProfileTheme) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[63]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3903,7 +3991,7 @@ func (x *ProfileTheme) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProfileTheme.ProtoReflect.Descriptor instead.
 func (*ProfileTheme) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{63}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *ProfileTheme) GetThemeId() string {
@@ -3929,7 +4017,7 @@ type ProfilePreferences struct {
 
 func (x *ProfilePreferences) Reset() {
 	*x = ProfilePreferences{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[64]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3941,7 +4029,7 @@ func (x *ProfilePreferences) String() string {
 func (*ProfilePreferences) ProtoMessage() {}
 
 func (x *ProfilePreferences) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[64]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3954,7 +4042,7 @@ func (x *ProfilePreferences) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ProfilePreferences.ProtoReflect.Descriptor instead.
 func (*ProfilePreferences) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{64}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *ProfilePreferences) GetHideProfileAwards() bool {
@@ -3977,7 +4065,7 @@ type CPlayer_GetProfileCustomization_Response struct {
 
 func (x *CPlayer_GetProfileCustomization_Response) Reset() {
 	*x = CPlayer_GetProfileCustomization_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[65]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3989,7 +4077,7 @@ func (x *CPlayer_GetProfileCustomization_Response) String() string {
 func (*CPlayer_GetProfileCustomization_Response) ProtoMessage() {}
 
 func (x *CPlayer_GetProfileCustomization_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[65]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4002,7 +4090,7 @@ func (x *CPlayer_GetProfileCustomization_Response) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CPlayer_GetProfileCustomization_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetProfileCustomization_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{65}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *CPlayer_GetProfileCustomization_Response) GetCustomizations() []*ProfileCustomization {
@@ -4049,7 +4137,7 @@ type CPlayer_GetPurchasedProfileCustomizations_Request struct {
 
 func (x *CPlayer_GetPurchasedProfileCustomizations_Request) Reset() {
 	*x = CPlayer_GetPurchasedProfileCustomizations_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[66]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4061,7 +4149,7 @@ func (x *CPlayer_GetPurchasedProfileCustomizations_Request) String() string {
 func (*CPlayer_GetPurchasedProfileCustomizations_Request) ProtoMessage() {}
 
 func (x *CPlayer_GetPurchasedProfileCustomizations_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[66]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4074,7 +4162,7 @@ func (x *CPlayer_GetPurchasedProfileCustomizations_Request) ProtoReflect() proto
 
 // Deprecated: Use CPlayer_GetPurchasedProfileCustomizations_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetPurchasedProfileCustomizations_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{66}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *CPlayer_GetPurchasedProfileCustomizations_Request) GetSteamid() uint64 {
@@ -4093,7 +4181,7 @@ type CPlayer_GetPurchasedProfileCustomizations_Response struct {
 
 func (x *CPlayer_GetPurchasedProfileCustomizations_Response) Reset() {
 	*x = CPlayer_GetPurchasedProfileCustomizations_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[67]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4105,7 +4193,7 @@ func (x *CPlayer_GetPurchasedProfileCustomizations_Response) String() string {
 func (*CPlayer_GetPurchasedProfileCustomizations_Response) ProtoMessage() {}
 
 func (x *CPlayer_GetPurchasedProfileCustomizations_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[67]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4118,7 +4206,7 @@ func (x *CPlayer_GetPurchasedProfileCustomizations_Response) ProtoReflect() prot
 
 // Deprecated: Use CPlayer_GetPurchasedProfileCustomizations_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetPurchasedProfileCustomizations_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{67}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *CPlayer_GetPurchasedProfileCustomizations_Response) GetPurchasedCustomizations() []*CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization {
@@ -4137,7 +4225,7 @@ type CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request struct {
 
 func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request) Reset() {
 	*x = CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[68]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4149,7 +4237,7 @@ func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request) String() 
 func (*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request) ProtoMessage() {}
 
 func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[68]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4162,7 +4250,7 @@ func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request) ProtoRefl
 
 // Deprecated: Use CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{68}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request) GetSteamid() uint64 {
@@ -4182,7 +4270,7 @@ type CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response struct {
 
 func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response) Reset() {
 	*x = CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[69]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4194,7 +4282,7 @@ func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response) String()
 func (*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response) ProtoMessage() {}
 
 func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[69]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4207,7 +4295,7 @@ func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response) ProtoRef
 
 // Deprecated: Use CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{69}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response) GetPurchasedCustomizations() []*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization {
@@ -4232,7 +4320,7 @@ type CPlayer_GetProfileThemesAvailable_Request struct {
 
 func (x *CPlayer_GetProfileThemesAvailable_Request) Reset() {
 	*x = CPlayer_GetProfileThemesAvailable_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[70]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4244,7 +4332,7 @@ func (x *CPlayer_GetProfileThemesAvailable_Request) String() string {
 func (*CPlayer_GetProfileThemesAvailable_Request) ProtoMessage() {}
 
 func (x *CPlayer_GetProfileThemesAvailable_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[70]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4257,7 +4345,7 @@ func (x *CPlayer_GetProfileThemesAvailable_Request) ProtoReflect() protoreflect.
 
 // Deprecated: Use CPlayer_GetProfileThemesAvailable_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetProfileThemesAvailable_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{70}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{72}
 }
 
 type CPlayer_GetProfileThemesAvailable_Response struct {
@@ -4269,7 +4357,7 @@ type CPlayer_GetProfileThemesAvailable_Response struct {
 
 func (x *CPlayer_GetProfileThemesAvailable_Response) Reset() {
 	*x = CPlayer_GetProfileThemesAvailable_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[71]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4281,7 +4369,7 @@ func (x *CPlayer_GetProfileThemesAvailable_Response) String() string {
 func (*CPlayer_GetProfileThemesAvailable_Response) ProtoMessage() {}
 
 func (x *CPlayer_GetProfileThemesAvailable_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[71]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4294,7 +4382,7 @@ func (x *CPlayer_GetProfileThemesAvailable_Response) ProtoReflect() protoreflect
 
 // Deprecated: Use CPlayer_GetProfileThemesAvailable_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetProfileThemesAvailable_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{71}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *CPlayer_GetProfileThemesAvailable_Response) GetProfileThemes() []*ProfileTheme {
@@ -4313,7 +4401,7 @@ type CPlayer_SetProfileTheme_Request struct {
 
 func (x *CPlayer_SetProfileTheme_Request) Reset() {
 	*x = CPlayer_SetProfileTheme_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[72]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4325,7 +4413,7 @@ func (x *CPlayer_SetProfileTheme_Request) String() string {
 func (*CPlayer_SetProfileTheme_Request) ProtoMessage() {}
 
 func (x *CPlayer_SetProfileTheme_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[72]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4338,7 +4426,7 @@ func (x *CPlayer_SetProfileTheme_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_SetProfileTheme_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_SetProfileTheme_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{72}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *CPlayer_SetProfileTheme_Request) GetThemeId() string {
@@ -4356,7 +4444,7 @@ type CPlayer_SetProfileTheme_Response struct {
 
 func (x *CPlayer_SetProfileTheme_Response) Reset() {
 	*x = CPlayer_SetProfileTheme_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[73]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4368,7 +4456,7 @@ func (x *CPlayer_SetProfileTheme_Response) String() string {
 func (*CPlayer_SetProfileTheme_Response) ProtoMessage() {}
 
 func (x *CPlayer_SetProfileTheme_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[73]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4381,7 +4469,7 @@ func (x *CPlayer_SetProfileTheme_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_SetProfileTheme_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_SetProfileTheme_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{73}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{75}
 }
 
 type CPlayer_SetProfilePreferences_Request struct {
@@ -4393,7 +4481,7 @@ type CPlayer_SetProfilePreferences_Request struct {
 
 func (x *CPlayer_SetProfilePreferences_Request) Reset() {
 	*x = CPlayer_SetProfilePreferences_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[74]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4405,7 +4493,7 @@ func (x *CPlayer_SetProfilePreferences_Request) String() string {
 func (*CPlayer_SetProfilePreferences_Request) ProtoMessage() {}
 
 func (x *CPlayer_SetProfilePreferences_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[74]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4418,7 +4506,7 @@ func (x *CPlayer_SetProfilePreferences_Request) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CPlayer_SetProfilePreferences_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_SetProfilePreferences_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{74}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *CPlayer_SetProfilePreferences_Request) GetProfilePreferences() *ProfilePreferences {
@@ -4436,7 +4524,7 @@ type CPlayer_SetProfilePreferences_Response struct {
 
 func (x *CPlayer_SetProfilePreferences_Response) Reset() {
 	*x = CPlayer_SetProfilePreferences_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[75]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4448,7 +4536,7 @@ func (x *CPlayer_SetProfilePreferences_Response) String() string {
 func (*CPlayer_SetProfilePreferences_Response) ProtoMessage() {}
 
 func (x *CPlayer_SetProfilePreferences_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[75]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4461,7 +4549,7 @@ func (x *CPlayer_SetProfilePreferences_Response) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CPlayer_SetProfilePreferences_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_SetProfilePreferences_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{75}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{77}
 }
 
 type CPlayer_PostStatusToFriends_Request struct {
@@ -4474,7 +4562,7 @@ type CPlayer_PostStatusToFriends_Request struct {
 
 func (x *CPlayer_PostStatusToFriends_Request) Reset() {
 	*x = CPlayer_PostStatusToFriends_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[76]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4486,7 +4574,7 @@ func (x *CPlayer_PostStatusToFriends_Request) String() string {
 func (*CPlayer_PostStatusToFriends_Request) ProtoMessage() {}
 
 func (x *CPlayer_PostStatusToFriends_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[76]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4499,7 +4587,7 @@ func (x *CPlayer_PostStatusToFriends_Request) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CPlayer_PostStatusToFriends_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_PostStatusToFriends_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{76}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *CPlayer_PostStatusToFriends_Request) GetAppid() uint32 {
@@ -4524,7 +4612,7 @@ type CPlayer_PostStatusToFriends_Response struct {
 
 func (x *CPlayer_PostStatusToFriends_Response) Reset() {
 	*x = CPlayer_PostStatusToFriends_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[77]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4536,7 +4624,7 @@ func (x *CPlayer_PostStatusToFriends_Response) String() string {
 func (*CPlayer_PostStatusToFriends_Response) ProtoMessage() {}
 
 func (x *CPlayer_PostStatusToFriends_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[77]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4549,7 +4637,7 @@ func (x *CPlayer_PostStatusToFriends_Response) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CPlayer_PostStatusToFriends_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_PostStatusToFriends_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{77}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{79}
 }
 
 type CPlayer_GetPostedStatus_Request struct {
@@ -4562,7 +4650,7 @@ type CPlayer_GetPostedStatus_Request struct {
 
 func (x *CPlayer_GetPostedStatus_Request) Reset() {
 	*x = CPlayer_GetPostedStatus_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[78]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4574,7 +4662,7 @@ func (x *CPlayer_GetPostedStatus_Request) String() string {
 func (*CPlayer_GetPostedStatus_Request) ProtoMessage() {}
 
 func (x *CPlayer_GetPostedStatus_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[78]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4587,7 +4675,7 @@ func (x *CPlayer_GetPostedStatus_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_GetPostedStatus_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetPostedStatus_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{78}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *CPlayer_GetPostedStatus_Request) GetSteamid() uint64 {
@@ -4617,7 +4705,7 @@ type CPlayer_GetPostedStatus_Response struct {
 
 func (x *CPlayer_GetPostedStatus_Response) Reset() {
 	*x = CPlayer_GetPostedStatus_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[79]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4629,7 +4717,7 @@ func (x *CPlayer_GetPostedStatus_Response) String() string {
 func (*CPlayer_GetPostedStatus_Response) ProtoMessage() {}
 
 func (x *CPlayer_GetPostedStatus_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[79]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4642,7 +4730,7 @@ func (x *CPlayer_GetPostedStatus_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_GetPostedStatus_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetPostedStatus_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{79}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *CPlayer_GetPostedStatus_Response) GetAccountid() uint32 {
@@ -4689,7 +4777,7 @@ type CPlayer_DeletePostedStatus_Request struct {
 
 func (x *CPlayer_DeletePostedStatus_Request) Reset() {
 	*x = CPlayer_DeletePostedStatus_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[80]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4701,7 +4789,7 @@ func (x *CPlayer_DeletePostedStatus_Request) String() string {
 func (*CPlayer_DeletePostedStatus_Request) ProtoMessage() {}
 
 func (x *CPlayer_DeletePostedStatus_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[80]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4714,7 +4802,7 @@ func (x *CPlayer_DeletePostedStatus_Request) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CPlayer_DeletePostedStatus_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_DeletePostedStatus_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{80}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *CPlayer_DeletePostedStatus_Request) GetPostid() uint64 {
@@ -4732,7 +4820,7 @@ type CPlayer_DeletePostedStatus_Response struct {
 
 func (x *CPlayer_DeletePostedStatus_Response) Reset() {
 	*x = CPlayer_DeletePostedStatus_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[81]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4744,7 +4832,7 @@ func (x *CPlayer_DeletePostedStatus_Response) String() string {
 func (*CPlayer_DeletePostedStatus_Response) ProtoMessage() {}
 
 func (x *CPlayer_DeletePostedStatus_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[81]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4757,7 +4845,7 @@ func (x *CPlayer_DeletePostedStatus_Response) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CPlayer_DeletePostedStatus_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_DeletePostedStatus_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{81}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{83}
 }
 
 type CPlayer_GetLastPlayedTimes_Request struct {
@@ -4769,7 +4857,7 @@ type CPlayer_GetLastPlayedTimes_Request struct {
 
 func (x *CPlayer_GetLastPlayedTimes_Request) Reset() {
 	*x = CPlayer_GetLastPlayedTimes_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[82]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4781,7 +4869,7 @@ func (x *CPlayer_GetLastPlayedTimes_Request) String() string {
 func (*CPlayer_GetLastPlayedTimes_Request) ProtoMessage() {}
 
 func (x *CPlayer_GetLastPlayedTimes_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[82]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4794,7 +4882,7 @@ func (x *CPlayer_GetLastPlayedTimes_Request) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CPlayer_GetLastPlayedTimes_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetLastPlayedTimes_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{82}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *CPlayer_GetLastPlayedTimes_Request) GetMinLastPlayed() uint32 {
@@ -4813,7 +4901,7 @@ type CPlayer_GetLastPlayedTimes_Response struct {
 
 func (x *CPlayer_GetLastPlayedTimes_Response) Reset() {
 	*x = CPlayer_GetLastPlayedTimes_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[83]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4825,7 +4913,7 @@ func (x *CPlayer_GetLastPlayedTimes_Response) String() string {
 func (*CPlayer_GetLastPlayedTimes_Response) ProtoMessage() {}
 
 func (x *CPlayer_GetLastPlayedTimes_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[83]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4838,7 +4926,7 @@ func (x *CPlayer_GetLastPlayedTimes_Response) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CPlayer_GetLastPlayedTimes_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetLastPlayedTimes_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{83}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *CPlayer_GetLastPlayedTimes_Response) GetGames() []*CPlayer_GetLastPlayedTimes_Response_Game {
@@ -4856,7 +4944,7 @@ type CPlayer_GetTimeSSAAccepted_Request struct {
 
 func (x *CPlayer_GetTimeSSAAccepted_Request) Reset() {
 	*x = CPlayer_GetTimeSSAAccepted_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[84]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4868,7 +4956,7 @@ func (x *CPlayer_GetTimeSSAAccepted_Request) String() string {
 func (*CPlayer_GetTimeSSAAccepted_Request) ProtoMessage() {}
 
 func (x *CPlayer_GetTimeSSAAccepted_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[84]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4881,7 +4969,7 @@ func (x *CPlayer_GetTimeSSAAccepted_Request) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CPlayer_GetTimeSSAAccepted_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetTimeSSAAccepted_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{84}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{86}
 }
 
 type CPlayer_GetTimeSSAAccepted_Response struct {
@@ -4895,7 +4983,7 @@ type CPlayer_GetTimeSSAAccepted_Response struct {
 
 func (x *CPlayer_GetTimeSSAAccepted_Response) Reset() {
 	*x = CPlayer_GetTimeSSAAccepted_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[85]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4907,7 +4995,7 @@ func (x *CPlayer_GetTimeSSAAccepted_Response) String() string {
 func (*CPlayer_GetTimeSSAAccepted_Response) ProtoMessage() {}
 
 func (x *CPlayer_GetTimeSSAAccepted_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[85]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4920,7 +5008,7 @@ func (x *CPlayer_GetTimeSSAAccepted_Response) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CPlayer_GetTimeSSAAccepted_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetTimeSSAAccepted_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{85}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *CPlayer_GetTimeSSAAccepted_Response) GetTimeSsaAccepted() uint32 {
@@ -4959,7 +5047,7 @@ const (
 
 func (x *CPlayer_AcceptSSA_Request) Reset() {
 	*x = CPlayer_AcceptSSA_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[86]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4971,7 +5059,7 @@ func (x *CPlayer_AcceptSSA_Request) String() string {
 func (*CPlayer_AcceptSSA_Request) ProtoMessage() {}
 
 func (x *CPlayer_AcceptSSA_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[86]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4984,7 +5072,7 @@ func (x *CPlayer_AcceptSSA_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_AcceptSSA_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_AcceptSSA_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{86}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *CPlayer_AcceptSSA_Request) GetAgreementType() EAgreementType {
@@ -5009,7 +5097,7 @@ type CPlayer_AcceptSSA_Response struct {
 
 func (x *CPlayer_AcceptSSA_Response) Reset() {
 	*x = CPlayer_AcceptSSA_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[87]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5021,7 +5109,7 @@ func (x *CPlayer_AcceptSSA_Response) String() string {
 func (*CPlayer_AcceptSSA_Response) ProtoMessage() {}
 
 func (x *CPlayer_AcceptSSA_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[87]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5034,7 +5122,7 @@ func (x *CPlayer_AcceptSSA_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_AcceptSSA_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_AcceptSSA_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{87}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{89}
 }
 
 type CPlayer_GetNicknameList_Request struct {
@@ -5045,7 +5133,7 @@ type CPlayer_GetNicknameList_Request struct {
 
 func (x *CPlayer_GetNicknameList_Request) Reset() {
 	*x = CPlayer_GetNicknameList_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[88]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5057,7 +5145,7 @@ func (x *CPlayer_GetNicknameList_Request) String() string {
 func (*CPlayer_GetNicknameList_Request) ProtoMessage() {}
 
 func (x *CPlayer_GetNicknameList_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[88]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5070,7 +5158,7 @@ func (x *CPlayer_GetNicknameList_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_GetNicknameList_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetNicknameList_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{88}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{90}
 }
 
 type CPlayer_GetNicknameList_Response struct {
@@ -5082,7 +5170,7 @@ type CPlayer_GetNicknameList_Response struct {
 
 func (x *CPlayer_GetNicknameList_Response) Reset() {
 	*x = CPlayer_GetNicknameList_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[89]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5094,7 +5182,7 @@ func (x *CPlayer_GetNicknameList_Response) String() string {
 func (*CPlayer_GetNicknameList_Response) ProtoMessage() {}
 
 func (x *CPlayer_GetNicknameList_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[89]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5107,7 +5195,7 @@ func (x *CPlayer_GetNicknameList_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_GetNicknameList_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetNicknameList_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{89}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *CPlayer_GetNicknameList_Response) GetNicknames() []*CPlayer_GetNicknameList_Response_PlayerNickname {
@@ -5125,7 +5213,7 @@ type CPlayer_GetPerFriendPreferences_Request struct {
 
 func (x *CPlayer_GetPerFriendPreferences_Request) Reset() {
 	*x = CPlayer_GetPerFriendPreferences_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[90]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5137,7 +5225,7 @@ func (x *CPlayer_GetPerFriendPreferences_Request) String() string {
 func (*CPlayer_GetPerFriendPreferences_Request) ProtoMessage() {}
 
 func (x *CPlayer_GetPerFriendPreferences_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[90]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5150,7 +5238,7 @@ func (x *CPlayer_GetPerFriendPreferences_Request) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CPlayer_GetPerFriendPreferences_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetPerFriendPreferences_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{90}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{92}
 }
 
 type PerFriendPreferences struct {
@@ -5181,7 +5269,7 @@ const (
 
 func (x *PerFriendPreferences) Reset() {
 	*x = PerFriendPreferences{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[91]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5193,7 +5281,7 @@ func (x *PerFriendPreferences) String() string {
 func (*PerFriendPreferences) ProtoMessage() {}
 
 func (x *PerFriendPreferences) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[91]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5206,7 +5294,7 @@ func (x *PerFriendPreferences) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PerFriendPreferences.ProtoReflect.Descriptor instead.
 func (*PerFriendPreferences) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{91}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *PerFriendPreferences) GetAccountid() uint32 {
@@ -5281,7 +5369,7 @@ type CPlayer_GetPerFriendPreferences_Response struct {
 
 func (x *CPlayer_GetPerFriendPreferences_Response) Reset() {
 	*x = CPlayer_GetPerFriendPreferences_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[92]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5293,7 +5381,7 @@ func (x *CPlayer_GetPerFriendPreferences_Response) String() string {
 func (*CPlayer_GetPerFriendPreferences_Response) ProtoMessage() {}
 
 func (x *CPlayer_GetPerFriendPreferences_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[92]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5306,7 +5394,7 @@ func (x *CPlayer_GetPerFriendPreferences_Response) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CPlayer_GetPerFriendPreferences_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetPerFriendPreferences_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{92}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *CPlayer_GetPerFriendPreferences_Response) GetPreferences() []*PerFriendPreferences {
@@ -5325,7 +5413,7 @@ type CPlayer_SetPerFriendPreferences_Request struct {
 
 func (x *CPlayer_SetPerFriendPreferences_Request) Reset() {
 	*x = CPlayer_SetPerFriendPreferences_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[93]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5337,7 +5425,7 @@ func (x *CPlayer_SetPerFriendPreferences_Request) String() string {
 func (*CPlayer_SetPerFriendPreferences_Request) ProtoMessage() {}
 
 func (x *CPlayer_SetPerFriendPreferences_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[93]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5350,7 +5438,7 @@ func (x *CPlayer_SetPerFriendPreferences_Request) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CPlayer_SetPerFriendPreferences_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_SetPerFriendPreferences_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{93}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *CPlayer_SetPerFriendPreferences_Request) GetPreferences() *PerFriendPreferences {
@@ -5368,7 +5456,7 @@ type CPlayer_SetPerFriendPreferences_Response struct {
 
 func (x *CPlayer_SetPerFriendPreferences_Response) Reset() {
 	*x = CPlayer_SetPerFriendPreferences_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[94]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5380,7 +5468,7 @@ func (x *CPlayer_SetPerFriendPreferences_Response) String() string {
 func (*CPlayer_SetPerFriendPreferences_Response) ProtoMessage() {}
 
 func (x *CPlayer_SetPerFriendPreferences_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[94]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5393,7 +5481,7 @@ func (x *CPlayer_SetPerFriendPreferences_Response) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CPlayer_SetPerFriendPreferences_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_SetPerFriendPreferences_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{94}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{96}
 }
 
 type CPlayer_AddFriend_Request struct {
@@ -5405,7 +5493,7 @@ type CPlayer_AddFriend_Request struct {
 
 func (x *CPlayer_AddFriend_Request) Reset() {
 	*x = CPlayer_AddFriend_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[95]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5417,7 +5505,7 @@ func (x *CPlayer_AddFriend_Request) String() string {
 func (*CPlayer_AddFriend_Request) ProtoMessage() {}
 
 func (x *CPlayer_AddFriend_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[95]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5430,7 +5518,7 @@ func (x *CPlayer_AddFriend_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_AddFriend_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_AddFriend_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{95}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *CPlayer_AddFriend_Request) GetSteamid() uint64 {
@@ -5451,7 +5539,7 @@ type CPlayer_AddFriend_Response struct {
 
 func (x *CPlayer_AddFriend_Response) Reset() {
 	*x = CPlayer_AddFriend_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[96]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5463,7 +5551,7 @@ func (x *CPlayer_AddFriend_Response) String() string {
 func (*CPlayer_AddFriend_Response) ProtoMessage() {}
 
 func (x *CPlayer_AddFriend_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[96]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5476,7 +5564,7 @@ func (x *CPlayer_AddFriend_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_AddFriend_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_AddFriend_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{96}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *CPlayer_AddFriend_Response) GetInviteSent() bool {
@@ -5509,7 +5597,7 @@ type CPlayer_RemoveFriend_Request struct {
 
 func (x *CPlayer_RemoveFriend_Request) Reset() {
 	*x = CPlayer_RemoveFriend_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[97]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5521,7 +5609,7 @@ func (x *CPlayer_RemoveFriend_Request) String() string {
 func (*CPlayer_RemoveFriend_Request) ProtoMessage() {}
 
 func (x *CPlayer_RemoveFriend_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[97]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5534,7 +5622,7 @@ func (x *CPlayer_RemoveFriend_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_RemoveFriend_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_RemoveFriend_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{97}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *CPlayer_RemoveFriend_Request) GetSteamid() uint64 {
@@ -5553,7 +5641,7 @@ type CPlayer_RemoveFriend_Response struct {
 
 func (x *CPlayer_RemoveFriend_Response) Reset() {
 	*x = CPlayer_RemoveFriend_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[98]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5565,7 +5653,7 @@ func (x *CPlayer_RemoveFriend_Response) String() string {
 func (*CPlayer_RemoveFriend_Response) ProtoMessage() {}
 
 func (x *CPlayer_RemoveFriend_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[98]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5578,7 +5666,7 @@ func (x *CPlayer_RemoveFriend_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_RemoveFriend_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_RemoveFriend_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{98}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *CPlayer_RemoveFriend_Response) GetFriendRelationship() uint32 {
@@ -5598,7 +5686,7 @@ type CPlayer_IgnoreFriend_Request struct {
 
 func (x *CPlayer_IgnoreFriend_Request) Reset() {
 	*x = CPlayer_IgnoreFriend_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[99]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5610,7 +5698,7 @@ func (x *CPlayer_IgnoreFriend_Request) String() string {
 func (*CPlayer_IgnoreFriend_Request) ProtoMessage() {}
 
 func (x *CPlayer_IgnoreFriend_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[99]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5623,7 +5711,7 @@ func (x *CPlayer_IgnoreFriend_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_IgnoreFriend_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_IgnoreFriend_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{99}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{101}
 }
 
 func (x *CPlayer_IgnoreFriend_Request) GetSteamid() uint64 {
@@ -5649,7 +5737,7 @@ type CPlayer_IgnoreFriend_Response struct {
 
 func (x *CPlayer_IgnoreFriend_Response) Reset() {
 	*x = CPlayer_IgnoreFriend_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[100]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5661,7 +5749,7 @@ func (x *CPlayer_IgnoreFriend_Response) String() string {
 func (*CPlayer_IgnoreFriend_Response) ProtoMessage() {}
 
 func (x *CPlayer_IgnoreFriend_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[100]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5674,7 +5762,7 @@ func (x *CPlayer_IgnoreFriend_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_IgnoreFriend_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_IgnoreFriend_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{100}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{102}
 }
 
 func (x *CPlayer_IgnoreFriend_Response) GetFriendRelationship() uint32 {
@@ -5692,7 +5780,7 @@ type CPlayer_GetCommunityPreferences_Request struct {
 
 func (x *CPlayer_GetCommunityPreferences_Request) Reset() {
 	*x = CPlayer_GetCommunityPreferences_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[101]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5704,7 +5792,7 @@ func (x *CPlayer_GetCommunityPreferences_Request) String() string {
 func (*CPlayer_GetCommunityPreferences_Request) ProtoMessage() {}
 
 func (x *CPlayer_GetCommunityPreferences_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[101]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5717,7 +5805,7 @@ func (x *CPlayer_GetCommunityPreferences_Request) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CPlayer_GetCommunityPreferences_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetCommunityPreferences_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{101}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{103}
 }
 
 type CPlayer_CommunityPreferences struct {
@@ -5740,7 +5828,7 @@ const (
 
 func (x *CPlayer_CommunityPreferences) Reset() {
 	*x = CPlayer_CommunityPreferences{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[102]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5752,7 +5840,7 @@ func (x *CPlayer_CommunityPreferences) String() string {
 func (*CPlayer_CommunityPreferences) ProtoMessage() {}
 
 func (x *CPlayer_CommunityPreferences) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[102]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5765,7 +5853,7 @@ func (x *CPlayer_CommunityPreferences) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_CommunityPreferences.ProtoReflect.Descriptor instead.
 func (*CPlayer_CommunityPreferences) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{102}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{104}
 }
 
 func (x *CPlayer_CommunityPreferences) GetParenthesizeNicknames() bool {
@@ -5813,7 +5901,7 @@ type CPlayer_GetCommunityPreferences_Response struct {
 
 func (x *CPlayer_GetCommunityPreferences_Response) Reset() {
 	*x = CPlayer_GetCommunityPreferences_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[103]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5825,7 +5913,7 @@ func (x *CPlayer_GetCommunityPreferences_Response) String() string {
 func (*CPlayer_GetCommunityPreferences_Response) ProtoMessage() {}
 
 func (x *CPlayer_GetCommunityPreferences_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[103]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5838,7 +5926,7 @@ func (x *CPlayer_GetCommunityPreferences_Response) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CPlayer_GetCommunityPreferences_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetCommunityPreferences_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{103}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{105}
 }
 
 func (x *CPlayer_GetCommunityPreferences_Response) GetPreferences() *CPlayer_CommunityPreferences {
@@ -5864,7 +5952,7 @@ type CPlayer_SetCommunityPreferences_Request struct {
 
 func (x *CPlayer_SetCommunityPreferences_Request) Reset() {
 	*x = CPlayer_SetCommunityPreferences_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[104]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5876,7 +5964,7 @@ func (x *CPlayer_SetCommunityPreferences_Request) String() string {
 func (*CPlayer_SetCommunityPreferences_Request) ProtoMessage() {}
 
 func (x *CPlayer_SetCommunityPreferences_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[104]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5889,7 +5977,7 @@ func (x *CPlayer_SetCommunityPreferences_Request) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CPlayer_SetCommunityPreferences_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_SetCommunityPreferences_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{104}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{106}
 }
 
 func (x *CPlayer_SetCommunityPreferences_Request) GetPreferences() *CPlayer_CommunityPreferences {
@@ -5907,7 +5995,7 @@ type CPlayer_SetCommunityPreferences_Response struct {
 
 func (x *CPlayer_SetCommunityPreferences_Response) Reset() {
 	*x = CPlayer_SetCommunityPreferences_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[105]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5919,7 +6007,7 @@ func (x *CPlayer_SetCommunityPreferences_Response) String() string {
 func (*CPlayer_SetCommunityPreferences_Response) ProtoMessage() {}
 
 func (x *CPlayer_SetCommunityPreferences_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[105]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5932,7 +6020,7 @@ func (x *CPlayer_SetCommunityPreferences_Response) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CPlayer_SetCommunityPreferences_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_SetCommunityPreferences_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{105}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{107}
 }
 
 type CPlayer_GetTextFilterWords_Request struct {
@@ -5943,7 +6031,7 @@ type CPlayer_GetTextFilterWords_Request struct {
 
 func (x *CPlayer_GetTextFilterWords_Request) Reset() {
 	*x = CPlayer_GetTextFilterWords_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[106]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5955,7 +6043,7 @@ func (x *CPlayer_GetTextFilterWords_Request) String() string {
 func (*CPlayer_GetTextFilterWords_Request) ProtoMessage() {}
 
 func (x *CPlayer_GetTextFilterWords_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[106]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5968,7 +6056,7 @@ func (x *CPlayer_GetTextFilterWords_Request) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CPlayer_GetTextFilterWords_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetTextFilterWords_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{106}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{108}
 }
 
 type CPlayer_TextFilterWords struct {
@@ -5982,7 +6070,7 @@ type CPlayer_TextFilterWords struct {
 
 func (x *CPlayer_TextFilterWords) Reset() {
 	*x = CPlayer_TextFilterWords{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[107]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5994,7 +6082,7 @@ func (x *CPlayer_TextFilterWords) String() string {
 func (*CPlayer_TextFilterWords) ProtoMessage() {}
 
 func (x *CPlayer_TextFilterWords) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[107]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6007,7 +6095,7 @@ func (x *CPlayer_TextFilterWords) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPlayer_TextFilterWords.ProtoReflect.Descriptor instead.
 func (*CPlayer_TextFilterWords) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{107}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{109}
 }
 
 func (x *CPlayer_TextFilterWords) GetTextFilterCustomBannedWords() []string {
@@ -6040,7 +6128,7 @@ type CPlayer_GetTextFilterWords_Response struct {
 
 func (x *CPlayer_GetTextFilterWords_Response) Reset() {
 	*x = CPlayer_GetTextFilterWords_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[108]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6052,7 +6140,7 @@ func (x *CPlayer_GetTextFilterWords_Response) String() string {
 func (*CPlayer_GetTextFilterWords_Response) ProtoMessage() {}
 
 func (x *CPlayer_GetTextFilterWords_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[108]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6065,7 +6153,7 @@ func (x *CPlayer_GetTextFilterWords_Response) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CPlayer_GetTextFilterWords_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetTextFilterWords_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{108}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{110}
 }
 
 func (x *CPlayer_GetTextFilterWords_Response) GetWords() *CPlayer_TextFilterWords {
@@ -6084,7 +6172,7 @@ type CPlayer_GetNewSteamAnnouncementState_Request struct {
 
 func (x *CPlayer_GetNewSteamAnnouncementState_Request) Reset() {
 	*x = CPlayer_GetNewSteamAnnouncementState_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[109]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6096,7 +6184,7 @@ func (x *CPlayer_GetNewSteamAnnouncementState_Request) String() string {
 func (*CPlayer_GetNewSteamAnnouncementState_Request) ProtoMessage() {}
 
 func (x *CPlayer_GetNewSteamAnnouncementState_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[109]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6109,7 +6197,7 @@ func (x *CPlayer_GetNewSteamAnnouncementState_Request) ProtoReflect() protorefle
 
 // Deprecated: Use CPlayer_GetNewSteamAnnouncementState_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetNewSteamAnnouncementState_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{109}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{111}
 }
 
 func (x *CPlayer_GetNewSteamAnnouncementState_Request) GetLanguage() int32 {
@@ -6137,7 +6225,7 @@ const (
 
 func (x *CPlayer_GetNewSteamAnnouncementState_Response) Reset() {
 	*x = CPlayer_GetNewSteamAnnouncementState_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[110]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6149,7 +6237,7 @@ func (x *CPlayer_GetNewSteamAnnouncementState_Response) String() string {
 func (*CPlayer_GetNewSteamAnnouncementState_Response) ProtoMessage() {}
 
 func (x *CPlayer_GetNewSteamAnnouncementState_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[110]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6162,7 +6250,7 @@ func (x *CPlayer_GetNewSteamAnnouncementState_Response) ProtoReflect() protorefl
 
 // Deprecated: Use CPlayer_GetNewSteamAnnouncementState_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetNewSteamAnnouncementState_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{110}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{112}
 }
 
 func (x *CPlayer_GetNewSteamAnnouncementState_Response) GetState() ENewSteamAnnouncementState {
@@ -6210,7 +6298,7 @@ type CPlayer_UpdateSteamAnnouncementLastRead_Request struct {
 
 func (x *CPlayer_UpdateSteamAnnouncementLastRead_Request) Reset() {
 	*x = CPlayer_UpdateSteamAnnouncementLastRead_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[111]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6222,7 +6310,7 @@ func (x *CPlayer_UpdateSteamAnnouncementLastRead_Request) String() string {
 func (*CPlayer_UpdateSteamAnnouncementLastRead_Request) ProtoMessage() {}
 
 func (x *CPlayer_UpdateSteamAnnouncementLastRead_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[111]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6235,7 +6323,7 @@ func (x *CPlayer_UpdateSteamAnnouncementLastRead_Request) ProtoReflect() protore
 
 // Deprecated: Use CPlayer_UpdateSteamAnnouncementLastRead_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_UpdateSteamAnnouncementLastRead_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{111}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{113}
 }
 
 func (x *CPlayer_UpdateSteamAnnouncementLastRead_Request) GetAnnouncementGid() uint64 {
@@ -6260,7 +6348,7 @@ type CPlayer_UpdateSteamAnnouncementLastRead_Response struct {
 
 func (x *CPlayer_UpdateSteamAnnouncementLastRead_Response) Reset() {
 	*x = CPlayer_UpdateSteamAnnouncementLastRead_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[112]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6272,7 +6360,7 @@ func (x *CPlayer_UpdateSteamAnnouncementLastRead_Response) String() string {
 func (*CPlayer_UpdateSteamAnnouncementLastRead_Response) ProtoMessage() {}
 
 func (x *CPlayer_UpdateSteamAnnouncementLastRead_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[112]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6285,7 +6373,7 @@ func (x *CPlayer_UpdateSteamAnnouncementLastRead_Response) ProtoReflect() protor
 
 // Deprecated: Use CPlayer_UpdateSteamAnnouncementLastRead_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_UpdateSteamAnnouncementLastRead_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{112}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{114}
 }
 
 type CPlayer_GetPrivacySettings_Request struct {
@@ -6296,7 +6384,7 @@ type CPlayer_GetPrivacySettings_Request struct {
 
 func (x *CPlayer_GetPrivacySettings_Request) Reset() {
 	*x = CPlayer_GetPrivacySettings_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[113]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6308,7 +6396,7 @@ func (x *CPlayer_GetPrivacySettings_Request) String() string {
 func (*CPlayer_GetPrivacySettings_Request) ProtoMessage() {}
 
 func (x *CPlayer_GetPrivacySettings_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[113]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6321,7 +6409,7 @@ func (x *CPlayer_GetPrivacySettings_Request) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CPlayer_GetPrivacySettings_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetPrivacySettings_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{113}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{115}
 }
 
 type CPrivacySettings struct {
@@ -6338,7 +6426,7 @@ type CPrivacySettings struct {
 
 func (x *CPrivacySettings) Reset() {
 	*x = CPrivacySettings{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[114]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6350,7 +6438,7 @@ func (x *CPrivacySettings) String() string {
 func (*CPrivacySettings) ProtoMessage() {}
 
 func (x *CPrivacySettings) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[114]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6363,7 +6451,7 @@ func (x *CPrivacySettings) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPrivacySettings.ProtoReflect.Descriptor instead.
 func (*CPrivacySettings) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{114}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{116}
 }
 
 func (x *CPrivacySettings) GetPrivacyState() int32 {
@@ -6417,7 +6505,7 @@ type CPlayer_GetPrivacySettings_Response struct {
 
 func (x *CPlayer_GetPrivacySettings_Response) Reset() {
 	*x = CPlayer_GetPrivacySettings_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[115]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6429,7 +6517,7 @@ func (x *CPlayer_GetPrivacySettings_Response) String() string {
 func (*CPlayer_GetPrivacySettings_Response) ProtoMessage() {}
 
 func (x *CPlayer_GetPrivacySettings_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[115]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6442,7 +6530,7 @@ func (x *CPlayer_GetPrivacySettings_Response) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CPlayer_GetPrivacySettings_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetPrivacySettings_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{115}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{117}
 }
 
 func (x *CPlayer_GetPrivacySettings_Response) GetPrivacySettings() *CPrivacySettings {
@@ -6461,7 +6549,7 @@ type CPlayer_GetDurationControl_Request struct {
 
 func (x *CPlayer_GetDurationControl_Request) Reset() {
 	*x = CPlayer_GetDurationControl_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[116]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[118]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6473,7 +6561,7 @@ func (x *CPlayer_GetDurationControl_Request) String() string {
 func (*CPlayer_GetDurationControl_Request) ProtoMessage() {}
 
 func (x *CPlayer_GetDurationControl_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[116]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[118]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6486,7 +6574,7 @@ func (x *CPlayer_GetDurationControl_Request) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CPlayer_GetDurationControl_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetDurationControl_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{116}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{118}
 }
 
 func (x *CPlayer_GetDurationControl_Request) GetAppid() uint32 {
@@ -6512,7 +6600,7 @@ type CPlayer_GetDurationControl_Response struct {
 
 func (x *CPlayer_GetDurationControl_Response) Reset() {
 	*x = CPlayer_GetDurationControl_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[117]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[119]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6524,7 +6612,7 @@ func (x *CPlayer_GetDurationControl_Response) String() string {
 func (*CPlayer_GetDurationControl_Response) ProtoMessage() {}
 
 func (x *CPlayer_GetDurationControl_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[117]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[119]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6537,7 +6625,7 @@ func (x *CPlayer_GetDurationControl_Response) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CPlayer_GetDurationControl_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetDurationControl_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{117}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{119}
 }
 
 func (x *CPlayer_GetDurationControl_Response) GetIsEnabled() bool {
@@ -6605,7 +6693,7 @@ type CPlayer_RecordDisconnectedPlaytime_Request struct {
 
 func (x *CPlayer_RecordDisconnectedPlaytime_Request) Reset() {
 	*x = CPlayer_RecordDisconnectedPlaytime_Request{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[118]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[120]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6617,7 +6705,7 @@ func (x *CPlayer_RecordDisconnectedPlaytime_Request) String() string {
 func (*CPlayer_RecordDisconnectedPlaytime_Request) ProtoMessage() {}
 
 func (x *CPlayer_RecordDisconnectedPlaytime_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[118]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[120]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6630,7 +6718,7 @@ func (x *CPlayer_RecordDisconnectedPlaytime_Request) ProtoReflect() protoreflect
 
 // Deprecated: Use CPlayer_RecordDisconnectedPlaytime_Request.ProtoReflect.Descriptor instead.
 func (*CPlayer_RecordDisconnectedPlaytime_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{118}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{120}
 }
 
 func (x *CPlayer_RecordDisconnectedPlaytime_Request) GetPlaySessions() []*CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory {
@@ -6648,7 +6736,7 @@ type CPlayer_RecordDisconnectedPlaytime_Response struct {
 
 func (x *CPlayer_RecordDisconnectedPlaytime_Response) Reset() {
 	*x = CPlayer_RecordDisconnectedPlaytime_Response{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[119]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[121]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6660,7 +6748,7 @@ func (x *CPlayer_RecordDisconnectedPlaytime_Response) String() string {
 func (*CPlayer_RecordDisconnectedPlaytime_Response) ProtoMessage() {}
 
 func (x *CPlayer_RecordDisconnectedPlaytime_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[119]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[121]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6673,7 +6761,7 @@ func (x *CPlayer_RecordDisconnectedPlaytime_Response) ProtoReflect() protoreflec
 
 // Deprecated: Use CPlayer_RecordDisconnectedPlaytime_Response.ProtoReflect.Descriptor instead.
 func (*CPlayer_RecordDisconnectedPlaytime_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{119}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{121}
 }
 
 type CPlayer_LastPlayedTimes_Notification struct {
@@ -6685,7 +6773,7 @@ type CPlayer_LastPlayedTimes_Notification struct {
 
 func (x *CPlayer_LastPlayedTimes_Notification) Reset() {
 	*x = CPlayer_LastPlayedTimes_Notification{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[120]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[122]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6697,7 +6785,7 @@ func (x *CPlayer_LastPlayedTimes_Notification) String() string {
 func (*CPlayer_LastPlayedTimes_Notification) ProtoMessage() {}
 
 func (x *CPlayer_LastPlayedTimes_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[120]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[122]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6710,7 +6798,7 @@ func (x *CPlayer_LastPlayedTimes_Notification) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CPlayer_LastPlayedTimes_Notification.ProtoReflect.Descriptor instead.
 func (*CPlayer_LastPlayedTimes_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{120}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{122}
 }
 
 func (x *CPlayer_LastPlayedTimes_Notification) GetGames() []*CPlayer_GetLastPlayedTimes_Response_Game {
@@ -6731,7 +6819,7 @@ type CPlayer_FriendNicknameChanged_Notification struct {
 
 func (x *CPlayer_FriendNicknameChanged_Notification) Reset() {
 	*x = CPlayer_FriendNicknameChanged_Notification{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[121]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[123]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6743,7 +6831,7 @@ func (x *CPlayer_FriendNicknameChanged_Notification) String() string {
 func (*CPlayer_FriendNicknameChanged_Notification) ProtoMessage() {}
 
 func (x *CPlayer_FriendNicknameChanged_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[121]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[123]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6756,7 +6844,7 @@ func (x *CPlayer_FriendNicknameChanged_Notification) ProtoReflect() protoreflect
 
 // Deprecated: Use CPlayer_FriendNicknameChanged_Notification.ProtoReflect.Descriptor instead.
 func (*CPlayer_FriendNicknameChanged_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{121}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{123}
 }
 
 func (x *CPlayer_FriendNicknameChanged_Notification) GetAccountid() uint32 {
@@ -6789,7 +6877,7 @@ type CPlayer_FriendEquippedProfileItemsChanged_Notification struct {
 
 func (x *CPlayer_FriendEquippedProfileItemsChanged_Notification) Reset() {
 	*x = CPlayer_FriendEquippedProfileItemsChanged_Notification{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[122]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[124]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6801,7 +6889,7 @@ func (x *CPlayer_FriendEquippedProfileItemsChanged_Notification) String() string
 func (*CPlayer_FriendEquippedProfileItemsChanged_Notification) ProtoMessage() {}
 
 func (x *CPlayer_FriendEquippedProfileItemsChanged_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[122]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[124]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6814,7 +6902,7 @@ func (x *CPlayer_FriendEquippedProfileItemsChanged_Notification) ProtoReflect() 
 
 // Deprecated: Use CPlayer_FriendEquippedProfileItemsChanged_Notification.ProtoReflect.Descriptor instead.
 func (*CPlayer_FriendEquippedProfileItemsChanged_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{122}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{124}
 }
 
 func (x *CPlayer_FriendEquippedProfileItemsChanged_Notification) GetAccountid() uint32 {
@@ -6842,7 +6930,7 @@ const (
 
 func (x *CPlayer_NewSteamAnnouncementState_Notification) Reset() {
 	*x = CPlayer_NewSteamAnnouncementState_Notification{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[123]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[125]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6854,7 +6942,7 @@ func (x *CPlayer_NewSteamAnnouncementState_Notification) String() string {
 func (*CPlayer_NewSteamAnnouncementState_Notification) ProtoMessage() {}
 
 func (x *CPlayer_NewSteamAnnouncementState_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[123]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[125]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6867,7 +6955,7 @@ func (x *CPlayer_NewSteamAnnouncementState_Notification) ProtoReflect() protoref
 
 // Deprecated: Use CPlayer_NewSteamAnnouncementState_Notification.ProtoReflect.Descriptor instead.
 func (*CPlayer_NewSteamAnnouncementState_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{123}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{125}
 }
 
 func (x *CPlayer_NewSteamAnnouncementState_Notification) GetState() ENewSteamAnnouncementState {
@@ -6915,7 +7003,7 @@ type CPlayer_CommunityPreferencesChanged_Notification struct {
 
 func (x *CPlayer_CommunityPreferencesChanged_Notification) Reset() {
 	*x = CPlayer_CommunityPreferencesChanged_Notification{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[124]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[126]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6927,7 +7015,7 @@ func (x *CPlayer_CommunityPreferencesChanged_Notification) String() string {
 func (*CPlayer_CommunityPreferencesChanged_Notification) ProtoMessage() {}
 
 func (x *CPlayer_CommunityPreferencesChanged_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[124]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[126]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6940,7 +7028,7 @@ func (x *CPlayer_CommunityPreferencesChanged_Notification) ProtoReflect() protor
 
 // Deprecated: Use CPlayer_CommunityPreferencesChanged_Notification.ProtoReflect.Descriptor instead.
 func (*CPlayer_CommunityPreferencesChanged_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{124}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{126}
 }
 
 func (x *CPlayer_CommunityPreferencesChanged_Notification) GetPreferences() *CPlayer_CommunityPreferences {
@@ -6966,7 +7054,7 @@ type CPlayer_TextFilterWordsChanged_Notification struct {
 
 func (x *CPlayer_TextFilterWordsChanged_Notification) Reset() {
 	*x = CPlayer_TextFilterWordsChanged_Notification{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[125]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[127]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6978,7 +7066,7 @@ func (x *CPlayer_TextFilterWordsChanged_Notification) String() string {
 func (*CPlayer_TextFilterWordsChanged_Notification) ProtoMessage() {}
 
 func (x *CPlayer_TextFilterWordsChanged_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[125]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[127]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6991,7 +7079,7 @@ func (x *CPlayer_TextFilterWordsChanged_Notification) ProtoReflect() protoreflec
 
 // Deprecated: Use CPlayer_TextFilterWordsChanged_Notification.ProtoReflect.Descriptor instead.
 func (*CPlayer_TextFilterWordsChanged_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{125}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{127}
 }
 
 func (x *CPlayer_TextFilterWordsChanged_Notification) GetWords() *CPlayer_TextFilterWords {
@@ -7011,7 +7099,7 @@ type CPlayer_PerFriendPreferencesChanged_Notification struct {
 
 func (x *CPlayer_PerFriendPreferencesChanged_Notification) Reset() {
 	*x = CPlayer_PerFriendPreferencesChanged_Notification{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[126]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[128]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7023,7 +7111,7 @@ func (x *CPlayer_PerFriendPreferencesChanged_Notification) String() string {
 func (*CPlayer_PerFriendPreferencesChanged_Notification) ProtoMessage() {}
 
 func (x *CPlayer_PerFriendPreferencesChanged_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[126]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[128]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7036,7 +7124,7 @@ func (x *CPlayer_PerFriendPreferencesChanged_Notification) ProtoReflect() protor
 
 // Deprecated: Use CPlayer_PerFriendPreferencesChanged_Notification.ProtoReflect.Descriptor instead.
 func (*CPlayer_PerFriendPreferencesChanged_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{126}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{128}
 }
 
 func (x *CPlayer_PerFriendPreferencesChanged_Notification) GetAccountid() uint32 {
@@ -7062,7 +7150,7 @@ type CPlayer_PrivacySettingsChanged_Notification struct {
 
 func (x *CPlayer_PrivacySettingsChanged_Notification) Reset() {
 	*x = CPlayer_PrivacySettingsChanged_Notification{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[127]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[129]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7074,7 +7162,7 @@ func (x *CPlayer_PrivacySettingsChanged_Notification) String() string {
 func (*CPlayer_PrivacySettingsChanged_Notification) ProtoMessage() {}
 
 func (x *CPlayer_PrivacySettingsChanged_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[127]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[129]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7087,7 +7175,7 @@ func (x *CPlayer_PrivacySettingsChanged_Notification) ProtoReflect() protoreflec
 
 // Deprecated: Use CPlayer_PrivacySettingsChanged_Notification.ProtoReflect.Descriptor instead.
 func (*CPlayer_PrivacySettingsChanged_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{127}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{129}
 }
 
 func (x *CPlayer_PrivacySettingsChanged_Notification) GetPrivacySettings() *CPrivacySettings {
@@ -7110,7 +7198,7 @@ type CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession struct {
 
 func (x *CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession) Reset() {
 	*x = CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[128]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[130]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7122,7 +7210,7 @@ func (x *CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession) Str
 func (*CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession) ProtoMessage() {}
 
 func (x *CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[128]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[130]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7183,7 +7271,7 @@ type CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails struct {
 
 func (x *CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails) Reset() {
 	*x = CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[129]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[131]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7195,7 +7283,7 @@ func (x *CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails) String() strin
 func (*CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails) ProtoMessage() {}
 
 func (x *CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[129]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[131]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7243,7 +7331,7 @@ type CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPublicData s
 
 func (x *CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPublicData) Reset() {
 	*x = CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPublicData{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[130]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[132]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7255,7 +7343,7 @@ func (x *CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPublicDa
 func (*CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPublicData) ProtoMessage() {}
 
 func (x *CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPublicData) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[130]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[132]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7371,7 +7459,7 @@ type CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData 
 
 func (x *CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData) Reset() {
 	*x = CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[131]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[133]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7383,7 +7471,7 @@ func (x *CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateD
 func (*CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData) ProtoMessage() {}
 
 func (x *CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[131]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[133]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7580,7 +7668,7 @@ type CPlayer_GetOwnedGames_Response_Game struct {
 
 func (x *CPlayer_GetOwnedGames_Response_Game) Reset() {
 	*x = CPlayer_GetOwnedGames_Response_Game{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[132]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[134]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7592,7 +7680,7 @@ func (x *CPlayer_GetOwnedGames_Response_Game) String() string {
 func (*CPlayer_GetOwnedGames_Response_Game) ProtoMessage() {}
 
 func (x *CPlayer_GetOwnedGames_Response_Game) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[132]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[134]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7752,7 +7840,7 @@ type CPlayer_GetFriendsGameplayInfo_Response_FriendsGameplayInfo struct {
 
 func (x *CPlayer_GetFriendsGameplayInfo_Response_FriendsGameplayInfo) Reset() {
 	*x = CPlayer_GetFriendsGameplayInfo_Response_FriendsGameplayInfo{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[133]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[135]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7764,7 +7852,7 @@ func (x *CPlayer_GetFriendsGameplayInfo_Response_FriendsGameplayInfo) String() s
 func (*CPlayer_GetFriendsGameplayInfo_Response_FriendsGameplayInfo) ProtoMessage() {}
 
 func (x *CPlayer_GetFriendsGameplayInfo_Response_FriendsGameplayInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[133]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[135]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7814,7 +7902,7 @@ type CPlayer_GetFriendsGameplayInfo_Response_OwnGameplayInfo struct {
 
 func (x *CPlayer_GetFriendsGameplayInfo_Response_OwnGameplayInfo) Reset() {
 	*x = CPlayer_GetFriendsGameplayInfo_Response_OwnGameplayInfo{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[134]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[136]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7826,7 +7914,7 @@ func (x *CPlayer_GetFriendsGameplayInfo_Response_OwnGameplayInfo) String() strin
 func (*CPlayer_GetFriendsGameplayInfo_Response_OwnGameplayInfo) ProtoMessage() {}
 
 func (x *CPlayer_GetFriendsGameplayInfo_Response_OwnGameplayInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[134]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[136]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7888,7 +7976,7 @@ type CPlayer_GetGameBadgeLevels_Response_Badge struct {
 
 func (x *CPlayer_GetGameBadgeLevels_Response_Badge) Reset() {
 	*x = CPlayer_GetGameBadgeLevels_Response_Badge{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[135]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[137]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7900,7 +7988,7 @@ func (x *CPlayer_GetGameBadgeLevels_Response_Badge) String() string {
 func (*CPlayer_GetGameBadgeLevels_Response_Badge) ProtoMessage() {}
 
 func (x *CPlayer_GetGameBadgeLevels_Response_Badge) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[135]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[137]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7947,7 +8035,7 @@ type ProfileItem_ProfileColor struct {
 
 func (x *ProfileItem_ProfileColor) Reset() {
 	*x = ProfileItem_ProfileColor{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[136]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[138]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7959,7 +8047,7 @@ func (x *ProfileItem_ProfileColor) String() string {
 func (*ProfileItem_ProfileColor) ProtoMessage() {}
 
 func (x *ProfileItem_ProfileColor) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[136]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[138]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8003,7 +8091,7 @@ type CPlayer_GetEmoticonList_Response_Emoticon struct {
 
 func (x *CPlayer_GetEmoticonList_Response_Emoticon) Reset() {
 	*x = CPlayer_GetEmoticonList_Response_Emoticon{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[137]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[139]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8015,7 +8103,7 @@ func (x *CPlayer_GetEmoticonList_Response_Emoticon) String() string {
 func (*CPlayer_GetEmoticonList_Response_Emoticon) ProtoMessage() {}
 
 func (x *CPlayer_GetEmoticonList_Response_Emoticon) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[137]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[139]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8083,7 +8171,7 @@ type CPlayer_GetCommunityBadgeProgress_Response_Quest struct {
 
 func (x *CPlayer_GetCommunityBadgeProgress_Response_Quest) Reset() {
 	*x = CPlayer_GetCommunityBadgeProgress_Response_Quest{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[138]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[140]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8095,7 +8183,7 @@ func (x *CPlayer_GetCommunityBadgeProgress_Response_Quest) String() string {
 func (*CPlayer_GetCommunityBadgeProgress_Response_Quest) ProtoMessage() {}
 
 func (x *CPlayer_GetCommunityBadgeProgress_Response_Quest) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[138]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[140]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8141,7 +8229,7 @@ type CPlayer_GetTopAchievementsForGames_Response_Achievement struct {
 
 func (x *CPlayer_GetTopAchievementsForGames_Response_Achievement) Reset() {
 	*x = CPlayer_GetTopAchievementsForGames_Response_Achievement{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[139]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[141]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8153,7 +8241,7 @@ func (x *CPlayer_GetTopAchievementsForGames_Response_Achievement) String() strin
 func (*CPlayer_GetTopAchievementsForGames_Response_Achievement) ProtoMessage() {}
 
 func (x *CPlayer_GetTopAchievementsForGames_Response_Achievement) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[139]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[141]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8236,7 +8324,7 @@ type CPlayer_GetTopAchievementsForGames_Response_Game struct {
 
 func (x *CPlayer_GetTopAchievementsForGames_Response_Game) Reset() {
 	*x = CPlayer_GetTopAchievementsForGames_Response_Game{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[140]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[142]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8248,7 +8336,7 @@ func (x *CPlayer_GetTopAchievementsForGames_Response_Game) String() string {
 func (*CPlayer_GetTopAchievementsForGames_Response_Game) ProtoMessage() {}
 
 func (x *CPlayer_GetTopAchievementsForGames_Response_Game) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[140]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[142]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8300,7 +8388,7 @@ type CPlayer_GetAchievementsProgress_Response_AchievementProgress struct {
 
 func (x *CPlayer_GetAchievementsProgress_Response_AchievementProgress) Reset() {
 	*x = CPlayer_GetAchievementsProgress_Response_AchievementProgress{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[141]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[143]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8312,7 +8400,7 @@ func (x *CPlayer_GetAchievementsProgress_Response_AchievementProgress) String() 
 func (*CPlayer_GetAchievementsProgress_Response_AchievementProgress) ProtoMessage() {}
 
 func (x *CPlayer_GetAchievementsProgress_Response_AchievementProgress) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[141]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[143]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8405,7 +8493,7 @@ const (
 
 func (x *CPlayer_GetGameAchievements_Response_Achievement) Reset() {
 	*x = CPlayer_GetGameAchievements_Response_Achievement{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[142]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[144]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8417,7 +8505,7 @@ func (x *CPlayer_GetGameAchievements_Response_Achievement) String() string {
 func (*CPlayer_GetGameAchievements_Response_Achievement) ProtoMessage() {}
 
 func (x *CPlayer_GetGameAchievements_Response_Achievement) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[142]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[144]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8555,7 +8643,7 @@ type CPlayer_GetGameAchievements_Response_Group struct {
 
 func (x *CPlayer_GetGameAchievements_Response_Group) Reset() {
 	*x = CPlayer_GetGameAchievements_Response_Group{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[143]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[145]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8567,7 +8655,7 @@ func (x *CPlayer_GetGameAchievements_Response_Group) String() string {
 func (*CPlayer_GetGameAchievements_Response_Group) ProtoMessage() {}
 
 func (x *CPlayer_GetGameAchievements_Response_Group) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[143]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[145]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8659,7 +8747,7 @@ type CPlayer_GetUserAchievements_Response_Achievement struct {
 
 func (x *CPlayer_GetUserAchievements_Response_Achievement) Reset() {
 	*x = CPlayer_GetUserAchievements_Response_Achievement{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[144]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[146]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8671,7 +8759,7 @@ func (x *CPlayer_GetUserAchievements_Response_Achievement) String() string {
 func (*CPlayer_GetUserAchievements_Response_Achievement) ProtoMessage() {}
 
 func (x *CPlayer_GetUserAchievements_Response_Achievement) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[144]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[146]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8723,16 +8811,18 @@ func (x *CPlayer_GetUserAchievements_Response_Achievement) GetProgressFloat() fl
 }
 
 type CPlayer_GetUserAchievements_Response_Group struct {
-	state                  protoimpl.MessageState `protogen:"open.v1"`
-	Groupid                *uint32                `protobuf:"varint,1,opt,name=groupid" json:"groupid,omitempty"`
-	CompletionAchievements *uint32                `protobuf:"varint,3,opt,name=completion_achievements,json=completionAchievements" json:"completion_achievements,omitempty"`
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state                 protoimpl.MessageState `protogen:"open.v1"`
+	Groupid               *uint32                `protobuf:"varint,1,opt,name=groupid" json:"groupid,omitempty"`
+	IsAchievable          *bool                  `protobuf:"varint,2,opt,name=is_achievable,json=isAchievable" json:"is_achievable,omitempty"`
+	CompletedAchievements *uint32                `protobuf:"varint,3,opt,name=completed_achievements,json=completedAchievements" json:"completed_achievements,omitempty"`
+	IsCompleted           *bool                  `protobuf:"varint,4,opt,name=is_completed,json=isCompleted" json:"is_completed,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *CPlayer_GetUserAchievements_Response_Group) Reset() {
 	*x = CPlayer_GetUserAchievements_Response_Group{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[145]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[147]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8744,7 +8834,7 @@ func (x *CPlayer_GetUserAchievements_Response_Group) String() string {
 func (*CPlayer_GetUserAchievements_Response_Group) ProtoMessage() {}
 
 func (x *CPlayer_GetUserAchievements_Response_Group) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[145]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[147]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8767,9 +8857,75 @@ func (x *CPlayer_GetUserAchievements_Response_Group) GetGroupid() uint32 {
 	return 0
 }
 
-func (x *CPlayer_GetUserAchievements_Response_Group) GetCompletionAchievements() uint32 {
-	if x != nil && x.CompletionAchievements != nil {
-		return *x.CompletionAchievements
+func (x *CPlayer_GetUserAchievements_Response_Group) GetIsAchievable() bool {
+	if x != nil && x.IsAchievable != nil {
+		return *x.IsAchievable
+	}
+	return false
+}
+
+func (x *CPlayer_GetUserAchievements_Response_Group) GetCompletedAchievements() uint32 {
+	if x != nil && x.CompletedAchievements != nil {
+		return *x.CompletedAchievements
+	}
+	return 0
+}
+
+func (x *CPlayer_GetUserAchievements_Response_Group) GetIsCompleted() bool {
+	if x != nil && x.IsCompleted != nil {
+		return *x.IsCompleted
+	}
+	return false
+}
+
+type CPlayer_GetGlobalAchievementPercentages_Response_Achievement struct {
+	state                 protoimpl.MessageState `protogen:"open.v1"`
+	InternalKey           *uint32                `protobuf:"varint,1,opt,name=internal_key,json=internalKey" json:"internal_key,omitempty"`
+	PlayerPercentUnlocked *float32               `protobuf:"fixed32,2,opt,name=player_percent_unlocked,json=playerPercentUnlocked" json:"player_percent_unlocked,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
+}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Response_Achievement) Reset() {
+	*x = CPlayer_GetGlobalAchievementPercentages_Response_Achievement{}
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Response_Achievement) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CPlayer_GetGlobalAchievementPercentages_Response_Achievement) ProtoMessage() {}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Response_Achievement) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CPlayer_GetGlobalAchievementPercentages_Response_Achievement.ProtoReflect.Descriptor instead.
+func (*CPlayer_GetGlobalAchievementPercentages_Response_Achievement) Descriptor() ([]byte, []int) {
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{55, 0}
+}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Response_Achievement) GetInternalKey() uint32 {
+	if x != nil && x.InternalKey != nil {
+		return *x.InternalKey
+	}
+	return 0
+}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Response_Achievement) GetPlayerPercentUnlocked() float32 {
+	if x != nil && x.PlayerPercentUnlocked != nil {
+		return *x.PlayerPercentUnlocked
 	}
 	return 0
 }
@@ -8784,7 +8940,7 @@ type CPlayer_GetUserStats_Response_Unlock_Time struct {
 
 func (x *CPlayer_GetUserStats_Response_Unlock_Time) Reset() {
 	*x = CPlayer_GetUserStats_Response_Unlock_Time{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[146]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[149]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8796,7 +8952,7 @@ func (x *CPlayer_GetUserStats_Response_Unlock_Time) String() string {
 func (*CPlayer_GetUserStats_Response_Unlock_Time) ProtoMessage() {}
 
 func (x *CPlayer_GetUserStats_Response_Unlock_Time) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[146]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[149]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8809,7 +8965,7 @@ func (x *CPlayer_GetUserStats_Response_Unlock_Time) ProtoReflect() protoreflect.
 
 // Deprecated: Use CPlayer_GetUserStats_Response_Unlock_Time.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetUserStats_Response_Unlock_Time) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{55, 0}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{57, 0}
 }
 
 func (x *CPlayer_GetUserStats_Response_Unlock_Time) GetAchievementBit() uint32 {
@@ -8837,7 +8993,7 @@ type CPlayer_GetUserStats_Response_Stats struct {
 
 func (x *CPlayer_GetUserStats_Response_Stats) Reset() {
 	*x = CPlayer_GetUserStats_Response_Stats{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[147]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[150]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8849,7 +9005,7 @@ func (x *CPlayer_GetUserStats_Response_Stats) String() string {
 func (*CPlayer_GetUserStats_Response_Stats) ProtoMessage() {}
 
 func (x *CPlayer_GetUserStats_Response_Stats) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[147]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[150]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8862,7 +9018,7 @@ func (x *CPlayer_GetUserStats_Response_Stats) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CPlayer_GetUserStats_Response_Stats.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetUserStats_Response_Stats) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{55, 1}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{57, 1}
 }
 
 func (x *CPlayer_GetUserStats_Response_Stats) GetStatId() uint32 {
@@ -8902,7 +9058,7 @@ const (
 
 func (x *CPlayer_GetProfileCustomization_Response_PurchasedCustomization) Reset() {
 	*x = CPlayer_GetProfileCustomization_Response_PurchasedCustomization{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[148]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[151]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8914,7 +9070,7 @@ func (x *CPlayer_GetProfileCustomization_Response_PurchasedCustomization) String
 func (*CPlayer_GetProfileCustomization_Response_PurchasedCustomization) ProtoMessage() {}
 
 func (x *CPlayer_GetProfileCustomization_Response_PurchasedCustomization) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[148]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[151]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8927,7 +9083,7 @@ func (x *CPlayer_GetProfileCustomization_Response_PurchasedCustomization) ProtoR
 
 // Deprecated: Use CPlayer_GetProfileCustomization_Response_PurchasedCustomization.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetProfileCustomization_Response_PurchasedCustomization) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{65, 0}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{67, 0}
 }
 
 func (x *CPlayer_GetProfileCustomization_Response_PurchasedCustomization) GetPurchaseid() uint64 {
@@ -8966,7 +9122,7 @@ const (
 
 func (x *CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization) Reset() {
 	*x = CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[149]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[152]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8978,7 +9134,7 @@ func (x *CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomizati
 func (*CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization) ProtoMessage() {}
 
 func (x *CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[149]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[152]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8991,7 +9147,7 @@ func (x *CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomizati
 
 // Deprecated: Use CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{67, 0}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{69, 0}
 }
 
 func (x *CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization) GetPurchaseid() uint64 {
@@ -9023,7 +9179,7 @@ const (
 
 func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization) Reset() {
 	*x = CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[150]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[153]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9036,7 +9192,7 @@ func (*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCu
 }
 
 func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[150]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[153]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9049,7 +9205,7 @@ func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_Purchased
 
 // Deprecated: Use CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{69, 0}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{71, 0}
 }
 
 func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization) GetCustomizationType() EProfileCustomizationType {
@@ -9081,7 +9237,7 @@ const (
 
 func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization) Reset() {
 	*x = CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[151]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[154]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9094,7 +9250,7 @@ func (*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCus
 }
 
 func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[151]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[154]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9107,7 +9263,7 @@ func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedC
 
 // Deprecated: Use CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{69, 1}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{71, 1}
 }
 
 func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization) GetCustomizationType() EProfileCustomizationType {
@@ -9150,7 +9306,7 @@ type CPlayer_GetLastPlayedTimes_Response_Game struct {
 
 func (x *CPlayer_GetLastPlayedTimes_Response_Game) Reset() {
 	*x = CPlayer_GetLastPlayedTimes_Response_Game{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[152]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[155]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9162,7 +9318,7 @@ func (x *CPlayer_GetLastPlayedTimes_Response_Game) String() string {
 func (*CPlayer_GetLastPlayedTimes_Response_Game) ProtoMessage() {}
 
 func (x *CPlayer_GetLastPlayedTimes_Response_Game) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[152]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[155]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9175,7 +9331,7 @@ func (x *CPlayer_GetLastPlayedTimes_Response_Game) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CPlayer_GetLastPlayedTimes_Response_Game.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetLastPlayedTimes_Response_Game) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{83, 0}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{85, 0}
 }
 
 func (x *CPlayer_GetLastPlayedTimes_Response_Game) GetAppid() int32 {
@@ -9314,7 +9470,7 @@ type CPlayer_GetNicknameList_Response_PlayerNickname struct {
 
 func (x *CPlayer_GetNicknameList_Response_PlayerNickname) Reset() {
 	*x = CPlayer_GetNicknameList_Response_PlayerNickname{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[153]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[156]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9326,7 +9482,7 @@ func (x *CPlayer_GetNicknameList_Response_PlayerNickname) String() string {
 func (*CPlayer_GetNicknameList_Response_PlayerNickname) ProtoMessage() {}
 
 func (x *CPlayer_GetNicknameList_Response_PlayerNickname) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[153]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[156]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9339,7 +9495,7 @@ func (x *CPlayer_GetNicknameList_Response_PlayerNickname) ProtoReflect() protore
 
 // Deprecated: Use CPlayer_GetNicknameList_Response_PlayerNickname.ProtoReflect.Descriptor instead.
 func (*CPlayer_GetNicknameList_Response_PlayerNickname) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{89, 0}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{91, 0}
 }
 
 func (x *CPlayer_GetNicknameList_Response_PlayerNickname) GetAccountid() uint32 {
@@ -9369,7 +9525,7 @@ type CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory struct {
 
 func (x *CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory) Reset() {
 	*x = CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[154]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[157]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9381,7 +9537,7 @@ func (x *CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory) String() string
 func (*CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory) ProtoMessage() {}
 
 func (x *CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[154]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[157]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9394,7 +9550,7 @@ func (x *CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory) ProtoReflect() 
 
 // Deprecated: Use CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory.ProtoReflect.Descriptor instead.
 func (*CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory) Descriptor() ([]byte, []int) {
-	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{118, 0}
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{120, 0}
 }
 
 func (x *CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory) GetAppid() uint32 {
@@ -9761,7 +9917,7 @@ const file_steammessages_player_steamclient_proto_rawDesc = "" +
 	"\x17completion_achievements\x18\t \x01(\rR\x16completionAchievements\"U\n" +
 	"#CPlayer_GetUserAchievements_Request\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x04R\asteamid\x12\x14\n" +
-	"\x05appid\x18\x02 \x01(\rR\x05appid\"\xa0\x04\n" +
+	"\x05appid\x18\x02 \x01(\rR\x05appid\"\xe7\x04\n" +
 	"$CPlayer_GetUserAchievements_Response\x12U\n" +
 	"\fachievements\x18\x01 \x03(\v21.CPlayer_GetUserAchievements_Response.AchievementR\fachievements\x12%\n" +
 	"\x0eschema_version\x18\x02 \x01(\x05R\rschemaVersion\x12\x1f\n" +
@@ -9774,10 +9930,19 @@ const file_steammessages_player_steamclient_proto_rawDesc = "" +
 	"\vunlock_time\x18\x03 \x01(\aR\n" +
 	"unlockTime\x12!\n" +
 	"\fprogress_int\x18\x04 \x01(\x05R\vprogressInt\x12%\n" +
-	"\x0eprogress_float\x18\x05 \x01(\x02R\rprogressFloat\x1aZ\n" +
+	"\x0eprogress_float\x18\x05 \x01(\x02R\rprogressFloat\x1a\xa0\x01\n" +
 	"\x05Group\x12\x18\n" +
-	"\agroupid\x18\x01 \x01(\rR\agroupid\x127\n" +
-	"\x17completion_achievements\x18\x03 \x01(\rR\x16completionAchievements\"\xa9\x01\n" +
+	"\agroupid\x18\x01 \x01(\rR\agroupid\x12#\n" +
+	"\ris_achievable\x18\x02 \x01(\bR\fisAchievable\x125\n" +
+	"\x16completed_achievements\x18\x03 \x01(\rR\x15completedAchievements\x12!\n" +
+	"\fis_completed\x18\x04 \x01(\bR\visCompleted\"G\n" +
+	"/CPlayer_GetGlobalAchievementPercentages_Request\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\"\xff\x01\n" +
+	"0CPlayer_GetGlobalAchievementPercentages_Response\x12a\n" +
+	"\fachievements\x18\x01 \x03(\v2=.CPlayer_GetGlobalAchievementPercentages_Response.AchievementR\fachievements\x1ah\n" +
+	"\vAchievement\x12!\n" +
+	"\finternal_key\x18\x01 \x01(\rR\vinternalKey\x126\n" +
+	"\x17player_percent_unlocked\x18\x02 \x01(\x02R\x15playerPercentUnlocked\"\xa9\x01\n" +
 	"\x1cCPlayer_GetUserStats_Request\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x04R\asteamid\x12\x14\n" +
 	"\x05appid\x18\x02 \x01(\rR\x05appid\x12\x1d\n" +
@@ -10096,7 +10261,7 @@ const file_steammessages_player_steamclient_proto_rawDesc = "" +
 	"$k_ETextFilterSettingSteamLabOptedOut\x10\x00\x12\x1f\n" +
 	"\x1bk_ETextFilterSettingEnabled\x10\x01\x12-\n" +
 	")k_ETextFilterSettingEnabledAllowProfanity\x10\x02\x12 \n" +
-	"\x1ck_ETextFilterSettingDisabled\x10\x032\x85-\n" +
+	"\x1ck_ETextFilterSettingDisabled\x10\x032\x8e.\n" +
 	"\x06Player\x12\x8c\x01\n" +
 	"!GetRecentPlaytimeSessionsForChild\x122.CPlayer_GetRecentPlaytimeSessionsForChild_Request\x1a3.CPlayer_GetRecentPlaytimeSessionsForChild_Response\x12e\n" +
 	"\x14GetPlayerLinkDetails\x12%.CPlayer_GetPlayerLinkDetails_Request\x1a&.CPlayer_GetPlayerLinkDetails_Response\x12\x8f\x01\n" +
@@ -10123,7 +10288,8 @@ const file_steammessages_player_steamclient_proto_rawDesc = "" +
 	"\x1aGetTopAchievementsForGames\x12+.CPlayer_GetTopAchievementsForGames_Request\x1a,.CPlayer_GetTopAchievementsForGames_Response\x12n\n" +
 	"\x17GetAchievementsProgress\x12(.CPlayer_GetAchievementsProgress_Request\x1a).CPlayer_GetAchievementsProgress_Response\x12b\n" +
 	"\x13GetGameAchievements\x12$.CPlayer_GetGameAchievements_Request\x1a%.CPlayer_GetGameAchievements_Response\x12b\n" +
-	"\x13GetUserAchievements\x12$.CPlayer_GetUserAchievements_Request\x1a%.CPlayer_GetUserAchievements_Response\x12M\n" +
+	"\x13GetUserAchievements\x12$.CPlayer_GetUserAchievements_Request\x1a%.CPlayer_GetUserAchievements_Response\x12\x86\x01\n" +
+	"\x1fGetGlobalAchievementPercentages\x120.CPlayer_GetGlobalAchievementPercentages_Request\x1a1.CPlayer_GetGlobalAchievementPercentages_Response\x12M\n" +
 	"\fGetUserStats\x12\x1d.CPlayer_GetUserStats_Request\x1a\x1e.CPlayer_GetUserStats_Response\x12Y\n" +
 	"\x10GetFavoriteBadge\x12!.CPlayer_GetFavoriteBadge_Request\x1a\".CPlayer_GetFavoriteBadge_Response\x12Y\n" +
 	"\x10SetFavoriteBadge\x12!.CPlayer_SetFavoriteBadge_Request\x1a\".CPlayer_SetFavoriteBadge_Response\x12n\n" +
@@ -10176,7 +10342,7 @@ func file_steammessages_player_steamclient_proto_rawDescGZIP() []byte {
 }
 
 var file_steammessages_player_steamclient_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
-var file_steammessages_player_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 155)
+var file_steammessages_player_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 158)
 var file_steammessages_player_steamclient_proto_goTypes = []any{
 	(EAchievementProgressType)(0),                                                                // 0: EAchievementProgressType
 	(EProfileCustomizationStyle)(0),                                                              // 1: EProfileCustomizationStyle
@@ -10237,133 +10403,136 @@ var file_steammessages_player_steamclient_proto_goTypes = []any{
 	(*CPlayer_GetGameAchievements_Response)(nil),                                                 // 56: CPlayer_GetGameAchievements_Response
 	(*CPlayer_GetUserAchievements_Request)(nil),                                                  // 57: CPlayer_GetUserAchievements_Request
 	(*CPlayer_GetUserAchievements_Response)(nil),                                                 // 58: CPlayer_GetUserAchievements_Response
-	(*CPlayer_GetUserStats_Request)(nil),                                                         // 59: CPlayer_GetUserStats_Request
-	(*CPlayer_GetUserStats_Response)(nil),                                                        // 60: CPlayer_GetUserStats_Response
-	(*CPlayer_GetFavoriteBadge_Request)(nil),                                                     // 61: CPlayer_GetFavoriteBadge_Request
-	(*CPlayer_GetFavoriteBadge_Response)(nil),                                                    // 62: CPlayer_GetFavoriteBadge_Response
-	(*CPlayer_SetFavoriteBadge_Request)(nil),                                                     // 63: CPlayer_SetFavoriteBadge_Request
-	(*CPlayer_SetFavoriteBadge_Response)(nil),                                                    // 64: CPlayer_SetFavoriteBadge_Response
-	(*CPlayer_GetProfileCustomization_Request)(nil),                                              // 65: CPlayer_GetProfileCustomization_Request
-	(*ProfileCustomizationSlot)(nil),                                                             // 66: ProfileCustomizationSlot
-	(*ProfileCustomization)(nil),                                                                 // 67: ProfileCustomization
-	(*ProfileTheme)(nil),                                                                         // 68: ProfileTheme
-	(*ProfilePreferences)(nil),                                                                   // 69: ProfilePreferences
-	(*CPlayer_GetProfileCustomization_Response)(nil),                                             // 70: CPlayer_GetProfileCustomization_Response
-	(*CPlayer_GetPurchasedProfileCustomizations_Request)(nil),                                    // 71: CPlayer_GetPurchasedProfileCustomizations_Request
-	(*CPlayer_GetPurchasedProfileCustomizations_Response)(nil),                                   // 72: CPlayer_GetPurchasedProfileCustomizations_Response
-	(*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request)(nil),                         // 73: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request
-	(*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response)(nil),                        // 74: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response
-	(*CPlayer_GetProfileThemesAvailable_Request)(nil),                                            // 75: CPlayer_GetProfileThemesAvailable_Request
-	(*CPlayer_GetProfileThemesAvailable_Response)(nil),                                           // 76: CPlayer_GetProfileThemesAvailable_Response
-	(*CPlayer_SetProfileTheme_Request)(nil),                                                      // 77: CPlayer_SetProfileTheme_Request
-	(*CPlayer_SetProfileTheme_Response)(nil),                                                     // 78: CPlayer_SetProfileTheme_Response
-	(*CPlayer_SetProfilePreferences_Request)(nil),                                                // 79: CPlayer_SetProfilePreferences_Request
-	(*CPlayer_SetProfilePreferences_Response)(nil),                                               // 80: CPlayer_SetProfilePreferences_Response
-	(*CPlayer_PostStatusToFriends_Request)(nil),                                                  // 81: CPlayer_PostStatusToFriends_Request
-	(*CPlayer_PostStatusToFriends_Response)(nil),                                                 // 82: CPlayer_PostStatusToFriends_Response
-	(*CPlayer_GetPostedStatus_Request)(nil),                                                      // 83: CPlayer_GetPostedStatus_Request
-	(*CPlayer_GetPostedStatus_Response)(nil),                                                     // 84: CPlayer_GetPostedStatus_Response
-	(*CPlayer_DeletePostedStatus_Request)(nil),                                                   // 85: CPlayer_DeletePostedStatus_Request
-	(*CPlayer_DeletePostedStatus_Response)(nil),                                                  // 86: CPlayer_DeletePostedStatus_Response
-	(*CPlayer_GetLastPlayedTimes_Request)(nil),                                                   // 87: CPlayer_GetLastPlayedTimes_Request
-	(*CPlayer_GetLastPlayedTimes_Response)(nil),                                                  // 88: CPlayer_GetLastPlayedTimes_Response
-	(*CPlayer_GetTimeSSAAccepted_Request)(nil),                                                   // 89: CPlayer_GetTimeSSAAccepted_Request
-	(*CPlayer_GetTimeSSAAccepted_Response)(nil),                                                  // 90: CPlayer_GetTimeSSAAccepted_Response
-	(*CPlayer_AcceptSSA_Request)(nil),                                                            // 91: CPlayer_AcceptSSA_Request
-	(*CPlayer_AcceptSSA_Response)(nil),                                                           // 92: CPlayer_AcceptSSA_Response
-	(*CPlayer_GetNicknameList_Request)(nil),                                                      // 93: CPlayer_GetNicknameList_Request
-	(*CPlayer_GetNicknameList_Response)(nil),                                                     // 94: CPlayer_GetNicknameList_Response
-	(*CPlayer_GetPerFriendPreferences_Request)(nil),                                              // 95: CPlayer_GetPerFriendPreferences_Request
-	(*PerFriendPreferences)(nil),                                                                 // 96: PerFriendPreferences
-	(*CPlayer_GetPerFriendPreferences_Response)(nil),                                             // 97: CPlayer_GetPerFriendPreferences_Response
-	(*CPlayer_SetPerFriendPreferences_Request)(nil),                                              // 98: CPlayer_SetPerFriendPreferences_Request
-	(*CPlayer_SetPerFriendPreferences_Response)(nil),                                             // 99: CPlayer_SetPerFriendPreferences_Response
-	(*CPlayer_AddFriend_Request)(nil),                                                            // 100: CPlayer_AddFriend_Request
-	(*CPlayer_AddFriend_Response)(nil),                                                           // 101: CPlayer_AddFriend_Response
-	(*CPlayer_RemoveFriend_Request)(nil),                                                         // 102: CPlayer_RemoveFriend_Request
-	(*CPlayer_RemoveFriend_Response)(nil),                                                        // 103: CPlayer_RemoveFriend_Response
-	(*CPlayer_IgnoreFriend_Request)(nil),                                                         // 104: CPlayer_IgnoreFriend_Request
-	(*CPlayer_IgnoreFriend_Response)(nil),                                                        // 105: CPlayer_IgnoreFriend_Response
-	(*CPlayer_GetCommunityPreferences_Request)(nil),                                              // 106: CPlayer_GetCommunityPreferences_Request
-	(*CPlayer_CommunityPreferences)(nil),                                                         // 107: CPlayer_CommunityPreferences
-	(*CPlayer_GetCommunityPreferences_Response)(nil),                                             // 108: CPlayer_GetCommunityPreferences_Response
-	(*CPlayer_SetCommunityPreferences_Request)(nil),                                              // 109: CPlayer_SetCommunityPreferences_Request
-	(*CPlayer_SetCommunityPreferences_Response)(nil),                                             // 110: CPlayer_SetCommunityPreferences_Response
-	(*CPlayer_GetTextFilterWords_Request)(nil),                                                   // 111: CPlayer_GetTextFilterWords_Request
-	(*CPlayer_TextFilterWords)(nil),                                                              // 112: CPlayer_TextFilterWords
-	(*CPlayer_GetTextFilterWords_Response)(nil),                                                  // 113: CPlayer_GetTextFilterWords_Response
-	(*CPlayer_GetNewSteamAnnouncementState_Request)(nil),                                         // 114: CPlayer_GetNewSteamAnnouncementState_Request
-	(*CPlayer_GetNewSteamAnnouncementState_Response)(nil),                                        // 115: CPlayer_GetNewSteamAnnouncementState_Response
-	(*CPlayer_UpdateSteamAnnouncementLastRead_Request)(nil),                                      // 116: CPlayer_UpdateSteamAnnouncementLastRead_Request
-	(*CPlayer_UpdateSteamAnnouncementLastRead_Response)(nil),                                     // 117: CPlayer_UpdateSteamAnnouncementLastRead_Response
-	(*CPlayer_GetPrivacySettings_Request)(nil),                                                   // 118: CPlayer_GetPrivacySettings_Request
-	(*CPrivacySettings)(nil),                                                                     // 119: CPrivacySettings
-	(*CPlayer_GetPrivacySettings_Response)(nil),                                                  // 120: CPlayer_GetPrivacySettings_Response
-	(*CPlayer_GetDurationControl_Request)(nil),                                                   // 121: CPlayer_GetDurationControl_Request
-	(*CPlayer_GetDurationControl_Response)(nil),                                                  // 122: CPlayer_GetDurationControl_Response
-	(*CPlayer_RecordDisconnectedPlaytime_Request)(nil),                                           // 123: CPlayer_RecordDisconnectedPlaytime_Request
-	(*CPlayer_RecordDisconnectedPlaytime_Response)(nil),                                          // 124: CPlayer_RecordDisconnectedPlaytime_Response
-	(*CPlayer_LastPlayedTimes_Notification)(nil),                                                 // 125: CPlayer_LastPlayedTimes_Notification
-	(*CPlayer_FriendNicknameChanged_Notification)(nil),                                           // 126: CPlayer_FriendNicknameChanged_Notification
-	(*CPlayer_FriendEquippedProfileItemsChanged_Notification)(nil),                               // 127: CPlayer_FriendEquippedProfileItemsChanged_Notification
-	(*CPlayer_NewSteamAnnouncementState_Notification)(nil),                                       // 128: CPlayer_NewSteamAnnouncementState_Notification
-	(*CPlayer_CommunityPreferencesChanged_Notification)(nil),                                     // 129: CPlayer_CommunityPreferencesChanged_Notification
-	(*CPlayer_TextFilterWordsChanged_Notification)(nil),                                          // 130: CPlayer_TextFilterWordsChanged_Notification
-	(*CPlayer_PerFriendPreferencesChanged_Notification)(nil),                                     // 131: CPlayer_PerFriendPreferencesChanged_Notification
-	(*CPlayer_PrivacySettingsChanged_Notification)(nil),                                          // 132: CPlayer_PrivacySettingsChanged_Notification
-	(*CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession)(nil),                   // 133: CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession
-	(*CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails)(nil),                              // 134: CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails
-	(*CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPublicData)(nil),            // 135: CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.AccountPublicData
-	(*CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData)(nil),           // 136: CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.AccountPrivateData
-	(*CPlayer_GetOwnedGames_Response_Game)(nil),                                                  // 137: CPlayer_GetOwnedGames_Response.Game
-	(*CPlayer_GetFriendsGameplayInfo_Response_FriendsGameplayInfo)(nil),                          // 138: CPlayer_GetFriendsGameplayInfo_Response.FriendsGameplayInfo
-	(*CPlayer_GetFriendsGameplayInfo_Response_OwnGameplayInfo)(nil),                              // 139: CPlayer_GetFriendsGameplayInfo_Response.OwnGameplayInfo
-	(*CPlayer_GetGameBadgeLevels_Response_Badge)(nil),                                            // 140: CPlayer_GetGameBadgeLevels_Response.Badge
-	(*ProfileItem_ProfileColor)(nil),                                                             // 141: ProfileItem.ProfileColor
-	(*CPlayer_GetEmoticonList_Response_Emoticon)(nil),                                            // 142: CPlayer_GetEmoticonList_Response.Emoticon
-	(*CPlayer_GetCommunityBadgeProgress_Response_Quest)(nil),                                     // 143: CPlayer_GetCommunityBadgeProgress_Response.Quest
-	(*CPlayer_GetTopAchievementsForGames_Response_Achievement)(nil),                              // 144: CPlayer_GetTopAchievementsForGames_Response.Achievement
-	(*CPlayer_GetTopAchievementsForGames_Response_Game)(nil),                                     // 145: CPlayer_GetTopAchievementsForGames_Response.Game
-	(*CPlayer_GetAchievementsProgress_Response_AchievementProgress)(nil),                         // 146: CPlayer_GetAchievementsProgress_Response.AchievementProgress
-	(*CPlayer_GetGameAchievements_Response_Achievement)(nil),                                     // 147: CPlayer_GetGameAchievements_Response.Achievement
-	(*CPlayer_GetGameAchievements_Response_Group)(nil),                                           // 148: CPlayer_GetGameAchievements_Response.Group
-	(*CPlayer_GetUserAchievements_Response_Achievement)(nil),                                     // 149: CPlayer_GetUserAchievements_Response.Achievement
-	(*CPlayer_GetUserAchievements_Response_Group)(nil),                                           // 150: CPlayer_GetUserAchievements_Response.Group
-	(*CPlayer_GetUserStats_Response_Unlock_Time)(nil),                                            // 151: CPlayer_GetUserStats_Response.Unlock_Time
-	(*CPlayer_GetUserStats_Response_Stats)(nil),                                                  // 152: CPlayer_GetUserStats_Response.Stats
-	(*CPlayer_GetProfileCustomization_Response_PurchasedCustomization)(nil),                      // 153: CPlayer_GetProfileCustomization_Response.PurchasedCustomization
-	(*CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization)(nil),            // 154: CPlayer_GetPurchasedProfileCustomizations_Response.PurchasedCustomization
-	(*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization)(nil), // 155: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.PurchasedCustomization
-	(*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization)(nil),  // 156: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.UpgradedCustomization
-	(*CPlayer_GetLastPlayedTimes_Response_Game)(nil),                                             // 157: CPlayer_GetLastPlayedTimes_Response.Game
-	(*CPlayer_GetNicknameList_Response_PlayerNickname)(nil),                                      // 158: CPlayer_GetNicknameList_Response.PlayerNickname
-	(*CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory)(nil),                               // 159: CPlayer_RecordDisconnectedPlaytime_Request.PlayHistory
-	(ECommunityItemClass)(0),                                                                     // 160: ECommunityItemClass
-	(EBanContentCheckResult)(0),                                                                  // 161: EBanContentCheckResult
-	(EProfileCustomizationType)(0),                                                               // 162: EProfileCustomizationType
-	(*UserContentDescriptorPreferences)(nil),                                                     // 163: UserContentDescriptorPreferences
-	(ENewSteamAnnouncementState)(0),                                                              // 164: ENewSteamAnnouncementState
-	(*NoResponse)(nil),                                                                           // 165: NoResponse
+	(*CPlayer_GetGlobalAchievementPercentages_Request)(nil),                                      // 59: CPlayer_GetGlobalAchievementPercentages_Request
+	(*CPlayer_GetGlobalAchievementPercentages_Response)(nil),                                     // 60: CPlayer_GetGlobalAchievementPercentages_Response
+	(*CPlayer_GetUserStats_Request)(nil),                                                         // 61: CPlayer_GetUserStats_Request
+	(*CPlayer_GetUserStats_Response)(nil),                                                        // 62: CPlayer_GetUserStats_Response
+	(*CPlayer_GetFavoriteBadge_Request)(nil),                                                     // 63: CPlayer_GetFavoriteBadge_Request
+	(*CPlayer_GetFavoriteBadge_Response)(nil),                                                    // 64: CPlayer_GetFavoriteBadge_Response
+	(*CPlayer_SetFavoriteBadge_Request)(nil),                                                     // 65: CPlayer_SetFavoriteBadge_Request
+	(*CPlayer_SetFavoriteBadge_Response)(nil),                                                    // 66: CPlayer_SetFavoriteBadge_Response
+	(*CPlayer_GetProfileCustomization_Request)(nil),                                              // 67: CPlayer_GetProfileCustomization_Request
+	(*ProfileCustomizationSlot)(nil),                                                             // 68: ProfileCustomizationSlot
+	(*ProfileCustomization)(nil),                                                                 // 69: ProfileCustomization
+	(*ProfileTheme)(nil),                                                                         // 70: ProfileTheme
+	(*ProfilePreferences)(nil),                                                                   // 71: ProfilePreferences
+	(*CPlayer_GetProfileCustomization_Response)(nil),                                             // 72: CPlayer_GetProfileCustomization_Response
+	(*CPlayer_GetPurchasedProfileCustomizations_Request)(nil),                                    // 73: CPlayer_GetPurchasedProfileCustomizations_Request
+	(*CPlayer_GetPurchasedProfileCustomizations_Response)(nil),                                   // 74: CPlayer_GetPurchasedProfileCustomizations_Response
+	(*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request)(nil),                         // 75: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request
+	(*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response)(nil),                        // 76: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response
+	(*CPlayer_GetProfileThemesAvailable_Request)(nil),                                            // 77: CPlayer_GetProfileThemesAvailable_Request
+	(*CPlayer_GetProfileThemesAvailable_Response)(nil),                                           // 78: CPlayer_GetProfileThemesAvailable_Response
+	(*CPlayer_SetProfileTheme_Request)(nil),                                                      // 79: CPlayer_SetProfileTheme_Request
+	(*CPlayer_SetProfileTheme_Response)(nil),                                                     // 80: CPlayer_SetProfileTheme_Response
+	(*CPlayer_SetProfilePreferences_Request)(nil),                                                // 81: CPlayer_SetProfilePreferences_Request
+	(*CPlayer_SetProfilePreferences_Response)(nil),                                               // 82: CPlayer_SetProfilePreferences_Response
+	(*CPlayer_PostStatusToFriends_Request)(nil),                                                  // 83: CPlayer_PostStatusToFriends_Request
+	(*CPlayer_PostStatusToFriends_Response)(nil),                                                 // 84: CPlayer_PostStatusToFriends_Response
+	(*CPlayer_GetPostedStatus_Request)(nil),                                                      // 85: CPlayer_GetPostedStatus_Request
+	(*CPlayer_GetPostedStatus_Response)(nil),                                                     // 86: CPlayer_GetPostedStatus_Response
+	(*CPlayer_DeletePostedStatus_Request)(nil),                                                   // 87: CPlayer_DeletePostedStatus_Request
+	(*CPlayer_DeletePostedStatus_Response)(nil),                                                  // 88: CPlayer_DeletePostedStatus_Response
+	(*CPlayer_GetLastPlayedTimes_Request)(nil),                                                   // 89: CPlayer_GetLastPlayedTimes_Request
+	(*CPlayer_GetLastPlayedTimes_Response)(nil),                                                  // 90: CPlayer_GetLastPlayedTimes_Response
+	(*CPlayer_GetTimeSSAAccepted_Request)(nil),                                                   // 91: CPlayer_GetTimeSSAAccepted_Request
+	(*CPlayer_GetTimeSSAAccepted_Response)(nil),                                                  // 92: CPlayer_GetTimeSSAAccepted_Response
+	(*CPlayer_AcceptSSA_Request)(nil),                                                            // 93: CPlayer_AcceptSSA_Request
+	(*CPlayer_AcceptSSA_Response)(nil),                                                           // 94: CPlayer_AcceptSSA_Response
+	(*CPlayer_GetNicknameList_Request)(nil),                                                      // 95: CPlayer_GetNicknameList_Request
+	(*CPlayer_GetNicknameList_Response)(nil),                                                     // 96: CPlayer_GetNicknameList_Response
+	(*CPlayer_GetPerFriendPreferences_Request)(nil),                                              // 97: CPlayer_GetPerFriendPreferences_Request
+	(*PerFriendPreferences)(nil),                                                                 // 98: PerFriendPreferences
+	(*CPlayer_GetPerFriendPreferences_Response)(nil),                                             // 99: CPlayer_GetPerFriendPreferences_Response
+	(*CPlayer_SetPerFriendPreferences_Request)(nil),                                              // 100: CPlayer_SetPerFriendPreferences_Request
+	(*CPlayer_SetPerFriendPreferences_Response)(nil),                                             // 101: CPlayer_SetPerFriendPreferences_Response
+	(*CPlayer_AddFriend_Request)(nil),                                                            // 102: CPlayer_AddFriend_Request
+	(*CPlayer_AddFriend_Response)(nil),                                                           // 103: CPlayer_AddFriend_Response
+	(*CPlayer_RemoveFriend_Request)(nil),                                                         // 104: CPlayer_RemoveFriend_Request
+	(*CPlayer_RemoveFriend_Response)(nil),                                                        // 105: CPlayer_RemoveFriend_Response
+	(*CPlayer_IgnoreFriend_Request)(nil),                                                         // 106: CPlayer_IgnoreFriend_Request
+	(*CPlayer_IgnoreFriend_Response)(nil),                                                        // 107: CPlayer_IgnoreFriend_Response
+	(*CPlayer_GetCommunityPreferences_Request)(nil),                                              // 108: CPlayer_GetCommunityPreferences_Request
+	(*CPlayer_CommunityPreferences)(nil),                                                         // 109: CPlayer_CommunityPreferences
+	(*CPlayer_GetCommunityPreferences_Response)(nil),                                             // 110: CPlayer_GetCommunityPreferences_Response
+	(*CPlayer_SetCommunityPreferences_Request)(nil),                                              // 111: CPlayer_SetCommunityPreferences_Request
+	(*CPlayer_SetCommunityPreferences_Response)(nil),                                             // 112: CPlayer_SetCommunityPreferences_Response
+	(*CPlayer_GetTextFilterWords_Request)(nil),                                                   // 113: CPlayer_GetTextFilterWords_Request
+	(*CPlayer_TextFilterWords)(nil),                                                              // 114: CPlayer_TextFilterWords
+	(*CPlayer_GetTextFilterWords_Response)(nil),                                                  // 115: CPlayer_GetTextFilterWords_Response
+	(*CPlayer_GetNewSteamAnnouncementState_Request)(nil),                                         // 116: CPlayer_GetNewSteamAnnouncementState_Request
+	(*CPlayer_GetNewSteamAnnouncementState_Response)(nil),                                        // 117: CPlayer_GetNewSteamAnnouncementState_Response
+	(*CPlayer_UpdateSteamAnnouncementLastRead_Request)(nil),                                      // 118: CPlayer_UpdateSteamAnnouncementLastRead_Request
+	(*CPlayer_UpdateSteamAnnouncementLastRead_Response)(nil),                                     // 119: CPlayer_UpdateSteamAnnouncementLastRead_Response
+	(*CPlayer_GetPrivacySettings_Request)(nil),                                                   // 120: CPlayer_GetPrivacySettings_Request
+	(*CPrivacySettings)(nil),                                                                     // 121: CPrivacySettings
+	(*CPlayer_GetPrivacySettings_Response)(nil),                                                  // 122: CPlayer_GetPrivacySettings_Response
+	(*CPlayer_GetDurationControl_Request)(nil),                                                   // 123: CPlayer_GetDurationControl_Request
+	(*CPlayer_GetDurationControl_Response)(nil),                                                  // 124: CPlayer_GetDurationControl_Response
+	(*CPlayer_RecordDisconnectedPlaytime_Request)(nil),                                           // 125: CPlayer_RecordDisconnectedPlaytime_Request
+	(*CPlayer_RecordDisconnectedPlaytime_Response)(nil),                                          // 126: CPlayer_RecordDisconnectedPlaytime_Response
+	(*CPlayer_LastPlayedTimes_Notification)(nil),                                                 // 127: CPlayer_LastPlayedTimes_Notification
+	(*CPlayer_FriendNicknameChanged_Notification)(nil),                                           // 128: CPlayer_FriendNicknameChanged_Notification
+	(*CPlayer_FriendEquippedProfileItemsChanged_Notification)(nil),                               // 129: CPlayer_FriendEquippedProfileItemsChanged_Notification
+	(*CPlayer_NewSteamAnnouncementState_Notification)(nil),                                       // 130: CPlayer_NewSteamAnnouncementState_Notification
+	(*CPlayer_CommunityPreferencesChanged_Notification)(nil),                                     // 131: CPlayer_CommunityPreferencesChanged_Notification
+	(*CPlayer_TextFilterWordsChanged_Notification)(nil),                                          // 132: CPlayer_TextFilterWordsChanged_Notification
+	(*CPlayer_PerFriendPreferencesChanged_Notification)(nil),                                     // 133: CPlayer_PerFriendPreferencesChanged_Notification
+	(*CPlayer_PrivacySettingsChanged_Notification)(nil),                                          // 134: CPlayer_PrivacySettingsChanged_Notification
+	(*CPlayer_GetRecentPlaytimeSessionsForChild_Response_PlaytimeSession)(nil),                   // 135: CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession
+	(*CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails)(nil),                              // 136: CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails
+	(*CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPublicData)(nil),            // 137: CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.AccountPublicData
+	(*CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData)(nil),           // 138: CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.AccountPrivateData
+	(*CPlayer_GetOwnedGames_Response_Game)(nil),                                                  // 139: CPlayer_GetOwnedGames_Response.Game
+	(*CPlayer_GetFriendsGameplayInfo_Response_FriendsGameplayInfo)(nil),                          // 140: CPlayer_GetFriendsGameplayInfo_Response.FriendsGameplayInfo
+	(*CPlayer_GetFriendsGameplayInfo_Response_OwnGameplayInfo)(nil),                              // 141: CPlayer_GetFriendsGameplayInfo_Response.OwnGameplayInfo
+	(*CPlayer_GetGameBadgeLevels_Response_Badge)(nil),                                            // 142: CPlayer_GetGameBadgeLevels_Response.Badge
+	(*ProfileItem_ProfileColor)(nil),                                                             // 143: ProfileItem.ProfileColor
+	(*CPlayer_GetEmoticonList_Response_Emoticon)(nil),                                            // 144: CPlayer_GetEmoticonList_Response.Emoticon
+	(*CPlayer_GetCommunityBadgeProgress_Response_Quest)(nil),                                     // 145: CPlayer_GetCommunityBadgeProgress_Response.Quest
+	(*CPlayer_GetTopAchievementsForGames_Response_Achievement)(nil),                              // 146: CPlayer_GetTopAchievementsForGames_Response.Achievement
+	(*CPlayer_GetTopAchievementsForGames_Response_Game)(nil),                                     // 147: CPlayer_GetTopAchievementsForGames_Response.Game
+	(*CPlayer_GetAchievementsProgress_Response_AchievementProgress)(nil),                         // 148: CPlayer_GetAchievementsProgress_Response.AchievementProgress
+	(*CPlayer_GetGameAchievements_Response_Achievement)(nil),                                     // 149: CPlayer_GetGameAchievements_Response.Achievement
+	(*CPlayer_GetGameAchievements_Response_Group)(nil),                                           // 150: CPlayer_GetGameAchievements_Response.Group
+	(*CPlayer_GetUserAchievements_Response_Achievement)(nil),                                     // 151: CPlayer_GetUserAchievements_Response.Achievement
+	(*CPlayer_GetUserAchievements_Response_Group)(nil),                                           // 152: CPlayer_GetUserAchievements_Response.Group
+	(*CPlayer_GetGlobalAchievementPercentages_Response_Achievement)(nil),                         // 153: CPlayer_GetGlobalAchievementPercentages_Response.Achievement
+	(*CPlayer_GetUserStats_Response_Unlock_Time)(nil),                                            // 154: CPlayer_GetUserStats_Response.Unlock_Time
+	(*CPlayer_GetUserStats_Response_Stats)(nil),                                                  // 155: CPlayer_GetUserStats_Response.Stats
+	(*CPlayer_GetProfileCustomization_Response_PurchasedCustomization)(nil),                      // 156: CPlayer_GetProfileCustomization_Response.PurchasedCustomization
+	(*CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization)(nil),            // 157: CPlayer_GetPurchasedProfileCustomizations_Response.PurchasedCustomization
+	(*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization)(nil), // 158: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.PurchasedCustomization
+	(*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization)(nil),  // 159: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.UpgradedCustomization
+	(*CPlayer_GetLastPlayedTimes_Response_Game)(nil),                                             // 160: CPlayer_GetLastPlayedTimes_Response.Game
+	(*CPlayer_GetNicknameList_Response_PlayerNickname)(nil),                                      // 161: CPlayer_GetNicknameList_Response.PlayerNickname
+	(*CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory)(nil),                               // 162: CPlayer_RecordDisconnectedPlaytime_Request.PlayHistory
+	(ECommunityItemClass)(0),                                                                     // 163: ECommunityItemClass
+	(EBanContentCheckResult)(0),                                                                  // 164: EBanContentCheckResult
+	(EProfileCustomizationType)(0),                                                               // 165: EProfileCustomizationType
+	(*UserContentDescriptorPreferences)(nil),                                                     // 166: UserContentDescriptorPreferences
+	(ENewSteamAnnouncementState)(0),                                                              // 167: ENewSteamAnnouncementState
+	(*NoResponse)(nil),                                                                           // 168: NoResponse
 }
 var file_steammessages_player_steamclient_proto_depIdxs = []int32{
-	133, // 0: CPlayer_GetRecentPlaytimeSessionsForChild_Response.sessions:type_name -> CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession
-	134, // 1: CPlayer_GetPlayerLinkDetails_Response.accounts:type_name -> CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails
+	135, // 0: CPlayer_GetRecentPlaytimeSessionsForChild_Response.sessions:type_name -> CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession
+	136, // 1: CPlayer_GetPlayerLinkDetails_Response.accounts:type_name -> CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails
 	10,  // 2: CPlayer_GetMutualFriendsForIncomingInvites_Response.incoming_invite_mutual_friends_lists:type_name -> CPlayer_IncomingInviteMutualFriendList
-	137, // 3: CPlayer_GetOwnedGames_Response.games:type_name -> CPlayer_GetOwnedGames_Response.Game
-	139, // 4: CPlayer_GetFriendsGameplayInfo_Response.your_info:type_name -> CPlayer_GetFriendsGameplayInfo_Response.OwnGameplayInfo
-	138, // 5: CPlayer_GetFriendsGameplayInfo_Response.in_game:type_name -> CPlayer_GetFriendsGameplayInfo_Response.FriendsGameplayInfo
-	138, // 6: CPlayer_GetFriendsGameplayInfo_Response.played_recently:type_name -> CPlayer_GetFriendsGameplayInfo_Response.FriendsGameplayInfo
-	138, // 7: CPlayer_GetFriendsGameplayInfo_Response.played_ever:type_name -> CPlayer_GetFriendsGameplayInfo_Response.FriendsGameplayInfo
-	138, // 8: CPlayer_GetFriendsGameplayInfo_Response.owns:type_name -> CPlayer_GetFriendsGameplayInfo_Response.FriendsGameplayInfo
-	138, // 9: CPlayer_GetFriendsGameplayInfo_Response.in_wishlist:type_name -> CPlayer_GetFriendsGameplayInfo_Response.FriendsGameplayInfo
-	140, // 10: CPlayer_GetGameBadgeLevels_Response.badges:type_name -> CPlayer_GetGameBadgeLevels_Response.Badge
-	141, // 11: ProfileItem.profile_colors:type_name -> ProfileItem.ProfileColor
+	139, // 3: CPlayer_GetOwnedGames_Response.games:type_name -> CPlayer_GetOwnedGames_Response.Game
+	141, // 4: CPlayer_GetFriendsGameplayInfo_Response.your_info:type_name -> CPlayer_GetFriendsGameplayInfo_Response.OwnGameplayInfo
+	140, // 5: CPlayer_GetFriendsGameplayInfo_Response.in_game:type_name -> CPlayer_GetFriendsGameplayInfo_Response.FriendsGameplayInfo
+	140, // 6: CPlayer_GetFriendsGameplayInfo_Response.played_recently:type_name -> CPlayer_GetFriendsGameplayInfo_Response.FriendsGameplayInfo
+	140, // 7: CPlayer_GetFriendsGameplayInfo_Response.played_ever:type_name -> CPlayer_GetFriendsGameplayInfo_Response.FriendsGameplayInfo
+	140, // 8: CPlayer_GetFriendsGameplayInfo_Response.owns:type_name -> CPlayer_GetFriendsGameplayInfo_Response.FriendsGameplayInfo
+	140, // 9: CPlayer_GetFriendsGameplayInfo_Response.in_wishlist:type_name -> CPlayer_GetFriendsGameplayInfo_Response.FriendsGameplayInfo
+	142, // 10: CPlayer_GetGameBadgeLevels_Response.badges:type_name -> CPlayer_GetGameBadgeLevels_Response.Badge
+	143, // 11: ProfileItem.profile_colors:type_name -> ProfileItem.ProfileColor
 	21,  // 12: CPlayer_GetProfileBackground_Response.profile_background:type_name -> ProfileItem
 	21,  // 13: CPlayer_GetMiniProfileBackground_Response.profile_background:type_name -> ProfileItem
 	21,  // 14: CPlayer_GetAvatarFrame_Response.avatar_frame:type_name -> ProfileItem
 	21,  // 15: CPlayer_GetAnimatedAvatar_Response.avatar:type_name -> ProfileItem
 	21,  // 16: CPlayer_GetSteamDeckKeyboardSkin_Response.steam_deck_keyboard_skin:type_name -> ProfileItem
-	160, // 17: CPlayer_GetProfileItemsOwned_Request.filters:type_name -> ECommunityItemClass
+	163, // 17: CPlayer_GetProfileItemsOwned_Request.filters:type_name -> ECommunityItemClass
 	21,  // 18: CPlayer_GetProfileItemsOwned_Response.profile_backgrounds:type_name -> ProfileItem
 	21,  // 19: CPlayer_GetProfileItemsOwned_Response.mini_profile_backgrounds:type_name -> ProfileItem
 	21,  // 20: CPlayer_GetProfileItemsOwned_Response.avatar_frames:type_name -> ProfileItem
@@ -10377,195 +10546,198 @@ var file_steammessages_player_steamclient_proto_depIdxs = []int32{
 	21,  // 28: CPlayer_GetProfileItemsEquipped_Response.animated_avatar:type_name -> ProfileItem
 	21,  // 29: CPlayer_GetProfileItemsEquipped_Response.profile_modifier:type_name -> ProfileItem
 	21,  // 30: CPlayer_GetProfileItemsEquipped_Response.steam_deck_keyboard_skin:type_name -> ProfileItem
-	142, // 31: CPlayer_GetEmoticonList_Response.emoticons:type_name -> CPlayer_GetEmoticonList_Response.Emoticon
-	143, // 32: CPlayer_GetCommunityBadgeProgress_Response.quests:type_name -> CPlayer_GetCommunityBadgeProgress_Response.Quest
-	145, // 33: CPlayer_GetTopAchievementsForGames_Response.games:type_name -> CPlayer_GetTopAchievementsForGames_Response.Game
-	146, // 34: CPlayer_GetAchievementsProgress_Response.achievement_progress:type_name -> CPlayer_GetAchievementsProgress_Response.AchievementProgress
-	147, // 35: CPlayer_GetGameAchievements_Response.achievements:type_name -> CPlayer_GetGameAchievements_Response.Achievement
-	148, // 36: CPlayer_GetGameAchievements_Response.groups:type_name -> CPlayer_GetGameAchievements_Response.Group
-	149, // 37: CPlayer_GetUserAchievements_Response.achievements:type_name -> CPlayer_GetUserAchievements_Response.Achievement
-	150, // 38: CPlayer_GetUserAchievements_Response.groups:type_name -> CPlayer_GetUserAchievements_Response.Group
-	152, // 39: CPlayer_GetUserStats_Response.stats:type_name -> CPlayer_GetUserStats_Response.Stats
-	161, // 40: ProfileCustomizationSlot.ban_check_result:type_name -> EBanContentCheckResult
-	162, // 41: ProfileCustomization.customization_type:type_name -> EProfileCustomizationType
-	66,  // 42: ProfileCustomization.slots:type_name -> ProfileCustomizationSlot
-	1,   // 43: ProfileCustomization.customization_style:type_name -> EProfileCustomizationStyle
-	67,  // 44: CPlayer_GetProfileCustomization_Response.customizations:type_name -> ProfileCustomization
-	68,  // 45: CPlayer_GetProfileCustomization_Response.profile_theme:type_name -> ProfileTheme
-	153, // 46: CPlayer_GetProfileCustomization_Response.purchased_customizations:type_name -> CPlayer_GetProfileCustomization_Response.PurchasedCustomization
-	69,  // 47: CPlayer_GetProfileCustomization_Response.profile_preferences:type_name -> ProfilePreferences
-	154, // 48: CPlayer_GetPurchasedProfileCustomizations_Response.purchased_customizations:type_name -> CPlayer_GetPurchasedProfileCustomizations_Response.PurchasedCustomization
-	155, // 49: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.purchased_customizations:type_name -> CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.PurchasedCustomization
-	156, // 50: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.upgraded_customizations:type_name -> CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.UpgradedCustomization
-	68,  // 51: CPlayer_GetProfileThemesAvailable_Response.profile_themes:type_name -> ProfileTheme
-	69,  // 52: CPlayer_SetProfilePreferences_Request.profile_preferences:type_name -> ProfilePreferences
-	157, // 53: CPlayer_GetLastPlayedTimes_Response.games:type_name -> CPlayer_GetLastPlayedTimes_Response.Game
-	2,   // 54: CPlayer_AcceptSSA_Request.agreement_type:type_name -> EAgreementType
-	158, // 55: CPlayer_GetNicknameList_Response.nicknames:type_name -> CPlayer_GetNicknameList_Response.PlayerNickname
-	3,   // 56: PerFriendPreferences.notifications_showingame:type_name -> ENotificationSetting
-	3,   // 57: PerFriendPreferences.notifications_showonline:type_name -> ENotificationSetting
-	3,   // 58: PerFriendPreferences.notifications_showmessages:type_name -> ENotificationSetting
-	3,   // 59: PerFriendPreferences.sounds_showingame:type_name -> ENotificationSetting
-	3,   // 60: PerFriendPreferences.sounds_showonline:type_name -> ENotificationSetting
-	3,   // 61: PerFriendPreferences.sounds_showmessages:type_name -> ENotificationSetting
-	3,   // 62: PerFriendPreferences.notifications_sendmobile:type_name -> ENotificationSetting
-	96,  // 63: CPlayer_GetPerFriendPreferences_Response.preferences:type_name -> PerFriendPreferences
-	96,  // 64: CPlayer_SetPerFriendPreferences_Request.preferences:type_name -> PerFriendPreferences
-	4,   // 65: CPlayer_CommunityPreferences.text_filter_setting:type_name -> ETextFilterSetting
-	107, // 66: CPlayer_GetCommunityPreferences_Response.preferences:type_name -> CPlayer_CommunityPreferences
-	163, // 67: CPlayer_GetCommunityPreferences_Response.content_descriptor_preferences:type_name -> UserContentDescriptorPreferences
-	107, // 68: CPlayer_SetCommunityPreferences_Request.preferences:type_name -> CPlayer_CommunityPreferences
-	112, // 69: CPlayer_GetTextFilterWords_Response.words:type_name -> CPlayer_TextFilterWords
-	164, // 70: CPlayer_GetNewSteamAnnouncementState_Response.state:type_name -> ENewSteamAnnouncementState
-	119, // 71: CPlayer_GetPrivacySettings_Response.privacy_settings:type_name -> CPrivacySettings
-	159, // 72: CPlayer_RecordDisconnectedPlaytime_Request.play_sessions:type_name -> CPlayer_RecordDisconnectedPlaytime_Request.PlayHistory
-	157, // 73: CPlayer_LastPlayedTimes_Notification.games:type_name -> CPlayer_GetLastPlayedTimes_Response.Game
-	164, // 74: CPlayer_NewSteamAnnouncementState_Notification.state:type_name -> ENewSteamAnnouncementState
-	107, // 75: CPlayer_CommunityPreferencesChanged_Notification.preferences:type_name -> CPlayer_CommunityPreferences
-	163, // 76: CPlayer_CommunityPreferencesChanged_Notification.content_descriptor_preferences:type_name -> UserContentDescriptorPreferences
-	112, // 77: CPlayer_TextFilterWordsChanged_Notification.words:type_name -> CPlayer_TextFilterWords
-	96,  // 78: CPlayer_PerFriendPreferencesChanged_Notification.preferences:type_name -> PerFriendPreferences
-	119, // 79: CPlayer_PrivacySettingsChanged_Notification.privacy_settings:type_name -> CPrivacySettings
-	135, // 80: CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.public_data:type_name -> CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.AccountPublicData
-	136, // 81: CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.private_data:type_name -> CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.AccountPrivateData
-	144, // 82: CPlayer_GetTopAchievementsForGames_Response.Game.achievements:type_name -> CPlayer_GetTopAchievementsForGames_Response.Achievement
-	0,   // 83: CPlayer_GetGameAchievements_Response.Achievement.progress_type:type_name -> EAchievementProgressType
-	151, // 84: CPlayer_GetUserStats_Response.Stats.unlock_times:type_name -> CPlayer_GetUserStats_Response.Unlock_Time
-	162, // 85: CPlayer_GetProfileCustomization_Response.PurchasedCustomization.customization_type:type_name -> EProfileCustomizationType
-	162, // 86: CPlayer_GetPurchasedProfileCustomizations_Response.PurchasedCustomization.customization_type:type_name -> EProfileCustomizationType
-	162, // 87: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.PurchasedCustomization.customization_type:type_name -> EProfileCustomizationType
-	162, // 88: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.UpgradedCustomization.customization_type:type_name -> EProfileCustomizationType
-	5,   // 89: Player.GetRecentPlaytimeSessionsForChild:input_type -> CPlayer_GetRecentPlaytimeSessionsForChild_Request
-	7,   // 90: Player.GetPlayerLinkDetails:input_type -> CPlayer_GetPlayerLinkDetails_Request
-	9,   // 91: Player.GetMutualFriendsForIncomingInvites:input_type -> CPlayer_GetMutualFriendsForIncomingInvites_Request
-	12,  // 92: Player.GetOwnedGames:input_type -> CPlayer_GetOwnedGames_Request
-	14,  // 93: Player.GetPlayNext:input_type -> CPlayer_GetPlayNext_Request
-	16,  // 94: Player.GetFriendsGameplayInfo:input_type -> CPlayer_GetFriendsGameplayInfo_Request
-	18,  // 95: Player.GetGameBadgeLevels:input_type -> CPlayer_GetGameBadgeLevels_Request
-	20,  // 96: Player.GetProfileBackground:input_type -> CPlayer_GetProfileBackground_Request
-	23,  // 97: Player.SetProfileBackground:input_type -> CPlayer_SetProfileBackground_Request
-	25,  // 98: Player.GetMiniProfileBackground:input_type -> CPlayer_GetMiniProfileBackground_Request
-	27,  // 99: Player.SetMiniProfileBackground:input_type -> CPlayer_SetMiniProfileBackground_Request
-	29,  // 100: Player.GetAvatarFrame:input_type -> CPlayer_GetAvatarFrame_Request
-	31,  // 101: Player.SetAvatarFrame:input_type -> CPlayer_SetAvatarFrame_Request
-	33,  // 102: Player.GetAnimatedAvatar:input_type -> CPlayer_GetAnimatedAvatar_Request
-	35,  // 103: Player.SetAnimatedAvatar:input_type -> CPlayer_SetAnimatedAvatar_Request
-	37,  // 104: Player.GetSteamDeckKeyboardSkin:input_type -> CPlayer_GetSteamDeckKeyboardSkin_Request
-	39,  // 105: Player.SetSteamDeckKeyboardSkin:input_type -> CPlayer_SetSteamDeckKeyboardSkin_Request
-	41,  // 106: Player.GetProfileItemsOwned:input_type -> CPlayer_GetProfileItemsOwned_Request
-	43,  // 107: Player.GetProfileItemsEquipped:input_type -> CPlayer_GetProfileItemsEquipped_Request
-	45,  // 108: Player.SetEquippedProfileItemFlags:input_type -> CPlayer_SetEquippedProfileItemFlags_Request
-	47,  // 109: Player.GetEmoticonList:input_type -> CPlayer_GetEmoticonList_Request
-	49,  // 110: Player.GetCommunityBadgeProgress:input_type -> CPlayer_GetCommunityBadgeProgress_Request
-	51,  // 111: Player.GetTopAchievementsForGames:input_type -> CPlayer_GetTopAchievementsForGames_Request
-	53,  // 112: Player.GetAchievementsProgress:input_type -> CPlayer_GetAchievementsProgress_Request
-	55,  // 113: Player.GetGameAchievements:input_type -> CPlayer_GetGameAchievements_Request
-	57,  // 114: Player.GetUserAchievements:input_type -> CPlayer_GetUserAchievements_Request
-	59,  // 115: Player.GetUserStats:input_type -> CPlayer_GetUserStats_Request
-	61,  // 116: Player.GetFavoriteBadge:input_type -> CPlayer_GetFavoriteBadge_Request
-	63,  // 117: Player.SetFavoriteBadge:input_type -> CPlayer_SetFavoriteBadge_Request
-	65,  // 118: Player.GetProfileCustomization:input_type -> CPlayer_GetProfileCustomization_Request
-	71,  // 119: Player.GetPurchasedProfileCustomizations:input_type -> CPlayer_GetPurchasedProfileCustomizations_Request
-	73,  // 120: Player.GetPurchasedAndUpgradedProfileCustomizations:input_type -> CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request
-	75,  // 121: Player.GetProfileThemesAvailable:input_type -> CPlayer_GetProfileThemesAvailable_Request
-	77,  // 122: Player.SetProfileTheme:input_type -> CPlayer_SetProfileTheme_Request
-	79,  // 123: Player.SetProfilePreferences:input_type -> CPlayer_SetProfilePreferences_Request
-	81,  // 124: Player.PostStatusToFriends:input_type -> CPlayer_PostStatusToFriends_Request
-	83,  // 125: Player.GetPostedStatus:input_type -> CPlayer_GetPostedStatus_Request
-	85,  // 126: Player.DeletePostedStatus:input_type -> CPlayer_DeletePostedStatus_Request
-	87,  // 127: Player.ClientGetLastPlayedTimes:input_type -> CPlayer_GetLastPlayedTimes_Request
-	89,  // 128: Player.GetTimeSSAAccepted:input_type -> CPlayer_GetTimeSSAAccepted_Request
-	91,  // 129: Player.AcceptSSA:input_type -> CPlayer_AcceptSSA_Request
-	93,  // 130: Player.GetNicknameList:input_type -> CPlayer_GetNicknameList_Request
-	95,  // 131: Player.GetPerFriendPreferences:input_type -> CPlayer_GetPerFriendPreferences_Request
-	98,  // 132: Player.SetPerFriendPreferences:input_type -> CPlayer_SetPerFriendPreferences_Request
-	100, // 133: Player.AddFriend:input_type -> CPlayer_AddFriend_Request
-	102, // 134: Player.RemoveFriend:input_type -> CPlayer_RemoveFriend_Request
-	104, // 135: Player.IgnoreFriend:input_type -> CPlayer_IgnoreFriend_Request
-	106, // 136: Player.GetCommunityPreferences:input_type -> CPlayer_GetCommunityPreferences_Request
-	109, // 137: Player.SetCommunityPreferences:input_type -> CPlayer_SetCommunityPreferences_Request
-	111, // 138: Player.GetTextFilterWords:input_type -> CPlayer_GetTextFilterWords_Request
-	114, // 139: Player.GetNewSteamAnnouncementState:input_type -> CPlayer_GetNewSteamAnnouncementState_Request
-	116, // 140: Player.UpdateSteamAnnouncementLastRead:input_type -> CPlayer_UpdateSteamAnnouncementLastRead_Request
-	118, // 141: Player.GetPrivacySettings:input_type -> CPlayer_GetPrivacySettings_Request
-	121, // 142: Player.GetDurationControl:input_type -> CPlayer_GetDurationControl_Request
-	123, // 143: Player.RecordDisconnectedPlaytime:input_type -> CPlayer_RecordDisconnectedPlaytime_Request
-	125, // 144: PlayerClient.NotifyLastPlayedTimes:input_type -> CPlayer_LastPlayedTimes_Notification
-	126, // 145: PlayerClient.NotifyFriendNicknameChanged:input_type -> CPlayer_FriendNicknameChanged_Notification
-	127, // 146: PlayerClient.NotifyFriendEquippedProfileItemsChanged:input_type -> CPlayer_FriendEquippedProfileItemsChanged_Notification
-	128, // 147: PlayerClient.NotifyNewSteamAnnouncementState:input_type -> CPlayer_NewSteamAnnouncementState_Notification
-	129, // 148: PlayerClient.NotifyCommunityPreferencesChanged:input_type -> CPlayer_CommunityPreferencesChanged_Notification
-	130, // 149: PlayerClient.NotifyTextFilterWordsChanged:input_type -> CPlayer_TextFilterWordsChanged_Notification
-	131, // 150: PlayerClient.NotifyPerFriendPreferencesChanged:input_type -> CPlayer_PerFriendPreferencesChanged_Notification
-	132, // 151: PlayerClient.NotifyPrivacyPrivacySettingsChanged:input_type -> CPlayer_PrivacySettingsChanged_Notification
-	6,   // 152: Player.GetRecentPlaytimeSessionsForChild:output_type -> CPlayer_GetRecentPlaytimeSessionsForChild_Response
-	8,   // 153: Player.GetPlayerLinkDetails:output_type -> CPlayer_GetPlayerLinkDetails_Response
-	11,  // 154: Player.GetMutualFriendsForIncomingInvites:output_type -> CPlayer_GetMutualFriendsForIncomingInvites_Response
-	13,  // 155: Player.GetOwnedGames:output_type -> CPlayer_GetOwnedGames_Response
-	15,  // 156: Player.GetPlayNext:output_type -> CPlayer_GetPlayNext_Response
-	17,  // 157: Player.GetFriendsGameplayInfo:output_type -> CPlayer_GetFriendsGameplayInfo_Response
-	19,  // 158: Player.GetGameBadgeLevels:output_type -> CPlayer_GetGameBadgeLevels_Response
-	22,  // 159: Player.GetProfileBackground:output_type -> CPlayer_GetProfileBackground_Response
-	24,  // 160: Player.SetProfileBackground:output_type -> CPlayer_SetProfileBackground_Response
-	26,  // 161: Player.GetMiniProfileBackground:output_type -> CPlayer_GetMiniProfileBackground_Response
-	28,  // 162: Player.SetMiniProfileBackground:output_type -> CPlayer_SetMiniProfileBackground_Response
-	30,  // 163: Player.GetAvatarFrame:output_type -> CPlayer_GetAvatarFrame_Response
-	32,  // 164: Player.SetAvatarFrame:output_type -> CPlayer_SetAvatarFrame_Response
-	34,  // 165: Player.GetAnimatedAvatar:output_type -> CPlayer_GetAnimatedAvatar_Response
-	36,  // 166: Player.SetAnimatedAvatar:output_type -> CPlayer_SetAnimatedAvatar_Response
-	38,  // 167: Player.GetSteamDeckKeyboardSkin:output_type -> CPlayer_GetSteamDeckKeyboardSkin_Response
-	40,  // 168: Player.SetSteamDeckKeyboardSkin:output_type -> CPlayer_SetSteamDeckKeyboardSkin_Response
-	42,  // 169: Player.GetProfileItemsOwned:output_type -> CPlayer_GetProfileItemsOwned_Response
-	44,  // 170: Player.GetProfileItemsEquipped:output_type -> CPlayer_GetProfileItemsEquipped_Response
-	46,  // 171: Player.SetEquippedProfileItemFlags:output_type -> CPlayer_SetEquippedProfileItemFlags_Response
-	48,  // 172: Player.GetEmoticonList:output_type -> CPlayer_GetEmoticonList_Response
-	50,  // 173: Player.GetCommunityBadgeProgress:output_type -> CPlayer_GetCommunityBadgeProgress_Response
-	52,  // 174: Player.GetTopAchievementsForGames:output_type -> CPlayer_GetTopAchievementsForGames_Response
-	54,  // 175: Player.GetAchievementsProgress:output_type -> CPlayer_GetAchievementsProgress_Response
-	56,  // 176: Player.GetGameAchievements:output_type -> CPlayer_GetGameAchievements_Response
-	58,  // 177: Player.GetUserAchievements:output_type -> CPlayer_GetUserAchievements_Response
-	60,  // 178: Player.GetUserStats:output_type -> CPlayer_GetUserStats_Response
-	62,  // 179: Player.GetFavoriteBadge:output_type -> CPlayer_GetFavoriteBadge_Response
-	64,  // 180: Player.SetFavoriteBadge:output_type -> CPlayer_SetFavoriteBadge_Response
-	70,  // 181: Player.GetProfileCustomization:output_type -> CPlayer_GetProfileCustomization_Response
-	72,  // 182: Player.GetPurchasedProfileCustomizations:output_type -> CPlayer_GetPurchasedProfileCustomizations_Response
-	74,  // 183: Player.GetPurchasedAndUpgradedProfileCustomizations:output_type -> CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response
-	76,  // 184: Player.GetProfileThemesAvailable:output_type -> CPlayer_GetProfileThemesAvailable_Response
-	78,  // 185: Player.SetProfileTheme:output_type -> CPlayer_SetProfileTheme_Response
-	80,  // 186: Player.SetProfilePreferences:output_type -> CPlayer_SetProfilePreferences_Response
-	82,  // 187: Player.PostStatusToFriends:output_type -> CPlayer_PostStatusToFriends_Response
-	84,  // 188: Player.GetPostedStatus:output_type -> CPlayer_GetPostedStatus_Response
-	86,  // 189: Player.DeletePostedStatus:output_type -> CPlayer_DeletePostedStatus_Response
-	88,  // 190: Player.ClientGetLastPlayedTimes:output_type -> CPlayer_GetLastPlayedTimes_Response
-	90,  // 191: Player.GetTimeSSAAccepted:output_type -> CPlayer_GetTimeSSAAccepted_Response
-	92,  // 192: Player.AcceptSSA:output_type -> CPlayer_AcceptSSA_Response
-	94,  // 193: Player.GetNicknameList:output_type -> CPlayer_GetNicknameList_Response
-	97,  // 194: Player.GetPerFriendPreferences:output_type -> CPlayer_GetPerFriendPreferences_Response
-	99,  // 195: Player.SetPerFriendPreferences:output_type -> CPlayer_SetPerFriendPreferences_Response
-	101, // 196: Player.AddFriend:output_type -> CPlayer_AddFriend_Response
-	103, // 197: Player.RemoveFriend:output_type -> CPlayer_RemoveFriend_Response
-	105, // 198: Player.IgnoreFriend:output_type -> CPlayer_IgnoreFriend_Response
-	108, // 199: Player.GetCommunityPreferences:output_type -> CPlayer_GetCommunityPreferences_Response
-	110, // 200: Player.SetCommunityPreferences:output_type -> CPlayer_SetCommunityPreferences_Response
-	113, // 201: Player.GetTextFilterWords:output_type -> CPlayer_GetTextFilterWords_Response
-	115, // 202: Player.GetNewSteamAnnouncementState:output_type -> CPlayer_GetNewSteamAnnouncementState_Response
-	117, // 203: Player.UpdateSteamAnnouncementLastRead:output_type -> CPlayer_UpdateSteamAnnouncementLastRead_Response
-	120, // 204: Player.GetPrivacySettings:output_type -> CPlayer_GetPrivacySettings_Response
-	122, // 205: Player.GetDurationControl:output_type -> CPlayer_GetDurationControl_Response
-	124, // 206: Player.RecordDisconnectedPlaytime:output_type -> CPlayer_RecordDisconnectedPlaytime_Response
-	165, // 207: PlayerClient.NotifyLastPlayedTimes:output_type -> NoResponse
-	165, // 208: PlayerClient.NotifyFriendNicknameChanged:output_type -> NoResponse
-	165, // 209: PlayerClient.NotifyFriendEquippedProfileItemsChanged:output_type -> NoResponse
-	165, // 210: PlayerClient.NotifyNewSteamAnnouncementState:output_type -> NoResponse
-	165, // 211: PlayerClient.NotifyCommunityPreferencesChanged:output_type -> NoResponse
-	165, // 212: PlayerClient.NotifyTextFilterWordsChanged:output_type -> NoResponse
-	165, // 213: PlayerClient.NotifyPerFriendPreferencesChanged:output_type -> NoResponse
-	165, // 214: PlayerClient.NotifyPrivacyPrivacySettingsChanged:output_type -> NoResponse
-	152, // [152:215] is the sub-list for method output_type
-	89,  // [89:152] is the sub-list for method input_type
-	89,  // [89:89] is the sub-list for extension type_name
-	89,  // [89:89] is the sub-list for extension extendee
-	0,   // [0:89] is the sub-list for field type_name
+	144, // 31: CPlayer_GetEmoticonList_Response.emoticons:type_name -> CPlayer_GetEmoticonList_Response.Emoticon
+	145, // 32: CPlayer_GetCommunityBadgeProgress_Response.quests:type_name -> CPlayer_GetCommunityBadgeProgress_Response.Quest
+	147, // 33: CPlayer_GetTopAchievementsForGames_Response.games:type_name -> CPlayer_GetTopAchievementsForGames_Response.Game
+	148, // 34: CPlayer_GetAchievementsProgress_Response.achievement_progress:type_name -> CPlayer_GetAchievementsProgress_Response.AchievementProgress
+	149, // 35: CPlayer_GetGameAchievements_Response.achievements:type_name -> CPlayer_GetGameAchievements_Response.Achievement
+	150, // 36: CPlayer_GetGameAchievements_Response.groups:type_name -> CPlayer_GetGameAchievements_Response.Group
+	151, // 37: CPlayer_GetUserAchievements_Response.achievements:type_name -> CPlayer_GetUserAchievements_Response.Achievement
+	152, // 38: CPlayer_GetUserAchievements_Response.groups:type_name -> CPlayer_GetUserAchievements_Response.Group
+	153, // 39: CPlayer_GetGlobalAchievementPercentages_Response.achievements:type_name -> CPlayer_GetGlobalAchievementPercentages_Response.Achievement
+	155, // 40: CPlayer_GetUserStats_Response.stats:type_name -> CPlayer_GetUserStats_Response.Stats
+	164, // 41: ProfileCustomizationSlot.ban_check_result:type_name -> EBanContentCheckResult
+	165, // 42: ProfileCustomization.customization_type:type_name -> EProfileCustomizationType
+	68,  // 43: ProfileCustomization.slots:type_name -> ProfileCustomizationSlot
+	1,   // 44: ProfileCustomization.customization_style:type_name -> EProfileCustomizationStyle
+	69,  // 45: CPlayer_GetProfileCustomization_Response.customizations:type_name -> ProfileCustomization
+	70,  // 46: CPlayer_GetProfileCustomization_Response.profile_theme:type_name -> ProfileTheme
+	156, // 47: CPlayer_GetProfileCustomization_Response.purchased_customizations:type_name -> CPlayer_GetProfileCustomization_Response.PurchasedCustomization
+	71,  // 48: CPlayer_GetProfileCustomization_Response.profile_preferences:type_name -> ProfilePreferences
+	157, // 49: CPlayer_GetPurchasedProfileCustomizations_Response.purchased_customizations:type_name -> CPlayer_GetPurchasedProfileCustomizations_Response.PurchasedCustomization
+	158, // 50: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.purchased_customizations:type_name -> CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.PurchasedCustomization
+	159, // 51: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.upgraded_customizations:type_name -> CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.UpgradedCustomization
+	70,  // 52: CPlayer_GetProfileThemesAvailable_Response.profile_themes:type_name -> ProfileTheme
+	71,  // 53: CPlayer_SetProfilePreferences_Request.profile_preferences:type_name -> ProfilePreferences
+	160, // 54: CPlayer_GetLastPlayedTimes_Response.games:type_name -> CPlayer_GetLastPlayedTimes_Response.Game
+	2,   // 55: CPlayer_AcceptSSA_Request.agreement_type:type_name -> EAgreementType
+	161, // 56: CPlayer_GetNicknameList_Response.nicknames:type_name -> CPlayer_GetNicknameList_Response.PlayerNickname
+	3,   // 57: PerFriendPreferences.notifications_showingame:type_name -> ENotificationSetting
+	3,   // 58: PerFriendPreferences.notifications_showonline:type_name -> ENotificationSetting
+	3,   // 59: PerFriendPreferences.notifications_showmessages:type_name -> ENotificationSetting
+	3,   // 60: PerFriendPreferences.sounds_showingame:type_name -> ENotificationSetting
+	3,   // 61: PerFriendPreferences.sounds_showonline:type_name -> ENotificationSetting
+	3,   // 62: PerFriendPreferences.sounds_showmessages:type_name -> ENotificationSetting
+	3,   // 63: PerFriendPreferences.notifications_sendmobile:type_name -> ENotificationSetting
+	98,  // 64: CPlayer_GetPerFriendPreferences_Response.preferences:type_name -> PerFriendPreferences
+	98,  // 65: CPlayer_SetPerFriendPreferences_Request.preferences:type_name -> PerFriendPreferences
+	4,   // 66: CPlayer_CommunityPreferences.text_filter_setting:type_name -> ETextFilterSetting
+	109, // 67: CPlayer_GetCommunityPreferences_Response.preferences:type_name -> CPlayer_CommunityPreferences
+	166, // 68: CPlayer_GetCommunityPreferences_Response.content_descriptor_preferences:type_name -> UserContentDescriptorPreferences
+	109, // 69: CPlayer_SetCommunityPreferences_Request.preferences:type_name -> CPlayer_CommunityPreferences
+	114, // 70: CPlayer_GetTextFilterWords_Response.words:type_name -> CPlayer_TextFilterWords
+	167, // 71: CPlayer_GetNewSteamAnnouncementState_Response.state:type_name -> ENewSteamAnnouncementState
+	121, // 72: CPlayer_GetPrivacySettings_Response.privacy_settings:type_name -> CPrivacySettings
+	162, // 73: CPlayer_RecordDisconnectedPlaytime_Request.play_sessions:type_name -> CPlayer_RecordDisconnectedPlaytime_Request.PlayHistory
+	160, // 74: CPlayer_LastPlayedTimes_Notification.games:type_name -> CPlayer_GetLastPlayedTimes_Response.Game
+	167, // 75: CPlayer_NewSteamAnnouncementState_Notification.state:type_name -> ENewSteamAnnouncementState
+	109, // 76: CPlayer_CommunityPreferencesChanged_Notification.preferences:type_name -> CPlayer_CommunityPreferences
+	166, // 77: CPlayer_CommunityPreferencesChanged_Notification.content_descriptor_preferences:type_name -> UserContentDescriptorPreferences
+	114, // 78: CPlayer_TextFilterWordsChanged_Notification.words:type_name -> CPlayer_TextFilterWords
+	98,  // 79: CPlayer_PerFriendPreferencesChanged_Notification.preferences:type_name -> PerFriendPreferences
+	121, // 80: CPlayer_PrivacySettingsChanged_Notification.privacy_settings:type_name -> CPrivacySettings
+	137, // 81: CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.public_data:type_name -> CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.AccountPublicData
+	138, // 82: CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.private_data:type_name -> CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.AccountPrivateData
+	146, // 83: CPlayer_GetTopAchievementsForGames_Response.Game.achievements:type_name -> CPlayer_GetTopAchievementsForGames_Response.Achievement
+	0,   // 84: CPlayer_GetGameAchievements_Response.Achievement.progress_type:type_name -> EAchievementProgressType
+	154, // 85: CPlayer_GetUserStats_Response.Stats.unlock_times:type_name -> CPlayer_GetUserStats_Response.Unlock_Time
+	165, // 86: CPlayer_GetProfileCustomization_Response.PurchasedCustomization.customization_type:type_name -> EProfileCustomizationType
+	165, // 87: CPlayer_GetPurchasedProfileCustomizations_Response.PurchasedCustomization.customization_type:type_name -> EProfileCustomizationType
+	165, // 88: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.PurchasedCustomization.customization_type:type_name -> EProfileCustomizationType
+	165, // 89: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.UpgradedCustomization.customization_type:type_name -> EProfileCustomizationType
+	5,   // 90: Player.GetRecentPlaytimeSessionsForChild:input_type -> CPlayer_GetRecentPlaytimeSessionsForChild_Request
+	7,   // 91: Player.GetPlayerLinkDetails:input_type -> CPlayer_GetPlayerLinkDetails_Request
+	9,   // 92: Player.GetMutualFriendsForIncomingInvites:input_type -> CPlayer_GetMutualFriendsForIncomingInvites_Request
+	12,  // 93: Player.GetOwnedGames:input_type -> CPlayer_GetOwnedGames_Request
+	14,  // 94: Player.GetPlayNext:input_type -> CPlayer_GetPlayNext_Request
+	16,  // 95: Player.GetFriendsGameplayInfo:input_type -> CPlayer_GetFriendsGameplayInfo_Request
+	18,  // 96: Player.GetGameBadgeLevels:input_type -> CPlayer_GetGameBadgeLevels_Request
+	20,  // 97: Player.GetProfileBackground:input_type -> CPlayer_GetProfileBackground_Request
+	23,  // 98: Player.SetProfileBackground:input_type -> CPlayer_SetProfileBackground_Request
+	25,  // 99: Player.GetMiniProfileBackground:input_type -> CPlayer_GetMiniProfileBackground_Request
+	27,  // 100: Player.SetMiniProfileBackground:input_type -> CPlayer_SetMiniProfileBackground_Request
+	29,  // 101: Player.GetAvatarFrame:input_type -> CPlayer_GetAvatarFrame_Request
+	31,  // 102: Player.SetAvatarFrame:input_type -> CPlayer_SetAvatarFrame_Request
+	33,  // 103: Player.GetAnimatedAvatar:input_type -> CPlayer_GetAnimatedAvatar_Request
+	35,  // 104: Player.SetAnimatedAvatar:input_type -> CPlayer_SetAnimatedAvatar_Request
+	37,  // 105: Player.GetSteamDeckKeyboardSkin:input_type -> CPlayer_GetSteamDeckKeyboardSkin_Request
+	39,  // 106: Player.SetSteamDeckKeyboardSkin:input_type -> CPlayer_SetSteamDeckKeyboardSkin_Request
+	41,  // 107: Player.GetProfileItemsOwned:input_type -> CPlayer_GetProfileItemsOwned_Request
+	43,  // 108: Player.GetProfileItemsEquipped:input_type -> CPlayer_GetProfileItemsEquipped_Request
+	45,  // 109: Player.SetEquippedProfileItemFlags:input_type -> CPlayer_SetEquippedProfileItemFlags_Request
+	47,  // 110: Player.GetEmoticonList:input_type -> CPlayer_GetEmoticonList_Request
+	49,  // 111: Player.GetCommunityBadgeProgress:input_type -> CPlayer_GetCommunityBadgeProgress_Request
+	51,  // 112: Player.GetTopAchievementsForGames:input_type -> CPlayer_GetTopAchievementsForGames_Request
+	53,  // 113: Player.GetAchievementsProgress:input_type -> CPlayer_GetAchievementsProgress_Request
+	55,  // 114: Player.GetGameAchievements:input_type -> CPlayer_GetGameAchievements_Request
+	57,  // 115: Player.GetUserAchievements:input_type -> CPlayer_GetUserAchievements_Request
+	59,  // 116: Player.GetGlobalAchievementPercentages:input_type -> CPlayer_GetGlobalAchievementPercentages_Request
+	61,  // 117: Player.GetUserStats:input_type -> CPlayer_GetUserStats_Request
+	63,  // 118: Player.GetFavoriteBadge:input_type -> CPlayer_GetFavoriteBadge_Request
+	65,  // 119: Player.SetFavoriteBadge:input_type -> CPlayer_SetFavoriteBadge_Request
+	67,  // 120: Player.GetProfileCustomization:input_type -> CPlayer_GetProfileCustomization_Request
+	73,  // 121: Player.GetPurchasedProfileCustomizations:input_type -> CPlayer_GetPurchasedProfileCustomizations_Request
+	75,  // 122: Player.GetPurchasedAndUpgradedProfileCustomizations:input_type -> CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request
+	77,  // 123: Player.GetProfileThemesAvailable:input_type -> CPlayer_GetProfileThemesAvailable_Request
+	79,  // 124: Player.SetProfileTheme:input_type -> CPlayer_SetProfileTheme_Request
+	81,  // 125: Player.SetProfilePreferences:input_type -> CPlayer_SetProfilePreferences_Request
+	83,  // 126: Player.PostStatusToFriends:input_type -> CPlayer_PostStatusToFriends_Request
+	85,  // 127: Player.GetPostedStatus:input_type -> CPlayer_GetPostedStatus_Request
+	87,  // 128: Player.DeletePostedStatus:input_type -> CPlayer_DeletePostedStatus_Request
+	89,  // 129: Player.ClientGetLastPlayedTimes:input_type -> CPlayer_GetLastPlayedTimes_Request
+	91,  // 130: Player.GetTimeSSAAccepted:input_type -> CPlayer_GetTimeSSAAccepted_Request
+	93,  // 131: Player.AcceptSSA:input_type -> CPlayer_AcceptSSA_Request
+	95,  // 132: Player.GetNicknameList:input_type -> CPlayer_GetNicknameList_Request
+	97,  // 133: Player.GetPerFriendPreferences:input_type -> CPlayer_GetPerFriendPreferences_Request
+	100, // 134: Player.SetPerFriendPreferences:input_type -> CPlayer_SetPerFriendPreferences_Request
+	102, // 135: Player.AddFriend:input_type -> CPlayer_AddFriend_Request
+	104, // 136: Player.RemoveFriend:input_type -> CPlayer_RemoveFriend_Request
+	106, // 137: Player.IgnoreFriend:input_type -> CPlayer_IgnoreFriend_Request
+	108, // 138: Player.GetCommunityPreferences:input_type -> CPlayer_GetCommunityPreferences_Request
+	111, // 139: Player.SetCommunityPreferences:input_type -> CPlayer_SetCommunityPreferences_Request
+	113, // 140: Player.GetTextFilterWords:input_type -> CPlayer_GetTextFilterWords_Request
+	116, // 141: Player.GetNewSteamAnnouncementState:input_type -> CPlayer_GetNewSteamAnnouncementState_Request
+	118, // 142: Player.UpdateSteamAnnouncementLastRead:input_type -> CPlayer_UpdateSteamAnnouncementLastRead_Request
+	120, // 143: Player.GetPrivacySettings:input_type -> CPlayer_GetPrivacySettings_Request
+	123, // 144: Player.GetDurationControl:input_type -> CPlayer_GetDurationControl_Request
+	125, // 145: Player.RecordDisconnectedPlaytime:input_type -> CPlayer_RecordDisconnectedPlaytime_Request
+	127, // 146: PlayerClient.NotifyLastPlayedTimes:input_type -> CPlayer_LastPlayedTimes_Notification
+	128, // 147: PlayerClient.NotifyFriendNicknameChanged:input_type -> CPlayer_FriendNicknameChanged_Notification
+	129, // 148: PlayerClient.NotifyFriendEquippedProfileItemsChanged:input_type -> CPlayer_FriendEquippedProfileItemsChanged_Notification
+	130, // 149: PlayerClient.NotifyNewSteamAnnouncementState:input_type -> CPlayer_NewSteamAnnouncementState_Notification
+	131, // 150: PlayerClient.NotifyCommunityPreferencesChanged:input_type -> CPlayer_CommunityPreferencesChanged_Notification
+	132, // 151: PlayerClient.NotifyTextFilterWordsChanged:input_type -> CPlayer_TextFilterWordsChanged_Notification
+	133, // 152: PlayerClient.NotifyPerFriendPreferencesChanged:input_type -> CPlayer_PerFriendPreferencesChanged_Notification
+	134, // 153: PlayerClient.NotifyPrivacyPrivacySettingsChanged:input_type -> CPlayer_PrivacySettingsChanged_Notification
+	6,   // 154: Player.GetRecentPlaytimeSessionsForChild:output_type -> CPlayer_GetRecentPlaytimeSessionsForChild_Response
+	8,   // 155: Player.GetPlayerLinkDetails:output_type -> CPlayer_GetPlayerLinkDetails_Response
+	11,  // 156: Player.GetMutualFriendsForIncomingInvites:output_type -> CPlayer_GetMutualFriendsForIncomingInvites_Response
+	13,  // 157: Player.GetOwnedGames:output_type -> CPlayer_GetOwnedGames_Response
+	15,  // 158: Player.GetPlayNext:output_type -> CPlayer_GetPlayNext_Response
+	17,  // 159: Player.GetFriendsGameplayInfo:output_type -> CPlayer_GetFriendsGameplayInfo_Response
+	19,  // 160: Player.GetGameBadgeLevels:output_type -> CPlayer_GetGameBadgeLevels_Response
+	22,  // 161: Player.GetProfileBackground:output_type -> CPlayer_GetProfileBackground_Response
+	24,  // 162: Player.SetProfileBackground:output_type -> CPlayer_SetProfileBackground_Response
+	26,  // 163: Player.GetMiniProfileBackground:output_type -> CPlayer_GetMiniProfileBackground_Response
+	28,  // 164: Player.SetMiniProfileBackground:output_type -> CPlayer_SetMiniProfileBackground_Response
+	30,  // 165: Player.GetAvatarFrame:output_type -> CPlayer_GetAvatarFrame_Response
+	32,  // 166: Player.SetAvatarFrame:output_type -> CPlayer_SetAvatarFrame_Response
+	34,  // 167: Player.GetAnimatedAvatar:output_type -> CPlayer_GetAnimatedAvatar_Response
+	36,  // 168: Player.SetAnimatedAvatar:output_type -> CPlayer_SetAnimatedAvatar_Response
+	38,  // 169: Player.GetSteamDeckKeyboardSkin:output_type -> CPlayer_GetSteamDeckKeyboardSkin_Response
+	40,  // 170: Player.SetSteamDeckKeyboardSkin:output_type -> CPlayer_SetSteamDeckKeyboardSkin_Response
+	42,  // 171: Player.GetProfileItemsOwned:output_type -> CPlayer_GetProfileItemsOwned_Response
+	44,  // 172: Player.GetProfileItemsEquipped:output_type -> CPlayer_GetProfileItemsEquipped_Response
+	46,  // 173: Player.SetEquippedProfileItemFlags:output_type -> CPlayer_SetEquippedProfileItemFlags_Response
+	48,  // 174: Player.GetEmoticonList:output_type -> CPlayer_GetEmoticonList_Response
+	50,  // 175: Player.GetCommunityBadgeProgress:output_type -> CPlayer_GetCommunityBadgeProgress_Response
+	52,  // 176: Player.GetTopAchievementsForGames:output_type -> CPlayer_GetTopAchievementsForGames_Response
+	54,  // 177: Player.GetAchievementsProgress:output_type -> CPlayer_GetAchievementsProgress_Response
+	56,  // 178: Player.GetGameAchievements:output_type -> CPlayer_GetGameAchievements_Response
+	58,  // 179: Player.GetUserAchievements:output_type -> CPlayer_GetUserAchievements_Response
+	60,  // 180: Player.GetGlobalAchievementPercentages:output_type -> CPlayer_GetGlobalAchievementPercentages_Response
+	62,  // 181: Player.GetUserStats:output_type -> CPlayer_GetUserStats_Response
+	64,  // 182: Player.GetFavoriteBadge:output_type -> CPlayer_GetFavoriteBadge_Response
+	66,  // 183: Player.SetFavoriteBadge:output_type -> CPlayer_SetFavoriteBadge_Response
+	72,  // 184: Player.GetProfileCustomization:output_type -> CPlayer_GetProfileCustomization_Response
+	74,  // 185: Player.GetPurchasedProfileCustomizations:output_type -> CPlayer_GetPurchasedProfileCustomizations_Response
+	76,  // 186: Player.GetPurchasedAndUpgradedProfileCustomizations:output_type -> CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response
+	78,  // 187: Player.GetProfileThemesAvailable:output_type -> CPlayer_GetProfileThemesAvailable_Response
+	80,  // 188: Player.SetProfileTheme:output_type -> CPlayer_SetProfileTheme_Response
+	82,  // 189: Player.SetProfilePreferences:output_type -> CPlayer_SetProfilePreferences_Response
+	84,  // 190: Player.PostStatusToFriends:output_type -> CPlayer_PostStatusToFriends_Response
+	86,  // 191: Player.GetPostedStatus:output_type -> CPlayer_GetPostedStatus_Response
+	88,  // 192: Player.DeletePostedStatus:output_type -> CPlayer_DeletePostedStatus_Response
+	90,  // 193: Player.ClientGetLastPlayedTimes:output_type -> CPlayer_GetLastPlayedTimes_Response
+	92,  // 194: Player.GetTimeSSAAccepted:output_type -> CPlayer_GetTimeSSAAccepted_Response
+	94,  // 195: Player.AcceptSSA:output_type -> CPlayer_AcceptSSA_Response
+	96,  // 196: Player.GetNicknameList:output_type -> CPlayer_GetNicknameList_Response
+	99,  // 197: Player.GetPerFriendPreferences:output_type -> CPlayer_GetPerFriendPreferences_Response
+	101, // 198: Player.SetPerFriendPreferences:output_type -> CPlayer_SetPerFriendPreferences_Response
+	103, // 199: Player.AddFriend:output_type -> CPlayer_AddFriend_Response
+	105, // 200: Player.RemoveFriend:output_type -> CPlayer_RemoveFriend_Response
+	107, // 201: Player.IgnoreFriend:output_type -> CPlayer_IgnoreFriend_Response
+	110, // 202: Player.GetCommunityPreferences:output_type -> CPlayer_GetCommunityPreferences_Response
+	112, // 203: Player.SetCommunityPreferences:output_type -> CPlayer_SetCommunityPreferences_Response
+	115, // 204: Player.GetTextFilterWords:output_type -> CPlayer_GetTextFilterWords_Response
+	117, // 205: Player.GetNewSteamAnnouncementState:output_type -> CPlayer_GetNewSteamAnnouncementState_Response
+	119, // 206: Player.UpdateSteamAnnouncementLastRead:output_type -> CPlayer_UpdateSteamAnnouncementLastRead_Response
+	122, // 207: Player.GetPrivacySettings:output_type -> CPlayer_GetPrivacySettings_Response
+	124, // 208: Player.GetDurationControl:output_type -> CPlayer_GetDurationControl_Response
+	126, // 209: Player.RecordDisconnectedPlaytime:output_type -> CPlayer_RecordDisconnectedPlaytime_Response
+	168, // 210: PlayerClient.NotifyLastPlayedTimes:output_type -> NoResponse
+	168, // 211: PlayerClient.NotifyFriendNicknameChanged:output_type -> NoResponse
+	168, // 212: PlayerClient.NotifyFriendEquippedProfileItemsChanged:output_type -> NoResponse
+	168, // 213: PlayerClient.NotifyNewSteamAnnouncementState:output_type -> NoResponse
+	168, // 214: PlayerClient.NotifyCommunityPreferencesChanged:output_type -> NoResponse
+	168, // 215: PlayerClient.NotifyTextFilterWordsChanged:output_type -> NoResponse
+	168, // 216: PlayerClient.NotifyPerFriendPreferencesChanged:output_type -> NoResponse
+	168, // 217: PlayerClient.NotifyPrivacyPrivacySettingsChanged:output_type -> NoResponse
+	154, // [154:218] is the sub-list for method output_type
+	90,  // [90:154] is the sub-list for method input_type
+	90,  // [90:90] is the sub-list for extension type_name
+	90,  // [90:90] is the sub-list for extension extendee
+	0,   // [0:90] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_player_steamclient_proto_init() }
@@ -10582,7 +10754,7 @@ func file_steammessages_player_steamclient_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_player_steamclient_proto_rawDesc), len(file_steammessages_player_steamclient_proto_rawDesc)),
 			NumEnums:      5,
-			NumMessages:   155,
+			NumMessages:   158,
 			NumExtensions: 0,
 			NumServices:   2,
 		},

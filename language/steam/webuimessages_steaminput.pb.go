@@ -2653,7 +2653,7 @@ type CSteamInputService_RawControllerDetailItem struct {
 	Initialized                  *bool                  `protobuf:"varint,2,opt,name=initialized" json:"initialized,omitempty"`
 	ControllerType               *uint32                `protobuf:"varint,3,opt,name=controller_type,json=controllerType" json:"controller_type,omitempty"`
 	ControllerStyle              *uint32                `protobuf:"varint,4,opt,name=controller_style,json=controllerStyle" json:"controller_style,omitempty"`
-	XinputIndex                  *uint32                `protobuf:"varint,5,opt,name=xinput_index,json=xinputIndex" json:"xinput_index,omitempty"`
+	XinputIndex                  *int32                 `protobuf:"varint,5,opt,name=xinput_index,json=xinputIndex" json:"xinput_index,omitempty"`
 	IsWirelessSteamDongle        *bool                  `protobuf:"varint,6,opt,name=is_wireless_steam_dongle,json=isWirelessSteamDongle" json:"is_wireless_steam_dongle,omitempty"`
 	VendorId                     *uint32                `protobuf:"varint,7,opt,name=vendor_id,json=vendorId" json:"vendor_id,omitempty"`
 	ProductId                    *uint32                `protobuf:"varint,8,opt,name=product_id,json=productId" json:"product_id,omitempty"`
@@ -2760,7 +2760,7 @@ func (x *CSteamInputService_RawControllerDetailItem) GetControllerStyle() uint32
 	return 0
 }
 
-func (x *CSteamInputService_RawControllerDetailItem) GetXinputIndex() uint32 {
+func (x *CSteamInputService_RawControllerDetailItem) GetXinputIndex() int32 {
 	if x != nil && x.XinputIndex != nil {
 		return *x.XinputIndex
 	}
@@ -3928,7 +3928,7 @@ const file_webuimessages_steaminput_proto_rawDesc = "" +
 	"\vinitialized\x18\x02 \x01(\bR\vinitialized\x12'\n" +
 	"\x0fcontroller_type\x18\x03 \x01(\rR\x0econtrollerType\x12)\n" +
 	"\x10controller_style\x18\x04 \x01(\rR\x0fcontrollerStyle\x12!\n" +
-	"\fxinput_index\x18\x05 \x01(\rR\vxinputIndex\x127\n" +
+	"\fxinput_index\x18\x05 \x01(\x05R\vxinputIndex\x127\n" +
 	"\x18is_wireless_steam_dongle\x18\x06 \x01(\bR\x15isWirelessSteamDongle\x12\x1b\n" +
 	"\tvendor_id\x18\a \x01(\rR\bvendorId\x12\x1d\n" +
 	"\n" +

@@ -1617,19 +1617,19 @@ const file_steammessages_clientserver_gameservers_proto_rawDesc = "" +
 	"filterText\x12\x1f\n" +
 	"\vmax_servers\x18\x05 \x01(\rR\n" +
 	"maxServers\x12*\n" +
-	"\x11sdr_ping_location\x18\x06 \x01(\tR\x0fsdrPingLocation\"\xf4\v\n" +
+	"\x11sdr_ping_location\x18\x06 \x01(\tR\x0fsdrPingLocation\"\xfa\v\n" +
 	" CMsgGMSClientServerQueryResponse\x12B\n" +
 	"\aservers\x18\x01 \x03(\v2(.CMsgGMSClientServerQueryResponse.ServerR\aservers\x12\x14\n" +
 	"\x05error\x18\x02 \x01(\tR\x05error\x12X\n" +
 	"\x13default_server_data\x18\x03 \x01(\v2(.CMsgGMSClientServerQueryResponse.ServerR\x11defaultServerData\x12%\n" +
-	"\x0eserver_strings\x18\x04 \x03(\tR\rserverStrings\x1a\xbd\t\n" +
+	"\x0eserver_strings\x18\x04 \x03(\tR\rserverStrings\x1a\xc3\t\n" +
 	"\x06Server\x120\n" +
 	"\x14deprecated_server_ip\x18\x01 \x01(\rR\x12deprecatedServerIp\x12\x1d\n" +
 	"\n" +
 	"query_port\x18\x02 \x01(\rR\tqueryPort\x12!\n" +
 	"\fauth_players\x18\x03 \x01(\rR\vauthPlayers\x12+\n" +
-	"\tserver_ip\x18\x04 \x01(\v2\x0e.CMsgIPAddressR\bserverIp\x12\x19\n" +
-	"\bsteam_id\x18\x06 \x01(\x06R\asteamId\x12\x1a\n" +
+	"\tserver_ip\x18\x04 \x01(\v2\x0e.CMsgIPAddressR\bserverIp\x12\x1f\n" +
+	"\bsteam_id\x18\x06 \x01(\x06B\x04\xc0\xb6\x18\x01R\asteamId\x12\x1a\n" +
 	"\brevision\x18\a \x01(\rR\brevision\x12\x18\n" +
 	"\aplayers\x18\b \x01(\rR\aplayers\x12\x1b\n" +
 	"\tgame_port\x18\t \x01(\rR\bgamePort\x12\x1b\n" +

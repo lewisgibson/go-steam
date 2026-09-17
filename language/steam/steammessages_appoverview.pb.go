@@ -274,6 +274,7 @@ func (EAppCloudStatus) EnumDescriptor() ([]byte, []int) {
 type EAppControllerSupportLevel int32
 
 const (
+	EAppControllerSupportLevel_k_EAppControllerSupportLevelUnknown EAppControllerSupportLevel = -1
 	EAppControllerSupportLevel_k_EAppControllerSupportLevelNone    EAppControllerSupportLevel = 0
 	EAppControllerSupportLevel_k_EAppControllerSupportLevelPartial EAppControllerSupportLevel = 1
 	EAppControllerSupportLevel_k_EAppControllerSupportLevelFull    EAppControllerSupportLevel = 2
@@ -282,11 +283,13 @@ const (
 // Enum value maps for EAppControllerSupportLevel.
 var (
 	EAppControllerSupportLevel_name = map[int32]string{
-		0: "k_EAppControllerSupportLevelNone",
-		1: "k_EAppControllerSupportLevelPartial",
-		2: "k_EAppControllerSupportLevelFull",
+		-1: "k_EAppControllerSupportLevelUnknown",
+		0:  "k_EAppControllerSupportLevelNone",
+		1:  "k_EAppControllerSupportLevelPartial",
+		2:  "k_EAppControllerSupportLevelFull",
 	}
 	EAppControllerSupportLevel_value = map[string]int32{
+		"k_EAppControllerSupportLevelUnknown": -1,
 		"k_EAppControllerSupportLevelNone":    0,
 		"k_EAppControllerSupportLevelPartial": 1,
 		"k_EAppControllerSupportLevelFull":    2,
@@ -605,7 +608,7 @@ type CAppOverview struct {
 	RtOriginalReleaseDate        *uint32                       `protobuf:"varint,25,opt,name=rt_original_release_date,json=rtOriginalReleaseDate,def=0" json:"rt_original_release_date,omitempty"`
 	RtSteamReleaseDate           *uint32                       `protobuf:"varint,26,opt,name=rt_steam_release_date,json=rtSteamReleaseDate,def=0" json:"rt_steam_release_date,omitempty"`
 	IconHash                     *string                       `protobuf:"bytes,27,opt,name=icon_hash,json=iconHash" json:"icon_hash,omitempty"`
-	XboxControllerSupport        *EAppControllerSupportLevel   `protobuf:"varint,31,opt,name=xbox_controller_support,json=xboxControllerSupport,enum=EAppControllerSupportLevel,def=0" json:"xbox_controller_support,omitempty"`
+	XboxControllerSupport        *EAppControllerSupportLevel   `protobuf:"varint,31,opt,name=xbox_controller_support,json=xboxControllerSupport,enum=EAppControllerSupportLevel,def=-1" json:"xbox_controller_support,omitempty"`
 	VrSupported                  *bool                         `protobuf:"varint,32,opt,name=vr_supported,json=vrSupported" json:"vr_supported,omitempty"`
 	MetacriticScore              *uint32                       `protobuf:"varint,36,opt,name=metacritic_score,json=metacriticScore" json:"metacritic_score,omitempty"`
 	SizeOnDisk                   *uint64                       `protobuf:"varint,37,opt,name=size_on_disk,json=sizeOnDisk" json:"size_on_disk,omitempty"`
@@ -642,6 +645,7 @@ type CAppOverview struct {
 	HasCustomSortAs              *bool                         `protobuf:"varint,76,opt,name=has_custom_sort_as,json=hasCustomSortAs" json:"has_custom_sort_as,omitempty"`
 	BitfieldSupportedLanguages   *uint64                       `protobuf:"varint,77,opt,name=bitfield_supported_languages,json=bitfieldSupportedLanguages,def=0" json:"bitfield_supported_languages,omitempty"`
 	RemotePerClientData          []*CAppOverview_PerClientData `protobuf:"bytes,78,rep,name=remote_per_client_data,json=remotePerClientData" json:"remote_per_client_data,omitempty"`
+	ContentDescriptors           []EContentDescriptorID        `protobuf:"varint,79,rep,name=content_descriptors,json=contentDescriptors,enum=EContentDescriptorID" json:"content_descriptors,omitempty"`
 	unknownFields                protoimpl.UnknownFields
 	sizeCache                    protoimpl.SizeCache
 }
@@ -655,7 +659,7 @@ const (
 	Default_CAppOverview_RtLastTimePlayed             = uint32(0)
 	Default_CAppOverview_RtOriginalReleaseDate        = uint32(0)
 	Default_CAppOverview_RtSteamReleaseDate           = uint32(0)
-	Default_CAppOverview_XboxControllerSupport        = EAppControllerSupportLevel_k_EAppControllerSupportLevelNone
+	Default_CAppOverview_XboxControllerSupport        = EAppControllerSupportLevel_k_EAppControllerSupportLevelUnknown
 	Default_CAppOverview_MostAvailableClientid        = uint64(0)
 	Default_CAppOverview_SelectedClientid             = uint64(0)
 	Default_CAppOverview_ReviewScoreWithBombs         = uint32(0)
@@ -1069,6 +1073,13 @@ func (x *CAppOverview) GetRemotePerClientData() []*CAppOverview_PerClientData {
 	return nil
 }
 
+func (x *CAppOverview) GetContentDescriptors() []EContentDescriptorID {
+	if x != nil {
+		return x.ContentDescriptors
+	}
+	return nil
+}
+
 type CAppOverview_Change struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	AppOverview    []*CAppOverview        `protobuf:"bytes,1,rep,name=app_overview,json=appOverview" json:"app_overview,omitempty"`
@@ -1141,7 +1152,7 @@ var File_steammessages_appoverview_proto protoreflect.FileDescriptor
 
 const file_steammessages_appoverview_proto_rawDesc = "" +
 	"\n" +
-	"\x1fsteammessages_appoverview.proto\x1a\venums.proto\"\xbd\x04\n" +
+	"\x1fsteammessages_appoverview.proto\x1a\venums.proto\x1a\x17enums_productinfo.proto\"\xbd\x04\n" +
 	"\x1aCAppOverview_PerClientData\x12\x1d\n" +
 	"\bclientid\x18\x01 \x01(\x04:\x010R\bclientid\x12\x1f\n" +
 	"\vclient_name\x18\x02 \x01(\tR\n" +
@@ -1156,7 +1167,7 @@ const file_steammessages_appoverview_proto_rawDesc = "" +
 	" \x01(\bR\x1cisAvailableOnCurrentPlatform\x12+\n" +
 	"\x12is_invalid_os_type\x18\v \x01(\bR\x0fisInvalidOsType\x12#\n" +
 	"\rplaytime_left\x18\f \x01(\rR\fplaytimeLeft\x12M\n" +
-	"$update_available_but_disabled_by_app\x18\x0e \x01(\bR\x1fupdateAvailableButDisabledByApp\"\xe8\x14\n" +
+	"$update_available_but_disabled_by_app\x18\x0e \x01(\bR\x1fupdateAvailableButDisabledByApp\"\xb3\x15\n" +
 	"\fCAppOverview\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12!\n" +
 	"\fdisplay_name\x18\x02 \x01(\tR\vdisplayName\x12/\n" +
@@ -1173,8 +1184,8 @@ const file_steammessages_appoverview_proto_rawDesc = "" +
 	"\x0estore_category\x18\x17 \x03(\rR\rstoreCategory\x12:\n" +
 	"\x18rt_original_release_date\x18\x19 \x01(\r:\x010R\x15rtOriginalReleaseDate\x124\n" +
 	"\x15rt_steam_release_date\x18\x1a \x01(\r:\x010R\x12rtSteamReleaseDate\x12\x1b\n" +
-	"\ticon_hash\x18\x1b \x01(\tR\biconHash\x12u\n" +
-	"\x17xbox_controller_support\x18\x1f \x01(\x0e2\x1b.EAppControllerSupportLevel: k_EAppControllerSupportLevelNoneR\x15xboxControllerSupport\x12!\n" +
+	"\ticon_hash\x18\x1b \x01(\tR\biconHash\x12x\n" +
+	"\x17xbox_controller_support\x18\x1f \x01(\x0e2\x1b.EAppControllerSupportLevel:#k_EAppControllerSupportLevelUnknownR\x15xboxControllerSupport\x12!\n" +
 	"\fvr_supported\x18  \x01(\bR\vvrSupported\x12)\n" +
 	"\x10metacritic_score\x18$ \x01(\rR\x0fmetacriticScore\x12 \n" +
 	"\fsize_on_disk\x18% \x01(\x04R\n" +
@@ -1212,7 +1223,8 @@ const file_steammessages_appoverview_proto_rawDesc = "" +
 	"\x16display_name_elanguage\x18K \x01(\x05:\x02-1R\x14displayNameElanguage\x12+\n" +
 	"\x12has_custom_sort_as\x18L \x01(\bR\x0fhasCustomSortAs\x12C\n" +
 	"\x1cbitfield_supported_languages\x18M \x01(\x04:\x010R\x1abitfieldSupportedLanguages\x12P\n" +
-	"\x16remote_per_client_data\x18N \x03(\v2\x1b.CAppOverview_PerClientDataR\x13remotePerClientData\"\xb6\x01\n" +
+	"\x16remote_per_client_data\x18N \x03(\v2\x1b.CAppOverview_PerClientDataR\x13remotePerClientData\x12F\n" +
+	"\x13content_descriptors\x18O \x03(\x0e2\x15.EContentDescriptorIDR\x12contentDescriptors\"\xb6\x01\n" +
 	"\x13CAppOverview_Change\x120\n" +
 	"\fapp_overview\x18\x01 \x03(\v2\r.CAppOverviewR\vappOverview\x12#\n" +
 	"\rremoved_appid\x18\x02 \x03(\rR\fremovedAppid\x12\x1f\n" +
@@ -1273,8 +1285,9 @@ const file_steammessages_appoverview_proto_rawDesc = "" +
 	"\x1bk_EAppCloudStatusSyncFailed\x10\b\x12\x1d\n" +
 	"\x19k_EAppCloudStatusConflict\x10\t\x12%\n" +
 	"!k_EAppCloudStatusPendingElsewhere\x10\n" +
-	"*\x91\x01\n" +
-	"\x1aEAppControllerSupportLevel\x12$\n" +
+	"*\xc3\x01\n" +
+	"\x1aEAppControllerSupportLevel\x120\n" +
+	"#k_EAppControllerSupportLevelUnknown\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12$\n" +
 	" k_EAppControllerSupportLevelNone\x10\x00\x12'\n" +
 	"#k_EAppControllerSupportLevelPartial\x10\x01\x12$\n" +
 	" k_EAppControllerSupportLevelFull\x10\x02*\xfd\x01\n" +
@@ -1314,6 +1327,7 @@ var file_steammessages_appoverview_proto_goTypes = []any{
 	(*CAppOverview)(nil),                     // 6: CAppOverview
 	(*CAppOverview_Change)(nil),              // 7: CAppOverview_Change
 	(EProtoAppType)(0),                       // 8: EProtoAppType
+	(EContentDescriptorID)(0),                // 9: EContentDescriptorID
 }
 var file_steammessages_appoverview_proto_depIdxs = []int32{
 	0, // 0: CAppOverview_PerClientData.display_status:type_name -> EDisplayStatus
@@ -1321,12 +1335,13 @@ var file_steammessages_appoverview_proto_depIdxs = []int32{
 	2, // 2: CAppOverview.xbox_controller_support:type_name -> EAppControllerSupportLevel
 	5, // 3: CAppOverview.per_client_data:type_name -> CAppOverview_PerClientData
 	5, // 4: CAppOverview.remote_per_client_data:type_name -> CAppOverview_PerClientData
-	6, // 5: CAppOverview_Change.app_overview:type_name -> CAppOverview
-	6, // [6:6] is the sub-list for method output_type
-	6, // [6:6] is the sub-list for method input_type
-	6, // [6:6] is the sub-list for extension type_name
-	6, // [6:6] is the sub-list for extension extendee
-	0, // [0:6] is the sub-list for field type_name
+	9, // 5: CAppOverview.content_descriptors:type_name -> EContentDescriptorID
+	6, // 6: CAppOverview_Change.app_overview:type_name -> CAppOverview
+	7, // [7:7] is the sub-list for method output_type
+	7, // [7:7] is the sub-list for method input_type
+	7, // [7:7] is the sub-list for extension type_name
+	7, // [7:7] is the sub-list for extension extendee
+	0, // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_appoverview_proto_init() }
@@ -1335,6 +1350,7 @@ func file_steammessages_appoverview_proto_init() {
 		return
 	}
 	file_enums_proto_init()
+	file_enums_productinfo_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

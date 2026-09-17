@@ -360,6 +360,7 @@ const (
 	EMsg_k_EMsgAdminGCGetCommandListResponse                               EMsg = 1026
 	EMsg_k_EMsgFBSConnectionData                                           EMsg = 1027
 	EMsg_k_EMsgAdminMsgSpew                                                EMsg = 1028
+	EMsg_k_EMsgAdminClientInfo                                             EMsg = 1029
 	EMsg_k_EMsgBaseFBS                                                     EMsg = 1100
 	EMsg_k_EMsgFBSReqVersion                                               EMsg = 1100
 	EMsg_k_EMsgFBSVersionInfo                                              EMsg = 1101
@@ -395,6 +396,9 @@ const (
 	EMsg_k_EMsgFBSBootstrapperPackageTransferProgress                      EMsg = 1132
 	EMsg_k_EMsgFBSRestartBootstrapper                                      EMsg = 1133
 	EMsg_k_EMsgFBSPauseFrozenDumps                                         EMsg = 1134
+	EMsg_k_EMsgFBSDeployStoredHotFix                                       EMsg = 1135
+	EMsg_k_EMsgFBSQueryHotfixPackages                                      EMsg = 1136
+	EMsg_k_EMsgFBSQueryHotfixPackagesResponse                              EMsg = 1137
 	EMsg_k_EMsgBaseFileXfer                                                EMsg = 1200
 	EMsg_k_EMsgFileXferRequest                                             EMsg = 1200
 	EMsg_k_EMsgFileXferResponse                                            EMsg = 1201
@@ -485,9 +489,6 @@ const (
 	EMsg_k_EMsgATSUFSPerfTestTask                                          EMsg = 1504
 	EMsg_k_EMsgATSUFSPerfTestResponse                                      EMsg = 1505
 	EMsg_k_EMsgATSCycleTCM                                                 EMsg = 1506
-	EMsg_k_EMsgATSInitDRMSStressTest                                       EMsg = 1507
-	EMsg_k_EMsgATSCallTest                                                 EMsg = 1508
-	EMsg_k_EMsgATSCallTestReply                                            EMsg = 1509
 	EMsg_k_EMsgATSStartExternalStress                                      EMsg = 1510
 	EMsg_k_EMsgATSExternalStressJobStart                                   EMsg = 1511
 	EMsg_k_EMsgATSExternalStressJobQueued                                  EMsg = 1512
@@ -1413,6 +1414,8 @@ const (
 	EMsg_k_eMsgRemoteClientSuspendLanPeerContent                           EMsg = 9536
 	EMsg_k_eMsgRemoteClientUpdateDownloadsController                       EMsg = 9537
 	EMsg_k_EMsgRemoteClientAcceptAllEULAs                                  EMsg = 9538
+	EMsg_k_EMsgRemoteClientInstallApp                                      EMsg = 9539
+	EMsg_k_EMsgRemoteClientInstallAppResponse                              EMsg = 9540
 	EMsg_k_EMsgClientConcurrentSessionsBase                                EMsg = 9600
 	EMsg_k_EMsgClientPlayingSessionState                                   EMsg = 9600
 	EMsg_k_EMsgClientKickPlayingSession                                    EMsg = 9601
@@ -1801,6 +1804,7 @@ var (
 		1026: "k_EMsgAdminGCGetCommandListResponse",
 		1027: "k_EMsgFBSConnectionData",
 		1028: "k_EMsgAdminMsgSpew",
+		1029: "k_EMsgAdminClientInfo",
 		1100: "k_EMsgBaseFBS",
 		// Duplicate value: 1100: "k_EMsgFBSReqVersion",
 		1101: "k_EMsgFBSVersionInfo",
@@ -1836,6 +1840,9 @@ var (
 		1132: "k_EMsgFBSBootstrapperPackageTransferProgress",
 		1133: "k_EMsgFBSRestartBootstrapper",
 		1134: "k_EMsgFBSPauseFrozenDumps",
+		1135: "k_EMsgFBSDeployStoredHotFix",
+		1136: "k_EMsgFBSQueryHotfixPackages",
+		1137: "k_EMsgFBSQueryHotfixPackagesResponse",
 		1200: "k_EMsgBaseFileXfer",
 		// Duplicate value: 1200: "k_EMsgFileXferRequest",
 		1201: "k_EMsgFileXferResponse",
@@ -1926,9 +1933,6 @@ var (
 		1504: "k_EMsgATSUFSPerfTestTask",
 		1505: "k_EMsgATSUFSPerfTestResponse",
 		1506: "k_EMsgATSCycleTCM",
-		1507: "k_EMsgATSInitDRMSStressTest",
-		1508: "k_EMsgATSCallTest",
-		1509: "k_EMsgATSCallTestReply",
 		1510: "k_EMsgATSStartExternalStress",
 		1511: "k_EMsgATSExternalStressJobStart",
 		1512: "k_EMsgATSExternalStressJobQueued",
@@ -2854,6 +2858,8 @@ var (
 		9536: "k_eMsgRemoteClientSuspendLanPeerContent",
 		9537: "k_eMsgRemoteClientUpdateDownloadsController",
 		9538: "k_EMsgRemoteClientAcceptAllEULAs",
+		9539: "k_EMsgRemoteClientInstallApp",
+		9540: "k_EMsgRemoteClientInstallAppResponse",
 		9600: "k_EMsgClientConcurrentSessionsBase",
 		// Duplicate value: 9600: "k_EMsgClientPlayingSessionState",
 		9601: "k_EMsgClientKickPlayingSession",
@@ -3239,6 +3245,7 @@ var (
 		"k_EMsgAdminGCGetCommandListResponse":                               1026,
 		"k_EMsgFBSConnectionData":                                           1027,
 		"k_EMsgAdminMsgSpew":                                                1028,
+		"k_EMsgAdminClientInfo":                                             1029,
 		"k_EMsgBaseFBS":                                                     1100,
 		"k_EMsgFBSReqVersion":                                               1100,
 		"k_EMsgFBSVersionInfo":                                              1101,
@@ -3274,6 +3281,9 @@ var (
 		"k_EMsgFBSBootstrapperPackageTransferProgress":                      1132,
 		"k_EMsgFBSRestartBootstrapper":                                      1133,
 		"k_EMsgFBSPauseFrozenDumps":                                         1134,
+		"k_EMsgFBSDeployStoredHotFix":                                       1135,
+		"k_EMsgFBSQueryHotfixPackages":                                      1136,
+		"k_EMsgFBSQueryHotfixPackagesResponse":                              1137,
 		"k_EMsgBaseFileXfer":                                                1200,
 		"k_EMsgFileXferRequest":                                             1200,
 		"k_EMsgFileXferResponse":                                            1201,
@@ -3364,9 +3374,6 @@ var (
 		"k_EMsgATSUFSPerfTestTask":                                          1504,
 		"k_EMsgATSUFSPerfTestResponse":                                      1505,
 		"k_EMsgATSCycleTCM":                                                 1506,
-		"k_EMsgATSInitDRMSStressTest":                                       1507,
-		"k_EMsgATSCallTest":                                                 1508,
-		"k_EMsgATSCallTestReply":                                            1509,
 		"k_EMsgATSStartExternalStress":                                      1510,
 		"k_EMsgATSExternalStressJobStart":                                   1511,
 		"k_EMsgATSExternalStressJobQueued":                                  1512,
@@ -4292,6 +4299,8 @@ var (
 		"k_eMsgRemoteClientSuspendLanPeerContent":                           9536,
 		"k_eMsgRemoteClientUpdateDownloadsController":                       9537,
 		"k_EMsgRemoteClientAcceptAllEULAs":                                  9538,
+		"k_EMsgRemoteClientInstallApp":                                      9539,
+		"k_EMsgRemoteClientInstallAppResponse":                              9540,
 		"k_EMsgClientConcurrentSessionsBase":                                9600,
 		"k_EMsgClientPlayingSessionState":                                   9600,
 		"k_EMsgClientKickPlayingSession":                                    9601,
@@ -4747,7 +4756,7 @@ var File_enums_clientserver_proto protoreflect.FileDescriptor
 
 const file_enums_clientserver_proto_rawDesc = "" +
 	"\n" +
-	"\x18enums_clientserver.proto*\xe2\x92\x03\n" +
+	"\x18enums_clientserver.proto*\xe5\x93\x03\n" +
 	"\x04EMsg\x12\x11\n" +
 	"\rk_EMsgInvalid\x10\x00\x12\x0f\n" +
 	"\vk_EMsgMulti\x10\x01\x12\x19\n" +
@@ -5086,7 +5095,8 @@ const file_enums_clientserver_proto_rawDesc = "" +
 	"\x1bk_EMsgAdminGCGetCommandList\x10\x81\b\x12(\n" +
 	"#k_EMsgAdminGCGetCommandListResponse\x10\x82\b\x12\x1c\n" +
 	"\x17k_EMsgFBSConnectionData\x10\x83\b\x12\x17\n" +
-	"\x12k_EMsgAdminMsgSpew\x10\x84\b\x12\x12\n" +
+	"\x12k_EMsgAdminMsgSpew\x10\x84\b\x12\x1a\n" +
+	"\x15k_EMsgAdminClientInfo\x10\x85\b\x12\x12\n" +
 	"\rk_EMsgBaseFBS\x10\xcc\b\x12\x18\n" +
 	"\x13k_EMsgFBSReqVersion\x10\xcc\b\x12\x19\n" +
 	"\x14k_EMsgFBSVersionInfo\x10\xcd\b\x12\x1a\n" +
@@ -5121,7 +5131,10 @@ const file_enums_clientserver_proto_rawDesc = "" +
 	",k_EMsgFBSBootstrapperGetPackageChunkResponse\x10\xeb\b\x121\n" +
 	",k_EMsgFBSBootstrapperPackageTransferProgress\x10\xec\b\x12!\n" +
 	"\x1ck_EMsgFBSRestartBootstrapper\x10\xed\b\x12\x1e\n" +
-	"\x19k_EMsgFBSPauseFrozenDumps\x10\xee\b\x12\x17\n" +
+	"\x19k_EMsgFBSPauseFrozenDumps\x10\xee\b\x12 \n" +
+	"\x1bk_EMsgFBSDeployStoredHotFix\x10\xef\b\x12!\n" +
+	"\x1ck_EMsgFBSQueryHotfixPackages\x10\xf0\b\x12)\n" +
+	"$k_EMsgFBSQueryHotfixPackagesResponse\x10\xf1\b\x12\x17\n" +
 	"\x12k_EMsgBaseFileXfer\x10\xb0\t\x12\x1a\n" +
 	"\x15k_EMsgFileXferRequest\x10\xb0\t\x12\x1b\n" +
 	"\x16k_EMsgFileXferResponse\x10\xb1\t\x12\x17\n" +
@@ -5224,10 +5237,7 @@ const file_enums_clientserver_proto_rawDesc = "" +
 	"\x1ak_EMsgATSRunFailServerTest\x10\xdf\v\x12\x1d\n" +
 	"\x18k_EMsgATSUFSPerfTestTask\x10\xe0\v\x12!\n" +
 	"\x1ck_EMsgATSUFSPerfTestResponse\x10\xe1\v\x12\x16\n" +
-	"\x11k_EMsgATSCycleTCM\x10\xe2\v\x12 \n" +
-	"\x1bk_EMsgATSInitDRMSStressTest\x10\xe3\v\x12\x16\n" +
-	"\x11k_EMsgATSCallTest\x10\xe4\v\x12\x1b\n" +
-	"\x16k_EMsgATSCallTestReply\x10\xe5\v\x12!\n" +
+	"\x11k_EMsgATSCycleTCM\x10\xe2\v\x12!\n" +
 	"\x1ck_EMsgATSStartExternalStress\x10\xe6\v\x12$\n" +
 	"\x1fk_EMsgATSExternalStressJobStart\x10\xe7\v\x12%\n" +
 	" k_EMsgATSExternalStressJobQueued\x10\xe8\v\x12&\n" +
@@ -6152,7 +6162,9 @@ const file_enums_clientserver_proto_rawDesc = "" +
 	",k_eMsgRemoteClientRestrictAutoUpdatesChanged\x10\xbfJ\x12,\n" +
 	"'k_eMsgRemoteClientSuspendLanPeerContent\x10\xc0J\x120\n" +
 	"+k_eMsgRemoteClientUpdateDownloadsController\x10\xc1J\x12%\n" +
-	" k_EMsgRemoteClientAcceptAllEULAs\x10\xc2J\x12'\n" +
+	" k_EMsgRemoteClientAcceptAllEULAs\x10\xc2J\x12!\n" +
+	"\x1ck_EMsgRemoteClientInstallApp\x10\xc3J\x12)\n" +
+	"$k_EMsgRemoteClientInstallAppResponse\x10\xc4J\x12'\n" +
 	"\"k_EMsgClientConcurrentSessionsBase\x10\x80K\x12$\n" +
 	"\x1fk_EMsgClientPlayingSessionState\x10\x80K\x12#\n" +
 	"\x1ek_EMsgClientKickPlayingSession\x10\x81K\x12\x1e\n" +

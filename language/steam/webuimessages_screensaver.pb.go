@@ -145,6 +145,218 @@ func (x *CScreensaver_ActiveStateChanged_Notification) GetActive() bool {
 	return false
 }
 
+type CScreensaver_GetLocalScreensavers_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CScreensaver_GetLocalScreensavers_Request) Reset() {
+	*x = CScreensaver_GetLocalScreensavers_Request{}
+	mi := &file_webuimessages_screensaver_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CScreensaver_GetLocalScreensavers_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CScreensaver_GetLocalScreensavers_Request) ProtoMessage() {}
+
+func (x *CScreensaver_GetLocalScreensavers_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_screensaver_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CScreensaver_GetLocalScreensavers_Request.ProtoReflect.Descriptor instead.
+func (*CScreensaver_GetLocalScreensavers_Request) Descriptor() ([]byte, []int) {
+	return file_webuimessages_screensaver_proto_rawDescGZIP(), []int{3}
+}
+
+type CScreensaver_GetLocalScreensavers_Response struct {
+	state         protoimpl.MessageState                                    `protogen:"open.v1"`
+	Screensavers  []*CScreensaver_GetLocalScreensavers_Response_Screensaver `protobuf:"bytes,1,rep,name=screensavers" json:"screensavers,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CScreensaver_GetLocalScreensavers_Response) Reset() {
+	*x = CScreensaver_GetLocalScreensavers_Response{}
+	mi := &file_webuimessages_screensaver_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CScreensaver_GetLocalScreensavers_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CScreensaver_GetLocalScreensavers_Response) ProtoMessage() {}
+
+func (x *CScreensaver_GetLocalScreensavers_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_screensaver_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CScreensaver_GetLocalScreensavers_Response.ProtoReflect.Descriptor instead.
+func (*CScreensaver_GetLocalScreensavers_Response) Descriptor() ([]byte, []int) {
+	return file_webuimessages_screensaver_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *CScreensaver_GetLocalScreensavers_Response) GetScreensavers() []*CScreensaver_GetLocalScreensavers_Response_Screensaver {
+	if x != nil {
+		return x.Screensavers
+	}
+	return nil
+}
+
+type CScreensaver_ForceScreensaver_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Enabled       *bool                  `protobuf:"varint,1,opt,name=enabled" json:"enabled,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CScreensaver_ForceScreensaver_Request) Reset() {
+	*x = CScreensaver_ForceScreensaver_Request{}
+	mi := &file_webuimessages_screensaver_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CScreensaver_ForceScreensaver_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CScreensaver_ForceScreensaver_Request) ProtoMessage() {}
+
+func (x *CScreensaver_ForceScreensaver_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_screensaver_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CScreensaver_ForceScreensaver_Request.ProtoReflect.Descriptor instead.
+func (*CScreensaver_ForceScreensaver_Request) Descriptor() ([]byte, []int) {
+	return file_webuimessages_screensaver_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *CScreensaver_ForceScreensaver_Request) GetEnabled() bool {
+	if x != nil && x.Enabled != nil {
+		return *x.Enabled
+	}
+	return false
+}
+
+type CScreensaver_ForceScreensaver_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CScreensaver_ForceScreensaver_Response) Reset() {
+	*x = CScreensaver_ForceScreensaver_Response{}
+	mi := &file_webuimessages_screensaver_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CScreensaver_ForceScreensaver_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CScreensaver_ForceScreensaver_Response) ProtoMessage() {}
+
+func (x *CScreensaver_ForceScreensaver_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_screensaver_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CScreensaver_ForceScreensaver_Response.ProtoReflect.Descriptor instead.
+func (*CScreensaver_ForceScreensaver_Response) Descriptor() ([]byte, []int) {
+	return file_webuimessages_screensaver_proto_rawDescGZIP(), []int{6}
+}
+
+type CScreensaver_GetLocalScreensavers_Response_Screensaver struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            *string                `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
+	Path          *string                `protobuf:"bytes,2,opt,name=path" json:"path,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CScreensaver_GetLocalScreensavers_Response_Screensaver) Reset() {
+	*x = CScreensaver_GetLocalScreensavers_Response_Screensaver{}
+	mi := &file_webuimessages_screensaver_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CScreensaver_GetLocalScreensavers_Response_Screensaver) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CScreensaver_GetLocalScreensavers_Response_Screensaver) ProtoMessage() {}
+
+func (x *CScreensaver_GetLocalScreensavers_Response_Screensaver) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_screensaver_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CScreensaver_GetLocalScreensavers_Response_Screensaver.ProtoReflect.Descriptor instead.
+func (*CScreensaver_GetLocalScreensavers_Response_Screensaver) Descriptor() ([]byte, []int) {
+	return file_webuimessages_screensaver_proto_rawDescGZIP(), []int{4, 0}
+}
+
+func (x *CScreensaver_GetLocalScreensavers_Response_Screensaver) GetId() string {
+	if x != nil && x.Id != nil {
+		return *x.Id
+	}
+	return ""
+}
+
+func (x *CScreensaver_GetLocalScreensavers_Response_Screensaver) GetPath() string {
+	if x != nil && x.Path != nil {
+		return *x.Path
+	}
+	return ""
+}
+
 var File_webuimessages_screensaver_proto protoreflect.FileDescriptor
 
 const file_webuimessages_screensaver_proto_rawDesc = "" +
@@ -154,10 +366,21 @@ const file_webuimessages_screensaver_proto_rawDesc = "" +
 	"$CScreensaver_GetActiveState_Response\x12\x16\n" +
 	"\x06active\x18\x01 \x01(\bR\x06active\"F\n" +
 	",CScreensaver_ActiveStateChanged_Notification\x12\x16\n" +
-	"\x06active\x18\x01 \x01(\bR\x06active2\xcf\x01\n" +
+	"\x06active\x18\x01 \x01(\bR\x06active\"+\n" +
+	")CScreensaver_GetLocalScreensavers_Request\"\xbc\x01\n" +
+	"*CScreensaver_GetLocalScreensavers_Response\x12[\n" +
+	"\fscreensavers\x18\x01 \x03(\v27.CScreensaver_GetLocalScreensavers_Response.ScreensaverR\fscreensavers\x1a1\n" +
+	"\vScreensaver\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
+	"\x04path\x18\x02 \x01(\tR\x04path\"A\n" +
+	"%CScreensaver_ForceScreensaver_Request\x12\x18\n" +
+	"\aenabled\x18\x01 \x01(\bR\aenabled\"(\n" +
+	"&CScreensaver_ForceScreensaver_Response2\xa5\x03\n" +
 	"\vScreensaver\x12]\n" +
 	"\x0eGetActiveState\x12$.CScreensaver_GetActiveState_Request\x1a%.CScreensaver_GetActiveState_Response\x12[\n" +
-	"\x18NotifyActiveStateChanged\x12-.CScreensaver_ActiveStateChanged_Notification\x1a\x10.WebUINoResponse\x1a\x04\x80\x97\"\x01B\x05H\x01\x80\x01\x01"
+	"\x18NotifyActiveStateChanged\x12-.CScreensaver_ActiveStateChanged_Notification\x1a\x10.WebUINoResponse\x12o\n" +
+	"\x14GetLocalScreensavers\x12*.CScreensaver_GetLocalScreensavers_Request\x1a+.CScreensaver_GetLocalScreensavers_Response\x12c\n" +
+	"\x10ForceScreensaver\x12&.CScreensaver_ForceScreensaver_Request\x1a'.CScreensaver_ForceScreensaver_Response\x1a\x04\x80\x97\"\x01B\x05H\x01\x80\x01\x01"
 
 var (
 	file_webuimessages_screensaver_proto_rawDescOnce sync.Once
@@ -171,23 +394,33 @@ func file_webuimessages_screensaver_proto_rawDescGZIP() []byte {
 	return file_webuimessages_screensaver_proto_rawDescData
 }
 
-var file_webuimessages_screensaver_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_webuimessages_screensaver_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_webuimessages_screensaver_proto_goTypes = []any{
-	(*CScreensaver_GetActiveState_Request)(nil),          // 0: CScreensaver_GetActiveState_Request
-	(*CScreensaver_GetActiveState_Response)(nil),         // 1: CScreensaver_GetActiveState_Response
-	(*CScreensaver_ActiveStateChanged_Notification)(nil), // 2: CScreensaver_ActiveStateChanged_Notification
-	(*WebUINoResponse)(nil),                              // 3: WebUINoResponse
+	(*CScreensaver_GetActiveState_Request)(nil),                    // 0: CScreensaver_GetActiveState_Request
+	(*CScreensaver_GetActiveState_Response)(nil),                   // 1: CScreensaver_GetActiveState_Response
+	(*CScreensaver_ActiveStateChanged_Notification)(nil),           // 2: CScreensaver_ActiveStateChanged_Notification
+	(*CScreensaver_GetLocalScreensavers_Request)(nil),              // 3: CScreensaver_GetLocalScreensavers_Request
+	(*CScreensaver_GetLocalScreensavers_Response)(nil),             // 4: CScreensaver_GetLocalScreensavers_Response
+	(*CScreensaver_ForceScreensaver_Request)(nil),                  // 5: CScreensaver_ForceScreensaver_Request
+	(*CScreensaver_ForceScreensaver_Response)(nil),                 // 6: CScreensaver_ForceScreensaver_Response
+	(*CScreensaver_GetLocalScreensavers_Response_Screensaver)(nil), // 7: CScreensaver_GetLocalScreensavers_Response.Screensaver
+	(*WebUINoResponse)(nil),                                        // 8: WebUINoResponse
 }
 var file_webuimessages_screensaver_proto_depIdxs = []int32{
-	0, // 0: Screensaver.GetActiveState:input_type -> CScreensaver_GetActiveState_Request
-	2, // 1: Screensaver.NotifyActiveStateChanged:input_type -> CScreensaver_ActiveStateChanged_Notification
-	1, // 2: Screensaver.GetActiveState:output_type -> CScreensaver_GetActiveState_Response
-	3, // 3: Screensaver.NotifyActiveStateChanged:output_type -> WebUINoResponse
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	7, // 0: CScreensaver_GetLocalScreensavers_Response.screensavers:type_name -> CScreensaver_GetLocalScreensavers_Response.Screensaver
+	0, // 1: Screensaver.GetActiveState:input_type -> CScreensaver_GetActiveState_Request
+	2, // 2: Screensaver.NotifyActiveStateChanged:input_type -> CScreensaver_ActiveStateChanged_Notification
+	3, // 3: Screensaver.GetLocalScreensavers:input_type -> CScreensaver_GetLocalScreensavers_Request
+	5, // 4: Screensaver.ForceScreensaver:input_type -> CScreensaver_ForceScreensaver_Request
+	1, // 5: Screensaver.GetActiveState:output_type -> CScreensaver_GetActiveState_Response
+	8, // 6: Screensaver.NotifyActiveStateChanged:output_type -> WebUINoResponse
+	4, // 7: Screensaver.GetLocalScreensavers:output_type -> CScreensaver_GetLocalScreensavers_Response
+	6, // 8: Screensaver.ForceScreensaver:output_type -> CScreensaver_ForceScreensaver_Response
+	5, // [5:9] is the sub-list for method output_type
+	1, // [1:5] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_webuimessages_screensaver_proto_init() }
@@ -204,7 +437,7 @@ func file_webuimessages_screensaver_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_webuimessages_screensaver_proto_rawDesc), len(file_webuimessages_screensaver_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

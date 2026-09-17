@@ -24,9 +24,11 @@ const (
 type EChildProcessQueryCommand int32
 
 const (
-	EChildProcessQueryCommand_k_EChildProcessQueryCommand_Invalid     EChildProcessQueryCommand = 0
-	EChildProcessQueryCommand_k_EChildProcessQueryCommand_GpuTopology EChildProcessQueryCommand = 1
-	EChildProcessQueryCommand_k_EChildProcessQueryCommand_Max         EChildProcessQueryCommand = 2
+	EChildProcessQueryCommand_k_EChildProcessQueryCommand_Invalid                EChildProcessQueryCommand = 0
+	EChildProcessQueryCommand_k_EChildProcessQueryCommand_GpuTopology            EChildProcessQueryCommand = 1
+	EChildProcessQueryCommand_k_EChildProcessQueryCommand_EnumerateHostAppsLinux EChildProcessQueryCommand = 2
+	EChildProcessQueryCommand_k_EChildProcessQueryCommand_GetHostAppLinux        EChildProcessQueryCommand = 3
+	EChildProcessQueryCommand_k_EChildProcessQueryCommand_Max                    EChildProcessQueryCommand = 4
 )
 
 // Enum value maps for EChildProcessQueryCommand.
@@ -34,12 +36,16 @@ var (
 	EChildProcessQueryCommand_name = map[int32]string{
 		0: "k_EChildProcessQueryCommand_Invalid",
 		1: "k_EChildProcessQueryCommand_GpuTopology",
-		2: "k_EChildProcessQueryCommand_Max",
+		2: "k_EChildProcessQueryCommand_EnumerateHostAppsLinux",
+		3: "k_EChildProcessQueryCommand_GetHostAppLinux",
+		4: "k_EChildProcessQueryCommand_Max",
 	}
 	EChildProcessQueryCommand_value = map[string]int32{
-		"k_EChildProcessQueryCommand_Invalid":     0,
-		"k_EChildProcessQueryCommand_GpuTopology": 1,
-		"k_EChildProcessQueryCommand_Max":         2,
+		"k_EChildProcessQueryCommand_Invalid":                0,
+		"k_EChildProcessQueryCommand_GpuTopology":            1,
+		"k_EChildProcessQueryCommand_EnumerateHostAppsLinux": 2,
+		"k_EChildProcessQueryCommand_GetHostAppLinux":        3,
+		"k_EChildProcessQueryCommand_Max":                    4,
 	}
 )
 
@@ -85,6 +91,8 @@ type CMsgChildProcessQueryResponse struct {
 	// Types that are valid to be assigned to Response:
 	//
 	//	*CMsgChildProcessQueryResponse_GpuTopology
+	//	*CMsgChildProcessQueryResponse_HostApps
+	//	*CMsgChildProcessQueryResponse_HostApp
 	Response      isCMsgChildProcessQueryResponse_Response `protobuf_oneof:"response"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -136,6 +144,24 @@ func (x *CMsgChildProcessQueryResponse) GetGpuTopology() *CMsgChildProcessQueryG
 	return nil
 }
 
+func (x *CMsgChildProcessQueryResponse) GetHostApps() *CMsgChildProcessQueryEnumerateHostAppsLinux {
+	if x != nil {
+		if x, ok := x.Response.(*CMsgChildProcessQueryResponse_HostApps); ok {
+			return x.HostApps
+		}
+	}
+	return nil
+}
+
+func (x *CMsgChildProcessQueryResponse) GetHostApp() *CMsgChildProcessQueryGetHostAppLinux {
+	if x != nil {
+		if x, ok := x.Response.(*CMsgChildProcessQueryResponse_HostApp); ok {
+			return x.HostApp
+		}
+	}
+	return nil
+}
+
 type isCMsgChildProcessQueryResponse_Response interface {
 	isCMsgChildProcessQueryResponse_Response()
 }
@@ -144,7 +170,19 @@ type CMsgChildProcessQueryResponse_GpuTopology struct {
 	GpuTopology *CMsgChildProcessQueryGpuTopology `protobuf:"bytes,1,opt,name=gpu_topology,json=gpuTopology,oneof"`
 }
 
+type CMsgChildProcessQueryResponse_HostApps struct {
+	HostApps *CMsgChildProcessQueryEnumerateHostAppsLinux `protobuf:"bytes,2,opt,name=host_apps,json=hostApps,oneof"`
+}
+
+type CMsgChildProcessQueryResponse_HostApp struct {
+	HostApp *CMsgChildProcessQueryGetHostAppLinux `protobuf:"bytes,3,opt,name=host_app,json=hostApp,oneof"`
+}
+
 func (*CMsgChildProcessQueryResponse_GpuTopology) isCMsgChildProcessQueryResponse_Response() {}
+
+func (*CMsgChildProcessQueryResponse_HostApps) isCMsgChildProcessQueryResponse_Response() {}
+
+func (*CMsgChildProcessQueryResponse_HostApp) isCMsgChildProcessQueryResponse_Response() {}
 
 type CMsgChildProcessQueryGpuTopology struct {
 	state         protoimpl.MessageState                      `protogen:"open.v1"`
@@ -198,6 +236,178 @@ func (x *CMsgChildProcessQueryGpuTopology) GetDefaultGpuId() uint32 {
 	return 0
 }
 
+type CMsgHostAppInfo struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Name          *string                `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
+	PathExe       *string                `protobuf:"bytes,2,opt,name=path_exe,json=pathExe" json:"path_exe,omitempty"`
+	Args          []string               `protobuf:"bytes,3,rep,name=args" json:"args,omitempty"`
+	PathShortcut  *string                `protobuf:"bytes,4,opt,name=path_shortcut,json=pathShortcut" json:"path_shortcut,omitempty"`
+	IconName      *string                `protobuf:"bytes,5,opt,name=icon_name,json=iconName" json:"icon_name,omitempty"`
+	IsTerminal    *bool                  `protobuf:"varint,6,opt,name=is_terminal,json=isTerminal" json:"is_terminal,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgHostAppInfo) Reset() {
+	*x = CMsgHostAppInfo{}
+	mi := &file_steammessages_childprocessquery_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgHostAppInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgHostAppInfo) ProtoMessage() {}
+
+func (x *CMsgHostAppInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_childprocessquery_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgHostAppInfo.ProtoReflect.Descriptor instead.
+func (*CMsgHostAppInfo) Descriptor() ([]byte, []int) {
+	return file_steammessages_childprocessquery_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *CMsgHostAppInfo) GetName() string {
+	if x != nil && x.Name != nil {
+		return *x.Name
+	}
+	return ""
+}
+
+func (x *CMsgHostAppInfo) GetPathExe() string {
+	if x != nil && x.PathExe != nil {
+		return *x.PathExe
+	}
+	return ""
+}
+
+func (x *CMsgHostAppInfo) GetArgs() []string {
+	if x != nil {
+		return x.Args
+	}
+	return nil
+}
+
+func (x *CMsgHostAppInfo) GetPathShortcut() string {
+	if x != nil && x.PathShortcut != nil {
+		return *x.PathShortcut
+	}
+	return ""
+}
+
+func (x *CMsgHostAppInfo) GetIconName() string {
+	if x != nil && x.IconName != nil {
+		return *x.IconName
+	}
+	return ""
+}
+
+func (x *CMsgHostAppInfo) GetIsTerminal() bool {
+	if x != nil && x.IsTerminal != nil {
+		return *x.IsTerminal
+	}
+	return false
+}
+
+type CMsgChildProcessQueryEnumerateHostAppsLinux struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Apps          []*CMsgHostAppInfo     `protobuf:"bytes,1,rep,name=apps" json:"apps,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgChildProcessQueryEnumerateHostAppsLinux) Reset() {
+	*x = CMsgChildProcessQueryEnumerateHostAppsLinux{}
+	mi := &file_steammessages_childprocessquery_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgChildProcessQueryEnumerateHostAppsLinux) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgChildProcessQueryEnumerateHostAppsLinux) ProtoMessage() {}
+
+func (x *CMsgChildProcessQueryEnumerateHostAppsLinux) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_childprocessquery_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgChildProcessQueryEnumerateHostAppsLinux.ProtoReflect.Descriptor instead.
+func (*CMsgChildProcessQueryEnumerateHostAppsLinux) Descriptor() ([]byte, []int) {
+	return file_steammessages_childprocessquery_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *CMsgChildProcessQueryEnumerateHostAppsLinux) GetApps() []*CMsgHostAppInfo {
+	if x != nil {
+		return x.Apps
+	}
+	return nil
+}
+
+type CMsgChildProcessQueryGetHostAppLinux struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	App           *CMsgHostAppInfo       `protobuf:"bytes,1,opt,name=app" json:"app,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgChildProcessQueryGetHostAppLinux) Reset() {
+	*x = CMsgChildProcessQueryGetHostAppLinux{}
+	mi := &file_steammessages_childprocessquery_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgChildProcessQueryGetHostAppLinux) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgChildProcessQueryGetHostAppLinux) ProtoMessage() {}
+
+func (x *CMsgChildProcessQueryGetHostAppLinux) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_childprocessquery_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgChildProcessQueryGetHostAppLinux.ProtoReflect.Descriptor instead.
+func (*CMsgChildProcessQueryGetHostAppLinux) Descriptor() ([]byte, []int) {
+	return file_steammessages_childprocessquery_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *CMsgChildProcessQueryGetHostAppLinux) GetApp() *CMsgHostAppInfo {
+	if x != nil {
+		return x.App
+	}
+	return nil
+}
+
 type CMsgChildProcessQueryGpuTopology_GpuInfo struct {
 	state              protoimpl.MessageState `protogen:"open.v1"`
 	Id                 *uint32                `protobuf:"varint,1,opt,name=id" json:"id,omitempty"`
@@ -219,7 +429,7 @@ const (
 
 func (x *CMsgChildProcessQueryGpuTopology_GpuInfo) Reset() {
 	*x = CMsgChildProcessQueryGpuTopology_GpuInfo{}
-	mi := &file_steammessages_childprocessquery_proto_msgTypes[2]
+	mi := &file_steammessages_childprocessquery_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -231,7 +441,7 @@ func (x *CMsgChildProcessQueryGpuTopology_GpuInfo) String() string {
 func (*CMsgChildProcessQueryGpuTopology_GpuInfo) ProtoMessage() {}
 
 func (x *CMsgChildProcessQueryGpuTopology_GpuInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_childprocessquery_proto_msgTypes[2]
+	mi := &file_steammessages_childprocessquery_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -307,9 +517,11 @@ var File_steammessages_childprocessquery_proto protoreflect.FileDescriptor
 
 const file_steammessages_childprocessquery_proto_rawDesc = "" +
 	"\n" +
-	"%steammessages_childprocessquery.proto\x1a\venums.proto\"s\n" +
+	"%steammessages_childprocessquery.proto\x1a\venums.proto\"\x84\x02\n" +
 	"\x1dCMsgChildProcessQueryResponse\x12F\n" +
-	"\fgpu_topology\x18\x01 \x01(\v2!.CMsgChildProcessQueryGpuTopologyH\x00R\vgpuTopologyB\n" +
+	"\fgpu_topology\x18\x01 \x01(\v2!.CMsgChildProcessQueryGpuTopologyH\x00R\vgpuTopology\x12K\n" +
+	"\thost_apps\x18\x02 \x01(\v2,.CMsgChildProcessQueryEnumerateHostAppsLinuxH\x00R\bhostApps\x12B\n" +
+	"\bhost_app\x18\x03 \x01(\v2%.CMsgChildProcessQueryGetHostAppLinuxH\x00R\ahostAppB\n" +
 	"\n" +
 	"\bresponse\"\xcd\x03\n" +
 	" CMsgChildProcessQueryGpuTopology\x12=\n" +
@@ -323,11 +535,25 @@ const file_steammessages_childprocessquery_proto_rawDesc = "" +
 	"\x14driver_version_major\x18\x05 \x01(\x05R\x12driverVersionMajor\x120\n" +
 	"\x14driver_version_minor\x18\x06 \x01(\x05R\x12driverVersionMinor\x120\n" +
 	"\x14driver_version_patch\x18\a \x01(\x05R\x12driverVersionPatch\x12\x12\n" +
-	"\x04luid\x18\b \x01(\x04R\x04luid*\x96\x01\n" +
+	"\x04luid\x18\b \x01(\x04R\x04luid\"\xb7\x01\n" +
+	"\x0fCMsgHostAppInfo\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\x19\n" +
+	"\bpath_exe\x18\x02 \x01(\tR\apathExe\x12\x12\n" +
+	"\x04args\x18\x03 \x03(\tR\x04args\x12#\n" +
+	"\rpath_shortcut\x18\x04 \x01(\tR\fpathShortcut\x12\x1b\n" +
+	"\ticon_name\x18\x05 \x01(\tR\biconName\x12\x1f\n" +
+	"\vis_terminal\x18\x06 \x01(\bR\n" +
+	"isTerminal\"S\n" +
+	"+CMsgChildProcessQueryEnumerateHostAppsLinux\x12$\n" +
+	"\x04apps\x18\x01 \x03(\v2\x10.CMsgHostAppInfoR\x04apps\"J\n" +
+	"$CMsgChildProcessQueryGetHostAppLinux\x12\"\n" +
+	"\x03app\x18\x01 \x01(\v2\x10.CMsgHostAppInfoR\x03app*\xff\x01\n" +
 	"\x19EChildProcessQueryCommand\x12'\n" +
 	"#k_EChildProcessQueryCommand_Invalid\x10\x00\x12+\n" +
-	"'k_EChildProcessQueryCommand_GpuTopology\x10\x01\x12#\n" +
-	"\x1fk_EChildProcessQueryCommand_Max\x10\x02B\x05H\x01\x80\x01\x00"
+	"'k_EChildProcessQueryCommand_GpuTopology\x10\x01\x126\n" +
+	"2k_EChildProcessQueryCommand_EnumerateHostAppsLinux\x10\x02\x12/\n" +
+	"+k_EChildProcessQueryCommand_GetHostAppLinux\x10\x03\x12#\n" +
+	"\x1fk_EChildProcessQueryCommand_Max\x10\x04B\x05H\x01\x80\x01\x00"
 
 var (
 	file_steammessages_childprocessquery_proto_rawDescOnce sync.Once
@@ -342,23 +568,30 @@ func file_steammessages_childprocessquery_proto_rawDescGZIP() []byte {
 }
 
 var file_steammessages_childprocessquery_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_steammessages_childprocessquery_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_steammessages_childprocessquery_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_steammessages_childprocessquery_proto_goTypes = []any{
-	(EChildProcessQueryCommand)(0),                   // 0: EChildProcessQueryCommand
-	(*CMsgChildProcessQueryResponse)(nil),            // 1: CMsgChildProcessQueryResponse
-	(*CMsgChildProcessQueryGpuTopology)(nil),         // 2: CMsgChildProcessQueryGpuTopology
-	(*CMsgChildProcessQueryGpuTopology_GpuInfo)(nil), // 3: CMsgChildProcessQueryGpuTopology.GpuInfo
-	(EGpuDriverId)(0),                                // 4: EGpuDriverId
+	(EChildProcessQueryCommand)(0),                      // 0: EChildProcessQueryCommand
+	(*CMsgChildProcessQueryResponse)(nil),               // 1: CMsgChildProcessQueryResponse
+	(*CMsgChildProcessQueryGpuTopology)(nil),            // 2: CMsgChildProcessQueryGpuTopology
+	(*CMsgHostAppInfo)(nil),                             // 3: CMsgHostAppInfo
+	(*CMsgChildProcessQueryEnumerateHostAppsLinux)(nil), // 4: CMsgChildProcessQueryEnumerateHostAppsLinux
+	(*CMsgChildProcessQueryGetHostAppLinux)(nil),        // 5: CMsgChildProcessQueryGetHostAppLinux
+	(*CMsgChildProcessQueryGpuTopology_GpuInfo)(nil),    // 6: CMsgChildProcessQueryGpuTopology.GpuInfo
+	(EGpuDriverId)(0),                                   // 7: EGpuDriverId
 }
 var file_steammessages_childprocessquery_proto_depIdxs = []int32{
 	2, // 0: CMsgChildProcessQueryResponse.gpu_topology:type_name -> CMsgChildProcessQueryGpuTopology
-	3, // 1: CMsgChildProcessQueryGpuTopology.gpus:type_name -> CMsgChildProcessQueryGpuTopology.GpuInfo
-	4, // 2: CMsgChildProcessQueryGpuTopology.GpuInfo.driver_id:type_name -> EGpuDriverId
-	3, // [3:3] is the sub-list for method output_type
-	3, // [3:3] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	4, // 1: CMsgChildProcessQueryResponse.host_apps:type_name -> CMsgChildProcessQueryEnumerateHostAppsLinux
+	5, // 2: CMsgChildProcessQueryResponse.host_app:type_name -> CMsgChildProcessQueryGetHostAppLinux
+	6, // 3: CMsgChildProcessQueryGpuTopology.gpus:type_name -> CMsgChildProcessQueryGpuTopology.GpuInfo
+	3, // 4: CMsgChildProcessQueryEnumerateHostAppsLinux.apps:type_name -> CMsgHostAppInfo
+	3, // 5: CMsgChildProcessQueryGetHostAppLinux.app:type_name -> CMsgHostAppInfo
+	7, // 6: CMsgChildProcessQueryGpuTopology.GpuInfo.driver_id:type_name -> EGpuDriverId
+	7, // [7:7] is the sub-list for method output_type
+	7, // [7:7] is the sub-list for method input_type
+	7, // [7:7] is the sub-list for extension type_name
+	7, // [7:7] is the sub-list for extension extendee
+	0, // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_childprocessquery_proto_init() }
@@ -369,6 +602,8 @@ func file_steammessages_childprocessquery_proto_init() {
 	file_enums_proto_init()
 	file_steammessages_childprocessquery_proto_msgTypes[0].OneofWrappers = []any{
 		(*CMsgChildProcessQueryResponse_GpuTopology)(nil),
+		(*CMsgChildProcessQueryResponse_HostApps)(nil),
+		(*CMsgChildProcessQueryResponse_HostApp)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -376,7 +611,7 @@ func file_steammessages_childprocessquery_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_childprocessquery_proto_rawDesc), len(file_steammessages_childprocessquery_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   3,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
