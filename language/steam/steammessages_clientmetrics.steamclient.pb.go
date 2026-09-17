@@ -1506,15 +1506,17 @@ func (x *CClientMetrics_ReportClientArgs_Notification) GetGrMode() EGRMode {
 }
 
 type CClientMetrics_ReportLinuxStats_Notification struct {
-	state             protoimpl.MessageState `protogen:"open.v1"`
-	GlibcVersionMajor *int32                 `protobuf:"varint,1,opt,name=glibc_version_major,json=glibcVersionMajor" json:"glibc_version_major,omitempty"`
-	GlibcVersionMinor *int32                 `protobuf:"varint,2,opt,name=glibc_version_minor,json=glibcVersionMinor" json:"glibc_version_minor,omitempty"`
-	AccountType       *int32                 `protobuf:"varint,3,opt,name=account_type,json=accountType" json:"account_type,omitempty"`
-	LauncherType      *int32                 `protobuf:"varint,4,opt,name=launcher_type,json=launcherType" json:"launcher_type,omitempty"`
-	GameServerAppid   *int32                 `protobuf:"varint,5,opt,name=game_server_appid,json=gameServerAppid" json:"game_server_appid,omitempty"`
-	ProcessName       *string                `protobuf:"bytes,6,opt,name=process_name,json=processName" json:"process_name,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
+	state              protoimpl.MessageState `protogen:"open.v1"`
+	GlibcVersionMajor  *int32                 `protobuf:"varint,1,opt,name=glibc_version_major,json=glibcVersionMajor" json:"glibc_version_major,omitempty"`
+	GlibcVersionMinor  *int32                 `protobuf:"varint,2,opt,name=glibc_version_minor,json=glibcVersionMinor" json:"glibc_version_minor,omitempty"`
+	AccountType        *int32                 `protobuf:"varint,3,opt,name=account_type,json=accountType" json:"account_type,omitempty"`
+	LauncherType       *int32                 `protobuf:"varint,4,opt,name=launcher_type,json=launcherType" json:"launcher_type,omitempty"`
+	GameServerAppid    *int32                 `protobuf:"varint,5,opt,name=game_server_appid,json=gameServerAppid" json:"game_server_appid,omitempty"`
+	ProcessName        *string                `protobuf:"bytes,6,opt,name=process_name,json=processName" json:"process_name,omitempty"`
+	KernelVersionMajor *int32                 `protobuf:"varint,7,opt,name=kernel_version_major,json=kernelVersionMajor" json:"kernel_version_major,omitempty"`
+	KernelVersionMinor *int32                 `protobuf:"varint,8,opt,name=kernel_version_minor,json=kernelVersionMinor" json:"kernel_version_minor,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
 }
 
 func (x *CClientMetrics_ReportLinuxStats_Notification) Reset() {
@@ -1587,6 +1589,20 @@ func (x *CClientMetrics_ReportLinuxStats_Notification) GetProcessName() string {
 		return *x.ProcessName
 	}
 	return ""
+}
+
+func (x *CClientMetrics_ReportLinuxStats_Notification) GetKernelVersionMajor() int32 {
+	if x != nil && x.KernelVersionMajor != nil {
+		return *x.KernelVersionMajor
+	}
+	return 0
+}
+
+func (x *CClientMetrics_ReportLinuxStats_Notification) GetKernelVersionMinor() int32 {
+	if x != nil && x.KernelVersionMinor != nil {
+		return *x.KernelVersionMinor
+	}
+	return 0
 }
 
 type CClientMetrics_ReportAccessibilitySettings_Notification struct {
@@ -2408,14 +2424,15 @@ func (x *CClientMetrics_ClipRange_Notification_RelativeRangeEdge) GetDeltaMs() i
 }
 
 type CClientMetrics_GamePerformance_Notification_FrameRate struct {
-	state             protoimpl.MessageState   `protogen:"open.v1"`
-	Gameid            *uint64                  `protobuf:"fixed64,1,opt,name=gameid" json:"gameid,omitempty"`
-	FrameRate         *uint32                  `protobuf:"varint,2,opt,name=frame_rate,json=frameRate" json:"frame_rate,omitempty"`
-	SessionSeconds    *int32                   `protobuf:"varint,3,opt,name=session_seconds,json=sessionSeconds" json:"session_seconds,omitempty"`
-	FramegenFrameRate *uint32                  `protobuf:"varint,4,opt,name=framegen_frame_rate,json=framegenFrameRate" json:"framegen_frame_rate,omitempty"`
-	GameSettings      *GamePerformanceSettings `protobuf:"bytes,5,opt,name=game_settings,json=gameSettings" json:"game_settings,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
+	state              protoimpl.MessageState   `protogen:"open.v1"`
+	Gameid             *uint64                  `protobuf:"fixed64,1,opt,name=gameid" json:"gameid,omitempty"`
+	FrameRate          *uint32                  `protobuf:"varint,2,opt,name=frame_rate,json=frameRate" json:"frame_rate,omitempty"`
+	SessionSeconds     *int32                   `protobuf:"varint,3,opt,name=session_seconds,json=sessionSeconds" json:"session_seconds,omitempty"`
+	FramegenFrameRate  *uint32                  `protobuf:"varint,4,opt,name=framegen_frame_rate,json=framegenFrameRate" json:"framegen_frame_rate,omitempty"`
+	GameSettings       *GamePerformanceSettings `protobuf:"bytes,5,opt,name=game_settings,json=gameSettings" json:"game_settings,omitempty"`
+	SecondsSinceActive *uint32                  `protobuf:"varint,6,opt,name=seconds_since_active,json=secondsSinceActive" json:"seconds_since_active,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
 }
 
 func (x *CClientMetrics_GamePerformance_Notification_FrameRate) Reset() {
@@ -2481,6 +2498,13 @@ func (x *CClientMetrics_GamePerformance_Notification_FrameRate) GetGameSettings(
 		return x.GameSettings
 	}
 	return nil
+}
+
+func (x *CClientMetrics_GamePerformance_Notification_FrameRate) GetSecondsSinceActive() uint32 {
+	if x != nil && x.SecondsSinceActive != nil {
+		return *x.SecondsSinceActive
+	}
+	return 0
 }
 
 var File_steammessages_clientmetrics_steamclient_proto protoreflect.FileDescriptor
@@ -2638,14 +2662,16 @@ const file_steammessages_clientmetrics_steamclient_proto_rawDesc = "" +
 	"\"library_low_bandwidth_mode_enabled\x18\b \x01(\bR\x1elibraryLowBandwidthModeEnabled\x12@\n" +
 	"\x1dlibrary_low_perf_mode_enabled\x18\t \x01(\bR\x19libraryLowPerfModeEnabled\x122\n" +
 	"\agr_mode\x18\n" +
-	" \x01(\x0e2\b.EGRMode:\x0fk_EGRMode_NeverR\x06grMode\"\xa5\x02\n" +
+	" \x01(\x0e2\b.EGRMode:\x0fk_EGRMode_NeverR\x06grMode\"\x89\x03\n" +
 	",CClientMetrics_ReportLinuxStats_Notification\x12.\n" +
 	"\x13glibc_version_major\x18\x01 \x01(\x05R\x11glibcVersionMajor\x12.\n" +
 	"\x13glibc_version_minor\x18\x02 \x01(\x05R\x11glibcVersionMinor\x12!\n" +
 	"\faccount_type\x18\x03 \x01(\x05R\vaccountType\x12#\n" +
 	"\rlauncher_type\x18\x04 \x01(\x05R\flauncherType\x12*\n" +
 	"\x11game_server_appid\x18\x05 \x01(\x05R\x0fgameServerAppid\x12!\n" +
-	"\fprocess_name\x18\x06 \x01(\tR\vprocessName\"\x9d\x03\n" +
+	"\fprocess_name\x18\x06 \x01(\tR\vprocessName\x120\n" +
+	"\x14kernel_version_major\x18\a \x01(\x05R\x12kernelVersionMajor\x120\n" +
+	"\x14kernel_version_minor\x18\b \x01(\x05R\x12kernelVersionMinor\"\x9d\x03\n" +
 	"7CClientMetrics_ReportAccessibilitySettings_Notification\x12C\n" +
 	"\x1eaccessibility_desktop_ui_scale\x18\x01 \x01(\x02R\x1baccessibilityDesktopUiScale\x12M\n" +
 	"#accessibility_screen_reader_enabled\x18\x02 \x01(\bR accessibilityScreenReaderEnabled\x12G\n" +
@@ -2673,19 +2699,20 @@ const file_steammessages_clientmetrics_steamclient_proto_rawDesc = "" +
 	"\aseconds\x18\x02 \x01(\x02R\aseconds\x12\x14\n" +
 	"\x05bytes\x18\x03 \x01(\x04R\x05bytes\x12\x16\n" +
 	"\x06gameid\x18\x04 \x01(\x06R\x06gameid\x12!\n" +
-	"\finstant_clip\x18\x05 \x01(\bR\vinstantClip\"\x9c\x03\n" +
+	"\finstant_clip\x18\x05 \x01(\bR\vinstantClip\"\xce\x03\n" +
 	"+CClientMetrics_GamePerformance_Notification\x12W\n" +
 	"\vframe_rates\x18\x02 \x03(\v26.CClientMetrics_GamePerformance_Notification.FrameRateR\n" +
 	"frameRates\x127\n" +
 	"\vsystem_info\x18\x03 \x01(\v2\x16.UserSystemInformationR\n" +
-	"systemInfo\x1a\xda\x01\n" +
+	"systemInfo\x1a\x8c\x02\n" +
 	"\tFrameRate\x12\x16\n" +
 	"\x06gameid\x18\x01 \x01(\x06R\x06gameid\x12\x1d\n" +
 	"\n" +
 	"frame_rate\x18\x02 \x01(\rR\tframeRate\x12'\n" +
 	"\x0fsession_seconds\x18\x03 \x01(\x05R\x0esessionSeconds\x12.\n" +
 	"\x13framegen_frame_rate\x18\x04 \x01(\rR\x11framegenFrameRate\x12=\n" +
-	"\rgame_settings\x18\x05 \x01(\v2\x18.GamePerformanceSettingsR\fgameSettings*q\n" +
+	"\rgame_settings\x18\x05 \x01(\v2\x18.GamePerformanceSettingsR\fgameSettings\x120\n" +
+	"\x14seconds_since_active\x18\x06 \x01(\rR\x12secondsSinceActive*q\n" +
 	"\x12ESteamPipeWorkType\x12&\n" +
 	"\"k_ESteamPipeClientWorkType_Invalid\x10\x00\x123\n" +
 	"/k_ESteamPipeClientWorkType_StageFromChunkStores\x10\x01*\xbb\x01\n" +

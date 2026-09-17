@@ -504,6 +504,13 @@ func (x EWindowsUpdateRebootBehavior) EncodeValues(key string, v *url.Values) er
 	return nil
 }
 
+// EncodeValues implements the query.Encoder interface for EWindowsUpdateOperationResult.
+// This allows the enum to be encoded as its numerical value in URL parameters.
+func (x EWindowsUpdateOperationResult) EncodeValues(key string, v *url.Values) error {
+	v.Add(key, strconv.FormatInt(int64(x), 10))
+	return nil
+}
+
 // EncodeValues implements the query.Encoder interface for EExternalSaleEventType.
 // This allows the enum to be encoded as its numerical value in URL parameters.
 func (x EExternalSaleEventType) EncodeValues(key string, v *url.Values) error {
@@ -591,6 +598,13 @@ func (x EPressOutletMemberPendingState) EncodeValues(key string, v *url.Values) 
 // EncodeValues implements the query.Encoder interface for ECommentDeleteReason.
 // This allows the enum to be encoded as its numerical value in URL parameters.
 func (x ECommentDeleteReason) EncodeValues(key string, v *url.Values) error {
+	v.Add(key, strconv.FormatInt(int64(x), 10))
+	return nil
+}
+
+// EncodeValues implements the query.Encoder interface for EDLCHighlightReason.
+// This allows the enum to be encoded as its numerical value in URL parameters.
+func (x EDLCHighlightReason) EncodeValues(key string, v *url.Values) error {
 	v.Add(key, strconv.FormatInt(int64(x), 10))
 	return nil
 }

@@ -2961,6 +2961,9 @@ type CStreamingClientConfig struct {
 	WindowFrameOffsetX             *int32                    `protobuf:"varint,33,opt,name=window_frame_offset_x,json=windowFrameOffsetX" json:"window_frame_offset_x,omitempty"`
 	WindowFrameOffsetY             *int32                    `protobuf:"varint,34,opt,name=window_frame_offset_y,json=windowFrameOffsetY" json:"window_frame_offset_y,omitempty"`
 	EnableVideoPyrowave            *bool                     `protobuf:"varint,35,opt,name=enable_video_pyrowave,json=enableVideoPyrowave,def=0" json:"enable_video_pyrowave,omitempty"`
+	PyrowaveCustomBitrate          *bool                     `protobuf:"varint,36,opt,name=pyrowave_custom_bitrate,json=pyrowaveCustomBitrate" json:"pyrowave_custom_bitrate,omitempty"`
+	PyrowaveCustomBitrateKbps      *int32                    `protobuf:"varint,37,opt,name=pyrowave_custom_bitrate_kbps,json=pyrowaveCustomBitrateKbps" json:"pyrowave_custom_bitrate_kbps,omitempty"`
+	PyrowaveQualityModifier        *float32                  `protobuf:"fixed32,38,opt,name=pyrowave_quality_modifier,json=pyrowaveQualityModifier" json:"pyrowave_quality_modifier,omitempty"`
 	unknownFields                  protoimpl.UnknownFields
 	sizeCache                      protoimpl.SizeCache
 }
@@ -3252,6 +3255,27 @@ func (x *CStreamingClientConfig) GetEnableVideoPyrowave() bool {
 		return *x.EnableVideoPyrowave
 	}
 	return Default_CStreamingClientConfig_EnableVideoPyrowave
+}
+
+func (x *CStreamingClientConfig) GetPyrowaveCustomBitrate() bool {
+	if x != nil && x.PyrowaveCustomBitrate != nil {
+		return *x.PyrowaveCustomBitrate
+	}
+	return false
+}
+
+func (x *CStreamingClientConfig) GetPyrowaveCustomBitrateKbps() int32 {
+	if x != nil && x.PyrowaveCustomBitrateKbps != nil {
+		return *x.PyrowaveCustomBitrateKbps
+	}
+	return 0
+}
+
+func (x *CStreamingClientConfig) GetPyrowaveQualityModifier() float32 {
+	if x != nil && x.PyrowaveQualityModifier != nil {
+		return *x.PyrowaveQualityModifier
+	}
+	return 0
 }
 
 type CStreamingServerConfig struct {
@@ -9289,7 +9313,7 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x15supported_colorspaces\x18\r \x03(\x0e2\x12.EStreamColorspaceR\x14supportedColorspaces\x12H\n" +
 	"\x16supported_audio_codecs\x18\x0e \x03(\x0e2\x12.EStreamAudioCodecR\x14supportedAudioCodecs\x12H\n" +
 	"\x16supported_video_codecs\x18\x0f \x03(\x0e2\x12.EStreamVideoCodecR\x14supportedVideoCodecs\x122\n" +
-	"\x15can_toggle_fullscreen\x18\x10 \x01(\bR\x13canToggleFullscreen\"\x9b\x0f\n" +
+	"\x15can_toggle_fullscreen\x18\x10 \x01(\bR\x13canToggleFullscreen\"\xd0\x10\n" +
 	"\x16CStreamingClientConfig\x12M\n" +
 	"\aquality\x18\x01 \x01(\x0e2\x19.EStreamQualityPreference:\x18k_EStreamQualityBalancedR\aquality\x120\n" +
 	"\x14desired_resolution_x\x18\x02 \x01(\rR\x12desiredResolutionX\x120\n" +
@@ -9325,7 +9349,10 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x11window_position_y\x18  \x01(\x05R\x0fwindowPositionY\x121\n" +
 	"\x15window_frame_offset_x\x18! \x01(\x05R\x12windowFrameOffsetX\x121\n" +
 	"\x15window_frame_offset_y\x18\" \x01(\x05R\x12windowFrameOffsetY\x129\n" +
-	"\x15enable_video_pyrowave\x18# \x01(\b:\x05falseR\x13enableVideoPyrowave\"\xe5\a\n" +
+	"\x15enable_video_pyrowave\x18# \x01(\b:\x05falseR\x13enableVideoPyrowave\x126\n" +
+	"\x17pyrowave_custom_bitrate\x18$ \x01(\bR\x15pyrowaveCustomBitrate\x12?\n" +
+	"\x1cpyrowave_custom_bitrate_kbps\x18% \x01(\x05R\x19pyrowaveCustomBitrateKbps\x12:\n" +
+	"\x19pyrowave_quality_modifier\x18& \x01(\x02R\x17pyrowaveQualityModifier\"\xe5\a\n" +
 	"\x16CStreamingServerConfig\x12f\n" +
 	"\x0fhost_play_audio\x18\x01 \x01(\x0e2\x1f.EStreamHostPlayAudioPreference:\x1dk_EStreamHostPlayAudioDefaultR\rhostPlayAudio\x122\n" +
 	"\x15custom_display_device\x18\x02 \x01(\tR\x13customDisplayDevice\x12y\n" +

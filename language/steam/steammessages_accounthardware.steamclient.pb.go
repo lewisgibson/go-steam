@@ -1957,6 +1957,94 @@ func (*CAccountHardware_RegisterSteamMachine_Response) Descriptor() ([]byte, []i
 	return file_steammessages_accounthardware_steamclient_proto_rawDescGZIP(), []int{35}
 }
 
+type CAccountHardwarePromotions_RedeemFramePromoPackage_Request struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	Serial         *string                `protobuf:"bytes,1,opt,name=serial" json:"serial,omitempty"`
+	ComputedSerial *string                `protobuf:"bytes,2,opt,name=computed_serial,json=computedSerial" json:"computed_serial,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *CAccountHardwarePromotions_RedeemFramePromoPackage_Request) Reset() {
+	*x = CAccountHardwarePromotions_RedeemFramePromoPackage_Request{}
+	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CAccountHardwarePromotions_RedeemFramePromoPackage_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CAccountHardwarePromotions_RedeemFramePromoPackage_Request) ProtoMessage() {}
+
+func (x *CAccountHardwarePromotions_RedeemFramePromoPackage_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CAccountHardwarePromotions_RedeemFramePromoPackage_Request.ProtoReflect.Descriptor instead.
+func (*CAccountHardwarePromotions_RedeemFramePromoPackage_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_accounthardware_steamclient_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *CAccountHardwarePromotions_RedeemFramePromoPackage_Request) GetSerial() string {
+	if x != nil && x.Serial != nil {
+		return *x.Serial
+	}
+	return ""
+}
+
+func (x *CAccountHardwarePromotions_RedeemFramePromoPackage_Request) GetComputedSerial() string {
+	if x != nil && x.ComputedSerial != nil {
+		return *x.ComputedSerial
+	}
+	return ""
+}
+
+type CAccountHardwarePromotions_RedeemFramePromoPackage_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CAccountHardwarePromotions_RedeemFramePromoPackage_Response) Reset() {
+	*x = CAccountHardwarePromotions_RedeemFramePromoPackage_Response{}
+	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CAccountHardwarePromotions_RedeemFramePromoPackage_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CAccountHardwarePromotions_RedeemFramePromoPackage_Response) ProtoMessage() {}
+
+func (x *CAccountHardwarePromotions_RedeemFramePromoPackage_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CAccountHardwarePromotions_RedeemFramePromoPackage_Response.ProtoReflect.Descriptor instead.
+func (*CAccountHardwarePromotions_RedeemFramePromoPackage_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_accounthardware_steamclient_proto_rawDescGZIP(), []int{37}
+}
+
 type CAccountHardware_UpdateControllerUsageReport_Request_Controller struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	SerialNumber   *string                `protobuf:"bytes,1,opt,name=serial_number,json=serialNumber" json:"serial_number,omitempty"`
@@ -1967,7 +2055,7 @@ type CAccountHardware_UpdateControllerUsageReport_Request_Controller struct {
 
 func (x *CAccountHardware_UpdateControllerUsageReport_Request_Controller) Reset() {
 	*x = CAccountHardware_UpdateControllerUsageReport_Request_Controller{}
-	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[36]
+	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1979,7 +2067,7 @@ func (x *CAccountHardware_UpdateControllerUsageReport_Request_Controller) String
 func (*CAccountHardware_UpdateControllerUsageReport_Request_Controller) ProtoMessage() {}
 
 func (x *CAccountHardware_UpdateControllerUsageReport_Request_Controller) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[36]
+	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2019,7 +2107,7 @@ type CAccountHardware_VRCompatibilityCheck_Request_Pair struct {
 
 func (x *CAccountHardware_VRCompatibilityCheck_Request_Pair) Reset() {
 	*x = CAccountHardware_VRCompatibilityCheck_Request_Pair{}
-	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[37]
+	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2031,7 +2119,7 @@ func (x *CAccountHardware_VRCompatibilityCheck_Request_Pair) String() string {
 func (*CAccountHardware_VRCompatibilityCheck_Request_Pair) ProtoMessage() {}
 
 func (x *CAccountHardware_VRCompatibilityCheck_Request_Pair) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[37]
+	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2071,7 +2159,7 @@ type CAccountHardware_VRCompatibilityCheck_Response_Pair struct {
 
 func (x *CAccountHardware_VRCompatibilityCheck_Response_Pair) Reset() {
 	*x = CAccountHardware_VRCompatibilityCheck_Response_Pair{}
-	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[38]
+	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2083,7 +2171,7 @@ func (x *CAccountHardware_VRCompatibilityCheck_Response_Pair) String() string {
 func (*CAccountHardware_VRCompatibilityCheck_Response_Pair) ProtoMessage() {}
 
 func (x *CAccountHardware_VRCompatibilityCheck_Response_Pair) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[38]
+	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2124,7 +2212,7 @@ type CAccountHardware_VRCompatibilityCheck_Response_ComponentDisplay struct {
 
 func (x *CAccountHardware_VRCompatibilityCheck_Response_ComponentDisplay) Reset() {
 	*x = CAccountHardware_VRCompatibilityCheck_Response_ComponentDisplay{}
-	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[39]
+	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2136,7 +2224,7 @@ func (x *CAccountHardware_VRCompatibilityCheck_Response_ComponentDisplay) String
 func (*CAccountHardware_VRCompatibilityCheck_Response_ComponentDisplay) ProtoMessage() {}
 
 func (x *CAccountHardware_VRCompatibilityCheck_Response_ComponentDisplay) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[39]
+	mi := &file_steammessages_accounthardware_steamclient_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2302,7 +2390,11 @@ const file_steammessages_accounthardware_steamclient_proto_rawDesc = "" +
 	"-CAccountHardware_RegisterSteamMachine_Request\x12#\n" +
 	"\rserial_number\x18\x01 \x01(\tR\fserialNumber\x12!\n" +
 	"\fmachine_code\x18\x02 \x01(\tR\vmachineCode\"0\n" +
-	".CAccountHardware_RegisterSteamMachine_Response*\xee\x02\n" +
+	".CAccountHardware_RegisterSteamMachine_Response\"}\n" +
+	":CAccountHardwarePromotions_RedeemFramePromoPackage_Request\x12\x16\n" +
+	"\x06serial\x18\x01 \x01(\tR\x06serial\x12'\n" +
+	"\x0fcomputed_serial\x18\x02 \x01(\tR\x0ecomputedSerial\"=\n" +
+	";CAccountHardwarePromotions_RedeemFramePromoPackage_Response*\xee\x02\n" +
 	"\x14EValveIndexComponent\x12!\n" +
 	"\x1dk_EValveIndexComponentUnknown\x10\x00\x12\x1d\n" +
 	"\x19k_EValveIndexComponentHMD\x10\x01\x12%\n" +
@@ -2328,7 +2420,9 @@ const file_steammessages_accounthardware_steamclient_proto_rawDesc = "" +
 	"\fSaveHardware\x12&.CAccountHardware_SaveHardware_Request\x1a'.CAccountHardware_SaveHardware_Response\x12t\n" +
 	"\x13ManageSavedHardware\x12-.CAccountHardware_ManageSavedHardware_Request\x1a..CAccountHardware_ManageSavedHardware_Response\x12w\n" +
 	"\x14GetSavedHardwareList\x12..CAccountHardware_GetSavedHardwareList_Request\x1a/.CAccountHardware_GetSavedHardwareList_Response\x12w\n" +
-	"\x14RegisterSteamMachine\x12..CAccountHardware_RegisterSteamMachine_Request\x1a/.CAccountHardware_RegisterSteamMachine_ResponseB\x03\x80\x01\x01"
+	"\x14RegisterSteamMachine\x12..CAccountHardware_RegisterSteamMachine_Request\x1a/.CAccountHardware_RegisterSteamMachine_Response2\xb2\x01\n" +
+	"\x19AccountHardwarePromotions\x12\x94\x01\n" +
+	"\x17RedeemFramePromoPackage\x12;.CAccountHardwarePromotions_RedeemFramePromoPackage_Request\x1a<.CAccountHardwarePromotions_RedeemFramePromoPackage_ResponseB\x03\x80\x01\x01"
 
 var (
 	file_steammessages_accounthardware_steamclient_proto_rawDescOnce sync.Once
@@ -2343,7 +2437,7 @@ func file_steammessages_accounthardware_steamclient_proto_rawDescGZIP() []byte {
 }
 
 var file_steammessages_accounthardware_steamclient_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_steammessages_accounthardware_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 40)
+var file_steammessages_accounthardware_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 42)
 var file_steammessages_accounthardware_steamclient_proto_goTypes = []any{
 	(EValveIndexComponent)(0),                                               // 0: EValveIndexComponent
 	(*CAccountHardware_RegisterSteamController_Request)(nil),                // 1: CAccountHardware_RegisterSteamController_Request
@@ -2382,23 +2476,25 @@ var file_steammessages_accounthardware_steamclient_proto_goTypes = []any{
 	(*CAccountHardware_GetSavedHardwareList_Response)(nil),                  // 34: CAccountHardware_GetSavedHardwareList_Response
 	(*CAccountHardware_RegisterSteamMachine_Request)(nil),                   // 35: CAccountHardware_RegisterSteamMachine_Request
 	(*CAccountHardware_RegisterSteamMachine_Response)(nil),                  // 36: CAccountHardware_RegisterSteamMachine_Response
-	(*CAccountHardware_UpdateControllerUsageReport_Request_Controller)(nil), // 37: CAccountHardware_UpdateControllerUsageReport_Request.Controller
-	(*CAccountHardware_VRCompatibilityCheck_Request_Pair)(nil),              // 38: CAccountHardware_VRCompatibilityCheck_Request.Pair
-	(*CAccountHardware_VRCompatibilityCheck_Response_Pair)(nil),             // 39: CAccountHardware_VRCompatibilityCheck_Response.Pair
-	(*CAccountHardware_VRCompatibilityCheck_Response_ComponentDisplay)(nil), // 40: CAccountHardware_VRCompatibilityCheck_Response.ComponentDisplay
-	(*UserSystemInformation)(nil),                                           // 41: UserSystemInformation
+	(*CAccountHardwarePromotions_RedeemFramePromoPackage_Request)(nil),      // 37: CAccountHardwarePromotions_RedeemFramePromoPackage_Request
+	(*CAccountHardwarePromotions_RedeemFramePromoPackage_Response)(nil),     // 38: CAccountHardwarePromotions_RedeemFramePromoPackage_Response
+	(*CAccountHardware_UpdateControllerUsageReport_Request_Controller)(nil), // 39: CAccountHardware_UpdateControllerUsageReport_Request.Controller
+	(*CAccountHardware_VRCompatibilityCheck_Request_Pair)(nil),              // 40: CAccountHardware_VRCompatibilityCheck_Request.Pair
+	(*CAccountHardware_VRCompatibilityCheck_Response_Pair)(nil),             // 41: CAccountHardware_VRCompatibilityCheck_Response.Pair
+	(*CAccountHardware_VRCompatibilityCheck_Response_ComponentDisplay)(nil), // 42: CAccountHardware_VRCompatibilityCheck_Response.ComponentDisplay
+	(*UserSystemInformation)(nil),                                           // 43: UserSystemInformation
 }
 var file_steammessages_accounthardware_steamclient_proto_depIdxs = []int32{
 	6,  // 0: CAccountHardware_QueryAccountsRegisteredToSerial_Response.accounts:type_name -> CAccountHardware_QueryAccountsRegisteredToSerial_Accounts
-	37, // 1: CAccountHardware_UpdateControllerUsageReport_Request.controllers:type_name -> CAccountHardware_UpdateControllerUsageReport_Request.Controller
+	39, // 1: CAccountHardware_UpdateControllerUsageReport_Request.controllers:type_name -> CAccountHardware_UpdateControllerUsageReport_Request.Controller
 	10, // 2: CAccountHardware_SteamControllerSetConfig_Request.configurations:type_name -> CAccountHardware_SteamControllerSetConfig_ControllerConfig
 	14, // 3: CAccountHardware_SteamControllerGetConfig_Response.configurations:type_name -> CAccountHardware_SteamControllerGetConfig_ControllerConfig
-	38, // 4: CAccountHardware_VRCompatibilityCheck_Request.values:type_name -> CAccountHardware_VRCompatibilityCheck_Request.Pair
-	39, // 5: CAccountHardware_VRCompatibilityCheck_Response.values:type_name -> CAccountHardware_VRCompatibilityCheck_Response.Pair
-	40, // 6: CAccountHardware_VRCompatibilityCheck_Response.components:type_name -> CAccountHardware_VRCompatibilityCheck_Response.ComponentDisplay
+	40, // 4: CAccountHardware_VRCompatibilityCheck_Request.values:type_name -> CAccountHardware_VRCompatibilityCheck_Request.Pair
+	41, // 5: CAccountHardware_VRCompatibilityCheck_Response.values:type_name -> CAccountHardware_VRCompatibilityCheck_Response.Pair
+	42, // 6: CAccountHardware_VRCompatibilityCheck_Response.components:type_name -> CAccountHardware_VRCompatibilityCheck_Response.ComponentDisplay
 	0,  // 7: CAccountHardware_RegisterValveIndexComponent_Request.component_type:type_name -> EValveIndexComponent
-	41, // 8: CAccountHardware_SaveHardware_Request.system_info:type_name -> UserSystemInformation
-	41, // 9: CAccountHardware_SavedHardware_Details.system_info:type_name -> UserSystemInformation
+	43, // 8: CAccountHardware_SaveHardware_Request.system_info:type_name -> UserSystemInformation
+	43, // 9: CAccountHardware_SavedHardware_Details.system_info:type_name -> UserSystemInformation
 	33, // 10: CAccountHardware_GetSavedHardwareList_Response.saved_hardware:type_name -> CAccountHardware_SavedHardware_Details
 	1,  // 11: AccountHardware.RegisterSteamController:input_type -> CAccountHardware_RegisterSteamController_Request
 	3,  // 12: AccountHardware.CompleteSteamControllerRegistration:input_type -> CAccountHardware_CompleteSteamControllerRegistration_Request
@@ -2416,24 +2512,26 @@ var file_steammessages_accounthardware_steamclient_proto_depIdxs = []int32{
 	30, // 24: AccountHardware.ManageSavedHardware:input_type -> CAccountHardware_ManageSavedHardware_Request
 	32, // 25: AccountHardware.GetSavedHardwareList:input_type -> CAccountHardware_GetSavedHardwareList_Request
 	35, // 26: AccountHardware.RegisterSteamMachine:input_type -> CAccountHardware_RegisterSteamMachine_Request
-	2,  // 27: AccountHardware.RegisterSteamController:output_type -> CAccountHardware_RegisterSteamController_Response
-	4,  // 28: AccountHardware.CompleteSteamControllerRegistration:output_type -> CAccountHardware_CompleteSteamControllerRegistration_Response
-	7,  // 29: AccountHardware.QueryAccountsRegisteredToController:output_type -> CAccountHardware_QueryAccountsRegisteredToSerial_Response
-	9,  // 30: AccountHardware.UpdateControllerUsageReport:output_type -> CAccountHardware_UpdateControllerUsageReport_Response
-	12, // 31: AccountHardware.SetDesiredControllerConfigForApp:output_type -> CAccountHardware_SteamControllerSetConfig_Response
-	15, // 32: AccountHardware.GetDesiredControllerConfigForApp:output_type -> CAccountHardware_SteamControllerGetConfig_Response
-	17, // 33: AccountHardware.DeRegisterSteamController:output_type -> CAccountHardware_DeRegisterSteamController_Response
-	19, // 34: AccountHardware.SetControllerPersonalizationFile:output_type -> CAccountHardware_SetPersonalizationFile_Response
-	21, // 35: AccountHardware.GetControllerPersonalizationFile:output_type -> CAccountHardware_GetPersonalizationFile_Response
-	23, // 36: AccountHardware.VRCompatibilityCheck:output_type -> CAccountHardware_VRCompatibilityCheck_Response
-	25, // 37: AccountHardware.RegisterValveIndexComponent:output_type -> CAccountHardware_RegisterValveIndexComponent_Response
-	27, // 38: AccountHardware.GetSteamDeckComponents:output_type -> CAccountHardware_GetSteamDeckComponents_Response
-	29, // 39: AccountHardware.SaveHardware:output_type -> CAccountHardware_SaveHardware_Response
-	31, // 40: AccountHardware.ManageSavedHardware:output_type -> CAccountHardware_ManageSavedHardware_Response
-	34, // 41: AccountHardware.GetSavedHardwareList:output_type -> CAccountHardware_GetSavedHardwareList_Response
-	36, // 42: AccountHardware.RegisterSteamMachine:output_type -> CAccountHardware_RegisterSteamMachine_Response
-	27, // [27:43] is the sub-list for method output_type
-	11, // [11:27] is the sub-list for method input_type
+	37, // 27: AccountHardwarePromotions.RedeemFramePromoPackage:input_type -> CAccountHardwarePromotions_RedeemFramePromoPackage_Request
+	2,  // 28: AccountHardware.RegisterSteamController:output_type -> CAccountHardware_RegisterSteamController_Response
+	4,  // 29: AccountHardware.CompleteSteamControllerRegistration:output_type -> CAccountHardware_CompleteSteamControllerRegistration_Response
+	7,  // 30: AccountHardware.QueryAccountsRegisteredToController:output_type -> CAccountHardware_QueryAccountsRegisteredToSerial_Response
+	9,  // 31: AccountHardware.UpdateControllerUsageReport:output_type -> CAccountHardware_UpdateControllerUsageReport_Response
+	12, // 32: AccountHardware.SetDesiredControllerConfigForApp:output_type -> CAccountHardware_SteamControllerSetConfig_Response
+	15, // 33: AccountHardware.GetDesiredControllerConfigForApp:output_type -> CAccountHardware_SteamControllerGetConfig_Response
+	17, // 34: AccountHardware.DeRegisterSteamController:output_type -> CAccountHardware_DeRegisterSteamController_Response
+	19, // 35: AccountHardware.SetControllerPersonalizationFile:output_type -> CAccountHardware_SetPersonalizationFile_Response
+	21, // 36: AccountHardware.GetControllerPersonalizationFile:output_type -> CAccountHardware_GetPersonalizationFile_Response
+	23, // 37: AccountHardware.VRCompatibilityCheck:output_type -> CAccountHardware_VRCompatibilityCheck_Response
+	25, // 38: AccountHardware.RegisterValveIndexComponent:output_type -> CAccountHardware_RegisterValveIndexComponent_Response
+	27, // 39: AccountHardware.GetSteamDeckComponents:output_type -> CAccountHardware_GetSteamDeckComponents_Response
+	29, // 40: AccountHardware.SaveHardware:output_type -> CAccountHardware_SaveHardware_Response
+	31, // 41: AccountHardware.ManageSavedHardware:output_type -> CAccountHardware_ManageSavedHardware_Response
+	34, // 42: AccountHardware.GetSavedHardwareList:output_type -> CAccountHardware_GetSavedHardwareList_Response
+	36, // 43: AccountHardware.RegisterSteamMachine:output_type -> CAccountHardware_RegisterSteamMachine_Response
+	38, // 44: AccountHardwarePromotions.RedeemFramePromoPackage:output_type -> CAccountHardwarePromotions_RedeemFramePromoPackage_Response
+	28, // [28:45] is the sub-list for method output_type
+	11, // [11:28] is the sub-list for method input_type
 	11, // [11:11] is the sub-list for extension type_name
 	11, // [11:11] is the sub-list for extension extendee
 	0,  // [0:11] is the sub-list for field type_name
@@ -2452,9 +2550,9 @@ func file_steammessages_accounthardware_steamclient_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_accounthardware_steamclient_proto_rawDesc), len(file_steammessages_accounthardware_steamclient_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   40,
+			NumMessages:   42,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   2,
 		},
 		GoTypes:           file_steammessages_accounthardware_steamclient_proto_goTypes,
 		DependencyIndexes: file_steammessages_accounthardware_steamclient_proto_depIdxs,

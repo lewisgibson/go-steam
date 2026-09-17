@@ -41,6 +41,7 @@ const (
 	EMarketingMessageType_k_EMarketingMessageFreeWeekend       EMarketingMessageType = 14
 	EMarketingMessageType_k_EMarketingMessageSalePages         EMarketingMessageType = 15
 	EMarketingMessageType_k_EMarketingMessagePlaytestAvailable EMarketingMessageType = 16
+	EMarketingMessageType_k_EMarketingMessageNewGame           EMarketingMessageType = 17
 )
 
 // Enum value maps for EMarketingMessageType.
@@ -63,6 +64,7 @@ var (
 		14: "k_EMarketingMessageFreeWeekend",
 		15: "k_EMarketingMessageSalePages",
 		16: "k_EMarketingMessagePlaytestAvailable",
+		17: "k_EMarketingMessageNewGame",
 	}
 	EMarketingMessageType_value = map[string]int32{
 		"k_EMarketingMessageInvalid":           0,
@@ -82,6 +84,7 @@ var (
 		"k_EMarketingMessageFreeWeekend":       14,
 		"k_EMarketingMessageSalePages":         15,
 		"k_EMarketingMessagePlaytestAvailable": 16,
+		"k_EMarketingMessageNewGame":           17,
 	}
 )
 
@@ -1010,6 +1013,7 @@ type CDisplayMarketingMessage struct {
 	AssociatedName   *string                `protobuf:"bytes,6,opt,name=associated_name,json=associatedName" json:"associated_name,omitempty"`
 	TemplateType     *string                `protobuf:"bytes,10,opt,name=template_type,json=templateType" json:"template_type,omitempty"`
 	TemplateVarsJson *string                `protobuf:"bytes,11,opt,name=template_vars_json,json=templateVarsJson" json:"template_vars_json,omitempty"`
+	RecommendedItems []*StoreItemID         `protobuf:"bytes,12,rep,name=recommended_items,json=recommendedItems" json:"recommended_items,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -1103,6 +1107,13 @@ func (x *CDisplayMarketingMessage) GetTemplateVarsJson() string {
 		return *x.TemplateVarsJson
 	}
 	return ""
+}
+
+func (x *CDisplayMarketingMessage) GetRecommendedItems() []*StoreItemID {
+	if x != nil {
+		return x.RecommendedItems
+	}
+	return nil
 }
 
 type CMarketingMessages_GetMarketingMessagesForUser_Response struct {
@@ -2997,7 +3008,7 @@ const file_steammessages_marketingmessages_steamclient_proto_rawDesc = "" +
 	"\x10operating_system\x18\x04 \x01(\x05R\x0foperatingSystem\x124\n" +
 	"\x16client_package_version\x18\x05 \x01(\x05R\x14clientPackageVersion\x12-\n" +
 	"\acontext\x18\x06 \x01(\v2\x13.StoreBrowseContextR\acontext\x12>\n" +
-	"\fdata_request\x18\a \x01(\v2\x1b.StoreBrowseItemDataRequestR\vdataRequest\"\xf7\x02\n" +
+	"\fdata_request\x18\a \x01(\v2\x1b.StoreBrowseItemDataRequestR\vdataRequest\"\xb2\x03\n" +
 	"\x18CDisplayMarketingMessage\x12\x10\n" +
 	"\x03gid\x18\x01 \x01(\x06R\x03gid\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12F\n" +
@@ -3008,7 +3019,8 @@ const file_steammessages_marketingmessages_steamclient_proto_rawDesc = "" +
 	"\x0fassociated_name\x18\x06 \x01(\tR\x0eassociatedName\x12#\n" +
 	"\rtemplate_type\x18\n" +
 	" \x01(\tR\ftemplateType\x12,\n" +
-	"\x12template_vars_json\x18\v \x01(\tR\x10templateVarsJson\"\x9a\x02\n" +
+	"\x12template_vars_json\x18\v \x01(\tR\x10templateVarsJson\x129\n" +
+	"\x11recommended_items\x18\f \x03(\v2\f.StoreItemIDR\x10recommendedItems\"\x9a\x02\n" +
 	"7CMarketingMessages_GetMarketingMessagesForUser_Response\x12l\n" +
 	"\bmessages\x18\x01 \x03(\v2P.CMarketingMessages_GetMarketingMessagesForUser_Response.MarketingMessageForUserR\bmessages\x1aq\n" +
 	"\x17MarketingMessageForUser\x12!\n" +
@@ -3112,7 +3124,7 @@ const file_steammessages_marketingmessages_steamclient_proto_rawDesc = "" +
 	"5CMarketingMessage_GetMarketingMessagesForApps_Request\x12\x16\n" +
 	"\x06appids\x18\x01 \x03(\rR\x06appids\"m\n" +
 	"6CMarketingMessage_GetMarketingMessagesForApps_Response\x123\n" +
-	"\bmessages\x18\x01 \x03(\v2\x17.CMarketingMessageProtoR\bmessages*\xde\x04\n" +
+	"\bmessages\x18\x01 \x03(\v2\x17.CMarketingMessageProtoR\bmessages*\xfe\x04\n" +
 	"\x15EMarketingMessageType\x12\x1e\n" +
 	"\x1ak_EMarketingMessageInvalid\x10\x00\x12#\n" +
 	"\x1fk_EMarketingMessageNowAvailable\x10\x01\x12\"\n" +
@@ -3131,7 +3143,8 @@ const file_steammessages_marketingmessages_steamclient_proto_rawDesc = "" +
 	"\x19k_EMarketingMessageNewDLC\x10\r\x12\"\n" +
 	"\x1ek_EMarketingMessageFreeWeekend\x10\x0e\x12 \n" +
 	"\x1ck_EMarketingMessageSalePages\x10\x0f\x12(\n" +
-	"$k_EMarketingMessagePlaytestAvailable\x10\x10*\x99\x01\n" +
+	"$k_EMarketingMessagePlaytestAvailable\x10\x10\x12\x1e\n" +
+	"\x1ak_EMarketingMessageNewGame\x10\x11*\x99\x01\n" +
 	"\x1bEMarketingMessageVisibility\x12\"\n" +
 	"\x1ek_EMarketingMessageVisibleBeta\x10\x01\x12$\n" +
 	" k_EMarketingMessageVisiblePublic\x10\x02\x120\n" +
@@ -3273,80 +3286,81 @@ var file_steammessages_marketingmessages_steamclient_proto_depIdxs = []int32{
 	0,  // 7: CDisplayMarketingMessage.type:type_name -> EMarketingMessageType
 	51, // 8: CDisplayMarketingMessage.associated_item_id:type_name -> StoreItemID
 	52, // 9: CDisplayMarketingMessage.associated_item:type_name -> StoreItem
-	48, // 10: CMarketingMessages_GetMarketingMessagesForUser_Response.messages:type_name -> CMarketingMessages_GetMarketingMessagesForUser_Response.MarketingMessageForUser
-	49, // 11: CMarketingMessages_GetDisplayMarketingMessage_Request.context:type_name -> StoreBrowseContext
-	50, // 12: CMarketingMessages_GetDisplayMarketingMessage_Request.data_request:type_name -> StoreBrowseItemDataRequest
-	12, // 13: CMarketingMessages_GetDisplayMarketingMessage_Response.message:type_name -> CDisplayMarketingMessage
-	3,  // 14: CMarketingMessages_MarkMessageSeen_Notification.template_type:type_name -> EMarketingMessageTemplateType
-	3,  // 15: CMarketingMessages_MarkMessageClicked_Notification.template_type:type_name -> EMarketingMessageTemplateType
-	4,  // 16: CMarketingMessages_MarkMessageClicked_Notification.click_location:type_name -> EMarketingMessageClickLocation
-	7,  // 17: CMarketingMessages_GetMarketingMessage_Response.message:type_name -> CMarketingMessageProto
-	7,  // 18: CMarketingMessages_CreateMarketingMessage_Request.message:type_name -> CMarketingMessageProto
-	7,  // 19: CMarketingMessages_UpdateMarketingMessage_Request.message:type_name -> CMarketingMessageProto
-	5,  // 20: CMarketingMessages_FindMarketingMessages_Request.lookup_type:type_name -> EMarketingMessageLookupType
-	0,  // 21: CMarketingMessages_FindMarketingMessages_Request.message_type:type_name -> EMarketingMessageType
-	7,  // 22: CMarketingMessages_FindMarketingMessages_Response.messages:type_name -> CMarketingMessageProto
-	3,  // 23: CMarketingMessageHourlyStats.template_type:type_name -> EMarketingMessageTemplateType
-	31, // 24: CMarketingMessages_GetMarketingMessageViewerStats_Response.stats:type_name -> CMarketingMessageHourlyStats
-	3,  // 25: CMarketingMessageClickedHourlyStats.template_type:type_name -> EMarketingMessageTemplateType
-	4,  // 26: CMarketingMessageClickedHourlyStats.click_location:type_name -> EMarketingMessageClickLocation
-	31, // 27: CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response.stats:type_name -> CMarketingMessageHourlyStats
-	34, // 28: CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response.clicked_stats:type_name -> CMarketingMessageClickedHourlyStats
-	34, // 29: CMarketingMessages_GetMarketingMessageClickedStats_Response.stats:type_name -> CMarketingMessageClickedHourlyStats
-	12, // 30: CMarketingMessages_GetPartnerReadyToPublishMessages_Response.messages:type_name -> CDisplayMarketingMessage
-	7,  // 31: CMarketingMessages_GetPartnerMessagePreview_Response.message:type_name -> CMarketingMessageProto
-	7,  // 32: CMarketingMessage_GetMarketingMessagesForPartner_Response.messages:type_name -> CMarketingMessageProto
-	7,  // 33: CMarketingMessage_GetMarketingMessagesForApps_Response.messages:type_name -> CMarketingMessageProto
-	12, // 34: CMarketingMessages_GetMarketingMessagesForUser_Response.MarketingMessageForUser.message:type_name -> CDisplayMarketingMessage
-	6,  // 35: MarketingMessages.GetActiveMarketingMessages:input_type -> CMarketingMessages_GetActiveMarketingMessages_Request
-	9,  // 36: MarketingMessages.GetPastMarketingMessages:input_type -> CMarketingMessages_GetPastMarketingMessages_Request
-	11, // 37: MarketingMessages.GetMarketingMessagesForUser:input_type -> CMarketingMessages_GetMarketingMessagesForUser_Request
-	14, // 38: MarketingMessages.DoesUserHavePendingMarketingMessages:input_type -> CMarketingMessages_DoesUserHavePendingMarketingMessages_Request
-	16, // 39: MarketingMessages.GetDisplayMarketingMessage:input_type -> CMarketingMessages_GetDisplayMarketingMessage_Request
-	16, // 40: MarketingMessages.GetDisplayMarketingMessageForUser:input_type -> CMarketingMessages_GetDisplayMarketingMessage_Request
-	16, // 41: MarketingMessages.GetDisplayMarketingMessageAdmin:input_type -> CMarketingMessages_GetDisplayMarketingMessage_Request
-	18, // 42: MarketingMessages.MarkMessageSeen:input_type -> CMarketingMessages_MarkMessageSeen_Notification
-	19, // 43: MarketingMessages.MarkMessageClicked:input_type -> CMarketingMessages_MarkMessageClicked_Notification
-	20, // 44: MarketingMessages.GetMarketingMessage:input_type -> CMarketingMessages_GetMarketingMessage_Request
-	22, // 45: MarketingMessages.CreateMarketingMessage:input_type -> CMarketingMessages_CreateMarketingMessage_Request
-	24, // 46: MarketingMessages.UpdateMarketingMessage:input_type -> CMarketingMessages_UpdateMarketingMessage_Request
-	26, // 47: MarketingMessages.DeleteMarketingMessage:input_type -> CMarketingMessages_DeleteMarketingMessage_Request
-	28, // 48: MarketingMessages.FindMarketingMessages:input_type -> CMarketingMessages_FindMarketingMessages_Request
-	30, // 49: MarketingMessages.GetMarketingMessageViewerStats:input_type -> CMarketingMessages_GetMarketingMessageViewerStats_Request
-	33, // 50: MarketingMessages.GetMarketingMessagesViewerRangeStats:input_type -> CMarketingMessages_GetMarketingMessagesViewerRangeStats_Request
-	36, // 51: MarketingMessages.GetMarketingMessageClickedStats:input_type -> CMarketingMessages_GetMarketingMessageClickedStats_Request
-	38, // 52: MarketingMessages.GetPartnerReadyToPublishMessages:input_type -> CMarketingMessages_GetPartnerReadyToPublishMessages_Request
-	40, // 53: MarketingMessages.PublishPartnerMessage:input_type -> CMarketingMessages_PartnerPublishMessage_Request
-	42, // 54: MarketingMessages.GetPartnerMessagePreview:input_type -> CMarketingMessages_GetPartnerMessagePreview_Request
-	44, // 55: MarketingMessages.GetMarketingMessagesForPartner:input_type -> CMarketingMessage_GetMarketingMessagesForPartner_Request
-	46, // 56: MarketingMessages.GetMarketingMessagesForApps:input_type -> CMarketingMessage_GetMarketingMessagesForApps_Request
-	8,  // 57: MarketingMessages.GetActiveMarketingMessages:output_type -> CMarketingMessages_GetActiveMarketingMessages_Response
-	10, // 58: MarketingMessages.GetPastMarketingMessages:output_type -> CMarketingMessages_GetPastMarketingMessages_Response
-	13, // 59: MarketingMessages.GetMarketingMessagesForUser:output_type -> CMarketingMessages_GetMarketingMessagesForUser_Response
-	15, // 60: MarketingMessages.DoesUserHavePendingMarketingMessages:output_type -> CMarketingMessages_DoesUserHavePendingMarketingMessages_Response
-	17, // 61: MarketingMessages.GetDisplayMarketingMessage:output_type -> CMarketingMessages_GetDisplayMarketingMessage_Response
-	17, // 62: MarketingMessages.GetDisplayMarketingMessageForUser:output_type -> CMarketingMessages_GetDisplayMarketingMessage_Response
-	17, // 63: MarketingMessages.GetDisplayMarketingMessageAdmin:output_type -> CMarketingMessages_GetDisplayMarketingMessage_Response
-	53, // 64: MarketingMessages.MarkMessageSeen:output_type -> NoResponse
-	53, // 65: MarketingMessages.MarkMessageClicked:output_type -> NoResponse
-	21, // 66: MarketingMessages.GetMarketingMessage:output_type -> CMarketingMessages_GetMarketingMessage_Response
-	23, // 67: MarketingMessages.CreateMarketingMessage:output_type -> CMarketingMessages_CreateMarketingMessage_Response
-	25, // 68: MarketingMessages.UpdateMarketingMessage:output_type -> CMarketingMessages_UpdateMarketingMessage_Response
-	27, // 69: MarketingMessages.DeleteMarketingMessage:output_type -> CMarketingMessages_DeleteMarketingMessage_Response
-	29, // 70: MarketingMessages.FindMarketingMessages:output_type -> CMarketingMessages_FindMarketingMessages_Response
-	32, // 71: MarketingMessages.GetMarketingMessageViewerStats:output_type -> CMarketingMessages_GetMarketingMessageViewerStats_Response
-	35, // 72: MarketingMessages.GetMarketingMessagesViewerRangeStats:output_type -> CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response
-	37, // 73: MarketingMessages.GetMarketingMessageClickedStats:output_type -> CMarketingMessages_GetMarketingMessageClickedStats_Response
-	39, // 74: MarketingMessages.GetPartnerReadyToPublishMessages:output_type -> CMarketingMessages_GetPartnerReadyToPublishMessages_Response
-	41, // 75: MarketingMessages.PublishPartnerMessage:output_type -> CMarketingMessages_PartnerPublishMessage_Response
-	43, // 76: MarketingMessages.GetPartnerMessagePreview:output_type -> CMarketingMessages_GetPartnerMessagePreview_Response
-	45, // 77: MarketingMessages.GetMarketingMessagesForPartner:output_type -> CMarketingMessage_GetMarketingMessagesForPartner_Response
-	47, // 78: MarketingMessages.GetMarketingMessagesForApps:output_type -> CMarketingMessage_GetMarketingMessagesForApps_Response
-	57, // [57:79] is the sub-list for method output_type
-	35, // [35:57] is the sub-list for method input_type
-	35, // [35:35] is the sub-list for extension type_name
-	35, // [35:35] is the sub-list for extension extendee
-	0,  // [0:35] is the sub-list for field type_name
+	51, // 10: CDisplayMarketingMessage.recommended_items:type_name -> StoreItemID
+	48, // 11: CMarketingMessages_GetMarketingMessagesForUser_Response.messages:type_name -> CMarketingMessages_GetMarketingMessagesForUser_Response.MarketingMessageForUser
+	49, // 12: CMarketingMessages_GetDisplayMarketingMessage_Request.context:type_name -> StoreBrowseContext
+	50, // 13: CMarketingMessages_GetDisplayMarketingMessage_Request.data_request:type_name -> StoreBrowseItemDataRequest
+	12, // 14: CMarketingMessages_GetDisplayMarketingMessage_Response.message:type_name -> CDisplayMarketingMessage
+	3,  // 15: CMarketingMessages_MarkMessageSeen_Notification.template_type:type_name -> EMarketingMessageTemplateType
+	3,  // 16: CMarketingMessages_MarkMessageClicked_Notification.template_type:type_name -> EMarketingMessageTemplateType
+	4,  // 17: CMarketingMessages_MarkMessageClicked_Notification.click_location:type_name -> EMarketingMessageClickLocation
+	7,  // 18: CMarketingMessages_GetMarketingMessage_Response.message:type_name -> CMarketingMessageProto
+	7,  // 19: CMarketingMessages_CreateMarketingMessage_Request.message:type_name -> CMarketingMessageProto
+	7,  // 20: CMarketingMessages_UpdateMarketingMessage_Request.message:type_name -> CMarketingMessageProto
+	5,  // 21: CMarketingMessages_FindMarketingMessages_Request.lookup_type:type_name -> EMarketingMessageLookupType
+	0,  // 22: CMarketingMessages_FindMarketingMessages_Request.message_type:type_name -> EMarketingMessageType
+	7,  // 23: CMarketingMessages_FindMarketingMessages_Response.messages:type_name -> CMarketingMessageProto
+	3,  // 24: CMarketingMessageHourlyStats.template_type:type_name -> EMarketingMessageTemplateType
+	31, // 25: CMarketingMessages_GetMarketingMessageViewerStats_Response.stats:type_name -> CMarketingMessageHourlyStats
+	3,  // 26: CMarketingMessageClickedHourlyStats.template_type:type_name -> EMarketingMessageTemplateType
+	4,  // 27: CMarketingMessageClickedHourlyStats.click_location:type_name -> EMarketingMessageClickLocation
+	31, // 28: CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response.stats:type_name -> CMarketingMessageHourlyStats
+	34, // 29: CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response.clicked_stats:type_name -> CMarketingMessageClickedHourlyStats
+	34, // 30: CMarketingMessages_GetMarketingMessageClickedStats_Response.stats:type_name -> CMarketingMessageClickedHourlyStats
+	12, // 31: CMarketingMessages_GetPartnerReadyToPublishMessages_Response.messages:type_name -> CDisplayMarketingMessage
+	7,  // 32: CMarketingMessages_GetPartnerMessagePreview_Response.message:type_name -> CMarketingMessageProto
+	7,  // 33: CMarketingMessage_GetMarketingMessagesForPartner_Response.messages:type_name -> CMarketingMessageProto
+	7,  // 34: CMarketingMessage_GetMarketingMessagesForApps_Response.messages:type_name -> CMarketingMessageProto
+	12, // 35: CMarketingMessages_GetMarketingMessagesForUser_Response.MarketingMessageForUser.message:type_name -> CDisplayMarketingMessage
+	6,  // 36: MarketingMessages.GetActiveMarketingMessages:input_type -> CMarketingMessages_GetActiveMarketingMessages_Request
+	9,  // 37: MarketingMessages.GetPastMarketingMessages:input_type -> CMarketingMessages_GetPastMarketingMessages_Request
+	11, // 38: MarketingMessages.GetMarketingMessagesForUser:input_type -> CMarketingMessages_GetMarketingMessagesForUser_Request
+	14, // 39: MarketingMessages.DoesUserHavePendingMarketingMessages:input_type -> CMarketingMessages_DoesUserHavePendingMarketingMessages_Request
+	16, // 40: MarketingMessages.GetDisplayMarketingMessage:input_type -> CMarketingMessages_GetDisplayMarketingMessage_Request
+	16, // 41: MarketingMessages.GetDisplayMarketingMessageForUser:input_type -> CMarketingMessages_GetDisplayMarketingMessage_Request
+	16, // 42: MarketingMessages.GetDisplayMarketingMessageAdmin:input_type -> CMarketingMessages_GetDisplayMarketingMessage_Request
+	18, // 43: MarketingMessages.MarkMessageSeen:input_type -> CMarketingMessages_MarkMessageSeen_Notification
+	19, // 44: MarketingMessages.MarkMessageClicked:input_type -> CMarketingMessages_MarkMessageClicked_Notification
+	20, // 45: MarketingMessages.GetMarketingMessage:input_type -> CMarketingMessages_GetMarketingMessage_Request
+	22, // 46: MarketingMessages.CreateMarketingMessage:input_type -> CMarketingMessages_CreateMarketingMessage_Request
+	24, // 47: MarketingMessages.UpdateMarketingMessage:input_type -> CMarketingMessages_UpdateMarketingMessage_Request
+	26, // 48: MarketingMessages.DeleteMarketingMessage:input_type -> CMarketingMessages_DeleteMarketingMessage_Request
+	28, // 49: MarketingMessages.FindMarketingMessages:input_type -> CMarketingMessages_FindMarketingMessages_Request
+	30, // 50: MarketingMessages.GetMarketingMessageViewerStats:input_type -> CMarketingMessages_GetMarketingMessageViewerStats_Request
+	33, // 51: MarketingMessages.GetMarketingMessagesViewerRangeStats:input_type -> CMarketingMessages_GetMarketingMessagesViewerRangeStats_Request
+	36, // 52: MarketingMessages.GetMarketingMessageClickedStats:input_type -> CMarketingMessages_GetMarketingMessageClickedStats_Request
+	38, // 53: MarketingMessages.GetPartnerReadyToPublishMessages:input_type -> CMarketingMessages_GetPartnerReadyToPublishMessages_Request
+	40, // 54: MarketingMessages.PublishPartnerMessage:input_type -> CMarketingMessages_PartnerPublishMessage_Request
+	42, // 55: MarketingMessages.GetPartnerMessagePreview:input_type -> CMarketingMessages_GetPartnerMessagePreview_Request
+	44, // 56: MarketingMessages.GetMarketingMessagesForPartner:input_type -> CMarketingMessage_GetMarketingMessagesForPartner_Request
+	46, // 57: MarketingMessages.GetMarketingMessagesForApps:input_type -> CMarketingMessage_GetMarketingMessagesForApps_Request
+	8,  // 58: MarketingMessages.GetActiveMarketingMessages:output_type -> CMarketingMessages_GetActiveMarketingMessages_Response
+	10, // 59: MarketingMessages.GetPastMarketingMessages:output_type -> CMarketingMessages_GetPastMarketingMessages_Response
+	13, // 60: MarketingMessages.GetMarketingMessagesForUser:output_type -> CMarketingMessages_GetMarketingMessagesForUser_Response
+	15, // 61: MarketingMessages.DoesUserHavePendingMarketingMessages:output_type -> CMarketingMessages_DoesUserHavePendingMarketingMessages_Response
+	17, // 62: MarketingMessages.GetDisplayMarketingMessage:output_type -> CMarketingMessages_GetDisplayMarketingMessage_Response
+	17, // 63: MarketingMessages.GetDisplayMarketingMessageForUser:output_type -> CMarketingMessages_GetDisplayMarketingMessage_Response
+	17, // 64: MarketingMessages.GetDisplayMarketingMessageAdmin:output_type -> CMarketingMessages_GetDisplayMarketingMessage_Response
+	53, // 65: MarketingMessages.MarkMessageSeen:output_type -> NoResponse
+	53, // 66: MarketingMessages.MarkMessageClicked:output_type -> NoResponse
+	21, // 67: MarketingMessages.GetMarketingMessage:output_type -> CMarketingMessages_GetMarketingMessage_Response
+	23, // 68: MarketingMessages.CreateMarketingMessage:output_type -> CMarketingMessages_CreateMarketingMessage_Response
+	25, // 69: MarketingMessages.UpdateMarketingMessage:output_type -> CMarketingMessages_UpdateMarketingMessage_Response
+	27, // 70: MarketingMessages.DeleteMarketingMessage:output_type -> CMarketingMessages_DeleteMarketingMessage_Response
+	29, // 71: MarketingMessages.FindMarketingMessages:output_type -> CMarketingMessages_FindMarketingMessages_Response
+	32, // 72: MarketingMessages.GetMarketingMessageViewerStats:output_type -> CMarketingMessages_GetMarketingMessageViewerStats_Response
+	35, // 73: MarketingMessages.GetMarketingMessagesViewerRangeStats:output_type -> CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response
+	37, // 74: MarketingMessages.GetMarketingMessageClickedStats:output_type -> CMarketingMessages_GetMarketingMessageClickedStats_Response
+	39, // 75: MarketingMessages.GetPartnerReadyToPublishMessages:output_type -> CMarketingMessages_GetPartnerReadyToPublishMessages_Response
+	41, // 76: MarketingMessages.PublishPartnerMessage:output_type -> CMarketingMessages_PartnerPublishMessage_Response
+	43, // 77: MarketingMessages.GetPartnerMessagePreview:output_type -> CMarketingMessages_GetPartnerMessagePreview_Response
+	45, // 78: MarketingMessages.GetMarketingMessagesForPartner:output_type -> CMarketingMessage_GetMarketingMessagesForPartner_Response
+	47, // 79: MarketingMessages.GetMarketingMessagesForApps:output_type -> CMarketingMessage_GetMarketingMessagesForApps_Response
+	58, // [58:80] is the sub-list for method output_type
+	36, // [36:58] is the sub-list for method input_type
+	36, // [36:36] is the sub-list for extension type_name
+	36, // [36:36] is the sub-list for extension extendee
+	0,  // [0:36] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_marketingmessages_steamclient_proto_init() }

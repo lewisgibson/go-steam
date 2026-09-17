@@ -125,13 +125,14 @@ func (ERemoteClientBroadcastMsg) EnumDescriptor() ([]byte, []int) {
 type ERemoteClientService int32
 
 const (
-	ERemoteClientService_k_ERemoteClientServiceNone            ERemoteClientService = 0
-	ERemoteClientService_k_ERemoteClientServiceRemoteControl   ERemoteClientService = 1
-	ERemoteClientService_k_ERemoteClientServiceGameStreaming   ERemoteClientService = 2
-	ERemoteClientService_k_ERemoteClientServiceSiteLicense     ERemoteClientService = 4
-	ERemoteClientService_k_ERemoteClientServiceContentCache    ERemoteClientService = 8
-	ERemoteClientService_k_ERemoteClientServiceContentServer   ERemoteClientService = 16
-	ERemoteClientService_k_ERemoteClientServiceManageDownloads ERemoteClientService = 32
+	ERemoteClientService_k_ERemoteClientServiceNone                    ERemoteClientService = 0
+	ERemoteClientService_k_ERemoteClientServiceRemoteControl           ERemoteClientService = 1
+	ERemoteClientService_k_ERemoteClientServiceGameStreaming           ERemoteClientService = 2
+	ERemoteClientService_k_ERemoteClientServiceSiteLicense             ERemoteClientService = 4
+	ERemoteClientService_k_ERemoteClientServiceContentCache            ERemoteClientService = 8
+	ERemoteClientService_k_ERemoteClientServiceContentServer           ERemoteClientService = 16
+	ERemoteClientService_k_ERemoteClientServiceManageDownloads         ERemoteClientService = 32
+	ERemoteClientService_k_ERemoteClientServiceRemoteInstallWithoutPin ERemoteClientService = 64
 )
 
 // Enum value maps for ERemoteClientService.
@@ -144,15 +145,17 @@ var (
 		8:  "k_ERemoteClientServiceContentCache",
 		16: "k_ERemoteClientServiceContentServer",
 		32: "k_ERemoteClientServiceManageDownloads",
+		64: "k_ERemoteClientServiceRemoteInstallWithoutPin",
 	}
 	ERemoteClientService_value = map[string]int32{
-		"k_ERemoteClientServiceNone":            0,
-		"k_ERemoteClientServiceRemoteControl":   1,
-		"k_ERemoteClientServiceGameStreaming":   2,
-		"k_ERemoteClientServiceSiteLicense":     4,
-		"k_ERemoteClientServiceContentCache":    8,
-		"k_ERemoteClientServiceContentServer":   16,
-		"k_ERemoteClientServiceManageDownloads": 32,
+		"k_ERemoteClientServiceNone":                    0,
+		"k_ERemoteClientServiceRemoteControl":           1,
+		"k_ERemoteClientServiceGameStreaming":           2,
+		"k_ERemoteClientServiceSiteLicense":             4,
+		"k_ERemoteClientServiceContentCache":            8,
+		"k_ERemoteClientServiceContentServer":           16,
+		"k_ERemoteClientServiceManageDownloads":         32,
+		"k_ERemoteClientServiceRemoteInstallWithoutPin": 64,
 	}
 )
 
@@ -2472,7 +2475,7 @@ const file_steammessages_remoteclient_discovery_proto_rawDesc = "" +
 	" k_ERemoteDeviceStreamingProgress\x10\r\x12)\n" +
 	"%k_ERemoteDeviceAuthorizationConfirmed\x10\x0e\x12+\n" +
 	"'k_ERemoteClientBroadcastMsgPairingState\x10\x0f\x121\n" +
-	"-k_ERemoteClientBroadcastMsgPairingExclusivity\x10\x10*\xab\x02\n" +
+	"-k_ERemoteClientBroadcastMsgPairingExclusivity\x10\x10*\xde\x02\n" +
 	"\x14ERemoteClientService\x12\x1e\n" +
 	"\x1ak_ERemoteClientServiceNone\x10\x00\x12'\n" +
 	"#k_ERemoteClientServiceRemoteControl\x10\x01\x12'\n" +
@@ -2480,7 +2483,8 @@ const file_steammessages_remoteclient_discovery_proto_rawDesc = "" +
 	"!k_ERemoteClientServiceSiteLicense\x10\x04\x12&\n" +
 	"\"k_ERemoteClientServiceContentCache\x10\b\x12'\n" +
 	"#k_ERemoteClientServiceContentServer\x10\x10\x12)\n" +
-	"%k_ERemoteClientServiceManageDownloads\x10 *\x8d\x01\n" +
+	"%k_ERemoteClientServiceManageDownloads\x10 \x121\n" +
+	"-k_ERemoteClientServiceRemoteInstallWithoutPin\x10@*\x8d\x01\n" +
 	"\vEVRLinkCaps\x12\x18\n" +
 	"\x14k_EVRLinkCapsUnknown\x10\x00\x12\x1a\n" +
 	"\x16k_EVRLinkCapsAvailable\x10\x01\x12\x1e\n" +

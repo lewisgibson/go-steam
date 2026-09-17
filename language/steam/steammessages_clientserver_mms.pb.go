@@ -83,6 +83,58 @@ func (EMMSLobbyStatus) EnumDescriptor() ([]byte, []int) {
 	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{0}
 }
 
+type MMSKeyValuePair struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Name          *string                `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
+	Value         *string                `protobuf:"bytes,2,opt,name=value" json:"value,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MMSKeyValuePair) Reset() {
+	*x = MMSKeyValuePair{}
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MMSKeyValuePair) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MMSKeyValuePair) ProtoMessage() {}
+
+func (x *MMSKeyValuePair) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MMSKeyValuePair.ProtoReflect.Descriptor instead.
+func (*MMSKeyValuePair) Descriptor() ([]byte, []int) {
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *MMSKeyValuePair) GetName() string {
+	if x != nil && x.Name != nil {
+		return *x.Name
+	}
+	return ""
+}
+
+func (x *MMSKeyValuePair) GetValue() string {
+	if x != nil && x.Value != nil {
+		return *x.Value
+	}
+	return ""
+}
+
 type CMsgClientMMSSetRatelimitPolicyOnClient struct {
 	state                     protoimpl.MessageState `protogen:"open.v1"`
 	AppId                     *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
@@ -95,7 +147,7 @@ type CMsgClientMMSSetRatelimitPolicyOnClient struct {
 
 func (x *CMsgClientMMSSetRatelimitPolicyOnClient) Reset() {
 	*x = CMsgClientMMSSetRatelimitPolicyOnClient{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[0]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -107,7 +159,7 @@ func (x *CMsgClientMMSSetRatelimitPolicyOnClient) String() string {
 func (*CMsgClientMMSSetRatelimitPolicyOnClient) ProtoMessage() {}
 
 func (x *CMsgClientMMSSetRatelimitPolicyOnClient) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[0]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -120,7 +172,7 @@ func (x *CMsgClientMMSSetRatelimitPolicyOnClient) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CMsgClientMMSSetRatelimitPolicyOnClient.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSSetRatelimitPolicyOnClient) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{0}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CMsgClientMMSSetRatelimitPolicyOnClient) GetAppId() uint32 {
@@ -159,17 +211,18 @@ type CMsgClientMMSCreateLobby struct {
 	LobbyFlags          *int32                 `protobuf:"varint,4,opt,name=lobby_flags,json=lobbyFlags" json:"lobby_flags,omitempty"`
 	CellId              *uint32                `protobuf:"varint,5,opt,name=cell_id,json=cellId" json:"cell_id,omitempty"`
 	DeprecatedPublicIp  *uint32                `protobuf:"varint,6,opt,name=deprecated_public_ip,json=deprecatedPublicIp" json:"deprecated_public_ip,omitempty"`
-	Metadata            []byte                 `protobuf:"bytes,7,opt,name=metadata" json:"metadata,omitempty"`
+	MetadataKv          []byte                 `protobuf:"bytes,7,opt,name=metadata_kv,json=metadataKv" json:"metadata_kv,omitempty"`
 	PersonaNameOwner    *string                `protobuf:"bytes,8,opt,name=persona_name_owner,json=personaNameOwner" json:"persona_name_owner,omitempty"`
 	PublicIp            *CMsgIPAddress         `protobuf:"bytes,9,opt,name=public_ip,json=publicIp" json:"public_ip,omitempty"`
 	NetworkPingLocation *string                `protobuf:"bytes,10,opt,name=network_ping_location,json=networkPingLocation" json:"network_ping_location,omitempty"`
+	Metadata            []*MMSKeyValuePair     `protobuf:"bytes,11,rep,name=metadata" json:"metadata,omitempty"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
 
 func (x *CMsgClientMMSCreateLobby) Reset() {
 	*x = CMsgClientMMSCreateLobby{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[1]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -181,7 +234,7 @@ func (x *CMsgClientMMSCreateLobby) String() string {
 func (*CMsgClientMMSCreateLobby) ProtoMessage() {}
 
 func (x *CMsgClientMMSCreateLobby) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[1]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -194,7 +247,7 @@ func (x *CMsgClientMMSCreateLobby) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSCreateLobby.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSCreateLobby) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{1}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CMsgClientMMSCreateLobby) GetAppId() uint32 {
@@ -239,9 +292,9 @@ func (x *CMsgClientMMSCreateLobby) GetDeprecatedPublicIp() uint32 {
 	return 0
 }
 
-func (x *CMsgClientMMSCreateLobby) GetMetadata() []byte {
+func (x *CMsgClientMMSCreateLobby) GetMetadataKv() []byte {
 	if x != nil {
-		return x.Metadata
+		return x.MetadataKv
 	}
 	return nil
 }
@@ -267,6 +320,13 @@ func (x *CMsgClientMMSCreateLobby) GetNetworkPingLocation() string {
 	return ""
 }
 
+func (x *CMsgClientMMSCreateLobby) GetMetadata() []*MMSKeyValuePair {
+	if x != nil {
+		return x.Metadata
+	}
+	return nil
+}
+
 type CMsgClientMMSCreateLobbyResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
@@ -283,7 +343,7 @@ const (
 
 func (x *CMsgClientMMSCreateLobbyResponse) Reset() {
 	*x = CMsgClientMMSCreateLobbyResponse{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[2]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -295,7 +355,7 @@ func (x *CMsgClientMMSCreateLobbyResponse) String() string {
 func (*CMsgClientMMSCreateLobbyResponse) ProtoMessage() {}
 
 func (x *CMsgClientMMSCreateLobbyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[2]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -308,7 +368,7 @@ func (x *CMsgClientMMSCreateLobbyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSCreateLobbyResponse.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSCreateLobbyResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{2}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CMsgClientMMSCreateLobbyResponse) GetAppId() uint32 {
@@ -345,7 +405,7 @@ type CMsgClientMMSJoinLobby struct {
 
 func (x *CMsgClientMMSJoinLobby) Reset() {
 	*x = CMsgClientMMSJoinLobby{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[3]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -357,7 +417,7 @@ func (x *CMsgClientMMSJoinLobby) String() string {
 func (*CMsgClientMMSJoinLobby) ProtoMessage() {}
 
 func (x *CMsgClientMMSJoinLobby) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[3]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -370,7 +430,7 @@ func (x *CMsgClientMMSJoinLobby) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSJoinLobby.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSJoinLobby) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{3}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *CMsgClientMMSJoinLobby) GetAppId() uint32 {
@@ -417,15 +477,16 @@ type CMsgClientMMSJoinLobbyResponse struct {
 	LobbyType             *int32                                   `protobuf:"varint,5,opt,name=lobby_type,json=lobbyType" json:"lobby_type,omitempty"`
 	LobbyFlags            *int32                                   `protobuf:"varint,6,opt,name=lobby_flags,json=lobbyFlags" json:"lobby_flags,omitempty"`
 	SteamIdOwner          *uint64                                  `protobuf:"fixed64,7,opt,name=steam_id_owner,json=steamIdOwner" json:"steam_id_owner,omitempty"`
-	Metadata              []byte                                   `protobuf:"bytes,8,opt,name=metadata" json:"metadata,omitempty"`
+	MetadataKv            []byte                                   `protobuf:"bytes,8,opt,name=metadata_kv,json=metadataKv" json:"metadata_kv,omitempty"`
 	Members               []*CMsgClientMMSJoinLobbyResponse_Member `protobuf:"bytes,9,rep,name=members" json:"members,omitempty"`
+	Metadata              []*MMSKeyValuePair                       `protobuf:"bytes,10,rep,name=metadata" json:"metadata,omitempty"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
 
 func (x *CMsgClientMMSJoinLobbyResponse) Reset() {
 	*x = CMsgClientMMSJoinLobbyResponse{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[4]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -437,7 +498,7 @@ func (x *CMsgClientMMSJoinLobbyResponse) String() string {
 func (*CMsgClientMMSJoinLobbyResponse) ProtoMessage() {}
 
 func (x *CMsgClientMMSJoinLobbyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[4]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -450,7 +511,7 @@ func (x *CMsgClientMMSJoinLobbyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSJoinLobbyResponse.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSJoinLobbyResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{4}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *CMsgClientMMSJoinLobbyResponse) GetAppId() uint32 {
@@ -502,9 +563,9 @@ func (x *CMsgClientMMSJoinLobbyResponse) GetSteamIdOwner() uint64 {
 	return 0
 }
 
-func (x *CMsgClientMMSJoinLobbyResponse) GetMetadata() []byte {
+func (x *CMsgClientMMSJoinLobbyResponse) GetMetadataKv() []byte {
 	if x != nil {
-		return x.Metadata
+		return x.MetadataKv
 	}
 	return nil
 }
@@ -512,6 +573,13 @@ func (x *CMsgClientMMSJoinLobbyResponse) GetMetadata() []byte {
 func (x *CMsgClientMMSJoinLobbyResponse) GetMembers() []*CMsgClientMMSJoinLobbyResponse_Member {
 	if x != nil {
 		return x.Members
+	}
+	return nil
+}
+
+func (x *CMsgClientMMSJoinLobbyResponse) GetMetadata() []*MMSKeyValuePair {
+	if x != nil {
+		return x.Metadata
 	}
 	return nil
 }
@@ -526,7 +594,7 @@ type CMsgClientMMSLeaveLobby struct {
 
 func (x *CMsgClientMMSLeaveLobby) Reset() {
 	*x = CMsgClientMMSLeaveLobby{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[5]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -538,7 +606,7 @@ func (x *CMsgClientMMSLeaveLobby) String() string {
 func (*CMsgClientMMSLeaveLobby) ProtoMessage() {}
 
 func (x *CMsgClientMMSLeaveLobby) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[5]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -551,7 +619,7 @@ func (x *CMsgClientMMSLeaveLobby) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSLeaveLobby.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSLeaveLobby) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{5}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CMsgClientMMSLeaveLobby) GetAppId() uint32 {
@@ -584,7 +652,7 @@ const (
 
 func (x *CMsgClientMMSLeaveLobbyResponse) Reset() {
 	*x = CMsgClientMMSLeaveLobbyResponse{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[6]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -596,7 +664,7 @@ func (x *CMsgClientMMSLeaveLobbyResponse) String() string {
 func (*CMsgClientMMSLeaveLobbyResponse) ProtoMessage() {}
 
 func (x *CMsgClientMMSLeaveLobbyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[6]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -609,7 +677,7 @@ func (x *CMsgClientMMSLeaveLobbyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSLeaveLobbyResponse.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSLeaveLobbyResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{6}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CMsgClientMMSLeaveLobbyResponse) GetAppId() uint32 {
@@ -648,7 +716,7 @@ type CMsgClientMMSGetLobbyList struct {
 
 func (x *CMsgClientMMSGetLobbyList) Reset() {
 	*x = CMsgClientMMSGetLobbyList{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[7]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -660,7 +728,7 @@ func (x *CMsgClientMMSGetLobbyList) String() string {
 func (*CMsgClientMMSGetLobbyList) ProtoMessage() {}
 
 func (x *CMsgClientMMSGetLobbyList) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[7]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -673,7 +741,7 @@ func (x *CMsgClientMMSGetLobbyList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSGetLobbyList.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSGetLobbyList) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{7}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CMsgClientMMSGetLobbyList) GetAppId() uint32 {
@@ -741,7 +809,7 @@ const (
 
 func (x *CMsgClientMMSGetLobbyListResponse) Reset() {
 	*x = CMsgClientMMSGetLobbyListResponse{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[8]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -753,7 +821,7 @@ func (x *CMsgClientMMSGetLobbyListResponse) String() string {
 func (*CMsgClientMMSGetLobbyListResponse) ProtoMessage() {}
 
 func (x *CMsgClientMMSGetLobbyListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[8]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -766,7 +834,7 @@ func (x *CMsgClientMMSGetLobbyListResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CMsgClientMMSGetLobbyListResponse.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSGetLobbyListResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{8}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CMsgClientMMSGetLobbyListResponse) GetAppId() uint32 {
@@ -798,15 +866,16 @@ type CMsgClientMMSSetLobbyData struct {
 	MaxMembers          *int32                 `protobuf:"varint,4,opt,name=max_members,json=maxMembers" json:"max_members,omitempty"`
 	LobbyType           *int32                 `protobuf:"varint,5,opt,name=lobby_type,json=lobbyType" json:"lobby_type,omitempty"`
 	LobbyFlags          *int32                 `protobuf:"varint,6,opt,name=lobby_flags,json=lobbyFlags" json:"lobby_flags,omitempty"`
-	Metadata            []byte                 `protobuf:"bytes,7,opt,name=metadata" json:"metadata,omitempty"`
+	MetadataKv          []byte                 `protobuf:"bytes,7,opt,name=metadata_kv,json=metadataKv" json:"metadata_kv,omitempty"`
 	NetworkPingLocation *string                `protobuf:"bytes,8,opt,name=network_ping_location,json=networkPingLocation" json:"network_ping_location,omitempty"`
+	Metadata            []*MMSKeyValuePair     `protobuf:"bytes,9,rep,name=metadata" json:"metadata,omitempty"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
 
 func (x *CMsgClientMMSSetLobbyData) Reset() {
 	*x = CMsgClientMMSSetLobbyData{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[9]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -818,7 +887,7 @@ func (x *CMsgClientMMSSetLobbyData) String() string {
 func (*CMsgClientMMSSetLobbyData) ProtoMessage() {}
 
 func (x *CMsgClientMMSSetLobbyData) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[9]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -831,7 +900,7 @@ func (x *CMsgClientMMSSetLobbyData) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSSetLobbyData.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSSetLobbyData) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{9}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *CMsgClientMMSSetLobbyData) GetAppId() uint32 {
@@ -876,9 +945,9 @@ func (x *CMsgClientMMSSetLobbyData) GetLobbyFlags() int32 {
 	return 0
 }
 
-func (x *CMsgClientMMSSetLobbyData) GetMetadata() []byte {
+func (x *CMsgClientMMSSetLobbyData) GetMetadataKv() []byte {
 	if x != nil {
-		return x.Metadata
+		return x.MetadataKv
 	}
 	return nil
 }
@@ -888,6 +957,13 @@ func (x *CMsgClientMMSSetLobbyData) GetNetworkPingLocation() string {
 		return *x.NetworkPingLocation
 	}
 	return ""
+}
+
+func (x *CMsgClientMMSSetLobbyData) GetMetadata() []*MMSKeyValuePair {
+	if x != nil {
+		return x.Metadata
+	}
+	return nil
 }
 
 type CMsgClientMMSSetLobbyDataResponse struct {
@@ -906,7 +982,7 @@ const (
 
 func (x *CMsgClientMMSSetLobbyDataResponse) Reset() {
 	*x = CMsgClientMMSSetLobbyDataResponse{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[10]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -918,7 +994,7 @@ func (x *CMsgClientMMSSetLobbyDataResponse) String() string {
 func (*CMsgClientMMSSetLobbyDataResponse) ProtoMessage() {}
 
 func (x *CMsgClientMMSSetLobbyDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[10]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -931,7 +1007,7 @@ func (x *CMsgClientMMSSetLobbyDataResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CMsgClientMMSSetLobbyDataResponse.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSSetLobbyDataResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{10}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *CMsgClientMMSSetLobbyDataResponse) GetAppId() uint32 {
@@ -965,7 +1041,7 @@ type CMsgClientMMSGetLobbyData struct {
 
 func (x *CMsgClientMMSGetLobbyData) Reset() {
 	*x = CMsgClientMMSGetLobbyData{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[11]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -977,7 +1053,7 @@ func (x *CMsgClientMMSGetLobbyData) String() string {
 func (*CMsgClientMMSGetLobbyData) ProtoMessage() {}
 
 func (x *CMsgClientMMSGetLobbyData) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[11]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -990,7 +1066,7 @@ func (x *CMsgClientMMSGetLobbyData) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSGetLobbyData.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSGetLobbyData) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{11}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *CMsgClientMMSGetLobbyData) GetAppId() uint32 {
@@ -1016,17 +1092,18 @@ type CMsgClientMMSLobbyData struct {
 	LobbyType                *int32                           `protobuf:"varint,5,opt,name=lobby_type,json=lobbyType" json:"lobby_type,omitempty"`
 	LobbyFlags               *int32                           `protobuf:"varint,6,opt,name=lobby_flags,json=lobbyFlags" json:"lobby_flags,omitempty"`
 	SteamIdOwner             *uint64                          `protobuf:"fixed64,7,opt,name=steam_id_owner,json=steamIdOwner" json:"steam_id_owner,omitempty"`
-	Metadata                 []byte                           `protobuf:"bytes,8,opt,name=metadata" json:"metadata,omitempty"`
+	MetadataKv               []byte                           `protobuf:"bytes,8,opt,name=metadata_kv,json=metadataKv" json:"metadata_kv,omitempty"`
 	Members                  []*CMsgClientMMSLobbyData_Member `protobuf:"bytes,9,rep,name=members" json:"members,omitempty"`
 	LobbyCellid              *uint32                          `protobuf:"varint,10,opt,name=lobby_cellid,json=lobbyCellid" json:"lobby_cellid,omitempty"`
 	OwnerShouldAcceptChanges *bool                            `protobuf:"varint,11,opt,name=owner_should_accept_changes,json=ownerShouldAcceptChanges" json:"owner_should_accept_changes,omitempty"`
+	Metadata                 []*MMSKeyValuePair               `protobuf:"bytes,12,rep,name=metadata" json:"metadata,omitempty"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
 
 func (x *CMsgClientMMSLobbyData) Reset() {
 	*x = CMsgClientMMSLobbyData{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[12]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1038,7 +1115,7 @@ func (x *CMsgClientMMSLobbyData) String() string {
 func (*CMsgClientMMSLobbyData) ProtoMessage() {}
 
 func (x *CMsgClientMMSLobbyData) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[12]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1051,7 +1128,7 @@ func (x *CMsgClientMMSLobbyData) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSLobbyData.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSLobbyData) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{12}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *CMsgClientMMSLobbyData) GetAppId() uint32 {
@@ -1103,9 +1180,9 @@ func (x *CMsgClientMMSLobbyData) GetSteamIdOwner() uint64 {
 	return 0
 }
 
-func (x *CMsgClientMMSLobbyData) GetMetadata() []byte {
+func (x *CMsgClientMMSLobbyData) GetMetadataKv() []byte {
 	if x != nil {
-		return x.Metadata
+		return x.MetadataKv
 	}
 	return nil
 }
@@ -1131,6 +1208,13 @@ func (x *CMsgClientMMSLobbyData) GetOwnerShouldAcceptChanges() bool {
 	return false
 }
 
+func (x *CMsgClientMMSLobbyData) GetMetadata() []*MMSKeyValuePair {
+	if x != nil {
+		return x.Metadata
+	}
+	return nil
+}
+
 type CMsgClientMMSSendLobbyChatMsg struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
@@ -1143,7 +1227,7 @@ type CMsgClientMMSSendLobbyChatMsg struct {
 
 func (x *CMsgClientMMSSendLobbyChatMsg) Reset() {
 	*x = CMsgClientMMSSendLobbyChatMsg{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[13]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1155,7 +1239,7 @@ func (x *CMsgClientMMSSendLobbyChatMsg) String() string {
 func (*CMsgClientMMSSendLobbyChatMsg) ProtoMessage() {}
 
 func (x *CMsgClientMMSSendLobbyChatMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[13]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1168,7 +1252,7 @@ func (x *CMsgClientMMSSendLobbyChatMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSSendLobbyChatMsg.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSSendLobbyChatMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{13}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CMsgClientMMSSendLobbyChatMsg) GetAppId() uint32 {
@@ -1211,7 +1295,7 @@ type CMsgClientMMSLobbyChatMsg struct {
 
 func (x *CMsgClientMMSLobbyChatMsg) Reset() {
 	*x = CMsgClientMMSLobbyChatMsg{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[14]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1223,7 +1307,7 @@ func (x *CMsgClientMMSLobbyChatMsg) String() string {
 func (*CMsgClientMMSLobbyChatMsg) ProtoMessage() {}
 
 func (x *CMsgClientMMSLobbyChatMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[14]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1236,7 +1320,7 @@ func (x *CMsgClientMMSLobbyChatMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSLobbyChatMsg.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSLobbyChatMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{14}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *CMsgClientMMSLobbyChatMsg) GetAppId() uint32 {
@@ -1278,7 +1362,7 @@ type CMsgClientMMSSetLobbyOwner struct {
 
 func (x *CMsgClientMMSSetLobbyOwner) Reset() {
 	*x = CMsgClientMMSSetLobbyOwner{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[15]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1290,7 +1374,7 @@ func (x *CMsgClientMMSSetLobbyOwner) String() string {
 func (*CMsgClientMMSSetLobbyOwner) ProtoMessage() {}
 
 func (x *CMsgClientMMSSetLobbyOwner) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[15]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1303,7 +1387,7 @@ func (x *CMsgClientMMSSetLobbyOwner) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSSetLobbyOwner.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSSetLobbyOwner) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{15}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *CMsgClientMMSSetLobbyOwner) GetAppId() uint32 {
@@ -1343,7 +1427,7 @@ const (
 
 func (x *CMsgClientMMSSetLobbyOwnerResponse) Reset() {
 	*x = CMsgClientMMSSetLobbyOwnerResponse{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[16]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1355,7 +1439,7 @@ func (x *CMsgClientMMSSetLobbyOwnerResponse) String() string {
 func (*CMsgClientMMSSetLobbyOwnerResponse) ProtoMessage() {}
 
 func (x *CMsgClientMMSSetLobbyOwnerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[16]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1368,7 +1452,7 @@ func (x *CMsgClientMMSSetLobbyOwnerResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CMsgClientMMSSetLobbyOwnerResponse.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSSetLobbyOwnerResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{16}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *CMsgClientMMSSetLobbyOwnerResponse) GetAppId() uint32 {
@@ -1403,7 +1487,7 @@ type CMsgClientMMSSetLobbyLinked struct {
 
 func (x *CMsgClientMMSSetLobbyLinked) Reset() {
 	*x = CMsgClientMMSSetLobbyLinked{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[17]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1415,7 +1499,7 @@ func (x *CMsgClientMMSSetLobbyLinked) String() string {
 func (*CMsgClientMMSSetLobbyLinked) ProtoMessage() {}
 
 func (x *CMsgClientMMSSetLobbyLinked) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[17]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1428,7 +1512,7 @@ func (x *CMsgClientMMSSetLobbyLinked) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSSetLobbyLinked.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSSetLobbyLinked) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{17}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *CMsgClientMMSSetLobbyLinked) GetAppId() uint32 {
@@ -1467,7 +1551,7 @@ type CMsgClientMMSSetLobbyGameServer struct {
 
 func (x *CMsgClientMMSSetLobbyGameServer) Reset() {
 	*x = CMsgClientMMSSetLobbyGameServer{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[18]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1479,7 +1563,7 @@ func (x *CMsgClientMMSSetLobbyGameServer) String() string {
 func (*CMsgClientMMSSetLobbyGameServer) ProtoMessage() {}
 
 func (x *CMsgClientMMSSetLobbyGameServer) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[18]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1492,7 +1576,7 @@ func (x *CMsgClientMMSSetLobbyGameServer) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSSetLobbyGameServer.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSSetLobbyGameServer) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{18}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *CMsgClientMMSSetLobbyGameServer) GetAppId() uint32 {
@@ -1558,7 +1642,7 @@ type CMsgClientMMSLobbyGameServerSet struct {
 
 func (x *CMsgClientMMSLobbyGameServerSet) Reset() {
 	*x = CMsgClientMMSLobbyGameServerSet{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[19]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1570,7 +1654,7 @@ func (x *CMsgClientMMSLobbyGameServerSet) String() string {
 func (*CMsgClientMMSLobbyGameServerSet) ProtoMessage() {}
 
 func (x *CMsgClientMMSLobbyGameServerSet) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[19]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1583,7 +1667,7 @@ func (x *CMsgClientMMSLobbyGameServerSet) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSLobbyGameServerSet.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSLobbyGameServerSet) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{19}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *CMsgClientMMSLobbyGameServerSet) GetAppId() uint32 {
@@ -1640,7 +1724,7 @@ type CMsgClientMMSUserJoinedLobby struct {
 
 func (x *CMsgClientMMSUserJoinedLobby) Reset() {
 	*x = CMsgClientMMSUserJoinedLobby{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[20]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1652,7 +1736,7 @@ func (x *CMsgClientMMSUserJoinedLobby) String() string {
 func (*CMsgClientMMSUserJoinedLobby) ProtoMessage() {}
 
 func (x *CMsgClientMMSUserJoinedLobby) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[20]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1665,7 +1749,7 @@ func (x *CMsgClientMMSUserJoinedLobby) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSUserJoinedLobby.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSUserJoinedLobby) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{20}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *CMsgClientMMSUserJoinedLobby) GetAppId() uint32 {
@@ -1708,7 +1792,7 @@ type CMsgClientMMSUserLeftLobby struct {
 
 func (x *CMsgClientMMSUserLeftLobby) Reset() {
 	*x = CMsgClientMMSUserLeftLobby{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[21]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1720,7 +1804,7 @@ func (x *CMsgClientMMSUserLeftLobby) String() string {
 func (*CMsgClientMMSUserLeftLobby) ProtoMessage() {}
 
 func (x *CMsgClientMMSUserLeftLobby) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[21]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1733,7 +1817,7 @@ func (x *CMsgClientMMSUserLeftLobby) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSUserLeftLobby.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSUserLeftLobby) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{21}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *CMsgClientMMSUserLeftLobby) GetAppId() uint32 {
@@ -1775,7 +1859,7 @@ type CMsgClientMMSInviteToLobby struct {
 
 func (x *CMsgClientMMSInviteToLobby) Reset() {
 	*x = CMsgClientMMSInviteToLobby{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[22]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1787,7 +1871,7 @@ func (x *CMsgClientMMSInviteToLobby) String() string {
 func (*CMsgClientMMSInviteToLobby) ProtoMessage() {}
 
 func (x *CMsgClientMMSInviteToLobby) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[22]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1800,7 +1884,7 @@ func (x *CMsgClientMMSInviteToLobby) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSInviteToLobby.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSInviteToLobby) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{22}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *CMsgClientMMSInviteToLobby) GetAppId() uint32 {
@@ -1836,7 +1920,7 @@ type CMsgClientMMSGetLobbyStatus struct {
 
 func (x *CMsgClientMMSGetLobbyStatus) Reset() {
 	*x = CMsgClientMMSGetLobbyStatus{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[23]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1848,7 +1932,7 @@ func (x *CMsgClientMMSGetLobbyStatus) String() string {
 func (*CMsgClientMMSGetLobbyStatus) ProtoMessage() {}
 
 func (x *CMsgClientMMSGetLobbyStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[23]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1861,7 +1945,7 @@ func (x *CMsgClientMMSGetLobbyStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSGetLobbyStatus.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSGetLobbyStatus) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{23}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *CMsgClientMMSGetLobbyStatus) GetAppId() uint32 {
@@ -1908,7 +1992,7 @@ const (
 
 func (x *CMsgClientMMSGetLobbyStatusResponse) Reset() {
 	*x = CMsgClientMMSGetLobbyStatusResponse{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[24]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1920,7 +2004,7 @@ func (x *CMsgClientMMSGetLobbyStatusResponse) String() string {
 func (*CMsgClientMMSGetLobbyStatusResponse) ProtoMessage() {}
 
 func (x *CMsgClientMMSGetLobbyStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[24]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1933,7 +2017,7 @@ func (x *CMsgClientMMSGetLobbyStatusResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CMsgClientMMSGetLobbyStatusResponse.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSGetLobbyStatusResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{24}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *CMsgClientMMSGetLobbyStatusResponse) GetAppId() uint32 {
@@ -1961,14 +2045,15 @@ type CMsgClientMMSJoinLobbyResponse_Member struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	SteamId       *uint64                `protobuf:"fixed64,1,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
 	PersonaName   *string                `protobuf:"bytes,2,opt,name=persona_name,json=personaName" json:"persona_name,omitempty"`
-	Metadata      []byte                 `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	MetadataKv    []byte                 `protobuf:"bytes,3,opt,name=metadata_kv,json=metadataKv" json:"metadata_kv,omitempty"`
+	Metadata      []*MMSKeyValuePair     `protobuf:"bytes,4,rep,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CMsgClientMMSJoinLobbyResponse_Member) Reset() {
 	*x = CMsgClientMMSJoinLobbyResponse_Member{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[25]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1980,7 +2065,7 @@ func (x *CMsgClientMMSJoinLobbyResponse_Member) String() string {
 func (*CMsgClientMMSJoinLobbyResponse_Member) ProtoMessage() {}
 
 func (x *CMsgClientMMSJoinLobbyResponse_Member) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[25]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1993,7 +2078,7 @@ func (x *CMsgClientMMSJoinLobbyResponse_Member) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CMsgClientMMSJoinLobbyResponse_Member.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSJoinLobbyResponse_Member) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{4, 0}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{5, 0}
 }
 
 func (x *CMsgClientMMSJoinLobbyResponse_Member) GetSteamId() uint64 {
@@ -2010,7 +2095,14 @@ func (x *CMsgClientMMSJoinLobbyResponse_Member) GetPersonaName() string {
 	return ""
 }
 
-func (x *CMsgClientMMSJoinLobbyResponse_Member) GetMetadata() []byte {
+func (x *CMsgClientMMSJoinLobbyResponse_Member) GetMetadataKv() []byte {
+	if x != nil {
+		return x.MetadataKv
+	}
+	return nil
+}
+
+func (x *CMsgClientMMSJoinLobbyResponse_Member) GetMetadata() []*MMSKeyValuePair {
 	if x != nil {
 		return x.Metadata
 	}
@@ -2029,7 +2121,7 @@ type CMsgClientMMSGetLobbyList_Filter struct {
 
 func (x *CMsgClientMMSGetLobbyList_Filter) Reset() {
 	*x = CMsgClientMMSGetLobbyList_Filter{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[26]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2041,7 +2133,7 @@ func (x *CMsgClientMMSGetLobbyList_Filter) String() string {
 func (*CMsgClientMMSGetLobbyList_Filter) ProtoMessage() {}
 
 func (x *CMsgClientMMSGetLobbyList_Filter) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[26]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2054,7 +2146,7 @@ func (x *CMsgClientMMSGetLobbyList_Filter) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSGetLobbyList_Filter.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSGetLobbyList_Filter) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{7, 0}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{8, 0}
 }
 
 func (x *CMsgClientMMSGetLobbyList_Filter) GetKey() string {
@@ -2091,19 +2183,20 @@ type CMsgClientMMSGetLobbyListResponse_Lobby struct {
 	MaxMembers    *int32                 `protobuf:"varint,2,opt,name=max_members,json=maxMembers" json:"max_members,omitempty"`
 	LobbyType     *int32                 `protobuf:"varint,3,opt,name=lobby_type,json=lobbyType" json:"lobby_type,omitempty"`
 	LobbyFlags    *int32                 `protobuf:"varint,4,opt,name=lobby_flags,json=lobbyFlags" json:"lobby_flags,omitempty"`
-	Metadata      []byte                 `protobuf:"bytes,5,opt,name=metadata" json:"metadata,omitempty"`
+	MetadataKv    []byte                 `protobuf:"bytes,5,opt,name=metadata_kv,json=metadataKv" json:"metadata_kv,omitempty"`
 	NumMembers    *int32                 `protobuf:"varint,6,opt,name=num_members,json=numMembers" json:"num_members,omitempty"`
 	Distance      *float32               `protobuf:"fixed32,7,opt,name=distance" json:"distance,omitempty"`
 	Weight        *int64                 `protobuf:"varint,8,opt,name=weight" json:"weight,omitempty"`
 	Ping          *int32                 `protobuf:"varint,9,opt,name=ping" json:"ping,omitempty"`
 	MissingPing   *int32                 `protobuf:"varint,10,opt,name=missing_ping,json=missingPing" json:"missing_ping,omitempty"`
+	Metadata      []*MMSKeyValuePair     `protobuf:"bytes,11,rep,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CMsgClientMMSGetLobbyListResponse_Lobby) Reset() {
 	*x = CMsgClientMMSGetLobbyListResponse_Lobby{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[27]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2115,7 +2208,7 @@ func (x *CMsgClientMMSGetLobbyListResponse_Lobby) String() string {
 func (*CMsgClientMMSGetLobbyListResponse_Lobby) ProtoMessage() {}
 
 func (x *CMsgClientMMSGetLobbyListResponse_Lobby) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[27]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2128,7 +2221,7 @@ func (x *CMsgClientMMSGetLobbyListResponse_Lobby) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CMsgClientMMSGetLobbyListResponse_Lobby.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSGetLobbyListResponse_Lobby) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{8, 0}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{9, 0}
 }
 
 func (x *CMsgClientMMSGetLobbyListResponse_Lobby) GetSteamId() uint64 {
@@ -2159,9 +2252,9 @@ func (x *CMsgClientMMSGetLobbyListResponse_Lobby) GetLobbyFlags() int32 {
 	return 0
 }
 
-func (x *CMsgClientMMSGetLobbyListResponse_Lobby) GetMetadata() []byte {
+func (x *CMsgClientMMSGetLobbyListResponse_Lobby) GetMetadataKv() []byte {
 	if x != nil {
-		return x.Metadata
+		return x.MetadataKv
 	}
 	return nil
 }
@@ -2201,19 +2294,27 @@ func (x *CMsgClientMMSGetLobbyListResponse_Lobby) GetMissingPing() int32 {
 	return 0
 }
 
+func (x *CMsgClientMMSGetLobbyListResponse_Lobby) GetMetadata() []*MMSKeyValuePair {
+	if x != nil {
+		return x.Metadata
+	}
+	return nil
+}
+
 type CMsgClientMMSLobbyData_Member struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	SteamId       *uint64                `protobuf:"fixed64,1,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
 	PersonaName   *string                `protobuf:"bytes,2,opt,name=persona_name,json=personaName" json:"persona_name,omitempty"`
-	Metadata      []byte                 `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	MetadataKv    []byte                 `protobuf:"bytes,3,opt,name=metadata_kv,json=metadataKv" json:"metadata_kv,omitempty"`
 	PingData      *string                `protobuf:"bytes,4,opt,name=ping_data,json=pingData" json:"ping_data,omitempty"`
+	Metadata      []*MMSKeyValuePair     `protobuf:"bytes,5,rep,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CMsgClientMMSLobbyData_Member) Reset() {
 	*x = CMsgClientMMSLobbyData_Member{}
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[28]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2225,7 +2326,7 @@ func (x *CMsgClientMMSLobbyData_Member) String() string {
 func (*CMsgClientMMSLobbyData_Member) ProtoMessage() {}
 
 func (x *CMsgClientMMSLobbyData_Member) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_mms_proto_msgTypes[28]
+	mi := &file_steammessages_clientserver_mms_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2238,7 +2339,7 @@ func (x *CMsgClientMMSLobbyData_Member) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientMMSLobbyData_Member.ProtoReflect.Descriptor instead.
 func (*CMsgClientMMSLobbyData_Member) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{12, 0}
+	return file_steammessages_clientserver_mms_proto_rawDescGZIP(), []int{13, 0}
 }
 
 func (x *CMsgClientMMSLobbyData_Member) GetSteamId() uint64 {
@@ -2255,9 +2356,9 @@ func (x *CMsgClientMMSLobbyData_Member) GetPersonaName() string {
 	return ""
 }
 
-func (x *CMsgClientMMSLobbyData_Member) GetMetadata() []byte {
+func (x *CMsgClientMMSLobbyData_Member) GetMetadataKv() []byte {
 	if x != nil {
-		return x.Metadata
+		return x.MetadataKv
 	}
 	return nil
 }
@@ -2269,16 +2370,26 @@ func (x *CMsgClientMMSLobbyData_Member) GetPingData() string {
 	return ""
 }
 
+func (x *CMsgClientMMSLobbyData_Member) GetMetadata() []*MMSKeyValuePair {
+	if x != nil {
+		return x.Metadata
+	}
+	return nil
+}
+
 var File_steammessages_clientserver_mms_proto protoreflect.FileDescriptor
 
 const file_steammessages_clientserver_mms_proto_rawDesc = "" +
 	"\n" +
-	"$steammessages_clientserver_mms.proto\x1a\x18steammessages_base.proto\"\xdf\x01\n" +
+	"$steammessages_clientserver_mms.proto\x1a\x18steammessages_base.proto\";\n" +
+	"\x0fMMSKeyValuePair\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value\"\xdf\x01\n" +
 	"'CMsgClientMMSSetRatelimitPolicyOnClient\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12,\n" +
 	"\x12enable_rate_limits\x18\x02 \x01(\bR\x10enableRateLimits\x12.\n" +
 	"\x13seconds_per_message\x18\x03 \x01(\x05R\x11secondsPerMessage\x12?\n" +
-	"\x1cmilliseconds_per_data_update\x18\x04 \x01(\x05R\x19millisecondsPerDataUpdate\"\x88\x03\n" +
+	"\x1cmilliseconds_per_data_update\x18\x04 \x01(\x05R\x19millisecondsPerDataUpdate\"\xbb\x03\n" +
 	"\x18CMsgClientMMSCreateLobby\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12\x1f\n" +
 	"\vmax_members\x18\x02 \x01(\x05R\n" +
@@ -2288,12 +2399,14 @@ const file_steammessages_clientserver_mms_proto_rawDesc = "" +
 	"\vlobby_flags\x18\x04 \x01(\x05R\n" +
 	"lobbyFlags\x12\x17\n" +
 	"\acell_id\x18\x05 \x01(\rR\x06cellId\x120\n" +
-	"\x14deprecated_public_ip\x18\x06 \x01(\rR\x12deprecatedPublicIp\x12\x1a\n" +
-	"\bmetadata\x18\a \x01(\fR\bmetadata\x12,\n" +
+	"\x14deprecated_public_ip\x18\x06 \x01(\rR\x12deprecatedPublicIp\x12\x1f\n" +
+	"\vmetadata_kv\x18\a \x01(\fR\n" +
+	"metadataKv\x12,\n" +
 	"\x12persona_name_owner\x18\b \x01(\tR\x10personaNameOwner\x12+\n" +
 	"\tpublic_ip\x18\t \x01(\v2\x0e.CMsgIPAddressR\bpublicIp\x122\n" +
 	"\x15network_ping_location\x18\n" +
-	" \x01(\tR\x13networkPingLocation\"|\n" +
+	" \x01(\tR\x13networkPingLocation\x12,\n" +
+	"\bmetadata\x18\v \x03(\v2\x10.MMSKeyValuePairR\bmetadata\"|\n" +
 	" CMsgClientMMSCreateLobbyResponse\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
 	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12\x1b\n" +
@@ -2303,7 +2416,7 @@ const file_steammessages_clientserver_mms_proto_rawDesc = "" +
 	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12!\n" +
 	"\fpersona_name\x18\x03 \x01(\tR\vpersonaName\x122\n" +
 	"\x15network_ping_location\x18\x04 \x01(\tR\x13networkPingLocation\x12\x17\n" +
-	"\acell_id\x18\x05 \x01(\rR\x06cellId\"\xdf\x03\n" +
+	"\acell_id\x18\x05 \x01(\rR\x06cellId\"\xc6\x04\n" +
 	"\x1eCMsgClientMMSJoinLobbyResponse\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
 	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x127\n" +
@@ -2314,13 +2427,18 @@ const file_steammessages_clientserver_mms_proto_rawDesc = "" +
 	"lobby_type\x18\x05 \x01(\x05R\tlobbyType\x12\x1f\n" +
 	"\vlobby_flags\x18\x06 \x01(\x05R\n" +
 	"lobbyFlags\x12$\n" +
-	"\x0esteam_id_owner\x18\a \x01(\x06R\fsteamIdOwner\x12\x1a\n" +
-	"\bmetadata\x18\b \x01(\fR\bmetadata\x12@\n" +
-	"\amembers\x18\t \x03(\v2&.CMsgClientMMSJoinLobbyResponse.MemberR\amembers\x1ab\n" +
+	"\x0esteam_id_owner\x18\a \x01(\x06R\fsteamIdOwner\x12\x1f\n" +
+	"\vmetadata_kv\x18\b \x01(\fR\n" +
+	"metadataKv\x12@\n" +
+	"\amembers\x18\t \x03(\v2&.CMsgClientMMSJoinLobbyResponse.MemberR\amembers\x12,\n" +
+	"\bmetadata\x18\n" +
+	" \x03(\v2\x10.MMSKeyValuePairR\bmetadata\x1a\x95\x01\n" +
 	"\x06Member\x12\x19\n" +
 	"\bsteam_id\x18\x01 \x01(\x06R\asteamId\x12!\n" +
-	"\fpersona_name\x18\x02 \x01(\tR\vpersonaName\x12\x1a\n" +
-	"\bmetadata\x18\x03 \x01(\fR\bmetadata\"V\n" +
+	"\fpersona_name\x18\x02 \x01(\tR\vpersonaName\x12\x1f\n" +
+	"\vmetadata_kv\x18\x03 \x01(\fR\n" +
+	"metadataKv\x12,\n" +
+	"\bmetadata\x18\x04 \x03(\v2\x10.MMSKeyValuePairR\bmetadata\"V\n" +
 	"\x17CMsgClientMMSLeaveLobby\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
 	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\"{\n" +
@@ -2341,11 +2459,11 @@ const file_steammessages_clientserver_mms_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value\x12 \n" +
 	"\vcomparision\x18\x03 \x01(\x05R\vcomparision\x12\x1f\n" +
 	"\vfilter_type\x18\x04 \x01(\x05R\n" +
-	"filterType\"\xc9\x03\n" +
+	"filterType\"\xfc\x03\n" +
 	"!CMsgClientMMSGetLobbyListResponse\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12\x1b\n" +
 	"\aeresult\x18\x03 \x01(\x05:\x012R\aeresult\x12B\n" +
-	"\alobbies\x18\x04 \x03(\v2(.CMsgClientMMSGetLobbyListResponse.LobbyR\alobbies\x1a\xab\x02\n" +
+	"\alobbies\x18\x04 \x03(\v2(.CMsgClientMMSGetLobbyListResponse.LobbyR\alobbies\x1a\xde\x02\n" +
 	"\x05Lobby\x12\x19\n" +
 	"\bsteam_id\x18\x01 \x01(\x06R\asteamId\x12\x1f\n" +
 	"\vmax_members\x18\x02 \x01(\x05R\n" +
@@ -2353,15 +2471,17 @@ const file_steammessages_clientserver_mms_proto_rawDesc = "" +
 	"\n" +
 	"lobby_type\x18\x03 \x01(\x05R\tlobbyType\x12\x1f\n" +
 	"\vlobby_flags\x18\x04 \x01(\x05R\n" +
-	"lobbyFlags\x12\x1a\n" +
-	"\bmetadata\x18\x05 \x01(\fR\bmetadata\x12\x1f\n" +
+	"lobbyFlags\x12\x1f\n" +
+	"\vmetadata_kv\x18\x05 \x01(\fR\n" +
+	"metadataKv\x12\x1f\n" +
 	"\vnum_members\x18\x06 \x01(\x05R\n" +
 	"numMembers\x12\x1a\n" +
 	"\bdistance\x18\a \x01(\x02R\bdistance\x12\x16\n" +
 	"\x06weight\x18\b \x01(\x03R\x06weight\x12\x12\n" +
 	"\x04ping\x18\t \x01(\x05R\x04ping\x12!\n" +
 	"\fmissing_ping\x18\n" +
-	" \x01(\x05R\vmissingPing\"\xb1\x02\n" +
+	" \x01(\x05R\vmissingPing\x12,\n" +
+	"\bmetadata\x18\v \x03(\v2\x10.MMSKeyValuePairR\bmetadata\"\xe4\x02\n" +
 	"\x19CMsgClientMMSSetLobbyData\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
 	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12&\n" +
@@ -2371,16 +2491,18 @@ const file_steammessages_clientserver_mms_proto_rawDesc = "" +
 	"\n" +
 	"lobby_type\x18\x05 \x01(\x05R\tlobbyType\x12\x1f\n" +
 	"\vlobby_flags\x18\x06 \x01(\x05R\n" +
-	"lobbyFlags\x12\x1a\n" +
-	"\bmetadata\x18\a \x01(\fR\bmetadata\x122\n" +
-	"\x15network_ping_location\x18\b \x01(\tR\x13networkPingLocation\"}\n" +
+	"lobbyFlags\x12\x1f\n" +
+	"\vmetadata_kv\x18\a \x01(\fR\n" +
+	"metadataKv\x122\n" +
+	"\x15network_ping_location\x18\b \x01(\tR\x13networkPingLocation\x12,\n" +
+	"\bmetadata\x18\t \x03(\v2\x10.MMSKeyValuePairR\bmetadata\"}\n" +
 	"!CMsgClientMMSSetLobbyDataResponse\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
 	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12\x1b\n" +
 	"\aeresult\x18\x03 \x01(\x05:\x012R\aeresult\"X\n" +
 	"\x19CMsgClientMMSGetLobbyData\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\"\xb6\x04\n" +
+	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\"\x9d\x05\n" +
 	"\x16CMsgClientMMSLobbyData\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
 	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12\x1f\n" +
@@ -2392,17 +2514,21 @@ const file_steammessages_clientserver_mms_proto_rawDesc = "" +
 	"lobby_type\x18\x05 \x01(\x05R\tlobbyType\x12\x1f\n" +
 	"\vlobby_flags\x18\x06 \x01(\x05R\n" +
 	"lobbyFlags\x12$\n" +
-	"\x0esteam_id_owner\x18\a \x01(\x06R\fsteamIdOwner\x12\x1a\n" +
-	"\bmetadata\x18\b \x01(\fR\bmetadata\x128\n" +
+	"\x0esteam_id_owner\x18\a \x01(\x06R\fsteamIdOwner\x12\x1f\n" +
+	"\vmetadata_kv\x18\b \x01(\fR\n" +
+	"metadataKv\x128\n" +
 	"\amembers\x18\t \x03(\v2\x1e.CMsgClientMMSLobbyData.MemberR\amembers\x12!\n" +
 	"\flobby_cellid\x18\n" +
 	" \x01(\rR\vlobbyCellid\x12=\n" +
-	"\x1bowner_should_accept_changes\x18\v \x01(\bR\x18ownerShouldAcceptChanges\x1a\x7f\n" +
+	"\x1bowner_should_accept_changes\x18\v \x01(\bR\x18ownerShouldAcceptChanges\x12,\n" +
+	"\bmetadata\x18\f \x03(\v2\x10.MMSKeyValuePairR\bmetadata\x1a\xb2\x01\n" +
 	"\x06Member\x12\x19\n" +
 	"\bsteam_id\x18\x01 \x01(\x06R\asteamId\x12!\n" +
-	"\fpersona_name\x18\x02 \x01(\tR\vpersonaName\x12\x1a\n" +
-	"\bmetadata\x18\x03 \x01(\fR\bmetadata\x12\x1b\n" +
-	"\tping_data\x18\x04 \x01(\tR\bpingData\"\xa9\x01\n" +
+	"\fpersona_name\x18\x02 \x01(\tR\vpersonaName\x12\x1f\n" +
+	"\vmetadata_kv\x18\x03 \x01(\fR\n" +
+	"metadataKv\x12\x1b\n" +
+	"\tping_data\x18\x04 \x01(\tR\bpingData\x12,\n" +
+	"\bmetadata\x18\x05 \x03(\v2\x10.MMSKeyValuePairR\bmetadata\"\xa9\x01\n" +
 	"\x1dCMsgClientMMSSendLobbyChatMsg\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
 	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12&\n" +
@@ -2482,55 +2608,63 @@ func file_steammessages_clientserver_mms_proto_rawDescGZIP() []byte {
 }
 
 var file_steammessages_clientserver_mms_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_steammessages_clientserver_mms_proto_msgTypes = make([]protoimpl.MessageInfo, 29)
+var file_steammessages_clientserver_mms_proto_msgTypes = make([]protoimpl.MessageInfo, 30)
 var file_steammessages_clientserver_mms_proto_goTypes = []any{
 	(EMMSLobbyStatus)(0),                            // 0: EMMSLobbyStatus
-	(*CMsgClientMMSSetRatelimitPolicyOnClient)(nil), // 1: CMsgClientMMSSetRatelimitPolicyOnClient
-	(*CMsgClientMMSCreateLobby)(nil),                // 2: CMsgClientMMSCreateLobby
-	(*CMsgClientMMSCreateLobbyResponse)(nil),        // 3: CMsgClientMMSCreateLobbyResponse
-	(*CMsgClientMMSJoinLobby)(nil),                  // 4: CMsgClientMMSJoinLobby
-	(*CMsgClientMMSJoinLobbyResponse)(nil),          // 5: CMsgClientMMSJoinLobbyResponse
-	(*CMsgClientMMSLeaveLobby)(nil),                 // 6: CMsgClientMMSLeaveLobby
-	(*CMsgClientMMSLeaveLobbyResponse)(nil),         // 7: CMsgClientMMSLeaveLobbyResponse
-	(*CMsgClientMMSGetLobbyList)(nil),               // 8: CMsgClientMMSGetLobbyList
-	(*CMsgClientMMSGetLobbyListResponse)(nil),       // 9: CMsgClientMMSGetLobbyListResponse
-	(*CMsgClientMMSSetLobbyData)(nil),               // 10: CMsgClientMMSSetLobbyData
-	(*CMsgClientMMSSetLobbyDataResponse)(nil),       // 11: CMsgClientMMSSetLobbyDataResponse
-	(*CMsgClientMMSGetLobbyData)(nil),               // 12: CMsgClientMMSGetLobbyData
-	(*CMsgClientMMSLobbyData)(nil),                  // 13: CMsgClientMMSLobbyData
-	(*CMsgClientMMSSendLobbyChatMsg)(nil),           // 14: CMsgClientMMSSendLobbyChatMsg
-	(*CMsgClientMMSLobbyChatMsg)(nil),               // 15: CMsgClientMMSLobbyChatMsg
-	(*CMsgClientMMSSetLobbyOwner)(nil),              // 16: CMsgClientMMSSetLobbyOwner
-	(*CMsgClientMMSSetLobbyOwnerResponse)(nil),      // 17: CMsgClientMMSSetLobbyOwnerResponse
-	(*CMsgClientMMSSetLobbyLinked)(nil),             // 18: CMsgClientMMSSetLobbyLinked
-	(*CMsgClientMMSSetLobbyGameServer)(nil),         // 19: CMsgClientMMSSetLobbyGameServer
-	(*CMsgClientMMSLobbyGameServerSet)(nil),         // 20: CMsgClientMMSLobbyGameServerSet
-	(*CMsgClientMMSUserJoinedLobby)(nil),            // 21: CMsgClientMMSUserJoinedLobby
-	(*CMsgClientMMSUserLeftLobby)(nil),              // 22: CMsgClientMMSUserLeftLobby
-	(*CMsgClientMMSInviteToLobby)(nil),              // 23: CMsgClientMMSInviteToLobby
-	(*CMsgClientMMSGetLobbyStatus)(nil),             // 24: CMsgClientMMSGetLobbyStatus
-	(*CMsgClientMMSGetLobbyStatusResponse)(nil),     // 25: CMsgClientMMSGetLobbyStatusResponse
-	(*CMsgClientMMSJoinLobbyResponse_Member)(nil),   // 26: CMsgClientMMSJoinLobbyResponse.Member
-	(*CMsgClientMMSGetLobbyList_Filter)(nil),        // 27: CMsgClientMMSGetLobbyList.Filter
-	(*CMsgClientMMSGetLobbyListResponse_Lobby)(nil), // 28: CMsgClientMMSGetLobbyListResponse.Lobby
-	(*CMsgClientMMSLobbyData_Member)(nil),           // 29: CMsgClientMMSLobbyData.Member
-	(*CMsgIPAddress)(nil),                           // 30: CMsgIPAddress
+	(*MMSKeyValuePair)(nil),                         // 1: MMSKeyValuePair
+	(*CMsgClientMMSSetRatelimitPolicyOnClient)(nil), // 2: CMsgClientMMSSetRatelimitPolicyOnClient
+	(*CMsgClientMMSCreateLobby)(nil),                // 3: CMsgClientMMSCreateLobby
+	(*CMsgClientMMSCreateLobbyResponse)(nil),        // 4: CMsgClientMMSCreateLobbyResponse
+	(*CMsgClientMMSJoinLobby)(nil),                  // 5: CMsgClientMMSJoinLobby
+	(*CMsgClientMMSJoinLobbyResponse)(nil),          // 6: CMsgClientMMSJoinLobbyResponse
+	(*CMsgClientMMSLeaveLobby)(nil),                 // 7: CMsgClientMMSLeaveLobby
+	(*CMsgClientMMSLeaveLobbyResponse)(nil),         // 8: CMsgClientMMSLeaveLobbyResponse
+	(*CMsgClientMMSGetLobbyList)(nil),               // 9: CMsgClientMMSGetLobbyList
+	(*CMsgClientMMSGetLobbyListResponse)(nil),       // 10: CMsgClientMMSGetLobbyListResponse
+	(*CMsgClientMMSSetLobbyData)(nil),               // 11: CMsgClientMMSSetLobbyData
+	(*CMsgClientMMSSetLobbyDataResponse)(nil),       // 12: CMsgClientMMSSetLobbyDataResponse
+	(*CMsgClientMMSGetLobbyData)(nil),               // 13: CMsgClientMMSGetLobbyData
+	(*CMsgClientMMSLobbyData)(nil),                  // 14: CMsgClientMMSLobbyData
+	(*CMsgClientMMSSendLobbyChatMsg)(nil),           // 15: CMsgClientMMSSendLobbyChatMsg
+	(*CMsgClientMMSLobbyChatMsg)(nil),               // 16: CMsgClientMMSLobbyChatMsg
+	(*CMsgClientMMSSetLobbyOwner)(nil),              // 17: CMsgClientMMSSetLobbyOwner
+	(*CMsgClientMMSSetLobbyOwnerResponse)(nil),      // 18: CMsgClientMMSSetLobbyOwnerResponse
+	(*CMsgClientMMSSetLobbyLinked)(nil),             // 19: CMsgClientMMSSetLobbyLinked
+	(*CMsgClientMMSSetLobbyGameServer)(nil),         // 20: CMsgClientMMSSetLobbyGameServer
+	(*CMsgClientMMSLobbyGameServerSet)(nil),         // 21: CMsgClientMMSLobbyGameServerSet
+	(*CMsgClientMMSUserJoinedLobby)(nil),            // 22: CMsgClientMMSUserJoinedLobby
+	(*CMsgClientMMSUserLeftLobby)(nil),              // 23: CMsgClientMMSUserLeftLobby
+	(*CMsgClientMMSInviteToLobby)(nil),              // 24: CMsgClientMMSInviteToLobby
+	(*CMsgClientMMSGetLobbyStatus)(nil),             // 25: CMsgClientMMSGetLobbyStatus
+	(*CMsgClientMMSGetLobbyStatusResponse)(nil),     // 26: CMsgClientMMSGetLobbyStatusResponse
+	(*CMsgClientMMSJoinLobbyResponse_Member)(nil),   // 27: CMsgClientMMSJoinLobbyResponse.Member
+	(*CMsgClientMMSGetLobbyList_Filter)(nil),        // 28: CMsgClientMMSGetLobbyList.Filter
+	(*CMsgClientMMSGetLobbyListResponse_Lobby)(nil), // 29: CMsgClientMMSGetLobbyListResponse.Lobby
+	(*CMsgClientMMSLobbyData_Member)(nil),           // 30: CMsgClientMMSLobbyData.Member
+	(*CMsgIPAddress)(nil),                           // 31: CMsgIPAddress
 }
 var file_steammessages_clientserver_mms_proto_depIdxs = []int32{
-	30, // 0: CMsgClientMMSCreateLobby.public_ip:type_name -> CMsgIPAddress
-	26, // 1: CMsgClientMMSJoinLobbyResponse.members:type_name -> CMsgClientMMSJoinLobbyResponse.Member
-	27, // 2: CMsgClientMMSGetLobbyList.filters:type_name -> CMsgClientMMSGetLobbyList.Filter
-	30, // 3: CMsgClientMMSGetLobbyList.public_ip:type_name -> CMsgIPAddress
-	28, // 4: CMsgClientMMSGetLobbyListResponse.lobbies:type_name -> CMsgClientMMSGetLobbyListResponse.Lobby
-	29, // 5: CMsgClientMMSLobbyData.members:type_name -> CMsgClientMMSLobbyData.Member
-	30, // 6: CMsgClientMMSSetLobbyGameServer.game_server_ip:type_name -> CMsgIPAddress
-	30, // 7: CMsgClientMMSLobbyGameServerSet.game_server_ip:type_name -> CMsgIPAddress
-	0,  // 8: CMsgClientMMSGetLobbyStatusResponse.lobby_status:type_name -> EMMSLobbyStatus
-	9,  // [9:9] is the sub-list for method output_type
-	9,  // [9:9] is the sub-list for method input_type
-	9,  // [9:9] is the sub-list for extension type_name
-	9,  // [9:9] is the sub-list for extension extendee
-	0,  // [0:9] is the sub-list for field type_name
+	31, // 0: CMsgClientMMSCreateLobby.public_ip:type_name -> CMsgIPAddress
+	1,  // 1: CMsgClientMMSCreateLobby.metadata:type_name -> MMSKeyValuePair
+	27, // 2: CMsgClientMMSJoinLobbyResponse.members:type_name -> CMsgClientMMSJoinLobbyResponse.Member
+	1,  // 3: CMsgClientMMSJoinLobbyResponse.metadata:type_name -> MMSKeyValuePair
+	28, // 4: CMsgClientMMSGetLobbyList.filters:type_name -> CMsgClientMMSGetLobbyList.Filter
+	31, // 5: CMsgClientMMSGetLobbyList.public_ip:type_name -> CMsgIPAddress
+	29, // 6: CMsgClientMMSGetLobbyListResponse.lobbies:type_name -> CMsgClientMMSGetLobbyListResponse.Lobby
+	1,  // 7: CMsgClientMMSSetLobbyData.metadata:type_name -> MMSKeyValuePair
+	30, // 8: CMsgClientMMSLobbyData.members:type_name -> CMsgClientMMSLobbyData.Member
+	1,  // 9: CMsgClientMMSLobbyData.metadata:type_name -> MMSKeyValuePair
+	31, // 10: CMsgClientMMSSetLobbyGameServer.game_server_ip:type_name -> CMsgIPAddress
+	31, // 11: CMsgClientMMSLobbyGameServerSet.game_server_ip:type_name -> CMsgIPAddress
+	0,  // 12: CMsgClientMMSGetLobbyStatusResponse.lobby_status:type_name -> EMMSLobbyStatus
+	1,  // 13: CMsgClientMMSJoinLobbyResponse.Member.metadata:type_name -> MMSKeyValuePair
+	1,  // 14: CMsgClientMMSGetLobbyListResponse.Lobby.metadata:type_name -> MMSKeyValuePair
+	1,  // 15: CMsgClientMMSLobbyData.Member.metadata:type_name -> MMSKeyValuePair
+	16, // [16:16] is the sub-list for method output_type
+	16, // [16:16] is the sub-list for method input_type
+	16, // [16:16] is the sub-list for extension type_name
+	16, // [16:16] is the sub-list for extension extendee
+	0,  // [0:16] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_clientserver_mms_proto_init() }
@@ -2545,7 +2679,7 @@ func file_steammessages_clientserver_mms_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_clientserver_mms_proto_rawDesc), len(file_steammessages_clientserver_mms_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   29,
+			NumMessages:   30,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

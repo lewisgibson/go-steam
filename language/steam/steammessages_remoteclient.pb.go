@@ -808,6 +808,8 @@ type CMsgRemoteClientDownloadsManagement struct {
 	EnableAllDownloads          *bool                                                        `protobuf:"varint,3,opt,name=enable_all_downloads,json=enableAllDownloads" json:"enable_all_downloads,omitempty"`
 	RemoveFromDownloadListAppId *uint32                                                      `protobuf:"varint,4,opt,name=remove_from_download_list_app_id,json=removeFromDownloadListAppId" json:"remove_from_download_list_app_id,omitempty"`
 	SuspendDownloadThrottling   *bool                                                        `protobuf:"varint,5,opt,name=suspend_download_throttling,json=suspendDownloadThrottling" json:"suspend_download_throttling,omitempty"`
+	UninstallingAppId           *uint32                                                      `protobuf:"varint,6,opt,name=uninstalling_app_id,json=uninstallingAppId" json:"uninstalling_app_id,omitempty"`
+	InstallingAppId             *uint32                                                      `protobuf:"varint,7,opt,name=installing_app_id,json=installingAppId" json:"installing_app_id,omitempty"`
 	unknownFields               protoimpl.UnknownFields
 	sizeCache                   protoimpl.SizeCache
 }
@@ -875,6 +877,20 @@ func (x *CMsgRemoteClientDownloadsManagement) GetSuspendDownloadThrottling() boo
 		return *x.SuspendDownloadThrottling
 	}
 	return false
+}
+
+func (x *CMsgRemoteClientDownloadsManagement) GetUninstallingAppId() uint32 {
+	if x != nil && x.UninstallingAppId != nil {
+		return *x.UninstallingAppId
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientDownloadsManagement) GetInstallingAppId() uint32 {
+	if x != nil && x.InstallingAppId != nil {
+		return *x.InstallingAppId
+	}
+	return 0
 }
 
 type CMsgRemoteClientUpdateDownloadsController struct {
@@ -1369,6 +1385,99 @@ func (x *CMsgRemoteClientDownloadingAppID) GetUpdateInfo() *AppUpdateInfo {
 	return nil
 }
 
+type CMsgRemoteClientInstallApp struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgRemoteClientInstallApp) Reset() {
+	*x = CMsgRemoteClientInstallApp{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientInstallApp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientInstallApp) ProtoMessage() {}
+
+func (x *CMsgRemoteClientInstallApp) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientInstallApp.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientInstallApp) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *CMsgRemoteClientInstallApp) GetAppId() uint32 {
+	if x != nil && x.AppId != nil {
+		return *x.AppId
+	}
+	return 0
+}
+
+type CMsgRemoteClientInstallAppResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ELaunchResult *int32                 `protobuf:"varint,1,opt,name=e_launch_result,json=eLaunchResult,def=2" json:"e_launch_result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+// Default values for CMsgRemoteClientInstallAppResponse fields.
+const (
+	Default_CMsgRemoteClientInstallAppResponse_ELaunchResult = int32(2)
+)
+
+func (x *CMsgRemoteClientInstallAppResponse) Reset() {
+	*x = CMsgRemoteClientInstallAppResponse{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientInstallAppResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientInstallAppResponse) ProtoMessage() {}
+
+func (x *CMsgRemoteClientInstallAppResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientInstallAppResponse.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientInstallAppResponse) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *CMsgRemoteClientInstallAppResponse) GetELaunchResult() int32 {
+	if x != nil && x.ELaunchResult != nil {
+		return *x.ELaunchResult
+	}
+	return Default_CMsgRemoteClientInstallAppResponse_ELaunchResult
+}
+
 type CMsgRemoteClientStartStream struct {
 	state                       protoimpl.MessageState                         `protogen:"open.v1"`
 	AppId                       *uint32                                        `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
@@ -1400,7 +1509,7 @@ const (
 
 func (x *CMsgRemoteClientStartStream) Reset() {
 	*x = CMsgRemoteClientStartStream{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[18]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1412,7 +1521,7 @@ func (x *CMsgRemoteClientStartStream) String() string {
 func (*CMsgRemoteClientStartStream) ProtoMessage() {}
 
 func (x *CMsgRemoteClientStartStream) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[18]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1425,7 +1534,7 @@ func (x *CMsgRemoteClientStartStream) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteClientStartStream.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientStartStream) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{18}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *CMsgRemoteClientStartStream) GetAppId() uint32 {
@@ -1560,7 +1669,7 @@ const (
 
 func (x *CMsgRemoteClientStartStreamResponse) Reset() {
 	*x = CMsgRemoteClientStartStreamResponse{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[19]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1572,7 +1681,7 @@ func (x *CMsgRemoteClientStartStreamResponse) String() string {
 func (*CMsgRemoteClientStartStreamResponse) ProtoMessage() {}
 
 func (x *CMsgRemoteClientStartStreamResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[19]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1585,7 +1694,7 @@ func (x *CMsgRemoteClientStartStreamResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CMsgRemoteClientStartStreamResponse.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientStartStreamResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{19}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *CMsgRemoteClientStartStreamResponse) GetELaunchResult() int32 {
@@ -1680,7 +1789,7 @@ type CMsgRemoteClientPing struct {
 
 func (x *CMsgRemoteClientPing) Reset() {
 	*x = CMsgRemoteClientPing{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[20]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1692,7 +1801,7 @@ func (x *CMsgRemoteClientPing) String() string {
 func (*CMsgRemoteClientPing) ProtoMessage() {}
 
 func (x *CMsgRemoteClientPing) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[20]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1705,7 +1814,7 @@ func (x *CMsgRemoteClientPing) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteClientPing.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientPing) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{20}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{22}
 }
 
 type CMsgRemoteClientPingResponse struct {
@@ -1716,7 +1825,7 @@ type CMsgRemoteClientPingResponse struct {
 
 func (x *CMsgRemoteClientPingResponse) Reset() {
 	*x = CMsgRemoteClientPingResponse{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[21]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1728,7 +1837,7 @@ func (x *CMsgRemoteClientPingResponse) String() string {
 func (*CMsgRemoteClientPingResponse) ProtoMessage() {}
 
 func (x *CMsgRemoteClientPingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[21]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1741,7 +1850,7 @@ func (x *CMsgRemoteClientPingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteClientPingResponse.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientPingResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{21}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{23}
 }
 
 type CMsgRemoteClientAcceptEULA struct {
@@ -1755,7 +1864,7 @@ type CMsgRemoteClientAcceptEULA struct {
 
 func (x *CMsgRemoteClientAcceptEULA) Reset() {
 	*x = CMsgRemoteClientAcceptEULA{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[22]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1767,7 +1876,7 @@ func (x *CMsgRemoteClientAcceptEULA) String() string {
 func (*CMsgRemoteClientAcceptEULA) ProtoMessage() {}
 
 func (x *CMsgRemoteClientAcceptEULA) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[22]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1780,7 +1889,7 @@ func (x *CMsgRemoteClientAcceptEULA) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteClientAcceptEULA.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientAcceptEULA) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{22}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *CMsgRemoteClientAcceptEULA) GetAppId() []uint32 {
@@ -1813,7 +1922,7 @@ type CMsgRemoteClientAcceptAllEULAs struct {
 
 func (x *CMsgRemoteClientAcceptAllEULAs) Reset() {
 	*x = CMsgRemoteClientAcceptAllEULAs{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[23]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1825,7 +1934,7 @@ func (x *CMsgRemoteClientAcceptAllEULAs) String() string {
 func (*CMsgRemoteClientAcceptAllEULAs) ProtoMessage() {}
 
 func (x *CMsgRemoteClientAcceptAllEULAs) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[23]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1838,7 +1947,7 @@ func (x *CMsgRemoteClientAcceptAllEULAs) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteClientAcceptAllEULAs.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientAcceptAllEULAs) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{23}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *CMsgRemoteClientAcceptAllEULAs) GetAppId() uint32 {
@@ -1858,7 +1967,7 @@ type CMsgRemoteClientGetControllerConfig struct {
 
 func (x *CMsgRemoteClientGetControllerConfig) Reset() {
 	*x = CMsgRemoteClientGetControllerConfig{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[24]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1870,7 +1979,7 @@ func (x *CMsgRemoteClientGetControllerConfig) String() string {
 func (*CMsgRemoteClientGetControllerConfig) ProtoMessage() {}
 
 func (x *CMsgRemoteClientGetControllerConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[24]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1883,7 +1992,7 @@ func (x *CMsgRemoteClientGetControllerConfig) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CMsgRemoteClientGetControllerConfig.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientGetControllerConfig) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{24}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *CMsgRemoteClientGetControllerConfig) GetAppId() uint32 {
@@ -1915,7 +2024,7 @@ const (
 
 func (x *CMsgRemoteClientGetControllerConfigResponse) Reset() {
 	*x = CMsgRemoteClientGetControllerConfigResponse{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[25]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1927,7 +2036,7 @@ func (x *CMsgRemoteClientGetControllerConfigResponse) String() string {
 func (*CMsgRemoteClientGetControllerConfigResponse) ProtoMessage() {}
 
 func (x *CMsgRemoteClientGetControllerConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[25]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1940,7 +2049,7 @@ func (x *CMsgRemoteClientGetControllerConfigResponse) ProtoReflect() protoreflec
 
 // Deprecated: Use CMsgRemoteClientGetControllerConfigResponse.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientGetControllerConfigResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{25}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *CMsgRemoteClientGetControllerConfigResponse) GetEresult() int32 {
@@ -1966,7 +2075,7 @@ type CMsgRemoteClientStreamingEnabled struct {
 
 func (x *CMsgRemoteClientStreamingEnabled) Reset() {
 	*x = CMsgRemoteClientStreamingEnabled{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[26]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1978,7 +2087,7 @@ func (x *CMsgRemoteClientStreamingEnabled) String() string {
 func (*CMsgRemoteClientStreamingEnabled) ProtoMessage() {}
 
 func (x *CMsgRemoteClientStreamingEnabled) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[26]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1991,7 +2100,7 @@ func (x *CMsgRemoteClientStreamingEnabled) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteClientStreamingEnabled.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientStreamingEnabled) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{26}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *CMsgRemoteClientStreamingEnabled) GetEnabled() bool {
@@ -2014,7 +2123,7 @@ type CMsgRemoteClientWifiAPStatus struct {
 
 func (x *CMsgRemoteClientWifiAPStatus) Reset() {
 	*x = CMsgRemoteClientWifiAPStatus{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[27]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2026,7 +2135,7 @@ func (x *CMsgRemoteClientWifiAPStatus) String() string {
 func (*CMsgRemoteClientWifiAPStatus) ProtoMessage() {}
 
 func (x *CMsgRemoteClientWifiAPStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[27]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2039,7 +2148,7 @@ func (x *CMsgRemoteClientWifiAPStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteClientWifiAPStatus.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientWifiAPStatus) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{27}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *CMsgRemoteClientWifiAPStatus) GetSsid() string {
@@ -2087,7 +2196,7 @@ type CMsgRemoteClientPairWifiAP struct {
 
 func (x *CMsgRemoteClientPairWifiAP) Reset() {
 	*x = CMsgRemoteClientPairWifiAP{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[28]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2099,7 +2208,7 @@ func (x *CMsgRemoteClientPairWifiAP) String() string {
 func (*CMsgRemoteClientPairWifiAP) ProtoMessage() {}
 
 func (x *CMsgRemoteClientPairWifiAP) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[28]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2112,7 +2221,7 @@ func (x *CMsgRemoteClientPairWifiAP) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRemoteClientPairWifiAP.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientPairWifiAP) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{28}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *CMsgRemoteClientPairWifiAP) GetSsid() string {
@@ -2145,7 +2254,7 @@ const (
 
 func (x *CMsgRemoteClientPairWifiAPResponse) Reset() {
 	*x = CMsgRemoteClientPairWifiAPResponse{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[29]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2157,7 +2266,7 @@ func (x *CMsgRemoteClientPairWifiAPResponse) String() string {
 func (*CMsgRemoteClientPairWifiAPResponse) ProtoMessage() {}
 
 func (x *CMsgRemoteClientPairWifiAPResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[29]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2170,7 +2279,7 @@ func (x *CMsgRemoteClientPairWifiAPResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CMsgRemoteClientPairWifiAPResponse.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientPairWifiAPResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{29}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *CMsgRemoteClientPairWifiAPResponse) GetEPairResult() int32 {
@@ -2216,7 +2325,7 @@ const (
 
 func (x *CMsgRemoteClientAppStatus_AppStatus) Reset() {
 	*x = CMsgRemoteClientAppStatus_AppStatus{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[30]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2228,7 +2337,7 @@ func (x *CMsgRemoteClientAppStatus_AppStatus) String() string {
 func (*CMsgRemoteClientAppStatus_AppStatus) ProtoMessage() {}
 
 func (x *CMsgRemoteClientAppStatus_AppStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[30]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2319,7 +2428,7 @@ type CMsgRemoteClientAppStatus_ShortcutInfo struct {
 
 func (x *CMsgRemoteClientAppStatus_ShortcutInfo) Reset() {
 	*x = CMsgRemoteClientAppStatus_ShortcutInfo{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[31]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2331,7 +2440,7 @@ func (x *CMsgRemoteClientAppStatus_ShortcutInfo) String() string {
 func (*CMsgRemoteClientAppStatus_ShortcutInfo) ProtoMessage() {}
 
 func (x *CMsgRemoteClientAppStatus_ShortcutInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[31]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2385,7 +2494,7 @@ type CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement struct {
 
 func (x *CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement) Reset() {
 	*x = CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[32]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2397,7 +2506,7 @@ func (x *CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement) String() s
 func (*CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement) ProtoMessage() {}
 
 func (x *CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[32]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2437,7 +2546,7 @@ type CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex struct {
 
 func (x *CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex) Reset() {
 	*x = CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[33]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2449,7 +2558,7 @@ func (x *CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex) String() strin
 func (*CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex) ProtoMessage() {}
 
 func (x *CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[33]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2489,7 +2598,7 @@ type CMsgRemoteClientStartStream_ReservedGamepad struct {
 
 func (x *CMsgRemoteClientStartStream_ReservedGamepad) Reset() {
 	*x = CMsgRemoteClientStartStream_ReservedGamepad{}
-	mi := &file_steammessages_remoteclient_proto_msgTypes[34]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2501,7 +2610,7 @@ func (x *CMsgRemoteClientStartStream_ReservedGamepad) String() string {
 func (*CMsgRemoteClientStartStream_ReservedGamepad) ProtoMessage() {}
 
 func (x *CMsgRemoteClientStartStream_ReservedGamepad) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteclient_proto_msgTypes[34]
+	mi := &file_steammessages_remoteclient_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2514,7 +2623,7 @@ func (x *CMsgRemoteClientStartStream_ReservedGamepad) ProtoReflect() protoreflec
 
 // Deprecated: Use CMsgRemoteClientStartStream_ReservedGamepad.ProtoReflect.Descriptor instead.
 func (*CMsgRemoteClientStartStream_ReservedGamepad) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{18, 0}
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{20, 0}
 }
 
 func (x *CMsgRemoteClientStartStream_ReservedGamepad) GetControllerType() uint32 {
@@ -2613,13 +2722,15 @@ const file_steammessages_remoteclient_proto_rawDesc = "" +
 	"\n" +
 	"categories\x18\x03 \x03(\tR\n" +
 	"categories\x12\x18\n" +
-	"\aexepath\x18\x04 \x01(\tR\aexepath\"\xf0\x04\n" +
+	"\aexepath\x18\x04 \x01(\tR\aexepath\"\xcc\x05\n" +
 	"#CMsgRemoteClientDownloadsManagement\x12r\n" +
 	"\x16change_queue_placement\x18\x01 \x01(\v2<.CMsgRemoteClientDownloadsManagement.ChangeAppQueuePlacementR\x14changeQueuePlacement\x12l\n" +
 	"\x15change_download_index\x18\x02 \x01(\v28.CMsgRemoteClientDownloadsManagement.ChangeDownloadIndexR\x13changeDownloadIndex\x120\n" +
 	"\x14enable_all_downloads\x18\x03 \x01(\bR\x12enableAllDownloads\x12E\n" +
 	" remove_from_download_list_app_id\x18\x04 \x01(\rR\x1bremoveFromDownloadListAppId\x12>\n" +
-	"\x1bsuspend_download_throttling\x18\x05 \x01(\bR\x19suspendDownloadThrottling\x1aY\n" +
+	"\x1bsuspend_download_throttling\x18\x05 \x01(\bR\x19suspendDownloadThrottling\x12.\n" +
+	"\x13uninstalling_app_id\x18\x06 \x01(\rR\x11uninstallingAppId\x12*\n" +
+	"\x11installing_app_id\x18\a \x01(\rR\x0finstallingAppId\x1aY\n" +
 	"\x17ChangeAppQueuePlacement\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12'\n" +
 	"\x0fqueue_placement\x18\x02 \x01(\rR\x0equeuePlacement\x1aS\n" +
@@ -2658,7 +2769,11 @@ const file_steammessages_remoteclient_proto_rawDesc = "" +
 	" CMsgRemoteClientDownloadingAppID\x12,\n" +
 	"\x12downloading_app_id\x18\x01 \x01(\rR\x10downloadingAppId\x12/\n" +
 	"\vupdate_info\x18\x02 \x01(\v2\x0e.AppUpdateInfoR\n" +
-	"updateInfo\"\xe8\x06\n" +
+	"updateInfo\"3\n" +
+	"\x1aCMsgRemoteClientInstallApp\x12\x15\n" +
+	"\x06app_id\x18\x01 \x01(\rR\x05appId\"O\n" +
+	"\"CMsgRemoteClientInstallAppResponse\x12)\n" +
+	"\x0fe_launch_result\x18\x01 \x01(\x05:\x012R\reLaunchResult\"\xe8\x06\n" +
 	"\x1bCMsgRemoteClientStartStream\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12 \n" +
 	"\venvironment\x18\x02 \x01(\x05R\venvironment\x12#\n" +
@@ -2754,7 +2869,7 @@ func file_steammessages_remoteclient_proto_rawDescGZIP() []byte {
 }
 
 var file_steammessages_remoteclient_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_steammessages_remoteclient_proto_msgTypes = make([]protoimpl.MessageInfo, 35)
+var file_steammessages_remoteclient_proto_msgTypes = make([]protoimpl.MessageInfo, 37)
 var file_steammessages_remoteclient_proto_goTypes = []any{
 	(ERemoteClientPairWifiAPResult)(0),                                  // 0: ERemoteClientPairWifiAPResult
 	(EStreamingDongleFixResult)(0),                                      // 1: EStreamingDongleFixResult
@@ -2776,39 +2891,41 @@ var file_steammessages_remoteclient_proto_goTypes = []any{
 	(*CMsgRemoteClientAppUpdateStopped)(nil),                            // 17: CMsgRemoteClientAppUpdateStopped
 	(*CMsgRemoteClientAppUpdateInfoComplete)(nil),                       // 18: CMsgRemoteClientAppUpdateInfoComplete
 	(*CMsgRemoteClientDownloadingAppID)(nil),                            // 19: CMsgRemoteClientDownloadingAppID
-	(*CMsgRemoteClientStartStream)(nil),                                 // 20: CMsgRemoteClientStartStream
-	(*CMsgRemoteClientStartStreamResponse)(nil),                         // 21: CMsgRemoteClientStartStreamResponse
-	(*CMsgRemoteClientPing)(nil),                                        // 22: CMsgRemoteClientPing
-	(*CMsgRemoteClientPingResponse)(nil),                                // 23: CMsgRemoteClientPingResponse
-	(*CMsgRemoteClientAcceptEULA)(nil),                                  // 24: CMsgRemoteClientAcceptEULA
-	(*CMsgRemoteClientAcceptAllEULAs)(nil),                              // 25: CMsgRemoteClientAcceptAllEULAs
-	(*CMsgRemoteClientGetControllerConfig)(nil),                         // 26: CMsgRemoteClientGetControllerConfig
-	(*CMsgRemoteClientGetControllerConfigResponse)(nil),                 // 27: CMsgRemoteClientGetControllerConfigResponse
-	(*CMsgRemoteClientStreamingEnabled)(nil),                            // 28: CMsgRemoteClientStreamingEnabled
-	(*CMsgRemoteClientWifiAPStatus)(nil),                                // 29: CMsgRemoteClientWifiAPStatus
-	(*CMsgRemoteClientPairWifiAP)(nil),                                  // 30: CMsgRemoteClientPairWifiAP
-	(*CMsgRemoteClientPairWifiAPResponse)(nil),                          // 31: CMsgRemoteClientPairWifiAPResponse
-	(*CMsgRemoteClientAppStatus_AppStatus)(nil),                         // 32: CMsgRemoteClientAppStatus.AppStatus
-	(*CMsgRemoteClientAppStatus_ShortcutInfo)(nil),                      // 33: CMsgRemoteClientAppStatus.ShortcutInfo
-	(*CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement)(nil), // 34: CMsgRemoteClientDownloadsManagement.ChangeAppQueuePlacement
-	(*CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex)(nil),     // 35: CMsgRemoteClientDownloadsManagement.ChangeDownloadIndex
-	(*CMsgRemoteClientStartStream_ReservedGamepad)(nil),                 // 36: CMsgRemoteClientStartStream.ReservedGamepad
-	(*CMsgRemoteClientBroadcastStatus)(nil),                             // 37: CMsgRemoteClientBroadcastStatus
-	(EStreamTransport)(0),                                               // 38: EStreamTransport
+	(*CMsgRemoteClientInstallApp)(nil),                                  // 20: CMsgRemoteClientInstallApp
+	(*CMsgRemoteClientInstallAppResponse)(nil),                          // 21: CMsgRemoteClientInstallAppResponse
+	(*CMsgRemoteClientStartStream)(nil),                                 // 22: CMsgRemoteClientStartStream
+	(*CMsgRemoteClientStartStreamResponse)(nil),                         // 23: CMsgRemoteClientStartStreamResponse
+	(*CMsgRemoteClientPing)(nil),                                        // 24: CMsgRemoteClientPing
+	(*CMsgRemoteClientPingResponse)(nil),                                // 25: CMsgRemoteClientPingResponse
+	(*CMsgRemoteClientAcceptEULA)(nil),                                  // 26: CMsgRemoteClientAcceptEULA
+	(*CMsgRemoteClientAcceptAllEULAs)(nil),                              // 27: CMsgRemoteClientAcceptAllEULAs
+	(*CMsgRemoteClientGetControllerConfig)(nil),                         // 28: CMsgRemoteClientGetControllerConfig
+	(*CMsgRemoteClientGetControllerConfigResponse)(nil),                 // 29: CMsgRemoteClientGetControllerConfigResponse
+	(*CMsgRemoteClientStreamingEnabled)(nil),                            // 30: CMsgRemoteClientStreamingEnabled
+	(*CMsgRemoteClientWifiAPStatus)(nil),                                // 31: CMsgRemoteClientWifiAPStatus
+	(*CMsgRemoteClientPairWifiAP)(nil),                                  // 32: CMsgRemoteClientPairWifiAP
+	(*CMsgRemoteClientPairWifiAPResponse)(nil),                          // 33: CMsgRemoteClientPairWifiAPResponse
+	(*CMsgRemoteClientAppStatus_AppStatus)(nil),                         // 34: CMsgRemoteClientAppStatus.AppStatus
+	(*CMsgRemoteClientAppStatus_ShortcutInfo)(nil),                      // 35: CMsgRemoteClientAppStatus.ShortcutInfo
+	(*CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement)(nil), // 36: CMsgRemoteClientDownloadsManagement.ChangeAppQueuePlacement
+	(*CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex)(nil),     // 37: CMsgRemoteClientDownloadsManagement.ChangeDownloadIndex
+	(*CMsgRemoteClientStartStream_ReservedGamepad)(nil),                 // 38: CMsgRemoteClientStartStream.ReservedGamepad
+	(*CMsgRemoteClientBroadcastStatus)(nil),                             // 39: CMsgRemoteClientBroadcastStatus
+	(EStreamTransport)(0),                                               // 40: EStreamTransport
 }
 var file_steammessages_remoteclient_proto_depIdxs = []int32{
-	37, // 0: CMsgRemoteClientStatus.status:type_name -> CMsgRemoteClientBroadcastStatus
+	39, // 0: CMsgRemoteClientStatus.status:type_name -> CMsgRemoteClientBroadcastStatus
 	6,  // 1: AppUpdateInfo.progress_weights:type_name -> AppStageProgress
-	32, // 2: CMsgRemoteClientAppStatus.status_updates:type_name -> CMsgRemoteClientAppStatus.AppStatus
-	34, // 3: CMsgRemoteClientDownloadsManagement.change_queue_placement:type_name -> CMsgRemoteClientDownloadsManagement.ChangeAppQueuePlacement
-	35, // 4: CMsgRemoteClientDownloadsManagement.change_download_index:type_name -> CMsgRemoteClientDownloadsManagement.ChangeDownloadIndex
+	34, // 2: CMsgRemoteClientAppStatus.status_updates:type_name -> CMsgRemoteClientAppStatus.AppStatus
+	36, // 3: CMsgRemoteClientDownloadsManagement.change_queue_placement:type_name -> CMsgRemoteClientDownloadsManagement.ChangeAppQueuePlacement
+	37, // 4: CMsgRemoteClientDownloadsManagement.change_download_index:type_name -> CMsgRemoteClientDownloadsManagement.ChangeDownloadIndex
 	7,  // 5: CMsgRemoteClientAppUpdateStopped.update_info:type_name -> AppUpdateInfo
 	7,  // 6: CMsgRemoteClientDownloadingAppID.update_info:type_name -> AppUpdateInfo
-	36, // 7: CMsgRemoteClientStartStream.gamepads:type_name -> CMsgRemoteClientStartStream.ReservedGamepad
-	38, // 8: CMsgRemoteClientStartStream.supported_transport:type_name -> EStreamTransport
-	38, // 9: CMsgRemoteClientStartStreamResponse.transport:type_name -> EStreamTransport
+	38, // 7: CMsgRemoteClientStartStream.gamepads:type_name -> CMsgRemoteClientStartStream.ReservedGamepad
+	40, // 8: CMsgRemoteClientStartStream.supported_transport:type_name -> EStreamTransport
+	40, // 9: CMsgRemoteClientStartStreamResponse.transport:type_name -> EStreamTransport
 	7,  // 10: CMsgRemoteClientAppStatus.AppStatus.update_info:type_name -> AppUpdateInfo
-	33, // 11: CMsgRemoteClientAppStatus.AppStatus.shortcut_info:type_name -> CMsgRemoteClientAppStatus.ShortcutInfo
+	35, // 11: CMsgRemoteClientAppStatus.AppStatus.shortcut_info:type_name -> CMsgRemoteClientAppStatus.ShortcutInfo
 	8,  // 12: CMsgRemoteClientAppStatus.AppStatus.cloud_status:type_name -> AppCloudStatus
 	13, // [13:13] is the sub-list for method output_type
 	13, // [13:13] is the sub-list for method input_type
@@ -2830,7 +2947,7 @@ func file_steammessages_remoteclient_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_remoteclient_proto_rawDesc), len(file_steammessages_remoteclient_proto_rawDesc)),
 			NumEnums:      2,
-			NumMessages:   35,
+			NumMessages:   37,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

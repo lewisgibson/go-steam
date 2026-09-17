@@ -2309,7 +2309,7 @@ func (x *CStore_GetStorePreferences_Request) GetCountryCode() string {
 type CStore_UserPreferences struct {
 	state                                        protoimpl.MessageState             `protogen:"open.v1"`
 	PrimaryLanguage                              *int32                             `protobuf:"varint,1,opt,name=primary_language,json=primaryLanguage" json:"primary_language,omitempty"`
-	SecondaryLanguages                           *uint32                            `protobuf:"varint,2,opt,name=secondary_languages,json=secondaryLanguages" json:"secondary_languages,omitempty"`
+	SecondaryLanguages                           *uint64                            `protobuf:"varint,2,opt,name=secondary_languages,json=secondaryLanguages" json:"secondary_languages,omitempty"`
 	PlatformWindows                              *bool                              `protobuf:"varint,3,opt,name=platform_windows,json=platformWindows" json:"platform_windows,omitempty"`
 	PlatformMac                                  *bool                              `protobuf:"varint,4,opt,name=platform_mac,json=platformMac" json:"platform_mac,omitempty"`
 	PlatformLinux                                *bool                              `protobuf:"varint,5,opt,name=platform_linux,json=platformLinux" json:"platform_linux,omitempty"`
@@ -2370,7 +2370,7 @@ func (x *CStore_UserPreferences) GetPrimaryLanguage() int32 {
 	return 0
 }
 
-func (x *CStore_UserPreferences) GetSecondaryLanguages() uint32 {
+func (x *CStore_UserPreferences) GetSecondaryLanguages() uint64 {
 	if x != nil && x.SecondaryLanguages != nil {
 		return *x.SecondaryLanguages
 	}
@@ -4382,7 +4382,7 @@ const file_steammessages_store_steamclient_proto_rawDesc = "" +
 	"\fcountry_code\x18\x01 \x01(\tR\vcountryCode\"\xd7\a\n" +
 	"\x16CStore_UserPreferences\x12)\n" +
 	"\x10primary_language\x18\x01 \x01(\x05R\x0fprimaryLanguage\x12/\n" +
-	"\x13secondary_languages\x18\x02 \x01(\rR\x12secondaryLanguages\x12)\n" +
+	"\x13secondary_languages\x18\x02 \x01(\x04R\x12secondaryLanguages\x12)\n" +
 	"\x10platform_windows\x18\x03 \x01(\bR\x0fplatformWindows\x12!\n" +
 	"\fplatform_mac\x18\x04 \x01(\bR\vplatformMac\x12%\n" +
 	"\x0eplatform_linux\x18\x05 \x01(\bR\rplatformLinux\x12+\n" +

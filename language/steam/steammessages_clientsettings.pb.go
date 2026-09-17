@@ -694,6 +694,8 @@ type CMsgClientSettings struct {
 	ControllerconnectNotificationSound    *bool                     `protobuf:"varint,4036,opt,name=controllerconnect_notification_sound,json=controllerconnectNotificationSound" json:"controllerconnect_notification_sound,omitempty"`
 	ControllerLowBatteryNotificationToast *bool                     `protobuf:"varint,4037,opt,name=controller_low_battery_notification_toast,json=controllerLowBatteryNotificationToast" json:"controller_low_battery_notification_toast,omitempty"`
 	ControllerLowBatteryNotificationSound *bool                     `protobuf:"varint,4038,opt,name=controller_low_battery_notification_sound,json=controllerLowBatteryNotificationSound" json:"controller_low_battery_notification_sound,omitempty"`
+	LoggedInAsUserNotificationToast       *bool                     `protobuf:"varint,4039,opt,name=logged_in_as_user_notification_toast,json=loggedInAsUserNotificationToast" json:"logged_in_as_user_notification_toast,omitempty"`
+	LoggedInAsUserNotificationSound       *bool                     `protobuf:"varint,4040,opt,name=logged_in_as_user_notification_sound,json=loggedInAsUserNotificationSound" json:"logged_in_as_user_notification_sound,omitempty"`
 	SmoothScrollWebviews                  *bool                     `protobuf:"varint,5000,opt,name=smooth_scroll_webviews,json=smoothScrollWebviews" json:"smooth_scroll_webviews,omitempty"`
 	EnableGpuAcceleratedWebviews          *bool                     `protobuf:"varint,5001,opt,name=enable_gpu_accelerated_webviews,json=enableGpuAcceleratedWebviews" json:"enable_gpu_accelerated_webviews,omitempty"`
 	EnableHardwareVideoDecoding           *bool                     `protobuf:"varint,5003,opt,name=enable_hardware_video_decoding,json=enableHardwareVideoDecoding" json:"enable_hardware_video_decoding,omitempty"`
@@ -720,6 +722,7 @@ type CMsgClientSettings struct {
 	LibraryDisplayIconInGameList          *bool                     `protobuf:"varint,7007,opt,name=library_display_icon_in_game_list,json=libraryDisplayIconInGameList" json:"library_display_icon_in_game_list,omitempty"`
 	ReadyToPlayIncludesStreaming          *bool                     `protobuf:"varint,7008,opt,name=ready_to_play_includes_streaming,json=readyToPlayIncludesStreaming" json:"ready_to_play_includes_streaming,omitempty"`
 	ShowSteamDeckInfo                     *bool                     `protobuf:"varint,7009,opt,name=show_steam_deck_info,json=showSteamDeckInfo" json:"show_steam_deck_info,omitempty"`
+	LibraryHomeBigArt                     *bool                     `protobuf:"varint,7010,opt,name=library_home_big_art,json=libraryHomeBigArt" json:"library_home_big_art,omitempty"`
 	EnableShaderPrecache                  *bool                     `protobuf:"varint,8000,opt,name=enable_shader_precache,json=enableShaderPrecache" json:"enable_shader_precache,omitempty"`
 	EnableShaderBackgroundProcessing      *bool                     `protobuf:"varint,8001,opt,name=enable_shader_background_processing,json=enableShaderBackgroundProcessing" json:"enable_shader_background_processing,omitempty"`
 	ShaderPrecachedSize                   *uint64                   `protobuf:"varint,8002,opt,name=shader_precached_size,json=shaderPrecachedSize" json:"shader_precached_size,omitempty"`
@@ -779,6 +782,8 @@ type CMsgClientSettings struct {
 	StartupMovieLocalPath                 *string                   `protobuf:"bytes,16001,opt,name=startup_movie_local_path,json=startupMovieLocalPath" json:"startup_movie_local_path,omitempty"`
 	StartupMovieShuffle                   *bool                     `protobuf:"varint,16002,opt,name=startup_movie_shuffle,json=startupMovieShuffle" json:"startup_movie_shuffle,omitempty"`
 	StartupMovieUsedForResume             *bool                     `protobuf:"varint,16003,opt,name=startup_movie_used_for_resume,json=startupMovieUsedForResume" json:"startup_movie_used_for_resume,omitempty"`
+	ScreensaverCurrentId                  *string                   `protobuf:"bytes,16004,opt,name=screensaver_current_id,json=screensaverCurrentId" json:"screensaver_current_id,omitempty"`
+	ScreensaverSettings                   *string                   `protobuf:"bytes,16005,opt,name=screensaver_settings,json=screensaverSettings" json:"screensaver_settings,omitempty"`
 	GameNotesEnableSpellcheck             *bool                     `protobuf:"varint,17001,opt,name=game_notes_enable_spellcheck,json=gameNotesEnableSpellcheck" json:"game_notes_enable_spellcheck,omitempty"`
 	ScreenshotItemsPerRow                 *int32                    `protobuf:"varint,18000,opt,name=screenshot_items_per_row,json=screenshotItemsPerRow" json:"screenshot_items_per_row,omitempty"`
 	GamerecordingBackgroundPath           *string                   `protobuf:"bytes,18201,opt,name=gamerecording_background_path,json=gamerecordingBackgroundPath" json:"gamerecording_background_path,omitempty"`
@@ -871,8 +876,6 @@ type CMsgClientSettings struct {
 	SystemIdleScreensaverBatterySec       *int32                    `protobuf:"varint,24008,opt,name=system_idle_screensaver_battery_sec,json=systemIdleScreensaverBatterySec" json:"system_idle_screensaver_battery_sec,omitempty"`
 	SystemIdleScreensaverAcSec            *int32                    `protobuf:"varint,24009,opt,name=system_idle_screensaver_ac_sec,json=systemIdleScreensaverAcSec" json:"system_idle_screensaver_ac_sec,omitempty"`
 	VrShowPerfGraphInHmd                  *bool                     `protobuf:"varint,25000,opt,name=vr_show_perf_graph_in_hmd,json=vrShowPerfGraphInHmd" json:"vr_show_perf_graph_in_hmd,omitempty"`
-	VrAudioSpatialize                     *bool                     `protobuf:"varint,25001,opt,name=vr_audio_spatialize,json=vrAudioSpatialize" json:"vr_audio_spatialize,omitempty"`
-	VrAudioSpatializeSurround             *bool                     `protobuf:"varint,25002,opt,name=vr_audio_spatialize_surround,json=vrAudioSpatializeSurround" json:"vr_audio_spatialize_surround,omitempty"`
 	AccessibilityDebugVisualizer          *bool                     `protobuf:"varint,26000,opt,name=accessibility_debug_visualizer,json=accessibilityDebugVisualizer" json:"accessibility_debug_visualizer,omitempty"`
 	AccessibilityScreenReaderEnabled      *bool                     `protobuf:"varint,26001,opt,name=accessibility_screen_reader_enabled,json=accessibilityScreenReaderEnabled" json:"accessibility_screen_reader_enabled,omitempty"`
 	AccessibilityScreenReaderRate         *float32                  `protobuf:"fixed32,26002,opt,name=accessibility_screen_reader_rate,json=accessibilityScreenReaderRate" json:"accessibility_screen_reader_rate,omitempty"`
@@ -904,6 +907,7 @@ type CMsgClientSettings struct {
 	OobeStage_2Completed                  *bool                     `protobuf:"varint,28004,opt,name=oobe_stage_2_completed,json=oobeStage2Completed" json:"oobe_stage_2_completed,omitempty"`
 	OobeStage_2TestModeEnabled            *bool                     `protobuf:"varint,28005,opt,name=oobe_stage_2_test_mode_enabled,json=oobeStage2TestModeEnabled" json:"oobe_stage_2_test_mode_enabled,omitempty"`
 	ForceStage_2Oobe                      *bool                     `protobuf:"varint,28006,opt,name=force_stage_2_oobe,json=forceStage2Oobe" json:"force_stage_2_oobe,omitempty"`
+	CompatShowAllTools                    *bool                     `protobuf:"varint,29000,opt,name=compat_show_all_tools,json=compatShowAllTools" json:"compat_show_all_tools,omitempty"`
 	unknownFields                         protoimpl.UnknownFields
 	sizeCache                             protoimpl.SizeCache
 }
@@ -1335,6 +1339,20 @@ func (x *CMsgClientSettings) GetControllerLowBatteryNotificationSound() bool {
 	return false
 }
 
+func (x *CMsgClientSettings) GetLoggedInAsUserNotificationToast() bool {
+	if x != nil && x.LoggedInAsUserNotificationToast != nil {
+		return *x.LoggedInAsUserNotificationToast
+	}
+	return false
+}
+
+func (x *CMsgClientSettings) GetLoggedInAsUserNotificationSound() bool {
+	if x != nil && x.LoggedInAsUserNotificationSound != nil {
+		return *x.LoggedInAsUserNotificationSound
+	}
+	return false
+}
+
 func (x *CMsgClientSettings) GetSmoothScrollWebviews() bool {
 	if x != nil && x.SmoothScrollWebviews != nil {
 		return *x.SmoothScrollWebviews
@@ -1513,6 +1531,13 @@ func (x *CMsgClientSettings) GetReadyToPlayIncludesStreaming() bool {
 func (x *CMsgClientSettings) GetShowSteamDeckInfo() bool {
 	if x != nil && x.ShowSteamDeckInfo != nil {
 		return *x.ShowSteamDeckInfo
+	}
+	return false
+}
+
+func (x *CMsgClientSettings) GetLibraryHomeBigArt() bool {
+	if x != nil && x.LibraryHomeBigArt != nil {
+		return *x.LibraryHomeBigArt
 	}
 	return false
 }
@@ -1928,6 +1953,20 @@ func (x *CMsgClientSettings) GetStartupMovieUsedForResume() bool {
 		return *x.StartupMovieUsedForResume
 	}
 	return false
+}
+
+func (x *CMsgClientSettings) GetScreensaverCurrentId() string {
+	if x != nil && x.ScreensaverCurrentId != nil {
+		return *x.ScreensaverCurrentId
+	}
+	return ""
+}
+
+func (x *CMsgClientSettings) GetScreensaverSettings() string {
+	if x != nil && x.ScreensaverSettings != nil {
+		return *x.ScreensaverSettings
+	}
+	return ""
 }
 
 func (x *CMsgClientSettings) GetGameNotesEnableSpellcheck() bool {
@@ -2574,20 +2613,6 @@ func (x *CMsgClientSettings) GetVrShowPerfGraphInHmd() bool {
 	return false
 }
 
-func (x *CMsgClientSettings) GetVrAudioSpatialize() bool {
-	if x != nil && x.VrAudioSpatialize != nil {
-		return *x.VrAudioSpatialize
-	}
-	return false
-}
-
-func (x *CMsgClientSettings) GetVrAudioSpatializeSurround() bool {
-	if x != nil && x.VrAudioSpatializeSurround != nil {
-		return *x.VrAudioSpatializeSurround
-	}
-	return false
-}
-
 func (x *CMsgClientSettings) GetAccessibilityDebugVisualizer() bool {
 	if x != nil && x.AccessibilityDebugVisualizer != nil {
 		return *x.AccessibilityDebugVisualizer
@@ -2805,6 +2830,13 @@ func (x *CMsgClientSettings) GetForceStage_2Oobe() bool {
 	return false
 }
 
+func (x *CMsgClientSettings) GetCompatShowAllTools() bool {
+	if x != nil && x.CompatShowAllTools != nil {
+		return *x.CompatShowAllTools
+	}
+	return false
+}
+
 var file_steammessages_clientsettings_proto_extTypes = []protoimpl.ExtensionInfo{
 	{
 		ExtendedType:  (*descriptorpb.FieldOptions)(nil),
@@ -2966,7 +2998,7 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"valueFloat\x12#\n" +
 	"\fvalue_string\x18\a \x01(\tH\x00R\vvalueString\x120\n" +
 	"\fvalue_hotkey\x18\b \x01(\v2\v.CMsgHotkeyH\x00R\vvalueHotkeyB\a\n" +
-	"\x05value\"\x98\xdb\x01\n" +
+	"\x05value\"\xe0\xde\x01\n" +
 	"\x12CMsgClientSettings\x12b\n" +
 	"\x15no_save_personal_info\x18\x01 \x01(\bB/\x80\xa6\x1d\x01\x8a\xa6\x1d'Software\\Valve\\Steam\\NoSavePersonalInfoR\x12noSavePersonalInfo\x12G\n" +
 	"\x11preferred_monitor\x18\x05 \x01(\tB\x1a\x80\xa6\x1d\x01\x8a\xa6\x1d\x12BigPicture/MonitorR\x10preferredMonitor\x12\x8e\x01\n" +
@@ -3025,7 +3057,9 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"$controllerconnect_notification_toast\x18\xc3\x1f \x01(\bB5\x80\xa6\x1d\x03\x8a\xa6\x1d)system\\ControllerConnectNotificationToast\x98\xa6\x1d\x01R\"controllerconnectNotificationToast\x12\x88\x01\n" +
 	"$controllerconnect_notification_sound\x18\xc4\x1f \x01(\bB5\x80\xa6\x1d\x03\x8a\xa6\x1d)system\\ControllerConnectNotificationSound\x98\xa6\x1d\x00R\"controllerconnectNotificationSound\x12\x93\x01\n" +
 	")controller_low_battery_notification_toast\x18\xc5\x1f \x01(\bB8\x80\xa6\x1d\x03\x8a\xa6\x1d,system\\ControllerLowBatteryNotificationToast\x98\xa6\x1d\x01R%controllerLowBatteryNotificationToast\x12\x93\x01\n" +
-	")controller_low_battery_notification_sound\x18\xc6\x1f \x01(\bB8\x80\xa6\x1d\x03\x8a\xa6\x1d,system\\ControllerLowBatteryNotificationSound\x98\xa6\x1d\x00R%controllerLowBatteryNotificationSound\x12;\n" +
+	")controller_low_battery_notification_sound\x18\xc6\x1f \x01(\bB8\x80\xa6\x1d\x03\x8a\xa6\x1d,system\\ControllerLowBatteryNotificationSound\x98\xa6\x1d\x00R%controllerLowBatteryNotificationSound\x12\x82\x01\n" +
+	"$logged_in_as_user_notification_toast\x18\xc7\x1f \x01(\bB2\x80\xa6\x1d\x03\x8a\xa6\x1d&system\\LoggedInAsUserNotificationToast\x98\xa6\x1d\x01R\x1floggedInAsUserNotificationToast\x12\x82\x01\n" +
+	"$logged_in_as_user_notification_sound\x18\xc8\x1f \x01(\bB2\x80\xa6\x1d\x03\x8a\xa6\x1d&system\\LoggedInAsUserNotificationSound\x98\xa6\x1d\x00R\x1floggedInAsUserNotificationSound\x12;\n" +
 	"\x16smooth_scroll_webviews\x18\x88' \x01(\bB\x04\x80\xa6\x1d\x05R\x14smoothScrollWebviews\x12L\n" +
 	"\x1fenable_gpu_accelerated_webviews\x18\x89' \x01(\bB\x04\x80\xa6\x1d\x05R\x1cenableGpuAcceleratedWebviews\x12J\n" +
 	"\x1eenable_hardware_video_decoding\x18\x8b' \x01(\bB\x04\x80\xa6\x1d\x05R\x1benableHardwareVideoDecoding\x12+\n" +
@@ -3052,7 +3086,8 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"!library_disable_community_content\x18\xde6 \x01(\bB&\x80\xa6\x1d\x03\x8a\xa6\x1d\x1eLibraryDisableCommunityContentR\x1elibraryDisableCommunityContent\x12r\n" +
 	"!library_display_icon_in_game_list\x18\xdf6 \x01(\bB(\x80\xa6\x1d\x03\x8a\xa6\x1d\x1cLibraryDisplayIconInGameList\x98\xa6\x1d\x01R\x1clibraryDisplayIconInGameList\x12m\n" +
 	" ready_to_play_includes_streaming\x18\xe06 \x01(\bB$\x80\xa6\x1d\x05\x8a\xa6\x1d\x1cReadyToPlayIncludesStreamingR\x1creadyToPlayIncludesStreaming\x12T\n" +
-	"\x14show_steam_deck_info\x18\xe16 \x01(\bB\"\x80\xa6\x1d\x03\x8a\xa6\x1d\x1aShowSteamDeckInfoInLibraryR\x11showSteamDeckInfo\x12;\n" +
+	"\x14show_steam_deck_info\x18\xe16 \x01(\bB\"\x80\xa6\x1d\x03\x8a\xa6\x1d\x1aShowSteamDeckInfoInLibraryR\x11showSteamDeckInfo\x12K\n" +
+	"\x14library_home_big_art\x18\xe26 \x01(\bB\x19\x80\xa6\x1d\x03\x8a\xa6\x1d\x11LibraryHomeBigArtR\x11libraryHomeBigArt\x12;\n" +
 	"\x16enable_shader_precache\x18\xc0> \x01(\bB\x04\x80\xa6\x1d\x05R\x14enableShaderPrecache\x12T\n" +
 	"#enable_shader_background_processing\x18\xc1> \x01(\bB\x04\x80\xa6\x1d\x05R enableShaderBackgroundProcessing\x12=\n" +
 	"\x15shader_precached_size\x18\xc2> \x01(\x04B\b\x80\xa6\x1d\x05\xc0\xa6\x1d\x01R\x13shaderPrecachedSize\x12F\n" +
@@ -3111,7 +3146,9 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"\x10startup_movie_id\x18\x80} \x01(\x04B.\x80\xa6\x1d\x01\x8a\xa6\x1d\"Customization/StartupMovie/MovieID\x90\xa6\x1d\x01R\x0estartupMovieId\x12j\n" +
 	"\x18startup_movie_local_path\x18\x81} \x01(\tB0\x80\xa6\x1d\x01\x8a\xa6\x1d$Customization/StartupMovie/LocalPath\x90\xa6\x1d\x01R\x15startupMovieLocalPath\x12c\n" +
 	"\x15startup_movie_shuffle\x18\x82} \x01(\bB.\x80\xa6\x1d\x01\x8a\xa6\x1d\"Customization/StartupMovie/Shuffle\x90\xa6\x1d\x01R\x13startupMovieShuffle\x12s\n" +
-	"\x1dstartup_movie_used_for_resume\x18\x83} \x01(\bB0\x80\xa6\x1d\x03\x8a\xa6\x1d(Customization/StartupMovie/UsedForResumeR\x19startupMovieUsedForResume\x12h\n" +
+	"\x1dstartup_movie_used_for_resume\x18\x83} \x01(\bB0\x80\xa6\x1d\x03\x8a\xa6\x1d(Customization/StartupMovie/UsedForResumeR\x19startupMovieUsedForResume\x12k\n" +
+	"\x16screensaver_current_id\x18\x84} \x01(\tB4\x80\xa6\x1d\x01\x8a\xa6\x1d,Customization/Screensaver/CurrentScreensaverR\x14screensaverCurrentId\x12^\n" +
+	"\x14screensaver_settings\x18\x85} \x01(\tB*\x80\xa6\x1d\x01\x8a\xa6\x1d\"Customization/Screensaver/SettingsR\x13screensaverSettings\x12h\n" +
 	"\x1cgame_notes_enable_spellcheck\x18\xe9\x84\x01 \x01(\bB%\x80\xa6\x1d\x02\x8a\xa6\x1d\x19GameNotesEnableSpellcheck\x98\xa6\x1d\x01R\x19gameNotesEnableSpellcheck\x12`\n" +
 	"\x18screenshot_items_per_row\x18Ќ\x01 \x01(\x05B%\x80\xa6\x1d\x02\x8a\xa6\x1d\x19ScreenshotViewItemsPerRow\xa0\xa6\x1d\x01R\x15screenshotItemsPerRow\x12J\n" +
 	"\x1dgamerecording_background_path\x18\x99\x8e\x01 \x01(\tB\x04\x80\xa6\x1d\x05R\x1bgamerecordingBackgroundPath\x12~\n" +
@@ -3203,9 +3240,7 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"(system_allow_battery_low_power_downloads\x18ƻ\x01 \x01(\bBE\x80\xa6\x1d\x01\x8a\xa6\x1d9Software\\Valve\\Steam\\System\\AllowBatteryLowPowerDownloads\x98\xa6\x1d\x00R#systemAllowBatteryLowPowerDownloads\x12\x95\x01\n" +
 	"#system_idle_screensaver_battery_sec\x18Ȼ\x01 \x01(\x05BE\x80\xa6\x1d\x01\x8a\xa6\x1d9Software\\Valve\\Steam\\System\\IdleScreensaverBatterySeconds\xa0\xa6\x1d\x00R\x1fsystemIdleScreensaverBatterySec\x12\x87\x01\n" +
 	"\x1esystem_idle_screensaver_ac_sec\x18ɻ\x01 \x01(\x05BA\x80\xa6\x1d\x01\x8a\xa6\x1d4Software\\Valve\\Steam\\System\\IdleScreensaverACSeconds\xa0\xa6\x1d\xac\x02R\x1asystemIdleScreensaverAcSec\x12\\\n" +
-	"\x19vr_show_perf_graph_in_hmd\x18\xa8\xc3\x01 \x01(\bB!\x80\xa6\x1d\x03\x8a\xa6\x1d\x15VR/ShowPerfGraphInHMD\x98\xa6\x1d\x00R\x14vrShowPerfGraphInHmd\x12N\n" +
-	"\x13vr_audio_spatialize\x18\xa9\xc3\x01 \x01(\bB\x1c\x80\xa6\x1d\x01\x8a\xa6\x1d\x10Audio/Spatialize\x98\xa6\x1d\x00R\x11vrAudioSpatialize\x12g\n" +
-	"\x1cvr_audio_spatialize_surround\x18\xaa\xc3\x01 \x01(\bB$\x80\xa6\x1d\x01\x8a\xa6\x1d\x18Audio/SpatializeSurround\x98\xa6\x1d\x00R\x19vrAudioSpatializeSurround\x12q\n" +
+	"\x19vr_show_perf_graph_in_hmd\x18\xa8\xc3\x01 \x01(\bB!\x80\xa6\x1d\x03\x8a\xa6\x1d\x15VR/ShowPerfGraphInHMD\x98\xa6\x1d\x00R\x14vrShowPerfGraphInHmd\x12q\n" +
 	"\x1eaccessibility_debug_visualizer\x18\x90\xcb\x01 \x01(\bB)\x80\xa6\x1d\x03\x8a\xa6\x1d\x1dAccessibility/DebugVisualizer\x98\xa6\x1d\x00R\x1caccessibilityDebugVisualizer\x12~\n" +
 	"#accessibility_screen_reader_enabled\x18\x91\xcb\x01 \x01(\bB-\x80\xa6\x1d\x01\x8a\xa6\x1d!Accessibility/ScreenReaderEnabled\x98\xa6\x1d\x00R accessibilityScreenReaderEnabled\x12y\n" +
 	" accessibility_screen_reader_rate\x18\x92\xcb\x01 \x01(\x02B.\x80\xa6\x1d\x03\x8a\xa6\x1d\x1fAccessibility/ScreenReaderPitch\xb5\xa6\x1d\x00\x00\x00?R\x1daccessibilityScreenReaderRate\x12z\n" +
@@ -3237,7 +3272,8 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"force_oobe\x18\xe3\xda\x01 \x01(\bB<\x80\xa6\x1d\x04\x8a\xa6\x1d0HKEY_CURRENT_USER\\Software\\Valve\\Steam\\ForceOOBE\x90\xa6\x1d\x01R\tforceOobe\x12\x93\x01\n" +
 	"\x16oobe_stage_2_completed\x18\xe4\xda\x01 \x01(\bB\\\x80\xa6\x1d\x05\x90\xa6\x1d\x01ʦ\x1dPTrue if OOBE stage 2 has completed or we're on a platform where we don't do OOBER\x13oobeStage2Completed\x12\xdc\x01\n" +
 	"\x1eoobe_stage_2_test_mode_enabled\x18\xe5\xda\x01 \x01(\bB\x96\x01\x80\xa6\x1d\x05\x90\xa6\x1d\x01\xc0\xa6\x1d\x01ʦ\x1d\x85\x01OOBE test mode is enabled for stage 2 either by passing -testoobe on the command line or setting the force_stage2_oobe client settingR\x19oobeStage2TestModeEnabled\x12q\n" +
-	"\x12force_stage_2_oobe\x18\xe6\xda\x01 \x01(\bBB\x80\xa6\x1d\x04\x8a\xa6\x1d6HKEY_CURRENT_USER\\Software\\Valve\\Steam\\ForceOOBEStage2\x90\xa6\x1d\x01R\x0fforceStage2Oobe*\x95\x02\n" +
+	"\x12force_stage_2_oobe\x18\xe6\xda\x01 \x01(\bBB\x80\xa6\x1d\x04\x8a\xa6\x1d6HKEY_CURRENT_USER\\Software\\Valve\\Steam\\ForceOOBEStage2\x90\xa6\x1d\x01R\x0fforceStage2Oobe\x12[\n" +
+	"\x15compat_show_all_tools\x18\xc8\xe2\x01 \x01(\bB&\x80\xa6\x1d\x03\x8a\xa6\x1d\x1aCompatibility/ShowAllTools\x98\xa6\x1d\x00R\x12compatShowAllTools*\x95\x02\n" +
 	"\x13EClientSettingStore\x12!\n" +
 	"\x1dk_EClientSettingStore_Invalid\x10\x00\x12-\n" +
 	")k_EClientSettingStore_ConfigStore_Install\x10\x01\x121\n" +
