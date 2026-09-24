@@ -3276,6 +3276,7 @@ type CPlayer_GetUserStats_Request struct {
 	ShaSchema     []byte                 `protobuf:"bytes,3,opt,name=sha_schema,json=shaSchema" json:"sha_schema,omitempty"`
 	CrcStats      *uint32                `protobuf:"varint,4,opt,name=crc_stats,json=crcStats" json:"crc_stats,omitempty"`
 	CrcSchema     *uint32                `protobuf:"varint,5,opt,name=crc_schema,json=crcSchema" json:"crc_schema,omitempty"`
+	AppRunning    *bool                  `protobuf:"varint,6,opt,name=app_running,json=appRunning" json:"app_running,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3343,6 +3344,13 @@ func (x *CPlayer_GetUserStats_Request) GetCrcSchema() uint32 {
 		return *x.CrcSchema
 	}
 	return 0
+}
+
+func (x *CPlayer_GetUserStats_Request) GetAppRunning() bool {
+	if x != nil && x.AppRunning != nil {
+		return *x.AppRunning
+	}
+	return false
 }
 
 type CPlayer_GetUserStats_Response struct {
@@ -9942,7 +9950,7 @@ const file_steammessages_player_steamclient_proto_rawDesc = "" +
 	"\fachievements\x18\x01 \x03(\v2=.CPlayer_GetGlobalAchievementPercentages_Response.AchievementR\fachievements\x1ah\n" +
 	"\vAchievement\x12!\n" +
 	"\finternal_key\x18\x01 \x01(\rR\vinternalKey\x126\n" +
-	"\x17player_percent_unlocked\x18\x02 \x01(\x02R\x15playerPercentUnlocked\"\xa9\x01\n" +
+	"\x17player_percent_unlocked\x18\x02 \x01(\x02R\x15playerPercentUnlocked\"\xca\x01\n" +
 	"\x1cCPlayer_GetUserStats_Request\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x04R\asteamid\x12\x14\n" +
 	"\x05appid\x18\x02 \x01(\rR\x05appid\x12\x1d\n" +
@@ -9950,7 +9958,9 @@ const file_steammessages_player_steamclient_proto_rawDesc = "" +
 	"sha_schema\x18\x03 \x01(\fR\tshaSchema\x12\x1b\n" +
 	"\tcrc_stats\x18\x04 \x01(\rR\bcrcStats\x12\x1d\n" +
 	"\n" +
-	"crc_schema\x18\x05 \x01(\rR\tcrcSchema\"\xb8\x03\n" +
+	"crc_schema\x18\x05 \x01(\rR\tcrcSchema\x12\x1f\n" +
+	"\vapp_running\x18\x06 \x01(\bR\n" +
+	"appRunning\"\xb8\x03\n" +
 	"\x1dCPlayer_GetUserStats_Response\x12\x1d\n" +
 	"\n" +
 	"sha_schema\x18\x01 \x01(\fR\tshaSchema\x12\x1b\n" +

@@ -1958,11 +1958,11 @@ func (*CAccountHardware_RegisterSteamMachine_Response) Descriptor() ([]byte, []i
 }
 
 type CAccountHardwarePromotions_RedeemFramePromoPackage_Request struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Serial         *string                `protobuf:"bytes,1,opt,name=serial" json:"serial,omitempty"`
-	ComputedSerial *string                `protobuf:"bytes,2,opt,name=computed_serial,json=computedSerial" json:"computed_serial,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Serial          *string                `protobuf:"bytes,1,opt,name=serial" json:"serial,omitempty"`
+	ComponentSerial *string                `protobuf:"bytes,2,opt,name=component_serial,json=componentSerial" json:"component_serial,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *CAccountHardwarePromotions_RedeemFramePromoPackage_Request) Reset() {
@@ -2002,9 +2002,9 @@ func (x *CAccountHardwarePromotions_RedeemFramePromoPackage_Request) GetSerial()
 	return ""
 }
 
-func (x *CAccountHardwarePromotions_RedeemFramePromoPackage_Request) GetComputedSerial() string {
-	if x != nil && x.ComputedSerial != nil {
-		return *x.ComputedSerial
+func (x *CAccountHardwarePromotions_RedeemFramePromoPackage_Request) GetComponentSerial() string {
+	if x != nil && x.ComponentSerial != nil {
+		return *x.ComponentSerial
 	}
 	return ""
 }
@@ -2390,10 +2390,10 @@ const file_steammessages_accounthardware_steamclient_proto_rawDesc = "" +
 	"-CAccountHardware_RegisterSteamMachine_Request\x12#\n" +
 	"\rserial_number\x18\x01 \x01(\tR\fserialNumber\x12!\n" +
 	"\fmachine_code\x18\x02 \x01(\tR\vmachineCode\"0\n" +
-	".CAccountHardware_RegisterSteamMachine_Response\"}\n" +
+	".CAccountHardware_RegisterSteamMachine_Response\"\x7f\n" +
 	":CAccountHardwarePromotions_RedeemFramePromoPackage_Request\x12\x16\n" +
-	"\x06serial\x18\x01 \x01(\tR\x06serial\x12'\n" +
-	"\x0fcomputed_serial\x18\x02 \x01(\tR\x0ecomputedSerial\"=\n" +
+	"\x06serial\x18\x01 \x01(\tR\x06serial\x12)\n" +
+	"\x10component_serial\x18\x02 \x01(\tR\x0fcomponentSerial\"=\n" +
 	";CAccountHardwarePromotions_RedeemFramePromoPackage_Response*\xee\x02\n" +
 	"\x14EValveIndexComponent\x12!\n" +
 	"\x1dk_EValveIndexComponentUnknown\x10\x00\x12\x1d\n" +

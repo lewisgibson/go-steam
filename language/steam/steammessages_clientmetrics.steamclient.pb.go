@@ -2431,6 +2431,7 @@ type CClientMetrics_GamePerformance_Notification_FrameRate struct {
 	FramegenFrameRate  *uint32                  `protobuf:"varint,4,opt,name=framegen_frame_rate,json=framegenFrameRate" json:"framegen_frame_rate,omitempty"`
 	GameSettings       *GamePerformanceSettings `protobuf:"bytes,5,opt,name=game_settings,json=gameSettings" json:"game_settings,omitempty"`
 	SecondsSinceActive *uint32                  `protobuf:"varint,6,opt,name=seconds_since_active,json=secondsSinceActive" json:"seconds_since_active,omitempty"`
+	FrameRateLimit     *uint32                  `protobuf:"varint,7,opt,name=frame_rate_limit,json=frameRateLimit" json:"frame_rate_limit,omitempty"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
@@ -2503,6 +2504,13 @@ func (x *CClientMetrics_GamePerformance_Notification_FrameRate) GetGameSettings(
 func (x *CClientMetrics_GamePerformance_Notification_FrameRate) GetSecondsSinceActive() uint32 {
 	if x != nil && x.SecondsSinceActive != nil {
 		return *x.SecondsSinceActive
+	}
+	return 0
+}
+
+func (x *CClientMetrics_GamePerformance_Notification_FrameRate) GetFrameRateLimit() uint32 {
+	if x != nil && x.FrameRateLimit != nil {
+		return *x.FrameRateLimit
 	}
 	return 0
 }
@@ -2699,12 +2707,12 @@ const file_steammessages_clientmetrics_steamclient_proto_rawDesc = "" +
 	"\aseconds\x18\x02 \x01(\x02R\aseconds\x12\x14\n" +
 	"\x05bytes\x18\x03 \x01(\x04R\x05bytes\x12\x16\n" +
 	"\x06gameid\x18\x04 \x01(\x06R\x06gameid\x12!\n" +
-	"\finstant_clip\x18\x05 \x01(\bR\vinstantClip\"\xce\x03\n" +
+	"\finstant_clip\x18\x05 \x01(\bR\vinstantClip\"\xf8\x03\n" +
 	"+CClientMetrics_GamePerformance_Notification\x12W\n" +
 	"\vframe_rates\x18\x02 \x03(\v26.CClientMetrics_GamePerformance_Notification.FrameRateR\n" +
 	"frameRates\x127\n" +
 	"\vsystem_info\x18\x03 \x01(\v2\x16.UserSystemInformationR\n" +
-	"systemInfo\x1a\x8c\x02\n" +
+	"systemInfo\x1a\xb6\x02\n" +
 	"\tFrameRate\x12\x16\n" +
 	"\x06gameid\x18\x01 \x01(\x06R\x06gameid\x12\x1d\n" +
 	"\n" +
@@ -2712,7 +2720,8 @@ const file_steammessages_clientmetrics_steamclient_proto_rawDesc = "" +
 	"\x0fsession_seconds\x18\x03 \x01(\x05R\x0esessionSeconds\x12.\n" +
 	"\x13framegen_frame_rate\x18\x04 \x01(\rR\x11framegenFrameRate\x12=\n" +
 	"\rgame_settings\x18\x05 \x01(\v2\x18.GamePerformanceSettingsR\fgameSettings\x120\n" +
-	"\x14seconds_since_active\x18\x06 \x01(\rR\x12secondsSinceActive*q\n" +
+	"\x14seconds_since_active\x18\x06 \x01(\rR\x12secondsSinceActive\x12(\n" +
+	"\x10frame_rate_limit\x18\a \x01(\rR\x0eframeRateLimit*q\n" +
 	"\x12ESteamPipeWorkType\x12&\n" +
 	"\"k_ESteamPipeClientWorkType_Invalid\x10\x00\x123\n" +
 	"/k_ESteamPipeClientWorkType_StageFromChunkStores\x10\x01*\xbb\x01\n" +
