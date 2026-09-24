@@ -772,38 +772,39 @@ func (x *CMsgRemoteClientBroadcastHeader) GetDeviceToken() []byte {
 }
 
 type CMsgRemoteClientBroadcastStatus struct {
-	state                      protoimpl.MessageState                  `protogen:"open.v1"`
-	Version                    *int32                                  `protobuf:"varint,1,opt,name=version" json:"version,omitempty"`
-	MinVersion                 *int32                                  `protobuf:"varint,2,opt,name=min_version,json=minVersion" json:"min_version,omitempty"`
-	ConnectPort                *uint32                                 `protobuf:"varint,3,opt,name=connect_port,json=connectPort" json:"connect_port,omitempty"`
-	Hostname                   *string                                 `protobuf:"bytes,4,opt,name=hostname" json:"hostname,omitempty"`
-	EnabledServices            *uint32                                 `protobuf:"varint,6,opt,name=enabled_services,json=enabledServices" json:"enabled_services,omitempty"`
-	Ostype                     *int32                                  `protobuf:"varint,7,opt,name=ostype,def=0" json:"ostype,omitempty"`
-	Is64Bit                    *bool                                   `protobuf:"varint,8,opt,name=is64bit" json:"is64bit,omitempty"`
-	Users                      []*CMsgRemoteClientBroadcastStatus_User `protobuf:"bytes,9,rep,name=users" json:"users,omitempty"`
-	Euniverse                  *int32                                  `protobuf:"varint,11,opt,name=euniverse" json:"euniverse,omitempty"`
-	Timestamp                  *uint32                                 `protobuf:"varint,12,opt,name=timestamp" json:"timestamp,omitempty"`
-	ScreenLocked               *bool                                   `protobuf:"varint,13,opt,name=screen_locked,json=screenLocked" json:"screen_locked,omitempty"`
-	GamesRunning               *bool                                   `protobuf:"varint,14,opt,name=games_running,json=gamesRunning" json:"games_running,omitempty"`
-	MacAddresses               []string                                `protobuf:"bytes,15,rep,name=mac_addresses,json=macAddresses" json:"mac_addresses,omitempty"`
-	DownloadLanPeerGroup       *uint32                                 `protobuf:"varint,16,opt,name=download_lan_peer_group,json=downloadLanPeerGroup" json:"download_lan_peer_group,omitempty"`
-	BroadcastingActive         *bool                                   `protobuf:"varint,17,opt,name=broadcasting_active,json=broadcastingActive" json:"broadcasting_active,omitempty"`
-	VrActive                   *bool                                   `protobuf:"varint,18,opt,name=vr_active,json=vrActive" json:"vr_active,omitempty"`
-	ContentCachePort           *uint32                                 `protobuf:"varint,19,opt,name=content_cache_port,json=contentCachePort" json:"content_cache_port,omitempty"`
-	IpAddresses                []string                                `protobuf:"bytes,20,rep,name=ip_addresses,json=ipAddresses" json:"ip_addresses,omitempty"`
-	PublicIpAddress            *string                                 `protobuf:"bytes,21,opt,name=public_ip_address,json=publicIpAddress" json:"public_ip_address,omitempty"`
-	RemoteplayActive           *bool                                   `protobuf:"varint,22,opt,name=remoteplay_active,json=remoteplayActive" json:"remoteplay_active,omitempty"`
-	SupportedServices          *uint32                                 `protobuf:"varint,23,opt,name=supported_services,json=supportedServices" json:"supported_services,omitempty"`
-	SteamDeck                  *bool                                   `protobuf:"varint,24,opt,name=steam_deck,json=steamDeck" json:"steam_deck,omitempty"`
-	SteamVersion               *uint64                                 `protobuf:"varint,25,opt,name=steam_version,json=steamVersion" json:"steam_version,omitempty"`
-	VrLinkCaps                 *EVRLinkCaps                            `protobuf:"varint,26,opt,name=vr_link_caps,json=vrLinkCaps,enum=EVRLinkCaps,def=0" json:"vr_link_caps,omitempty"`
-	VrLinkInviteClientId       *uint64                                 `protobuf:"fixed64,27,opt,name=vr_link_invite_client_id,json=vrLinkInviteClientId" json:"vr_link_invite_client_id,omitempty"`
-	ConnectedPairedNetworkHash *uint64                                 `protobuf:"fixed64,28,opt,name=connected_paired_network_hash,json=connectedPairedNetworkHash" json:"connected_paired_network_hash,omitempty"`
-	WifiDonglePresent          *bool                                   `protobuf:"varint,29,opt,name=wifi_dongle_present,json=wifiDonglePresent" json:"wifi_dongle_present,omitempty"`
-	IsLowSpecHardware          *bool                                   `protobuf:"varint,30,opt,name=is_low_spec_hardware,json=isLowSpecHardware" json:"is_low_spec_hardware,omitempty"`
-	GamingDeviceType           *uint32                                 `protobuf:"varint,31,opt,name=gaming_device_type,json=gamingDeviceType" json:"gaming_device_type,omitempty"`
-	unknownFields              protoimpl.UnknownFields
-	sizeCache                  protoimpl.SizeCache
+	state                       protoimpl.MessageState                  `protogen:"open.v1"`
+	Version                     *int32                                  `protobuf:"varint,1,opt,name=version" json:"version,omitempty"`
+	MinVersion                  *int32                                  `protobuf:"varint,2,opt,name=min_version,json=minVersion" json:"min_version,omitempty"`
+	ConnectPort                 *uint32                                 `protobuf:"varint,3,opt,name=connect_port,json=connectPort" json:"connect_port,omitempty"`
+	Hostname                    *string                                 `protobuf:"bytes,4,opt,name=hostname" json:"hostname,omitempty"`
+	EnabledServices             *uint32                                 `protobuf:"varint,6,opt,name=enabled_services,json=enabledServices" json:"enabled_services,omitempty"`
+	Ostype                      *int32                                  `protobuf:"varint,7,opt,name=ostype,def=0" json:"ostype,omitempty"`
+	Is64Bit                     *bool                                   `protobuf:"varint,8,opt,name=is64bit" json:"is64bit,omitempty"`
+	Users                       []*CMsgRemoteClientBroadcastStatus_User `protobuf:"bytes,9,rep,name=users" json:"users,omitempty"`
+	Euniverse                   *int32                                  `protobuf:"varint,11,opt,name=euniverse" json:"euniverse,omitempty"`
+	Timestamp                   *uint32                                 `protobuf:"varint,12,opt,name=timestamp" json:"timestamp,omitempty"`
+	ScreenLocked                *bool                                   `protobuf:"varint,13,opt,name=screen_locked,json=screenLocked" json:"screen_locked,omitempty"`
+	GamesRunning                *bool                                   `protobuf:"varint,14,opt,name=games_running,json=gamesRunning" json:"games_running,omitempty"`
+	MacAddresses                []string                                `protobuf:"bytes,15,rep,name=mac_addresses,json=macAddresses" json:"mac_addresses,omitempty"`
+	DownloadLanPeerGroup        *uint32                                 `protobuf:"varint,16,opt,name=download_lan_peer_group,json=downloadLanPeerGroup" json:"download_lan_peer_group,omitempty"`
+	BroadcastingActive          *bool                                   `protobuf:"varint,17,opt,name=broadcasting_active,json=broadcastingActive" json:"broadcasting_active,omitempty"`
+	VrActive                    *bool                                   `protobuf:"varint,18,opt,name=vr_active,json=vrActive" json:"vr_active,omitempty"`
+	ContentCachePort            *uint32                                 `protobuf:"varint,19,opt,name=content_cache_port,json=contentCachePort" json:"content_cache_port,omitempty"`
+	IpAddresses                 []string                                `protobuf:"bytes,20,rep,name=ip_addresses,json=ipAddresses" json:"ip_addresses,omitempty"`
+	PublicIpAddress             *string                                 `protobuf:"bytes,21,opt,name=public_ip_address,json=publicIpAddress" json:"public_ip_address,omitempty"`
+	RemoteplayActive            *bool                                   `protobuf:"varint,22,opt,name=remoteplay_active,json=remoteplayActive" json:"remoteplay_active,omitempty"`
+	SupportedServices           *uint32                                 `protobuf:"varint,23,opt,name=supported_services,json=supportedServices" json:"supported_services,omitempty"`
+	SteamDeck                   *bool                                   `protobuf:"varint,24,opt,name=steam_deck,json=steamDeck" json:"steam_deck,omitempty"`
+	SteamVersion                *uint64                                 `protobuf:"varint,25,opt,name=steam_version,json=steamVersion" json:"steam_version,omitempty"`
+	VrLinkCaps                  *EVRLinkCaps                            `protobuf:"varint,26,opt,name=vr_link_caps,json=vrLinkCaps,enum=EVRLinkCaps,def=0" json:"vr_link_caps,omitempty"`
+	VrLinkInviteClientId        *uint64                                 `protobuf:"fixed64,27,opt,name=vr_link_invite_client_id,json=vrLinkInviteClientId" json:"vr_link_invite_client_id,omitempty"`
+	ConnectedPairedNetworkHash  *uint64                                 `protobuf:"fixed64,28,opt,name=connected_paired_network_hash,json=connectedPairedNetworkHash" json:"connected_paired_network_hash,omitempty"`
+	ConnectingPairedNetworkHash *uint64                                 `protobuf:"fixed64,32,opt,name=connecting_paired_network_hash,json=connectingPairedNetworkHash" json:"connecting_paired_network_hash,omitempty"`
+	WifiDonglePresent           *bool                                   `protobuf:"varint,29,opt,name=wifi_dongle_present,json=wifiDonglePresent" json:"wifi_dongle_present,omitempty"`
+	IsLowSpecHardware           *bool                                   `protobuf:"varint,30,opt,name=is_low_spec_hardware,json=isLowSpecHardware" json:"is_low_spec_hardware,omitempty"`
+	GamingDeviceType            *uint32                                 `protobuf:"varint,31,opt,name=gaming_device_type,json=gamingDeviceType" json:"gaming_device_type,omitempty"`
+	unknownFields               protoimpl.UnknownFields
+	sizeCache                   protoimpl.SizeCache
 }
 
 // Default values for CMsgRemoteClientBroadcastStatus fields.
@@ -1020,6 +1021,13 @@ func (x *CMsgRemoteClientBroadcastStatus) GetVrLinkInviteClientId() uint64 {
 func (x *CMsgRemoteClientBroadcastStatus) GetConnectedPairedNetworkHash() uint64 {
 	if x != nil && x.ConnectedPairedNetworkHash != nil {
 		return *x.ConnectedPairedNetworkHash
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientBroadcastStatus) GetConnectingPairedNetworkHash() uint64 {
+	if x != nil && x.ConnectingPairedNetworkHash != nil {
+		return *x.ConnectingPairedNetworkHash
 	}
 	return 0
 }
@@ -2311,7 +2319,7 @@ const file_steammessages_remoteclient_discovery_proto_rawDesc = "" +
 	"\vinstance_id\x18\x03 \x01(\x04R\n" +
 	"instanceId\x12,\n" +
 	"\x12device_id_OBSOLETE\x18\x04 \x01(\x04R\x10deviceIdOBSOLETE\x12!\n" +
-	"\fdevice_token\x18\x05 \x01(\fR\vdeviceToken\"\x97\n" +
+	"\fdevice_token\x18\x05 \x01(\fR\vdeviceToken\"\xdc\n" +
 	"\n" +
 	"\x1fCMsgRemoteClientBroadcastStatus\x12\x18\n" +
 	"\aversion\x18\x01 \x01(\x05R\aversion\x12\x1f\n" +
@@ -2342,7 +2350,8 @@ const file_steammessages_remoteclient_discovery_proto_rawDesc = "" +
 	"\fvr_link_caps\x18\x1a \x01(\x0e2\f.EVRLinkCaps:\x14k_EVRLinkCapsUnknownR\n" +
 	"vrLinkCaps\x126\n" +
 	"\x18vr_link_invite_client_id\x18\x1b \x01(\x06R\x14vrLinkInviteClientId\x12A\n" +
-	"\x1dconnected_paired_network_hash\x18\x1c \x01(\x06R\x1aconnectedPairedNetworkHash\x12.\n" +
+	"\x1dconnected_paired_network_hash\x18\x1c \x01(\x06R\x1aconnectedPairedNetworkHash\x12C\n" +
+	"\x1econnecting_paired_network_hash\x18  \x01(\x06R\x1bconnectingPairedNetworkHash\x12.\n" +
 	"\x13wifi_dongle_present\x18\x1d \x01(\bR\x11wifiDonglePresent\x12/\n" +
 	"\x14is_low_spec_hardware\x18\x1e \x01(\bR\x11isLowSpecHardware\x12,\n" +
 	"\x12gaming_device_type\x18\x1f \x01(\rR\x10gamingDeviceType\x1a@\n" +

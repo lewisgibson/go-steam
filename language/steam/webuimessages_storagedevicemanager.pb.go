@@ -233,23 +233,24 @@ func (x *CStorageDeviceManagerDrive) GetIsMediaAvailable() bool {
 }
 
 type CStorageDeviceManagerBlockDevice struct {
-	state           protoimpl.MessageState       `protogen:"open.v1"`
-	Id              *uint32                      `protobuf:"varint,1,opt,name=id,def=0" json:"id,omitempty"`
-	DriveId         *uint32                      `protobuf:"varint,2,opt,name=drive_id,json=driveId,def=0" json:"drive_id,omitempty"`
-	Path            *string                      `protobuf:"bytes,3,opt,name=path" json:"path,omitempty"`
-	FriendlyPath    *string                      `protobuf:"bytes,4,opt,name=friendly_path,json=friendlyPath" json:"friendly_path,omitempty"`
-	Label           *string                      `protobuf:"bytes,5,opt,name=label" json:"label,omitempty"`
-	SizeBytes       *uint64                      `protobuf:"varint,6,opt,name=size_bytes,json=sizeBytes" json:"size_bytes,omitempty"`
-	IsFormattable   *bool                        `protobuf:"varint,7,opt,name=is_formattable,json=isFormattable" json:"is_formattable,omitempty"`
-	IsReadOnly      *bool                        `protobuf:"varint,8,opt,name=is_read_only,json=isReadOnly" json:"is_read_only,omitempty"`
-	IsRootDevice    *bool                        `protobuf:"varint,9,opt,name=is_root_device,json=isRootDevice" json:"is_root_device,omitempty"`
-	ContentType     *EStorageBlockContentType    `protobuf:"varint,10,opt,name=content_type,json=contentType,enum=EStorageBlockContentType,def=0" json:"content_type,omitempty"`
-	FilesystemType  *EStorageBlockFileSystemType `protobuf:"varint,11,opt,name=filesystem_type,json=filesystemType,enum=EStorageBlockFileSystemType,def=0" json:"filesystem_type,omitempty"`
-	MountPaths      []string                     `protobuf:"bytes,12,rep,name=mount_paths,json=mountPaths" json:"mount_paths,omitempty"`
-	IsUnmounting    *bool                        `protobuf:"varint,13,opt,name=is_unmounting,json=isUnmounting" json:"is_unmounting,omitempty"`
-	HasSteamLibrary *bool                        `protobuf:"varint,14,opt,name=has_steam_library,json=hasSteamLibrary" json:"has_steam_library,omitempty"`
-	unknownFields   protoimpl.UnknownFields
-	sizeCache       protoimpl.SizeCache
+	state             protoimpl.MessageState       `protogen:"open.v1"`
+	Id                *uint32                      `protobuf:"varint,1,opt,name=id,def=0" json:"id,omitempty"`
+	DriveId           *uint32                      `protobuf:"varint,2,opt,name=drive_id,json=driveId,def=0" json:"drive_id,omitempty"`
+	Path              *string                      `protobuf:"bytes,3,opt,name=path" json:"path,omitempty"`
+	FriendlyPath      *string                      `protobuf:"bytes,4,opt,name=friendly_path,json=friendlyPath" json:"friendly_path,omitempty"`
+	Label             *string                      `protobuf:"bytes,5,opt,name=label" json:"label,omitempty"`
+	SizeBytes         *uint64                      `protobuf:"varint,6,opt,name=size_bytes,json=sizeBytes" json:"size_bytes,omitempty"`
+	IsFormattable     *bool                        `protobuf:"varint,7,opt,name=is_formattable,json=isFormattable" json:"is_formattable,omitempty"`
+	IsReadOnly        *bool                        `protobuf:"varint,8,opt,name=is_read_only,json=isReadOnly" json:"is_read_only,omitempty"`
+	IsRootDevice      *bool                        `protobuf:"varint,9,opt,name=is_root_device,json=isRootDevice" json:"is_root_device,omitempty"`
+	ContentType       *EStorageBlockContentType    `protobuf:"varint,10,opt,name=content_type,json=contentType,enum=EStorageBlockContentType,def=0" json:"content_type,omitempty"`
+	FilesystemType    *EStorageBlockFileSystemType `protobuf:"varint,11,opt,name=filesystem_type,json=filesystemType,enum=EStorageBlockFileSystemType,def=0" json:"filesystem_type,omitempty"`
+	MountPaths        []string                     `protobuf:"bytes,12,rep,name=mount_paths,json=mountPaths" json:"mount_paths,omitempty"`
+	IsUnmounting      *bool                        `protobuf:"varint,13,opt,name=is_unmounting,json=isUnmounting" json:"is_unmounting,omitempty"`
+	HasSteamLibrary   *bool                        `protobuf:"varint,14,opt,name=has_steam_library,json=hasSteamLibrary" json:"has_steam_library,omitempty"`
+	PosixDeviceNumber *uint64                      `protobuf:"varint,15,opt,name=posix_device_number,json=posixDeviceNumber" json:"posix_device_number,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 // Default values for CStorageDeviceManagerBlockDevice fields.
@@ -386,6 +387,13 @@ func (x *CStorageDeviceManagerBlockDevice) GetHasSteamLibrary() bool {
 		return *x.HasSteamLibrary
 	}
 	return false
+}
+
+func (x *CStorageDeviceManagerBlockDevice) GetPosixDeviceNumber() uint64 {
+	if x != nil && x.PosixDeviceNumber != nil {
+		return *x.PosixDeviceNumber
+	}
+	return 0
 }
 
 type CStorageDeviceManagerState struct {
@@ -1019,7 +1027,7 @@ const file_webuimessages_storagedevicemanager_proto_rawDesc = "" +
 	"adoptStage\x12%\n" +
 	"\x0eis_formattable\x18\n" +
 	" \x01(\bR\risFormattable\x12,\n" +
-	"\x12is_media_available\x18\v \x01(\bR\x10isMediaAvailable\"\xf2\x04\n" +
+	"\x12is_media_available\x18\v \x01(\bR\x10isMediaAvailable\"\xa2\x05\n" +
 	" CStorageDeviceManagerBlockDevice\x12\x11\n" +
 	"\x02id\x18\x01 \x01(\r:\x010R\x02id\x12\x1c\n" +
 	"\bdrive_id\x18\x02 \x01(\r:\x010R\adriveId\x12\x12\n" +
@@ -1038,7 +1046,8 @@ const file_webuimessages_storagedevicemanager_proto_rawDesc = "" +
 	"\vmount_paths\x18\f \x03(\tR\n" +
 	"mountPaths\x12#\n" +
 	"\ris_unmounting\x18\r \x01(\bR\fisUnmounting\x12*\n" +
-	"\x11has_steam_library\x18\x0e \x01(\bR\x0fhasSteamLibrary\"\xcd\x02\n" +
+	"\x11has_steam_library\x18\x0e \x01(\bR\x0fhasSteamLibrary\x12.\n" +
+	"\x13posix_device_number\x18\x0f \x01(\x04R\x11posixDeviceNumber\"\xcd\x02\n" +
 	"\x1aCStorageDeviceManagerState\x123\n" +
 	"\x06drives\x18\x01 \x03(\v2\x1b.CStorageDeviceManagerDriveR\x06drives\x12F\n" +
 	"\rblock_devices\x18\x02 \x03(\v2!.CStorageDeviceManagerBlockDeviceR\fblockDevices\x120\n" +
