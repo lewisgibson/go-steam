@@ -2964,6 +2964,7 @@ type CStreamingClientConfig struct {
 	PyrowaveCustomBitrate          *bool                     `protobuf:"varint,36,opt,name=pyrowave_custom_bitrate,json=pyrowaveCustomBitrate" json:"pyrowave_custom_bitrate,omitempty"`
 	PyrowaveCustomBitrateKbps      *int32                    `protobuf:"varint,37,opt,name=pyrowave_custom_bitrate_kbps,json=pyrowaveCustomBitrateKbps" json:"pyrowave_custom_bitrate_kbps,omitempty"`
 	PyrowaveQualityModifier        *float32                  `protobuf:"fixed32,38,opt,name=pyrowave_quality_modifier,json=pyrowaveQualityModifier" json:"pyrowave_quality_modifier,omitempty"`
+	PyrowaveYuv444                 *bool                     `protobuf:"varint,39,opt,name=pyrowave_yuv444,json=pyrowaveYuv444" json:"pyrowave_yuv444,omitempty"`
 	unknownFields                  protoimpl.UnknownFields
 	sizeCache                      protoimpl.SizeCache
 }
@@ -3276,6 +3277,13 @@ func (x *CStreamingClientConfig) GetPyrowaveQualityModifier() float32 {
 		return *x.PyrowaveQualityModifier
 	}
 	return 0
+}
+
+func (x *CStreamingClientConfig) GetPyrowaveYuv444() bool {
+	if x != nil && x.PyrowaveYuv444 != nil {
+		return *x.PyrowaveYuv444
+	}
+	return false
 }
 
 type CStreamingServerConfig struct {
@@ -9313,7 +9321,7 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x15supported_colorspaces\x18\r \x03(\x0e2\x12.EStreamColorspaceR\x14supportedColorspaces\x12H\n" +
 	"\x16supported_audio_codecs\x18\x0e \x03(\x0e2\x12.EStreamAudioCodecR\x14supportedAudioCodecs\x12H\n" +
 	"\x16supported_video_codecs\x18\x0f \x03(\x0e2\x12.EStreamVideoCodecR\x14supportedVideoCodecs\x122\n" +
-	"\x15can_toggle_fullscreen\x18\x10 \x01(\bR\x13canToggleFullscreen\"\xd0\x10\n" +
+	"\x15can_toggle_fullscreen\x18\x10 \x01(\bR\x13canToggleFullscreen\"\xf9\x10\n" +
 	"\x16CStreamingClientConfig\x12M\n" +
 	"\aquality\x18\x01 \x01(\x0e2\x19.EStreamQualityPreference:\x18k_EStreamQualityBalancedR\aquality\x120\n" +
 	"\x14desired_resolution_x\x18\x02 \x01(\rR\x12desiredResolutionX\x120\n" +
@@ -9352,7 +9360,8 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x15enable_video_pyrowave\x18# \x01(\b:\x05falseR\x13enableVideoPyrowave\x126\n" +
 	"\x17pyrowave_custom_bitrate\x18$ \x01(\bR\x15pyrowaveCustomBitrate\x12?\n" +
 	"\x1cpyrowave_custom_bitrate_kbps\x18% \x01(\x05R\x19pyrowaveCustomBitrateKbps\x12:\n" +
-	"\x19pyrowave_quality_modifier\x18& \x01(\x02R\x17pyrowaveQualityModifier\"\xe5\a\n" +
+	"\x19pyrowave_quality_modifier\x18& \x01(\x02R\x17pyrowaveQualityModifier\x12'\n" +
+	"\x0fpyrowave_yuv444\x18' \x01(\bR\x0epyrowaveYuv444\"\xe5\a\n" +
 	"\x16CStreamingServerConfig\x12f\n" +
 	"\x0fhost_play_audio\x18\x01 \x01(\x0e2\x1f.EStreamHostPlayAudioPreference:\x1dk_EStreamHostPlayAudioDefaultR\rhostPlayAudio\x122\n" +
 	"\x15custom_display_device\x18\x02 \x01(\tR\x13customDisplayDevice\x12y\n" +
