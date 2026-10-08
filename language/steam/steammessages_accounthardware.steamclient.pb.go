@@ -780,7 +780,7 @@ type CAccountHardware_SteamControllerGetConfig_ControllerConfig struct {
 	Appidorname     *string                `protobuf:"bytes,1,opt,name=appidorname" json:"appidorname,omitempty"`
 	Publishedfileid *uint64                `protobuf:"varint,2,opt,name=publishedfileid" json:"publishedfileid,omitempty"`
 	Templatename    *string                `protobuf:"bytes,3,opt,name=templatename" json:"templatename,omitempty"`
-	SerialNumber    *string                `protobuf:"bytes,4,opt,name=serial_number,json=serialNumber" json:"serial_number,omitempty"`
+	SerialNumber    *string                `protobuf:"bytes,4,opt,name=serial_number,json=serialNumber,def=" json:"serial_number,omitempty"`
 	Autosave        *bool                  `protobuf:"varint,5,opt,name=autosave,def=0" json:"autosave,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
@@ -788,7 +788,8 @@ type CAccountHardware_SteamControllerGetConfig_ControllerConfig struct {
 
 // Default values for CAccountHardware_SteamControllerGetConfig_ControllerConfig fields.
 const (
-	Default_CAccountHardware_SteamControllerGetConfig_ControllerConfig_Autosave = bool(false)
+	Default_CAccountHardware_SteamControllerGetConfig_ControllerConfig_SerialNumber = string("")
+	Default_CAccountHardware_SteamControllerGetConfig_ControllerConfig_Autosave     = bool(false)
 )
 
 func (x *CAccountHardware_SteamControllerGetConfig_ControllerConfig) Reset() {
@@ -846,7 +847,7 @@ func (x *CAccountHardware_SteamControllerGetConfig_ControllerConfig) GetSerialNu
 	if x != nil && x.SerialNumber != nil {
 		return *x.SerialNumber
 	}
-	return ""
+	return Default_CAccountHardware_SteamControllerGetConfig_ControllerConfig_SerialNumber
 }
 
 func (x *CAccountHardware_SteamControllerGetConfig_ControllerConfig) GetAutosave() bool {
@@ -2307,12 +2308,12 @@ const file_steammessages_accounthardware_steamclient_proto_rawDesc = "" +
 	"\taccountid\x18\x03 \x01(\rR\taccountid\x12 \n" +
 	"\vappidorname\x18\x04 \x01(\tR\vappidorname\x12*\n" +
 	"\x0fcontroller_type\x18\x05 \x01(\x05:\x012R\x0econtrollerType\x126\n" +
-	"\x14only_for_this_serial\x18\x06 \x01(\b:\x05falseR\x11onlyForThisSerial\"\xf4\x01\n" +
+	"\x14only_for_this_serial\x18\x06 \x01(\b:\x05falseR\x11onlyForThisSerial\"\xf6\x01\n" +
 	":CAccountHardware_SteamControllerGetConfig_ControllerConfig\x12 \n" +
 	"\vappidorname\x18\x01 \x01(\tR\vappidorname\x12(\n" +
 	"\x0fpublishedfileid\x18\x02 \x01(\x04R\x0fpublishedfileid\x12\"\n" +
-	"\ftemplatename\x18\x03 \x01(\tR\ftemplatename\x12#\n" +
-	"\rserial_number\x18\x04 \x01(\tR\fserialNumber\x12!\n" +
+	"\ftemplatename\x18\x03 \x01(\tR\ftemplatename\x12%\n" +
+	"\rserial_number\x18\x04 \x01(\t:\x00R\fserialNumber\x12!\n" +
 	"\bautosave\x18\x05 \x01(\b:\x05falseR\bautosave\"\x99\x01\n" +
 	"2CAccountHardware_SteamControllerGetConfig_Response\x12c\n" +
 	"\x0econfigurations\x18\x01 \x03(\v2;.CAccountHardware_SteamControllerGetConfig_ControllerConfigR\x0econfigurations\"\xa0\x01\n" +

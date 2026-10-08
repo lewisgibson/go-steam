@@ -3209,8 +3209,8 @@ type CHTMLPageSecurityInfo struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	BIsSecure     *bool                  `protobuf:"varint,1,opt,name=bIsSecure,def=0" json:"bIsSecure,omitempty"`
 	BHasCertError *bool                  `protobuf:"varint,2,opt,name=bHasCertError,def=0" json:"bHasCertError,omitempty"`
-	IssuerName    *string                `protobuf:"bytes,3,opt,name=issuerName" json:"issuerName,omitempty"`
-	CertName      *string                `protobuf:"bytes,4,opt,name=certName" json:"certName,omitempty"`
+	IssuerName    *string                `protobuf:"bytes,3,opt,name=issuerName,def=" json:"issuerName,omitempty"`
+	CertName      *string                `protobuf:"bytes,4,opt,name=certName,def=" json:"certName,omitempty"`
 	CertExpiry    *int32                 `protobuf:"varint,5,opt,name=certExpiry,def=0" json:"certExpiry,omitempty"`
 	NCertBits     *int32                 `protobuf:"varint,6,opt,name=nCertBits,def=0" json:"nCertBits,omitempty"`
 	BIsEVCert     *bool                  `protobuf:"varint,7,opt,name=bIsEVCert,def=0" json:"bIsEVCert,omitempty"`
@@ -3222,6 +3222,8 @@ type CHTMLPageSecurityInfo struct {
 const (
 	Default_CHTMLPageSecurityInfo_BIsSecure     = bool(false)
 	Default_CHTMLPageSecurityInfo_BHasCertError = bool(false)
+	Default_CHTMLPageSecurityInfo_IssuerName    = string("")
+	Default_CHTMLPageSecurityInfo_CertName      = string("")
 	Default_CHTMLPageSecurityInfo_CertExpiry    = int32(0)
 	Default_CHTMLPageSecurityInfo_NCertBits     = int32(0)
 	Default_CHTMLPageSecurityInfo_BIsEVCert     = bool(false)
@@ -3275,14 +3277,14 @@ func (x *CHTMLPageSecurityInfo) GetIssuerName() string {
 	if x != nil && x.IssuerName != nil {
 		return *x.IssuerName
 	}
-	return ""
+	return Default_CHTMLPageSecurityInfo_IssuerName
 }
 
 func (x *CHTMLPageSecurityInfo) GetCertName() string {
 	if x != nil && x.CertName != nil {
 		return *x.CertName
 	}
-	return ""
+	return Default_CHTMLPageSecurityInfo_CertName
 }
 
 func (x *CHTMLPageSecurityInfo) GetCertExpiry() int32 {
@@ -10607,14 +10609,14 @@ const file_htmlmessages_proto_rawDesc = "" +
 	"\x11error_description\x18\x04 \x01(\tR\x10errorDescription\"5\n" +
 	"\vCHTMLHeader\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value\"\x8e\x02\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value\"\x92\x02\n" +
 	"\x15CHTMLPageSecurityInfo\x12#\n" +
 	"\tbIsSecure\x18\x01 \x01(\b:\x05falseR\tbIsSecure\x12+\n" +
-	"\rbHasCertError\x18\x02 \x01(\b:\x05falseR\rbHasCertError\x12\x1e\n" +
+	"\rbHasCertError\x18\x02 \x01(\b:\x05falseR\rbHasCertError\x12 \n" +
 	"\n" +
-	"issuerName\x18\x03 \x01(\tR\n" +
-	"issuerName\x12\x1a\n" +
-	"\bcertName\x18\x04 \x01(\tR\bcertName\x12!\n" +
+	"issuerName\x18\x03 \x01(\t:\x00R\n" +
+	"issuerName\x12\x1c\n" +
+	"\bcertName\x18\x04 \x01(\t:\x00R\bcertName\x12!\n" +
 	"\n" +
 	"certExpiry\x18\x05 \x01(\x05:\x010R\n" +
 	"certExpiry\x12\x1f\n" +

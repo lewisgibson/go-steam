@@ -144,9 +144,9 @@ type CContentServerDirectory_GetServersForSteamPipe_Request struct {
 	state              protoimpl.MessageState                                  `protogen:"open.v1"`
 	CellId             *uint32                                                 `protobuf:"varint,1,opt,name=cell_id,json=cellId" json:"cell_id,omitempty"`
 	MaxServers         *uint32                                                 `protobuf:"varint,2,opt,name=max_servers,json=maxServers,def=20" json:"max_servers,omitempty"`
-	IpOverride         *string                                                 `protobuf:"bytes,3,opt,name=ip_override,json=ipOverride" json:"ip_override,omitempty"`
+	IpOverride         *string                                                 `protobuf:"bytes,3,opt,name=ip_override,json=ipOverride,def=" json:"ip_override,omitempty"`
 	LauncherType       *int32                                                  `protobuf:"varint,4,opt,name=launcher_type,json=launcherType,def=0" json:"launcher_type,omitempty"`
-	Ipv6Public         *string                                                 `protobuf:"bytes,5,opt,name=ipv6_public,json=ipv6Public" json:"ipv6_public,omitempty"`
+	Ipv6Public         *string                                                 `protobuf:"bytes,5,opt,name=ipv6_public,json=ipv6Public,def=" json:"ipv6_public,omitempty"`
 	CurrentConnections []*CContentServerDirectory_ConnectedSteamPipeServerInfo `protobuf:"bytes,6,rep,name=current_connections,json=currentConnections" json:"current_connections,omitempty"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
@@ -155,7 +155,9 @@ type CContentServerDirectory_GetServersForSteamPipe_Request struct {
 // Default values for CContentServerDirectory_GetServersForSteamPipe_Request fields.
 const (
 	Default_CContentServerDirectory_GetServersForSteamPipe_Request_MaxServers   = uint32(20)
+	Default_CContentServerDirectory_GetServersForSteamPipe_Request_IpOverride   = string("")
 	Default_CContentServerDirectory_GetServersForSteamPipe_Request_LauncherType = int32(0)
+	Default_CContentServerDirectory_GetServersForSteamPipe_Request_Ipv6Public   = string("")
 )
 
 func (x *CContentServerDirectory_GetServersForSteamPipe_Request) Reset() {
@@ -206,7 +208,7 @@ func (x *CContentServerDirectory_GetServersForSteamPipe_Request) GetIpOverride()
 	if x != nil && x.IpOverride != nil {
 		return *x.IpOverride
 	}
-	return ""
+	return Default_CContentServerDirectory_GetServersForSteamPipe_Request_IpOverride
 }
 
 func (x *CContentServerDirectory_GetServersForSteamPipe_Request) GetLauncherType() int32 {
@@ -220,7 +222,7 @@ func (x *CContentServerDirectory_GetServersForSteamPipe_Request) GetIpv6Public()
 	if x != nil && x.Ipv6Public != nil {
 		return *x.Ipv6Public
 	}
-	return ""
+	return Default_CContentServerDirectory_GetServersForSteamPipe_Request_Ipv6Public
 }
 
 func (x *CContentServerDirectory_GetServersForSteamPipe_Request) GetCurrentConnections() []*CContentServerDirectory_ConnectedSteamPipeServerInfo {
@@ -1319,15 +1321,15 @@ const file_steammessages_contentsystem_steamclient_proto_rawDesc = "" +
 	"4CContentServerDirectory_ConnectedSteamPipeServerInfo\x12\x12\n" +
 	"\x04type\x18\x01 \x01(\tR\x04type\x12\x1b\n" +
 	"\tsource_id\x18\x02 \x01(\x05R\bsourceId\x12\x1a\n" +
-	"\bhostname\x18\x03 \x01(\tR\bhostname\"\xc8\x02\n" +
+	"\bhostname\x18\x03 \x01(\tR\bhostname\"\xcc\x02\n" +
 	"6CContentServerDirectory_GetServersForSteamPipe_Request\x12\x17\n" +
 	"\acell_id\x18\x01 \x01(\rR\x06cellId\x12#\n" +
 	"\vmax_servers\x18\x02 \x01(\r:\x0220R\n" +
-	"maxServers\x12\x1f\n" +
-	"\vip_override\x18\x03 \x01(\tR\n" +
+	"maxServers\x12!\n" +
+	"\vip_override\x18\x03 \x01(\t:\x00R\n" +
 	"ipOverride\x12&\n" +
-	"\rlauncher_type\x18\x04 \x01(\x05:\x010R\flauncherType\x12\x1f\n" +
-	"\vipv6_public\x18\x05 \x01(\tR\n" +
+	"\rlauncher_type\x18\x04 \x01(\x05:\x010R\flauncherType\x12!\n" +
+	"\vipv6_public\x18\x05 \x01(\t:\x00R\n" +
 	"ipv6Public\x12f\n" +
 	"\x13current_connections\x18\x06 \x03(\v25.CContentServerDirectory_ConnectedSteamPipeServerInfoR\x12currentConnections\"\xd7\x04\n" +
 	"\"CContentServerDirectory_ServerInfo\x12\x12\n" +
