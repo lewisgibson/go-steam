@@ -2368,7 +2368,7 @@ type CMsgClientGamesPlayed_GamePlayed struct {
 	VrHmdModel                   *string                              `protobuf:"bytes,14,opt,name=vr_hmd_model,json=vrHmdModel" json:"vr_hmd_model,omitempty"`
 	LaunchOptionType             *uint32                              `protobuf:"varint,15,opt,name=launch_option_type,json=launchOptionType,def=0" json:"launch_option_type,omitempty"`
 	PrimaryControllerType        *int32                               `protobuf:"varint,16,opt,name=primary_controller_type,json=primaryControllerType,def=-1" json:"primary_controller_type,omitempty"`
-	PrimarySteamControllerSerial *string                              `protobuf:"bytes,17,opt,name=primary_steam_controller_serial,json=primarySteamControllerSerial" json:"primary_steam_controller_serial,omitempty"`
+	PrimarySteamControllerSerial *string                              `protobuf:"bytes,17,opt,name=primary_steam_controller_serial,json=primarySteamControllerSerial,def=" json:"primary_steam_controller_serial,omitempty"`
 	TotalSteamControllerCount    *uint32                              `protobuf:"varint,18,opt,name=total_steam_controller_count,json=totalSteamControllerCount,def=0" json:"total_steam_controller_count,omitempty"`
 	TotalNonSteamControllerCount *uint32                              `protobuf:"varint,19,opt,name=total_non_steam_controller_count,json=totalNonSteamControllerCount,def=0" json:"total_non_steam_controller_count,omitempty"`
 	ControllerWorkshopFileId     *uint64                              `protobuf:"varint,20,opt,name=controller_workshop_file_id,json=controllerWorkshopFileId,def=0" json:"controller_workshop_file_id,omitempty"`
@@ -2392,6 +2392,7 @@ type CMsgClientGamesPlayed_GamePlayed struct {
 const (
 	Default_CMsgClientGamesPlayed_GamePlayed_LaunchOptionType             = uint32(0)
 	Default_CMsgClientGamesPlayed_GamePlayed_PrimaryControllerType        = int32(-1)
+	Default_CMsgClientGamesPlayed_GamePlayed_PrimarySteamControllerSerial = string("")
 	Default_CMsgClientGamesPlayed_GamePlayed_TotalSteamControllerCount    = uint32(0)
 	Default_CMsgClientGamesPlayed_GamePlayed_TotalNonSteamControllerCount = uint32(0)
 	Default_CMsgClientGamesPlayed_GamePlayed_ControllerWorkshopFileId     = uint64(0)
@@ -2546,7 +2547,7 @@ func (x *CMsgClientGamesPlayed_GamePlayed) GetPrimarySteamControllerSerial() str
 	if x != nil && x.PrimarySteamControllerSerial != nil {
 		return *x.PrimarySteamControllerSerial
 	}
-	return ""
+	return Default_CMsgClientGamesPlayed_GamePlayed_PrimarySteamControllerSerial
 }
 
 func (x *CMsgClientGamesPlayed_GamePlayed) GetTotalSteamControllerCount() uint32 {
@@ -3835,7 +3836,7 @@ const file_steammessages_clientserver_proto_rawDesc = "" +
 	"\x05token\x18\x01 \x01(\x04R\x05token\"f\n" +
 	"\x1bCMsgClientGameConnectTokens\x12/\n" +
 	"\x12max_tokens_to_keep\x18\x01 \x01(\r:\x0210R\x0fmaxTokensToKeep\x12\x16\n" +
-	"\x06tokens\x18\x02 \x03(\fR\x06tokens\"\x8f\x0e\n" +
+	"\x06tokens\x18\x02 \x03(\fR\x06tokens\"\x91\x0e\n" +
 	"\x15CMsgClientGamesPlayed\x12D\n" +
 	"\fgames_played\x18\x01 \x03(\v2!.CMsgClientGamesPlayed.GamePlayedR\vgamesPlayed\x12$\n" +
 	"\x0eclient_os_type\x18\x02 \x01(\rR\fclientOsType\x122\n" +
@@ -3845,7 +3846,7 @@ const file_steammessages_clientserver_proto_rawDesc = "" +
 	"\n" +
 	"process_id\x18\x01 \x01(\rR\tprocessId\x12*\n" +
 	"\x11process_id_parent\x18\x02 \x01(\rR\x0fprocessIdParent\x12&\n" +
-	"\x0fparent_is_steam\x18\x03 \x01(\bR\rparentIsSteam\x1a\x99\v\n" +
+	"\x0fparent_is_steam\x18\x03 \x01(\bR\rparentIsSteam\x1a\x9b\v\n" +
 	"\n" +
 	"GamePlayed\x12\x1e\n" +
 	"\vsteam_id_gs\x18\x01 \x01(\x04R\tsteamIdGs\x12\x17\n" +
@@ -3867,8 +3868,8 @@ const file_steammessages_clientserver_proto_rawDesc = "" +
 	"\fvr_hmd_model\x18\x0e \x01(\tR\n" +
 	"vrHmdModel\x12/\n" +
 	"\x12launch_option_type\x18\x0f \x01(\r:\x010R\x10launchOptionType\x12:\n" +
-	"\x17primary_controller_type\x18\x10 \x01(\x05:\x02-1R\x15primaryControllerType\x12E\n" +
-	"\x1fprimary_steam_controller_serial\x18\x11 \x01(\tR\x1cprimarySteamControllerSerial\x12B\n" +
+	"\x17primary_controller_type\x18\x10 \x01(\x05:\x02-1R\x15primaryControllerType\x12G\n" +
+	"\x1fprimary_steam_controller_serial\x18\x11 \x01(\t:\x00R\x1cprimarySteamControllerSerial\x12B\n" +
 	"\x1ctotal_steam_controller_count\x18\x12 \x01(\r:\x010R\x19totalSteamControllerCount\x12I\n" +
 	" total_non_steam_controller_count\x18\x13 \x01(\r:\x010R\x1ctotalNonSteamControllerCount\x12@\n" +
 	"\x1bcontroller_workshop_file_id\x18\x14 \x01(\x04:\x010R\x18controllerWorkshopFileId\x12&\n" +

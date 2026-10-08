@@ -282,6 +282,68 @@ func (CMsgSteamDatagramRouterPingReply_AltAddress_Protocol) EnumDescriptor() ([]
 	return file_steamdatagram_messages_sdr_proto_rawDescGZIP(), []int{2, 1, 0}
 }
 
+type CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest int32
+
+const (
+	CMsgSteamDatagramClientSwitchedPrimary_k_EMigrateRequest_Unknown        CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest = 0
+	CMsgSteamDatagramClientSwitchedPrimary_k_EMigrateRequest_None           CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest = 1
+	CMsgSteamDatagramClientSwitchedPrimary_k_EMigrateRequest_ObeyedTarget   CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest = 2
+	CMsgSteamDatagramClientSwitchedPrimary_k_EMigrateRequest_ChoseDifferent CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest = 3
+)
+
+// Enum value maps for CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest.
+var (
+	CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest_name = map[int32]string{
+		0: "k_EMigrateRequest_Unknown",
+		1: "k_EMigrateRequest_None",
+		2: "k_EMigrateRequest_ObeyedTarget",
+		3: "k_EMigrateRequest_ChoseDifferent",
+	}
+	CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest_value = map[string]int32{
+		"k_EMigrateRequest_Unknown":        0,
+		"k_EMigrateRequest_None":           1,
+		"k_EMigrateRequest_ObeyedTarget":   2,
+		"k_EMigrateRequest_ChoseDifferent": 3,
+	}
+)
+
+func (x CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest) Enum() *CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest {
+	p := new(CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest)
+	*p = x
+	return p
+}
+
+func (x CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest) Descriptor() protoreflect.EnumDescriptor {
+	return file_steamdatagram_messages_sdr_proto_enumTypes[3].Descriptor()
+}
+
+func (CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest) Type() protoreflect.EnumType {
+	return &file_steamdatagram_messages_sdr_proto_enumTypes[3]
+}
+
+func (x CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest(num)
+	return nil
+}
+
+// Deprecated: Use CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest.Descriptor instead.
+func (CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest) EnumDescriptor() ([]byte, []int) {
+	return file_steamdatagram_messages_sdr_proto_rawDescGZIP(), []int{11, 0}
+}
+
 type CMsgSteamDatagramConnectionClosed_ERelayMode int32
 
 const (
@@ -315,11 +377,11 @@ func (x CMsgSteamDatagramConnectionClosed_ERelayMode) String() string {
 }
 
 func (CMsgSteamDatagramConnectionClosed_ERelayMode) Descriptor() protoreflect.EnumDescriptor {
-	return file_steamdatagram_messages_sdr_proto_enumTypes[3].Descriptor()
+	return file_steamdatagram_messages_sdr_proto_enumTypes[4].Descriptor()
 }
 
 func (CMsgSteamDatagramConnectionClosed_ERelayMode) Type() protoreflect.EnumType {
-	return &file_steamdatagram_messages_sdr_proto_enumTypes[3]
+	return &file_steamdatagram_messages_sdr_proto_enumTypes[4]
 }
 
 func (x CMsgSteamDatagramConnectionClosed_ERelayMode) Number() protoreflect.EnumNumber {
@@ -380,11 +442,11 @@ func (x CMsgSteamDatagramConnectionStatsClientToRouter_Flags) String() string {
 }
 
 func (CMsgSteamDatagramConnectionStatsClientToRouter_Flags) Descriptor() protoreflect.EnumDescriptor {
-	return file_steamdatagram_messages_sdr_proto_enumTypes[4].Descriptor()
+	return file_steamdatagram_messages_sdr_proto_enumTypes[5].Descriptor()
 }
 
 func (CMsgSteamDatagramConnectionStatsClientToRouter_Flags) Type() protoreflect.EnumType {
-	return &file_steamdatagram_messages_sdr_proto_enumTypes[4]
+	return &file_steamdatagram_messages_sdr_proto_enumTypes[5]
 }
 
 func (x CMsgSteamDatagramConnectionStatsClientToRouter_Flags) Number() protoreflect.EnumNumber {
@@ -439,11 +501,11 @@ func (x CMsgSteamDatagramConnectionStatsRouterToClient_Flags) String() string {
 }
 
 func (CMsgSteamDatagramConnectionStatsRouterToClient_Flags) Descriptor() protoreflect.EnumDescriptor {
-	return file_steamdatagram_messages_sdr_proto_enumTypes[5].Descriptor()
+	return file_steamdatagram_messages_sdr_proto_enumTypes[6].Descriptor()
 }
 
 func (CMsgSteamDatagramConnectionStatsRouterToClient_Flags) Type() protoreflect.EnumType {
-	return &file_steamdatagram_messages_sdr_proto_enumTypes[5]
+	return &file_steamdatagram_messages_sdr_proto_enumTypes[6]
 }
 
 func (x CMsgSteamDatagramConnectionStatsRouterToClient_Flags) Number() protoreflect.EnumNumber {
@@ -498,11 +560,11 @@ func (x CMsgSteamDatagramConnectionStatsRouterToServer_Flags) String() string {
 }
 
 func (CMsgSteamDatagramConnectionStatsRouterToServer_Flags) Descriptor() protoreflect.EnumDescriptor {
-	return file_steamdatagram_messages_sdr_proto_enumTypes[6].Descriptor()
+	return file_steamdatagram_messages_sdr_proto_enumTypes[7].Descriptor()
 }
 
 func (CMsgSteamDatagramConnectionStatsRouterToServer_Flags) Type() protoreflect.EnumType {
-	return &file_steamdatagram_messages_sdr_proto_enumTypes[6]
+	return &file_steamdatagram_messages_sdr_proto_enumTypes[7]
 }
 
 func (x CMsgSteamDatagramConnectionStatsRouterToServer_Flags) Number() protoreflect.EnumNumber {
@@ -557,11 +619,11 @@ func (x CMsgSteamDatagramConnectionStatsServerToRouter_Flags) String() string {
 }
 
 func (CMsgSteamDatagramConnectionStatsServerToRouter_Flags) Descriptor() protoreflect.EnumDescriptor {
-	return file_steamdatagram_messages_sdr_proto_enumTypes[7].Descriptor()
+	return file_steamdatagram_messages_sdr_proto_enumTypes[8].Descriptor()
 }
 
 func (CMsgSteamDatagramConnectionStatsServerToRouter_Flags) Type() protoreflect.EnumType {
-	return &file_steamdatagram_messages_sdr_proto_enumTypes[7]
+	return &file_steamdatagram_messages_sdr_proto_enumTypes[8]
 }
 
 func (x CMsgSteamDatagramConnectionStatsServerToRouter_Flags) Number() protoreflect.EnumNumber {
@@ -625,11 +687,11 @@ func (x CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags) String() string
 }
 
 func (CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags) Descriptor() protoreflect.EnumDescriptor {
-	return file_steamdatagram_messages_sdr_proto_enumTypes[8].Descriptor()
+	return file_steamdatagram_messages_sdr_proto_enumTypes[9].Descriptor()
 }
 
 func (CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags) Type() protoreflect.EnumType {
-	return &file_steamdatagram_messages_sdr_proto_enumTypes[8]
+	return &file_steamdatagram_messages_sdr_proto_enumTypes[9]
 }
 
 func (x CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags) Number() protoreflect.EnumNumber {
@@ -687,11 +749,11 @@ func (x CMsgSteamDatagramConnectionStatsP2PRouterToClient_Flags) String() string
 }
 
 func (CMsgSteamDatagramConnectionStatsP2PRouterToClient_Flags) Descriptor() protoreflect.EnumDescriptor {
-	return file_steamdatagram_messages_sdr_proto_enumTypes[9].Descriptor()
+	return file_steamdatagram_messages_sdr_proto_enumTypes[10].Descriptor()
 }
 
 func (CMsgSteamDatagramConnectionStatsP2PRouterToClient_Flags) Type() protoreflect.EnumType {
-	return &file_steamdatagram_messages_sdr_proto_enumTypes[9]
+	return &file_steamdatagram_messages_sdr_proto_enumTypes[10]
 }
 
 func (x CMsgSteamDatagramConnectionStatsP2PRouterToClient_Flags) Number() protoreflect.EnumNumber {
@@ -1618,12 +1680,11 @@ func (x *CMsgSteamDatagramClientPingSampleRequest) GetConnectionId() uint32 {
 }
 
 type CMsgSteamDatagramClientPingSampleReply struct {
-	state               protoimpl.MessageState                                     `protogen:"open.v1"`
-	ConnectionId        *uint32                                                    `protobuf:"fixed32,1,opt,name=connection_id,json=connectionId" json:"connection_id,omitempty"`
-	RelayOverrideActive *bool                                                      `protobuf:"varint,5,opt,name=relay_override_active,json=relayOverrideActive" json:"relay_override_active,omitempty"`
-	Tos                 *CMsgTOSTreatment                                          `protobuf:"bytes,6,opt,name=tos" json:"tos,omitempty"`
-	Pops                []*CMsgSteamDatagramClientPingSampleReply_POP              `protobuf:"bytes,2,rep,name=pops" json:"pops,omitempty"`
-	LegacyDataCenters   []*CMsgSteamDatagramClientPingSampleReply_LegacyDataCenter `protobuf:"bytes,3,rep,name=legacy_data_centers,json=legacyDataCenters" json:"legacy_data_centers,omitempty"`
+	state               protoimpl.MessageState                        `protogen:"open.v1"`
+	ConnectionId        *uint32                                       `protobuf:"fixed32,1,opt,name=connection_id,json=connectionId" json:"connection_id,omitempty"`
+	RelayOverrideActive *bool                                         `protobuf:"varint,5,opt,name=relay_override_active,json=relayOverrideActive" json:"relay_override_active,omitempty"`
+	Tos                 *CMsgTOSTreatment                             `protobuf:"bytes,6,opt,name=tos" json:"tos,omitempty"`
+	Pops                []*CMsgSteamDatagramClientPingSampleReply_POP `protobuf:"bytes,2,rep,name=pops" json:"pops,omitempty"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -1686,30 +1747,29 @@ func (x *CMsgSteamDatagramClientPingSampleReply) GetPops() []*CMsgSteamDatagramC
 	return nil
 }
 
-func (x *CMsgSteamDatagramClientPingSampleReply) GetLegacyDataCenters() []*CMsgSteamDatagramClientPingSampleReply_LegacyDataCenter {
-	if x != nil {
-		return x.LegacyDataCenters
-	}
-	return nil
-}
-
 type CMsgSteamDatagramClientSwitchedPrimary struct {
-	state                 protoimpl.MessageState                                `protogen:"open.v1"`
-	ConnectionId          *uint32                                               `protobuf:"fixed32,1,opt,name=connection_id,json=connectionId" json:"connection_id,omitempty"`
-	FromIp                *uint32                                               `protobuf:"fixed32,2,opt,name=from_ip,json=fromIp" json:"from_ip,omitempty"`
-	FromPort              *uint32                                               `protobuf:"varint,3,opt,name=from_port,json=fromPort" json:"from_port,omitempty"`
-	FromRouterCluster     *uint32                                               `protobuf:"fixed32,4,opt,name=from_router_cluster,json=fromRouterCluster" json:"from_router_cluster,omitempty"`
-	FromActiveTime        *uint32                                               `protobuf:"varint,5,opt,name=from_active_time,json=fromActiveTime" json:"from_active_time,omitempty"`
-	FromActivePacketsRecv *uint32                                               `protobuf:"varint,6,opt,name=from_active_packets_recv,json=fromActivePacketsRecv" json:"from_active_packets_recv,omitempty"`
-	FromDroppedReason     *string                                               `protobuf:"bytes,7,opt,name=from_dropped_reason,json=fromDroppedReason" json:"from_dropped_reason,omitempty"`
-	GapMs                 *uint32                                               `protobuf:"varint,8,opt,name=gap_ms,json=gapMs" json:"gap_ms,omitempty"`
-	FromQualityNow        *CMsgSteamDatagramClientSwitchedPrimary_RouterQuality `protobuf:"bytes,9,opt,name=from_quality_now,json=fromQualityNow" json:"from_quality_now,omitempty"`
-	ToQualityNow          *CMsgSteamDatagramClientSwitchedPrimary_RouterQuality `protobuf:"bytes,10,opt,name=to_quality_now,json=toQualityNow" json:"to_quality_now,omitempty"`
-	FromQualityThen       *CMsgSteamDatagramClientSwitchedPrimary_RouterQuality `protobuf:"bytes,11,opt,name=from_quality_then,json=fromQualityThen" json:"from_quality_then,omitempty"`
-	ToQualityThen         *CMsgSteamDatagramClientSwitchedPrimary_RouterQuality `protobuf:"bytes,12,opt,name=to_quality_then,json=toQualityThen" json:"to_quality_then,omitempty"`
+	state                 protoimpl.MessageState                                  `protogen:"open.v1"`
+	ConnectionId          *uint32                                                 `protobuf:"fixed32,1,opt,name=connection_id,json=connectionId" json:"connection_id,omitempty"`
+	FromIp                *uint32                                                 `protobuf:"fixed32,2,opt,name=from_ip,json=fromIp" json:"from_ip,omitempty"`
+	FromPort              *uint32                                                 `protobuf:"varint,3,opt,name=from_port,json=fromPort" json:"from_port,omitempty"`
+	FromRouterCluster     *uint32                                                 `protobuf:"fixed32,4,opt,name=from_router_cluster,json=fromRouterCluster" json:"from_router_cluster,omitempty"`
+	FromActiveTime        *uint32                                                 `protobuf:"varint,5,opt,name=from_active_time,json=fromActiveTime" json:"from_active_time,omitempty"`
+	FromActivePacketsRecv *uint32                                                 `protobuf:"varint,6,opt,name=from_active_packets_recv,json=fromActivePacketsRecv" json:"from_active_packets_recv,omitempty"`
+	FromDroppedReason     *string                                                 `protobuf:"bytes,7,opt,name=from_dropped_reason,json=fromDroppedReason" json:"from_dropped_reason,omitempty"`
+	GapMs                 *uint32                                                 `protobuf:"varint,8,opt,name=gap_ms,json=gapMs" json:"gap_ms,omitempty"`
+	FromQualityNow        *CMsgSteamDatagramClientSwitchedPrimary_RouterQuality   `protobuf:"bytes,9,opt,name=from_quality_now,json=fromQualityNow" json:"from_quality_now,omitempty"`
+	ToQualityNow          *CMsgSteamDatagramClientSwitchedPrimary_RouterQuality   `protobuf:"bytes,10,opt,name=to_quality_now,json=toQualityNow" json:"to_quality_now,omitempty"`
+	FromQualityThen       *CMsgSteamDatagramClientSwitchedPrimary_RouterQuality   `protobuf:"bytes,11,opt,name=from_quality_then,json=fromQualityThen" json:"from_quality_then,omitempty"`
+	ToQualityThen         *CMsgSteamDatagramClientSwitchedPrimary_RouterQuality   `protobuf:"bytes,12,opt,name=to_quality_then,json=toQualityThen" json:"to_quality_then,omitempty"`
+	FromMigrateRequest    *CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest `protobuf:"varint,13,opt,name=from_migrate_request,json=fromMigrateRequest,enum=CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest,def=0" json:"from_migrate_request,omitempty"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
+
+// Default values for CMsgSteamDatagramClientSwitchedPrimary fields.
+const (
+	Default_CMsgSteamDatagramClientSwitchedPrimary_FromMigrateRequest = CMsgSteamDatagramClientSwitchedPrimary_k_EMigrateRequest_Unknown
+)
 
 func (x *CMsgSteamDatagramClientSwitchedPrimary) Reset() {
 	*x = CMsgSteamDatagramClientSwitchedPrimary{}
@@ -1823,6 +1883,13 @@ func (x *CMsgSteamDatagramClientSwitchedPrimary) GetToQualityThen() *CMsgSteamDa
 		return x.ToQualityThen
 	}
 	return nil
+}
+
+func (x *CMsgSteamDatagramClientSwitchedPrimary) GetFromMigrateRequest() CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest {
+	if x != nil && x.FromMigrateRequest != nil {
+		return *x.FromMigrateRequest
+	}
+	return Default_CMsgSteamDatagramClientSwitchedPrimary_FromMigrateRequest
 }
 
 type CMsgSteamDatagramConnectRequest struct {
@@ -4264,25 +4331,18 @@ func (x *CMsgSteamDatagramRouterPingReply_AltAddress) GetId() string {
 }
 
 type CMsgSteamDatagramClientPingSampleReply_POP struct {
-	state                  protoimpl.MessageState                                   `protogen:"open.v1"`
-	PopId                  *uint32                                                  `protobuf:"fixed32,1,opt,name=pop_id,json=popId" json:"pop_id,omitempty"`
-	DefaultFrontPingMs     *uint32                                                  `protobuf:"varint,2,opt,name=default_front_ping_ms,json=defaultFrontPingMs" json:"default_front_ping_ms,omitempty"`
-	ClusterPenalty         *uint32                                                  `protobuf:"varint,4,opt,name=cluster_penalty,json=clusterPenalty" json:"cluster_penalty,omitempty"`
-	AltAddresses           []*CMsgSteamDatagramClientPingSampleReply_POP_AltAddress `protobuf:"bytes,7,rep,name=alt_addresses,json=altAddresses" json:"alt_addresses,omitempty"`
-	DefaultE2EPingMs       *uint32                                                  `protobuf:"varint,3,opt,name=default_e2e_ping_ms,json=defaultE2ePingMs" json:"default_e2e_ping_ms,omitempty"`
-	DefaultE2EScore        *uint32                                                  `protobuf:"varint,5,opt,name=default_e2e_score,json=defaultE2eScore" json:"default_e2e_score,omitempty"`
-	P2PViaPeerRelayPopId   *uint32                                                  `protobuf:"fixed32,6,opt,name=p2p_via_peer_relay_pop_id,json=p2pViaPeerRelayPopId" json:"p2p_via_peer_relay_pop_id,omitempty"`
-	BestDcPingMs           *uint32                                                  `protobuf:"varint,9,opt,name=best_dc_ping_ms,json=bestDcPingMs" json:"best_dc_ping_ms,omitempty"`
-	BestDcScore            *uint32                                                  `protobuf:"varint,10,opt,name=best_dc_score,json=bestDcScore" json:"best_dc_score,omitempty"`
-	BestDcViaRelayPopId    *uint32                                                  `protobuf:"fixed32,11,opt,name=best_dc_via_relay_pop_id,json=bestDcViaRelayPopId" json:"best_dc_via_relay_pop_id,omitempty"`
-	DefaultDcPingMs        *uint32                                                  `protobuf:"varint,12,opt,name=default_dc_ping_ms,json=defaultDcPingMs" json:"default_dc_ping_ms,omitempty"`
-	DefaultDcScore         *uint32                                                  `protobuf:"varint,13,opt,name=default_dc_score,json=defaultDcScore" json:"default_dc_score,omitempty"`
-	DefaultDcViaRelayPopId *uint32                                                  `protobuf:"fixed32,14,opt,name=default_dc_via_relay_pop_id,json=defaultDcViaRelayPopId" json:"default_dc_via_relay_pop_id,omitempty"`
-	TestDcPingMs           *uint32                                                  `protobuf:"varint,15,opt,name=test_dc_ping_ms,json=testDcPingMs" json:"test_dc_ping_ms,omitempty"`
-	TestDcScore            *uint32                                                  `protobuf:"varint,16,opt,name=test_dc_score,json=testDcScore" json:"test_dc_score,omitempty"`
-	TestDcViaRelayPopId    *uint32                                                  `protobuf:"fixed32,17,opt,name=test_dc_via_relay_pop_id,json=testDcViaRelayPopId" json:"test_dc_via_relay_pop_id,omitempty"`
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state                protoimpl.MessageState `protogen:"open.v1"`
+	PopId                *uint32                `protobuf:"fixed32,1,opt,name=pop_id,json=popId" json:"pop_id,omitempty"`
+	FrontPingMs          *uint32                `protobuf:"varint,2,opt,name=front_ping_ms,json=frontPingMs" json:"front_ping_ms,omitempty"`
+	ClusterPenalty       *uint32                `protobuf:"varint,4,opt,name=cluster_penalty,json=clusterPenalty" json:"cluster_penalty,omitempty"`
+	E2EPingMs            *uint32                `protobuf:"varint,3,opt,name=e2e_ping_ms,json=e2ePingMs" json:"e2e_ping_ms,omitempty"`
+	E2EScore             *uint32                `protobuf:"varint,5,opt,name=e2e_score,json=e2eScore" json:"e2e_score,omitempty"`
+	E2EP2PPeerRelayPopId *uint32                `protobuf:"fixed32,6,opt,name=e2e_p2p_peer_relay_pop_id,json=e2eP2pPeerRelayPopId" json:"e2e_p2p_peer_relay_pop_id,omitempty"`
+	DcPingMs             *uint32                `protobuf:"varint,9,opt,name=dc_ping_ms,json=dcPingMs" json:"dc_ping_ms,omitempty"`
+	DcScore              *uint32                `protobuf:"varint,10,opt,name=dc_score,json=dcScore" json:"dc_score,omitempty"`
+	DcViaRelayPopId      *uint32                `protobuf:"fixed32,11,opt,name=dc_via_relay_pop_id,json=dcViaRelayPopId" json:"dc_via_relay_pop_id,omitempty"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
 }
 
 func (x *CMsgSteamDatagramClientPingSampleReply_POP) Reset() {
@@ -4322,9 +4382,9 @@ func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetPopId() uint32 {
 	return 0
 }
 
-func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetDefaultFrontPingMs() uint32 {
-	if x != nil && x.DefaultFrontPingMs != nil {
-		return *x.DefaultFrontPingMs
+func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetFrontPingMs() uint32 {
+	if x != nil && x.FrontPingMs != nil {
+		return *x.FrontPingMs
 	}
 	return 0
 }
@@ -4336,213 +4396,44 @@ func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetClusterPenalty() uint32 
 	return 0
 }
 
-func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetAltAddresses() []*CMsgSteamDatagramClientPingSampleReply_POP_AltAddress {
-	if x != nil {
-		return x.AltAddresses
-	}
-	return nil
-}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetDefaultE2EPingMs() uint32 {
-	if x != nil && x.DefaultE2EPingMs != nil {
-		return *x.DefaultE2EPingMs
+func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetE2EPingMs() uint32 {
+	if x != nil && x.E2EPingMs != nil {
+		return *x.E2EPingMs
 	}
 	return 0
 }
 
-func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetDefaultE2EScore() uint32 {
-	if x != nil && x.DefaultE2EScore != nil {
-		return *x.DefaultE2EScore
+func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetE2EScore() uint32 {
+	if x != nil && x.E2EScore != nil {
+		return *x.E2EScore
 	}
 	return 0
 }
 
-func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetP2PViaPeerRelayPopId() uint32 {
-	if x != nil && x.P2PViaPeerRelayPopId != nil {
-		return *x.P2PViaPeerRelayPopId
+func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetE2EP2PPeerRelayPopId() uint32 {
+	if x != nil && x.E2EP2PPeerRelayPopId != nil {
+		return *x.E2EP2PPeerRelayPopId
 	}
 	return 0
 }
 
-func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetBestDcPingMs() uint32 {
-	if x != nil && x.BestDcPingMs != nil {
-		return *x.BestDcPingMs
+func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetDcPingMs() uint32 {
+	if x != nil && x.DcPingMs != nil {
+		return *x.DcPingMs
 	}
 	return 0
 }
 
-func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetBestDcScore() uint32 {
-	if x != nil && x.BestDcScore != nil {
-		return *x.BestDcScore
+func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetDcScore() uint32 {
+	if x != nil && x.DcScore != nil {
+		return *x.DcScore
 	}
 	return 0
 }
 
-func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetBestDcViaRelayPopId() uint32 {
-	if x != nil && x.BestDcViaRelayPopId != nil {
-		return *x.BestDcViaRelayPopId
-	}
-	return 0
-}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetDefaultDcPingMs() uint32 {
-	if x != nil && x.DefaultDcPingMs != nil {
-		return *x.DefaultDcPingMs
-	}
-	return 0
-}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetDefaultDcScore() uint32 {
-	if x != nil && x.DefaultDcScore != nil {
-		return *x.DefaultDcScore
-	}
-	return 0
-}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetDefaultDcViaRelayPopId() uint32 {
-	if x != nil && x.DefaultDcViaRelayPopId != nil {
-		return *x.DefaultDcViaRelayPopId
-	}
-	return 0
-}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetTestDcPingMs() uint32 {
-	if x != nil && x.TestDcPingMs != nil {
-		return *x.TestDcPingMs
-	}
-	return 0
-}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetTestDcScore() uint32 {
-	if x != nil && x.TestDcScore != nil {
-		return *x.TestDcScore
-	}
-	return 0
-}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetTestDcViaRelayPopId() uint32 {
-	if x != nil && x.TestDcViaRelayPopId != nil {
-		return *x.TestDcViaRelayPopId
-	}
-	return 0
-}
-
-type CMsgSteamDatagramClientPingSampleReply_LegacyDataCenter struct {
-	state               protoimpl.MessageState `protogen:"open.v1"`
-	DataCenterId        *uint32                `protobuf:"fixed32,1,opt,name=data_center_id,json=dataCenterId" json:"data_center_id,omitempty"`
-	BestDcViaRelayPopId *uint32                `protobuf:"fixed32,2,opt,name=best_dc_via_relay_pop_id,json=bestDcViaRelayPopId" json:"best_dc_via_relay_pop_id,omitempty"`
-	BestDcPingMs        *uint32                `protobuf:"varint,3,opt,name=best_dc_ping_ms,json=bestDcPingMs" json:"best_dc_ping_ms,omitempty"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
-}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_LegacyDataCenter) Reset() {
-	*x = CMsgSteamDatagramClientPingSampleReply_LegacyDataCenter{}
-	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_LegacyDataCenter) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgSteamDatagramClientPingSampleReply_LegacyDataCenter) ProtoMessage() {}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_LegacyDataCenter) ProtoReflect() protoreflect.Message {
-	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgSteamDatagramClientPingSampleReply_LegacyDataCenter.ProtoReflect.Descriptor instead.
-func (*CMsgSteamDatagramClientPingSampleReply_LegacyDataCenter) Descriptor() ([]byte, []int) {
-	return file_steamdatagram_messages_sdr_proto_rawDescGZIP(), []int{10, 1}
-}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_LegacyDataCenter) GetDataCenterId() uint32 {
-	if x != nil && x.DataCenterId != nil {
-		return *x.DataCenterId
-	}
-	return 0
-}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_LegacyDataCenter) GetBestDcViaRelayPopId() uint32 {
-	if x != nil && x.BestDcViaRelayPopId != nil {
-		return *x.BestDcViaRelayPopId
-	}
-	return 0
-}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_LegacyDataCenter) GetBestDcPingMs() uint32 {
-	if x != nil && x.BestDcPingMs != nil {
-		return *x.BestDcPingMs
-	}
-	return 0
-}
-
-type CMsgSteamDatagramClientPingSampleReply_POP_AltAddress struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            *string                `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
-	FrontPingMs   *uint32                `protobuf:"varint,2,opt,name=front_ping_ms,json=frontPingMs" json:"front_ping_ms,omitempty"`
-	Penalty       *uint32                `protobuf:"varint,3,opt,name=penalty" json:"penalty,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_POP_AltAddress) Reset() {
-	*x = CMsgSteamDatagramClientPingSampleReply_POP_AltAddress{}
-	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[37]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_POP_AltAddress) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgSteamDatagramClientPingSampleReply_POP_AltAddress) ProtoMessage() {}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_POP_AltAddress) ProtoReflect() protoreflect.Message {
-	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[37]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgSteamDatagramClientPingSampleReply_POP_AltAddress.ProtoReflect.Descriptor instead.
-func (*CMsgSteamDatagramClientPingSampleReply_POP_AltAddress) Descriptor() ([]byte, []int) {
-	return file_steamdatagram_messages_sdr_proto_rawDescGZIP(), []int{10, 0, 0}
-}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_POP_AltAddress) GetId() string {
-	if x != nil && x.Id != nil {
-		return *x.Id
-	}
-	return ""
-}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_POP_AltAddress) GetFrontPingMs() uint32 {
-	if x != nil && x.FrontPingMs != nil {
-		return *x.FrontPingMs
-	}
-	return 0
-}
-
-func (x *CMsgSteamDatagramClientPingSampleReply_POP_AltAddress) GetPenalty() uint32 {
-	if x != nil && x.Penalty != nil {
-		return *x.Penalty
+func (x *CMsgSteamDatagramClientPingSampleReply_POP) GetDcViaRelayPopId() uint32 {
+	if x != nil && x.DcViaRelayPopId != nil {
+		return *x.DcViaRelayPopId
 	}
 	return 0
 }
@@ -4559,7 +4450,7 @@ type CMsgSteamDatagramClientSwitchedPrimary_RouterQuality struct {
 
 func (x *CMsgSteamDatagramClientSwitchedPrimary_RouterQuality) Reset() {
 	*x = CMsgSteamDatagramClientSwitchedPrimary_RouterQuality{}
-	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[38]
+	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4571,7 +4462,7 @@ func (x *CMsgSteamDatagramClientSwitchedPrimary_RouterQuality) String() string {
 func (*CMsgSteamDatagramClientSwitchedPrimary_RouterQuality) ProtoMessage() {}
 
 func (x *CMsgSteamDatagramClientSwitchedPrimary_RouterQuality) ProtoReflect() protoreflect.Message {
-	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[38]
+	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4624,7 +4515,7 @@ type CMsgSteamDatagramP2PSessionRequestBody_EncryptedData struct {
 
 func (x *CMsgSteamDatagramP2PSessionRequestBody_EncryptedData) Reset() {
 	*x = CMsgSteamDatagramP2PSessionRequestBody_EncryptedData{}
-	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[39]
+	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4636,7 +4527,7 @@ func (x *CMsgSteamDatagramP2PSessionRequestBody_EncryptedData) String() string {
 func (*CMsgSteamDatagramP2PSessionRequestBody_EncryptedData) ProtoMessage() {}
 
 func (x *CMsgSteamDatagramP2PSessionRequestBody_EncryptedData) ProtoReflect() protoreflect.Message {
-	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[39]
+	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4671,7 +4562,7 @@ type CMsgSteamDatagramP2PRoutes_RelayCluster struct {
 
 func (x *CMsgSteamDatagramP2PRoutes_RelayCluster) Reset() {
 	*x = CMsgSteamDatagramP2PRoutes_RelayCluster{}
-	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[40]
+	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4683,7 +4574,7 @@ func (x *CMsgSteamDatagramP2PRoutes_RelayCluster) String() string {
 func (*CMsgSteamDatagramP2PRoutes_RelayCluster) ProtoMessage() {}
 
 func (x *CMsgSteamDatagramP2PRoutes_RelayCluster) ProtoReflect() protoreflect.Message {
-	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[40]
+	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4739,7 +4630,7 @@ type CMsgSteamDatagramP2PRoutes_Route struct {
 
 func (x *CMsgSteamDatagramP2PRoutes_Route) Reset() {
 	*x = CMsgSteamDatagramP2PRoutes_Route{}
-	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[41]
+	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4751,7 +4642,7 @@ func (x *CMsgSteamDatagramP2PRoutes_Route) String() string {
 func (*CMsgSteamDatagramP2PRoutes_Route) ProtoMessage() {}
 
 func (x *CMsgSteamDatagramP2PRoutes_Route) ProtoReflect() protoreflect.Message {
-	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[41]
+	mi := &file_steamdatagram_messages_sdr_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4904,41 +4795,24 @@ const file_steamdatagram_messages_sdr_proto_rawDesc = "" +
 	"\vdown_dscp45\x18\x03 \x01(\tR\n" +
 	"downDscp45\"O\n" +
 	"(CMsgSteamDatagramClientPingSampleRequest\x12#\n" +
-	"\rconnection_id\x18\x01 \x01(\aR\fconnectionId\"\xca\n" +
-	"\n" +
+	"\rconnection_id\x18\x01 \x01(\aR\fconnectionId\"\xc2\x04\n" +
 	"&CMsgSteamDatagramClientPingSampleReply\x12#\n" +
 	"\rconnection_id\x18\x01 \x01(\aR\fconnectionId\x122\n" +
 	"\x15relay_override_active\x18\x05 \x01(\bR\x13relayOverrideActive\x12#\n" +
 	"\x03tos\x18\x06 \x01(\v2\x11.CMsgTOSTreatmentR\x03tos\x12?\n" +
-	"\x04pops\x18\x02 \x03(\v2+.CMsgSteamDatagramClientPingSampleReply.POPR\x04pops\x12h\n" +
-	"\x13legacy_data_centers\x18\x03 \x03(\v28.CMsgSteamDatagramClientPingSampleReply.LegacyDataCenterR\x11legacyDataCenters\x1a\xdd\x06\n" +
+	"\x04pops\x18\x02 \x03(\v2+.CMsgSteamDatagramClientPingSampleReply.POPR\x04pops\x1a\xd2\x02\n" +
 	"\x03POP\x12\x15\n" +
-	"\x06pop_id\x18\x01 \x01(\aR\x05popId\x121\n" +
-	"\x15default_front_ping_ms\x18\x02 \x01(\rR\x12defaultFrontPingMs\x12'\n" +
-	"\x0fcluster_penalty\x18\x04 \x01(\rR\x0eclusterPenalty\x12[\n" +
-	"\ralt_addresses\x18\a \x03(\v26.CMsgSteamDatagramClientPingSampleReply.POP.AltAddressR\faltAddresses\x12-\n" +
-	"\x13default_e2e_ping_ms\x18\x03 \x01(\rR\x10defaultE2ePingMs\x12*\n" +
-	"\x11default_e2e_score\x18\x05 \x01(\rR\x0fdefaultE2eScore\x127\n" +
-	"\x19p2p_via_peer_relay_pop_id\x18\x06 \x01(\aR\x14p2pViaPeerRelayPopId\x12%\n" +
-	"\x0fbest_dc_ping_ms\x18\t \x01(\rR\fbestDcPingMs\x12\"\n" +
-	"\rbest_dc_score\x18\n" +
-	" \x01(\rR\vbestDcScore\x125\n" +
-	"\x18best_dc_via_relay_pop_id\x18\v \x01(\aR\x13bestDcViaRelayPopId\x12+\n" +
-	"\x12default_dc_ping_ms\x18\f \x01(\rR\x0fdefaultDcPingMs\x12(\n" +
-	"\x10default_dc_score\x18\r \x01(\rR\x0edefaultDcScore\x12;\n" +
-	"\x1bdefault_dc_via_relay_pop_id\x18\x0e \x01(\aR\x16defaultDcViaRelayPopId\x12%\n" +
-	"\x0ftest_dc_ping_ms\x18\x0f \x01(\rR\ftestDcPingMs\x12\"\n" +
-	"\rtest_dc_score\x18\x10 \x01(\rR\vtestDcScore\x125\n" +
-	"\x18test_dc_via_relay_pop_id\x18\x11 \x01(\aR\x13testDcViaRelayPopId\x1aZ\n" +
+	"\x06pop_id\x18\x01 \x01(\aR\x05popId\x12\"\n" +
+	"\rfront_ping_ms\x18\x02 \x01(\rR\vfrontPingMs\x12'\n" +
+	"\x0fcluster_penalty\x18\x04 \x01(\rR\x0eclusterPenalty\x12\x1e\n" +
+	"\ve2e_ping_ms\x18\x03 \x01(\rR\te2ePingMs\x12\x1b\n" +
+	"\te2e_score\x18\x05 \x01(\rR\be2eScore\x127\n" +
+	"\x19e2e_p2p_peer_relay_pop_id\x18\x06 \x01(\aR\x14e2eP2pPeerRelayPopId\x12\x1c\n" +
 	"\n" +
-	"AltAddress\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\"\n" +
-	"\rfront_ping_ms\x18\x02 \x01(\rR\vfrontPingMs\x12\x18\n" +
-	"\apenalty\x18\x03 \x01(\rR\apenalty\x1a\x96\x01\n" +
-	"\x10LegacyDataCenter\x12$\n" +
-	"\x0edata_center_id\x18\x01 \x01(\aR\fdataCenterId\x125\n" +
-	"\x18best_dc_via_relay_pop_id\x18\x02 \x01(\aR\x13bestDcViaRelayPopId\x12%\n" +
-	"\x0fbest_dc_ping_ms\x18\x03 \x01(\rR\fbestDcPingMs\"\xef\x06\n" +
+	"dc_ping_ms\x18\t \x01(\rR\bdcPingMs\x12\x19\n" +
+	"\bdc_score\x18\n" +
+	" \x01(\rR\adcScore\x12,\n" +
+	"\x13dc_via_relay_pop_id\x18\v \x01(\aR\x0fdcViaRelayPopIdJ\x04\b\a\x10\bJ\x04\b\f\x10\x12J\x04\b\x03\x10\x04\"\x8f\t\n" +
 	"&CMsgSteamDatagramClientSwitchedPrimary\x12#\n" +
 	"\rconnection_id\x18\x01 \x01(\aR\fconnectionId\x12\x17\n" +
 	"\afrom_ip\x18\x02 \x01(\aR\x06fromIp\x12\x1b\n" +
@@ -4952,13 +4826,19 @@ const file_steamdatagram_messages_sdr_proto_rawDesc = "" +
 	"\x0eto_quality_now\x18\n" +
 	" \x01(\v25.CMsgSteamDatagramClientSwitchedPrimary.RouterQualityR\ftoQualityNow\x12a\n" +
 	"\x11from_quality_then\x18\v \x01(\v25.CMsgSteamDatagramClientSwitchedPrimary.RouterQualityR\x0ffromQualityThen\x12]\n" +
-	"\x0fto_quality_then\x18\f \x01(\v25.CMsgSteamDatagramClientSwitchedPrimary.RouterQualityR\rtoQualityThen\x1a\x8f\x01\n" +
+	"\x0fto_quality_then\x18\f \x01(\v25.CMsgSteamDatagramClientSwitchedPrimary.RouterQualityR\rtoQualityThen\x12\x84\x01\n" +
+	"\x14from_migrate_request\x18\r \x01(\x0e27.CMsgSteamDatagramClientSwitchedPrimary.EMigrateRequest:\x19k_EMigrateRequest_UnknownR\x12fromMigrateRequest\x1a\x8f\x01\n" +
 	"\rRouterQuality\x12\x14\n" +
 	"\x05score\x18\x01 \x01(\rR\x05score\x12\x1d\n" +
 	"\n" +
 	"front_ping\x18\x02 \x01(\rR\tfrontPing\x12\x1b\n" +
 	"\tback_ping\x18\x03 \x01(\rR\bbackPing\x12,\n" +
-	"\x12seconds_until_down\x18\x04 \x01(\rR\x10secondsUntilDown\"\xc0\x03\n" +
+	"\x12seconds_until_down\x18\x04 \x01(\rR\x10secondsUntilDown\"\x96\x01\n" +
+	"\x0fEMigrateRequest\x12\x1d\n" +
+	"\x19k_EMigrateRequest_Unknown\x10\x00\x12\x1a\n" +
+	"\x16k_EMigrateRequest_None\x10\x01\x12\"\n" +
+	"\x1ek_EMigrateRequest_ObeyedTarget\x10\x02\x12$\n" +
+	" k_EMigrateRequest_ChoseDifferent\x10\x03\"\xc0\x03\n" +
 	"\x1fCMsgSteamDatagramConnectRequest\x12#\n" +
 	"\rconnection_id\x18\x01 \x01(\aR\fconnectionId\x12!\n" +
 	"\fmy_timestamp\x18\x04 \x01(\x06R\vmyTimestamp\x12\x1e\n" +
@@ -5292,119 +5172,117 @@ func file_steamdatagram_messages_sdr_proto_rawDescGZIP() []byte {
 	return file_steamdatagram_messages_sdr_proto_rawDescData
 }
 
-var file_steamdatagram_messages_sdr_proto_enumTypes = make([]protoimpl.EnumInfo, 10)
-var file_steamdatagram_messages_sdr_proto_msgTypes = make([]protoimpl.MessageInfo, 42)
+var file_steamdatagram_messages_sdr_proto_enumTypes = make([]protoimpl.EnumInfo, 11)
+var file_steamdatagram_messages_sdr_proto_msgTypes = make([]protoimpl.MessageInfo, 40)
 var file_steamdatagram_messages_sdr_proto_goTypes = []any{
-	(ESteamDatagramMsgID)(0),                                        // 0: ESteamDatagramMsgID
-	(CMsgSteamDatagramRouterPingReply_Flags)(0),                     // 1: CMsgSteamDatagramRouterPingReply.Flags
-	(CMsgSteamDatagramRouterPingReply_AltAddress_Protocol)(0),       // 2: CMsgSteamDatagramRouterPingReply.AltAddress.Protocol
-	(CMsgSteamDatagramConnectionClosed_ERelayMode)(0),               // 3: CMsgSteamDatagramConnectionClosed.ERelayMode
-	(CMsgSteamDatagramConnectionStatsClientToRouter_Flags)(0),       // 4: CMsgSteamDatagramConnectionStatsClientToRouter.Flags
-	(CMsgSteamDatagramConnectionStatsRouterToClient_Flags)(0),       // 5: CMsgSteamDatagramConnectionStatsRouterToClient.Flags
-	(CMsgSteamDatagramConnectionStatsRouterToServer_Flags)(0),       // 6: CMsgSteamDatagramConnectionStatsRouterToServer.Flags
-	(CMsgSteamDatagramConnectionStatsServerToRouter_Flags)(0),       // 7: CMsgSteamDatagramConnectionStatsServerToRouter.Flags
-	(CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags)(0),    // 8: CMsgSteamDatagramConnectionStatsP2PClientToRouter.Flags
-	(CMsgSteamDatagramConnectionStatsP2PRouterToClient_Flags)(0),    // 9: CMsgSteamDatagramConnectionStatsP2PRouterToClient.Flags
-	(*CMsgSteamNetworkingIPAddress)(nil),                            // 10: CMsgSteamNetworkingIPAddress
-	(*CMsgSteamDatagramSignedMessageGeneric)(nil),                   // 11: CMsgSteamDatagramSignedMessageGeneric
-	(*CMsgSteamDatagramRouterPingReply)(nil),                        // 12: CMsgSteamDatagramRouterPingReply
-	(*CMsgSteamDatagramGameserverPingRequestBody)(nil),              // 13: CMsgSteamDatagramGameserverPingRequestBody
-	(*CMsgSteamDatagramGameserverPingRequestEnvelope)(nil),          // 14: CMsgSteamDatagramGameserverPingRequestEnvelope
-	(*CMsgSteamDatagramGameserverPingReplyData)(nil),                // 15: CMsgSteamDatagramGameserverPingReplyData
-	(*CMsgSteamDatagramNoSessionRelayToClient)(nil),                 // 16: CMsgSteamDatagramNoSessionRelayToClient
-	(*CMsgSteamDatagramNoSessionRelayToPeer)(nil),                   // 17: CMsgSteamDatagramNoSessionRelayToPeer
-	(*CMsgTOSTreatment)(nil),                                        // 18: CMsgTOSTreatment
-	(*CMsgSteamDatagramClientPingSampleRequest)(nil),                // 19: CMsgSteamDatagramClientPingSampleRequest
-	(*CMsgSteamDatagramClientPingSampleReply)(nil),                  // 20: CMsgSteamDatagramClientPingSampleReply
-	(*CMsgSteamDatagramClientSwitchedPrimary)(nil),                  // 21: CMsgSteamDatagramClientSwitchedPrimary
-	(*CMsgSteamDatagramConnectRequest)(nil),                         // 22: CMsgSteamDatagramConnectRequest
-	(*CMsgSteamDatagramConnectOK)(nil),                              // 23: CMsgSteamDatagramConnectOK
-	(*CMsgSteamNetworkingP2PSDRRoutingSummary)(nil),                 // 24: CMsgSteamNetworkingP2PSDRRoutingSummary
-	(*CMsgSteamDatagramP2PRoutingSummary)(nil),                      // 25: CMsgSteamDatagramP2PRoutingSummary
-	(*CMsgSteamDatagramConnectionClosed)(nil),                       // 26: CMsgSteamDatagramConnectionClosed
-	(*CMsgSteamDatagramNoConnection)(nil),                           // 27: CMsgSteamDatagramNoConnection
-	(*CMsgSteamDatagramGameserverSessionRequest)(nil),               // 28: CMsgSteamDatagramGameserverSessionRequest
-	(*CMsgSteamDatagramGameserverSessionEstablished)(nil),           // 29: CMsgSteamDatagramGameserverSessionEstablished
-	(*CMsgSteamDatagramConnectionStatsClientToRouter)(nil),          // 30: CMsgSteamDatagramConnectionStatsClientToRouter
-	(*CMsgSteamDatagramConnectionStatsRouterToClient)(nil),          // 31: CMsgSteamDatagramConnectionStatsRouterToClient
-	(*CMsgSteamDatagramConnectionStatsRouterToServer)(nil),          // 32: CMsgSteamDatagramConnectionStatsRouterToServer
-	(*CMsgSteamDatagramConnectionStatsServerToRouter)(nil),          // 33: CMsgSteamDatagramConnectionStatsServerToRouter
-	(*CMsgSteamDatagramP2PSessionRequestBody)(nil),                  // 34: CMsgSteamDatagramP2PSessionRequestBody
-	(*CMsgSteamDatagramP2PSessionRequest)(nil),                      // 35: CMsgSteamDatagramP2PSessionRequest
-	(*CMsgSteamDatagramP2PSessionEstablished)(nil),                  // 36: CMsgSteamDatagramP2PSessionEstablished
-	(*CMsgSteamDatagramConnectionStatsP2PClientToRouter)(nil),       // 37: CMsgSteamDatagramConnectionStatsP2PClientToRouter
-	(*CMsgSteamDatagramConnectionStatsP2PRouterToClient)(nil),       // 38: CMsgSteamDatagramConnectionStatsP2PRouterToClient
-	(*CMsgSteamDatagramP2PBadRouteRouterToClient)(nil),              // 39: CMsgSteamDatagramP2PBadRouteRouterToClient
-	(*CMsgSteamDatagramP2PRoutes)(nil),                              // 40: CMsgSteamDatagramP2PRoutes
-	(*CMsgSteamDatagramSetSecondaryAddressRequest)(nil),             // 41: CMsgSteamDatagramSetSecondaryAddressRequest
-	(*CMsgSteamDatagramSetSecondaryAddressResult)(nil),              // 42: CMsgSteamDatagramSetSecondaryAddressResult
-	(*CMsgSteamDatagramRouterPingReply_RouteException)(nil),         // 43: CMsgSteamDatagramRouterPingReply.RouteException
-	(*CMsgSteamDatagramRouterPingReply_AltAddress)(nil),             // 44: CMsgSteamDatagramRouterPingReply.AltAddress
-	(*CMsgSteamDatagramClientPingSampleReply_POP)(nil),              // 45: CMsgSteamDatagramClientPingSampleReply.POP
-	(*CMsgSteamDatagramClientPingSampleReply_LegacyDataCenter)(nil), // 46: CMsgSteamDatagramClientPingSampleReply.LegacyDataCenter
-	(*CMsgSteamDatagramClientPingSampleReply_POP_AltAddress)(nil),   // 47: CMsgSteamDatagramClientPingSampleReply.POP.AltAddress
-	(*CMsgSteamDatagramClientSwitchedPrimary_RouterQuality)(nil),    // 48: CMsgSteamDatagramClientSwitchedPrimary.RouterQuality
-	(*CMsgSteamDatagramP2PSessionRequestBody_EncryptedData)(nil),    // 49: CMsgSteamDatagramP2PSessionRequestBody.EncryptedData
-	(*CMsgSteamDatagramP2PRoutes_RelayCluster)(nil),                 // 50: CMsgSteamDatagramP2PRoutes.RelayCluster
-	(*CMsgSteamDatagramP2PRoutes_Route)(nil),                        // 51: CMsgSteamDatagramP2PRoutes.Route
-	(*CMsgSteamDatagramCertificateSigned)(nil),                      // 52: CMsgSteamDatagramCertificateSigned
-	(*CMsgSteamDatagramSessionCryptInfoSigned)(nil),                 // 53: CMsgSteamDatagramSessionCryptInfoSigned
-	(*CMsgSteamNetworkingICESessionSummary)(nil),                    // 54: CMsgSteamNetworkingICESessionSummary
-	(*CMsgSteamNetworkingIdentityLegacyBinary)(nil),                 // 55: CMsgSteamNetworkingIdentityLegacyBinary
-	(*CMsgSteamDatagramConnectionQuality)(nil),                      // 56: CMsgSteamDatagramConnectionQuality
+	(ESteamDatagramMsgID)(0),                                     // 0: ESteamDatagramMsgID
+	(CMsgSteamDatagramRouterPingReply_Flags)(0),                  // 1: CMsgSteamDatagramRouterPingReply.Flags
+	(CMsgSteamDatagramRouterPingReply_AltAddress_Protocol)(0),    // 2: CMsgSteamDatagramRouterPingReply.AltAddress.Protocol
+	(CMsgSteamDatagramClientSwitchedPrimary_EMigrateRequest)(0),  // 3: CMsgSteamDatagramClientSwitchedPrimary.EMigrateRequest
+	(CMsgSteamDatagramConnectionClosed_ERelayMode)(0),            // 4: CMsgSteamDatagramConnectionClosed.ERelayMode
+	(CMsgSteamDatagramConnectionStatsClientToRouter_Flags)(0),    // 5: CMsgSteamDatagramConnectionStatsClientToRouter.Flags
+	(CMsgSteamDatagramConnectionStatsRouterToClient_Flags)(0),    // 6: CMsgSteamDatagramConnectionStatsRouterToClient.Flags
+	(CMsgSteamDatagramConnectionStatsRouterToServer_Flags)(0),    // 7: CMsgSteamDatagramConnectionStatsRouterToServer.Flags
+	(CMsgSteamDatagramConnectionStatsServerToRouter_Flags)(0),    // 8: CMsgSteamDatagramConnectionStatsServerToRouter.Flags
+	(CMsgSteamDatagramConnectionStatsP2PClientToRouter_Flags)(0), // 9: CMsgSteamDatagramConnectionStatsP2PClientToRouter.Flags
+	(CMsgSteamDatagramConnectionStatsP2PRouterToClient_Flags)(0), // 10: CMsgSteamDatagramConnectionStatsP2PRouterToClient.Flags
+	(*CMsgSteamNetworkingIPAddress)(nil),                         // 11: CMsgSteamNetworkingIPAddress
+	(*CMsgSteamDatagramSignedMessageGeneric)(nil),                // 12: CMsgSteamDatagramSignedMessageGeneric
+	(*CMsgSteamDatagramRouterPingReply)(nil),                     // 13: CMsgSteamDatagramRouterPingReply
+	(*CMsgSteamDatagramGameserverPingRequestBody)(nil),           // 14: CMsgSteamDatagramGameserverPingRequestBody
+	(*CMsgSteamDatagramGameserverPingRequestEnvelope)(nil),       // 15: CMsgSteamDatagramGameserverPingRequestEnvelope
+	(*CMsgSteamDatagramGameserverPingReplyData)(nil),             // 16: CMsgSteamDatagramGameserverPingReplyData
+	(*CMsgSteamDatagramNoSessionRelayToClient)(nil),              // 17: CMsgSteamDatagramNoSessionRelayToClient
+	(*CMsgSteamDatagramNoSessionRelayToPeer)(nil),                // 18: CMsgSteamDatagramNoSessionRelayToPeer
+	(*CMsgTOSTreatment)(nil),                                     // 19: CMsgTOSTreatment
+	(*CMsgSteamDatagramClientPingSampleRequest)(nil),             // 20: CMsgSteamDatagramClientPingSampleRequest
+	(*CMsgSteamDatagramClientPingSampleReply)(nil),               // 21: CMsgSteamDatagramClientPingSampleReply
+	(*CMsgSteamDatagramClientSwitchedPrimary)(nil),               // 22: CMsgSteamDatagramClientSwitchedPrimary
+	(*CMsgSteamDatagramConnectRequest)(nil),                      // 23: CMsgSteamDatagramConnectRequest
+	(*CMsgSteamDatagramConnectOK)(nil),                           // 24: CMsgSteamDatagramConnectOK
+	(*CMsgSteamNetworkingP2PSDRRoutingSummary)(nil),              // 25: CMsgSteamNetworkingP2PSDRRoutingSummary
+	(*CMsgSteamDatagramP2PRoutingSummary)(nil),                   // 26: CMsgSteamDatagramP2PRoutingSummary
+	(*CMsgSteamDatagramConnectionClosed)(nil),                    // 27: CMsgSteamDatagramConnectionClosed
+	(*CMsgSteamDatagramNoConnection)(nil),                        // 28: CMsgSteamDatagramNoConnection
+	(*CMsgSteamDatagramGameserverSessionRequest)(nil),            // 29: CMsgSteamDatagramGameserverSessionRequest
+	(*CMsgSteamDatagramGameserverSessionEstablished)(nil),        // 30: CMsgSteamDatagramGameserverSessionEstablished
+	(*CMsgSteamDatagramConnectionStatsClientToRouter)(nil),       // 31: CMsgSteamDatagramConnectionStatsClientToRouter
+	(*CMsgSteamDatagramConnectionStatsRouterToClient)(nil),       // 32: CMsgSteamDatagramConnectionStatsRouterToClient
+	(*CMsgSteamDatagramConnectionStatsRouterToServer)(nil),       // 33: CMsgSteamDatagramConnectionStatsRouterToServer
+	(*CMsgSteamDatagramConnectionStatsServerToRouter)(nil),       // 34: CMsgSteamDatagramConnectionStatsServerToRouter
+	(*CMsgSteamDatagramP2PSessionRequestBody)(nil),               // 35: CMsgSteamDatagramP2PSessionRequestBody
+	(*CMsgSteamDatagramP2PSessionRequest)(nil),                   // 36: CMsgSteamDatagramP2PSessionRequest
+	(*CMsgSteamDatagramP2PSessionEstablished)(nil),               // 37: CMsgSteamDatagramP2PSessionEstablished
+	(*CMsgSteamDatagramConnectionStatsP2PClientToRouter)(nil),    // 38: CMsgSteamDatagramConnectionStatsP2PClientToRouter
+	(*CMsgSteamDatagramConnectionStatsP2PRouterToClient)(nil),    // 39: CMsgSteamDatagramConnectionStatsP2PRouterToClient
+	(*CMsgSteamDatagramP2PBadRouteRouterToClient)(nil),           // 40: CMsgSteamDatagramP2PBadRouteRouterToClient
+	(*CMsgSteamDatagramP2PRoutes)(nil),                           // 41: CMsgSteamDatagramP2PRoutes
+	(*CMsgSteamDatagramSetSecondaryAddressRequest)(nil),          // 42: CMsgSteamDatagramSetSecondaryAddressRequest
+	(*CMsgSteamDatagramSetSecondaryAddressResult)(nil),           // 43: CMsgSteamDatagramSetSecondaryAddressResult
+	(*CMsgSteamDatagramRouterPingReply_RouteException)(nil),      // 44: CMsgSteamDatagramRouterPingReply.RouteException
+	(*CMsgSteamDatagramRouterPingReply_AltAddress)(nil),          // 45: CMsgSteamDatagramRouterPingReply.AltAddress
+	(*CMsgSteamDatagramClientPingSampleReply_POP)(nil),           // 46: CMsgSteamDatagramClientPingSampleReply.POP
+	(*CMsgSteamDatagramClientSwitchedPrimary_RouterQuality)(nil), // 47: CMsgSteamDatagramClientSwitchedPrimary.RouterQuality
+	(*CMsgSteamDatagramP2PSessionRequestBody_EncryptedData)(nil), // 48: CMsgSteamDatagramP2PSessionRequestBody.EncryptedData
+	(*CMsgSteamDatagramP2PRoutes_RelayCluster)(nil),              // 49: CMsgSteamDatagramP2PRoutes.RelayCluster
+	(*CMsgSteamDatagramP2PRoutes_Route)(nil),                     // 50: CMsgSteamDatagramP2PRoutes.Route
+	(*CMsgSteamDatagramCertificateSigned)(nil),                   // 51: CMsgSteamDatagramCertificateSigned
+	(*CMsgSteamDatagramSessionCryptInfoSigned)(nil),              // 52: CMsgSteamDatagramSessionCryptInfoSigned
+	(*CMsgSteamNetworkingICESessionSummary)(nil),                 // 53: CMsgSteamNetworkingICESessionSummary
+	(*CMsgSteamNetworkingIdentityLegacyBinary)(nil),              // 54: CMsgSteamNetworkingIdentityLegacyBinary
+	(*CMsgSteamDatagramConnectionQuality)(nil),                   // 55: CMsgSteamDatagramConnectionQuality
 }
 var file_steamdatagram_messages_sdr_proto_depIdxs = []int32{
-	52, // 0: CMsgSteamDatagramSignedMessageGeneric.cert:type_name -> CMsgSteamDatagramCertificateSigned
-	43, // 1: CMsgSteamDatagramRouterPingReply.route_exceptions:type_name -> CMsgSteamDatagramRouterPingReply.RouteException
-	44, // 2: CMsgSteamDatagramRouterPingReply.alt_addresses:type_name -> CMsgSteamDatagramRouterPingReply.AltAddress
-	10, // 3: CMsgSteamDatagramGameserverPingRequestBody.your_public_ip:type_name -> CMsgSteamNetworkingIPAddress
-	10, // 4: CMsgSteamDatagramGameserverPingRequestBody.my_ips:type_name -> CMsgSteamNetworkingIPAddress
-	52, // 5: CMsgSteamDatagramGameserverPingRequestEnvelope.cert:type_name -> CMsgSteamDatagramCertificateSigned
-	18, // 6: CMsgSteamDatagramClientPingSampleReply.tos:type_name -> CMsgTOSTreatment
-	45, // 7: CMsgSteamDatagramClientPingSampleReply.pops:type_name -> CMsgSteamDatagramClientPingSampleReply.POP
-	46, // 8: CMsgSteamDatagramClientPingSampleReply.legacy_data_centers:type_name -> CMsgSteamDatagramClientPingSampleReply.LegacyDataCenter
-	48, // 9: CMsgSteamDatagramClientSwitchedPrimary.from_quality_now:type_name -> CMsgSteamDatagramClientSwitchedPrimary.RouterQuality
-	48, // 10: CMsgSteamDatagramClientSwitchedPrimary.to_quality_now:type_name -> CMsgSteamDatagramClientSwitchedPrimary.RouterQuality
-	48, // 11: CMsgSteamDatagramClientSwitchedPrimary.from_quality_then:type_name -> CMsgSteamDatagramClientSwitchedPrimary.RouterQuality
-	48, // 12: CMsgSteamDatagramClientSwitchedPrimary.to_quality_then:type_name -> CMsgSteamDatagramClientSwitchedPrimary.RouterQuality
-	53, // 13: CMsgSteamDatagramConnectRequest.crypt:type_name -> CMsgSteamDatagramSessionCryptInfoSigned
-	52, // 14: CMsgSteamDatagramConnectRequest.cert:type_name -> CMsgSteamDatagramCertificateSigned
-	53, // 15: CMsgSteamDatagramConnectOK.crypt:type_name -> CMsgSteamDatagramSessionCryptInfoSigned
-	52, // 16: CMsgSteamDatagramConnectOK.cert:type_name -> CMsgSteamDatagramCertificateSigned
-	54, // 17: CMsgSteamDatagramP2PRoutingSummary.ice:type_name -> CMsgSteamNetworkingICESessionSummary
-	24, // 18: CMsgSteamDatagramP2PRoutingSummary.sdr:type_name -> CMsgSteamNetworkingP2PSDRRoutingSummary
-	55, // 19: CMsgSteamDatagramConnectionClosed.legacy_from_identity_binary:type_name -> CMsgSteamNetworkingIdentityLegacyBinary
-	3,  // 20: CMsgSteamDatagramConnectionClosed.relay_mode:type_name -> CMsgSteamDatagramConnectionClosed.ERelayMode
-	56, // 21: CMsgSteamDatagramConnectionClosed.quality_relay:type_name -> CMsgSteamDatagramConnectionQuality
-	56, // 22: CMsgSteamDatagramConnectionClosed.quality_e2e:type_name -> CMsgSteamDatagramConnectionQuality
-	25, // 23: CMsgSteamDatagramConnectionClosed.p2p_routing_summary:type_name -> CMsgSteamDatagramP2PRoutingSummary
-	56, // 24: CMsgSteamDatagramNoConnection.quality_relay:type_name -> CMsgSteamDatagramConnectionQuality
-	56, // 25: CMsgSteamDatagramNoConnection.quality_e2e:type_name -> CMsgSteamDatagramConnectionQuality
-	25, // 26: CMsgSteamDatagramNoConnection.p2p_routing_summary:type_name -> CMsgSteamDatagramP2PRoutingSummary
-	52, // 27: CMsgSteamDatagramGameserverSessionRequest.dev_client_cert:type_name -> CMsgSteamDatagramCertificateSigned
-	56, // 28: CMsgSteamDatagramConnectionStatsClientToRouter.quality_relay:type_name -> CMsgSteamDatagramConnectionQuality
-	56, // 29: CMsgSteamDatagramConnectionStatsClientToRouter.quality_e2e:type_name -> CMsgSteamDatagramConnectionQuality
-	56, // 30: CMsgSteamDatagramConnectionStatsRouterToClient.quality_relay:type_name -> CMsgSteamDatagramConnectionQuality
-	56, // 31: CMsgSteamDatagramConnectionStatsRouterToClient.quality_e2e:type_name -> CMsgSteamDatagramConnectionQuality
-	56, // 32: CMsgSteamDatagramConnectionStatsRouterToServer.quality_relay:type_name -> CMsgSteamDatagramConnectionQuality
-	56, // 33: CMsgSteamDatagramConnectionStatsRouterToServer.quality_e2e:type_name -> CMsgSteamDatagramConnectionQuality
-	56, // 34: CMsgSteamDatagramConnectionStatsServerToRouter.quality_relay:type_name -> CMsgSteamDatagramConnectionQuality
-	56, // 35: CMsgSteamDatagramConnectionStatsServerToRouter.quality_e2e:type_name -> CMsgSteamDatagramConnectionQuality
-	52, // 36: CMsgSteamDatagramP2PSessionRequest.cert:type_name -> CMsgSteamDatagramCertificateSigned
-	56, // 37: CMsgSteamDatagramConnectionStatsP2PClientToRouter.quality_relay:type_name -> CMsgSteamDatagramConnectionQuality
-	56, // 38: CMsgSteamDatagramConnectionStatsP2PClientToRouter.quality_e2e:type_name -> CMsgSteamDatagramConnectionQuality
-	25, // 39: CMsgSteamDatagramConnectionStatsP2PClientToRouter.p2p_routing_summary:type_name -> CMsgSteamDatagramP2PRoutingSummary
-	56, // 40: CMsgSteamDatagramConnectionStatsP2PRouterToClient.quality_relay:type_name -> CMsgSteamDatagramConnectionQuality
-	56, // 41: CMsgSteamDatagramConnectionStatsP2PRouterToClient.quality_e2e:type_name -> CMsgSteamDatagramConnectionQuality
-	50, // 42: CMsgSteamDatagramP2PRoutes.relay_clusters:type_name -> CMsgSteamDatagramP2PRoutes.RelayCluster
-	51, // 43: CMsgSteamDatagramP2PRoutes.routes:type_name -> CMsgSteamDatagramP2PRoutes.Route
+	51, // 0: CMsgSteamDatagramSignedMessageGeneric.cert:type_name -> CMsgSteamDatagramCertificateSigned
+	44, // 1: CMsgSteamDatagramRouterPingReply.route_exceptions:type_name -> CMsgSteamDatagramRouterPingReply.RouteException
+	45, // 2: CMsgSteamDatagramRouterPingReply.alt_addresses:type_name -> CMsgSteamDatagramRouterPingReply.AltAddress
+	11, // 3: CMsgSteamDatagramGameserverPingRequestBody.your_public_ip:type_name -> CMsgSteamNetworkingIPAddress
+	11, // 4: CMsgSteamDatagramGameserverPingRequestBody.my_ips:type_name -> CMsgSteamNetworkingIPAddress
+	51, // 5: CMsgSteamDatagramGameserverPingRequestEnvelope.cert:type_name -> CMsgSteamDatagramCertificateSigned
+	19, // 6: CMsgSteamDatagramClientPingSampleReply.tos:type_name -> CMsgTOSTreatment
+	46, // 7: CMsgSteamDatagramClientPingSampleReply.pops:type_name -> CMsgSteamDatagramClientPingSampleReply.POP
+	47, // 8: CMsgSteamDatagramClientSwitchedPrimary.from_quality_now:type_name -> CMsgSteamDatagramClientSwitchedPrimary.RouterQuality
+	47, // 9: CMsgSteamDatagramClientSwitchedPrimary.to_quality_now:type_name -> CMsgSteamDatagramClientSwitchedPrimary.RouterQuality
+	47, // 10: CMsgSteamDatagramClientSwitchedPrimary.from_quality_then:type_name -> CMsgSteamDatagramClientSwitchedPrimary.RouterQuality
+	47, // 11: CMsgSteamDatagramClientSwitchedPrimary.to_quality_then:type_name -> CMsgSteamDatagramClientSwitchedPrimary.RouterQuality
+	3,  // 12: CMsgSteamDatagramClientSwitchedPrimary.from_migrate_request:type_name -> CMsgSteamDatagramClientSwitchedPrimary.EMigrateRequest
+	52, // 13: CMsgSteamDatagramConnectRequest.crypt:type_name -> CMsgSteamDatagramSessionCryptInfoSigned
+	51, // 14: CMsgSteamDatagramConnectRequest.cert:type_name -> CMsgSteamDatagramCertificateSigned
+	52, // 15: CMsgSteamDatagramConnectOK.crypt:type_name -> CMsgSteamDatagramSessionCryptInfoSigned
+	51, // 16: CMsgSteamDatagramConnectOK.cert:type_name -> CMsgSteamDatagramCertificateSigned
+	53, // 17: CMsgSteamDatagramP2PRoutingSummary.ice:type_name -> CMsgSteamNetworkingICESessionSummary
+	25, // 18: CMsgSteamDatagramP2PRoutingSummary.sdr:type_name -> CMsgSteamNetworkingP2PSDRRoutingSummary
+	54, // 19: CMsgSteamDatagramConnectionClosed.legacy_from_identity_binary:type_name -> CMsgSteamNetworkingIdentityLegacyBinary
+	4,  // 20: CMsgSteamDatagramConnectionClosed.relay_mode:type_name -> CMsgSteamDatagramConnectionClosed.ERelayMode
+	55, // 21: CMsgSteamDatagramConnectionClosed.quality_relay:type_name -> CMsgSteamDatagramConnectionQuality
+	55, // 22: CMsgSteamDatagramConnectionClosed.quality_e2e:type_name -> CMsgSteamDatagramConnectionQuality
+	26, // 23: CMsgSteamDatagramConnectionClosed.p2p_routing_summary:type_name -> CMsgSteamDatagramP2PRoutingSummary
+	55, // 24: CMsgSteamDatagramNoConnection.quality_relay:type_name -> CMsgSteamDatagramConnectionQuality
+	55, // 25: CMsgSteamDatagramNoConnection.quality_e2e:type_name -> CMsgSteamDatagramConnectionQuality
+	26, // 26: CMsgSteamDatagramNoConnection.p2p_routing_summary:type_name -> CMsgSteamDatagramP2PRoutingSummary
+	51, // 27: CMsgSteamDatagramGameserverSessionRequest.dev_client_cert:type_name -> CMsgSteamDatagramCertificateSigned
+	55, // 28: CMsgSteamDatagramConnectionStatsClientToRouter.quality_relay:type_name -> CMsgSteamDatagramConnectionQuality
+	55, // 29: CMsgSteamDatagramConnectionStatsClientToRouter.quality_e2e:type_name -> CMsgSteamDatagramConnectionQuality
+	55, // 30: CMsgSteamDatagramConnectionStatsRouterToClient.quality_relay:type_name -> CMsgSteamDatagramConnectionQuality
+	55, // 31: CMsgSteamDatagramConnectionStatsRouterToClient.quality_e2e:type_name -> CMsgSteamDatagramConnectionQuality
+	55, // 32: CMsgSteamDatagramConnectionStatsRouterToServer.quality_relay:type_name -> CMsgSteamDatagramConnectionQuality
+	55, // 33: CMsgSteamDatagramConnectionStatsRouterToServer.quality_e2e:type_name -> CMsgSteamDatagramConnectionQuality
+	55, // 34: CMsgSteamDatagramConnectionStatsServerToRouter.quality_relay:type_name -> CMsgSteamDatagramConnectionQuality
+	55, // 35: CMsgSteamDatagramConnectionStatsServerToRouter.quality_e2e:type_name -> CMsgSteamDatagramConnectionQuality
+	51, // 36: CMsgSteamDatagramP2PSessionRequest.cert:type_name -> CMsgSteamDatagramCertificateSigned
+	55, // 37: CMsgSteamDatagramConnectionStatsP2PClientToRouter.quality_relay:type_name -> CMsgSteamDatagramConnectionQuality
+	55, // 38: CMsgSteamDatagramConnectionStatsP2PClientToRouter.quality_e2e:type_name -> CMsgSteamDatagramConnectionQuality
+	26, // 39: CMsgSteamDatagramConnectionStatsP2PClientToRouter.p2p_routing_summary:type_name -> CMsgSteamDatagramP2PRoutingSummary
+	55, // 40: CMsgSteamDatagramConnectionStatsP2PRouterToClient.quality_relay:type_name -> CMsgSteamDatagramConnectionQuality
+	55, // 41: CMsgSteamDatagramConnectionStatsP2PRouterToClient.quality_e2e:type_name -> CMsgSteamDatagramConnectionQuality
+	49, // 42: CMsgSteamDatagramP2PRoutes.relay_clusters:type_name -> CMsgSteamDatagramP2PRoutes.RelayCluster
+	50, // 43: CMsgSteamDatagramP2PRoutes.routes:type_name -> CMsgSteamDatagramP2PRoutes.Route
 	2,  // 44: CMsgSteamDatagramRouterPingReply.AltAddress.protocol:type_name -> CMsgSteamDatagramRouterPingReply.AltAddress.Protocol
-	47, // 45: CMsgSteamDatagramClientPingSampleReply.POP.alt_addresses:type_name -> CMsgSteamDatagramClientPingSampleReply.POP.AltAddress
-	46, // [46:46] is the sub-list for method output_type
-	46, // [46:46] is the sub-list for method input_type
-	46, // [46:46] is the sub-list for extension type_name
-	46, // [46:46] is the sub-list for extension extendee
-	0,  // [0:46] is the sub-list for field type_name
+	45, // [45:45] is the sub-list for method output_type
+	45, // [45:45] is the sub-list for method input_type
+	45, // [45:45] is the sub-list for extension type_name
+	45, // [45:45] is the sub-list for extension extendee
+	0,  // [0:45] is the sub-list for field type_name
 }
 
 func init() { file_steamdatagram_messages_sdr_proto_init() }
@@ -5419,8 +5297,8 @@ func file_steamdatagram_messages_sdr_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steamdatagram_messages_sdr_proto_rawDesc), len(file_steamdatagram_messages_sdr_proto_rawDesc)),
-			NumEnums:      10,
-			NumMessages:   42,
+			NumEnums:      11,
+			NumMessages:   40,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

@@ -527,10 +527,15 @@ func (x *CMsgNetworkDeviceIP4Config) GetIsEnabled() bool {
 
 type CMsgNetworkDeviceIP6Address struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Ip            *string                `protobuf:"bytes,1,opt,name=ip" json:"ip,omitempty"`
+	Ip            *string                `protobuf:"bytes,1,opt,name=ip,def=" json:"ip,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
+
+// Default values for CMsgNetworkDeviceIP6Address fields.
+const (
+	Default_CMsgNetworkDeviceIP6Address_Ip = string("")
+)
 
 func (x *CMsgNetworkDeviceIP6Address) Reset() {
 	*x = CMsgNetworkDeviceIP6Address{}
@@ -566,7 +571,7 @@ func (x *CMsgNetworkDeviceIP6Address) GetIp() string {
 	if x != nil && x.Ip != nil {
 		return *x.Ip
 	}
-	return ""
+	return Default_CMsgNetworkDeviceIP6Address_Ip
 }
 
 type CMsgNetworkDeviceIP6Config struct {
@@ -6406,9 +6411,9 @@ const file_steammessages_client_objects_proto_rawDesc = "" +
 	"\x0fis_dhcp_enabled\x18\x04 \x01(\bR\risDhcpEnabled\x12(\n" +
 	"\x10is_default_route\x18\x05 \x01(\bR\x0eisDefaultRoute\x12$\n" +
 	"\n" +
-	"is_enabled\x18\x06 \x01(\b:\x05falseR\tisEnabled\"-\n" +
-	"\x1bCMsgNetworkDeviceIP6Address\x12\x0e\n" +
-	"\x02ip\x18\x01 \x01(\tR\x02ip\"\x86\x02\n" +
+	"is_enabled\x18\x06 \x01(\b:\x05falseR\tisEnabled\"/\n" +
+	"\x1bCMsgNetworkDeviceIP6Address\x12\x10\n" +
+	"\x02ip\x18\x01 \x01(\t:\x00R\x02ip\"\x86\x02\n" +
 	"\x1aCMsgNetworkDeviceIP6Config\x12:\n" +
 	"\taddresses\x18\x01 \x03(\v2\x1c.CMsgNetworkDeviceIP6AddressR\taddresses\x12\x15\n" +
 	"\x06dns_ip\x18\x02 \x03(\tR\x05dnsIp\x12\x1d\n" +

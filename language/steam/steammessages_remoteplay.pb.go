@@ -752,19 +752,19 @@ func (EStreamQualityPreference) EnumDescriptor() ([]byte, []int) {
 type EStreamBitrate int32
 
 const (
-	EStreamBitrate_k_EStreamBitrateAutodetect EStreamBitrate = -1
-	EStreamBitrate_k_EStreamBitrateUnlimited  EStreamBitrate = 0
+	EStreamBitrate_k_EStreamBitrateAutomatic EStreamBitrate = -1
+	EStreamBitrate_k_EStreamBitrateUnlimited EStreamBitrate = 0
 )
 
 // Enum value maps for EStreamBitrate.
 var (
 	EStreamBitrate_name = map[int32]string{
-		-1: "k_EStreamBitrateAutodetect",
+		-1: "k_EStreamBitrateAutomatic",
 		0:  "k_EStreamBitrateUnlimited",
 	}
 	EStreamBitrate_value = map[string]int32{
-		"k_EStreamBitrateAutodetect": -1,
-		"k_EStreamBitrateUnlimited":  0,
+		"k_EStreamBitrateAutomatic": -1,
+		"k_EStreamBitrateUnlimited": 0,
 	}
 )
 
@@ -2926,47 +2926,48 @@ func (x *CStreamingClientCaps) GetCanToggleFullscreen() bool {
 }
 
 type CStreamingClientConfig struct {
-	state                          protoimpl.MessageState    `protogen:"open.v1"`
-	Quality                        *EStreamQualityPreference `protobuf:"varint,1,opt,name=quality,enum=EStreamQualityPreference,def=2" json:"quality,omitempty"`
-	DesiredResolutionX             *uint32                   `protobuf:"varint,2,opt,name=desired_resolution_x,json=desiredResolutionX" json:"desired_resolution_x,omitempty"`
-	DesiredResolutionY             *uint32                   `protobuf:"varint,3,opt,name=desired_resolution_y,json=desiredResolutionY" json:"desired_resolution_y,omitempty"`
-	DesiredFramerateNumerator      *uint32                   `protobuf:"varint,4,opt,name=desired_framerate_numerator,json=desiredFramerateNumerator" json:"desired_framerate_numerator,omitempty"`
-	DesiredFramerateDenominator    *uint32                   `protobuf:"varint,5,opt,name=desired_framerate_denominator,json=desiredFramerateDenominator" json:"desired_framerate_denominator,omitempty"`
-	DesiredBitrateKbps             *int32                    `protobuf:"varint,6,opt,name=desired_bitrate_kbps,json=desiredBitrateKbps,def=-1" json:"desired_bitrate_kbps,omitempty"`
-	EnableHardwareDecoding         *bool                     `protobuf:"varint,7,opt,name=enable_hardware_decoding,json=enableHardwareDecoding,def=1" json:"enable_hardware_decoding,omitempty"`
-	EnablePerformanceOverlay       *bool                     `protobuf:"varint,8,opt,name=enable_performance_overlay,json=enablePerformanceOverlay,def=0" json:"enable_performance_overlay,omitempty"`
-	EnableVideoStreaming           *bool                     `protobuf:"varint,9,opt,name=enable_video_streaming,json=enableVideoStreaming,def=1" json:"enable_video_streaming,omitempty"`
-	EnableAudioStreaming           *bool                     `protobuf:"varint,10,opt,name=enable_audio_streaming,json=enableAudioStreaming,def=1" json:"enable_audio_streaming,omitempty"`
-	EnableInputStreaming           *bool                     `protobuf:"varint,11,opt,name=enable_input_streaming,json=enableInputStreaming,def=1" json:"enable_input_streaming,omitempty"`
-	AudioChannels                  *int32                    `protobuf:"varint,12,opt,name=audio_channels,json=audioChannels,def=2" json:"audio_channels,omitempty"`
-	EnableVideoHevc                *bool                     `protobuf:"varint,13,opt,name=enable_video_hevc,json=enableVideoHevc,def=0" json:"enable_video_hevc,omitempty"`
-	EnablePerformanceIcons         *bool                     `protobuf:"varint,14,opt,name=enable_performance_icons,json=enablePerformanceIcons,def=1" json:"enable_performance_icons,omitempty"`
-	EnableMicrophoneStreaming      *bool                     `protobuf:"varint,15,opt,name=enable_microphone_streaming,json=enableMicrophoneStreaming,def=0" json:"enable_microphone_streaming,omitempty"`
-	ControllerOverlayHotkey        *string                   `protobuf:"bytes,16,opt,name=controller_overlay_hotkey,json=controllerOverlayHotkey" json:"controller_overlay_hotkey,omitempty"`
-	EnableTouchController_OBSOLETE *bool                     `protobuf:"varint,17,opt,name=enable_touch_controller_OBSOLETE,json=enableTouchControllerOBSOLETE,def=0" json:"enable_touch_controller_OBSOLETE,omitempty"`
-	P2PScope                       *EStreamP2PScope          `protobuf:"varint,19,opt,name=p2p_scope,json=p2pScope,enum=EStreamP2PScope,def=0" json:"p2p_scope,omitempty"`
-	EnableAudioUncompressed        *bool                     `protobuf:"varint,20,opt,name=enable_audio_uncompressed,json=enableAudioUncompressed,def=0" json:"enable_audio_uncompressed,omitempty"`
-	DisplayLimit                   *CStreamVideoLimit        `protobuf:"bytes,21,opt,name=display_limit,json=displayLimit" json:"display_limit,omitempty"`
-	QualityLimit                   *CStreamVideoLimit        `protobuf:"bytes,22,opt,name=quality_limit,json=qualityLimit" json:"quality_limit,omitempty"`
-	RuntimeLimit                   *CStreamVideoLimit        `protobuf:"bytes,23,opt,name=runtime_limit,json=runtimeLimit" json:"runtime_limit,omitempty"`
-	DecoderLimit                   []*CStreamVideoLimit      `protobuf:"bytes,24,rep,name=decoder_limit,json=decoderLimit" json:"decoder_limit,omitempty"`
-	EnableUnreliableFec            *bool                     `protobuf:"varint,25,opt,name=enable_unreliable_fec,json=enableUnreliableFec,def=0" json:"enable_unreliable_fec,omitempty"`
-	EnableVideoAv1                 *bool                     `protobuf:"varint,26,opt,name=enable_video_av1,json=enableVideoAv1,def=0" json:"enable_video_av1,omitempty"`
-	Windowed                       *bool                     `protobuf:"varint,27,opt,name=windowed" json:"windowed,omitempty"`
-	WindowPixelDensity             *float32                  `protobuf:"fixed32,28,opt,name=window_pixel_density,json=windowPixelDensity" json:"window_pixel_density,omitempty"`
-	WindowWidth                    *int32                    `protobuf:"varint,29,opt,name=window_width,json=windowWidth" json:"window_width,omitempty"`
-	WindowHeight                   *int32                    `protobuf:"varint,30,opt,name=window_height,json=windowHeight" json:"window_height,omitempty"`
-	WindowPositionX                *int32                    `protobuf:"varint,31,opt,name=window_position_x,json=windowPositionX" json:"window_position_x,omitempty"`
-	WindowPositionY                *int32                    `protobuf:"varint,32,opt,name=window_position_y,json=windowPositionY" json:"window_position_y,omitempty"`
-	WindowFrameOffsetX             *int32                    `protobuf:"varint,33,opt,name=window_frame_offset_x,json=windowFrameOffsetX" json:"window_frame_offset_x,omitempty"`
-	WindowFrameOffsetY             *int32                    `protobuf:"varint,34,opt,name=window_frame_offset_y,json=windowFrameOffsetY" json:"window_frame_offset_y,omitempty"`
-	EnableVideoPyrowave            *bool                     `protobuf:"varint,35,opt,name=enable_video_pyrowave,json=enableVideoPyrowave,def=0" json:"enable_video_pyrowave,omitempty"`
-	PyrowaveCustomBitrate          *bool                     `protobuf:"varint,36,opt,name=pyrowave_custom_bitrate,json=pyrowaveCustomBitrate" json:"pyrowave_custom_bitrate,omitempty"`
-	PyrowaveCustomBitrateKbps      *int32                    `protobuf:"varint,37,opt,name=pyrowave_custom_bitrate_kbps,json=pyrowaveCustomBitrateKbps" json:"pyrowave_custom_bitrate_kbps,omitempty"`
-	PyrowaveQualityModifier        *float32                  `protobuf:"fixed32,38,opt,name=pyrowave_quality_modifier,json=pyrowaveQualityModifier" json:"pyrowave_quality_modifier,omitempty"`
-	PyrowaveYuv444                 *bool                     `protobuf:"varint,39,opt,name=pyrowave_yuv444,json=pyrowaveYuv444" json:"pyrowave_yuv444,omitempty"`
-	unknownFields                  protoimpl.UnknownFields
-	sizeCache                      protoimpl.SizeCache
+	state                              protoimpl.MessageState    `protogen:"open.v1"`
+	Quality                            *EStreamQualityPreference `protobuf:"varint,1,opt,name=quality,enum=EStreamQualityPreference,def=2" json:"quality,omitempty"`
+	DesiredResolutionX                 *uint32                   `protobuf:"varint,2,opt,name=desired_resolution_x,json=desiredResolutionX" json:"desired_resolution_x,omitempty"`
+	DesiredResolutionY                 *uint32                   `protobuf:"varint,3,opt,name=desired_resolution_y,json=desiredResolutionY" json:"desired_resolution_y,omitempty"`
+	DesiredFramerateNumerator          *uint32                   `protobuf:"varint,4,opt,name=desired_framerate_numerator,json=desiredFramerateNumerator" json:"desired_framerate_numerator,omitempty"`
+	DesiredFramerateDenominator        *uint32                   `protobuf:"varint,5,opt,name=desired_framerate_denominator,json=desiredFramerateDenominator" json:"desired_framerate_denominator,omitempty"`
+	DesiredBitrateKbps                 *int32                    `protobuf:"varint,6,opt,name=desired_bitrate_kbps,json=desiredBitrateKbps,def=-1" json:"desired_bitrate_kbps,omitempty"`
+	EnableHardwareDecoding             *bool                     `protobuf:"varint,7,opt,name=enable_hardware_decoding,json=enableHardwareDecoding,def=1" json:"enable_hardware_decoding,omitempty"`
+	EnablePerformanceOverlay           *bool                     `protobuf:"varint,8,opt,name=enable_performance_overlay,json=enablePerformanceOverlay,def=0" json:"enable_performance_overlay,omitempty"`
+	EnableVideoStreaming               *bool                     `protobuf:"varint,9,opt,name=enable_video_streaming,json=enableVideoStreaming,def=1" json:"enable_video_streaming,omitempty"`
+	EnableAudioStreaming               *bool                     `protobuf:"varint,10,opt,name=enable_audio_streaming,json=enableAudioStreaming,def=1" json:"enable_audio_streaming,omitempty"`
+	EnableInputStreaming               *bool                     `protobuf:"varint,11,opt,name=enable_input_streaming,json=enableInputStreaming,def=1" json:"enable_input_streaming,omitempty"`
+	AudioChannels                      *int32                    `protobuf:"varint,12,opt,name=audio_channels,json=audioChannels,def=2" json:"audio_channels,omitempty"`
+	EnableVideoHevc                    *bool                     `protobuf:"varint,13,opt,name=enable_video_hevc,json=enableVideoHevc,def=0" json:"enable_video_hevc,omitempty"`
+	EnablePerformanceIcons             *bool                     `protobuf:"varint,14,opt,name=enable_performance_icons,json=enablePerformanceIcons,def=1" json:"enable_performance_icons,omitempty"`
+	EnableMicrophoneStreaming          *bool                     `protobuf:"varint,15,opt,name=enable_microphone_streaming,json=enableMicrophoneStreaming,def=0" json:"enable_microphone_streaming,omitempty"`
+	ControllerOverlayHotkey            *string                   `protobuf:"bytes,16,opt,name=controller_overlay_hotkey,json=controllerOverlayHotkey" json:"controller_overlay_hotkey,omitempty"`
+	EnableTouchController_OBSOLETE     *bool                     `protobuf:"varint,17,opt,name=enable_touch_controller_OBSOLETE,json=enableTouchControllerOBSOLETE,def=0" json:"enable_touch_controller_OBSOLETE,omitempty"`
+	P2PScope                           *EStreamP2PScope          `protobuf:"varint,19,opt,name=p2p_scope,json=p2pScope,enum=EStreamP2PScope,def=0" json:"p2p_scope,omitempty"`
+	EnableAudioUncompressed            *bool                     `protobuf:"varint,20,opt,name=enable_audio_uncompressed,json=enableAudioUncompressed,def=0" json:"enable_audio_uncompressed,omitempty"`
+	DisplayLimit                       *CStreamVideoLimit        `protobuf:"bytes,21,opt,name=display_limit,json=displayLimit" json:"display_limit,omitempty"`
+	QualityLimit                       *CStreamVideoLimit        `protobuf:"bytes,22,opt,name=quality_limit,json=qualityLimit" json:"quality_limit,omitempty"`
+	RuntimeLimit                       *CStreamVideoLimit        `protobuf:"bytes,23,opt,name=runtime_limit,json=runtimeLimit" json:"runtime_limit,omitempty"`
+	DecoderLimit                       []*CStreamVideoLimit      `protobuf:"bytes,24,rep,name=decoder_limit,json=decoderLimit" json:"decoder_limit,omitempty"`
+	EnableUnreliableFec                *bool                     `protobuf:"varint,25,opt,name=enable_unreliable_fec,json=enableUnreliableFec,def=0" json:"enable_unreliable_fec,omitempty"`
+	EnableVideoAv1                     *bool                     `protobuf:"varint,26,opt,name=enable_video_av1,json=enableVideoAv1,def=0" json:"enable_video_av1,omitempty"`
+	Windowed                           *bool                     `protobuf:"varint,27,opt,name=windowed" json:"windowed,omitempty"`
+	WindowPixelDensity                 *float32                  `protobuf:"fixed32,28,opt,name=window_pixel_density,json=windowPixelDensity" json:"window_pixel_density,omitempty"`
+	WindowWidth                        *int32                    `protobuf:"varint,29,opt,name=window_width,json=windowWidth" json:"window_width,omitempty"`
+	WindowHeight                       *int32                    `protobuf:"varint,30,opt,name=window_height,json=windowHeight" json:"window_height,omitempty"`
+	WindowPositionX                    *int32                    `protobuf:"varint,31,opt,name=window_position_x,json=windowPositionX" json:"window_position_x,omitempty"`
+	WindowPositionY                    *int32                    `protobuf:"varint,32,opt,name=window_position_y,json=windowPositionY" json:"window_position_y,omitempty"`
+	WindowFrameOffsetX                 *int32                    `protobuf:"varint,33,opt,name=window_frame_offset_x,json=windowFrameOffsetX" json:"window_frame_offset_x,omitempty"`
+	WindowFrameOffsetY                 *int32                    `protobuf:"varint,34,opt,name=window_frame_offset_y,json=windowFrameOffsetY" json:"window_frame_offset_y,omitempty"`
+	EnableVideoPyrowave                *bool                     `protobuf:"varint,35,opt,name=enable_video_pyrowave,json=enableVideoPyrowave,def=0" json:"enable_video_pyrowave,omitempty"`
+	PyrowaveCustomBitrate_OBSOLETE     *bool                     `protobuf:"varint,36,opt,name=pyrowave_custom_bitrate_OBSOLETE,json=pyrowaveCustomBitrateOBSOLETE" json:"pyrowave_custom_bitrate_OBSOLETE,omitempty"`
+	PyrowaveCustomBitrateKbps_OBSOLETE *int32                    `protobuf:"varint,37,opt,name=pyrowave_custom_bitrate_kbps_OBSOLETE,json=pyrowaveCustomBitrateKbpsOBSOLETE" json:"pyrowave_custom_bitrate_kbps_OBSOLETE,omitempty"`
+	PyrowaveQualityModifier            *float32                  `protobuf:"fixed32,38,opt,name=pyrowave_quality_modifier,json=pyrowaveQualityModifier" json:"pyrowave_quality_modifier,omitempty"`
+	PyrowaveYuv444                     *bool                     `protobuf:"varint,39,opt,name=pyrowave_yuv444,json=pyrowaveYuv444" json:"pyrowave_yuv444,omitempty"`
+	PyrowaveBitrateKbps                *int32                    `protobuf:"varint,40,opt,name=pyrowave_bitrate_kbps,json=pyrowaveBitrateKbps,def=-1" json:"pyrowave_bitrate_kbps,omitempty"`
+	unknownFields                      protoimpl.UnknownFields
+	sizeCache                          protoimpl.SizeCache
 }
 
 // Default values for CStreamingClientConfig fields.
@@ -2988,6 +2989,7 @@ const (
 	Default_CStreamingClientConfig_EnableUnreliableFec            = bool(false)
 	Default_CStreamingClientConfig_EnableVideoAv1                 = bool(false)
 	Default_CStreamingClientConfig_EnableVideoPyrowave            = bool(false)
+	Default_CStreamingClientConfig_PyrowaveBitrateKbps            = int32(-1)
 )
 
 func (x *CStreamingClientConfig) Reset() {
@@ -3258,16 +3260,16 @@ func (x *CStreamingClientConfig) GetEnableVideoPyrowave() bool {
 	return Default_CStreamingClientConfig_EnableVideoPyrowave
 }
 
-func (x *CStreamingClientConfig) GetPyrowaveCustomBitrate() bool {
-	if x != nil && x.PyrowaveCustomBitrate != nil {
-		return *x.PyrowaveCustomBitrate
+func (x *CStreamingClientConfig) GetPyrowaveCustomBitrate_OBSOLETE() bool {
+	if x != nil && x.PyrowaveCustomBitrate_OBSOLETE != nil {
+		return *x.PyrowaveCustomBitrate_OBSOLETE
 	}
 	return false
 }
 
-func (x *CStreamingClientConfig) GetPyrowaveCustomBitrateKbps() int32 {
-	if x != nil && x.PyrowaveCustomBitrateKbps != nil {
-		return *x.PyrowaveCustomBitrateKbps
+func (x *CStreamingClientConfig) GetPyrowaveCustomBitrateKbps_OBSOLETE() int32 {
+	if x != nil && x.PyrowaveCustomBitrateKbps_OBSOLETE != nil {
+		return *x.PyrowaveCustomBitrateKbps_OBSOLETE
 	}
 	return 0
 }
@@ -3284,6 +3286,13 @@ func (x *CStreamingClientConfig) GetPyrowaveYuv444() bool {
 		return *x.PyrowaveYuv444
 	}
 	return false
+}
+
+func (x *CStreamingClientConfig) GetPyrowaveBitrateKbps() int32 {
+	if x != nil && x.PyrowaveBitrateKbps != nil {
+		return *x.PyrowaveBitrateKbps
+	}
+	return Default_CStreamingClientConfig_PyrowaveBitrateKbps
 }
 
 type CStreamingServerConfig struct {
@@ -9321,7 +9330,7 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x15supported_colorspaces\x18\r \x03(\x0e2\x12.EStreamColorspaceR\x14supportedColorspaces\x12H\n" +
 	"\x16supported_audio_codecs\x18\x0e \x03(\x0e2\x12.EStreamAudioCodecR\x14supportedAudioCodecs\x12H\n" +
 	"\x16supported_video_codecs\x18\x0f \x03(\x0e2\x12.EStreamVideoCodecR\x14supportedVideoCodecs\x122\n" +
-	"\x15can_toggle_fullscreen\x18\x10 \x01(\bR\x13canToggleFullscreen\"\xf9\x10\n" +
+	"\x15can_toggle_fullscreen\x18\x10 \x01(\bR\x13canToggleFullscreen\"\xd3\x11\n" +
 	"\x16CStreamingClientConfig\x12M\n" +
 	"\aquality\x18\x01 \x01(\x0e2\x19.EStreamQualityPreference:\x18k_EStreamQualityBalancedR\aquality\x120\n" +
 	"\x14desired_resolution_x\x18\x02 \x01(\rR\x12desiredResolutionX\x120\n" +
@@ -9357,11 +9366,12 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x11window_position_y\x18  \x01(\x05R\x0fwindowPositionY\x121\n" +
 	"\x15window_frame_offset_x\x18! \x01(\x05R\x12windowFrameOffsetX\x121\n" +
 	"\x15window_frame_offset_y\x18\" \x01(\x05R\x12windowFrameOffsetY\x129\n" +
-	"\x15enable_video_pyrowave\x18# \x01(\b:\x05falseR\x13enableVideoPyrowave\x126\n" +
-	"\x17pyrowave_custom_bitrate\x18$ \x01(\bR\x15pyrowaveCustomBitrate\x12?\n" +
-	"\x1cpyrowave_custom_bitrate_kbps\x18% \x01(\x05R\x19pyrowaveCustomBitrateKbps\x12:\n" +
+	"\x15enable_video_pyrowave\x18# \x01(\b:\x05falseR\x13enableVideoPyrowave\x12G\n" +
+	" pyrowave_custom_bitrate_OBSOLETE\x18$ \x01(\bR\x1dpyrowaveCustomBitrateOBSOLETE\x12P\n" +
+	"%pyrowave_custom_bitrate_kbps_OBSOLETE\x18% \x01(\x05R!pyrowaveCustomBitrateKbpsOBSOLETE\x12:\n" +
 	"\x19pyrowave_quality_modifier\x18& \x01(\x02R\x17pyrowaveQualityModifier\x12'\n" +
-	"\x0fpyrowave_yuv444\x18' \x01(\bR\x0epyrowaveYuv444\"\xe5\a\n" +
+	"\x0fpyrowave_yuv444\x18' \x01(\bR\x0epyrowaveYuv444\x126\n" +
+	"\x15pyrowave_bitrate_kbps\x18( \x01(\x05:\x02-1R\x13pyrowaveBitrateKbps\"\xe5\a\n" +
 	"\x16CStreamingServerConfig\x12f\n" +
 	"\x0fhost_play_audio\x18\x01 \x01(\x0e2\x1f.EStreamHostPlayAudioPreference:\x1dk_EStreamHostPlayAudioDefaultR\rhostPlayAudio\x122\n" +
 	"\x15custom_display_device\x18\x02 \x01(\tR\x13customDisplayDevice\x12y\n" +
@@ -9900,9 +9910,9 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x19k_EStreamQualityAutomatic\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x18\n" +
 	"\x14k_EStreamQualityFast\x10\x01\x12\x1c\n" +
 	"\x18k_EStreamQualityBalanced\x10\x02\x12\x1d\n" +
-	"\x19k_EStreamQualityBeautiful\x10\x03*X\n" +
-	"\x0eEStreamBitrate\x12'\n" +
-	"\x1ak_EStreamBitrateAutodetect\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1d\n" +
+	"\x19k_EStreamQualityBeautiful\x10\x03*W\n" +
+	"\x0eEStreamBitrate\x12&\n" +
+	"\x19k_EStreamBitrateAutomatic\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x1d\n" +
 	"\x19k_EStreamBitrateUnlimited\x10\x00*\xd9\x01\n" +
 	"\x11EStreamColorspace\x12\x1f\n" +
 	"\x1bk_EStreamColorspace_Unknown\x10\x00\x12\x1d\n" +
