@@ -784,6 +784,7 @@ type CMsgClientSettings struct {
 	StartupMovieUsedForResume             *bool                     `protobuf:"varint,16003,opt,name=startup_movie_used_for_resume,json=startupMovieUsedForResume" json:"startup_movie_used_for_resume,omitempty"`
 	ScreensaverCurrentId                  *string                   `protobuf:"bytes,16004,opt,name=screensaver_current_id,json=screensaverCurrentId" json:"screensaver_current_id,omitempty"`
 	ScreensaverSettings                   *string                   `protobuf:"bytes,16005,opt,name=screensaver_settings,json=screensaverSettings" json:"screensaver_settings,omitempty"`
+	ScreensaverWhileIngame                *bool                     `protobuf:"varint,16006,opt,name=screensaver_while_ingame,json=screensaverWhileIngame" json:"screensaver_while_ingame,omitempty"`
 	GameNotesEnableSpellcheck             *bool                     `protobuf:"varint,17001,opt,name=game_notes_enable_spellcheck,json=gameNotesEnableSpellcheck" json:"game_notes_enable_spellcheck,omitempty"`
 	ScreenshotItemsPerRow                 *int32                    `protobuf:"varint,18000,opt,name=screenshot_items_per_row,json=screenshotItemsPerRow" json:"screenshot_items_per_row,omitempty"`
 	GamerecordingBackgroundPath           *string                   `protobuf:"bytes,18201,opt,name=gamerecording_background_path,json=gamerecordingBackgroundPath" json:"gamerecording_background_path,omitempty"`
@@ -1969,6 +1970,13 @@ func (x *CMsgClientSettings) GetScreensaverSettings() string {
 	return ""
 }
 
+func (x *CMsgClientSettings) GetScreensaverWhileIngame() bool {
+	if x != nil && x.ScreensaverWhileIngame != nil {
+		return *x.ScreensaverWhileIngame
+	}
+	return false
+}
+
 func (x *CMsgClientSettings) GetGameNotesEnableSpellcheck() bool {
 	if x != nil && x.GameNotesEnableSpellcheck != nil {
 		return *x.GameNotesEnableSpellcheck
@@ -2998,7 +3006,7 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"valueFloat\x12#\n" +
 	"\fvalue_string\x18\a \x01(\tH\x00R\vvalueString\x120\n" +
 	"\fvalue_hotkey\x18\b \x01(\v2\v.CMsgHotkeyH\x00R\vvalueHotkeyB\a\n" +
-	"\x05value\"\xe0\xde\x01\n" +
+	"\x05value\"\xce\xdf\x01\n" +
 	"\x12CMsgClientSettings\x12b\n" +
 	"\x15no_save_personal_info\x18\x01 \x01(\bB/\x80\xa6\x1d\x01\x8a\xa6\x1d'Software\\Valve\\Steam\\NoSavePersonalInfoR\x12noSavePersonalInfo\x12G\n" +
 	"\x11preferred_monitor\x18\x05 \x01(\tB\x1a\x80\xa6\x1d\x01\x8a\xa6\x1d\x12BigPicture/MonitorR\x10preferredMonitor\x12\x8e\x01\n" +
@@ -3148,7 +3156,8 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"\x15startup_movie_shuffle\x18\x82} \x01(\bB.\x80\xa6\x1d\x01\x8a\xa6\x1d\"Customization/StartupMovie/Shuffle\x90\xa6\x1d\x01R\x13startupMovieShuffle\x12s\n" +
 	"\x1dstartup_movie_used_for_resume\x18\x83} \x01(\bB0\x80\xa6\x1d\x03\x8a\xa6\x1d(Customization/StartupMovie/UsedForResumeR\x19startupMovieUsedForResume\x12k\n" +
 	"\x16screensaver_current_id\x18\x84} \x01(\tB4\x80\xa6\x1d\x01\x8a\xa6\x1d,Customization/Screensaver/CurrentScreensaverR\x14screensaverCurrentId\x12^\n" +
-	"\x14screensaver_settings\x18\x85} \x01(\tB*\x80\xa6\x1d\x01\x8a\xa6\x1d\"Customization/Screensaver/SettingsR\x13screensaverSettings\x12h\n" +
+	"\x14screensaver_settings\x18\x85} \x01(\tB*\x80\xa6\x1d\x01\x8a\xa6\x1d\"Customization/Screensaver/SettingsR\x13screensaverSettings\x12l\n" +
+	"\x18screensaver_while_ingame\x18\x86} \x01(\bB1\x80\xa6\x1d\x01\x8a\xa6\x1d%Customization/Screensaver/WhileInGame\x98\xa6\x1d\x01R\x16screensaverWhileIngame\x12h\n" +
 	"\x1cgame_notes_enable_spellcheck\x18\xe9\x84\x01 \x01(\bB%\x80\xa6\x1d\x02\x8a\xa6\x1d\x19GameNotesEnableSpellcheck\x98\xa6\x1d\x01R\x19gameNotesEnableSpellcheck\x12`\n" +
 	"\x18screenshot_items_per_row\x18Ќ\x01 \x01(\x05B%\x80\xa6\x1d\x02\x8a\xa6\x1d\x19ScreenshotViewItemsPerRow\xa0\xa6\x1d\x01R\x15screenshotItemsPerRow\x12J\n" +
 	"\x1dgamerecording_background_path\x18\x99\x8e\x01 \x01(\tB\x04\x80\xa6\x1d\x05R\x1bgamerecordingBackgroundPath\x12~\n" +

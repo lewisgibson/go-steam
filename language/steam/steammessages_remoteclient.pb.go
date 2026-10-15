@@ -31,6 +31,8 @@ const (
 	ERemoteClientPairWifiAPResult_k_ERemoteClientPairWifiAPNoDonglePresent ERemoteClientPairWifiAPResult = 5
 	ERemoteClientPairWifiAPResult_k_ERemoteClientPairWifiAPTimeout         ERemoteClientPairWifiAPResult = 6
 	ERemoteClientPairWifiAPResult_k_ERemoteClientPairWifiAPCanceled        ERemoteClientPairWifiAPResult = 7
+	ERemoteClientPairWifiAPResult_k_ERemoteClientPairWifiAPProgress        ERemoteClientPairWifiAPResult = 8
+	ERemoteClientPairWifiAPResult_k_ERemoteClientPairWifiAPConnectFailed   ERemoteClientPairWifiAPResult = 9
 )
 
 // Enum value maps for ERemoteClientPairWifiAPResult.
@@ -43,6 +45,8 @@ var (
 		5: "k_ERemoteClientPairWifiAPNoDonglePresent",
 		6: "k_ERemoteClientPairWifiAPTimeout",
 		7: "k_ERemoteClientPairWifiAPCanceled",
+		8: "k_ERemoteClientPairWifiAPProgress",
+		9: "k_ERemoteClientPairWifiAPConnectFailed",
 	}
 	ERemoteClientPairWifiAPResult_value = map[string]int32{
 		"k_ERemoteClientPairWifiAPOK":              1,
@@ -52,6 +56,8 @@ var (
 		"k_ERemoteClientPairWifiAPNoDonglePresent": 5,
 		"k_ERemoteClientPairWifiAPTimeout":         6,
 		"k_ERemoteClientPairWifiAPCanceled":        7,
+		"k_ERemoteClientPairWifiAPProgress":        8,
+		"k_ERemoteClientPairWifiAPConnectFailed":   9,
 	}
 )
 
@@ -1479,32 +1485,37 @@ func (x *CMsgRemoteClientInstallAppResponse) GetELaunchResult() int32 {
 }
 
 type CMsgRemoteClientStartStream struct {
-	state                       protoimpl.MessageState                         `protogen:"open.v1"`
-	AppId                       *uint32                                        `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	Environment                 *int32                                         `protobuf:"varint,2,opt,name=environment" json:"environment,omitempty"`
-	GamepadCount                *int32                                         `protobuf:"varint,3,opt,name=gamepad_count,json=gamepadCount" json:"gamepad_count,omitempty"`
-	LaunchOption                *int32                                         `protobuf:"varint,4,opt,name=launch_option,json=launchOption,def=-1" json:"launch_option,omitempty"`
-	LockParentalLock            *bool                                          `protobuf:"varint,5,opt,name=lock_parental_lock,json=lockParentalLock,def=0" json:"lock_parental_lock,omitempty"`
-	UnlockParentalLock          *string                                        `protobuf:"bytes,6,opt,name=unlock_parental_lock,json=unlockParentalLock" json:"unlock_parental_lock,omitempty"`
-	MaximumResolutionX          *int32                                         `protobuf:"varint,7,opt,name=maximum_resolution_x,json=maximumResolutionX" json:"maximum_resolution_x,omitempty"`
-	MaximumResolutionY          *int32                                         `protobuf:"varint,8,opt,name=maximum_resolution_y,json=maximumResolutionY" json:"maximum_resolution_y,omitempty"`
-	Gamepads                    []*CMsgRemoteClientStartStream_ReservedGamepad `protobuf:"bytes,9,rep,name=gamepads" json:"gamepads,omitempty"`
-	AudioChannelCount           *int32                                         `protobuf:"varint,10,opt,name=audio_channel_count,json=audioChannelCount,def=2" json:"audio_channel_count,omitempty"`
-	SupportedTransport          []EStreamTransport                             `protobuf:"varint,11,rep,name=supported_transport,json=supportedTransport,enum=EStreamTransport" json:"supported_transport,omitempty"`
-	MaximumFramerateNumerator   *int32                                         `protobuf:"varint,12,opt,name=maximum_framerate_numerator,json=maximumFramerateNumerator" json:"maximum_framerate_numerator,omitempty"`
-	MaximumFramerateDenominator *int32                                         `protobuf:"varint,13,opt,name=maximum_framerate_denominator,json=maximumFramerateDenominator" json:"maximum_framerate_denominator,omitempty"`
-	DisplayHdr                  *bool                                          `protobuf:"varint,14,opt,name=display_hdr,json=displayHdr" json:"display_hdr,omitempty"`
-	LaunchOnly                  *bool                                          `protobuf:"varint,15,opt,name=launch_only,json=launchOnly,def=0" json:"launch_only,omitempty"`
-	unknownFields               protoimpl.UnknownFields
-	sizeCache                   protoimpl.SizeCache
+	state                              protoimpl.MessageState                         `protogen:"open.v1"`
+	AppId                              *uint32                                        `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+	Environment                        *int32                                         `protobuf:"varint,2,opt,name=environment" json:"environment,omitempty"`
+	GamepadCount                       *int32                                         `protobuf:"varint,3,opt,name=gamepad_count,json=gamepadCount" json:"gamepad_count,omitempty"`
+	LaunchOption                       *int32                                         `protobuf:"varint,4,opt,name=launch_option,json=launchOption,def=-1" json:"launch_option,omitempty"`
+	LockParentalLock                   *bool                                          `protobuf:"varint,5,opt,name=lock_parental_lock,json=lockParentalLock,def=0" json:"lock_parental_lock,omitempty"`
+	UnlockParentalLock                 *string                                        `protobuf:"bytes,6,opt,name=unlock_parental_lock,json=unlockParentalLock" json:"unlock_parental_lock,omitempty"`
+	MaximumResolutionX                 *int32                                         `protobuf:"varint,7,opt,name=maximum_resolution_x,json=maximumResolutionX" json:"maximum_resolution_x,omitempty"`
+	MaximumResolutionY                 *int32                                         `protobuf:"varint,8,opt,name=maximum_resolution_y,json=maximumResolutionY" json:"maximum_resolution_y,omitempty"`
+	Gamepads                           []*CMsgRemoteClientStartStream_ReservedGamepad `protobuf:"bytes,9,rep,name=gamepads" json:"gamepads,omitempty"`
+	AudioChannelCount                  *int32                                         `protobuf:"varint,10,opt,name=audio_channel_count,json=audioChannelCount,def=2" json:"audio_channel_count,omitempty"`
+	SupportedTransport                 []EStreamTransport                             `protobuf:"varint,11,rep,name=supported_transport,json=supportedTransport,enum=EStreamTransport" json:"supported_transport,omitempty"`
+	MaximumFramerateNumerator          *int32                                         `protobuf:"varint,12,opt,name=maximum_framerate_numerator,json=maximumFramerateNumerator" json:"maximum_framerate_numerator,omitempty"`
+	MaximumFramerateDenominator        *int32                                         `protobuf:"varint,13,opt,name=maximum_framerate_denominator,json=maximumFramerateDenominator" json:"maximum_framerate_denominator,omitempty"`
+	DisplayHdr                         *bool                                          `protobuf:"varint,14,opt,name=display_hdr,json=displayHdr" json:"display_hdr,omitempty"`
+	LaunchOnly                         *bool                                          `protobuf:"varint,15,opt,name=launch_only,json=launchOnly,def=0" json:"launch_only,omitempty"`
+	GamingDeviceType                   *int32                                         `protobuf:"varint,16,opt,name=gaming_device_type,json=gamingDeviceType" json:"gaming_device_type,omitempty"`
+	CloudConflictResolution            *int32                                         `protobuf:"varint,17,opt,name=cloud_conflict_resolution,json=cloudConflictResolution,def=-1" json:"cloud_conflict_resolution,omitempty"`
+	ControllerConfigConflictResolution *int32                                         `protobuf:"varint,18,opt,name=controller_config_conflict_resolution,json=controllerConfigConflictResolution,def=-1" json:"controller_config_conflict_resolution,omitempty"`
+	unknownFields                      protoimpl.UnknownFields
+	sizeCache                          protoimpl.SizeCache
 }
 
 // Default values for CMsgRemoteClientStartStream fields.
 const (
-	Default_CMsgRemoteClientStartStream_LaunchOption      = int32(-1)
-	Default_CMsgRemoteClientStartStream_LockParentalLock  = bool(false)
-	Default_CMsgRemoteClientStartStream_AudioChannelCount = int32(2)
-	Default_CMsgRemoteClientStartStream_LaunchOnly        = bool(false)
+	Default_CMsgRemoteClientStartStream_LaunchOption                       = int32(-1)
+	Default_CMsgRemoteClientStartStream_LockParentalLock                   = bool(false)
+	Default_CMsgRemoteClientStartStream_AudioChannelCount                  = int32(2)
+	Default_CMsgRemoteClientStartStream_LaunchOnly                         = bool(false)
+	Default_CMsgRemoteClientStartStream_CloudConflictResolution            = int32(-1)
+	Default_CMsgRemoteClientStartStream_ControllerConfigConflictResolution = int32(-1)
 )
 
 func (x *CMsgRemoteClientStartStream) Reset() {
@@ -1642,20 +1653,42 @@ func (x *CMsgRemoteClientStartStream) GetLaunchOnly() bool {
 	return Default_CMsgRemoteClientStartStream_LaunchOnly
 }
 
+func (x *CMsgRemoteClientStartStream) GetGamingDeviceType() int32 {
+	if x != nil && x.GamingDeviceType != nil {
+		return *x.GamingDeviceType
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientStartStream) GetCloudConflictResolution() int32 {
+	if x != nil && x.CloudConflictResolution != nil {
+		return *x.CloudConflictResolution
+	}
+	return Default_CMsgRemoteClientStartStream_CloudConflictResolution
+}
+
+func (x *CMsgRemoteClientStartStream) GetControllerConfigConflictResolution() int32 {
+	if x != nil && x.ControllerConfigConflictResolution != nil {
+		return *x.ControllerConfigConflictResolution
+	}
+	return Default_CMsgRemoteClientStartStream_ControllerConfigConflictResolution
+}
+
 type CMsgRemoteClientStartStreamResponse struct {
-	state              protoimpl.MessageState `protogen:"open.v1"`
-	ELaunchResult      *int32                 `protobuf:"varint,1,opt,name=e_launch_result,json=eLaunchResult,def=2" json:"e_launch_result,omitempty"`
-	StreamPort         *uint32                `protobuf:"varint,2,opt,name=stream_port,json=streamPort" json:"stream_port,omitempty"`
-	LaunchOptions      []int32                `protobuf:"varint,3,rep,name=launch_options,json=launchOptions" json:"launch_options,omitempty"`
-	AuthToken          []byte                 `protobuf:"bytes,4,opt,name=auth_token,json=authToken" json:"auth_token,omitempty"`
-	Transport          *EStreamTransport      `protobuf:"varint,5,opt,name=transport,enum=EStreamTransport,def=1" json:"transport,omitempty"`
-	RelayServer        *string                `protobuf:"bytes,6,opt,name=relay_server,json=relayServer" json:"relay_server,omitempty"`
-	LaunchTask         *string                `protobuf:"bytes,7,opt,name=launch_task,json=launchTask" json:"launch_task,omitempty"`
-	LaunchTaskDetail   *string                `protobuf:"bytes,8,opt,name=launch_task_detail,json=launchTaskDetail" json:"launch_task_detail,omitempty"`
-	LaunchTasksDone    *int32                 `protobuf:"varint,9,opt,name=launch_tasks_done,json=launchTasksDone" json:"launch_tasks_done,omitempty"`
-	LaunchTasksTotal   *int32                 `protobuf:"varint,10,opt,name=launch_tasks_total,json=launchTasksTotal" json:"launch_tasks_total,omitempty"`
-	VrConnectionParams *string                `protobuf:"bytes,11,opt,name=vr_connection_params,json=vrConnectionParams" json:"vr_connection_params,omitempty"`
-	LaunchOnly         *bool                  `protobuf:"varint,12,opt,name=launch_only,json=launchOnly,def=0" json:"launch_only,omitempty"`
+	state              protoimpl.MessageState                             `protogen:"open.v1"`
+	ELaunchResult      *int32                                             `protobuf:"varint,1,opt,name=e_launch_result,json=eLaunchResult,def=2" json:"e_launch_result,omitempty"`
+	StreamPort         *uint32                                            `protobuf:"varint,2,opt,name=stream_port,json=streamPort" json:"stream_port,omitempty"`
+	LaunchOptions      []int32                                            `protobuf:"varint,3,rep,name=launch_options,json=launchOptions" json:"launch_options,omitempty"`
+	AuthToken          []byte                                             `protobuf:"bytes,4,opt,name=auth_token,json=authToken" json:"auth_token,omitempty"`
+	Transport          *EStreamTransport                                  `protobuf:"varint,5,opt,name=transport,enum=EStreamTransport,def=1" json:"transport,omitempty"`
+	RelayServer        *string                                            `protobuf:"bytes,6,opt,name=relay_server,json=relayServer" json:"relay_server,omitempty"`
+	LaunchTask         *string                                            `protobuf:"bytes,7,opt,name=launch_task,json=launchTask" json:"launch_task,omitempty"`
+	LaunchTaskDetail   *string                                            `protobuf:"bytes,8,opt,name=launch_task_detail,json=launchTaskDetail" json:"launch_task_detail,omitempty"`
+	LaunchTasksDone    *int32                                             `protobuf:"varint,9,opt,name=launch_tasks_done,json=launchTasksDone" json:"launch_tasks_done,omitempty"`
+	LaunchTasksTotal   *int32                                             `protobuf:"varint,10,opt,name=launch_tasks_total,json=launchTasksTotal" json:"launch_tasks_total,omitempty"`
+	VrConnectionParams *string                                            `protobuf:"bytes,11,opt,name=vr_connection_params,json=vrConnectionParams" json:"vr_connection_params,omitempty"`
+	LaunchOnly         *bool                                              `protobuf:"varint,12,opt,name=launch_only,json=launchOnly,def=0" json:"launch_only,omitempty"`
+	CloudConflict      *CMsgRemoteClientStartStreamResponse_CloudConflict `protobuf:"bytes,13,opt,name=cloud_conflict,json=cloudConflict" json:"cloud_conflict,omitempty"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
@@ -1779,6 +1812,13 @@ func (x *CMsgRemoteClientStartStreamResponse) GetLaunchOnly() bool {
 		return *x.LaunchOnly
 	}
 	return Default_CMsgRemoteClientStartStreamResponse_LaunchOnly
+}
+
+func (x *CMsgRemoteClientStartStreamResponse) GetCloudConflict() *CMsgRemoteClientStartStreamResponse_CloudConflict {
+	if x != nil {
+		return x.CloudConflict
+	}
+	return nil
 }
 
 type CMsgRemoteClientPing struct {
@@ -2187,11 +2227,12 @@ func (x *CMsgRemoteClientWifiAPStatus) GetPairedNetworkHash() uint64 {
 }
 
 type CMsgRemoteClientPairWifiAP struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Ssid          *string                `protobuf:"bytes,1,opt,name=ssid" json:"ssid,omitempty"`
-	Password      *string                `protobuf:"bytes,2,opt,name=password" json:"password,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Ssid             *string                `protobuf:"bytes,1,opt,name=ssid" json:"ssid,omitempty"`
+	Password         *string                `protobuf:"bytes,2,opt,name=password" json:"password,omitempty"`
+	SupportsProgress *bool                  `protobuf:"varint,3,opt,name=supports_progress,json=supportsProgress" json:"supports_progress,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *CMsgRemoteClientPairWifiAP) Reset() {
@@ -2238,13 +2279,24 @@ func (x *CMsgRemoteClientPairWifiAP) GetPassword() string {
 	return ""
 }
 
+func (x *CMsgRemoteClientPairWifiAP) GetSupportsProgress() bool {
+	if x != nil && x.SupportsProgress != nil {
+		return *x.SupportsProgress
+	}
+	return false
+}
+
 type CMsgRemoteClientPairWifiAPResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	EPairResult   *int32                 `protobuf:"varint,1,opt,name=e_pair_result,json=ePairResult,def=2" json:"e_pair_result,omitempty"`
-	Ssid          *string                `protobuf:"bytes,2,opt,name=ssid" json:"ssid,omitempty"`
-	Password      *string                `protobuf:"bytes,3,opt,name=password" json:"password,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	EPairResult      *int32                 `protobuf:"varint,1,opt,name=e_pair_result,json=ePairResult,def=2" json:"e_pair_result,omitempty"`
+	Ssid             *string                `protobuf:"bytes,2,opt,name=ssid" json:"ssid,omitempty"`
+	Password         *string                `protobuf:"bytes,3,opt,name=password" json:"password,omitempty"`
+	StepsDone        *int32                 `protobuf:"varint,4,opt,name=steps_done,json=stepsDone" json:"steps_done,omitempty"`
+	StepsTotal       *int32                 `protobuf:"varint,5,opt,name=steps_total,json=stepsTotal" json:"steps_total,omitempty"`
+	StepName         *string                `protobuf:"bytes,6,opt,name=step_name,json=stepName" json:"step_name,omitempty"`
+	EstimatedSeconds *uint32                `protobuf:"varint,7,opt,name=estimated_seconds,json=estimatedSeconds" json:"estimated_seconds,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 // Default values for CMsgRemoteClientPairWifiAPResponse fields.
@@ -2301,6 +2353,34 @@ func (x *CMsgRemoteClientPairWifiAPResponse) GetPassword() string {
 		return *x.Password
 	}
 	return ""
+}
+
+func (x *CMsgRemoteClientPairWifiAPResponse) GetStepsDone() int32 {
+	if x != nil && x.StepsDone != nil {
+		return *x.StepsDone
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientPairWifiAPResponse) GetStepsTotal() int32 {
+	if x != nil && x.StepsTotal != nil {
+		return *x.StepsTotal
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientPairWifiAPResponse) GetStepName() string {
+	if x != nil && x.StepName != nil {
+		return *x.StepName
+	}
+	return ""
+}
+
+func (x *CMsgRemoteClientPairWifiAPResponse) GetEstimatedSeconds() uint32 {
+	if x != nil && x.EstimatedSeconds != nil {
+		return *x.EstimatedSeconds
+	}
+	return 0
 }
 
 type CMsgRemoteClientAppStatus_AppStatus struct {
@@ -2640,6 +2720,66 @@ func (x *CMsgRemoteClientStartStream_ReservedGamepad) GetControllerSubtype() uin
 	return 0
 }
 
+type CMsgRemoteClientStartStreamResponse_CloudConflict struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	LocalTime     *uint32                `protobuf:"varint,2,opt,name=local_time,json=localTime" json:"local_time,omitempty"`
+	RemoteTime    *uint32                `protobuf:"varint,3,opt,name=remote_time,json=remoteTime" json:"remote_time,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgRemoteClientStartStreamResponse_CloudConflict) Reset() {
+	*x = CMsgRemoteClientStartStreamResponse_CloudConflict{}
+	mi := &file_steammessages_remoteclient_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgRemoteClientStartStreamResponse_CloudConflict) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgRemoteClientStartStreamResponse_CloudConflict) ProtoMessage() {}
+
+func (x *CMsgRemoteClientStartStreamResponse_CloudConflict) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteclient_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgRemoteClientStartStreamResponse_CloudConflict.ProtoReflect.Descriptor instead.
+func (*CMsgRemoteClientStartStreamResponse_CloudConflict) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteclient_proto_rawDescGZIP(), []int{21, 0}
+}
+
+func (x *CMsgRemoteClientStartStreamResponse_CloudConflict) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientStartStreamResponse_CloudConflict) GetLocalTime() uint32 {
+	if x != nil && x.LocalTime != nil {
+		return *x.LocalTime
+	}
+	return 0
+}
+
+func (x *CMsgRemoteClientStartStreamResponse_CloudConflict) GetRemoteTime() uint32 {
+	if x != nil && x.RemoteTime != nil {
+		return *x.RemoteTime
+	}
+	return 0
+}
+
 var File_steammessages_remoteclient_proto protoreflect.FileDescriptor
 
 const file_steammessages_remoteclient_proto_rawDesc = "" +
@@ -2773,7 +2913,7 @@ const file_steammessages_remoteclient_proto_rawDesc = "" +
 	"\x1aCMsgRemoteClientInstallApp\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\"O\n" +
 	"\"CMsgRemoteClientInstallAppResponse\x12)\n" +
-	"\x0fe_launch_result\x18\x01 \x01(\x05:\x012R\reLaunchResult\"\xe8\x06\n" +
+	"\x0fe_launch_result\x18\x01 \x01(\x05:\x012R\reLaunchResult\"\xad\b\n" +
 	"\x1bCMsgRemoteClientStartStream\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12 \n" +
 	"\venvironment\x18\x02 \x01(\x05R\venvironment\x12#\n" +
@@ -2792,10 +2932,13 @@ const file_steammessages_remoteclient_proto_rawDesc = "" +
 	"\vdisplay_hdr\x18\x0e \x01(\bR\n" +
 	"displayHdr\x12&\n" +
 	"\vlaunch_only\x18\x0f \x01(\b:\x05falseR\n" +
-	"launchOnly\x1ai\n" +
+	"launchOnly\x12,\n" +
+	"\x12gaming_device_type\x18\x10 \x01(\x05R\x10gamingDeviceType\x12>\n" +
+	"\x19cloud_conflict_resolution\x18\x11 \x01(\x05:\x02-1R\x17cloudConflictResolution\x12U\n" +
+	"%controller_config_conflict_resolution\x18\x12 \x01(\x05:\x02-1R\"controllerConfigConflictResolution\x1ai\n" +
 	"\x0fReservedGamepad\x12'\n" +
 	"\x0fcontroller_type\x18\x01 \x01(\rR\x0econtrollerType\x12-\n" +
-	"\x12controller_subtype\x18\x02 \x01(\rR\x11controllerSubtype\"\xa5\x04\n" +
+	"\x12controller_subtype\x18\x02 \x01(\rR\x11controllerSubtype\"\xe7\x05\n" +
 	"#CMsgRemoteClientStartStreamResponse\x12)\n" +
 	"\x0fe_launch_result\x18\x01 \x01(\x05:\x012R\reLaunchResult\x12\x1f\n" +
 	"\vstream_port\x18\x02 \x01(\rR\n" +
@@ -2813,7 +2956,14 @@ const file_steammessages_remoteclient_proto_rawDesc = "" +
 	" \x01(\x05R\x10launchTasksTotal\x120\n" +
 	"\x14vr_connection_params\x18\v \x01(\tR\x12vrConnectionParams\x12&\n" +
 	"\vlaunch_only\x18\f \x01(\b:\x05falseR\n" +
-	"launchOnly\"\x16\n" +
+	"launchOnly\x12Y\n" +
+	"\x0ecloud_conflict\x18\r \x01(\v22.CMsgRemoteClientStartStreamResponse.CloudConflictR\rcloudConflict\x1ae\n" +
+	"\rCloudConflict\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1d\n" +
+	"\n" +
+	"local_time\x18\x02 \x01(\rR\tlocalTime\x12\x1f\n" +
+	"\vremote_time\x18\x03 \x01(\rR\n" +
+	"remoteTime\"\x16\n" +
 	"\x14CMsgRemoteClientPing\"\x1e\n" +
 	"\x1cCMsgRemoteClientPingResponse\"o\n" +
 	"\x1aCMsgRemoteClientAcceptEULA\x12\x15\n" +
@@ -2836,14 +2986,21 @@ const file_steammessages_remoteclient_proto_rawDesc = "" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\x12'\n" +
 	"\x0fwpa2_deprecated\x18\x03 \x01(\bR\x0ewpa2Deprecated\x12,\n" +
 	"\x12is_pairing_capable\x18\x04 \x01(\bR\x10isPairingCapable\x12.\n" +
-	"\x13paired_network_hash\x18\x05 \x01(\x06R\x11pairedNetworkHash\"L\n" +
+	"\x13paired_network_hash\x18\x05 \x01(\x06R\x11pairedNetworkHash\"y\n" +
 	"\x1aCMsgRemoteClientPairWifiAP\x12\x12\n" +
 	"\x04ssid\x18\x01 \x01(\tR\x04ssid\x12\x1a\n" +
-	"\bpassword\x18\x02 \x01(\tR\bpassword\"{\n" +
+	"\bpassword\x18\x02 \x01(\tR\bpassword\x12+\n" +
+	"\x11supports_progress\x18\x03 \x01(\bR\x10supportsProgress\"\x85\x02\n" +
 	"\"CMsgRemoteClientPairWifiAPResponse\x12%\n" +
 	"\re_pair_result\x18\x01 \x01(\x05:\x012R\vePairResult\x12\x12\n" +
 	"\x04ssid\x18\x02 \x01(\tR\x04ssid\x12\x1a\n" +
-	"\bpassword\x18\x03 \x01(\tR\bpassword*\xb4\x02\n" +
+	"\bpassword\x18\x03 \x01(\tR\bpassword\x12\x1d\n" +
+	"\n" +
+	"steps_done\x18\x04 \x01(\x05R\tstepsDone\x12\x1f\n" +
+	"\vsteps_total\x18\x05 \x01(\x05R\n" +
+	"stepsTotal\x12\x1b\n" +
+	"\tstep_name\x18\x06 \x01(\tR\bstepName\x12+\n" +
+	"\x11estimated_seconds\x18\a \x01(\rR\x10estimatedSeconds*\x87\x03\n" +
 	"\x1dERemoteClientPairWifiAPResult\x12\x1f\n" +
 	"\x1bk_ERemoteClientPairWifiAPOK\x10\x01\x12!\n" +
 	"\x1dk_ERemoteClientPairWifiAPFail\x10\x02\x12)\n" +
@@ -2851,7 +3008,9 @@ const file_steammessages_remoteclient_proto_rawDesc = "" +
 	"%k_ERemoteClientPairWifiAPUnauthorized\x10\x04\x12,\n" +
 	"(k_ERemoteClientPairWifiAPNoDonglePresent\x10\x05\x12$\n" +
 	" k_ERemoteClientPairWifiAPTimeout\x10\x06\x12%\n" +
-	"!k_ERemoteClientPairWifiAPCanceled\x10\a*k\n" +
+	"!k_ERemoteClientPairWifiAPCanceled\x10\a\x12%\n" +
+	"!k_ERemoteClientPairWifiAPProgress\x10\b\x12*\n" +
+	"&k_ERemoteClientPairWifiAPConnectFailed\x10\t*k\n" +
 	"\x19EStreamingDongleFixResult\x12&\n" +
 	"\"k_EStreamingDongleFixResultSuccess\x10\x01\x12&\n" +
 	"\"k_EStreamingDongleFixResultFailure\x10\x02B\x05H\x01\x80\x01\x00"
@@ -2869,7 +3028,7 @@ func file_steammessages_remoteclient_proto_rawDescGZIP() []byte {
 }
 
 var file_steammessages_remoteclient_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_steammessages_remoteclient_proto_msgTypes = make([]protoimpl.MessageInfo, 37)
+var file_steammessages_remoteclient_proto_msgTypes = make([]protoimpl.MessageInfo, 38)
 var file_steammessages_remoteclient_proto_goTypes = []any{
 	(ERemoteClientPairWifiAPResult)(0),                                  // 0: ERemoteClientPairWifiAPResult
 	(EStreamingDongleFixResult)(0),                                      // 1: EStreamingDongleFixResult
@@ -2910,11 +3069,12 @@ var file_steammessages_remoteclient_proto_goTypes = []any{
 	(*CMsgRemoteClientDownloadsManagement_ChangeAppQueuePlacement)(nil), // 36: CMsgRemoteClientDownloadsManagement.ChangeAppQueuePlacement
 	(*CMsgRemoteClientDownloadsManagement_ChangeDownloadIndex)(nil),     // 37: CMsgRemoteClientDownloadsManagement.ChangeDownloadIndex
 	(*CMsgRemoteClientStartStream_ReservedGamepad)(nil),                 // 38: CMsgRemoteClientStartStream.ReservedGamepad
-	(*CMsgRemoteClientBroadcastStatus)(nil),                             // 39: CMsgRemoteClientBroadcastStatus
-	(EStreamTransport)(0),                                               // 40: EStreamTransport
+	(*CMsgRemoteClientStartStreamResponse_CloudConflict)(nil),           // 39: CMsgRemoteClientStartStreamResponse.CloudConflict
+	(*CMsgRemoteClientBroadcastStatus)(nil),                             // 40: CMsgRemoteClientBroadcastStatus
+	(EStreamTransport)(0),                                               // 41: EStreamTransport
 }
 var file_steammessages_remoteclient_proto_depIdxs = []int32{
-	39, // 0: CMsgRemoteClientStatus.status:type_name -> CMsgRemoteClientBroadcastStatus
+	40, // 0: CMsgRemoteClientStatus.status:type_name -> CMsgRemoteClientBroadcastStatus
 	6,  // 1: AppUpdateInfo.progress_weights:type_name -> AppStageProgress
 	34, // 2: CMsgRemoteClientAppStatus.status_updates:type_name -> CMsgRemoteClientAppStatus.AppStatus
 	36, // 3: CMsgRemoteClientDownloadsManagement.change_queue_placement:type_name -> CMsgRemoteClientDownloadsManagement.ChangeAppQueuePlacement
@@ -2922,16 +3082,17 @@ var file_steammessages_remoteclient_proto_depIdxs = []int32{
 	7,  // 5: CMsgRemoteClientAppUpdateStopped.update_info:type_name -> AppUpdateInfo
 	7,  // 6: CMsgRemoteClientDownloadingAppID.update_info:type_name -> AppUpdateInfo
 	38, // 7: CMsgRemoteClientStartStream.gamepads:type_name -> CMsgRemoteClientStartStream.ReservedGamepad
-	40, // 8: CMsgRemoteClientStartStream.supported_transport:type_name -> EStreamTransport
-	40, // 9: CMsgRemoteClientStartStreamResponse.transport:type_name -> EStreamTransport
-	7,  // 10: CMsgRemoteClientAppStatus.AppStatus.update_info:type_name -> AppUpdateInfo
-	35, // 11: CMsgRemoteClientAppStatus.AppStatus.shortcut_info:type_name -> CMsgRemoteClientAppStatus.ShortcutInfo
-	8,  // 12: CMsgRemoteClientAppStatus.AppStatus.cloud_status:type_name -> AppCloudStatus
-	13, // [13:13] is the sub-list for method output_type
-	13, // [13:13] is the sub-list for method input_type
-	13, // [13:13] is the sub-list for extension type_name
-	13, // [13:13] is the sub-list for extension extendee
-	0,  // [0:13] is the sub-list for field type_name
+	41, // 8: CMsgRemoteClientStartStream.supported_transport:type_name -> EStreamTransport
+	41, // 9: CMsgRemoteClientStartStreamResponse.transport:type_name -> EStreamTransport
+	39, // 10: CMsgRemoteClientStartStreamResponse.cloud_conflict:type_name -> CMsgRemoteClientStartStreamResponse.CloudConflict
+	7,  // 11: CMsgRemoteClientAppStatus.AppStatus.update_info:type_name -> AppUpdateInfo
+	35, // 12: CMsgRemoteClientAppStatus.AppStatus.shortcut_info:type_name -> CMsgRemoteClientAppStatus.ShortcutInfo
+	8,  // 13: CMsgRemoteClientAppStatus.AppStatus.cloud_status:type_name -> AppCloudStatus
+	14, // [14:14] is the sub-list for method output_type
+	14, // [14:14] is the sub-list for method input_type
+	14, // [14:14] is the sub-list for extension type_name
+	14, // [14:14] is the sub-list for extension extendee
+	0,  // [0:14] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_remoteclient_proto_init() }
@@ -2947,7 +3108,7 @@ func file_steammessages_remoteclient_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_remoteclient_proto_rawDesc), len(file_steammessages_remoteclient_proto_rawDesc)),
 			NumEnums:      2,
-			NumMessages:   37,
+			NumMessages:   38,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
