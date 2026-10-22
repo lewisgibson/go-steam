@@ -938,6 +938,65 @@ func (EStreamP2PScope) EnumDescriptor() ([]byte, []int) {
 	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{9}
 }
 
+type EDisplayStyle int32
+
+const (
+	EDisplayStyle_k_EDisplayStyleLetterbox EDisplayStyle = 0
+	EDisplayStyle_k_EDisplayStyleStretch   EDisplayStyle = 1
+	EDisplayStyle_k_EDisplayStyleZoom      EDisplayStyle = 2
+)
+
+// Enum value maps for EDisplayStyle.
+var (
+	EDisplayStyle_name = map[int32]string{
+		0: "k_EDisplayStyleLetterbox",
+		1: "k_EDisplayStyleStretch",
+		2: "k_EDisplayStyleZoom",
+	}
+	EDisplayStyle_value = map[string]int32{
+		"k_EDisplayStyleLetterbox": 0,
+		"k_EDisplayStyleStretch":   1,
+		"k_EDisplayStyleZoom":      2,
+	}
+)
+
+func (x EDisplayStyle) Enum() *EDisplayStyle {
+	p := new(EDisplayStyle)
+	*p = x
+	return p
+}
+
+func (x EDisplayStyle) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (EDisplayStyle) Descriptor() protoreflect.EnumDescriptor {
+	return file_steammessages_remoteplay_proto_enumTypes[10].Descriptor()
+}
+
+func (EDisplayStyle) Type() protoreflect.EnumType {
+	return &file_steammessages_remoteplay_proto_enumTypes[10]
+}
+
+func (x EDisplayStyle) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *EDisplayStyle) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = EDisplayStyle(num)
+	return nil
+}
+
+// Deprecated: Use EDisplayStyle.Descriptor instead.
+func (EDisplayStyle) EnumDescriptor() ([]byte, []int) {
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{10}
+}
+
 type EStreamHostPlayAudioPreference int32
 
 const (
@@ -968,11 +1027,11 @@ func (x EStreamHostPlayAudioPreference) String() string {
 }
 
 func (EStreamHostPlayAudioPreference) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[10].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[11].Descriptor()
 }
 
 func (EStreamHostPlayAudioPreference) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[10]
+	return &file_steammessages_remoteplay_proto_enumTypes[11]
 }
 
 func (x EStreamHostPlayAudioPreference) Number() protoreflect.EnumNumber {
@@ -991,7 +1050,7 @@ func (x *EStreamHostPlayAudioPreference) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamHostPlayAudioPreference.Descriptor instead.
 func (EStreamHostPlayAudioPreference) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{10}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{11}
 }
 
 type EStreamHostDisplaySetting int32
@@ -1027,11 +1086,11 @@ func (x EStreamHostDisplaySetting) String() string {
 }
 
 func (EStreamHostDisplaySetting) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[11].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[12].Descriptor()
 }
 
 func (EStreamHostDisplaySetting) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[11]
+	return &file_steammessages_remoteplay_proto_enumTypes[12]
 }
 
 func (x EStreamHostDisplaySetting) Number() protoreflect.EnumNumber {
@@ -1050,7 +1109,7 @@ func (x *EStreamHostDisplaySetting) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamHostDisplaySetting.Descriptor instead.
 func (EStreamHostDisplaySetting) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{11}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{12}
 }
 
 type EStreamingDataType int32
@@ -1089,11 +1148,11 @@ func (x EStreamingDataType) String() string {
 }
 
 func (EStreamingDataType) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[12].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[13].Descriptor()
 }
 
 func (EStreamingDataType) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[12]
+	return &file_steammessages_remoteplay_proto_enumTypes[13]
 }
 
 func (x EStreamingDataType) Number() protoreflect.EnumNumber {
@@ -1112,7 +1171,7 @@ func (x *EStreamingDataType) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamingDataType.Descriptor instead.
 func (EStreamingDataType) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{12}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{13}
 }
 
 type EStreamMouseButton int32
@@ -1157,11 +1216,11 @@ func (x EStreamMouseButton) String() string {
 }
 
 func (EStreamMouseButton) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[13].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[14].Descriptor()
 }
 
 func (EStreamMouseButton) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[13]
+	return &file_steammessages_remoteplay_proto_enumTypes[14]
 }
 
 func (x EStreamMouseButton) Number() protoreflect.EnumNumber {
@@ -1180,7 +1239,7 @@ func (x *EStreamMouseButton) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamMouseButton.Descriptor instead.
 func (EStreamMouseButton) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{13}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{14}
 }
 
 type EStreamMouseWheelDirection int32
@@ -1219,11 +1278,11 @@ func (x EStreamMouseWheelDirection) String() string {
 }
 
 func (EStreamMouseWheelDirection) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[14].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[15].Descriptor()
 }
 
 func (EStreamMouseWheelDirection) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[14]
+	return &file_steammessages_remoteplay_proto_enumTypes[15]
 }
 
 func (x EStreamMouseWheelDirection) Number() protoreflect.EnumNumber {
@@ -1242,7 +1301,7 @@ func (x *EStreamMouseWheelDirection) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamMouseWheelDirection.Descriptor instead.
 func (EStreamMouseWheelDirection) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{14}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{15}
 }
 
 type EStreamFramerateLimiter int32
@@ -1290,11 +1349,11 @@ func (x EStreamFramerateLimiter) String() string {
 }
 
 func (EStreamFramerateLimiter) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[15].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[16].Descriptor()
 }
 
 func (EStreamFramerateLimiter) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[15]
+	return &file_steammessages_remoteplay_proto_enumTypes[16]
 }
 
 func (x EStreamFramerateLimiter) Number() protoreflect.EnumNumber {
@@ -1313,7 +1372,7 @@ func (x *EStreamFramerateLimiter) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamFramerateLimiter.Descriptor instead.
 func (EStreamFramerateLimiter) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{15}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{16}
 }
 
 type EStreamActivity int32
@@ -1355,11 +1414,11 @@ func (x EStreamActivity) String() string {
 }
 
 func (EStreamActivity) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[16].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[17].Descriptor()
 }
 
 func (EStreamActivity) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[16]
+	return &file_steammessages_remoteplay_proto_enumTypes[17]
 }
 
 func (x EStreamActivity) Number() protoreflect.EnumNumber {
@@ -1378,7 +1437,7 @@ func (x *EStreamActivity) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamActivity.Descriptor instead.
 func (EStreamActivity) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{16}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{17}
 }
 
 type ECaptureFailedReason int32
@@ -1420,11 +1479,11 @@ func (x ECaptureFailedReason) String() string {
 }
 
 func (ECaptureFailedReason) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[17].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[18].Descriptor()
 }
 
 func (ECaptureFailedReason) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[17]
+	return &file_steammessages_remoteplay_proto_enumTypes[18]
 }
 
 func (x ECaptureFailedReason) Number() protoreflect.EnumNumber {
@@ -1443,7 +1502,7 @@ func (x *ECaptureFailedReason) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use ECaptureFailedReason.Descriptor instead.
 func (ECaptureFailedReason) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{17}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{18}
 }
 
 type EStreamDataMessage int32
@@ -1476,11 +1535,11 @@ func (x EStreamDataMessage) String() string {
 }
 
 func (EStreamDataMessage) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[18].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[19].Descriptor()
 }
 
 func (EStreamDataMessage) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[18]
+	return &file_steammessages_remoteplay_proto_enumTypes[19]
 }
 
 func (x EStreamDataMessage) Number() protoreflect.EnumNumber {
@@ -1499,7 +1558,7 @@ func (x *EStreamDataMessage) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamDataMessage.Descriptor instead.
 func (EStreamDataMessage) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{18}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{19}
 }
 
 type EAudioFormat int32
@@ -1535,11 +1594,11 @@ func (x EAudioFormat) String() string {
 }
 
 func (EAudioFormat) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[19].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[20].Descriptor()
 }
 
 func (EAudioFormat) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[19]
+	return &file_steammessages_remoteplay_proto_enumTypes[20]
 }
 
 func (x EAudioFormat) Number() protoreflect.EnumNumber {
@@ -1558,7 +1617,7 @@ func (x *EAudioFormat) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EAudioFormat.Descriptor instead.
 func (EAudioFormat) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{19}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{20}
 }
 
 type EStreamStatsMessage int32
@@ -1603,11 +1662,11 @@ func (x EStreamStatsMessage) String() string {
 }
 
 func (EStreamStatsMessage) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[20].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[21].Descriptor()
 }
 
 func (EStreamStatsMessage) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[20]
+	return &file_steammessages_remoteplay_proto_enumTypes[21]
 }
 
 func (x EStreamStatsMessage) Number() protoreflect.EnumNumber {
@@ -1626,7 +1685,7 @@ func (x *EStreamStatsMessage) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamStatsMessage.Descriptor instead.
 func (EStreamStatsMessage) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{20}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{21}
 }
 
 type EStreamFrameEvent int32
@@ -1710,11 +1769,11 @@ func (x EStreamFrameEvent) String() string {
 }
 
 func (EStreamFrameEvent) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[21].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[22].Descriptor()
 }
 
 func (EStreamFrameEvent) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[21]
+	return &file_steammessages_remoteplay_proto_enumTypes[22]
 }
 
 func (x EStreamFrameEvent) Number() protoreflect.EnumNumber {
@@ -1733,7 +1792,7 @@ func (x *EStreamFrameEvent) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamFrameEvent.Descriptor instead.
 func (EStreamFrameEvent) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{21}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{22}
 }
 
 type EStreamFrameResult int32
@@ -1784,11 +1843,11 @@ func (x EStreamFrameResult) String() string {
 }
 
 func (EStreamFrameResult) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[22].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[23].Descriptor()
 }
 
 func (EStreamFrameResult) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[22]
+	return &file_steammessages_remoteplay_proto_enumTypes[23]
 }
 
 func (x EStreamFrameResult) Number() protoreflect.EnumNumber {
@@ -1807,7 +1866,7 @@ func (x *EStreamFrameResult) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamFrameResult.Descriptor instead.
 func (EStreamFrameResult) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{22}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{23}
 }
 
 type EFrameAccumulatedStat int32
@@ -1891,11 +1950,11 @@ func (x EFrameAccumulatedStat) String() string {
 }
 
 func (EFrameAccumulatedStat) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[23].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[24].Descriptor()
 }
 
 func (EFrameAccumulatedStat) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[23]
+	return &file_steammessages_remoteplay_proto_enumTypes[24]
 }
 
 func (x EFrameAccumulatedStat) Number() protoreflect.EnumNumber {
@@ -1914,7 +1973,7 @@ func (x *EFrameAccumulatedStat) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EFrameAccumulatedStat.Descriptor instead.
 func (EFrameAccumulatedStat) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{23}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{24}
 }
 
 type ELogFileType int32
@@ -1950,11 +2009,11 @@ func (x ELogFileType) String() string {
 }
 
 func (ELogFileType) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[24].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[25].Descriptor()
 }
 
 func (ELogFileType) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[24]
+	return &file_steammessages_remoteplay_proto_enumTypes[25]
 }
 
 func (x ELogFileType) Number() protoreflect.EnumNumber {
@@ -1973,7 +2032,7 @@ func (x *ELogFileType) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use ELogFileType.Descriptor instead.
 func (ELogFileType) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{24}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{25}
 }
 
 type EStreamControllerConfigMsg int32
@@ -2015,11 +2074,11 @@ func (x EStreamControllerConfigMsg) String() string {
 }
 
 func (EStreamControllerConfigMsg) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[25].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[26].Descriptor()
 }
 
 func (EStreamControllerConfigMsg) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[25]
+	return &file_steammessages_remoteplay_proto_enumTypes[26]
 }
 
 func (x EStreamControllerConfigMsg) Number() protoreflect.EnumNumber {
@@ -2038,7 +2097,7 @@ func (x *EStreamControllerConfigMsg) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamControllerConfigMsg.Descriptor instead.
 func (EStreamControllerConfigMsg) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{25}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{26}
 }
 
 type CAuthenticationResponseMsg_AuthenticationResult int32
@@ -2071,11 +2130,11 @@ func (x CAuthenticationResponseMsg_AuthenticationResult) String() string {
 }
 
 func (CAuthenticationResponseMsg_AuthenticationResult) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[26].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[27].Descriptor()
 }
 
 func (CAuthenticationResponseMsg_AuthenticationResult) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[26]
+	return &file_steammessages_remoteplay_proto_enumTypes[27]
 }
 
 func (x CAuthenticationResponseMsg_AuthenticationResult) Number() protoreflect.EnumNumber {
@@ -2966,6 +3025,7 @@ type CStreamingClientConfig struct {
 	PyrowaveQualityModifier            *float32                  `protobuf:"fixed32,38,opt,name=pyrowave_quality_modifier,json=pyrowaveQualityModifier" json:"pyrowave_quality_modifier,omitempty"`
 	PyrowaveYuv444                     *bool                     `protobuf:"varint,39,opt,name=pyrowave_yuv444,json=pyrowaveYuv444" json:"pyrowave_yuv444,omitempty"`
 	PyrowaveBitrateKbps                *int32                    `protobuf:"varint,40,opt,name=pyrowave_bitrate_kbps,json=pyrowaveBitrateKbps,def=-1" json:"pyrowave_bitrate_kbps,omitempty"`
+	DisplayStyle                       *EDisplayStyle            `protobuf:"varint,41,opt,name=display_style,json=displayStyle,enum=EDisplayStyle,def=0" json:"display_style,omitempty"`
 	unknownFields                      protoimpl.UnknownFields
 	sizeCache                          protoimpl.SizeCache
 }
@@ -2990,6 +3050,7 @@ const (
 	Default_CStreamingClientConfig_EnableVideoAv1                 = bool(false)
 	Default_CStreamingClientConfig_EnableVideoPyrowave            = bool(false)
 	Default_CStreamingClientConfig_PyrowaveBitrateKbps            = int32(-1)
+	Default_CStreamingClientConfig_DisplayStyle                   = EDisplayStyle_k_EDisplayStyleLetterbox
 )
 
 func (x *CStreamingClientConfig) Reset() {
@@ -3293,6 +3354,13 @@ func (x *CStreamingClientConfig) GetPyrowaveBitrateKbps() int32 {
 		return *x.PyrowaveBitrateKbps
 	}
 	return Default_CStreamingClientConfig_PyrowaveBitrateKbps
+}
+
+func (x *CStreamingClientConfig) GetDisplayStyle() EDisplayStyle {
+	if x != nil && x.DisplayStyle != nil {
+		return *x.DisplayStyle
+	}
+	return Default_CStreamingClientConfig_DisplayStyle
 }
 
 type CStreamingServerConfig struct {
@@ -9330,7 +9398,7 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x15supported_colorspaces\x18\r \x03(\x0e2\x12.EStreamColorspaceR\x14supportedColorspaces\x12H\n" +
 	"\x16supported_audio_codecs\x18\x0e \x03(\x0e2\x12.EStreamAudioCodecR\x14supportedAudioCodecs\x12H\n" +
 	"\x16supported_video_codecs\x18\x0f \x03(\x0e2\x12.EStreamVideoCodecR\x14supportedVideoCodecs\x122\n" +
-	"\x15can_toggle_fullscreen\x18\x10 \x01(\bR\x13canToggleFullscreen\"\xd3\x11\n" +
+	"\x15can_toggle_fullscreen\x18\x10 \x01(\bR\x13canToggleFullscreen\"\xa2\x12\n" +
 	"\x16CStreamingClientConfig\x12M\n" +
 	"\aquality\x18\x01 \x01(\x0e2\x19.EStreamQualityPreference:\x18k_EStreamQualityBalancedR\aquality\x120\n" +
 	"\x14desired_resolution_x\x18\x02 \x01(\rR\x12desiredResolutionX\x120\n" +
@@ -9371,7 +9439,8 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"%pyrowave_custom_bitrate_kbps_OBSOLETE\x18% \x01(\x05R!pyrowaveCustomBitrateKbpsOBSOLETE\x12:\n" +
 	"\x19pyrowave_quality_modifier\x18& \x01(\x02R\x17pyrowaveQualityModifier\x12'\n" +
 	"\x0fpyrowave_yuv444\x18' \x01(\bR\x0epyrowaveYuv444\x126\n" +
-	"\x15pyrowave_bitrate_kbps\x18( \x01(\x05:\x02-1R\x13pyrowaveBitrateKbps\"\xe5\a\n" +
+	"\x15pyrowave_bitrate_kbps\x18( \x01(\x05:\x02-1R\x13pyrowaveBitrateKbps\x12M\n" +
+	"\rdisplay_style\x18) \x01(\x0e2\x0e.EDisplayStyle:\x18k_EDisplayStyleLetterboxR\fdisplayStyle\"\xe5\a\n" +
 	"\x16CStreamingServerConfig\x12f\n" +
 	"\x0fhost_play_audio\x18\x01 \x01(\x0e2\x1f.EStreamHostPlayAudioPreference:\x1dk_EStreamHostPlayAudioDefaultR\rhostPlayAudio\x122\n" +
 	"\x15custom_display_device\x18\x02 \x01(\tR\x13customDisplayDevice\x12y\n" +
@@ -9926,7 +9995,11 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x19k_EStreamP2PScopeDisabled\x10\x01\x12\x1b\n" +
 	"\x17k_EStreamP2PScopeOnlyMe\x10\x02\x12\x1c\n" +
 	"\x18k_EStreamP2PScopeFriends\x10\x03\x12\x1d\n" +
-	"\x19k_EStreamP2PScopeEveryone\x10\x04*e\n" +
+	"\x19k_EStreamP2PScopeEveryone\x10\x04*b\n" +
+	"\rEDisplayStyle\x12\x1c\n" +
+	"\x18k_EDisplayStyleLetterbox\x10\x00\x12\x1a\n" +
+	"\x16k_EDisplayStyleStretch\x10\x01\x12\x17\n" +
+	"\x13k_EDisplayStyleZoom\x10\x02*e\n" +
 	"\x1eEStreamHostPlayAudioPreference\x12!\n" +
 	"\x1dk_EStreamHostPlayAudioDefault\x10\x00\x12 \n" +
 	"\x1ck_EStreamHostPlayAudioAlways\x10\x01*\x8e\x01\n" +
@@ -10059,7 +10132,7 @@ func file_steammessages_remoteplay_proto_rawDescGZIP() []byte {
 	return file_steammessages_remoteplay_proto_rawDescData
 }
 
-var file_steammessages_remoteplay_proto_enumTypes = make([]protoimpl.EnumInfo, 27)
+var file_steammessages_remoteplay_proto_enumTypes = make([]protoimpl.EnumInfo, 28)
 var file_steammessages_remoteplay_proto_msgTypes = make([]protoimpl.MessageInfo, 113)
 var file_steammessages_remoteplay_proto_goTypes = []any{
 	(EStreamChannel)(0),                                               // 0: EStreamChannel
@@ -10072,212 +10145,214 @@ var file_steammessages_remoteplay_proto_goTypes = []any{
 	(EStreamBitrate)(0),                                               // 7: EStreamBitrate
 	(EStreamColorspace)(0),                                            // 8: EStreamColorspace
 	(EStreamP2PScope)(0),                                              // 9: EStreamP2PScope
-	(EStreamHostPlayAudioPreference)(0),                               // 10: EStreamHostPlayAudioPreference
-	(EStreamHostDisplaySetting)(0),                                    // 11: EStreamHostDisplaySetting
-	(EStreamingDataType)(0),                                           // 12: EStreamingDataType
-	(EStreamMouseButton)(0),                                           // 13: EStreamMouseButton
-	(EStreamMouseWheelDirection)(0),                                   // 14: EStreamMouseWheelDirection
-	(EStreamFramerateLimiter)(0),                                      // 15: EStreamFramerateLimiter
-	(EStreamActivity)(0),                                              // 16: EStreamActivity
-	(ECaptureFailedReason)(0),                                         // 17: ECaptureFailedReason
-	(EStreamDataMessage)(0),                                           // 18: EStreamDataMessage
-	(EAudioFormat)(0),                                                 // 19: EAudioFormat
-	(EStreamStatsMessage)(0),                                          // 20: EStreamStatsMessage
-	(EStreamFrameEvent)(0),                                            // 21: EStreamFrameEvent
-	(EStreamFrameResult)(0),                                           // 22: EStreamFrameResult
-	(EFrameAccumulatedStat)(0),                                        // 23: EFrameAccumulatedStat
-	(ELogFileType)(0),                                                 // 24: ELogFileType
-	(EStreamControllerConfigMsg)(0),                                   // 25: EStreamControllerConfigMsg
-	(CAuthenticationResponseMsg_AuthenticationResult)(0),              // 26: CAuthenticationResponseMsg.AuthenticationResult
-	(*CDiscoveryPingRequest)(nil),                                     // 27: CDiscoveryPingRequest
-	(*CDiscoveryPingResponse)(nil),                                    // 28: CDiscoveryPingResponse
-	(*CStreamingClientHandshakeInfo)(nil),                             // 29: CStreamingClientHandshakeInfo
-	(*CClientHandshakeMsg)(nil),                                       // 30: CClientHandshakeMsg
-	(*CStreamingServerHandshakeInfo)(nil),                             // 31: CStreamingServerHandshakeInfo
-	(*CServerHandshakeMsg)(nil),                                       // 32: CServerHandshakeMsg
-	(*CAuthenticationRequestMsg)(nil),                                 // 33: CAuthenticationRequestMsg
-	(*CAuthenticationResponseMsg)(nil),                                // 34: CAuthenticationResponseMsg
-	(*CKeepAliveMsg)(nil),                                             // 35: CKeepAliveMsg
-	(*CStartNetworkTestMsg)(nil),                                      // 36: CStartNetworkTestMsg
-	(*CStreamVideoMode)(nil),                                          // 37: CStreamVideoMode
-	(*CStreamVideoLimit)(nil),                                         // 38: CStreamVideoLimit
-	(*CStreamingClientCaps)(nil),                                      // 39: CStreamingClientCaps
-	(*CStreamingClientConfig)(nil),                                    // 40: CStreamingClientConfig
-	(*CStreamingServerConfig)(nil),                                    // 41: CStreamingServerConfig
-	(*CNegotiatedConfig)(nil),                                         // 42: CNegotiatedConfig
-	(*CNegotiationInitMsg)(nil),                                       // 43: CNegotiationInitMsg
-	(*CNegotiationSetConfigMsg)(nil),                                  // 44: CNegotiationSetConfigMsg
-	(*CNegotiationCompleteMsg)(nil),                                   // 45: CNegotiationCompleteMsg
-	(*CStartAudioDataMsg)(nil),                                        // 46: CStartAudioDataMsg
-	(*CStopAudioDataMsg)(nil),                                         // 47: CStopAudioDataMsg
-	(*CStartVideoDataMsg)(nil),                                        // 48: CStartVideoDataMsg
-	(*CStopVideoDataMsg)(nil),                                         // 49: CStopVideoDataMsg
-	(*CRecordedInput)(nil),                                            // 50: CRecordedInput
-	(*CRecordedInputStream)(nil),                                      // 51: CRecordedInputStream
-	(*CInputLatencyTestMsg)(nil),                                      // 52: CInputLatencyTestMsg
-	(*CInputTouchFingerDownMsg)(nil),                                  // 53: CInputTouchFingerDownMsg
-	(*CInputTouchFingerMotionMsg)(nil),                                // 54: CInputTouchFingerMotionMsg
-	(*CInputTouchFingerUpMsg)(nil),                                    // 55: CInputTouchFingerUpMsg
-	(*CInputMouseMotionMsg)(nil),                                      // 56: CInputMouseMotionMsg
-	(*CInputMouseWheelMsg)(nil),                                       // 57: CInputMouseWheelMsg
-	(*CInputMouseDownMsg)(nil),                                        // 58: CInputMouseDownMsg
-	(*CInputMouseUpMsg)(nil),                                          // 59: CInputMouseUpMsg
-	(*CInputKeyDownMsg)(nil),                                          // 60: CInputKeyDownMsg
-	(*CInputKeyUpMsg)(nil),                                            // 61: CInputKeyUpMsg
-	(*CInputTextMsg)(nil),                                             // 62: CInputTextMsg
-	(*CSetTitleMsg)(nil),                                              // 63: CSetTitleMsg
-	(*CSetCaptureSizeMsg)(nil),                                        // 64: CSetCaptureSizeMsg
-	(*CSetIconMsg)(nil),                                               // 65: CSetIconMsg
-	(*CSetFlashStateMsg)(nil),                                         // 66: CSetFlashStateMsg
-	(*CShowCursorMsg)(nil),                                            // 67: CShowCursorMsg
-	(*CHideCursorMsg)(nil),                                            // 68: CHideCursorMsg
-	(*CSetCursorMsg)(nil),                                             // 69: CSetCursorMsg
-	(*CGetCursorImageMsg)(nil),                                        // 70: CGetCursorImageMsg
-	(*CSetCursorImageMsg)(nil),                                        // 71: CSetCursorImageMsg
-	(*CSetCursorScaleMsg)(nil),                                        // 72: CSetCursorScaleMsg
-	(*CVideoDecoderInfoMsg)(nil),                                      // 73: CVideoDecoderInfoMsg
-	(*CVideoEncoderInfoMsg)(nil),                                      // 74: CVideoEncoderInfoMsg
-	(*CPauseMsg)(nil),                                                 // 75: CPauseMsg
-	(*CResumeMsg)(nil),                                                // 76: CResumeMsg
-	(*CEnableHighResCaptureMsg)(nil),                                  // 77: CEnableHighResCaptureMsg
-	(*CDisableHighResCaptureMsg)(nil),                                 // 78: CDisableHighResCaptureMsg
-	(*CPauseControllerInputMsg)(nil),                                  // 79: CPauseControllerInputMsg
-	(*CResumeControllerInputMsg)(nil),                                 // 80: CResumeControllerInputMsg
-	(*CToggleMagnificationMsg)(nil),                                   // 81: CToggleMagnificationMsg
-	(*CSetCapslockMsg)(nil),                                           // 82: CSetCapslockMsg
-	(*CStreamingKeymapEntry)(nil),                                     // 83: CStreamingKeymapEntry
-	(*CStreamingKeymap)(nil),                                          // 84: CStreamingKeymap
-	(*CSetKeymapMsg)(nil),                                             // 85: CSetKeymapMsg
-	(*CStopRequest)(nil),                                              // 86: CStopRequest
-	(*CQuitRequest)(nil),                                              // 87: CQuitRequest
-	(*CDeleteCursorMsg)(nil),                                          // 88: CDeleteCursorMsg
-	(*CSetStreamingClientConfig)(nil),                                 // 89: CSetStreamingClientConfig
-	(*CSetQoSMsg)(nil),                                                // 90: CSetQoSMsg
-	(*CSetTargetFramerateMsg)(nil),                                    // 91: CSetTargetFramerateMsg
-	(*CSetTargetBitrateMsg)(nil),                                      // 92: CSetTargetBitrateMsg
-	(*COverlayEnabledMsg)(nil),                                        // 93: COverlayEnabledMsg
-	(*CSetGammaRampMsg)(nil),                                          // 94: CSetGammaRampMsg
-	(*CSetActivityMsg)(nil),                                           // 95: CSetActivityMsg
-	(*CSystemSuspendMsg)(nil),                                         // 96: CSystemSuspendMsg
-	(*CVirtualHereRequestMsg)(nil),                                    // 97: CVirtualHereRequestMsg
-	(*CVirtualHereReadyMsg)(nil),                                      // 98: CVirtualHereReadyMsg
-	(*CVirtualHereShareDeviceMsg)(nil),                                // 99: CVirtualHereShareDeviceMsg
-	(*CSetSpectatorModeMsg)(nil),                                      // 100: CSetSpectatorModeMsg
-	(*CRemoteHIDMsg)(nil),                                             // 101: CRemoteHIDMsg
-	(*CTouchConfigActiveMsg)(nil),                                     // 102: CTouchConfigActiveMsg
-	(*CGetTouchConfigDataMsg)(nil),                                    // 103: CGetTouchConfigDataMsg
-	(*CSetTouchConfigDataMsg)(nil),                                    // 104: CSetTouchConfigDataMsg
-	(*CSaveTouchConfigLayoutMsg)(nil),                                 // 105: CSaveTouchConfigLayoutMsg
-	(*CTouchActionSetActiveMsg)(nil),                                  // 106: CTouchActionSetActiveMsg
-	(*CTouchActionSetLayerAddedMsg)(nil),                              // 107: CTouchActionSetLayerAddedMsg
-	(*CTouchActionSetLayerRemovedMsg)(nil),                            // 108: CTouchActionSetLayerRemovedMsg
-	(*CGetTouchIconDataMsg)(nil),                                      // 109: CGetTouchIconDataMsg
-	(*CSetTouchIconDataMsg)(nil),                                      // 110: CSetTouchIconDataMsg
-	(*CRemotePlayTogetherGroupUpdateMsg)(nil),                         // 111: CRemotePlayTogetherGroupUpdateMsg
-	(*CSetInputTemporarilyDisabledMsg)(nil),                           // 112: CSetInputTemporarilyDisabledMsg
-	(*CSetQualityOverrideMsg)(nil),                                    // 113: CSetQualityOverrideMsg
-	(*CSetBitrateOverrideMsg)(nil),                                    // 114: CSetBitrateOverrideMsg
-	(*CShowOnScreenKeyboardMsg)(nil),                                  // 115: CShowOnScreenKeyboardMsg
-	(*CControllerPersonalizationUpdateMsg)(nil),                       // 116: CControllerPersonalizationUpdateMsg
-	(*CVRConnectionReady)(nil),                                        // 117: CVRConnectionReady
-	(*CCaptureFailedMsg)(nil),                                         // 118: CCaptureFailedMsg
-	(*CStreamVideoOverflowMsg)(nil),                                   // 119: CStreamVideoOverflowMsg
-	(*CStreamDataLostMsg)(nil),                                        // 120: CStreamDataLostMsg
-	(*CAudioFormat)(nil),                                              // 121: CAudioFormat
-	(*CVideoFrameHeader)(nil),                                         // 122: CVideoFrameHeader
-	(*CFrameEvent)(nil),                                               // 123: CFrameEvent
-	(*CFrameStats)(nil),                                               // 124: CFrameStats
-	(*CFrameStatAccumulatedValue)(nil),                                // 125: CFrameStatAccumulatedValue
-	(*CFrameStatsListMsg)(nil),                                        // 126: CFrameStatsListMsg
-	(*CStreamingSessionStats)(nil),                                    // 127: CStreamingSessionStats
-	(*CDebugDumpMsg)(nil),                                             // 128: CDebugDumpMsg
-	(*CLogMsg)(nil),                                                   // 129: CLogMsg
-	(*CLogUploadMsg)(nil),                                             // 130: CLogUploadMsg
-	(*CTransportSignalMsg)(nil),                                       // 131: CTransportSignalMsg
-	(*CControllerConfigMsg)(nil),                                      // 132: CControllerConfigMsg
-	(*CRemotePlayTogetherGroupUpdateMsg_Player)(nil),                  // 133: CRemotePlayTogetherGroupUpdateMsg.Player
-	(*CTransportSignalMsg_WebRTCMessage)(nil),                         // 134: CTransportSignalMsg.WebRTCMessage
-	(*CTransportSignalMsg_WebRTCMessage_Candidate)(nil),               // 135: CTransportSignalMsg.WebRTCMessage.Candidate
-	(*CControllerConfigMsg_ControllerConfigResponse)(nil),             // 136: CControllerConfigMsg.ControllerConfigResponse
-	(*CControllerConfigMsg_ControllerPersonalizationResponse)(nil),    // 137: CControllerConfigMsg.ControllerPersonalizationResponse
-	(*CControllerConfigMsg_ControllerActiveConfigChangeResponse)(nil), // 138: CControllerConfigMsg.ControllerActiveConfigChangeResponse
-	(*CControllerConfigMsg_ControllerActiveConfigMsg)(nil),            // 139: CControllerConfigMsg.ControllerActiveConfigMsg
+	(EDisplayStyle)(0),                                                // 10: EDisplayStyle
+	(EStreamHostPlayAudioPreference)(0),                               // 11: EStreamHostPlayAudioPreference
+	(EStreamHostDisplaySetting)(0),                                    // 12: EStreamHostDisplaySetting
+	(EStreamingDataType)(0),                                           // 13: EStreamingDataType
+	(EStreamMouseButton)(0),                                           // 14: EStreamMouseButton
+	(EStreamMouseWheelDirection)(0),                                   // 15: EStreamMouseWheelDirection
+	(EStreamFramerateLimiter)(0),                                      // 16: EStreamFramerateLimiter
+	(EStreamActivity)(0),                                              // 17: EStreamActivity
+	(ECaptureFailedReason)(0),                                         // 18: ECaptureFailedReason
+	(EStreamDataMessage)(0),                                           // 19: EStreamDataMessage
+	(EAudioFormat)(0),                                                 // 20: EAudioFormat
+	(EStreamStatsMessage)(0),                                          // 21: EStreamStatsMessage
+	(EStreamFrameEvent)(0),                                            // 22: EStreamFrameEvent
+	(EStreamFrameResult)(0),                                           // 23: EStreamFrameResult
+	(EFrameAccumulatedStat)(0),                                        // 24: EFrameAccumulatedStat
+	(ELogFileType)(0),                                                 // 25: ELogFileType
+	(EStreamControllerConfigMsg)(0),                                   // 26: EStreamControllerConfigMsg
+	(CAuthenticationResponseMsg_AuthenticationResult)(0),              // 27: CAuthenticationResponseMsg.AuthenticationResult
+	(*CDiscoveryPingRequest)(nil),                                     // 28: CDiscoveryPingRequest
+	(*CDiscoveryPingResponse)(nil),                                    // 29: CDiscoveryPingResponse
+	(*CStreamingClientHandshakeInfo)(nil),                             // 30: CStreamingClientHandshakeInfo
+	(*CClientHandshakeMsg)(nil),                                       // 31: CClientHandshakeMsg
+	(*CStreamingServerHandshakeInfo)(nil),                             // 32: CStreamingServerHandshakeInfo
+	(*CServerHandshakeMsg)(nil),                                       // 33: CServerHandshakeMsg
+	(*CAuthenticationRequestMsg)(nil),                                 // 34: CAuthenticationRequestMsg
+	(*CAuthenticationResponseMsg)(nil),                                // 35: CAuthenticationResponseMsg
+	(*CKeepAliveMsg)(nil),                                             // 36: CKeepAliveMsg
+	(*CStartNetworkTestMsg)(nil),                                      // 37: CStartNetworkTestMsg
+	(*CStreamVideoMode)(nil),                                          // 38: CStreamVideoMode
+	(*CStreamVideoLimit)(nil),                                         // 39: CStreamVideoLimit
+	(*CStreamingClientCaps)(nil),                                      // 40: CStreamingClientCaps
+	(*CStreamingClientConfig)(nil),                                    // 41: CStreamingClientConfig
+	(*CStreamingServerConfig)(nil),                                    // 42: CStreamingServerConfig
+	(*CNegotiatedConfig)(nil),                                         // 43: CNegotiatedConfig
+	(*CNegotiationInitMsg)(nil),                                       // 44: CNegotiationInitMsg
+	(*CNegotiationSetConfigMsg)(nil),                                  // 45: CNegotiationSetConfigMsg
+	(*CNegotiationCompleteMsg)(nil),                                   // 46: CNegotiationCompleteMsg
+	(*CStartAudioDataMsg)(nil),                                        // 47: CStartAudioDataMsg
+	(*CStopAudioDataMsg)(nil),                                         // 48: CStopAudioDataMsg
+	(*CStartVideoDataMsg)(nil),                                        // 49: CStartVideoDataMsg
+	(*CStopVideoDataMsg)(nil),                                         // 50: CStopVideoDataMsg
+	(*CRecordedInput)(nil),                                            // 51: CRecordedInput
+	(*CRecordedInputStream)(nil),                                      // 52: CRecordedInputStream
+	(*CInputLatencyTestMsg)(nil),                                      // 53: CInputLatencyTestMsg
+	(*CInputTouchFingerDownMsg)(nil),                                  // 54: CInputTouchFingerDownMsg
+	(*CInputTouchFingerMotionMsg)(nil),                                // 55: CInputTouchFingerMotionMsg
+	(*CInputTouchFingerUpMsg)(nil),                                    // 56: CInputTouchFingerUpMsg
+	(*CInputMouseMotionMsg)(nil),                                      // 57: CInputMouseMotionMsg
+	(*CInputMouseWheelMsg)(nil),                                       // 58: CInputMouseWheelMsg
+	(*CInputMouseDownMsg)(nil),                                        // 59: CInputMouseDownMsg
+	(*CInputMouseUpMsg)(nil),                                          // 60: CInputMouseUpMsg
+	(*CInputKeyDownMsg)(nil),                                          // 61: CInputKeyDownMsg
+	(*CInputKeyUpMsg)(nil),                                            // 62: CInputKeyUpMsg
+	(*CInputTextMsg)(nil),                                             // 63: CInputTextMsg
+	(*CSetTitleMsg)(nil),                                              // 64: CSetTitleMsg
+	(*CSetCaptureSizeMsg)(nil),                                        // 65: CSetCaptureSizeMsg
+	(*CSetIconMsg)(nil),                                               // 66: CSetIconMsg
+	(*CSetFlashStateMsg)(nil),                                         // 67: CSetFlashStateMsg
+	(*CShowCursorMsg)(nil),                                            // 68: CShowCursorMsg
+	(*CHideCursorMsg)(nil),                                            // 69: CHideCursorMsg
+	(*CSetCursorMsg)(nil),                                             // 70: CSetCursorMsg
+	(*CGetCursorImageMsg)(nil),                                        // 71: CGetCursorImageMsg
+	(*CSetCursorImageMsg)(nil),                                        // 72: CSetCursorImageMsg
+	(*CSetCursorScaleMsg)(nil),                                        // 73: CSetCursorScaleMsg
+	(*CVideoDecoderInfoMsg)(nil),                                      // 74: CVideoDecoderInfoMsg
+	(*CVideoEncoderInfoMsg)(nil),                                      // 75: CVideoEncoderInfoMsg
+	(*CPauseMsg)(nil),                                                 // 76: CPauseMsg
+	(*CResumeMsg)(nil),                                                // 77: CResumeMsg
+	(*CEnableHighResCaptureMsg)(nil),                                  // 78: CEnableHighResCaptureMsg
+	(*CDisableHighResCaptureMsg)(nil),                                 // 79: CDisableHighResCaptureMsg
+	(*CPauseControllerInputMsg)(nil),                                  // 80: CPauseControllerInputMsg
+	(*CResumeControllerInputMsg)(nil),                                 // 81: CResumeControllerInputMsg
+	(*CToggleMagnificationMsg)(nil),                                   // 82: CToggleMagnificationMsg
+	(*CSetCapslockMsg)(nil),                                           // 83: CSetCapslockMsg
+	(*CStreamingKeymapEntry)(nil),                                     // 84: CStreamingKeymapEntry
+	(*CStreamingKeymap)(nil),                                          // 85: CStreamingKeymap
+	(*CSetKeymapMsg)(nil),                                             // 86: CSetKeymapMsg
+	(*CStopRequest)(nil),                                              // 87: CStopRequest
+	(*CQuitRequest)(nil),                                              // 88: CQuitRequest
+	(*CDeleteCursorMsg)(nil),                                          // 89: CDeleteCursorMsg
+	(*CSetStreamingClientConfig)(nil),                                 // 90: CSetStreamingClientConfig
+	(*CSetQoSMsg)(nil),                                                // 91: CSetQoSMsg
+	(*CSetTargetFramerateMsg)(nil),                                    // 92: CSetTargetFramerateMsg
+	(*CSetTargetBitrateMsg)(nil),                                      // 93: CSetTargetBitrateMsg
+	(*COverlayEnabledMsg)(nil),                                        // 94: COverlayEnabledMsg
+	(*CSetGammaRampMsg)(nil),                                          // 95: CSetGammaRampMsg
+	(*CSetActivityMsg)(nil),                                           // 96: CSetActivityMsg
+	(*CSystemSuspendMsg)(nil),                                         // 97: CSystemSuspendMsg
+	(*CVirtualHereRequestMsg)(nil),                                    // 98: CVirtualHereRequestMsg
+	(*CVirtualHereReadyMsg)(nil),                                      // 99: CVirtualHereReadyMsg
+	(*CVirtualHereShareDeviceMsg)(nil),                                // 100: CVirtualHereShareDeviceMsg
+	(*CSetSpectatorModeMsg)(nil),                                      // 101: CSetSpectatorModeMsg
+	(*CRemoteHIDMsg)(nil),                                             // 102: CRemoteHIDMsg
+	(*CTouchConfigActiveMsg)(nil),                                     // 103: CTouchConfigActiveMsg
+	(*CGetTouchConfigDataMsg)(nil),                                    // 104: CGetTouchConfigDataMsg
+	(*CSetTouchConfigDataMsg)(nil),                                    // 105: CSetTouchConfigDataMsg
+	(*CSaveTouchConfigLayoutMsg)(nil),                                 // 106: CSaveTouchConfigLayoutMsg
+	(*CTouchActionSetActiveMsg)(nil),                                  // 107: CTouchActionSetActiveMsg
+	(*CTouchActionSetLayerAddedMsg)(nil),                              // 108: CTouchActionSetLayerAddedMsg
+	(*CTouchActionSetLayerRemovedMsg)(nil),                            // 109: CTouchActionSetLayerRemovedMsg
+	(*CGetTouchIconDataMsg)(nil),                                      // 110: CGetTouchIconDataMsg
+	(*CSetTouchIconDataMsg)(nil),                                      // 111: CSetTouchIconDataMsg
+	(*CRemotePlayTogetherGroupUpdateMsg)(nil),                         // 112: CRemotePlayTogetherGroupUpdateMsg
+	(*CSetInputTemporarilyDisabledMsg)(nil),                           // 113: CSetInputTemporarilyDisabledMsg
+	(*CSetQualityOverrideMsg)(nil),                                    // 114: CSetQualityOverrideMsg
+	(*CSetBitrateOverrideMsg)(nil),                                    // 115: CSetBitrateOverrideMsg
+	(*CShowOnScreenKeyboardMsg)(nil),                                  // 116: CShowOnScreenKeyboardMsg
+	(*CControllerPersonalizationUpdateMsg)(nil),                       // 117: CControllerPersonalizationUpdateMsg
+	(*CVRConnectionReady)(nil),                                        // 118: CVRConnectionReady
+	(*CCaptureFailedMsg)(nil),                                         // 119: CCaptureFailedMsg
+	(*CStreamVideoOverflowMsg)(nil),                                   // 120: CStreamVideoOverflowMsg
+	(*CStreamDataLostMsg)(nil),                                        // 121: CStreamDataLostMsg
+	(*CAudioFormat)(nil),                                              // 122: CAudioFormat
+	(*CVideoFrameHeader)(nil),                                         // 123: CVideoFrameHeader
+	(*CFrameEvent)(nil),                                               // 124: CFrameEvent
+	(*CFrameStats)(nil),                                               // 125: CFrameStats
+	(*CFrameStatAccumulatedValue)(nil),                                // 126: CFrameStatAccumulatedValue
+	(*CFrameStatsListMsg)(nil),                                        // 127: CFrameStatsListMsg
+	(*CStreamingSessionStats)(nil),                                    // 128: CStreamingSessionStats
+	(*CDebugDumpMsg)(nil),                                             // 129: CDebugDumpMsg
+	(*CLogMsg)(nil),                                                   // 130: CLogMsg
+	(*CLogUploadMsg)(nil),                                             // 131: CLogUploadMsg
+	(*CTransportSignalMsg)(nil),                                       // 132: CTransportSignalMsg
+	(*CControllerConfigMsg)(nil),                                      // 133: CControllerConfigMsg
+	(*CRemotePlayTogetherGroupUpdateMsg_Player)(nil),                  // 134: CRemotePlayTogetherGroupUpdateMsg.Player
+	(*CTransportSignalMsg_WebRTCMessage)(nil),                         // 135: CTransportSignalMsg.WebRTCMessage
+	(*CTransportSignalMsg_WebRTCMessage_Candidate)(nil),               // 136: CTransportSignalMsg.WebRTCMessage.Candidate
+	(*CControllerConfigMsg_ControllerConfigResponse)(nil),             // 137: CControllerConfigMsg.ControllerConfigResponse
+	(*CControllerConfigMsg_ControllerPersonalizationResponse)(nil),    // 138: CControllerConfigMsg.ControllerPersonalizationResponse
+	(*CControllerConfigMsg_ControllerActiveConfigChangeResponse)(nil), // 139: CControllerConfigMsg.ControllerActiveConfigChangeResponse
+	(*CControllerConfigMsg_ControllerActiveConfigMsg)(nil),            // 140: CControllerConfigMsg.ControllerActiveConfigMsg
 }
 var file_steammessages_remoteplay_proto_depIdxs = []int32{
-	29,  // 0: CClientHandshakeMsg.info:type_name -> CStreamingClientHandshakeInfo
-	31,  // 1: CServerHandshakeMsg.info:type_name -> CStreamingServerHandshakeInfo
+	30,  // 0: CClientHandshakeMsg.info:type_name -> CStreamingClientHandshakeInfo
+	32,  // 1: CServerHandshakeMsg.info:type_name -> CStreamingServerHandshakeInfo
 	3,   // 2: CAuthenticationRequestMsg.version:type_name -> EStreamVersion
-	26,  // 3: CAuthenticationResponseMsg.result:type_name -> CAuthenticationResponseMsg.AuthenticationResult
+	27,  // 3: CAuthenticationResponseMsg.result:type_name -> CAuthenticationResponseMsg.AuthenticationResult
 	3,   // 4: CAuthenticationResponseMsg.version:type_name -> EStreamVersion
 	5,   // 5: CStreamVideoLimit.codec:type_name -> EStreamVideoCodec
-	37,  // 6: CStreamVideoLimit.mode:type_name -> CStreamVideoMode
+	38,  // 6: CStreamVideoLimit.mode:type_name -> CStreamVideoMode
 	8,   // 7: CStreamingClientCaps.supported_colorspaces:type_name -> EStreamColorspace
 	4,   // 8: CStreamingClientCaps.supported_audio_codecs:type_name -> EStreamAudioCodec
 	5,   // 9: CStreamingClientCaps.supported_video_codecs:type_name -> EStreamVideoCodec
 	6,   // 10: CStreamingClientConfig.quality:type_name -> EStreamQualityPreference
 	9,   // 11: CStreamingClientConfig.p2p_scope:type_name -> EStreamP2PScope
-	38,  // 12: CStreamingClientConfig.display_limit:type_name -> CStreamVideoLimit
-	38,  // 13: CStreamingClientConfig.quality_limit:type_name -> CStreamVideoLimit
-	38,  // 14: CStreamingClientConfig.runtime_limit:type_name -> CStreamVideoLimit
-	38,  // 15: CStreamingClientConfig.decoder_limit:type_name -> CStreamVideoLimit
-	10,  // 16: CStreamingServerConfig.host_play_audio:type_name -> EStreamHostPlayAudioPreference
-	11,  // 17: CStreamingServerConfig.display_resolution_setting:type_name -> EStreamHostDisplaySetting
-	11,  // 18: CStreamingServerConfig.display_refresh_rate_setting:type_name -> EStreamHostDisplaySetting
-	11,  // 19: CStreamingServerConfig.display_hdr_setting:type_name -> EStreamHostDisplaySetting
-	4,   // 20: CNegotiatedConfig.selected_audio_codec:type_name -> EStreamAudioCodec
-	5,   // 21: CNegotiatedConfig.selected_video_codec:type_name -> EStreamVideoCodec
-	37,  // 22: CNegotiatedConfig.available_video_modes_OBSOLETE:type_name -> CStreamVideoMode
-	4,   // 23: CNegotiationInitMsg.supported_audio_codecs:type_name -> EStreamAudioCodec
-	5,   // 24: CNegotiationInitMsg.supported_video_codecs:type_name -> EStreamVideoCodec
-	42,  // 25: CNegotiationSetConfigMsg.config:type_name -> CNegotiatedConfig
-	40,  // 26: CNegotiationSetConfigMsg.streaming_client_config:type_name -> CStreamingClientConfig
-	39,  // 27: CNegotiationSetConfigMsg.streaming_client_caps:type_name -> CStreamingClientCaps
-	4,   // 28: CStartAudioDataMsg.codec:type_name -> EStreamAudioCodec
-	5,   // 29: CStartVideoDataMsg.codec:type_name -> EStreamVideoCodec
-	8,   // 30: CStartVideoDataMsg.colorspace:type_name -> EStreamColorspace
-	2,   // 31: CRecordedInput.type:type_name -> EStreamControlMessage
-	53,  // 32: CRecordedInput.finger_down:type_name -> CInputTouchFingerDownMsg
-	54,  // 33: CRecordedInput.finger_motion:type_name -> CInputTouchFingerMotionMsg
-	55,  // 34: CRecordedInput.finger_up:type_name -> CInputTouchFingerUpMsg
-	56,  // 35: CRecordedInput.mouse_motion:type_name -> CInputMouseMotionMsg
-	57,  // 36: CRecordedInput.mouse_wheel:type_name -> CInputMouseWheelMsg
-	58,  // 37: CRecordedInput.mouse_down:type_name -> CInputMouseDownMsg
-	59,  // 38: CRecordedInput.mouse_up:type_name -> CInputMouseUpMsg
-	60,  // 39: CRecordedInput.key_down:type_name -> CInputKeyDownMsg
-	61,  // 40: CRecordedInput.key_up:type_name -> CInputKeyUpMsg
-	62,  // 41: CRecordedInput.text:type_name -> CInputTextMsg
-	101, // 42: CRecordedInput.hid:type_name -> CRemoteHIDMsg
-	50,  // 43: CRecordedInputStream.entries:type_name -> CRecordedInput
-	14,  // 44: CInputMouseWheelMsg.direction:type_name -> EStreamMouseWheelDirection
-	13,  // 45: CInputMouseDownMsg.button:type_name -> EStreamMouseButton
-	13,  // 46: CInputMouseUpMsg.button:type_name -> EStreamMouseButton
-	83,  // 47: CStreamingKeymap.entries:type_name -> CStreamingKeymapEntry
-	84,  // 48: CSetKeymapMsg.keymap:type_name -> CStreamingKeymap
-	40,  // 49: CSetStreamingClientConfig.config:type_name -> CStreamingClientConfig
-	16,  // 50: CSetActivityMsg.activity:type_name -> EStreamActivity
-	133, // 51: CRemotePlayTogetherGroupUpdateMsg.players:type_name -> CRemotePlayTogetherGroupUpdateMsg.Player
-	17,  // 52: CCaptureFailedMsg.reason:type_name -> ECaptureFailedReason
-	19,  // 53: CAudioFormat.format:type_name -> EAudioFormat
-	5,   // 54: CVideoFrameHeader.codec:type_name -> EStreamVideoCodec
-	21,  // 55: CFrameEvent.event_id:type_name -> EStreamFrameEvent
-	123, // 56: CFrameStats.events:type_name -> CFrameEvent
-	22,  // 57: CFrameStats.result:type_name -> EStreamFrameResult
-	23,  // 58: CFrameStatAccumulatedValue.stat_type:type_name -> EFrameAccumulatedStat
-	12,  // 59: CFrameStatsListMsg.data_type:type_name -> EStreamingDataType
-	124, // 60: CFrameStatsListMsg.stats:type_name -> CFrameStats
-	125, // 61: CFrameStatsListMsg.accumulated_stats:type_name -> CFrameStatAccumulatedValue
-	24,  // 62: CLogUploadMsg.type:type_name -> ELogFileType
-	134, // 63: CTransportSignalMsg.webrtc:type_name -> CTransportSignalMsg.WebRTCMessage
-	25,  // 64: CControllerConfigMsg.type:type_name -> EStreamControllerConfigMsg
-	137, // 65: CControllerConfigMsg.personalizationResponse:type_name -> CControllerConfigMsg.ControllerPersonalizationResponse
-	136, // 66: CControllerConfigMsg.configResponse:type_name -> CControllerConfigMsg.ControllerConfigResponse
-	139, // 67: CControllerConfigMsg.activeConfigChangeMsg:type_name -> CControllerConfigMsg.ControllerActiveConfigMsg
-	135, // 68: CTransportSignalMsg.WebRTCMessage.candidate:type_name -> CTransportSignalMsg.WebRTCMessage.Candidate
-	69,  // [69:69] is the sub-list for method output_type
-	69,  // [69:69] is the sub-list for method input_type
-	69,  // [69:69] is the sub-list for extension type_name
-	69,  // [69:69] is the sub-list for extension extendee
-	0,   // [0:69] is the sub-list for field type_name
+	39,  // 12: CStreamingClientConfig.display_limit:type_name -> CStreamVideoLimit
+	39,  // 13: CStreamingClientConfig.quality_limit:type_name -> CStreamVideoLimit
+	39,  // 14: CStreamingClientConfig.runtime_limit:type_name -> CStreamVideoLimit
+	39,  // 15: CStreamingClientConfig.decoder_limit:type_name -> CStreamVideoLimit
+	10,  // 16: CStreamingClientConfig.display_style:type_name -> EDisplayStyle
+	11,  // 17: CStreamingServerConfig.host_play_audio:type_name -> EStreamHostPlayAudioPreference
+	12,  // 18: CStreamingServerConfig.display_resolution_setting:type_name -> EStreamHostDisplaySetting
+	12,  // 19: CStreamingServerConfig.display_refresh_rate_setting:type_name -> EStreamHostDisplaySetting
+	12,  // 20: CStreamingServerConfig.display_hdr_setting:type_name -> EStreamHostDisplaySetting
+	4,   // 21: CNegotiatedConfig.selected_audio_codec:type_name -> EStreamAudioCodec
+	5,   // 22: CNegotiatedConfig.selected_video_codec:type_name -> EStreamVideoCodec
+	38,  // 23: CNegotiatedConfig.available_video_modes_OBSOLETE:type_name -> CStreamVideoMode
+	4,   // 24: CNegotiationInitMsg.supported_audio_codecs:type_name -> EStreamAudioCodec
+	5,   // 25: CNegotiationInitMsg.supported_video_codecs:type_name -> EStreamVideoCodec
+	43,  // 26: CNegotiationSetConfigMsg.config:type_name -> CNegotiatedConfig
+	41,  // 27: CNegotiationSetConfigMsg.streaming_client_config:type_name -> CStreamingClientConfig
+	40,  // 28: CNegotiationSetConfigMsg.streaming_client_caps:type_name -> CStreamingClientCaps
+	4,   // 29: CStartAudioDataMsg.codec:type_name -> EStreamAudioCodec
+	5,   // 30: CStartVideoDataMsg.codec:type_name -> EStreamVideoCodec
+	8,   // 31: CStartVideoDataMsg.colorspace:type_name -> EStreamColorspace
+	2,   // 32: CRecordedInput.type:type_name -> EStreamControlMessage
+	54,  // 33: CRecordedInput.finger_down:type_name -> CInputTouchFingerDownMsg
+	55,  // 34: CRecordedInput.finger_motion:type_name -> CInputTouchFingerMotionMsg
+	56,  // 35: CRecordedInput.finger_up:type_name -> CInputTouchFingerUpMsg
+	57,  // 36: CRecordedInput.mouse_motion:type_name -> CInputMouseMotionMsg
+	58,  // 37: CRecordedInput.mouse_wheel:type_name -> CInputMouseWheelMsg
+	59,  // 38: CRecordedInput.mouse_down:type_name -> CInputMouseDownMsg
+	60,  // 39: CRecordedInput.mouse_up:type_name -> CInputMouseUpMsg
+	61,  // 40: CRecordedInput.key_down:type_name -> CInputKeyDownMsg
+	62,  // 41: CRecordedInput.key_up:type_name -> CInputKeyUpMsg
+	63,  // 42: CRecordedInput.text:type_name -> CInputTextMsg
+	102, // 43: CRecordedInput.hid:type_name -> CRemoteHIDMsg
+	51,  // 44: CRecordedInputStream.entries:type_name -> CRecordedInput
+	15,  // 45: CInputMouseWheelMsg.direction:type_name -> EStreamMouseWheelDirection
+	14,  // 46: CInputMouseDownMsg.button:type_name -> EStreamMouseButton
+	14,  // 47: CInputMouseUpMsg.button:type_name -> EStreamMouseButton
+	84,  // 48: CStreamingKeymap.entries:type_name -> CStreamingKeymapEntry
+	85,  // 49: CSetKeymapMsg.keymap:type_name -> CStreamingKeymap
+	41,  // 50: CSetStreamingClientConfig.config:type_name -> CStreamingClientConfig
+	17,  // 51: CSetActivityMsg.activity:type_name -> EStreamActivity
+	134, // 52: CRemotePlayTogetherGroupUpdateMsg.players:type_name -> CRemotePlayTogetherGroupUpdateMsg.Player
+	18,  // 53: CCaptureFailedMsg.reason:type_name -> ECaptureFailedReason
+	20,  // 54: CAudioFormat.format:type_name -> EAudioFormat
+	5,   // 55: CVideoFrameHeader.codec:type_name -> EStreamVideoCodec
+	22,  // 56: CFrameEvent.event_id:type_name -> EStreamFrameEvent
+	124, // 57: CFrameStats.events:type_name -> CFrameEvent
+	23,  // 58: CFrameStats.result:type_name -> EStreamFrameResult
+	24,  // 59: CFrameStatAccumulatedValue.stat_type:type_name -> EFrameAccumulatedStat
+	13,  // 60: CFrameStatsListMsg.data_type:type_name -> EStreamingDataType
+	125, // 61: CFrameStatsListMsg.stats:type_name -> CFrameStats
+	126, // 62: CFrameStatsListMsg.accumulated_stats:type_name -> CFrameStatAccumulatedValue
+	25,  // 63: CLogUploadMsg.type:type_name -> ELogFileType
+	135, // 64: CTransportSignalMsg.webrtc:type_name -> CTransportSignalMsg.WebRTCMessage
+	26,  // 65: CControllerConfigMsg.type:type_name -> EStreamControllerConfigMsg
+	138, // 66: CControllerConfigMsg.personalizationResponse:type_name -> CControllerConfigMsg.ControllerPersonalizationResponse
+	137, // 67: CControllerConfigMsg.configResponse:type_name -> CControllerConfigMsg.ControllerConfigResponse
+	140, // 68: CControllerConfigMsg.activeConfigChangeMsg:type_name -> CControllerConfigMsg.ControllerActiveConfigMsg
+	136, // 69: CTransportSignalMsg.WebRTCMessage.candidate:type_name -> CTransportSignalMsg.WebRTCMessage.Candidate
+	70,  // [70:70] is the sub-list for method output_type
+	70,  // [70:70] is the sub-list for method input_type
+	70,  // [70:70] is the sub-list for extension type_name
+	70,  // [70:70] is the sub-list for extension extendee
+	0,   // [0:70] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_remoteplay_proto_init() }
@@ -10309,7 +10384,7 @@ func file_steammessages_remoteplay_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_remoteplay_proto_rawDesc), len(file_steammessages_remoteplay_proto_rawDesc)),
-			NumEnums:      27,
+			NumEnums:      28,
 			NumMessages:   113,
 			NumExtensions: 0,
 			NumServices:   0,

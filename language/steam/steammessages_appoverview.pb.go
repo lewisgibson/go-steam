@@ -646,6 +646,7 @@ type CAppOverview struct {
 	BitfieldSupportedLanguages   *uint64                       `protobuf:"varint,77,opt,name=bitfield_supported_languages,json=bitfieldSupportedLanguages,def=0" json:"bitfield_supported_languages,omitempty"`
 	RemotePerClientData          []*CAppOverview_PerClientData `protobuf:"bytes,78,rep,name=remote_per_client_data,json=remotePerClientData" json:"remote_per_client_data,omitempty"`
 	ContentDescriptors           []EContentDescriptorID        `protobuf:"varint,79,rep,name=content_descriptors,json=contentDescriptors,enum=EContentDescriptorID" json:"content_descriptors,omitempty"`
+	CustomImagesFound            *uint32                       `protobuf:"varint,80,opt,name=custom_images_found,json=customImagesFound" json:"custom_images_found,omitempty"`
 	unknownFields                protoimpl.UnknownFields
 	sizeCache                    protoimpl.SizeCache
 }
@@ -1080,6 +1081,13 @@ func (x *CAppOverview) GetContentDescriptors() []EContentDescriptorID {
 	return nil
 }
 
+func (x *CAppOverview) GetCustomImagesFound() uint32 {
+	if x != nil && x.CustomImagesFound != nil {
+		return *x.CustomImagesFound
+	}
+	return 0
+}
+
 type CAppOverview_Change struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	AppOverview    []*CAppOverview        `protobuf:"bytes,1,rep,name=app_overview,json=appOverview" json:"app_overview,omitempty"`
@@ -1167,7 +1175,7 @@ const file_steammessages_appoverview_proto_rawDesc = "" +
 	" \x01(\bR\x1cisAvailableOnCurrentPlatform\x12+\n" +
 	"\x12is_invalid_os_type\x18\v \x01(\bR\x0fisInvalidOsType\x12#\n" +
 	"\rplaytime_left\x18\f \x01(\rR\fplaytimeLeft\x12M\n" +
-	"$update_available_but_disabled_by_app\x18\x0e \x01(\bR\x1fupdateAvailableButDisabledByApp\"\xb3\x15\n" +
+	"$update_available_but_disabled_by_app\x18\x0e \x01(\bR\x1fupdateAvailableButDisabledByApp\"\xe3\x15\n" +
 	"\fCAppOverview\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12!\n" +
 	"\fdisplay_name\x18\x02 \x01(\tR\vdisplayName\x12/\n" +
@@ -1224,7 +1232,8 @@ const file_steammessages_appoverview_proto_rawDesc = "" +
 	"\x12has_custom_sort_as\x18L \x01(\bR\x0fhasCustomSortAs\x12C\n" +
 	"\x1cbitfield_supported_languages\x18M \x01(\x04:\x010R\x1abitfieldSupportedLanguages\x12P\n" +
 	"\x16remote_per_client_data\x18N \x03(\v2\x1b.CAppOverview_PerClientDataR\x13remotePerClientData\x12F\n" +
-	"\x13content_descriptors\x18O \x03(\x0e2\x15.EContentDescriptorIDR\x12contentDescriptors\"\xb6\x01\n" +
+	"\x13content_descriptors\x18O \x03(\x0e2\x15.EContentDescriptorIDR\x12contentDescriptors\x12.\n" +
+	"\x13custom_images_found\x18P \x01(\rR\x11customImagesFound\"\xb6\x01\n" +
 	"\x13CAppOverview_Change\x120\n" +
 	"\fapp_overview\x18\x01 \x03(\v2\r.CAppOverviewR\vappOverview\x12#\n" +
 	"\rremoved_appid\x18\x02 \x03(\rR\fremovedAppid\x12\x1f\n" +

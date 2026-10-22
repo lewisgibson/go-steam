@@ -49,6 +49,13 @@ func (x EStoreLinkType) EncodeValues(key string, v *url.Values) error {
 	return nil
 }
 
+// EncodeValues implements the query.Encoder interface for EStoreAppDocumentType.
+// This allows the enum to be encoded as its numerical value in URL parameters.
+func (x EStoreAppDocumentType) EncodeValues(key string, v *url.Values) error {
+	v.Add(key, strconv.FormatInt(int64(x), 10))
+	return nil
+}
+
 // EncodeValues implements the query.Encoder interface for EStoreCategoryType.
 // This allows the enum to be encoded as its numerical value in URL parameters.
 func (x EStoreCategoryType) EncodeValues(key string, v *url.Values) error {

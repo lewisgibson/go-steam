@@ -60,6 +60,7 @@ const (
 	EMsg_k_EMsgTimestampResponse                                           EMsg = 150
 	EMsg_k_EMsgServiceMethodCallFromClient                                 EMsg = 151
 	EMsg_k_EMsgServiceMethodSendToClient                                   EMsg = 152
+	EMsg_k_EMsgShellStatsToAggregator                                      EMsg = 153
 	EMsg_k_EMsgBaseShell                                                   EMsg = 200
 	EMsg_k_EMsgAssignSysID                                                 EMsg = 200
 	EMsg_k_EMsgExit                                                        EMsg = 201
@@ -92,6 +93,7 @@ const (
 	EMsg_k_EMsgGMDynamicRoutingUpdate                                      EMsg = 248
 	EMsg_k_EMsgEnsureBillingConfigReload_TEST                              EMsg = 249
 	EMsg_k_EMsgEnsureBillingConfigReloadResponse_TEST                      EMsg = 250
+	EMsg_k_EMsgHubShellHubSet                                              EMsg = 251
 	EMsg_k_EMsgBaseGM                                                      EMsg = 300
 	EMsg_k_EMsgHeartbeat                                                   EMsg = 300
 	EMsg_k_EMsgShellFailed                                                 EMsg = 301
@@ -120,6 +122,9 @@ const (
 	EMsg_k_EMsgGMGetModifiedConVars                                        EMsg = 339
 	EMsg_k_EMsgGMGetModifiedConVarsResponse                                EMsg = 340
 	EMsg_k_EMsgGMNeedShellAndServerAddresses                               EMsg = 341
+	EMsg_k_EMsgGMAdminStatsSubscribe                                       EMsg = 342
+	EMsg_k_EMsgGMAdminStatsTablesWanted                                    EMsg = 343
+	EMsg_k_EMsgGMHotfixDeployedToShells                                    EMsg = 344
 	EMsg_k_EMsgBaseAIS                                                     EMsg = 400
 	EMsg_k_EMsgAISRequestContentDescription                                EMsg = 402
 	EMsg_k_EMsgAISGetPackageChangeNumber                                   EMsg = 405
@@ -1504,6 +1509,7 @@ var (
 		150: "k_EMsgTimestampResponse",
 		151: "k_EMsgServiceMethodCallFromClient",
 		152: "k_EMsgServiceMethodSendToClient",
+		153: "k_EMsgShellStatsToAggregator",
 		200: "k_EMsgBaseShell",
 		// Duplicate value: 200: "k_EMsgAssignSysID",
 		201: "k_EMsgExit",
@@ -1536,6 +1542,7 @@ var (
 		248: "k_EMsgGMDynamicRoutingUpdate",
 		249: "k_EMsgEnsureBillingConfigReload_TEST",
 		250: "k_EMsgEnsureBillingConfigReloadResponse_TEST",
+		251: "k_EMsgHubShellHubSet",
 		300: "k_EMsgBaseGM",
 		// Duplicate value: 300: "k_EMsgHeartbeat",
 		301: "k_EMsgShellFailed",
@@ -1564,6 +1571,9 @@ var (
 		339: "k_EMsgGMGetModifiedConVars",
 		340: "k_EMsgGMGetModifiedConVarsResponse",
 		341: "k_EMsgGMNeedShellAndServerAddresses",
+		342: "k_EMsgGMAdminStatsSubscribe",
+		343: "k_EMsgGMAdminStatsTablesWanted",
+		344: "k_EMsgGMHotfixDeployedToShells",
 		400: "k_EMsgBaseAIS",
 		402: "k_EMsgAISRequestContentDescription",
 		405: "k_EMsgAISGetPackageChangeNumber",
@@ -2945,6 +2955,7 @@ var (
 		"k_EMsgTimestampResponse":                                           150,
 		"k_EMsgServiceMethodCallFromClient":                                 151,
 		"k_EMsgServiceMethodSendToClient":                                   152,
+		"k_EMsgShellStatsToAggregator":                                      153,
 		"k_EMsgBaseShell":                                                   200,
 		"k_EMsgAssignSysID":                                                 200,
 		"k_EMsgExit":                                                        201,
@@ -2977,6 +2988,7 @@ var (
 		"k_EMsgGMDynamicRoutingUpdate":                                      248,
 		"k_EMsgEnsureBillingConfigReload_TEST":                              249,
 		"k_EMsgEnsureBillingConfigReloadResponse_TEST":                      250,
+		"k_EMsgHubShellHubSet":                                              251,
 		"k_EMsgBaseGM":                                                      300,
 		"k_EMsgHeartbeat":                                                   300,
 		"k_EMsgShellFailed":                                                 301,
@@ -3005,6 +3017,9 @@ var (
 		"k_EMsgGMGetModifiedConVars":                                        339,
 		"k_EMsgGMGetModifiedConVarsResponse":                                340,
 		"k_EMsgGMNeedShellAndServerAddresses":                               341,
+		"k_EMsgGMAdminStatsSubscribe":                                       342,
+		"k_EMsgGMAdminStatsTablesWanted":                                    343,
+		"k_EMsgGMHotfixDeployedToShells":                                    344,
 		"k_EMsgBaseAIS":                                                     400,
 		"k_EMsgAISRequestContentDescription":                                402,
 		"k_EMsgAISGetPackageChangeNumber":                                   405,
@@ -4756,7 +4771,7 @@ var File_enums_clientserver_proto protoreflect.FileDescriptor
 
 const file_enums_clientserver_proto_rawDesc = "" +
 	"\n" +
-	"\x18enums_clientserver.proto*\xe5\x93\x03\n" +
+	"\x18enums_clientserver.proto*\x8f\x95\x03\n" +
 	"\x04EMsg\x12\x11\n" +
 	"\rk_EMsgInvalid\x10\x00\x12\x0f\n" +
 	"\vk_EMsgMulti\x10\x01\x12\x19\n" +
@@ -4794,7 +4809,8 @@ const file_enums_clientserver_proto_rawDesc = "" +
 	"\x16k_EMsgTimestampRequest\x10\x95\x01\x12\x1c\n" +
 	"\x17k_EMsgTimestampResponse\x10\x96\x01\x12&\n" +
 	"!k_EMsgServiceMethodCallFromClient\x10\x97\x01\x12$\n" +
-	"\x1fk_EMsgServiceMethodSendToClient\x10\x98\x01\x12\x14\n" +
+	"\x1fk_EMsgServiceMethodSendToClient\x10\x98\x01\x12!\n" +
+	"\x1ck_EMsgShellStatsToAggregator\x10\x99\x01\x12\x14\n" +
 	"\x0fk_EMsgBaseShell\x10\xc8\x01\x12\x16\n" +
 	"\x11k_EMsgAssignSysID\x10\xc8\x01\x12\x0f\n" +
 	"\n" +
@@ -4827,7 +4843,8 @@ const file_enums_clientserver_proto_rawDesc = "" +
 	"$k_EMsgGMShellAndServerAddressUpdates\x10\xf7\x01\x12!\n" +
 	"\x1ck_EMsgGMDynamicRoutingUpdate\x10\xf8\x01\x12)\n" +
 	"$k_EMsgEnsureBillingConfigReload_TEST\x10\xf9\x01\x121\n" +
-	",k_EMsgEnsureBillingConfigReloadResponse_TEST\x10\xfa\x01\x12\x11\n" +
+	",k_EMsgEnsureBillingConfigReloadResponse_TEST\x10\xfa\x01\x12\x19\n" +
+	"\x14k_EMsgHubShellHubSet\x10\xfb\x01\x12\x11\n" +
 	"\fk_EMsgBaseGM\x10\xac\x02\x12\x14\n" +
 	"\x0fk_EMsgHeartbeat\x10\xac\x02\x12\x16\n" +
 	"\x11k_EMsgShellFailed\x10\xad\x02\x12\x15\n" +
@@ -4855,7 +4872,10 @@ const file_enums_clientserver_proto_rawDesc = "" +
 	"&k_EMsgGMStatsForwardToAdminConnections\x10\xd2\x02\x12\x1f\n" +
 	"\x1ak_EMsgGMGetModifiedConVars\x10\xd3\x02\x12'\n" +
 	"\"k_EMsgGMGetModifiedConVarsResponse\x10\xd4\x02\x12(\n" +
-	"#k_EMsgGMNeedShellAndServerAddresses\x10\xd5\x02\x12\x12\n" +
+	"#k_EMsgGMNeedShellAndServerAddresses\x10\xd5\x02\x12 \n" +
+	"\x1bk_EMsgGMAdminStatsSubscribe\x10\xd6\x02\x12#\n" +
+	"\x1ek_EMsgGMAdminStatsTablesWanted\x10\xd7\x02\x12#\n" +
+	"\x1ek_EMsgGMHotfixDeployedToShells\x10\xd8\x02\x12\x12\n" +
 	"\rk_EMsgBaseAIS\x10\x90\x03\x12'\n" +
 	"\"k_EMsgAISRequestContentDescription\x10\x92\x03\x12$\n" +
 	"\x1fk_EMsgAISGetPackageChangeNumber\x10\x95\x03\x12,\n" +

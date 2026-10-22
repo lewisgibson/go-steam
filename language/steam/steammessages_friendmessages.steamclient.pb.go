@@ -708,6 +708,94 @@ func (x *CFriendMessages_IsInFriendsUIBeta_Response) GetHasUsedFriendsui() bool 
 	return false
 }
 
+type CFriendMessages_GetPartnerSharedChatGroup_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Steamid       *uint64                `protobuf:"fixed64,1,opt,name=steamid" json:"steamid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CFriendMessages_GetPartnerSharedChatGroup_Request) Reset() {
+	*x = CFriendMessages_GetPartnerSharedChatGroup_Request{}
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CFriendMessages_GetPartnerSharedChatGroup_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CFriendMessages_GetPartnerSharedChatGroup_Request) ProtoMessage() {}
+
+func (x *CFriendMessages_GetPartnerSharedChatGroup_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CFriendMessages_GetPartnerSharedChatGroup_Request.ProtoReflect.Descriptor instead.
+func (*CFriendMessages_GetPartnerSharedChatGroup_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *CFriendMessages_GetPartnerSharedChatGroup_Request) GetSteamid() uint64 {
+	if x != nil && x.Steamid != nil {
+		return *x.Steamid
+	}
+	return 0
+}
+
+type CFriendMessages_GetPartnerSharedChatGroup_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ChatGroupId   *uint64                `protobuf:"varint,1,opt,name=chat_group_id,json=chatGroupId" json:"chat_group_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CFriendMessages_GetPartnerSharedChatGroup_Response) Reset() {
+	*x = CFriendMessages_GetPartnerSharedChatGroup_Response{}
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CFriendMessages_GetPartnerSharedChatGroup_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CFriendMessages_GetPartnerSharedChatGroup_Response) ProtoMessage() {}
+
+func (x *CFriendMessages_GetPartnerSharedChatGroup_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CFriendMessages_GetPartnerSharedChatGroup_Response.ProtoReflect.Descriptor instead.
+func (*CFriendMessages_GetPartnerSharedChatGroup_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *CFriendMessages_GetPartnerSharedChatGroup_Response) GetChatGroupId() uint64 {
+	if x != nil && x.ChatGroupId != nil {
+		return *x.ChatGroupId
+	}
+	return 0
+}
+
 type CFriendMessages_UpdateMessageReaction_Request struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	Steamid         *uint64                `protobuf:"fixed64,1,opt,name=steamid" json:"steamid,omitempty"`
@@ -727,7 +815,7 @@ const (
 
 func (x *CFriendMessages_UpdateMessageReaction_Request) Reset() {
 	*x = CFriendMessages_UpdateMessageReaction_Request{}
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[9]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -739,7 +827,7 @@ func (x *CFriendMessages_UpdateMessageReaction_Request) String() string {
 func (*CFriendMessages_UpdateMessageReaction_Request) ProtoMessage() {}
 
 func (x *CFriendMessages_UpdateMessageReaction_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[9]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -752,7 +840,7 @@ func (x *CFriendMessages_UpdateMessageReaction_Request) ProtoReflect() protorefl
 
 // Deprecated: Use CFriendMessages_UpdateMessageReaction_Request.ProtoReflect.Descriptor instead.
 func (*CFriendMessages_UpdateMessageReaction_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{9}
+	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *CFriendMessages_UpdateMessageReaction_Request) GetSteamid() uint64 {
@@ -806,7 +894,7 @@ type CFriendMessages_UpdateMessageReaction_Response struct {
 
 func (x *CFriendMessages_UpdateMessageReaction_Response) Reset() {
 	*x = CFriendMessages_UpdateMessageReaction_Response{}
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[10]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -818,7 +906,7 @@ func (x *CFriendMessages_UpdateMessageReaction_Response) String() string {
 func (*CFriendMessages_UpdateMessageReaction_Response) ProtoMessage() {}
 
 func (x *CFriendMessages_UpdateMessageReaction_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[10]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -831,7 +919,7 @@ func (x *CFriendMessages_UpdateMessageReaction_Response) ProtoReflect() protoref
 
 // Deprecated: Use CFriendMessages_UpdateMessageReaction_Response.ProtoReflect.Descriptor instead.
 func (*CFriendMessages_UpdateMessageReaction_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{10}
+	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *CFriendMessages_UpdateMessageReaction_Response) GetReactors() []uint32 {
@@ -861,7 +949,7 @@ const (
 
 func (x *CFriendMessages_ReportMessage_Request) Reset() {
 	*x = CFriendMessages_ReportMessage_Request{}
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[11]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -873,7 +961,7 @@ func (x *CFriendMessages_ReportMessage_Request) String() string {
 func (*CFriendMessages_ReportMessage_Request) ProtoMessage() {}
 
 func (x *CFriendMessages_ReportMessage_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[11]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -886,7 +974,7 @@ func (x *CFriendMessages_ReportMessage_Request) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CFriendMessages_ReportMessage_Request.ProtoReflect.Descriptor instead.
 func (*CFriendMessages_ReportMessage_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{11}
+	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *CFriendMessages_ReportMessage_Request) GetSteamidFrom() uint64 {
@@ -946,7 +1034,7 @@ type CFriendMessages_ReportMessage_Response struct {
 
 func (x *CFriendMessages_ReportMessage_Response) Reset() {
 	*x = CFriendMessages_ReportMessage_Response{}
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[12]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -958,7 +1046,7 @@ func (x *CFriendMessages_ReportMessage_Response) String() string {
 func (*CFriendMessages_ReportMessage_Response) ProtoMessage() {}
 
 func (x *CFriendMessages_ReportMessage_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[12]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -971,20 +1059,21 @@ func (x *CFriendMessages_ReportMessage_Response) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CFriendMessages_ReportMessage_Response.ProtoReflect.Descriptor instead.
 func (*CFriendMessages_ReportMessage_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{12}
+	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{14}
 }
 
 type CFriendMessages_ResolveReport_Request struct {
-	state          protoimpl.MessageState    `protogen:"open.v1"`
-	SteamidFrom    *uint64                   `protobuf:"fixed64,1,opt,name=steamid_from,json=steamidFrom" json:"steamid_from,omitempty"`
-	SteamidTo      *uint64                   `protobuf:"fixed64,2,opt,name=steamid_to,json=steamidTo" json:"steamid_to,omitempty"`
-	SubjectGroupId *uint64                   `protobuf:"varint,3,opt,name=subject_group_id,json=subjectGroupId" json:"subject_group_id,omitempty"`
-	SubjectId      *uint64                   `protobuf:"varint,4,opt,name=subject_id,json=subjectId" json:"subject_id,omitempty"`
-	Resolution     *EContentReportResolution `protobuf:"varint,5,opt,name=resolution,enum=EContentReportResolution,def=0" json:"resolution,omitempty"`
-	Reason         *EContentReportReason     `protobuf:"varint,6,opt,name=reason,enum=EContentReportReason,def=0" json:"reason,omitempty"`
-	SkipLock       *bool                     `protobuf:"varint,7,opt,name=skip_lock,json=skipLock" json:"skip_lock,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state             protoimpl.MessageState    `protogen:"open.v1"`
+	SteamidFrom       *uint64                   `protobuf:"fixed64,1,opt,name=steamid_from,json=steamidFrom" json:"steamid_from,omitempty"`
+	SteamidTo         *uint64                   `protobuf:"fixed64,2,opt,name=steamid_to,json=steamidTo" json:"steamid_to,omitempty"`
+	SubjectGroupId    *uint64                   `protobuf:"varint,3,opt,name=subject_group_id,json=subjectGroupId" json:"subject_group_id,omitempty"`
+	SubjectId         *uint64                   `protobuf:"varint,4,opt,name=subject_id,json=subjectId" json:"subject_id,omitempty"`
+	Resolution        *EContentReportResolution `protobuf:"varint,5,opt,name=resolution,enum=EContentReportResolution,def=0" json:"resolution,omitempty"`
+	Reason            *EContentReportReason     `protobuf:"varint,6,opt,name=reason,enum=EContentReportReason,def=0" json:"reason,omitempty"`
+	SkipLock          *bool                     `protobuf:"varint,7,opt,name=skip_lock,json=skipLock" json:"skip_lock,omitempty"`
+	ReportedContentId *uint64                   `protobuf:"varint,8,opt,name=reported_content_id,json=reportedContentId" json:"reported_content_id,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 // Default values for CFriendMessages_ResolveReport_Request fields.
@@ -995,7 +1084,7 @@ const (
 
 func (x *CFriendMessages_ResolveReport_Request) Reset() {
 	*x = CFriendMessages_ResolveReport_Request{}
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[13]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1007,7 +1096,7 @@ func (x *CFriendMessages_ResolveReport_Request) String() string {
 func (*CFriendMessages_ResolveReport_Request) ProtoMessage() {}
 
 func (x *CFriendMessages_ResolveReport_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[13]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1020,7 +1109,7 @@ func (x *CFriendMessages_ResolveReport_Request) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CFriendMessages_ResolveReport_Request.ProtoReflect.Descriptor instead.
 func (*CFriendMessages_ResolveReport_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{13}
+	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *CFriendMessages_ResolveReport_Request) GetSteamidFrom() uint64 {
@@ -1072,6 +1161,13 @@ func (x *CFriendMessages_ResolveReport_Request) GetSkipLock() bool {
 	return false
 }
 
+func (x *CFriendMessages_ResolveReport_Request) GetReportedContentId() uint64 {
+	if x != nil && x.ReportedContentId != nil {
+		return *x.ReportedContentId
+	}
+	return 0
+}
+
 type CFriendMessages_ResolveReport_Response struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -1080,7 +1176,7 @@ type CFriendMessages_ResolveReport_Response struct {
 
 func (x *CFriendMessages_ResolveReport_Response) Reset() {
 	*x = CFriendMessages_ResolveReport_Response{}
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[14]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1092,7 +1188,7 @@ func (x *CFriendMessages_ResolveReport_Response) String() string {
 func (*CFriendMessages_ResolveReport_Response) ProtoMessage() {}
 
 func (x *CFriendMessages_ResolveReport_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[14]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1105,7 +1201,7 @@ func (x *CFriendMessages_ResolveReport_Response) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CFriendMessages_ResolveReport_Response.ProtoReflect.Descriptor instead.
 func (*CFriendMessages_ResolveReport_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{14}
+	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{16}
 }
 
 type CFriendMessages_DismissSessionNotice_Notification struct {
@@ -1123,7 +1219,7 @@ const (
 
 func (x *CFriendMessages_DismissSessionNotice_Notification) Reset() {
 	*x = CFriendMessages_DismissSessionNotice_Notification{}
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[15]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1135,7 +1231,7 @@ func (x *CFriendMessages_DismissSessionNotice_Notification) String() string {
 func (*CFriendMessages_DismissSessionNotice_Notification) ProtoMessage() {}
 
 func (x *CFriendMessages_DismissSessionNotice_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[15]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1148,7 +1244,7 @@ func (x *CFriendMessages_DismissSessionNotice_Notification) ProtoReflect() proto
 
 // Deprecated: Use CFriendMessages_DismissSessionNotice_Notification.ProtoReflect.Descriptor instead.
 func (*CFriendMessages_DismissSessionNotice_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{15}
+	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *CFriendMessages_DismissSessionNotice_Notification) GetSteamidFriend() uint64 {
@@ -1182,7 +1278,7 @@ type CFriendMessages_IncomingMessage_Notification struct {
 
 func (x *CFriendMessages_IncomingMessage_Notification) Reset() {
 	*x = CFriendMessages_IncomingMessage_Notification{}
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[16]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1194,7 +1290,7 @@ func (x *CFriendMessages_IncomingMessage_Notification) String() string {
 func (*CFriendMessages_IncomingMessage_Notification) ProtoMessage() {}
 
 func (x *CFriendMessages_IncomingMessage_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[16]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1207,7 +1303,7 @@ func (x *CFriendMessages_IncomingMessage_Notification) ProtoReflect() protorefle
 
 // Deprecated: Use CFriendMessages_IncomingMessage_Notification.ProtoReflect.Descriptor instead.
 func (*CFriendMessages_IncomingMessage_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{16}
+	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *CFriendMessages_IncomingMessage_Notification) GetSteamidFriend() uint64 {
@@ -1293,7 +1389,7 @@ const (
 
 func (x *CFriendMessages_MessageReaction_Notification) Reset() {
 	*x = CFriendMessages_MessageReaction_Notification{}
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[17]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1305,7 +1401,7 @@ func (x *CFriendMessages_MessageReaction_Notification) String() string {
 func (*CFriendMessages_MessageReaction_Notification) ProtoMessage() {}
 
 func (x *CFriendMessages_MessageReaction_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[17]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1318,7 +1414,7 @@ func (x *CFriendMessages_MessageReaction_Notification) ProtoReflect() protorefle
 
 // Deprecated: Use CFriendMessages_MessageReaction_Notification.ProtoReflect.Descriptor instead.
 func (*CFriendMessages_MessageReaction_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{17}
+	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *CFriendMessages_MessageReaction_Notification) GetSteamidFriend() uint64 {
@@ -1386,7 +1482,7 @@ const (
 
 func (x *CFriendMessages_SessionNotice_Notification) Reset() {
 	*x = CFriendMessages_SessionNotice_Notification{}
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[18]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1398,7 +1494,7 @@ func (x *CFriendMessages_SessionNotice_Notification) String() string {
 func (*CFriendMessages_SessionNotice_Notification) ProtoMessage() {}
 
 func (x *CFriendMessages_SessionNotice_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[18]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1411,7 +1507,7 @@ func (x *CFriendMessages_SessionNotice_Notification) ProtoReflect() protoreflect
 
 // Deprecated: Use CFriendMessages_SessionNotice_Notification.ProtoReflect.Descriptor instead.
 func (*CFriendMessages_SessionNotice_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{18}
+	return file_steammessages_friendmessages_steamclient_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *CFriendMessages_SessionNotice_Notification) GetSteamidFriend() uint64 {
@@ -1448,7 +1544,7 @@ type CFriendMessages_GetRecentMessages_Response_FriendMessage struct {
 
 func (x *CFriendMessages_GetRecentMessages_Response_FriendMessage) Reset() {
 	*x = CFriendMessages_GetRecentMessages_Response_FriendMessage{}
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[19]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1460,7 +1556,7 @@ func (x *CFriendMessages_GetRecentMessages_Response_FriendMessage) String() stri
 func (*CFriendMessages_GetRecentMessages_Response_FriendMessage) ProtoMessage() {}
 
 func (x *CFriendMessages_GetRecentMessages_Response_FriendMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[19]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1527,7 +1623,7 @@ const (
 
 func (x *CFriendMessages_GetRecentMessages_Response_FriendMessage_MessageReaction) Reset() {
 	*x = CFriendMessages_GetRecentMessages_Response_FriendMessage_MessageReaction{}
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[20]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1539,7 +1635,7 @@ func (x *CFriendMessages_GetRecentMessages_Response_FriendMessage_MessageReactio
 func (*CFriendMessages_GetRecentMessages_Response_FriendMessage_MessageReaction) ProtoMessage() {}
 
 func (x *CFriendMessages_GetRecentMessages_Response_FriendMessage_MessageReaction) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[20]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1589,7 +1685,7 @@ type CFriendsMessages_GetActiveMessageSessions_Response_FriendMessageSession str
 
 func (x *CFriendsMessages_GetActiveMessageSessions_Response_FriendMessageSession) Reset() {
 	*x = CFriendsMessages_GetActiveMessageSessions_Response_FriendMessageSession{}
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[21]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1601,7 +1697,7 @@ func (x *CFriendsMessages_GetActiveMessageSessions_Response_FriendMessageSession
 func (*CFriendsMessages_GetActiveMessageSessions_Response_FriendMessageSession) ProtoMessage() {}
 
 func (x *CFriendsMessages_GetActiveMessageSessions_Response_FriendMessageSession) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[21]
+	mi := &file_steammessages_friendmessages_steamclient_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1712,7 +1808,11 @@ const file_steammessages_friendmessages_steamclient_proto_rawDesc = "" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\"\x8a\x01\n" +
 	"*CFriendMessages_IsInFriendsUIBeta_Response\x12.\n" +
 	"\x13online_in_friendsui\x18\x01 \x01(\bR\x11onlineInFriendsui\x12,\n" +
-	"\x12has_used_friendsui\x18\x02 \x01(\bR\x10hasUsedFriendsui\"\x9d\x02\n" +
+	"\x12has_used_friendsui\x18\x02 \x01(\bR\x10hasUsedFriendsui\"M\n" +
+	"1CFriendMessages_GetPartnerSharedChatGroup_Request\x12\x18\n" +
+	"\asteamid\x18\x01 \x01(\x06R\asteamid\"X\n" +
+	"2CFriendMessages_GetPartnerSharedChatGroup_Response\x12\"\n" +
+	"\rchat_group_id\x18\x01 \x01(\x04R\vchatGroupId\"\x9d\x02\n" +
 	"-CFriendMessages_UpdateMessageReaction_Request\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12)\n" +
 	"\x10server_timestamp\x18\x02 \x01(\rR\x0fserverTimestamp\x12\x18\n" +
@@ -1732,7 +1832,7 @@ const file_steammessages_friendmessages_steamclient_proto_rawDesc = "" +
 	"\vreport_text\x18\x06 \x01(\tR\n" +
 	"reportText\x12\x1a\n" +
 	"\blanguage\x18\a \x01(\tR\blanguage\"(\n" +
-	"&CFriendMessages_ReportMessage_Response\"\x80\x03\n" +
+	"&CFriendMessages_ReportMessage_Response\"\xb0\x03\n" +
 	"%CFriendMessages_ResolveReport_Request\x12!\n" +
 	"\fsteamid_from\x18\x01 \x01(\x06R\vsteamidFrom\x12\x1d\n" +
 	"\n" +
@@ -1744,7 +1844,8 @@ const file_steammessages_friendmessages_steamclient_proto_rawDesc = "" +
 	"resolution\x18\x05 \x01(\x0e2\x19.EContentReportResolution:%k_EContentReportResolution_UnresolvedR\n" +
 	"resolution\x12M\n" +
 	"\x06reason\x18\x06 \x01(\x0e2\x15.EContentReportReason:\x1ek_EContentReportReason_InvalidR\x06reason\x12\x1b\n" +
-	"\tskip_lock\x18\a \x01(\bR\bskipLock\"(\n" +
+	"\tskip_lock\x18\a \x01(\bR\bskipLock\x12.\n" +
+	"\x13reported_content_id\x18\b \x01(\x04R\x11reportedContentId\"(\n" +
 	"&CFriendMessages_ResolveReport_Response\"\xae\x01\n" +
 	"1CFriendMessages_DismissSessionNotice_Notification\x12%\n" +
 	"\x0esteamid_friend\x18\x01 \x01(\x06R\rsteamidFriend\x12R\n" +
@@ -1780,14 +1881,15 @@ const file_steammessages_friendmessages_steamclient_proto_rawDesc = "" +
 	"\x1ek_EMessageReactionType_Sticker\x10\x02*[\n" +
 	"\x12EChatSessionNotice\x12 \n" +
 	"\x1ck_EChatSessionNotice_Invalid\x10\x00\x12#\n" +
-	"\x1fk_EChatSessionNotice_Suspicious\x10\x012\xaa\a\n" +
+	"\x1fk_EChatSessionNotice_Suspicious\x10\x012\xb1\b\n" +
 	"\x0eFriendMessages\x12l\n" +
 	"\x11GetRecentMessages\x12*.CFriendMessages_GetRecentMessages_Request\x1a+.CFriendMessages_GetRecentMessages_Response\x12\x83\x01\n" +
 	"\x18GetActiveMessageSessions\x122.CFriendsMessages_GetActiveMessageSessions_Request\x1a3.CFriendsMessages_GetActiveMessageSessions_Response\x12Z\n" +
 	"\vSendMessage\x12$.CFriendMessages_SendMessage_Request\x1a%.CFriendMessages_SendMessage_Response\x12C\n" +
 	"\n" +
 	"AckMessage\x12(.CFriendMessages_AckMessage_Notification\x1a\v.NoResponse\x12l\n" +
-	"\x11IsInFriendsUIBeta\x12*.CFriendMessages_IsInFriendsUIBeta_Request\x1a+.CFriendMessages_IsInFriendsUIBeta_Response\x12x\n" +
+	"\x11IsInFriendsUIBeta\x12*.CFriendMessages_IsInFriendsUIBeta_Request\x1a+.CFriendMessages_IsInFriendsUIBeta_Response\x12\x84\x01\n" +
+	"\x19GetPartnerSharedChatGroup\x122.CFriendMessages_GetPartnerSharedChatGroup_Request\x1a3.CFriendMessages_GetPartnerSharedChatGroup_Response\x12x\n" +
 	"\x15UpdateMessageReaction\x12..CFriendMessages_UpdateMessageReaction_Request\x1a/.CFriendMessages_UpdateMessageReaction_Response\x12`\n" +
 	"\rReportMessage\x12&.CFriendMessages_ReportMessage_Request\x1a'.CFriendMessages_ReportMessage_Response\x12`\n" +
 	"\rResolveReport\x12&.CFriendMessages_ResolveReport_Request\x1a'.CFriendMessages_ResolveReport_Response\x12W\n" +
@@ -1811,7 +1913,7 @@ func file_steammessages_friendmessages_steamclient_proto_rawDescGZIP() []byte {
 }
 
 var file_steammessages_friendmessages_steamclient_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_steammessages_friendmessages_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
+var file_steammessages_friendmessages_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 24)
 var file_steammessages_friendmessages_steamclient_proto_goTypes = []any{
 	(EMessageReactionType)(0),                                                        // 0: EMessageReactionType
 	(EChatSessionNotice)(0),                                                          // 1: EChatSessionNotice
@@ -1824,34 +1926,36 @@ var file_steammessages_friendmessages_steamclient_proto_goTypes = []any{
 	(*CFriendMessages_AckMessage_Notification)(nil),                                  // 8: CFriendMessages_AckMessage_Notification
 	(*CFriendMessages_IsInFriendsUIBeta_Request)(nil),                                // 9: CFriendMessages_IsInFriendsUIBeta_Request
 	(*CFriendMessages_IsInFriendsUIBeta_Response)(nil),                               // 10: CFriendMessages_IsInFriendsUIBeta_Response
-	(*CFriendMessages_UpdateMessageReaction_Request)(nil),                            // 11: CFriendMessages_UpdateMessageReaction_Request
-	(*CFriendMessages_UpdateMessageReaction_Response)(nil),                           // 12: CFriendMessages_UpdateMessageReaction_Response
-	(*CFriendMessages_ReportMessage_Request)(nil),                                    // 13: CFriendMessages_ReportMessage_Request
-	(*CFriendMessages_ReportMessage_Response)(nil),                                   // 14: CFriendMessages_ReportMessage_Response
-	(*CFriendMessages_ResolveReport_Request)(nil),                                    // 15: CFriendMessages_ResolveReport_Request
-	(*CFriendMessages_ResolveReport_Response)(nil),                                   // 16: CFriendMessages_ResolveReport_Response
-	(*CFriendMessages_DismissSessionNotice_Notification)(nil),                        // 17: CFriendMessages_DismissSessionNotice_Notification
-	(*CFriendMessages_IncomingMessage_Notification)(nil),                             // 18: CFriendMessages_IncomingMessage_Notification
-	(*CFriendMessages_MessageReaction_Notification)(nil),                             // 19: CFriendMessages_MessageReaction_Notification
-	(*CFriendMessages_SessionNotice_Notification)(nil),                               // 20: CFriendMessages_SessionNotice_Notification
-	(*CFriendMessages_GetRecentMessages_Response_FriendMessage)(nil),                 // 21: CFriendMessages_GetRecentMessages_Response.FriendMessage
-	(*CFriendMessages_GetRecentMessages_Response_FriendMessage_MessageReaction)(nil), // 22: CFriendMessages_GetRecentMessages_Response.FriendMessage.MessageReaction
-	(*CFriendsMessages_GetActiveMessageSessions_Response_FriendMessageSession)(nil),  // 23: CFriendsMessages_GetActiveMessageSessions_Response.FriendMessageSession
-	(EContentReportReason)(0),                                                        // 24: EContentReportReason
-	(EContentReportResolution)(0),                                                    // 25: EContentReportResolution
-	(*NoResponse)(nil),                                                               // 26: NoResponse
+	(*CFriendMessages_GetPartnerSharedChatGroup_Request)(nil),                        // 11: CFriendMessages_GetPartnerSharedChatGroup_Request
+	(*CFriendMessages_GetPartnerSharedChatGroup_Response)(nil),                       // 12: CFriendMessages_GetPartnerSharedChatGroup_Response
+	(*CFriendMessages_UpdateMessageReaction_Request)(nil),                            // 13: CFriendMessages_UpdateMessageReaction_Request
+	(*CFriendMessages_UpdateMessageReaction_Response)(nil),                           // 14: CFriendMessages_UpdateMessageReaction_Response
+	(*CFriendMessages_ReportMessage_Request)(nil),                                    // 15: CFriendMessages_ReportMessage_Request
+	(*CFriendMessages_ReportMessage_Response)(nil),                                   // 16: CFriendMessages_ReportMessage_Response
+	(*CFriendMessages_ResolveReport_Request)(nil),                                    // 17: CFriendMessages_ResolveReport_Request
+	(*CFriendMessages_ResolveReport_Response)(nil),                                   // 18: CFriendMessages_ResolveReport_Response
+	(*CFriendMessages_DismissSessionNotice_Notification)(nil),                        // 19: CFriendMessages_DismissSessionNotice_Notification
+	(*CFriendMessages_IncomingMessage_Notification)(nil),                             // 20: CFriendMessages_IncomingMessage_Notification
+	(*CFriendMessages_MessageReaction_Notification)(nil),                             // 21: CFriendMessages_MessageReaction_Notification
+	(*CFriendMessages_SessionNotice_Notification)(nil),                               // 22: CFriendMessages_SessionNotice_Notification
+	(*CFriendMessages_GetRecentMessages_Response_FriendMessage)(nil),                 // 23: CFriendMessages_GetRecentMessages_Response.FriendMessage
+	(*CFriendMessages_GetRecentMessages_Response_FriendMessage_MessageReaction)(nil), // 24: CFriendMessages_GetRecentMessages_Response.FriendMessage.MessageReaction
+	(*CFriendsMessages_GetActiveMessageSessions_Response_FriendMessageSession)(nil),  // 25: CFriendsMessages_GetActiveMessageSessions_Response.FriendMessageSession
+	(EContentReportReason)(0),                                                        // 26: EContentReportReason
+	(EContentReportResolution)(0),                                                    // 27: EContentReportResolution
+	(*NoResponse)(nil),                                                               // 28: NoResponse
 }
 var file_steammessages_friendmessages_steamclient_proto_depIdxs = []int32{
-	21, // 0: CFriendMessages_GetRecentMessages_Response.messages:type_name -> CFriendMessages_GetRecentMessages_Response.FriendMessage
-	23, // 1: CFriendsMessages_GetActiveMessageSessions_Response.message_sessions:type_name -> CFriendsMessages_GetActiveMessageSessions_Response.FriendMessageSession
+	23, // 0: CFriendMessages_GetRecentMessages_Response.messages:type_name -> CFriendMessages_GetRecentMessages_Response.FriendMessage
+	25, // 1: CFriendsMessages_GetActiveMessageSessions_Response.message_sessions:type_name -> CFriendsMessages_GetActiveMessageSessions_Response.FriendMessageSession
 	0,  // 2: CFriendMessages_UpdateMessageReaction_Request.reaction_type:type_name -> EMessageReactionType
-	24, // 3: CFriendMessages_ReportMessage_Request.report_reason:type_name -> EContentReportReason
-	25, // 4: CFriendMessages_ResolveReport_Request.resolution:type_name -> EContentReportResolution
-	24, // 5: CFriendMessages_ResolveReport_Request.reason:type_name -> EContentReportReason
+	26, // 3: CFriendMessages_ReportMessage_Request.report_reason:type_name -> EContentReportReason
+	27, // 4: CFriendMessages_ResolveReport_Request.resolution:type_name -> EContentReportResolution
+	26, // 5: CFriendMessages_ResolveReport_Request.reason:type_name -> EContentReportReason
 	1,  // 6: CFriendMessages_DismissSessionNotice_Notification.notice_type:type_name -> EChatSessionNotice
 	0,  // 7: CFriendMessages_MessageReaction_Notification.reaction_type:type_name -> EMessageReactionType
 	1,  // 8: CFriendMessages_SessionNotice_Notification.notice_type:type_name -> EChatSessionNotice
-	22, // 9: CFriendMessages_GetRecentMessages_Response.FriendMessage.reactions:type_name -> CFriendMessages_GetRecentMessages_Response.FriendMessage.MessageReaction
+	24, // 9: CFriendMessages_GetRecentMessages_Response.FriendMessage.reactions:type_name -> CFriendMessages_GetRecentMessages_Response.FriendMessage.MessageReaction
 	0,  // 10: CFriendMessages_GetRecentMessages_Response.FriendMessage.MessageReaction.reaction_type:type_name -> EMessageReactionType
 	1,  // 11: CFriendsMessages_GetActiveMessageSessions_Response.FriendMessageSession.notices:type_name -> EChatSessionNotice
 	2,  // 12: FriendMessages.GetRecentMessages:input_type -> CFriendMessages_GetRecentMessages_Request
@@ -1859,29 +1963,31 @@ var file_steammessages_friendmessages_steamclient_proto_depIdxs = []int32{
 	6,  // 14: FriendMessages.SendMessage:input_type -> CFriendMessages_SendMessage_Request
 	8,  // 15: FriendMessages.AckMessage:input_type -> CFriendMessages_AckMessage_Notification
 	9,  // 16: FriendMessages.IsInFriendsUIBeta:input_type -> CFriendMessages_IsInFriendsUIBeta_Request
-	11, // 17: FriendMessages.UpdateMessageReaction:input_type -> CFriendMessages_UpdateMessageReaction_Request
-	13, // 18: FriendMessages.ReportMessage:input_type -> CFriendMessages_ReportMessage_Request
-	15, // 19: FriendMessages.ResolveReport:input_type -> CFriendMessages_ResolveReport_Request
-	17, // 20: FriendMessages.DismissSessionNotice:input_type -> CFriendMessages_DismissSessionNotice_Notification
-	18, // 21: FriendMessagesClient.IncomingMessage:input_type -> CFriendMessages_IncomingMessage_Notification
-	8,  // 22: FriendMessagesClient.NotifyAckMessageEcho:input_type -> CFriendMessages_AckMessage_Notification
-	19, // 23: FriendMessagesClient.MessageReaction:input_type -> CFriendMessages_MessageReaction_Notification
-	20, // 24: FriendMessagesClient.SessionNotice:input_type -> CFriendMessages_SessionNotice_Notification
-	3,  // 25: FriendMessages.GetRecentMessages:output_type -> CFriendMessages_GetRecentMessages_Response
-	5,  // 26: FriendMessages.GetActiveMessageSessions:output_type -> CFriendsMessages_GetActiveMessageSessions_Response
-	7,  // 27: FriendMessages.SendMessage:output_type -> CFriendMessages_SendMessage_Response
-	26, // 28: FriendMessages.AckMessage:output_type -> NoResponse
-	10, // 29: FriendMessages.IsInFriendsUIBeta:output_type -> CFriendMessages_IsInFriendsUIBeta_Response
-	12, // 30: FriendMessages.UpdateMessageReaction:output_type -> CFriendMessages_UpdateMessageReaction_Response
-	14, // 31: FriendMessages.ReportMessage:output_type -> CFriendMessages_ReportMessage_Response
-	16, // 32: FriendMessages.ResolveReport:output_type -> CFriendMessages_ResolveReport_Response
-	26, // 33: FriendMessages.DismissSessionNotice:output_type -> NoResponse
-	26, // 34: FriendMessagesClient.IncomingMessage:output_type -> NoResponse
-	26, // 35: FriendMessagesClient.NotifyAckMessageEcho:output_type -> NoResponse
-	26, // 36: FriendMessagesClient.MessageReaction:output_type -> NoResponse
-	26, // 37: FriendMessagesClient.SessionNotice:output_type -> NoResponse
-	25, // [25:38] is the sub-list for method output_type
-	12, // [12:25] is the sub-list for method input_type
+	11, // 17: FriendMessages.GetPartnerSharedChatGroup:input_type -> CFriendMessages_GetPartnerSharedChatGroup_Request
+	13, // 18: FriendMessages.UpdateMessageReaction:input_type -> CFriendMessages_UpdateMessageReaction_Request
+	15, // 19: FriendMessages.ReportMessage:input_type -> CFriendMessages_ReportMessage_Request
+	17, // 20: FriendMessages.ResolveReport:input_type -> CFriendMessages_ResolveReport_Request
+	19, // 21: FriendMessages.DismissSessionNotice:input_type -> CFriendMessages_DismissSessionNotice_Notification
+	20, // 22: FriendMessagesClient.IncomingMessage:input_type -> CFriendMessages_IncomingMessage_Notification
+	8,  // 23: FriendMessagesClient.NotifyAckMessageEcho:input_type -> CFriendMessages_AckMessage_Notification
+	21, // 24: FriendMessagesClient.MessageReaction:input_type -> CFriendMessages_MessageReaction_Notification
+	22, // 25: FriendMessagesClient.SessionNotice:input_type -> CFriendMessages_SessionNotice_Notification
+	3,  // 26: FriendMessages.GetRecentMessages:output_type -> CFriendMessages_GetRecentMessages_Response
+	5,  // 27: FriendMessages.GetActiveMessageSessions:output_type -> CFriendsMessages_GetActiveMessageSessions_Response
+	7,  // 28: FriendMessages.SendMessage:output_type -> CFriendMessages_SendMessage_Response
+	28, // 29: FriendMessages.AckMessage:output_type -> NoResponse
+	10, // 30: FriendMessages.IsInFriendsUIBeta:output_type -> CFriendMessages_IsInFriendsUIBeta_Response
+	12, // 31: FriendMessages.GetPartnerSharedChatGroup:output_type -> CFriendMessages_GetPartnerSharedChatGroup_Response
+	14, // 32: FriendMessages.UpdateMessageReaction:output_type -> CFriendMessages_UpdateMessageReaction_Response
+	16, // 33: FriendMessages.ReportMessage:output_type -> CFriendMessages_ReportMessage_Response
+	18, // 34: FriendMessages.ResolveReport:output_type -> CFriendMessages_ResolveReport_Response
+	28, // 35: FriendMessages.DismissSessionNotice:output_type -> NoResponse
+	28, // 36: FriendMessagesClient.IncomingMessage:output_type -> NoResponse
+	28, // 37: FriendMessagesClient.NotifyAckMessageEcho:output_type -> NoResponse
+	28, // 38: FriendMessagesClient.MessageReaction:output_type -> NoResponse
+	28, // 39: FriendMessagesClient.SessionNotice:output_type -> NoResponse
+	26, // [26:40] is the sub-list for method output_type
+	12, // [12:26] is the sub-list for method input_type
 	12, // [12:12] is the sub-list for extension type_name
 	12, // [12:12] is the sub-list for extension extendee
 	0,  // [0:12] is the sub-list for field type_name
@@ -1901,7 +2007,7 @@ func file_steammessages_friendmessages_steamclient_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_friendmessages_steamclient_proto_rawDesc), len(file_steammessages_friendmessages_steamclient_proto_rawDesc)),
 			NumEnums:      2,
-			NumMessages:   22,
+			NumMessages:   24,
 			NumExtensions: 0,
 			NumServices:   2,
 		},

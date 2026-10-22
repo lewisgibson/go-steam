@@ -5342,6 +5342,225 @@ func (x *CPublishedFile_UpdateContentDescriptors_Response) GetTimestampUpdated()
 	return 0
 }
 
+type CPublishedFile_SanctionPublishedFile_Request struct {
+	state                protoimpl.MessageState                                   `protogen:"open.v1"`
+	Publishedfileid      *uint64                                                  `protobuf:"fixed64,1,opt,name=publishedfileid" json:"publishedfileid,omitempty"`
+	Reason               *EContentReportReason                                    `protobuf:"varint,2,opt,name=reason,enum=EContentReportReason,def=0" json:"reason,omitempty"`
+	Note                 *string                                                  `protobuf:"bytes,3,opt,name=note" json:"note,omitempty"`
+	ResolvedByAutomation *EResolutionAutomation                                   `protobuf:"varint,4,opt,name=resolved_by_automation,json=resolvedByAutomation,enum=EResolutionAutomation,def=0" json:"resolved_by_automation,omitempty"`
+	Sanctions            []*CPublishedFile_SanctionPublishedFile_Request_Sanction `protobuf:"bytes,5,rep,name=sanctions" json:"sanctions,omitempty"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
+}
+
+// Default values for CPublishedFile_SanctionPublishedFile_Request fields.
+const (
+	Default_CPublishedFile_SanctionPublishedFile_Request_Reason               = EContentReportReason_k_EContentReportReason_Invalid
+	Default_CPublishedFile_SanctionPublishedFile_Request_ResolvedByAutomation = EResolutionAutomation_k_EResolutionAutomation_Manual
+)
+
+func (x *CPublishedFile_SanctionPublishedFile_Request) Reset() {
+	*x = CPublishedFile_SanctionPublishedFile_Request{}
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CPublishedFile_SanctionPublishedFile_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CPublishedFile_SanctionPublishedFile_Request) ProtoMessage() {}
+
+func (x *CPublishedFile_SanctionPublishedFile_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CPublishedFile_SanctionPublishedFile_Request.ProtoReflect.Descriptor instead.
+func (*CPublishedFile_SanctionPublishedFile_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_publishedfile_steamclient_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *CPublishedFile_SanctionPublishedFile_Request) GetPublishedfileid() uint64 {
+	if x != nil && x.Publishedfileid != nil {
+		return *x.Publishedfileid
+	}
+	return 0
+}
+
+func (x *CPublishedFile_SanctionPublishedFile_Request) GetReason() EContentReportReason {
+	if x != nil && x.Reason != nil {
+		return *x.Reason
+	}
+	return Default_CPublishedFile_SanctionPublishedFile_Request_Reason
+}
+
+func (x *CPublishedFile_SanctionPublishedFile_Request) GetNote() string {
+	if x != nil && x.Note != nil {
+		return *x.Note
+	}
+	return ""
+}
+
+func (x *CPublishedFile_SanctionPublishedFile_Request) GetResolvedByAutomation() EResolutionAutomation {
+	if x != nil && x.ResolvedByAutomation != nil {
+		return *x.ResolvedByAutomation
+	}
+	return Default_CPublishedFile_SanctionPublishedFile_Request_ResolvedByAutomation
+}
+
+func (x *CPublishedFile_SanctionPublishedFile_Request) GetSanctions() []*CPublishedFile_SanctionPublishedFile_Request_Sanction {
+	if x != nil {
+		return x.Sanctions
+	}
+	return nil
+}
+
+type CPublishedFile_SanctionPublishedFile_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ForceUnbanned *bool                  `protobuf:"varint,1,opt,name=force_unbanned,json=forceUnbanned" json:"force_unbanned,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CPublishedFile_SanctionPublishedFile_Response) Reset() {
+	*x = CPublishedFile_SanctionPublishedFile_Response{}
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CPublishedFile_SanctionPublishedFile_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CPublishedFile_SanctionPublishedFile_Response) ProtoMessage() {}
+
+func (x *CPublishedFile_SanctionPublishedFile_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CPublishedFile_SanctionPublishedFile_Response.ProtoReflect.Descriptor instead.
+func (*CPublishedFile_SanctionPublishedFile_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_publishedfile_steamclient_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *CPublishedFile_SanctionPublishedFile_Response) GetForceUnbanned() bool {
+	if x != nil && x.ForceUnbanned != nil {
+		return *x.ForceUnbanned
+	}
+	return false
+}
+
+type CPublishedFile_AcquitPublishedFile_Request struct {
+	state                protoimpl.MessageState `protogen:"open.v1"`
+	Publishedfileid      *uint64                `protobuf:"fixed64,1,opt,name=publishedfileid" json:"publishedfileid,omitempty"`
+	ResolvedByAutomation *EResolutionAutomation `protobuf:"varint,2,opt,name=resolved_by_automation,json=resolvedByAutomation,enum=EResolutionAutomation,def=0" json:"resolved_by_automation,omitempty"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
+}
+
+// Default values for CPublishedFile_AcquitPublishedFile_Request fields.
+const (
+	Default_CPublishedFile_AcquitPublishedFile_Request_ResolvedByAutomation = EResolutionAutomation_k_EResolutionAutomation_Manual
+)
+
+func (x *CPublishedFile_AcquitPublishedFile_Request) Reset() {
+	*x = CPublishedFile_AcquitPublishedFile_Request{}
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CPublishedFile_AcquitPublishedFile_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CPublishedFile_AcquitPublishedFile_Request) ProtoMessage() {}
+
+func (x *CPublishedFile_AcquitPublishedFile_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CPublishedFile_AcquitPublishedFile_Request.ProtoReflect.Descriptor instead.
+func (*CPublishedFile_AcquitPublishedFile_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_publishedfile_steamclient_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *CPublishedFile_AcquitPublishedFile_Request) GetPublishedfileid() uint64 {
+	if x != nil && x.Publishedfileid != nil {
+		return *x.Publishedfileid
+	}
+	return 0
+}
+
+func (x *CPublishedFile_AcquitPublishedFile_Request) GetResolvedByAutomation() EResolutionAutomation {
+	if x != nil && x.ResolvedByAutomation != nil {
+		return *x.ResolvedByAutomation
+	}
+	return Default_CPublishedFile_AcquitPublishedFile_Request_ResolvedByAutomation
+}
+
+type CPublishedFile_AcquitPublishedFile_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CPublishedFile_AcquitPublishedFile_Response) Reset() {
+	*x = CPublishedFile_AcquitPublishedFile_Response{}
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CPublishedFile_AcquitPublishedFile_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CPublishedFile_AcquitPublishedFile_Response) ProtoMessage() {}
+
+func (x *CPublishedFile_AcquitPublishedFile_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CPublishedFile_AcquitPublishedFile_Response.ProtoReflect.Descriptor instead.
+func (*CPublishedFile_AcquitPublishedFile_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_publishedfile_steamclient_proto_rawDescGZIP(), []int{70}
+}
+
 type CPublishedFile_FileSubscribed_Notification struct {
 	state           protoimpl.MessageState                                     `protogen:"open.v1"`
 	PublishedFileId *uint64                                                    `protobuf:"fixed64,1,opt,name=published_file_id,json=publishedFileId" json:"published_file_id,omitempty"`
@@ -5364,7 +5583,7 @@ const (
 
 func (x *CPublishedFile_FileSubscribed_Notification) Reset() {
 	*x = CPublishedFile_FileSubscribed_Notification{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[67]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5376,7 +5595,7 @@ func (x *CPublishedFile_FileSubscribed_Notification) String() string {
 func (*CPublishedFile_FileSubscribed_Notification) ProtoMessage() {}
 
 func (x *CPublishedFile_FileSubscribed_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[67]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5389,7 +5608,7 @@ func (x *CPublishedFile_FileSubscribed_Notification) ProtoReflect() protoreflect
 
 // Deprecated: Use CPublishedFile_FileSubscribed_Notification.ProtoReflect.Descriptor instead.
 func (*CPublishedFile_FileSubscribed_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_publishedfile_steamclient_proto_rawDescGZIP(), []int{67}
+	return file_steammessages_publishedfile_steamclient_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *CPublishedFile_FileSubscribed_Notification) GetPublishedFileId() uint64 {
@@ -5465,7 +5684,7 @@ type CPublishedFile_FileUnsubscribed_Notification struct {
 
 func (x *CPublishedFile_FileUnsubscribed_Notification) Reset() {
 	*x = CPublishedFile_FileUnsubscribed_Notification{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[68]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5477,7 +5696,7 @@ func (x *CPublishedFile_FileUnsubscribed_Notification) String() string {
 func (*CPublishedFile_FileUnsubscribed_Notification) ProtoMessage() {}
 
 func (x *CPublishedFile_FileUnsubscribed_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[68]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5490,7 +5709,7 @@ func (x *CPublishedFile_FileUnsubscribed_Notification) ProtoReflect() protorefle
 
 // Deprecated: Use CPublishedFile_FileUnsubscribed_Notification.ProtoReflect.Descriptor instead.
 func (*CPublishedFile_FileUnsubscribed_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_publishedfile_steamclient_proto_rawDescGZIP(), []int{68}
+	return file_steammessages_publishedfile_steamclient_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *CPublishedFile_FileUnsubscribed_Notification) GetPublishedFileId() uint64 {
@@ -5517,7 +5736,7 @@ type CPublishedFile_FileDeleted_Client_Notification struct {
 
 func (x *CPublishedFile_FileDeleted_Client_Notification) Reset() {
 	*x = CPublishedFile_FileDeleted_Client_Notification{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[69]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5529,7 +5748,7 @@ func (x *CPublishedFile_FileDeleted_Client_Notification) String() string {
 func (*CPublishedFile_FileDeleted_Client_Notification) ProtoMessage() {}
 
 func (x *CPublishedFile_FileDeleted_Client_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[69]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5542,7 +5761,7 @@ func (x *CPublishedFile_FileDeleted_Client_Notification) ProtoReflect() protoref
 
 // Deprecated: Use CPublishedFile_FileDeleted_Client_Notification.ProtoReflect.Descriptor instead.
 func (*CPublishedFile_FileDeleted_Client_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_publishedfile_steamclient_proto_rawDescGZIP(), []int{69}
+	return file_steammessages_publishedfile_steamclient_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *CPublishedFile_FileDeleted_Client_Notification) GetPublishedFileId() uint64 {
@@ -5570,7 +5789,7 @@ type PublishedFileDetails_Tag struct {
 
 func (x *PublishedFileDetails_Tag) Reset() {
 	*x = PublishedFileDetails_Tag{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[70]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5582,7 +5801,7 @@ func (x *PublishedFileDetails_Tag) String() string {
 func (*PublishedFileDetails_Tag) ProtoMessage() {}
 
 func (x *PublishedFileDetails_Tag) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[70]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5635,7 +5854,7 @@ type PublishedFileDetails_Preview struct {
 
 func (x *PublishedFileDetails_Preview) Reset() {
 	*x = PublishedFileDetails_Preview{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[71]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5647,7 +5866,7 @@ func (x *PublishedFileDetails_Preview) String() string {
 func (*PublishedFileDetails_Preview) ProtoMessage() {}
 
 func (x *PublishedFileDetails_Preview) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[71]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5730,7 +5949,7 @@ type PublishedFileDetails_Child struct {
 
 func (x *PublishedFileDetails_Child) Reset() {
 	*x = PublishedFileDetails_Child{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[72]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5742,7 +5961,7 @@ func (x *PublishedFileDetails_Child) String() string {
 func (*PublishedFileDetails_Child) ProtoMessage() {}
 
 func (x *PublishedFileDetails_Child) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[72]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5789,7 +6008,7 @@ type PublishedFileDetails_KVTag struct {
 
 func (x *PublishedFileDetails_KVTag) Reset() {
 	*x = PublishedFileDetails_KVTag{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[73]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5801,7 +6020,7 @@ func (x *PublishedFileDetails_KVTag) String() string {
 func (*PublishedFileDetails_KVTag) ProtoMessage() {}
 
 func (x *PublishedFileDetails_KVTag) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[73]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5845,7 +6064,7 @@ type PublishedFileDetails_VoteData struct {
 
 func (x *PublishedFileDetails_VoteData) Reset() {
 	*x = PublishedFileDetails_VoteData{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[74]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5857,7 +6076,7 @@ func (x *PublishedFileDetails_VoteData) String() string {
 func (*PublishedFileDetails_VoteData) ProtoMessage() {}
 
 func (x *PublishedFileDetails_VoteData) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[74]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5934,7 +6153,7 @@ const (
 
 func (x *PublishedFileDetails_ForSaleData) Reset() {
 	*x = PublishedFileDetails_ForSaleData{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[75]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5946,7 +6165,7 @@ func (x *PublishedFileDetails_ForSaleData) String() string {
 func (*PublishedFileDetails_ForSaleData) ProtoMessage() {}
 
 func (x *PublishedFileDetails_ForSaleData) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[75]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6014,7 +6233,7 @@ type PublishedFileDetails_PlaytimeStats struct {
 
 func (x *PublishedFileDetails_PlaytimeStats) Reset() {
 	*x = PublishedFileDetails_PlaytimeStats{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[76]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6026,7 +6245,7 @@ func (x *PublishedFileDetails_PlaytimeStats) String() string {
 func (*PublishedFileDetails_PlaytimeStats) ProtoMessage() {}
 
 func (x *PublishedFileDetails_PlaytimeStats) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[76]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6066,7 +6285,7 @@ type PublishedFileDetails_Reaction struct {
 
 func (x *PublishedFileDetails_Reaction) Reset() {
 	*x = PublishedFileDetails_Reaction{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[77]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6078,7 +6297,7 @@ func (x *PublishedFileDetails_Reaction) String() string {
 func (*PublishedFileDetails_Reaction) ProtoMessage() {}
 
 func (x *PublishedFileDetails_Reaction) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[77]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6124,7 +6343,7 @@ const (
 
 func (x *CPublishedFile_GetItemInfo_Request_WorkshopItem) Reset() {
 	*x = CPublishedFile_GetItemInfo_Request_WorkshopItem{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[78]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6136,7 +6355,7 @@ func (x *CPublishedFile_GetItemInfo_Request_WorkshopItem) String() string {
 func (*CPublishedFile_GetItemInfo_Request_WorkshopItem) ProtoMessage() {}
 
 func (x *CPublishedFile_GetItemInfo_Request_WorkshopItem) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[78]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6192,7 +6411,7 @@ const (
 
 func (x *CPublishedFile_GetItemInfo_Response_WorkshopItemInfo) Reset() {
 	*x = CPublishedFile_GetItemInfo_Response_WorkshopItemInfo{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[79]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6204,7 +6423,7 @@ func (x *CPublishedFile_GetItemInfo_Response_WorkshopItemInfo) String() string {
 func (*CPublishedFile_GetItemInfo_Response_WorkshopItemInfo) ProtoMessage() {}
 
 func (x *CPublishedFile_GetItemInfo_Response_WorkshopItemInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[79]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6272,7 +6491,7 @@ type CPublishedFile_GetUserFiles_Request_KVTag struct {
 
 func (x *CPublishedFile_GetUserFiles_Request_KVTag) Reset() {
 	*x = CPublishedFile_GetUserFiles_Request_KVTag{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[80]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6284,7 +6503,7 @@ func (x *CPublishedFile_GetUserFiles_Request_KVTag) String() string {
 func (*CPublishedFile_GetUserFiles_Request_KVTag) ProtoMessage() {}
 
 func (x *CPublishedFile_GetUserFiles_Request_KVTag) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[80]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6323,7 +6542,7 @@ type CPublishedFile_GetUserFiles_Request_TagGroup struct {
 
 func (x *CPublishedFile_GetUserFiles_Request_TagGroup) Reset() {
 	*x = CPublishedFile_GetUserFiles_Request_TagGroup{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[81]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6335,7 +6554,7 @@ func (x *CPublishedFile_GetUserFiles_Request_TagGroup) String() string {
 func (*CPublishedFile_GetUserFiles_Request_TagGroup) ProtoMessage() {}
 
 func (x *CPublishedFile_GetUserFiles_Request_TagGroup) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[81]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6368,7 +6587,7 @@ type CPublishedFile_GetUserFiles_Request_DateRange struct {
 
 func (x *CPublishedFile_GetUserFiles_Request_DateRange) Reset() {
 	*x = CPublishedFile_GetUserFiles_Request_DateRange{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[82]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6380,7 +6599,7 @@ func (x *CPublishedFile_GetUserFiles_Request_DateRange) String() string {
 func (*CPublishedFile_GetUserFiles_Request_DateRange) ProtoMessage() {}
 
 func (x *CPublishedFile_GetUserFiles_Request_DateRange) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[82]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6422,7 +6641,7 @@ type CPublishedFile_GetUserFiles_Response_App struct {
 
 func (x *CPublishedFile_GetUserFiles_Response_App) Reset() {
 	*x = CPublishedFile_GetUserFiles_Response_App{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[83]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6434,7 +6653,7 @@ func (x *CPublishedFile_GetUserFiles_Response_App) String() string {
 func (*CPublishedFile_GetUserFiles_Response_App) ProtoMessage() {}
 
 func (x *CPublishedFile_GetUserFiles_Response_App) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[83]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6488,7 +6707,7 @@ type CPublishedFile_AreFilesInSubscriptionList_Response_InList struct {
 
 func (x *CPublishedFile_AreFilesInSubscriptionList_Response_InList) Reset() {
 	*x = CPublishedFile_AreFilesInSubscriptionList_Response_InList{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[84]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6500,7 +6719,7 @@ func (x *CPublishedFile_AreFilesInSubscriptionList_Response_InList) String() str
 func (*CPublishedFile_AreFilesInSubscriptionList_Response_InList) ProtoMessage() {}
 
 func (x *CPublishedFile_AreFilesInSubscriptionList_Response_InList) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[84]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6546,7 +6765,7 @@ type CPublishedFile_GetChangeHistory_Response_ChangeLog struct {
 
 func (x *CPublishedFile_GetChangeHistory_Response_ChangeLog) Reset() {
 	*x = CPublishedFile_GetChangeHistory_Response_ChangeLog{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[85]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6558,7 +6777,7 @@ func (x *CPublishedFile_GetChangeHistory_Response_ChangeLog) String() string {
 func (*CPublishedFile_GetChangeHistory_Response_ChangeLog) ProtoMessage() {}
 
 func (x *CPublishedFile_GetChangeHistory_Response_ChangeLog) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[85]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6640,7 +6859,7 @@ type CPublishedFile_QueryFiles_Request_KVTag struct {
 
 func (x *CPublishedFile_QueryFiles_Request_KVTag) Reset() {
 	*x = CPublishedFile_QueryFiles_Request_KVTag{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[86]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6652,7 +6871,7 @@ func (x *CPublishedFile_QueryFiles_Request_KVTag) String() string {
 func (*CPublishedFile_QueryFiles_Request_KVTag) ProtoMessage() {}
 
 func (x *CPublishedFile_QueryFiles_Request_KVTag) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[86]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6691,7 +6910,7 @@ type CPublishedFile_QueryFiles_Request_TagGroup struct {
 
 func (x *CPublishedFile_QueryFiles_Request_TagGroup) Reset() {
 	*x = CPublishedFile_QueryFiles_Request_TagGroup{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[87]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6703,7 +6922,7 @@ func (x *CPublishedFile_QueryFiles_Request_TagGroup) String() string {
 func (*CPublishedFile_QueryFiles_Request_TagGroup) ProtoMessage() {}
 
 func (x *CPublishedFile_QueryFiles_Request_TagGroup) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[87]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6736,7 +6955,7 @@ type CPublishedFile_QueryFiles_Request_DateRange struct {
 
 func (x *CPublishedFile_QueryFiles_Request_DateRange) Reset() {
 	*x = CPublishedFile_QueryFiles_Request_DateRange{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[88]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6748,7 +6967,7 @@ func (x *CPublishedFile_QueryFiles_Request_DateRange) String() string {
 func (*CPublishedFile_QueryFiles_Request_DateRange) ProtoMessage() {}
 
 func (x *CPublishedFile_QueryFiles_Request_DateRange) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[88]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6788,7 +7007,7 @@ type CPublishedFile_GetAppRelationships_Response_AppRelationship struct {
 
 func (x *CPublishedFile_GetAppRelationships_Response_AppRelationship) Reset() {
 	*x = CPublishedFile_GetAppRelationships_Response_AppRelationship{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[89]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6800,7 +7019,7 @@ func (x *CPublishedFile_GetAppRelationships_Response_AppRelationship) String() s
 func (*CPublishedFile_GetAppRelationships_Response_AppRelationship) ProtoMessage() {}
 
 func (x *CPublishedFile_GetAppRelationships_Response_AppRelationship) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[89]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6840,7 +7059,7 @@ type CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship struct {
 
 func (x *CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship) Reset() {
 	*x = CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[90]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6852,7 +7071,7 @@ func (x *CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship) Str
 func (*CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship) ProtoMessage() {}
 
 func (x *CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[90]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6893,7 +7112,7 @@ type CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelation
 
 func (x *CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship) Reset() {
 	*x = CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[91]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6906,7 +7125,7 @@ func (*CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelati
 }
 
 func (x *CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[91]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6953,7 +7172,7 @@ type CPublishedFile_SetPlaytimeForControllerConfigs_Request_ControllerConfigUsag
 
 func (x *CPublishedFile_SetPlaytimeForControllerConfigs_Request_ControllerConfigUsage) Reset() {
 	*x = CPublishedFile_SetPlaytimeForControllerConfigs_Request_ControllerConfigUsage{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[92]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6965,7 +7184,7 @@ func (x *CPublishedFile_SetPlaytimeForControllerConfigs_Request_ControllerConfig
 func (*CPublishedFile_SetPlaytimeForControllerConfigs_Request_ControllerConfigUsage) ProtoMessage() {}
 
 func (x *CPublishedFile_SetPlaytimeForControllerConfigs_Request_ControllerConfigUsage) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[92]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7001,13 +7220,14 @@ type CPublishedFile_GetUserVoteSummary_Response_VoteSummary struct {
 	VoteFor         *bool                  `protobuf:"varint,2,opt,name=vote_for,json=voteFor" json:"vote_for,omitempty"`
 	VoteAgainst     *bool                  `protobuf:"varint,3,opt,name=vote_against,json=voteAgainst" json:"vote_against,omitempty"`
 	Reported        *bool                  `protobuf:"varint,4,opt,name=reported" json:"reported,omitempty"`
+	VoteLater       *bool                  `protobuf:"varint,5,opt,name=vote_later,json=voteLater" json:"vote_later,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
 
 func (x *CPublishedFile_GetUserVoteSummary_Response_VoteSummary) Reset() {
 	*x = CPublishedFile_GetUserVoteSummary_Response_VoteSummary{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[93]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7019,7 +7239,7 @@ func (x *CPublishedFile_GetUserVoteSummary_Response_VoteSummary) String() string
 func (*CPublishedFile_GetUserVoteSummary_Response_VoteSummary) ProtoMessage() {}
 
 func (x *CPublishedFile_GetUserVoteSummary_Response_VoteSummary) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[93]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7063,6 +7283,13 @@ func (x *CPublishedFile_GetUserVoteSummary_Response_VoteSummary) GetReported() b
 	return false
 }
 
+func (x *CPublishedFile_GetUserVoteSummary_Response_VoteSummary) GetVoteLater() bool {
+	if x != nil && x.VoteLater != nil {
+		return *x.VoteLater
+	}
+	return false
+}
+
 type CPublishedFile_GetItemChanges_Response_WorkshopItemInfo struct {
 	state           protoimpl.MessageState         `protogen:"open.v1"`
 	PublishedFileId *uint64                        `protobuf:"fixed64,1,opt,name=published_file_id,json=publishedFileId" json:"published_file_id,omitempty"`
@@ -7076,7 +7303,7 @@ type CPublishedFile_GetItemChanges_Response_WorkshopItemInfo struct {
 
 func (x *CPublishedFile_GetItemChanges_Response_WorkshopItemInfo) Reset() {
 	*x = CPublishedFile_GetItemChanges_Response_WorkshopItemInfo{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[94]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7088,7 +7315,7 @@ func (x *CPublishedFile_GetItemChanges_Response_WorkshopItemInfo) String() strin
 func (*CPublishedFile_GetItemChanges_Response_WorkshopItemInfo) ProtoMessage() {}
 
 func (x *CPublishedFile_GetItemChanges_Response_WorkshopItemInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[94]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7156,7 +7383,7 @@ const (
 
 func (x *CPublishedFile_GetContentDescriptors_Response_ContentDescriptor) Reset() {
 	*x = CPublishedFile_GetContentDescriptors_Response_ContentDescriptor{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[95]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7168,7 +7395,7 @@ func (x *CPublishedFile_GetContentDescriptors_Response_ContentDescriptor) String
 func (*CPublishedFile_GetContentDescriptors_Response_ContentDescriptor) ProtoMessage() {}
 
 func (x *CPublishedFile_GetContentDescriptors_Response_ContentDescriptor) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[95]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7212,6 +7439,72 @@ func (x *CPublishedFile_GetContentDescriptors_Response_ContentDescriptor) GetMod
 	return false
 }
 
+type CPublishedFile_SanctionPublishedFile_Request_Sanction struct {
+	state         protoimpl.MessageState      `protogen:"open.v1"`
+	Sanction      *EContentModerationSanction `protobuf:"varint,1,opt,name=sanction,enum=EContentModerationSanction,def=0" json:"sanction,omitempty"`
+	Days          *int32                      `protobuf:"varint,2,opt,name=days" json:"days,omitempty"`
+	EscalateTo    *EContentModeratorLevel     `protobuf:"varint,3,opt,name=escalate_to,json=escalateTo,enum=EContentModeratorLevel,def=0" json:"escalate_to,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+// Default values for CPublishedFile_SanctionPublishedFile_Request_Sanction fields.
+const (
+	Default_CPublishedFile_SanctionPublishedFile_Request_Sanction_Sanction   = EContentModerationSanction_k_EContentModerationSanction_Invalid
+	Default_CPublishedFile_SanctionPublishedFile_Request_Sanction_EscalateTo = EContentModeratorLevel_k_EContentModeratorLevel_Any
+)
+
+func (x *CPublishedFile_SanctionPublishedFile_Request_Sanction) Reset() {
+	*x = CPublishedFile_SanctionPublishedFile_Request_Sanction{}
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CPublishedFile_SanctionPublishedFile_Request_Sanction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CPublishedFile_SanctionPublishedFile_Request_Sanction) ProtoMessage() {}
+
+func (x *CPublishedFile_SanctionPublishedFile_Request_Sanction) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CPublishedFile_SanctionPublishedFile_Request_Sanction.ProtoReflect.Descriptor instead.
+func (*CPublishedFile_SanctionPublishedFile_Request_Sanction) Descriptor() ([]byte, []int) {
+	return file_steammessages_publishedfile_steamclient_proto_rawDescGZIP(), []int{67, 0}
+}
+
+func (x *CPublishedFile_SanctionPublishedFile_Request_Sanction) GetSanction() EContentModerationSanction {
+	if x != nil && x.Sanction != nil {
+		return *x.Sanction
+	}
+	return Default_CPublishedFile_SanctionPublishedFile_Request_Sanction_Sanction
+}
+
+func (x *CPublishedFile_SanctionPublishedFile_Request_Sanction) GetDays() int32 {
+	if x != nil && x.Days != nil {
+		return *x.Days
+	}
+	return 0
+}
+
+func (x *CPublishedFile_SanctionPublishedFile_Request_Sanction) GetEscalateTo() EContentModeratorLevel {
+	if x != nil && x.EscalateTo != nil {
+		return *x.EscalateTo
+	}
+	return Default_CPublishedFile_SanctionPublishedFile_Request_Sanction_EscalateTo
+}
+
 type CPublishedFile_FileSubscribed_Notification_RevisionData struct {
 	state         protoimpl.MessageState  `protogen:"open.v1"`
 	Revision      *EPublishedFileRevision `protobuf:"varint,1,opt,name=revision,enum=EPublishedFileRevision,def=0" json:"revision,omitempty"`
@@ -7230,7 +7523,7 @@ const (
 
 func (x *CPublishedFile_FileSubscribed_Notification_RevisionData) Reset() {
 	*x = CPublishedFile_FileSubscribed_Notification_RevisionData{}
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[96]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7242,7 +7535,7 @@ func (x *CPublishedFile_FileSubscribed_Notification_RevisionData) String() strin
 func (*CPublishedFile_FileSubscribed_Notification_RevisionData) ProtoMessage() {}
 
 func (x *CPublishedFile_FileSubscribed_Notification_RevisionData) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[96]
+	mi := &file_steammessages_publishedfile_steamclient_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7255,7 +7548,7 @@ func (x *CPublishedFile_FileSubscribed_Notification_RevisionData) ProtoReflect()
 
 // Deprecated: Use CPublishedFile_FileSubscribed_Notification_RevisionData.ProtoReflect.Descriptor instead.
 func (*CPublishedFile_FileSubscribed_Notification_RevisionData) Descriptor() ([]byte, []int) {
-	return file_steammessages_publishedfile_steamclient_proto_rawDescGZIP(), []int{67, 0}
+	return file_steammessages_publishedfile_steamclient_proto_rawDescGZIP(), []int{71, 0}
 }
 
 func (x *CPublishedFile_FileSubscribed_Notification_RevisionData) GetRevision() EPublishedFileRevision {
@@ -7297,7 +7590,7 @@ var File_steammessages_publishedfile_steamclient_proto protoreflect.FileDescript
 
 const file_steammessages_publishedfile_steamclient_proto_rawDesc = "" +
 	"\n" +
-	"-steammessages_publishedfile.steamclient.proto\x1a\x18steammessages_base.proto\x1a,steammessages_unified_base.steamclient.proto\x1a\x17enums_productinfo.proto\"`\n" +
+	"-steammessages_publishedfile.steamclient.proto\x1a\x18steammessages_base.proto\x1a,steammessages_unified_base.steamclient.proto\x1a\x17enums_productinfo.proto\x1a\venums.proto\"`\n" +
 	"\x1bCPublishedFile_Vote_Request\x12(\n" +
 	"\x0fpublishedfileid\x18\x01 \x01(\x04R\x0fpublishedfileid\x12\x17\n" +
 	"\avote_up\x18\x02 \x01(\bR\x06voteUp\"\x1e\n" +
@@ -7817,14 +8110,16 @@ const file_steammessages_publishedfile_steamclient_proto_rawDesc = "" +
 	"\badd_only\x18\x04 \x01(\bR\aaddOnly\";\n" +
 	"9CPublishedFile_SetSubscriptionListFromCollection_Response\"W\n" +
 	")CPublishedFile_GetUserVoteSummary_Request\x12*\n" +
-	"\x10publishedfileids\x18\x01 \x03(\x06R\x10publishedfileids\"\x97\x02\n" +
+	"\x10publishedfileids\x18\x01 \x03(\x06R\x10publishedfileids\"\xb6\x02\n" +
 	"*CPublishedFile_GetUserVoteSummary_Response\x12U\n" +
-	"\tsummaries\x18\x01 \x03(\v27.CPublishedFile_GetUserVoteSummary_Response.VoteSummaryR\tsummaries\x1a\x91\x01\n" +
+	"\tsummaries\x18\x01 \x03(\v27.CPublishedFile_GetUserVoteSummary_Response.VoteSummaryR\tsummaries\x1a\xb0\x01\n" +
 	"\vVoteSummary\x12(\n" +
 	"\x0fpublishedfileid\x18\x01 \x01(\x06R\x0fpublishedfileid\x12\x19\n" +
 	"\bvote_for\x18\x02 \x01(\bR\avoteFor\x12!\n" +
 	"\fvote_against\x18\x03 \x01(\bR\vvoteAgainst\x12\x1a\n" +
-	"\breported\x18\x04 \x01(\bR\breported\"\xa5\x02\n" +
+	"\breported\x18\x04 \x01(\bR\breported\x12\x1d\n" +
+	"\n" +
+	"vote_later\x18\x05 \x01(\bR\tvoteLater\"\xa5\x02\n" +
 	"%CPublishedFile_GetItemChanges_Request\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12*\n" +
 	"\x11last_time_updated\x18\x02 \x01(\rR\x0flastTimeUpdated\x12\"\n" +
@@ -7856,7 +8151,24 @@ const file_steammessages_publishedfile_steamclient_proto_rawDesc = "" +
 	"\x12descriptors_to_add\x18\x02 \x03(\x0e2\x15.EContentDescriptorIDR\x10descriptorsToAdd\x12I\n" +
 	"\x15descriptors_to_remove\x18\x03 \x03(\x0e2\x15.EContentDescriptorIDR\x13descriptorsToRemove\"_\n" +
 	"0CPublishedFile_UpdateContentDescriptors_Response\x12+\n" +
-	"\x11timestamp_updated\x18\x01 \x01(\rR\x10timestampUpdated\"\xdc\x05\n" +
+	"\x11timestamp_updated\x18\x01 \x01(\rR\x10timestampUpdated\"\xd7\x04\n" +
+	",CPublishedFile_SanctionPublishedFile_Request\x12(\n" +
+	"\x0fpublishedfileid\x18\x01 \x01(\x06R\x0fpublishedfileid\x12M\n" +
+	"\x06reason\x18\x02 \x01(\x0e2\x15.EContentReportReason:\x1ek_EContentReportReason_InvalidR\x06reason\x12\x12\n" +
+	"\x04note\x18\x03 \x01(\tR\x04note\x12l\n" +
+	"\x16resolved_by_automation\x18\x04 \x01(\x0e2\x16.EResolutionAutomation:\x1ek_EResolutionAutomation_ManualR\x14resolvedByAutomation\x12T\n" +
+	"\tsanctions\x18\x05 \x03(\v26.CPublishedFile_SanctionPublishedFile_Request.SanctionR\tsanctions\x1a\xd5\x01\n" +
+	"\bSanction\x12]\n" +
+	"\bsanction\x18\x01 \x01(\x0e2\x1b.EContentModerationSanction:$k_EContentModerationSanction_InvalidR\bsanction\x12\x12\n" +
+	"\x04days\x18\x02 \x01(\x05R\x04days\x12V\n" +
+	"\vescalate_to\x18\x03 \x01(\x0e2\x17.EContentModeratorLevel:\x1ck_EContentModeratorLevel_AnyR\n" +
+	"escalateTo\"V\n" +
+	"-CPublishedFile_SanctionPublishedFile_Response\x12%\n" +
+	"\x0eforce_unbanned\x18\x01 \x01(\bR\rforceUnbanned\"\xc4\x01\n" +
+	"*CPublishedFile_AcquitPublishedFile_Request\x12(\n" +
+	"\x0fpublishedfileid\x18\x01 \x01(\x06R\x0fpublishedfileid\x12l\n" +
+	"\x16resolved_by_automation\x18\x02 \x01(\x0e2\x16.EResolutionAutomation:\x1ek_EResolutionAutomation_ManualR\x14resolvedByAutomation\"-\n" +
+	"+CPublishedFile_AcquitPublishedFile_Response\"\xdc\x05\n" +
 	"*CPublishedFile_FileSubscribed_Notification\x12*\n" +
 	"\x11published_file_id\x18\x01 \x01(\x06R\x0fpublishedFileId\x12\x15\n" +
 	"\x06app_id\x18\x02 \x01(\rR\x05appId\x12#\n" +
@@ -7906,7 +8218,7 @@ const file_steammessages_publishedfile_steamclient_proto_rawDesc = "" +
 	"\x1bEQueryFilesSearchTextTarget\x12)\n" +
 	"%k_EQueryFilesSearchTextTarget_AllText\x10\x00\x12'\n" +
 	"#k_EQueryFilesSearchTextTarget_Title\x10\x01\x12-\n" +
-	")k_EQueryFilesSearchTextTarget_Description\x10\x022\xdd\x1b\n" +
+	")k_EQueryFilesSearchTextTarget_Description\x10\x022\xc7\x1d\n" +
 	"\rPublishedFile\x12C\n" +
 	"\x04Vote\x12\x1c.CPublishedFile_Vote_Request\x1a\x1d.CPublishedFile_Vote_Response\x12R\n" +
 	"\tSubscribe\x12!.CPublishedFile_Subscribe_Request\x1a\".CPublishedFile_Subscribe_Response\x12X\n" +
@@ -7942,7 +8254,9 @@ const file_steammessages_publishedfile_steamclient_proto_rawDesc = "" +
 	"\x12GetUserVoteSummary\x12*.CPublishedFile_GetUserVoteSummary_Request\x1a+.CPublishedFile_GetUserVoteSummary_Response\x12a\n" +
 	"\x0eGetItemChanges\x12&.CPublishedFile_GetItemChanges_Request\x1a'.CPublishedFile_GetItemChanges_Response\x12v\n" +
 	"\x15GetContentDescriptors\x12-.CPublishedFile_GetContentDescriptors_Request\x1a..CPublishedFile_GetContentDescriptors_Response\x12\x7f\n" +
-	"\x18UpdateContentDescriptors\x120.CPublishedFile_UpdateContentDescriptors_Request\x1a1.CPublishedFile_UpdateContentDescriptors_Response2\x96\x02\n" +
+	"\x18UpdateContentDescriptors\x120.CPublishedFile_UpdateContentDescriptors_Request\x1a1.CPublishedFile_UpdateContentDescriptors_Response\x12v\n" +
+	"\x15SanctionPublishedFile\x12-.CPublishedFile_SanctionPublishedFile_Request\x1a..CPublishedFile_SanctionPublishedFile_Response\x12p\n" +
+	"\x13AcquitPublishedFile\x12+.CPublishedFile_AcquitPublishedFile_Request\x1a,.CPublishedFile_AcquitPublishedFile_Response2\x96\x02\n" +
 	"\x13PublishedFileClient\x12P\n" +
 	"\x14NotifyFileSubscribed\x12+.CPublishedFile_FileSubscribed_Notification\x1a\v.NoResponse\x12T\n" +
 	"\x16NotifyFileUnsubscribed\x12-.CPublishedFile_FileUnsubscribed_Notification\x1a\v.NoResponse\x12Q\n" +
@@ -7961,7 +8275,7 @@ func file_steammessages_publishedfile_steamclient_proto_rawDescGZIP() []byte {
 }
 
 var file_steammessages_publishedfile_steamclient_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
-var file_steammessages_publishedfile_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 97)
+var file_steammessages_publishedfile_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 102)
 var file_steammessages_publishedfile_steamclient_proto_goTypes = []any{
 	(EPublishedFileRevision)(0),                                                             // 0: EPublishedFileRevision
 	(EPublishedFileForSaleStatus)(0),                                                        // 1: EPublishedFileForSaleStatus
@@ -8034,178 +8348,197 @@ var file_steammessages_publishedfile_steamclient_proto_goTypes = []any{
 	(*CPublishedFile_GetContentDescriptors_Response)(nil),                                   // 68: CPublishedFile_GetContentDescriptors_Response
 	(*CPublishedFile_UpdateContentDescriptors_Request)(nil),                                 // 69: CPublishedFile_UpdateContentDescriptors_Request
 	(*CPublishedFile_UpdateContentDescriptors_Response)(nil),                                // 70: CPublishedFile_UpdateContentDescriptors_Response
-	(*CPublishedFile_FileSubscribed_Notification)(nil),                                      // 71: CPublishedFile_FileSubscribed_Notification
-	(*CPublishedFile_FileUnsubscribed_Notification)(nil),                                    // 72: CPublishedFile_FileUnsubscribed_Notification
-	(*CPublishedFile_FileDeleted_Client_Notification)(nil),                                  // 73: CPublishedFile_FileDeleted_Client_Notification
-	(*PublishedFileDetails_Tag)(nil),                                                        // 74: PublishedFileDetails.Tag
-	(*PublishedFileDetails_Preview)(nil),                                                    // 75: PublishedFileDetails.Preview
-	(*PublishedFileDetails_Child)(nil),                                                      // 76: PublishedFileDetails.Child
-	(*PublishedFileDetails_KVTag)(nil),                                                      // 77: PublishedFileDetails.KVTag
-	(*PublishedFileDetails_VoteData)(nil),                                                   // 78: PublishedFileDetails.VoteData
-	(*PublishedFileDetails_ForSaleData)(nil),                                                // 79: PublishedFileDetails.ForSaleData
-	(*PublishedFileDetails_PlaytimeStats)(nil),                                              // 80: PublishedFileDetails.PlaytimeStats
-	(*PublishedFileDetails_Reaction)(nil),                                                   // 81: PublishedFileDetails.Reaction
-	(*CPublishedFile_GetItemInfo_Request_WorkshopItem)(nil),                                 // 82: CPublishedFile_GetItemInfo_Request.WorkshopItem
-	(*CPublishedFile_GetItemInfo_Response_WorkshopItemInfo)(nil),                            // 83: CPublishedFile_GetItemInfo_Response.WorkshopItemInfo
-	(*CPublishedFile_GetUserFiles_Request_KVTag)(nil),                                       // 84: CPublishedFile_GetUserFiles_Request.KVTag
-	(*CPublishedFile_GetUserFiles_Request_TagGroup)(nil),                                    // 85: CPublishedFile_GetUserFiles_Request.TagGroup
-	(*CPublishedFile_GetUserFiles_Request_DateRange)(nil),                                   // 86: CPublishedFile_GetUserFiles_Request.DateRange
-	(*CPublishedFile_GetUserFiles_Response_App)(nil),                                        // 87: CPublishedFile_GetUserFiles_Response.App
-	(*CPublishedFile_AreFilesInSubscriptionList_Response_InList)(nil),                       // 88: CPublishedFile_AreFilesInSubscriptionList_Response.InList
-	(*CPublishedFile_GetChangeHistory_Response_ChangeLog)(nil),                              // 89: CPublishedFile_GetChangeHistory_Response.ChangeLog
-	(*CPublishedFile_QueryFiles_Request_KVTag)(nil),                                         // 90: CPublishedFile_QueryFiles_Request.KVTag
-	(*CPublishedFile_QueryFiles_Request_TagGroup)(nil),                                      // 91: CPublishedFile_QueryFiles_Request.TagGroup
-	(*CPublishedFile_QueryFiles_Request_DateRange)(nil),                                     // 92: CPublishedFile_QueryFiles_Request.DateRange
-	(*CPublishedFile_GetAppRelationships_Response_AppRelationship)(nil),                     // 93: CPublishedFile_GetAppRelationships_Response.AppRelationship
-	(*CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship)(nil),              // 94: CPublishedFile_GetAppRelationshipsBatched_Response.AppRelationship
-	(*CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship)(nil), // 95: CPublishedFile_GetAppRelationshipsBatched_Response.PublishedFileAppRelationship
-	(*CPublishedFile_SetPlaytimeForControllerConfigs_Request_ControllerConfigUsage)(nil),    // 96: CPublishedFile_SetPlaytimeForControllerConfigs_Request.ControllerConfigUsage
-	(*CPublishedFile_GetUserVoteSummary_Response_VoteSummary)(nil),                          // 97: CPublishedFile_GetUserVoteSummary_Response.VoteSummary
-	(*CPublishedFile_GetItemChanges_Response_WorkshopItemInfo)(nil),                         // 98: CPublishedFile_GetItemChanges_Response.WorkshopItemInfo
-	(*CPublishedFile_GetContentDescriptors_Response_ContentDescriptor)(nil),                 // 99: CPublishedFile_GetContentDescriptors_Response.ContentDescriptor
-	(*CPublishedFile_FileSubscribed_Notification_RevisionData)(nil),                         // 100: CPublishedFile_FileSubscribed_Notification.RevisionData
-	(EContentDescriptorID)(0),                                                               // 101: EContentDescriptorID
-	(EBanContentCheckResult)(0),                                                             // 102: EBanContentCheckResult
-	(*NoResponse)(nil),                                                                      // 103: NoResponse
+	(*CPublishedFile_SanctionPublishedFile_Request)(nil),                                    // 71: CPublishedFile_SanctionPublishedFile_Request
+	(*CPublishedFile_SanctionPublishedFile_Response)(nil),                                   // 72: CPublishedFile_SanctionPublishedFile_Response
+	(*CPublishedFile_AcquitPublishedFile_Request)(nil),                                      // 73: CPublishedFile_AcquitPublishedFile_Request
+	(*CPublishedFile_AcquitPublishedFile_Response)(nil),                                     // 74: CPublishedFile_AcquitPublishedFile_Response
+	(*CPublishedFile_FileSubscribed_Notification)(nil),                                      // 75: CPublishedFile_FileSubscribed_Notification
+	(*CPublishedFile_FileUnsubscribed_Notification)(nil),                                    // 76: CPublishedFile_FileUnsubscribed_Notification
+	(*CPublishedFile_FileDeleted_Client_Notification)(nil),                                  // 77: CPublishedFile_FileDeleted_Client_Notification
+	(*PublishedFileDetails_Tag)(nil),                                                        // 78: PublishedFileDetails.Tag
+	(*PublishedFileDetails_Preview)(nil),                                                    // 79: PublishedFileDetails.Preview
+	(*PublishedFileDetails_Child)(nil),                                                      // 80: PublishedFileDetails.Child
+	(*PublishedFileDetails_KVTag)(nil),                                                      // 81: PublishedFileDetails.KVTag
+	(*PublishedFileDetails_VoteData)(nil),                                                   // 82: PublishedFileDetails.VoteData
+	(*PublishedFileDetails_ForSaleData)(nil),                                                // 83: PublishedFileDetails.ForSaleData
+	(*PublishedFileDetails_PlaytimeStats)(nil),                                              // 84: PublishedFileDetails.PlaytimeStats
+	(*PublishedFileDetails_Reaction)(nil),                                                   // 85: PublishedFileDetails.Reaction
+	(*CPublishedFile_GetItemInfo_Request_WorkshopItem)(nil),                                 // 86: CPublishedFile_GetItemInfo_Request.WorkshopItem
+	(*CPublishedFile_GetItemInfo_Response_WorkshopItemInfo)(nil),                            // 87: CPublishedFile_GetItemInfo_Response.WorkshopItemInfo
+	(*CPublishedFile_GetUserFiles_Request_KVTag)(nil),                                       // 88: CPublishedFile_GetUserFiles_Request.KVTag
+	(*CPublishedFile_GetUserFiles_Request_TagGroup)(nil),                                    // 89: CPublishedFile_GetUserFiles_Request.TagGroup
+	(*CPublishedFile_GetUserFiles_Request_DateRange)(nil),                                   // 90: CPublishedFile_GetUserFiles_Request.DateRange
+	(*CPublishedFile_GetUserFiles_Response_App)(nil),                                        // 91: CPublishedFile_GetUserFiles_Response.App
+	(*CPublishedFile_AreFilesInSubscriptionList_Response_InList)(nil),                       // 92: CPublishedFile_AreFilesInSubscriptionList_Response.InList
+	(*CPublishedFile_GetChangeHistory_Response_ChangeLog)(nil),                              // 93: CPublishedFile_GetChangeHistory_Response.ChangeLog
+	(*CPublishedFile_QueryFiles_Request_KVTag)(nil),                                         // 94: CPublishedFile_QueryFiles_Request.KVTag
+	(*CPublishedFile_QueryFiles_Request_TagGroup)(nil),                                      // 95: CPublishedFile_QueryFiles_Request.TagGroup
+	(*CPublishedFile_QueryFiles_Request_DateRange)(nil),                                     // 96: CPublishedFile_QueryFiles_Request.DateRange
+	(*CPublishedFile_GetAppRelationships_Response_AppRelationship)(nil),                     // 97: CPublishedFile_GetAppRelationships_Response.AppRelationship
+	(*CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship)(nil),              // 98: CPublishedFile_GetAppRelationshipsBatched_Response.AppRelationship
+	(*CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship)(nil), // 99: CPublishedFile_GetAppRelationshipsBatched_Response.PublishedFileAppRelationship
+	(*CPublishedFile_SetPlaytimeForControllerConfigs_Request_ControllerConfigUsage)(nil),    // 100: CPublishedFile_SetPlaytimeForControllerConfigs_Request.ControllerConfigUsage
+	(*CPublishedFile_GetUserVoteSummary_Response_VoteSummary)(nil),                          // 101: CPublishedFile_GetUserVoteSummary_Response.VoteSummary
+	(*CPublishedFile_GetItemChanges_Response_WorkshopItemInfo)(nil),                         // 102: CPublishedFile_GetItemChanges_Response.WorkshopItemInfo
+	(*CPublishedFile_GetContentDescriptors_Response_ContentDescriptor)(nil),                 // 103: CPublishedFile_GetContentDescriptors_Response.ContentDescriptor
+	(*CPublishedFile_SanctionPublishedFile_Request_Sanction)(nil),                           // 104: CPublishedFile_SanctionPublishedFile_Request.Sanction
+	(*CPublishedFile_FileSubscribed_Notification_RevisionData)(nil),                         // 105: CPublishedFile_FileSubscribed_Notification.RevisionData
+	(EContentDescriptorID)(0),                                                               // 106: EContentDescriptorID
+	(EBanContentCheckResult)(0),                                                             // 107: EBanContentCheckResult
+	(EContentReportReason)(0),                                                               // 108: EContentReportReason
+	(EResolutionAutomation)(0),                                                              // 109: EResolutionAutomation
+	(EContentModerationSanction)(0),                                                         // 110: EContentModerationSanction
+	(EContentModeratorLevel)(0),                                                             // 111: EContentModeratorLevel
+	(*NoResponse)(nil),                                                                      // 112: NoResponse
 }
 var file_steammessages_publishedfile_steamclient_proto_depIdxs = []int32{
 	0,   // 0: CPublishedFile_GetSubSectionData_Request.desired_revision:type_name -> EPublishedFileRevision
 	13,  // 1: CPublishedFile_GetSubSectionData_Response.sub_sections:type_name -> PublishedFileSubSection
 	0,   // 2: CPublishedFile_GetDetails_Request.desired_revision:type_name -> EPublishedFileRevision
-	75,  // 3: PublishedFileDetails.previews:type_name -> PublishedFileDetails.Preview
-	74,  // 4: PublishedFileDetails.tags:type_name -> PublishedFileDetails.Tag
-	76,  // 5: PublishedFileDetails.children:type_name -> PublishedFileDetails.Child
-	77,  // 6: PublishedFileDetails.kvtags:type_name -> PublishedFileDetails.KVTag
-	78,  // 7: PublishedFileDetails.vote_data:type_name -> PublishedFileDetails.VoteData
-	80,  // 8: PublishedFileDetails.playtime_stats:type_name -> PublishedFileDetails.PlaytimeStats
-	79,  // 9: PublishedFileDetails.for_sale_data:type_name -> PublishedFileDetails.ForSaleData
-	101, // 10: PublishedFileDetails.content_descriptorids:type_name -> EContentDescriptorID
+	79,  // 3: PublishedFileDetails.previews:type_name -> PublishedFileDetails.Preview
+	78,  // 4: PublishedFileDetails.tags:type_name -> PublishedFileDetails.Tag
+	80,  // 5: PublishedFileDetails.children:type_name -> PublishedFileDetails.Child
+	81,  // 6: PublishedFileDetails.kvtags:type_name -> PublishedFileDetails.KVTag
+	82,  // 7: PublishedFileDetails.vote_data:type_name -> PublishedFileDetails.VoteData
+	84,  // 8: PublishedFileDetails.playtime_stats:type_name -> PublishedFileDetails.PlaytimeStats
+	83,  // 9: PublishedFileDetails.for_sale_data:type_name -> PublishedFileDetails.ForSaleData
+	106, // 10: PublishedFileDetails.content_descriptorids:type_name -> EContentDescriptorID
 	0,   // 11: PublishedFileDetails.revision:type_name -> EPublishedFileRevision
 	0,   // 12: PublishedFileDetails.available_revisions:type_name -> EPublishedFileRevision
-	81,  // 13: PublishedFileDetails.reactions:type_name -> PublishedFileDetails.Reaction
-	102, // 14: PublishedFileDetails.ban_text_check_result:type_name -> EBanContentCheckResult
+	85,  // 13: PublishedFileDetails.reactions:type_name -> PublishedFileDetails.Reaction
+	107, // 14: PublishedFileDetails.ban_text_check_result:type_name -> EBanContentCheckResult
 	18,  // 15: PublishedFileDetails.author_snapshots:type_name -> PublishedFileAuthorSnapshot
 	19,  // 16: CPublishedFile_GetDetails_Response.publishedfiledetails:type_name -> PublishedFileDetails
-	82,  // 17: CPublishedFile_GetItemInfo_Request.workshop_items:type_name -> CPublishedFile_GetItemInfo_Request.WorkshopItem
+	86,  // 17: CPublishedFile_GetItemInfo_Request.workshop_items:type_name -> CPublishedFile_GetItemInfo_Request.WorkshopItem
 	0,   // 18: CPublishedFile_GetItemInfo_Request.desired_revision:type_name -> EPublishedFileRevision
-	83,  // 19: CPublishedFile_GetItemInfo_Response.workshop_items:type_name -> CPublishedFile_GetItemInfo_Response.WorkshopItemInfo
-	84,  // 20: CPublishedFile_GetUserFiles_Request.required_kv_tags:type_name -> CPublishedFile_GetUserFiles_Request.KVTag
-	85,  // 21: CPublishedFile_GetUserFiles_Request.taggroups:type_name -> CPublishedFile_GetUserFiles_Request.TagGroup
-	86,  // 22: CPublishedFile_GetUserFiles_Request.date_range_created:type_name -> CPublishedFile_GetUserFiles_Request.DateRange
-	86,  // 23: CPublishedFile_GetUserFiles_Request.date_range_updated:type_name -> CPublishedFile_GetUserFiles_Request.DateRange
-	101, // 24: CPublishedFile_GetUserFiles_Request.excluded_content_descriptors:type_name -> EContentDescriptorID
-	101, // 25: CPublishedFile_GetUserFiles_Request.excluded_apps_with_content_descriptors:type_name -> EContentDescriptorID
+	87,  // 19: CPublishedFile_GetItemInfo_Response.workshop_items:type_name -> CPublishedFile_GetItemInfo_Response.WorkshopItemInfo
+	88,  // 20: CPublishedFile_GetUserFiles_Request.required_kv_tags:type_name -> CPublishedFile_GetUserFiles_Request.KVTag
+	89,  // 21: CPublishedFile_GetUserFiles_Request.taggroups:type_name -> CPublishedFile_GetUserFiles_Request.TagGroup
+	90,  // 22: CPublishedFile_GetUserFiles_Request.date_range_created:type_name -> CPublishedFile_GetUserFiles_Request.DateRange
+	90,  // 23: CPublishedFile_GetUserFiles_Request.date_range_updated:type_name -> CPublishedFile_GetUserFiles_Request.DateRange
+	106, // 24: CPublishedFile_GetUserFiles_Request.excluded_content_descriptors:type_name -> EContentDescriptorID
+	106, // 25: CPublishedFile_GetUserFiles_Request.excluded_apps_with_content_descriptors:type_name -> EContentDescriptorID
 	0,   // 26: CPublishedFile_GetUserFiles_Request.desired_revision:type_name -> EPublishedFileRevision
 	19,  // 27: CPublishedFile_GetUserFiles_Response.publishedfiledetails:type_name -> PublishedFileDetails
-	87,  // 28: CPublishedFile_GetUserFiles_Response.apps:type_name -> CPublishedFile_GetUserFiles_Response.App
-	88,  // 29: CPublishedFile_AreFilesInSubscriptionList_Response.files:type_name -> CPublishedFile_AreFilesInSubscriptionList_Response.InList
-	89,  // 30: CPublishedFile_GetChangeHistory_Response.changes:type_name -> CPublishedFile_GetChangeHistory_Response.ChangeLog
+	91,  // 28: CPublishedFile_GetUserFiles_Response.apps:type_name -> CPublishedFile_GetUserFiles_Response.App
+	92,  // 29: CPublishedFile_AreFilesInSubscriptionList_Response.files:type_name -> CPublishedFile_AreFilesInSubscriptionList_Response.InList
+	93,  // 30: CPublishedFile_GetChangeHistory_Response.changes:type_name -> CPublishedFile_GetChangeHistory_Response.ChangeLog
 	0,   // 31: CPublishedFile_RefreshVotingQueue_Request.desired_revision:type_name -> EPublishedFileRevision
-	90,  // 32: CPublishedFile_QueryFiles_Request.required_kv_tags:type_name -> CPublishedFile_QueryFiles_Request.KVTag
-	91,  // 33: CPublishedFile_QueryFiles_Request.taggroups:type_name -> CPublishedFile_QueryFiles_Request.TagGroup
-	92,  // 34: CPublishedFile_QueryFiles_Request.date_range_created:type_name -> CPublishedFile_QueryFiles_Request.DateRange
-	92,  // 35: CPublishedFile_QueryFiles_Request.date_range_updated:type_name -> CPublishedFile_QueryFiles_Request.DateRange
-	101, // 36: CPublishedFile_QueryFiles_Request.excluded_content_descriptors:type_name -> EContentDescriptorID
+	94,  // 32: CPublishedFile_QueryFiles_Request.required_kv_tags:type_name -> CPublishedFile_QueryFiles_Request.KVTag
+	95,  // 33: CPublishedFile_QueryFiles_Request.taggroups:type_name -> CPublishedFile_QueryFiles_Request.TagGroup
+	96,  // 34: CPublishedFile_QueryFiles_Request.date_range_created:type_name -> CPublishedFile_QueryFiles_Request.DateRange
+	96,  // 35: CPublishedFile_QueryFiles_Request.date_range_updated:type_name -> CPublishedFile_QueryFiles_Request.DateRange
+	106, // 36: CPublishedFile_QueryFiles_Request.excluded_content_descriptors:type_name -> EContentDescriptorID
 	2,   // 37: CPublishedFile_QueryFiles_Request.special_filter:type_name -> EQueryFilesSpecialFilter
 	3,   // 38: CPublishedFile_QueryFiles_Request.search_text_target:type_name -> EQueryFilesSearchTextTarget
 	0,   // 39: CPublishedFile_QueryFiles_Request.desired_revision:type_name -> EPublishedFileRevision
 	19,  // 40: CPublishedFile_QueryFiles_Response.publishedfiledetails:type_name -> PublishedFileDetails
-	93,  // 41: CPublishedFile_GetAppRelationships_Response.app_relationships:type_name -> CPublishedFile_GetAppRelationships_Response.AppRelationship
-	95,  // 42: CPublishedFile_GetAppRelationshipsBatched_Response.relationships:type_name -> CPublishedFile_GetAppRelationshipsBatched_Response.PublishedFileAppRelationship
-	96,  // 43: CPublishedFile_SetPlaytimeForControllerConfigs_Request.controller_config_usage:type_name -> CPublishedFile_SetPlaytimeForControllerConfigs_Request.ControllerConfigUsage
-	97,  // 44: CPublishedFile_GetUserVoteSummary_Response.summaries:type_name -> CPublishedFile_GetUserVoteSummary_Response.VoteSummary
+	97,  // 41: CPublishedFile_GetAppRelationships_Response.app_relationships:type_name -> CPublishedFile_GetAppRelationships_Response.AppRelationship
+	99,  // 42: CPublishedFile_GetAppRelationshipsBatched_Response.relationships:type_name -> CPublishedFile_GetAppRelationshipsBatched_Response.PublishedFileAppRelationship
+	100, // 43: CPublishedFile_SetPlaytimeForControllerConfigs_Request.controller_config_usage:type_name -> CPublishedFile_SetPlaytimeForControllerConfigs_Request.ControllerConfigUsage
+	101, // 44: CPublishedFile_GetUserVoteSummary_Response.summaries:type_name -> CPublishedFile_GetUserVoteSummary_Response.VoteSummary
 	0,   // 45: CPublishedFile_GetItemChanges_Request.desired_revision:type_name -> EPublishedFileRevision
-	98,  // 46: CPublishedFile_GetItemChanges_Response.workshop_items:type_name -> CPublishedFile_GetItemChanges_Response.WorkshopItemInfo
-	99,  // 47: CPublishedFile_GetContentDescriptors_Response.content_descriptors:type_name -> CPublishedFile_GetContentDescriptors_Response.ContentDescriptor
-	101, // 48: CPublishedFile_UpdateContentDescriptors_Request.descriptors_to_add:type_name -> EContentDescriptorID
-	101, // 49: CPublishedFile_UpdateContentDescriptors_Request.descriptors_to_remove:type_name -> EContentDescriptorID
-	0,   // 50: CPublishedFile_FileSubscribed_Notification.revision:type_name -> EPublishedFileRevision
-	100, // 51: CPublishedFile_FileSubscribed_Notification.revisions:type_name -> CPublishedFile_FileSubscribed_Notification.RevisionData
-	1,   // 52: PublishedFileDetails.ForSaleData.estatus:type_name -> EPublishedFileForSaleStatus
-	0,   // 53: CPublishedFile_GetItemInfo_Request.WorkshopItem.desired_revision:type_name -> EPublishedFileRevision
-	0,   // 54: CPublishedFile_GetItemInfo_Response.WorkshopItemInfo.revision:type_name -> EPublishedFileRevision
-	18,  // 55: CPublishedFile_GetItemInfo_Response.WorkshopItemInfo.author_snapshots:type_name -> PublishedFileAuthorSnapshot
-	94,  // 56: CPublishedFile_GetAppRelationshipsBatched_Response.PublishedFileAppRelationship.app_relationships:type_name -> CPublishedFile_GetAppRelationshipsBatched_Response.AppRelationship
-	18,  // 57: CPublishedFile_GetItemChanges_Response.WorkshopItemInfo.author_snapshots:type_name -> PublishedFileAuthorSnapshot
-	101, // 58: CPublishedFile_GetContentDescriptors_Response.ContentDescriptor.descriptorid:type_name -> EContentDescriptorID
-	0,   // 59: CPublishedFile_FileSubscribed_Notification.RevisionData.revision:type_name -> EPublishedFileRevision
-	4,   // 60: PublishedFile.Vote:input_type -> CPublishedFile_Vote_Request
-	6,   // 61: PublishedFile.Subscribe:input_type -> CPublishedFile_Subscribe_Request
-	8,   // 62: PublishedFile.Unsubscribe:input_type -> CPublishedFile_Unsubscribe_Request
-	10,  // 63: PublishedFile.CanSubscribe:input_type -> CPublishedFile_CanSubscribe_Request
-	12,  // 64: PublishedFile.GetSubSectionData:input_type -> CPublishedFile_GetSubSectionData_Request
-	15,  // 65: PublishedFile.Publish:input_type -> CPublishedFile_Publish_Request
-	17,  // 66: PublishedFile.GetDetails:input_type -> CPublishedFile_GetDetails_Request
-	21,  // 67: PublishedFile.GetItemInfo:input_type -> CPublishedFile_GetItemInfo_Request
-	23,  // 68: PublishedFile.GetUserFiles:input_type -> CPublishedFile_GetUserFiles_Request
-	23,  // 69: PublishedFile.GetUserFileCount:input_type -> CPublishedFile_GetUserFiles_Request
-	25,  // 70: PublishedFile.AreFilesInSubscriptionList:input_type -> CPublishedFile_AreFilesInSubscriptionList_Request
-	27,  // 71: PublishedFile.Update:input_type -> CPublishedFile_Update_Request
-	29,  // 72: PublishedFile.Delete:input_type -> CPublishedFile_Delete_Request
-	31,  // 73: PublishedFile.GetChangeHistoryEntry:input_type -> CPublishedFile_GetChangeHistoryEntry_Request
-	33,  // 74: PublishedFile.GetChangeHistory:input_type -> CPublishedFile_GetChangeHistory_Request
-	35,  // 75: PublishedFile.RefreshVotingQueue:input_type -> CPublishedFile_RefreshVotingQueue_Request
-	37,  // 76: PublishedFile.QueryFiles:input_type -> CPublishedFile_QueryFiles_Request
-	39,  // 77: PublishedFile.AddAppRelationship:input_type -> CPublishedFile_AddAppRelationship_Request
-	41,  // 78: PublishedFile.RemoveAppRelationship:input_type -> CPublishedFile_RemoveAppRelationship_Request
-	43,  // 79: PublishedFile.GetAppRelationships:input_type -> CPublishedFile_GetAppRelationships_Request
-	45,  // 80: PublishedFile.GetAppRelationshipsBatched:input_type -> CPublishedFile_GetAppRelationshipsBatched_Request
-	47,  // 81: PublishedFile.StartPlaytimeTracking:input_type -> CPublishedFile_StartPlaytimeTracking_Request
-	49,  // 82: PublishedFile.StopPlaytimeTracking:input_type -> CPublishedFile_StopPlaytimeTracking_Request
-	51,  // 83: PublishedFile.StopPlaytimeTrackingForAllAppItems:input_type -> CPublishedFile_StopPlaytimeTrackingForAllAppItems_Request
-	53,  // 84: PublishedFile.SetPlaytimeForControllerConfigs:input_type -> CPublishedFile_SetPlaytimeForControllerConfigs_Request
-	55,  // 85: PublishedFile.AddChild:input_type -> CPublishedFile_AddChild_Request
-	57,  // 86: PublishedFile.RemoveChild:input_type -> CPublishedFile_RemoveChild_Request
-	59,  // 87: PublishedFile.SetCollectionChildren:input_type -> CPublishedFile_SetCollectionChildren_Request
-	61,  // 88: PublishedFile.SetSubscriptionListFromCollection:input_type -> CPublishedFile_SetSubscriptionListFromCollection_Request
-	63,  // 89: PublishedFile.GetUserVoteSummary:input_type -> CPublishedFile_GetUserVoteSummary_Request
-	65,  // 90: PublishedFile.GetItemChanges:input_type -> CPublishedFile_GetItemChanges_Request
-	67,  // 91: PublishedFile.GetContentDescriptors:input_type -> CPublishedFile_GetContentDescriptors_Request
-	69,  // 92: PublishedFile.UpdateContentDescriptors:input_type -> CPublishedFile_UpdateContentDescriptors_Request
-	71,  // 93: PublishedFileClient.NotifyFileSubscribed:input_type -> CPublishedFile_FileSubscribed_Notification
-	72,  // 94: PublishedFileClient.NotifyFileUnsubscribed:input_type -> CPublishedFile_FileUnsubscribed_Notification
-	73,  // 95: PublishedFileClient.NotifyFileDeleted:input_type -> CPublishedFile_FileDeleted_Client_Notification
-	5,   // 96: PublishedFile.Vote:output_type -> CPublishedFile_Vote_Response
-	7,   // 97: PublishedFile.Subscribe:output_type -> CPublishedFile_Subscribe_Response
-	9,   // 98: PublishedFile.Unsubscribe:output_type -> CPublishedFile_Unsubscribe_Response
-	11,  // 99: PublishedFile.CanSubscribe:output_type -> CPublishedFile_CanSubscribe_Response
-	14,  // 100: PublishedFile.GetSubSectionData:output_type -> CPublishedFile_GetSubSectionData_Response
-	16,  // 101: PublishedFile.Publish:output_type -> CPublishedFile_Publish_Response
-	20,  // 102: PublishedFile.GetDetails:output_type -> CPublishedFile_GetDetails_Response
-	22,  // 103: PublishedFile.GetItemInfo:output_type -> CPublishedFile_GetItemInfo_Response
-	24,  // 104: PublishedFile.GetUserFiles:output_type -> CPublishedFile_GetUserFiles_Response
-	24,  // 105: PublishedFile.GetUserFileCount:output_type -> CPublishedFile_GetUserFiles_Response
-	26,  // 106: PublishedFile.AreFilesInSubscriptionList:output_type -> CPublishedFile_AreFilesInSubscriptionList_Response
-	28,  // 107: PublishedFile.Update:output_type -> CPublishedFile_Update_Response
-	30,  // 108: PublishedFile.Delete:output_type -> CPublishedFile_Delete_Response
-	32,  // 109: PublishedFile.GetChangeHistoryEntry:output_type -> CPublishedFile_GetChangeHistoryEntry_Response
-	34,  // 110: PublishedFile.GetChangeHistory:output_type -> CPublishedFile_GetChangeHistory_Response
-	36,  // 111: PublishedFile.RefreshVotingQueue:output_type -> CPublishedFile_RefreshVotingQueue_Response
-	38,  // 112: PublishedFile.QueryFiles:output_type -> CPublishedFile_QueryFiles_Response
-	40,  // 113: PublishedFile.AddAppRelationship:output_type -> CPublishedFile_AddAppRelationship_Response
-	42,  // 114: PublishedFile.RemoveAppRelationship:output_type -> CPublishedFile_RemoveAppRelationship_Response
-	44,  // 115: PublishedFile.GetAppRelationships:output_type -> CPublishedFile_GetAppRelationships_Response
-	46,  // 116: PublishedFile.GetAppRelationshipsBatched:output_type -> CPublishedFile_GetAppRelationshipsBatched_Response
-	48,  // 117: PublishedFile.StartPlaytimeTracking:output_type -> CPublishedFile_StartPlaytimeTracking_Response
-	50,  // 118: PublishedFile.StopPlaytimeTracking:output_type -> CPublishedFile_StopPlaytimeTracking_Response
-	52,  // 119: PublishedFile.StopPlaytimeTrackingForAllAppItems:output_type -> CPublishedFile_StopPlaytimeTrackingForAllAppItems_Response
-	54,  // 120: PublishedFile.SetPlaytimeForControllerConfigs:output_type -> CPublishedFile_SetPlaytimeForControllerConfigs_Response
-	56,  // 121: PublishedFile.AddChild:output_type -> CPublishedFile_AddChild_Response
-	58,  // 122: PublishedFile.RemoveChild:output_type -> CPublishedFile_RemoveChild_Response
-	60,  // 123: PublishedFile.SetCollectionChildren:output_type -> CPublishedFile_SetCollectionChildren_Response
-	62,  // 124: PublishedFile.SetSubscriptionListFromCollection:output_type -> CPublishedFile_SetSubscriptionListFromCollection_Response
-	64,  // 125: PublishedFile.GetUserVoteSummary:output_type -> CPublishedFile_GetUserVoteSummary_Response
-	66,  // 126: PublishedFile.GetItemChanges:output_type -> CPublishedFile_GetItemChanges_Response
-	68,  // 127: PublishedFile.GetContentDescriptors:output_type -> CPublishedFile_GetContentDescriptors_Response
-	70,  // 128: PublishedFile.UpdateContentDescriptors:output_type -> CPublishedFile_UpdateContentDescriptors_Response
-	103, // 129: PublishedFileClient.NotifyFileSubscribed:output_type -> NoResponse
-	103, // 130: PublishedFileClient.NotifyFileUnsubscribed:output_type -> NoResponse
-	103, // 131: PublishedFileClient.NotifyFileDeleted:output_type -> NoResponse
-	96,  // [96:132] is the sub-list for method output_type
-	60,  // [60:96] is the sub-list for method input_type
-	60,  // [60:60] is the sub-list for extension type_name
-	60,  // [60:60] is the sub-list for extension extendee
-	0,   // [0:60] is the sub-list for field type_name
+	102, // 46: CPublishedFile_GetItemChanges_Response.workshop_items:type_name -> CPublishedFile_GetItemChanges_Response.WorkshopItemInfo
+	103, // 47: CPublishedFile_GetContentDescriptors_Response.content_descriptors:type_name -> CPublishedFile_GetContentDescriptors_Response.ContentDescriptor
+	106, // 48: CPublishedFile_UpdateContentDescriptors_Request.descriptors_to_add:type_name -> EContentDescriptorID
+	106, // 49: CPublishedFile_UpdateContentDescriptors_Request.descriptors_to_remove:type_name -> EContentDescriptorID
+	108, // 50: CPublishedFile_SanctionPublishedFile_Request.reason:type_name -> EContentReportReason
+	109, // 51: CPublishedFile_SanctionPublishedFile_Request.resolved_by_automation:type_name -> EResolutionAutomation
+	104, // 52: CPublishedFile_SanctionPublishedFile_Request.sanctions:type_name -> CPublishedFile_SanctionPublishedFile_Request.Sanction
+	109, // 53: CPublishedFile_AcquitPublishedFile_Request.resolved_by_automation:type_name -> EResolutionAutomation
+	0,   // 54: CPublishedFile_FileSubscribed_Notification.revision:type_name -> EPublishedFileRevision
+	105, // 55: CPublishedFile_FileSubscribed_Notification.revisions:type_name -> CPublishedFile_FileSubscribed_Notification.RevisionData
+	1,   // 56: PublishedFileDetails.ForSaleData.estatus:type_name -> EPublishedFileForSaleStatus
+	0,   // 57: CPublishedFile_GetItemInfo_Request.WorkshopItem.desired_revision:type_name -> EPublishedFileRevision
+	0,   // 58: CPublishedFile_GetItemInfo_Response.WorkshopItemInfo.revision:type_name -> EPublishedFileRevision
+	18,  // 59: CPublishedFile_GetItemInfo_Response.WorkshopItemInfo.author_snapshots:type_name -> PublishedFileAuthorSnapshot
+	98,  // 60: CPublishedFile_GetAppRelationshipsBatched_Response.PublishedFileAppRelationship.app_relationships:type_name -> CPublishedFile_GetAppRelationshipsBatched_Response.AppRelationship
+	18,  // 61: CPublishedFile_GetItemChanges_Response.WorkshopItemInfo.author_snapshots:type_name -> PublishedFileAuthorSnapshot
+	106, // 62: CPublishedFile_GetContentDescriptors_Response.ContentDescriptor.descriptorid:type_name -> EContentDescriptorID
+	110, // 63: CPublishedFile_SanctionPublishedFile_Request.Sanction.sanction:type_name -> EContentModerationSanction
+	111, // 64: CPublishedFile_SanctionPublishedFile_Request.Sanction.escalate_to:type_name -> EContentModeratorLevel
+	0,   // 65: CPublishedFile_FileSubscribed_Notification.RevisionData.revision:type_name -> EPublishedFileRevision
+	4,   // 66: PublishedFile.Vote:input_type -> CPublishedFile_Vote_Request
+	6,   // 67: PublishedFile.Subscribe:input_type -> CPublishedFile_Subscribe_Request
+	8,   // 68: PublishedFile.Unsubscribe:input_type -> CPublishedFile_Unsubscribe_Request
+	10,  // 69: PublishedFile.CanSubscribe:input_type -> CPublishedFile_CanSubscribe_Request
+	12,  // 70: PublishedFile.GetSubSectionData:input_type -> CPublishedFile_GetSubSectionData_Request
+	15,  // 71: PublishedFile.Publish:input_type -> CPublishedFile_Publish_Request
+	17,  // 72: PublishedFile.GetDetails:input_type -> CPublishedFile_GetDetails_Request
+	21,  // 73: PublishedFile.GetItemInfo:input_type -> CPublishedFile_GetItemInfo_Request
+	23,  // 74: PublishedFile.GetUserFiles:input_type -> CPublishedFile_GetUserFiles_Request
+	23,  // 75: PublishedFile.GetUserFileCount:input_type -> CPublishedFile_GetUserFiles_Request
+	25,  // 76: PublishedFile.AreFilesInSubscriptionList:input_type -> CPublishedFile_AreFilesInSubscriptionList_Request
+	27,  // 77: PublishedFile.Update:input_type -> CPublishedFile_Update_Request
+	29,  // 78: PublishedFile.Delete:input_type -> CPublishedFile_Delete_Request
+	31,  // 79: PublishedFile.GetChangeHistoryEntry:input_type -> CPublishedFile_GetChangeHistoryEntry_Request
+	33,  // 80: PublishedFile.GetChangeHistory:input_type -> CPublishedFile_GetChangeHistory_Request
+	35,  // 81: PublishedFile.RefreshVotingQueue:input_type -> CPublishedFile_RefreshVotingQueue_Request
+	37,  // 82: PublishedFile.QueryFiles:input_type -> CPublishedFile_QueryFiles_Request
+	39,  // 83: PublishedFile.AddAppRelationship:input_type -> CPublishedFile_AddAppRelationship_Request
+	41,  // 84: PublishedFile.RemoveAppRelationship:input_type -> CPublishedFile_RemoveAppRelationship_Request
+	43,  // 85: PublishedFile.GetAppRelationships:input_type -> CPublishedFile_GetAppRelationships_Request
+	45,  // 86: PublishedFile.GetAppRelationshipsBatched:input_type -> CPublishedFile_GetAppRelationshipsBatched_Request
+	47,  // 87: PublishedFile.StartPlaytimeTracking:input_type -> CPublishedFile_StartPlaytimeTracking_Request
+	49,  // 88: PublishedFile.StopPlaytimeTracking:input_type -> CPublishedFile_StopPlaytimeTracking_Request
+	51,  // 89: PublishedFile.StopPlaytimeTrackingForAllAppItems:input_type -> CPublishedFile_StopPlaytimeTrackingForAllAppItems_Request
+	53,  // 90: PublishedFile.SetPlaytimeForControllerConfigs:input_type -> CPublishedFile_SetPlaytimeForControllerConfigs_Request
+	55,  // 91: PublishedFile.AddChild:input_type -> CPublishedFile_AddChild_Request
+	57,  // 92: PublishedFile.RemoveChild:input_type -> CPublishedFile_RemoveChild_Request
+	59,  // 93: PublishedFile.SetCollectionChildren:input_type -> CPublishedFile_SetCollectionChildren_Request
+	61,  // 94: PublishedFile.SetSubscriptionListFromCollection:input_type -> CPublishedFile_SetSubscriptionListFromCollection_Request
+	63,  // 95: PublishedFile.GetUserVoteSummary:input_type -> CPublishedFile_GetUserVoteSummary_Request
+	65,  // 96: PublishedFile.GetItemChanges:input_type -> CPublishedFile_GetItemChanges_Request
+	67,  // 97: PublishedFile.GetContentDescriptors:input_type -> CPublishedFile_GetContentDescriptors_Request
+	69,  // 98: PublishedFile.UpdateContentDescriptors:input_type -> CPublishedFile_UpdateContentDescriptors_Request
+	71,  // 99: PublishedFile.SanctionPublishedFile:input_type -> CPublishedFile_SanctionPublishedFile_Request
+	73,  // 100: PublishedFile.AcquitPublishedFile:input_type -> CPublishedFile_AcquitPublishedFile_Request
+	75,  // 101: PublishedFileClient.NotifyFileSubscribed:input_type -> CPublishedFile_FileSubscribed_Notification
+	76,  // 102: PublishedFileClient.NotifyFileUnsubscribed:input_type -> CPublishedFile_FileUnsubscribed_Notification
+	77,  // 103: PublishedFileClient.NotifyFileDeleted:input_type -> CPublishedFile_FileDeleted_Client_Notification
+	5,   // 104: PublishedFile.Vote:output_type -> CPublishedFile_Vote_Response
+	7,   // 105: PublishedFile.Subscribe:output_type -> CPublishedFile_Subscribe_Response
+	9,   // 106: PublishedFile.Unsubscribe:output_type -> CPublishedFile_Unsubscribe_Response
+	11,  // 107: PublishedFile.CanSubscribe:output_type -> CPublishedFile_CanSubscribe_Response
+	14,  // 108: PublishedFile.GetSubSectionData:output_type -> CPublishedFile_GetSubSectionData_Response
+	16,  // 109: PublishedFile.Publish:output_type -> CPublishedFile_Publish_Response
+	20,  // 110: PublishedFile.GetDetails:output_type -> CPublishedFile_GetDetails_Response
+	22,  // 111: PublishedFile.GetItemInfo:output_type -> CPublishedFile_GetItemInfo_Response
+	24,  // 112: PublishedFile.GetUserFiles:output_type -> CPublishedFile_GetUserFiles_Response
+	24,  // 113: PublishedFile.GetUserFileCount:output_type -> CPublishedFile_GetUserFiles_Response
+	26,  // 114: PublishedFile.AreFilesInSubscriptionList:output_type -> CPublishedFile_AreFilesInSubscriptionList_Response
+	28,  // 115: PublishedFile.Update:output_type -> CPublishedFile_Update_Response
+	30,  // 116: PublishedFile.Delete:output_type -> CPublishedFile_Delete_Response
+	32,  // 117: PublishedFile.GetChangeHistoryEntry:output_type -> CPublishedFile_GetChangeHistoryEntry_Response
+	34,  // 118: PublishedFile.GetChangeHistory:output_type -> CPublishedFile_GetChangeHistory_Response
+	36,  // 119: PublishedFile.RefreshVotingQueue:output_type -> CPublishedFile_RefreshVotingQueue_Response
+	38,  // 120: PublishedFile.QueryFiles:output_type -> CPublishedFile_QueryFiles_Response
+	40,  // 121: PublishedFile.AddAppRelationship:output_type -> CPublishedFile_AddAppRelationship_Response
+	42,  // 122: PublishedFile.RemoveAppRelationship:output_type -> CPublishedFile_RemoveAppRelationship_Response
+	44,  // 123: PublishedFile.GetAppRelationships:output_type -> CPublishedFile_GetAppRelationships_Response
+	46,  // 124: PublishedFile.GetAppRelationshipsBatched:output_type -> CPublishedFile_GetAppRelationshipsBatched_Response
+	48,  // 125: PublishedFile.StartPlaytimeTracking:output_type -> CPublishedFile_StartPlaytimeTracking_Response
+	50,  // 126: PublishedFile.StopPlaytimeTracking:output_type -> CPublishedFile_StopPlaytimeTracking_Response
+	52,  // 127: PublishedFile.StopPlaytimeTrackingForAllAppItems:output_type -> CPublishedFile_StopPlaytimeTrackingForAllAppItems_Response
+	54,  // 128: PublishedFile.SetPlaytimeForControllerConfigs:output_type -> CPublishedFile_SetPlaytimeForControllerConfigs_Response
+	56,  // 129: PublishedFile.AddChild:output_type -> CPublishedFile_AddChild_Response
+	58,  // 130: PublishedFile.RemoveChild:output_type -> CPublishedFile_RemoveChild_Response
+	60,  // 131: PublishedFile.SetCollectionChildren:output_type -> CPublishedFile_SetCollectionChildren_Response
+	62,  // 132: PublishedFile.SetSubscriptionListFromCollection:output_type -> CPublishedFile_SetSubscriptionListFromCollection_Response
+	64,  // 133: PublishedFile.GetUserVoteSummary:output_type -> CPublishedFile_GetUserVoteSummary_Response
+	66,  // 134: PublishedFile.GetItemChanges:output_type -> CPublishedFile_GetItemChanges_Response
+	68,  // 135: PublishedFile.GetContentDescriptors:output_type -> CPublishedFile_GetContentDescriptors_Response
+	70,  // 136: PublishedFile.UpdateContentDescriptors:output_type -> CPublishedFile_UpdateContentDescriptors_Response
+	72,  // 137: PublishedFile.SanctionPublishedFile:output_type -> CPublishedFile_SanctionPublishedFile_Response
+	74,  // 138: PublishedFile.AcquitPublishedFile:output_type -> CPublishedFile_AcquitPublishedFile_Response
+	112, // 139: PublishedFileClient.NotifyFileSubscribed:output_type -> NoResponse
+	112, // 140: PublishedFileClient.NotifyFileUnsubscribed:output_type -> NoResponse
+	112, // 141: PublishedFileClient.NotifyFileDeleted:output_type -> NoResponse
+	104, // [104:142] is the sub-list for method output_type
+	66,  // [66:104] is the sub-list for method input_type
+	66,  // [66:66] is the sub-list for extension type_name
+	66,  // [66:66] is the sub-list for extension extendee
+	0,   // [0:66] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_publishedfile_steamclient_proto_init() }
@@ -8216,13 +8549,14 @@ func file_steammessages_publishedfile_steamclient_proto_init() {
 	file_steammessages_base_proto_init()
 	file_steammessages_unified_base_steamclient_proto_init()
 	file_enums_productinfo_proto_init()
+	file_enums_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_publishedfile_steamclient_proto_rawDesc), len(file_steammessages_publishedfile_steamclient_proto_rawDesc)),
 			NumEnums:      4,
-			NumMessages:   97,
+			NumMessages:   102,
 			NumExtensions: 0,
 			NumServices:   2,
 		},

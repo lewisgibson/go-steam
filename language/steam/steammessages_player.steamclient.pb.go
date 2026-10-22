@@ -646,6 +646,7 @@ type CPlayer_GetOwnedGames_Request struct {
 	SkipUnvettedApps       *bool                  `protobuf:"varint,6,opt,name=skip_unvetted_apps,json=skipUnvettedApps,def=1" json:"skip_unvetted_apps,omitempty"`
 	Language               *string                `protobuf:"bytes,7,opt,name=language" json:"language,omitempty"`
 	IncludeExtendedAppinfo *bool                  `protobuf:"varint,8,opt,name=include_extended_appinfo,json=includeExtendedAppinfo" json:"include_extended_appinfo,omitempty"`
+	IncludeFamilyLicenses  *bool                  `protobuf:"varint,9,opt,name=include_family_licenses,json=includeFamilyLicenses" json:"include_family_licenses,omitempty"`
 	unknownFields          protoimpl.UnknownFields
 	sizeCache              protoimpl.SizeCache
 }
@@ -737,6 +738,13 @@ func (x *CPlayer_GetOwnedGames_Request) GetLanguage() string {
 func (x *CPlayer_GetOwnedGames_Request) GetIncludeExtendedAppinfo() bool {
 	if x != nil && x.IncludeExtendedAppinfo != nil {
 		return *x.IncludeExtendedAppinfo
+	}
+	return false
+}
+
+func (x *CPlayer_GetOwnedGames_Request) GetIncludeFamilyLicenses() bool {
+	if x != nil && x.IncludeFamilyLicenses != nil {
+		return *x.IncludeFamilyLicenses
 	}
 	return false
 }
@@ -898,10 +906,11 @@ func (x *CPlayer_GetPlayNext_Response) GetAppids() []uint32 {
 }
 
 type CPlayer_GetFriendsGameplayInfo_Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                 protoimpl.MessageState `protogen:"open.v1"`
+	Appid                 *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	IncludeFamilyLicenses *bool                  `protobuf:"varint,2,opt,name=include_family_licenses,json=includeFamilyLicenses" json:"include_family_licenses,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *CPlayer_GetFriendsGameplayInfo_Request) Reset() {
@@ -939,6 +948,13 @@ func (x *CPlayer_GetFriendsGameplayInfo_Request) GetAppid() uint32 {
 		return *x.Appid
 	}
 	return 0
+}
+
+func (x *CPlayer_GetFriendsGameplayInfo_Request) GetIncludeFamilyLicenses() bool {
+	if x != nil && x.IncludeFamilyLicenses != nil {
+		return *x.IncludeFamilyLicenses
+	}
+	return false
 }
 
 type CPlayer_GetFriendsGameplayInfo_Response struct {
@@ -3228,6 +3244,7 @@ func (x *CPlayer_GetGlobalAchievementPercentages_Request) GetAppid() uint32 {
 type CPlayer_GetGlobalAchievementPercentages_Response struct {
 	state         protoimpl.MessageState                                          `protogen:"open.v1"`
 	Achievements  []*CPlayer_GetGlobalAchievementPercentages_Response_Achievement `protobuf:"bytes,1,rep,name=achievements" json:"achievements,omitempty"`
+	Groups        []*CPlayer_GetGlobalAchievementPercentages_Response_Group       `protobuf:"bytes,2,rep,name=groups" json:"groups,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3265,6 +3282,13 @@ func (*CPlayer_GetGlobalAchievementPercentages_Response) Descriptor() ([]byte, [
 func (x *CPlayer_GetGlobalAchievementPercentages_Response) GetAchievements() []*CPlayer_GetGlobalAchievementPercentages_Response_Achievement {
 	if x != nil {
 		return x.Achievements
+	}
+	return nil
+}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Response) GetGroups() []*CPlayer_GetGlobalAchievementPercentages_Response_Group {
+	if x != nil {
+		return x.Groups
 	}
 	return nil
 }
@@ -7670,6 +7694,7 @@ type CPlayer_GetOwnedGames_Response_Game struct {
 	HasLeaderboards          *bool                  `protobuf:"varint,17,opt,name=has_leaderboards,json=hasLeaderboards" json:"has_leaderboards,omitempty"`
 	ContentDescriptorids     []uint32               `protobuf:"varint,18,rep,name=content_descriptorids,json=contentDescriptorids" json:"content_descriptorids,omitempty"`
 	PlaytimeDisconnected     *int32                 `protobuf:"varint,19,opt,name=playtime_disconnected,json=playtimeDisconnected" json:"playtime_disconnected,omitempty"`
+	FamilyShared             *bool                  `protobuf:"varint,21,opt,name=family_shared,json=familyShared" json:"family_shared,omitempty"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
@@ -7835,6 +7860,13 @@ func (x *CPlayer_GetOwnedGames_Response_Game) GetPlaytimeDisconnected() int32 {
 		return *x.PlaytimeDisconnected
 	}
 	return 0
+}
+
+func (x *CPlayer_GetOwnedGames_Response_Game) GetFamilyShared() bool {
+	if x != nil && x.FamilyShared != nil {
+		return *x.FamilyShared
+	}
+	return false
 }
 
 type CPlayer_GetFriendsGameplayInfo_Response_FriendsGameplayInfo struct {
@@ -8382,16 +8414,21 @@ func (x *CPlayer_GetTopAchievementsForGames_Response_Game) GetAchievements() []*
 }
 
 type CPlayer_GetAchievementsProgress_Response_AchievementProgress struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
-	Unlocked      *uint32                `protobuf:"varint,2,opt,name=unlocked" json:"unlocked,omitempty"`
-	Total         *uint32                `protobuf:"varint,3,opt,name=total" json:"total,omitempty"`
-	Percentage    *float32               `protobuf:"fixed32,4,opt,name=percentage" json:"percentage,omitempty"`
-	AllUnlocked   *bool                  `protobuf:"varint,5,opt,name=all_unlocked,json=allUnlocked" json:"all_unlocked,omitempty"`
-	CacheTime     *uint32                `protobuf:"varint,6,opt,name=cache_time,json=cacheTime" json:"cache_time,omitempty"`
-	Vetted        *bool                  `protobuf:"varint,7,opt,name=vetted" json:"vetted,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state               protoimpl.MessageState `protogen:"open.v1"`
+	Appid               *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	Unlocked            *uint32                `protobuf:"varint,2,opt,name=unlocked" json:"unlocked,omitempty"`
+	Total               *uint32                `protobuf:"varint,3,opt,name=total" json:"total,omitempty"`
+	Percentage          *float32               `protobuf:"fixed32,4,opt,name=percentage" json:"percentage,omitempty"`
+	AllUnlocked         *bool                  `protobuf:"varint,5,opt,name=all_unlocked,json=allUnlocked" json:"all_unlocked,omitempty"`
+	CacheTime           *uint32                `protobuf:"varint,6,opt,name=cache_time,json=cacheTime" json:"cache_time,omitempty"`
+	Vetted              *bool                  `protobuf:"varint,7,opt,name=vetted" json:"vetted,omitempty"`
+	GroupsCompletedBase *uint32                `protobuf:"varint,8,opt,name=groups_completed_base,json=groupsCompletedBase" json:"groups_completed_base,omitempty"`
+	GroupsTotalBase     *uint32                `protobuf:"varint,9,opt,name=groups_total_base,json=groupsTotalBase" json:"groups_total_base,omitempty"`
+	GroupsCompletedDlc  *uint32                `protobuf:"varint,10,opt,name=groups_completed_dlc,json=groupsCompletedDlc" json:"groups_completed_dlc,omitempty"`
+	GroupsTotalDlc      *uint32                `protobuf:"varint,11,opt,name=groups_total_dlc,json=groupsTotalDlc" json:"groups_total_dlc,omitempty"`
+	BaseGameTotal       *uint32                `protobuf:"varint,12,opt,name=base_game_total,json=baseGameTotal" json:"base_game_total,omitempty"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
 }
 
 func (x *CPlayer_GetAchievementsProgress_Response_AchievementProgress) Reset() {
@@ -8471,6 +8508,41 @@ func (x *CPlayer_GetAchievementsProgress_Response_AchievementProgress) GetVetted
 		return *x.Vetted
 	}
 	return false
+}
+
+func (x *CPlayer_GetAchievementsProgress_Response_AchievementProgress) GetGroupsCompletedBase() uint32 {
+	if x != nil && x.GroupsCompletedBase != nil {
+		return *x.GroupsCompletedBase
+	}
+	return 0
+}
+
+func (x *CPlayer_GetAchievementsProgress_Response_AchievementProgress) GetGroupsTotalBase() uint32 {
+	if x != nil && x.GroupsTotalBase != nil {
+		return *x.GroupsTotalBase
+	}
+	return 0
+}
+
+func (x *CPlayer_GetAchievementsProgress_Response_AchievementProgress) GetGroupsCompletedDlc() uint32 {
+	if x != nil && x.GroupsCompletedDlc != nil {
+		return *x.GroupsCompletedDlc
+	}
+	return 0
+}
+
+func (x *CPlayer_GetAchievementsProgress_Response_AchievementProgress) GetGroupsTotalDlc() uint32 {
+	if x != nil && x.GroupsTotalDlc != nil {
+		return *x.GroupsTotalDlc
+	}
+	return 0
+}
+
+func (x *CPlayer_GetAchievementsProgress_Response_AchievementProgress) GetBaseGameTotal() uint32 {
+	if x != nil && x.BaseGameTotal != nil {
+		return *x.BaseGameTotal
+	}
+	return 0
 }
 
 type CPlayer_GetGameAchievements_Response_Achievement struct {
@@ -8824,6 +8896,7 @@ type CPlayer_GetUserAchievements_Response_Group struct {
 	IsAchievable          *bool                  `protobuf:"varint,2,opt,name=is_achievable,json=isAchievable" json:"is_achievable,omitempty"`
 	CompletedAchievements *uint32                `protobuf:"varint,3,opt,name=completed_achievements,json=completedAchievements" json:"completed_achievements,omitempty"`
 	IsCompleted           *bool                  `protobuf:"varint,4,opt,name=is_completed,json=isCompleted" json:"is_completed,omitempty"`
+	TimeCompleted         *uint32                `protobuf:"fixed32,9,opt,name=time_completed,json=timeCompleted" json:"time_completed,omitempty"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -8886,6 +8959,13 @@ func (x *CPlayer_GetUserAchievements_Response_Group) GetIsCompleted() bool {
 	return false
 }
 
+func (x *CPlayer_GetUserAchievements_Response_Group) GetTimeCompleted() uint32 {
+	if x != nil && x.TimeCompleted != nil {
+		return *x.TimeCompleted
+	}
+	return 0
+}
+
 type CPlayer_GetGlobalAchievementPercentages_Response_Achievement struct {
 	state                 protoimpl.MessageState `protogen:"open.v1"`
 	InternalKey           *uint32                `protobuf:"varint,1,opt,name=internal_key,json=internalKey" json:"internal_key,omitempty"`
@@ -8938,6 +9018,58 @@ func (x *CPlayer_GetGlobalAchievementPercentages_Response_Achievement) GetPlayer
 	return 0
 }
 
+type CPlayer_GetGlobalAchievementPercentages_Response_Group struct {
+	state                  protoimpl.MessageState `protogen:"open.v1"`
+	Groupid                *uint32                `protobuf:"varint,1,opt,name=groupid" json:"groupid,omitempty"`
+	PlayerPercentCompleted *float32               `protobuf:"fixed32,2,opt,name=player_percent_completed,json=playerPercentCompleted" json:"player_percent_completed,omitempty"`
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Response_Group) Reset() {
+	*x = CPlayer_GetGlobalAchievementPercentages_Response_Group{}
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Response_Group) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CPlayer_GetGlobalAchievementPercentages_Response_Group) ProtoMessage() {}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Response_Group) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CPlayer_GetGlobalAchievementPercentages_Response_Group.ProtoReflect.Descriptor instead.
+func (*CPlayer_GetGlobalAchievementPercentages_Response_Group) Descriptor() ([]byte, []int) {
+	return file_steammessages_player_steamclient_proto_rawDescGZIP(), []int{55, 1}
+}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Response_Group) GetGroupid() uint32 {
+	if x != nil && x.Groupid != nil {
+		return *x.Groupid
+	}
+	return 0
+}
+
+func (x *CPlayer_GetGlobalAchievementPercentages_Response_Group) GetPlayerPercentCompleted() float32 {
+	if x != nil && x.PlayerPercentCompleted != nil {
+		return *x.PlayerPercentCompleted
+	}
+	return 0
+}
+
 type CPlayer_GetUserStats_Response_Unlock_Time struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	AchievementBit *uint32                `protobuf:"varint,1,opt,name=achievement_bit,json=achievementBit" json:"achievement_bit,omitempty"`
@@ -8948,7 +9080,7 @@ type CPlayer_GetUserStats_Response_Unlock_Time struct {
 
 func (x *CPlayer_GetUserStats_Response_Unlock_Time) Reset() {
 	*x = CPlayer_GetUserStats_Response_Unlock_Time{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[149]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[150]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8960,7 +9092,7 @@ func (x *CPlayer_GetUserStats_Response_Unlock_Time) String() string {
 func (*CPlayer_GetUserStats_Response_Unlock_Time) ProtoMessage() {}
 
 func (x *CPlayer_GetUserStats_Response_Unlock_Time) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[149]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[150]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9001,7 +9133,7 @@ type CPlayer_GetUserStats_Response_Stats struct {
 
 func (x *CPlayer_GetUserStats_Response_Stats) Reset() {
 	*x = CPlayer_GetUserStats_Response_Stats{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[150]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[151]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9013,7 +9145,7 @@ func (x *CPlayer_GetUserStats_Response_Stats) String() string {
 func (*CPlayer_GetUserStats_Response_Stats) ProtoMessage() {}
 
 func (x *CPlayer_GetUserStats_Response_Stats) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[150]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[151]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9066,7 +9198,7 @@ const (
 
 func (x *CPlayer_GetProfileCustomization_Response_PurchasedCustomization) Reset() {
 	*x = CPlayer_GetProfileCustomization_Response_PurchasedCustomization{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[151]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[152]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9078,7 +9210,7 @@ func (x *CPlayer_GetProfileCustomization_Response_PurchasedCustomization) String
 func (*CPlayer_GetProfileCustomization_Response_PurchasedCustomization) ProtoMessage() {}
 
 func (x *CPlayer_GetProfileCustomization_Response_PurchasedCustomization) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[151]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[152]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9130,7 +9262,7 @@ const (
 
 func (x *CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization) Reset() {
 	*x = CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[152]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[153]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9142,7 +9274,7 @@ func (x *CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomizati
 func (*CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization) ProtoMessage() {}
 
 func (x *CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[152]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[153]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9187,7 +9319,7 @@ const (
 
 func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization) Reset() {
 	*x = CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[153]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[154]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9200,7 +9332,7 @@ func (*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCu
 }
 
 func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[153]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[154]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9245,7 +9377,7 @@ const (
 
 func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization) Reset() {
 	*x = CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[154]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[155]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9258,7 +9390,7 @@ func (*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCus
 }
 
 func (x *CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[154]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[155]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9314,7 +9446,7 @@ type CPlayer_GetLastPlayedTimes_Response_Game struct {
 
 func (x *CPlayer_GetLastPlayedTimes_Response_Game) Reset() {
 	*x = CPlayer_GetLastPlayedTimes_Response_Game{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[155]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[156]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9326,7 +9458,7 @@ func (x *CPlayer_GetLastPlayedTimes_Response_Game) String() string {
 func (*CPlayer_GetLastPlayedTimes_Response_Game) ProtoMessage() {}
 
 func (x *CPlayer_GetLastPlayedTimes_Response_Game) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[155]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[156]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9478,7 +9610,7 @@ type CPlayer_GetNicknameList_Response_PlayerNickname struct {
 
 func (x *CPlayer_GetNicknameList_Response_PlayerNickname) Reset() {
 	*x = CPlayer_GetNicknameList_Response_PlayerNickname{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[156]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[157]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9490,7 +9622,7 @@ func (x *CPlayer_GetNicknameList_Response_PlayerNickname) String() string {
 func (*CPlayer_GetNicknameList_Response_PlayerNickname) ProtoMessage() {}
 
 func (x *CPlayer_GetNicknameList_Response_PlayerNickname) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[156]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[157]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9533,7 +9665,7 @@ type CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory struct {
 
 func (x *CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory) Reset() {
 	*x = CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory{}
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[157]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[158]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9545,7 +9677,7 @@ func (x *CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory) String() string
 func (*CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory) ProtoMessage() {}
 
 func (x *CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_player_steamclient_proto_msgTypes[157]
+	mi := &file_steammessages_player_steamclient_proto_msgTypes[158]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9664,7 +9796,7 @@ const file_steammessages_player_steamclient_proto_rawDesc = "" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\x129\n" +
 	"\x19mutual_friend_account_ids\x18\x02 \x03(\rR\x16mutualFriendAccountIds\"\xae\x01\n" +
 	"3CPlayer_GetMutualFriendsForIncomingInvites_Response\x12w\n" +
-	"$incoming_invite_mutual_friends_lists\x18\x01 \x03(\v2'.CPlayer_IncomingInviteMutualFriendListR incomingInviteMutualFriendsLists\"\xf6\x02\n" +
+	"$incoming_invite_mutual_friends_lists\x18\x01 \x03(\v2'.CPlayer_IncomingInviteMutualFriendListR incomingInviteMutualFriendsLists\"\xae\x03\n" +
 	"\x1dCPlayer_GetOwnedGames_Request\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x04R\asteamid\x12'\n" +
 	"\x0finclude_appinfo\x18\x02 \x01(\bR\x0eincludeAppinfo\x129\n" +
@@ -9673,11 +9805,12 @@ const file_steammessages_player_steamclient_proto_rawDesc = "" +
 	"\x10include_free_sub\x18\x05 \x01(\bR\x0eincludeFreeSub\x122\n" +
 	"\x12skip_unvetted_apps\x18\x06 \x01(\b:\x04trueR\x10skipUnvettedApps\x12\x1a\n" +
 	"\blanguage\x18\a \x01(\tR\blanguage\x128\n" +
-	"\x18include_extended_appinfo\x18\b \x01(\bR\x16includeExtendedAppinfo\"\x99\a\n" +
+	"\x18include_extended_appinfo\x18\b \x01(\bR\x16includeExtendedAppinfo\x126\n" +
+	"\x17include_family_licenses\x18\t \x01(\bR\x15includeFamilyLicenses\"\xbe\a\n" +
 	"\x1eCPlayer_GetOwnedGames_Response\x12\x1d\n" +
 	"\n" +
 	"game_count\x18\x01 \x01(\rR\tgameCount\x12:\n" +
-	"\x05games\x18\x02 \x03(\v2$.CPlayer_GetOwnedGames_Response.GameR\x05games\x1a\x9b\x06\n" +
+	"\x05games\x18\x02 \x03(\v2$.CPlayer_GetOwnedGames_Response.GameR\x05games\x1a\xc0\x06\n" +
 	"\x04Game\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\x05R\x05appid\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12'\n" +
@@ -9700,15 +9833,17 @@ const file_steammessages_player_steamclient_proto_rawDesc = "" +
 	"\ahas_dlc\x18\x10 \x01(\bR\x06hasDlc\x12)\n" +
 	"\x10has_leaderboards\x18\x11 \x01(\bR\x0fhasLeaderboards\x123\n" +
 	"\x15content_descriptorids\x18\x12 \x03(\rR\x14contentDescriptorids\x123\n" +
-	"\x15playtime_disconnected\x18\x13 \x01(\x05R\x14playtimeDisconnected\"j\n" +
+	"\x15playtime_disconnected\x18\x13 \x01(\x05R\x14playtimeDisconnected\x12#\n" +
+	"\rfamily_shared\x18\x15 \x01(\bR\ffamilyShared\"j\n" +
 	"\x1bCPlayer_GetPlayNext_Request\x12&\n" +
 	"\x0fmax_age_seconds\x18\x01 \x01(\rR\rmaxAgeSeconds\x12#\n" +
 	"\rignore_appids\x18\x02 \x03(\rR\fignoreAppids\"`\n" +
 	"\x1cCPlayer_GetPlayNext_Response\x12(\n" +
 	"\x10last_update_time\x18\x01 \x01(\rR\x0elastUpdateTime\x12\x16\n" +
-	"\x06appids\x18\x02 \x03(\rR\x06appids\">\n" +
+	"\x06appids\x18\x02 \x03(\rR\x06appids\"v\n" +
 	"&CPlayer_GetFriendsGameplayInfo_Request\x12\x14\n" +
-	"\x05appid\x18\x01 \x01(\rR\x05appid\"\x9f\a\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x126\n" +
+	"\x17include_family_licenses\x18\x02 \x01(\bR\x15includeFamilyLicenses\"\x9f\a\n" +
 	"'CPlayer_GetFriendsGameplayInfo_Response\x12U\n" +
 	"\tyour_info\x18\x01 \x01(\v28.CPlayer_GetFriendsGameplayInfo_Response.OwnGameplayInfoR\byourInfo\x12U\n" +
 	"\ain_game\x18\x02 \x03(\v2<.CPlayer_GetFriendsGameplayInfo_Response.FriendsGameplayInfoR\x06inGame\x12e\n" +
@@ -9872,9 +10007,9 @@ const file_steammessages_player_steamclient_proto_rawDesc = "" +
 	"\asteamid\x18\x01 \x01(\x04R\asteamid\x12\x1a\n" +
 	"\blanguage\x18\x02 \x01(\tR\blanguage\x12\x16\n" +
 	"\x06appids\x18\x03 \x03(\rR\x06appids\x122\n" +
-	"\x15include_unvetted_apps\x18\x04 \x01(\bR\x13includeUnvettedApps\"\xf6\x02\n" +
+	"\x15include_unvetted_apps\x18\x04 \x01(\bR\x13includeUnvettedApps\"\xda\x04\n" +
 	"(CPlayer_GetAchievementsProgress_Response\x12p\n" +
-	"\x14achievement_progress\x18\x01 \x03(\v2=.CPlayer_GetAchievementsProgress_Response.AchievementProgressR\x13achievementProgress\x1a\xd7\x01\n" +
+	"\x14achievement_progress\x18\x01 \x03(\v2=.CPlayer_GetAchievementsProgress_Response.AchievementProgressR\x13achievementProgress\x1a\xbb\x03\n" +
 	"\x13AchievementProgress\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1a\n" +
 	"\bunlocked\x18\x02 \x01(\rR\bunlocked\x12\x14\n" +
@@ -9885,7 +10020,13 @@ const file_steammessages_player_steamclient_proto_rawDesc = "" +
 	"\fall_unlocked\x18\x05 \x01(\bR\vallUnlocked\x12\x1d\n" +
 	"\n" +
 	"cache_time\x18\x06 \x01(\rR\tcacheTime\x12\x16\n" +
-	"\x06vetted\x18\a \x01(\bR\x06vetted\"t\n" +
+	"\x06vetted\x18\a \x01(\bR\x06vetted\x122\n" +
+	"\x15groups_completed_base\x18\b \x01(\rR\x13groupsCompletedBase\x12*\n" +
+	"\x11groups_total_base\x18\t \x01(\rR\x0fgroupsTotalBase\x120\n" +
+	"\x14groups_completed_dlc\x18\n" +
+	" \x01(\rR\x12groupsCompletedDlc\x12(\n" +
+	"\x10groups_total_dlc\x18\v \x01(\rR\x0egroupsTotalDlc\x12&\n" +
+	"\x0fbase_game_total\x18\f \x01(\rR\rbaseGameTotal\"t\n" +
 	"#CPlayer_GetGameAchievements_Request\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1a\n" +
 	"\blanguage\x18\x02 \x01(\tR\blanguage\x12\x1b\n" +
@@ -9925,7 +10066,7 @@ const file_steammessages_player_steamclient_proto_rawDesc = "" +
 	"\x17completion_achievements\x18\t \x01(\rR\x16completionAchievements\"U\n" +
 	"#CPlayer_GetUserAchievements_Request\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x04R\asteamid\x12\x14\n" +
-	"\x05appid\x18\x02 \x01(\rR\x05appid\"\xe7\x04\n" +
+	"\x05appid\x18\x02 \x01(\rR\x05appid\"\x8e\x05\n" +
 	"$CPlayer_GetUserAchievements_Response\x12U\n" +
 	"\fachievements\x18\x01 \x03(\v21.CPlayer_GetUserAchievements_Response.AchievementR\fachievements\x12%\n" +
 	"\x0eschema_version\x18\x02 \x01(\x05R\rschemaVersion\x12\x1f\n" +
@@ -9938,19 +10079,24 @@ const file_steammessages_player_steamclient_proto_rawDesc = "" +
 	"\vunlock_time\x18\x03 \x01(\aR\n" +
 	"unlockTime\x12!\n" +
 	"\fprogress_int\x18\x04 \x01(\x05R\vprogressInt\x12%\n" +
-	"\x0eprogress_float\x18\x05 \x01(\x02R\rprogressFloat\x1a\xa0\x01\n" +
+	"\x0eprogress_float\x18\x05 \x01(\x02R\rprogressFloat\x1a\xc7\x01\n" +
 	"\x05Group\x12\x18\n" +
 	"\agroupid\x18\x01 \x01(\rR\agroupid\x12#\n" +
 	"\ris_achievable\x18\x02 \x01(\bR\fisAchievable\x125\n" +
 	"\x16completed_achievements\x18\x03 \x01(\rR\x15completedAchievements\x12!\n" +
-	"\fis_completed\x18\x04 \x01(\bR\visCompleted\"G\n" +
+	"\fis_completed\x18\x04 \x01(\bR\visCompleted\x12%\n" +
+	"\x0etime_completed\x18\t \x01(\aR\rtimeCompleted\"G\n" +
 	"/CPlayer_GetGlobalAchievementPercentages_Request\x12\x14\n" +
-	"\x05appid\x18\x01 \x01(\rR\x05appid\"\xff\x01\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\"\xad\x03\n" +
 	"0CPlayer_GetGlobalAchievementPercentages_Response\x12a\n" +
-	"\fachievements\x18\x01 \x03(\v2=.CPlayer_GetGlobalAchievementPercentages_Response.AchievementR\fachievements\x1ah\n" +
+	"\fachievements\x18\x01 \x03(\v2=.CPlayer_GetGlobalAchievementPercentages_Response.AchievementR\fachievements\x12O\n" +
+	"\x06groups\x18\x02 \x03(\v27.CPlayer_GetGlobalAchievementPercentages_Response.GroupR\x06groups\x1ah\n" +
 	"\vAchievement\x12!\n" +
 	"\finternal_key\x18\x01 \x01(\rR\vinternalKey\x126\n" +
-	"\x17player_percent_unlocked\x18\x02 \x01(\x02R\x15playerPercentUnlocked\"\xca\x01\n" +
+	"\x17player_percent_unlocked\x18\x02 \x01(\x02R\x15playerPercentUnlocked\x1a[\n" +
+	"\x05Group\x12\x18\n" +
+	"\agroupid\x18\x01 \x01(\rR\agroupid\x128\n" +
+	"\x18player_percent_completed\x18\x02 \x01(\x02R\x16playerPercentCompleted\"\xca\x01\n" +
 	"\x1cCPlayer_GetUserStats_Request\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x04R\asteamid\x12\x14\n" +
 	"\x05appid\x18\x02 \x01(\rR\x05appid\x12\x1d\n" +
@@ -10352,7 +10498,7 @@ func file_steammessages_player_steamclient_proto_rawDescGZIP() []byte {
 }
 
 var file_steammessages_player_steamclient_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
-var file_steammessages_player_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 158)
+var file_steammessages_player_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 159)
 var file_steammessages_player_steamclient_proto_goTypes = []any{
 	(EAchievementProgressType)(0),                                                                // 0: EAchievementProgressType
 	(EProfileCustomizationStyle)(0),                                                              // 1: EProfileCustomizationStyle
@@ -10508,21 +10654,22 @@ var file_steammessages_player_steamclient_proto_goTypes = []any{
 	(*CPlayer_GetUserAchievements_Response_Achievement)(nil),                                     // 151: CPlayer_GetUserAchievements_Response.Achievement
 	(*CPlayer_GetUserAchievements_Response_Group)(nil),                                           // 152: CPlayer_GetUserAchievements_Response.Group
 	(*CPlayer_GetGlobalAchievementPercentages_Response_Achievement)(nil),                         // 153: CPlayer_GetGlobalAchievementPercentages_Response.Achievement
-	(*CPlayer_GetUserStats_Response_Unlock_Time)(nil),                                            // 154: CPlayer_GetUserStats_Response.Unlock_Time
-	(*CPlayer_GetUserStats_Response_Stats)(nil),                                                  // 155: CPlayer_GetUserStats_Response.Stats
-	(*CPlayer_GetProfileCustomization_Response_PurchasedCustomization)(nil),                      // 156: CPlayer_GetProfileCustomization_Response.PurchasedCustomization
-	(*CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization)(nil),            // 157: CPlayer_GetPurchasedProfileCustomizations_Response.PurchasedCustomization
-	(*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization)(nil), // 158: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.PurchasedCustomization
-	(*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization)(nil),  // 159: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.UpgradedCustomization
-	(*CPlayer_GetLastPlayedTimes_Response_Game)(nil),                                             // 160: CPlayer_GetLastPlayedTimes_Response.Game
-	(*CPlayer_GetNicknameList_Response_PlayerNickname)(nil),                                      // 161: CPlayer_GetNicknameList_Response.PlayerNickname
-	(*CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory)(nil),                               // 162: CPlayer_RecordDisconnectedPlaytime_Request.PlayHistory
-	(ECommunityItemClass)(0),                                                                     // 163: ECommunityItemClass
-	(EBanContentCheckResult)(0),                                                                  // 164: EBanContentCheckResult
-	(EProfileCustomizationType)(0),                                                               // 165: EProfileCustomizationType
-	(*UserContentDescriptorPreferences)(nil),                                                     // 166: UserContentDescriptorPreferences
-	(ENewSteamAnnouncementState)(0),                                                              // 167: ENewSteamAnnouncementState
-	(*NoResponse)(nil),                                                                           // 168: NoResponse
+	(*CPlayer_GetGlobalAchievementPercentages_Response_Group)(nil),                               // 154: CPlayer_GetGlobalAchievementPercentages_Response.Group
+	(*CPlayer_GetUserStats_Response_Unlock_Time)(nil),                                            // 155: CPlayer_GetUserStats_Response.Unlock_Time
+	(*CPlayer_GetUserStats_Response_Stats)(nil),                                                  // 156: CPlayer_GetUserStats_Response.Stats
+	(*CPlayer_GetProfileCustomization_Response_PurchasedCustomization)(nil),                      // 157: CPlayer_GetProfileCustomization_Response.PurchasedCustomization
+	(*CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization)(nil),            // 158: CPlayer_GetPurchasedProfileCustomizations_Response.PurchasedCustomization
+	(*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization)(nil), // 159: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.PurchasedCustomization
+	(*CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization)(nil),  // 160: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.UpgradedCustomization
+	(*CPlayer_GetLastPlayedTimes_Response_Game)(nil),                                             // 161: CPlayer_GetLastPlayedTimes_Response.Game
+	(*CPlayer_GetNicknameList_Response_PlayerNickname)(nil),                                      // 162: CPlayer_GetNicknameList_Response.PlayerNickname
+	(*CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory)(nil),                               // 163: CPlayer_RecordDisconnectedPlaytime_Request.PlayHistory
+	(ECommunityItemClass)(0),                                                                     // 164: ECommunityItemClass
+	(EBanContentCheckResult)(0),                                                                  // 165: EBanContentCheckResult
+	(EProfileCustomizationType)(0),                                                               // 166: EProfileCustomizationType
+	(*UserContentDescriptorPreferences)(nil),                                                     // 167: UserContentDescriptorPreferences
+	(ENewSteamAnnouncementState)(0),                                                              // 168: ENewSteamAnnouncementState
+	(*NoResponse)(nil),                                                                           // 169: NoResponse
 }
 var file_steammessages_player_steamclient_proto_depIdxs = []int32{
 	135, // 0: CPlayer_GetRecentPlaytimeSessionsForChild_Response.sessions:type_name -> CPlayer_GetRecentPlaytimeSessionsForChild_Response.PlaytimeSession
@@ -10542,7 +10689,7 @@ var file_steammessages_player_steamclient_proto_depIdxs = []int32{
 	21,  // 14: CPlayer_GetAvatarFrame_Response.avatar_frame:type_name -> ProfileItem
 	21,  // 15: CPlayer_GetAnimatedAvatar_Response.avatar:type_name -> ProfileItem
 	21,  // 16: CPlayer_GetSteamDeckKeyboardSkin_Response.steam_deck_keyboard_skin:type_name -> ProfileItem
-	163, // 17: CPlayer_GetProfileItemsOwned_Request.filters:type_name -> ECommunityItemClass
+	164, // 17: CPlayer_GetProfileItemsOwned_Request.filters:type_name -> ECommunityItemClass
 	21,  // 18: CPlayer_GetProfileItemsOwned_Response.profile_backgrounds:type_name -> ProfileItem
 	21,  // 19: CPlayer_GetProfileItemsOwned_Response.mini_profile_backgrounds:type_name -> ProfileItem
 	21,  // 20: CPlayer_GetProfileItemsOwned_Response.avatar_frames:type_name -> ProfileItem
@@ -10565,189 +10712,190 @@ var file_steammessages_player_steamclient_proto_depIdxs = []int32{
 	151, // 37: CPlayer_GetUserAchievements_Response.achievements:type_name -> CPlayer_GetUserAchievements_Response.Achievement
 	152, // 38: CPlayer_GetUserAchievements_Response.groups:type_name -> CPlayer_GetUserAchievements_Response.Group
 	153, // 39: CPlayer_GetGlobalAchievementPercentages_Response.achievements:type_name -> CPlayer_GetGlobalAchievementPercentages_Response.Achievement
-	155, // 40: CPlayer_GetUserStats_Response.stats:type_name -> CPlayer_GetUserStats_Response.Stats
-	164, // 41: ProfileCustomizationSlot.ban_check_result:type_name -> EBanContentCheckResult
-	165, // 42: ProfileCustomization.customization_type:type_name -> EProfileCustomizationType
-	68,  // 43: ProfileCustomization.slots:type_name -> ProfileCustomizationSlot
-	1,   // 44: ProfileCustomization.customization_style:type_name -> EProfileCustomizationStyle
-	69,  // 45: CPlayer_GetProfileCustomization_Response.customizations:type_name -> ProfileCustomization
-	70,  // 46: CPlayer_GetProfileCustomization_Response.profile_theme:type_name -> ProfileTheme
-	156, // 47: CPlayer_GetProfileCustomization_Response.purchased_customizations:type_name -> CPlayer_GetProfileCustomization_Response.PurchasedCustomization
-	71,  // 48: CPlayer_GetProfileCustomization_Response.profile_preferences:type_name -> ProfilePreferences
-	157, // 49: CPlayer_GetPurchasedProfileCustomizations_Response.purchased_customizations:type_name -> CPlayer_GetPurchasedProfileCustomizations_Response.PurchasedCustomization
-	158, // 50: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.purchased_customizations:type_name -> CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.PurchasedCustomization
-	159, // 51: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.upgraded_customizations:type_name -> CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.UpgradedCustomization
-	70,  // 52: CPlayer_GetProfileThemesAvailable_Response.profile_themes:type_name -> ProfileTheme
-	71,  // 53: CPlayer_SetProfilePreferences_Request.profile_preferences:type_name -> ProfilePreferences
-	160, // 54: CPlayer_GetLastPlayedTimes_Response.games:type_name -> CPlayer_GetLastPlayedTimes_Response.Game
-	2,   // 55: CPlayer_AcceptSSA_Request.agreement_type:type_name -> EAgreementType
-	161, // 56: CPlayer_GetNicknameList_Response.nicknames:type_name -> CPlayer_GetNicknameList_Response.PlayerNickname
-	3,   // 57: PerFriendPreferences.notifications_showingame:type_name -> ENotificationSetting
-	3,   // 58: PerFriendPreferences.notifications_showonline:type_name -> ENotificationSetting
-	3,   // 59: PerFriendPreferences.notifications_showmessages:type_name -> ENotificationSetting
-	3,   // 60: PerFriendPreferences.sounds_showingame:type_name -> ENotificationSetting
-	3,   // 61: PerFriendPreferences.sounds_showonline:type_name -> ENotificationSetting
-	3,   // 62: PerFriendPreferences.sounds_showmessages:type_name -> ENotificationSetting
-	3,   // 63: PerFriendPreferences.notifications_sendmobile:type_name -> ENotificationSetting
-	98,  // 64: CPlayer_GetPerFriendPreferences_Response.preferences:type_name -> PerFriendPreferences
-	98,  // 65: CPlayer_SetPerFriendPreferences_Request.preferences:type_name -> PerFriendPreferences
-	4,   // 66: CPlayer_CommunityPreferences.text_filter_setting:type_name -> ETextFilterSetting
-	109, // 67: CPlayer_GetCommunityPreferences_Response.preferences:type_name -> CPlayer_CommunityPreferences
-	166, // 68: CPlayer_GetCommunityPreferences_Response.content_descriptor_preferences:type_name -> UserContentDescriptorPreferences
-	109, // 69: CPlayer_SetCommunityPreferences_Request.preferences:type_name -> CPlayer_CommunityPreferences
-	114, // 70: CPlayer_GetTextFilterWords_Response.words:type_name -> CPlayer_TextFilterWords
-	167, // 71: CPlayer_GetNewSteamAnnouncementState_Response.state:type_name -> ENewSteamAnnouncementState
-	121, // 72: CPlayer_GetPrivacySettings_Response.privacy_settings:type_name -> CPrivacySettings
-	162, // 73: CPlayer_RecordDisconnectedPlaytime_Request.play_sessions:type_name -> CPlayer_RecordDisconnectedPlaytime_Request.PlayHistory
-	160, // 74: CPlayer_LastPlayedTimes_Notification.games:type_name -> CPlayer_GetLastPlayedTimes_Response.Game
-	167, // 75: CPlayer_NewSteamAnnouncementState_Notification.state:type_name -> ENewSteamAnnouncementState
-	109, // 76: CPlayer_CommunityPreferencesChanged_Notification.preferences:type_name -> CPlayer_CommunityPreferences
-	166, // 77: CPlayer_CommunityPreferencesChanged_Notification.content_descriptor_preferences:type_name -> UserContentDescriptorPreferences
-	114, // 78: CPlayer_TextFilterWordsChanged_Notification.words:type_name -> CPlayer_TextFilterWords
-	98,  // 79: CPlayer_PerFriendPreferencesChanged_Notification.preferences:type_name -> PerFriendPreferences
-	121, // 80: CPlayer_PrivacySettingsChanged_Notification.privacy_settings:type_name -> CPrivacySettings
-	137, // 81: CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.public_data:type_name -> CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.AccountPublicData
-	138, // 82: CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.private_data:type_name -> CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.AccountPrivateData
-	146, // 83: CPlayer_GetTopAchievementsForGames_Response.Game.achievements:type_name -> CPlayer_GetTopAchievementsForGames_Response.Achievement
-	0,   // 84: CPlayer_GetGameAchievements_Response.Achievement.progress_type:type_name -> EAchievementProgressType
-	154, // 85: CPlayer_GetUserStats_Response.Stats.unlock_times:type_name -> CPlayer_GetUserStats_Response.Unlock_Time
-	165, // 86: CPlayer_GetProfileCustomization_Response.PurchasedCustomization.customization_type:type_name -> EProfileCustomizationType
-	165, // 87: CPlayer_GetPurchasedProfileCustomizations_Response.PurchasedCustomization.customization_type:type_name -> EProfileCustomizationType
-	165, // 88: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.PurchasedCustomization.customization_type:type_name -> EProfileCustomizationType
-	165, // 89: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.UpgradedCustomization.customization_type:type_name -> EProfileCustomizationType
-	5,   // 90: Player.GetRecentPlaytimeSessionsForChild:input_type -> CPlayer_GetRecentPlaytimeSessionsForChild_Request
-	7,   // 91: Player.GetPlayerLinkDetails:input_type -> CPlayer_GetPlayerLinkDetails_Request
-	9,   // 92: Player.GetMutualFriendsForIncomingInvites:input_type -> CPlayer_GetMutualFriendsForIncomingInvites_Request
-	12,  // 93: Player.GetOwnedGames:input_type -> CPlayer_GetOwnedGames_Request
-	14,  // 94: Player.GetPlayNext:input_type -> CPlayer_GetPlayNext_Request
-	16,  // 95: Player.GetFriendsGameplayInfo:input_type -> CPlayer_GetFriendsGameplayInfo_Request
-	18,  // 96: Player.GetGameBadgeLevels:input_type -> CPlayer_GetGameBadgeLevels_Request
-	20,  // 97: Player.GetProfileBackground:input_type -> CPlayer_GetProfileBackground_Request
-	23,  // 98: Player.SetProfileBackground:input_type -> CPlayer_SetProfileBackground_Request
-	25,  // 99: Player.GetMiniProfileBackground:input_type -> CPlayer_GetMiniProfileBackground_Request
-	27,  // 100: Player.SetMiniProfileBackground:input_type -> CPlayer_SetMiniProfileBackground_Request
-	29,  // 101: Player.GetAvatarFrame:input_type -> CPlayer_GetAvatarFrame_Request
-	31,  // 102: Player.SetAvatarFrame:input_type -> CPlayer_SetAvatarFrame_Request
-	33,  // 103: Player.GetAnimatedAvatar:input_type -> CPlayer_GetAnimatedAvatar_Request
-	35,  // 104: Player.SetAnimatedAvatar:input_type -> CPlayer_SetAnimatedAvatar_Request
-	37,  // 105: Player.GetSteamDeckKeyboardSkin:input_type -> CPlayer_GetSteamDeckKeyboardSkin_Request
-	39,  // 106: Player.SetSteamDeckKeyboardSkin:input_type -> CPlayer_SetSteamDeckKeyboardSkin_Request
-	41,  // 107: Player.GetProfileItemsOwned:input_type -> CPlayer_GetProfileItemsOwned_Request
-	43,  // 108: Player.GetProfileItemsEquipped:input_type -> CPlayer_GetProfileItemsEquipped_Request
-	45,  // 109: Player.SetEquippedProfileItemFlags:input_type -> CPlayer_SetEquippedProfileItemFlags_Request
-	47,  // 110: Player.GetEmoticonList:input_type -> CPlayer_GetEmoticonList_Request
-	49,  // 111: Player.GetCommunityBadgeProgress:input_type -> CPlayer_GetCommunityBadgeProgress_Request
-	51,  // 112: Player.GetTopAchievementsForGames:input_type -> CPlayer_GetTopAchievementsForGames_Request
-	53,  // 113: Player.GetAchievementsProgress:input_type -> CPlayer_GetAchievementsProgress_Request
-	55,  // 114: Player.GetGameAchievements:input_type -> CPlayer_GetGameAchievements_Request
-	57,  // 115: Player.GetUserAchievements:input_type -> CPlayer_GetUserAchievements_Request
-	59,  // 116: Player.GetGlobalAchievementPercentages:input_type -> CPlayer_GetGlobalAchievementPercentages_Request
-	61,  // 117: Player.GetUserStats:input_type -> CPlayer_GetUserStats_Request
-	63,  // 118: Player.GetFavoriteBadge:input_type -> CPlayer_GetFavoriteBadge_Request
-	65,  // 119: Player.SetFavoriteBadge:input_type -> CPlayer_SetFavoriteBadge_Request
-	67,  // 120: Player.GetProfileCustomization:input_type -> CPlayer_GetProfileCustomization_Request
-	73,  // 121: Player.GetPurchasedProfileCustomizations:input_type -> CPlayer_GetPurchasedProfileCustomizations_Request
-	75,  // 122: Player.GetPurchasedAndUpgradedProfileCustomizations:input_type -> CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request
-	77,  // 123: Player.GetProfileThemesAvailable:input_type -> CPlayer_GetProfileThemesAvailable_Request
-	79,  // 124: Player.SetProfileTheme:input_type -> CPlayer_SetProfileTheme_Request
-	81,  // 125: Player.SetProfilePreferences:input_type -> CPlayer_SetProfilePreferences_Request
-	83,  // 126: Player.PostStatusToFriends:input_type -> CPlayer_PostStatusToFriends_Request
-	85,  // 127: Player.GetPostedStatus:input_type -> CPlayer_GetPostedStatus_Request
-	87,  // 128: Player.DeletePostedStatus:input_type -> CPlayer_DeletePostedStatus_Request
-	89,  // 129: Player.ClientGetLastPlayedTimes:input_type -> CPlayer_GetLastPlayedTimes_Request
-	91,  // 130: Player.GetTimeSSAAccepted:input_type -> CPlayer_GetTimeSSAAccepted_Request
-	93,  // 131: Player.AcceptSSA:input_type -> CPlayer_AcceptSSA_Request
-	95,  // 132: Player.GetNicknameList:input_type -> CPlayer_GetNicknameList_Request
-	97,  // 133: Player.GetPerFriendPreferences:input_type -> CPlayer_GetPerFriendPreferences_Request
-	100, // 134: Player.SetPerFriendPreferences:input_type -> CPlayer_SetPerFriendPreferences_Request
-	102, // 135: Player.AddFriend:input_type -> CPlayer_AddFriend_Request
-	104, // 136: Player.RemoveFriend:input_type -> CPlayer_RemoveFriend_Request
-	106, // 137: Player.IgnoreFriend:input_type -> CPlayer_IgnoreFriend_Request
-	108, // 138: Player.GetCommunityPreferences:input_type -> CPlayer_GetCommunityPreferences_Request
-	111, // 139: Player.SetCommunityPreferences:input_type -> CPlayer_SetCommunityPreferences_Request
-	113, // 140: Player.GetTextFilterWords:input_type -> CPlayer_GetTextFilterWords_Request
-	116, // 141: Player.GetNewSteamAnnouncementState:input_type -> CPlayer_GetNewSteamAnnouncementState_Request
-	118, // 142: Player.UpdateSteamAnnouncementLastRead:input_type -> CPlayer_UpdateSteamAnnouncementLastRead_Request
-	120, // 143: Player.GetPrivacySettings:input_type -> CPlayer_GetPrivacySettings_Request
-	123, // 144: Player.GetDurationControl:input_type -> CPlayer_GetDurationControl_Request
-	125, // 145: Player.RecordDisconnectedPlaytime:input_type -> CPlayer_RecordDisconnectedPlaytime_Request
-	127, // 146: PlayerClient.NotifyLastPlayedTimes:input_type -> CPlayer_LastPlayedTimes_Notification
-	128, // 147: PlayerClient.NotifyFriendNicknameChanged:input_type -> CPlayer_FriendNicknameChanged_Notification
-	129, // 148: PlayerClient.NotifyFriendEquippedProfileItemsChanged:input_type -> CPlayer_FriendEquippedProfileItemsChanged_Notification
-	130, // 149: PlayerClient.NotifyNewSteamAnnouncementState:input_type -> CPlayer_NewSteamAnnouncementState_Notification
-	131, // 150: PlayerClient.NotifyCommunityPreferencesChanged:input_type -> CPlayer_CommunityPreferencesChanged_Notification
-	132, // 151: PlayerClient.NotifyTextFilterWordsChanged:input_type -> CPlayer_TextFilterWordsChanged_Notification
-	133, // 152: PlayerClient.NotifyPerFriendPreferencesChanged:input_type -> CPlayer_PerFriendPreferencesChanged_Notification
-	134, // 153: PlayerClient.NotifyPrivacyPrivacySettingsChanged:input_type -> CPlayer_PrivacySettingsChanged_Notification
-	6,   // 154: Player.GetRecentPlaytimeSessionsForChild:output_type -> CPlayer_GetRecentPlaytimeSessionsForChild_Response
-	8,   // 155: Player.GetPlayerLinkDetails:output_type -> CPlayer_GetPlayerLinkDetails_Response
-	11,  // 156: Player.GetMutualFriendsForIncomingInvites:output_type -> CPlayer_GetMutualFriendsForIncomingInvites_Response
-	13,  // 157: Player.GetOwnedGames:output_type -> CPlayer_GetOwnedGames_Response
-	15,  // 158: Player.GetPlayNext:output_type -> CPlayer_GetPlayNext_Response
-	17,  // 159: Player.GetFriendsGameplayInfo:output_type -> CPlayer_GetFriendsGameplayInfo_Response
-	19,  // 160: Player.GetGameBadgeLevels:output_type -> CPlayer_GetGameBadgeLevels_Response
-	22,  // 161: Player.GetProfileBackground:output_type -> CPlayer_GetProfileBackground_Response
-	24,  // 162: Player.SetProfileBackground:output_type -> CPlayer_SetProfileBackground_Response
-	26,  // 163: Player.GetMiniProfileBackground:output_type -> CPlayer_GetMiniProfileBackground_Response
-	28,  // 164: Player.SetMiniProfileBackground:output_type -> CPlayer_SetMiniProfileBackground_Response
-	30,  // 165: Player.GetAvatarFrame:output_type -> CPlayer_GetAvatarFrame_Response
-	32,  // 166: Player.SetAvatarFrame:output_type -> CPlayer_SetAvatarFrame_Response
-	34,  // 167: Player.GetAnimatedAvatar:output_type -> CPlayer_GetAnimatedAvatar_Response
-	36,  // 168: Player.SetAnimatedAvatar:output_type -> CPlayer_SetAnimatedAvatar_Response
-	38,  // 169: Player.GetSteamDeckKeyboardSkin:output_type -> CPlayer_GetSteamDeckKeyboardSkin_Response
-	40,  // 170: Player.SetSteamDeckKeyboardSkin:output_type -> CPlayer_SetSteamDeckKeyboardSkin_Response
-	42,  // 171: Player.GetProfileItemsOwned:output_type -> CPlayer_GetProfileItemsOwned_Response
-	44,  // 172: Player.GetProfileItemsEquipped:output_type -> CPlayer_GetProfileItemsEquipped_Response
-	46,  // 173: Player.SetEquippedProfileItemFlags:output_type -> CPlayer_SetEquippedProfileItemFlags_Response
-	48,  // 174: Player.GetEmoticonList:output_type -> CPlayer_GetEmoticonList_Response
-	50,  // 175: Player.GetCommunityBadgeProgress:output_type -> CPlayer_GetCommunityBadgeProgress_Response
-	52,  // 176: Player.GetTopAchievementsForGames:output_type -> CPlayer_GetTopAchievementsForGames_Response
-	54,  // 177: Player.GetAchievementsProgress:output_type -> CPlayer_GetAchievementsProgress_Response
-	56,  // 178: Player.GetGameAchievements:output_type -> CPlayer_GetGameAchievements_Response
-	58,  // 179: Player.GetUserAchievements:output_type -> CPlayer_GetUserAchievements_Response
-	60,  // 180: Player.GetGlobalAchievementPercentages:output_type -> CPlayer_GetGlobalAchievementPercentages_Response
-	62,  // 181: Player.GetUserStats:output_type -> CPlayer_GetUserStats_Response
-	64,  // 182: Player.GetFavoriteBadge:output_type -> CPlayer_GetFavoriteBadge_Response
-	66,  // 183: Player.SetFavoriteBadge:output_type -> CPlayer_SetFavoriteBadge_Response
-	72,  // 184: Player.GetProfileCustomization:output_type -> CPlayer_GetProfileCustomization_Response
-	74,  // 185: Player.GetPurchasedProfileCustomizations:output_type -> CPlayer_GetPurchasedProfileCustomizations_Response
-	76,  // 186: Player.GetPurchasedAndUpgradedProfileCustomizations:output_type -> CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response
-	78,  // 187: Player.GetProfileThemesAvailable:output_type -> CPlayer_GetProfileThemesAvailable_Response
-	80,  // 188: Player.SetProfileTheme:output_type -> CPlayer_SetProfileTheme_Response
-	82,  // 189: Player.SetProfilePreferences:output_type -> CPlayer_SetProfilePreferences_Response
-	84,  // 190: Player.PostStatusToFriends:output_type -> CPlayer_PostStatusToFriends_Response
-	86,  // 191: Player.GetPostedStatus:output_type -> CPlayer_GetPostedStatus_Response
-	88,  // 192: Player.DeletePostedStatus:output_type -> CPlayer_DeletePostedStatus_Response
-	90,  // 193: Player.ClientGetLastPlayedTimes:output_type -> CPlayer_GetLastPlayedTimes_Response
-	92,  // 194: Player.GetTimeSSAAccepted:output_type -> CPlayer_GetTimeSSAAccepted_Response
-	94,  // 195: Player.AcceptSSA:output_type -> CPlayer_AcceptSSA_Response
-	96,  // 196: Player.GetNicknameList:output_type -> CPlayer_GetNicknameList_Response
-	99,  // 197: Player.GetPerFriendPreferences:output_type -> CPlayer_GetPerFriendPreferences_Response
-	101, // 198: Player.SetPerFriendPreferences:output_type -> CPlayer_SetPerFriendPreferences_Response
-	103, // 199: Player.AddFriend:output_type -> CPlayer_AddFriend_Response
-	105, // 200: Player.RemoveFriend:output_type -> CPlayer_RemoveFriend_Response
-	107, // 201: Player.IgnoreFriend:output_type -> CPlayer_IgnoreFriend_Response
-	110, // 202: Player.GetCommunityPreferences:output_type -> CPlayer_GetCommunityPreferences_Response
-	112, // 203: Player.SetCommunityPreferences:output_type -> CPlayer_SetCommunityPreferences_Response
-	115, // 204: Player.GetTextFilterWords:output_type -> CPlayer_GetTextFilterWords_Response
-	117, // 205: Player.GetNewSteamAnnouncementState:output_type -> CPlayer_GetNewSteamAnnouncementState_Response
-	119, // 206: Player.UpdateSteamAnnouncementLastRead:output_type -> CPlayer_UpdateSteamAnnouncementLastRead_Response
-	122, // 207: Player.GetPrivacySettings:output_type -> CPlayer_GetPrivacySettings_Response
-	124, // 208: Player.GetDurationControl:output_type -> CPlayer_GetDurationControl_Response
-	126, // 209: Player.RecordDisconnectedPlaytime:output_type -> CPlayer_RecordDisconnectedPlaytime_Response
-	168, // 210: PlayerClient.NotifyLastPlayedTimes:output_type -> NoResponse
-	168, // 211: PlayerClient.NotifyFriendNicknameChanged:output_type -> NoResponse
-	168, // 212: PlayerClient.NotifyFriendEquippedProfileItemsChanged:output_type -> NoResponse
-	168, // 213: PlayerClient.NotifyNewSteamAnnouncementState:output_type -> NoResponse
-	168, // 214: PlayerClient.NotifyCommunityPreferencesChanged:output_type -> NoResponse
-	168, // 215: PlayerClient.NotifyTextFilterWordsChanged:output_type -> NoResponse
-	168, // 216: PlayerClient.NotifyPerFriendPreferencesChanged:output_type -> NoResponse
-	168, // 217: PlayerClient.NotifyPrivacyPrivacySettingsChanged:output_type -> NoResponse
-	154, // [154:218] is the sub-list for method output_type
-	90,  // [90:154] is the sub-list for method input_type
-	90,  // [90:90] is the sub-list for extension type_name
-	90,  // [90:90] is the sub-list for extension extendee
-	0,   // [0:90] is the sub-list for field type_name
+	154, // 40: CPlayer_GetGlobalAchievementPercentages_Response.groups:type_name -> CPlayer_GetGlobalAchievementPercentages_Response.Group
+	156, // 41: CPlayer_GetUserStats_Response.stats:type_name -> CPlayer_GetUserStats_Response.Stats
+	165, // 42: ProfileCustomizationSlot.ban_check_result:type_name -> EBanContentCheckResult
+	166, // 43: ProfileCustomization.customization_type:type_name -> EProfileCustomizationType
+	68,  // 44: ProfileCustomization.slots:type_name -> ProfileCustomizationSlot
+	1,   // 45: ProfileCustomization.customization_style:type_name -> EProfileCustomizationStyle
+	69,  // 46: CPlayer_GetProfileCustomization_Response.customizations:type_name -> ProfileCustomization
+	70,  // 47: CPlayer_GetProfileCustomization_Response.profile_theme:type_name -> ProfileTheme
+	157, // 48: CPlayer_GetProfileCustomization_Response.purchased_customizations:type_name -> CPlayer_GetProfileCustomization_Response.PurchasedCustomization
+	71,  // 49: CPlayer_GetProfileCustomization_Response.profile_preferences:type_name -> ProfilePreferences
+	158, // 50: CPlayer_GetPurchasedProfileCustomizations_Response.purchased_customizations:type_name -> CPlayer_GetPurchasedProfileCustomizations_Response.PurchasedCustomization
+	159, // 51: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.purchased_customizations:type_name -> CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.PurchasedCustomization
+	160, // 52: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.upgraded_customizations:type_name -> CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.UpgradedCustomization
+	70,  // 53: CPlayer_GetProfileThemesAvailable_Response.profile_themes:type_name -> ProfileTheme
+	71,  // 54: CPlayer_SetProfilePreferences_Request.profile_preferences:type_name -> ProfilePreferences
+	161, // 55: CPlayer_GetLastPlayedTimes_Response.games:type_name -> CPlayer_GetLastPlayedTimes_Response.Game
+	2,   // 56: CPlayer_AcceptSSA_Request.agreement_type:type_name -> EAgreementType
+	162, // 57: CPlayer_GetNicknameList_Response.nicknames:type_name -> CPlayer_GetNicknameList_Response.PlayerNickname
+	3,   // 58: PerFriendPreferences.notifications_showingame:type_name -> ENotificationSetting
+	3,   // 59: PerFriendPreferences.notifications_showonline:type_name -> ENotificationSetting
+	3,   // 60: PerFriendPreferences.notifications_showmessages:type_name -> ENotificationSetting
+	3,   // 61: PerFriendPreferences.sounds_showingame:type_name -> ENotificationSetting
+	3,   // 62: PerFriendPreferences.sounds_showonline:type_name -> ENotificationSetting
+	3,   // 63: PerFriendPreferences.sounds_showmessages:type_name -> ENotificationSetting
+	3,   // 64: PerFriendPreferences.notifications_sendmobile:type_name -> ENotificationSetting
+	98,  // 65: CPlayer_GetPerFriendPreferences_Response.preferences:type_name -> PerFriendPreferences
+	98,  // 66: CPlayer_SetPerFriendPreferences_Request.preferences:type_name -> PerFriendPreferences
+	4,   // 67: CPlayer_CommunityPreferences.text_filter_setting:type_name -> ETextFilterSetting
+	109, // 68: CPlayer_GetCommunityPreferences_Response.preferences:type_name -> CPlayer_CommunityPreferences
+	167, // 69: CPlayer_GetCommunityPreferences_Response.content_descriptor_preferences:type_name -> UserContentDescriptorPreferences
+	109, // 70: CPlayer_SetCommunityPreferences_Request.preferences:type_name -> CPlayer_CommunityPreferences
+	114, // 71: CPlayer_GetTextFilterWords_Response.words:type_name -> CPlayer_TextFilterWords
+	168, // 72: CPlayer_GetNewSteamAnnouncementState_Response.state:type_name -> ENewSteamAnnouncementState
+	121, // 73: CPlayer_GetPrivacySettings_Response.privacy_settings:type_name -> CPrivacySettings
+	163, // 74: CPlayer_RecordDisconnectedPlaytime_Request.play_sessions:type_name -> CPlayer_RecordDisconnectedPlaytime_Request.PlayHistory
+	161, // 75: CPlayer_LastPlayedTimes_Notification.games:type_name -> CPlayer_GetLastPlayedTimes_Response.Game
+	168, // 76: CPlayer_NewSteamAnnouncementState_Notification.state:type_name -> ENewSteamAnnouncementState
+	109, // 77: CPlayer_CommunityPreferencesChanged_Notification.preferences:type_name -> CPlayer_CommunityPreferences
+	167, // 78: CPlayer_CommunityPreferencesChanged_Notification.content_descriptor_preferences:type_name -> UserContentDescriptorPreferences
+	114, // 79: CPlayer_TextFilterWordsChanged_Notification.words:type_name -> CPlayer_TextFilterWords
+	98,  // 80: CPlayer_PerFriendPreferencesChanged_Notification.preferences:type_name -> PerFriendPreferences
+	121, // 81: CPlayer_PrivacySettingsChanged_Notification.privacy_settings:type_name -> CPrivacySettings
+	137, // 82: CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.public_data:type_name -> CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.AccountPublicData
+	138, // 83: CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.private_data:type_name -> CPlayer_GetPlayerLinkDetails_Response.PlayerLinkDetails.AccountPrivateData
+	146, // 84: CPlayer_GetTopAchievementsForGames_Response.Game.achievements:type_name -> CPlayer_GetTopAchievementsForGames_Response.Achievement
+	0,   // 85: CPlayer_GetGameAchievements_Response.Achievement.progress_type:type_name -> EAchievementProgressType
+	155, // 86: CPlayer_GetUserStats_Response.Stats.unlock_times:type_name -> CPlayer_GetUserStats_Response.Unlock_Time
+	166, // 87: CPlayer_GetProfileCustomization_Response.PurchasedCustomization.customization_type:type_name -> EProfileCustomizationType
+	166, // 88: CPlayer_GetPurchasedProfileCustomizations_Response.PurchasedCustomization.customization_type:type_name -> EProfileCustomizationType
+	166, // 89: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.PurchasedCustomization.customization_type:type_name -> EProfileCustomizationType
+	166, // 90: CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response.UpgradedCustomization.customization_type:type_name -> EProfileCustomizationType
+	5,   // 91: Player.GetRecentPlaytimeSessionsForChild:input_type -> CPlayer_GetRecentPlaytimeSessionsForChild_Request
+	7,   // 92: Player.GetPlayerLinkDetails:input_type -> CPlayer_GetPlayerLinkDetails_Request
+	9,   // 93: Player.GetMutualFriendsForIncomingInvites:input_type -> CPlayer_GetMutualFriendsForIncomingInvites_Request
+	12,  // 94: Player.GetOwnedGames:input_type -> CPlayer_GetOwnedGames_Request
+	14,  // 95: Player.GetPlayNext:input_type -> CPlayer_GetPlayNext_Request
+	16,  // 96: Player.GetFriendsGameplayInfo:input_type -> CPlayer_GetFriendsGameplayInfo_Request
+	18,  // 97: Player.GetGameBadgeLevels:input_type -> CPlayer_GetGameBadgeLevels_Request
+	20,  // 98: Player.GetProfileBackground:input_type -> CPlayer_GetProfileBackground_Request
+	23,  // 99: Player.SetProfileBackground:input_type -> CPlayer_SetProfileBackground_Request
+	25,  // 100: Player.GetMiniProfileBackground:input_type -> CPlayer_GetMiniProfileBackground_Request
+	27,  // 101: Player.SetMiniProfileBackground:input_type -> CPlayer_SetMiniProfileBackground_Request
+	29,  // 102: Player.GetAvatarFrame:input_type -> CPlayer_GetAvatarFrame_Request
+	31,  // 103: Player.SetAvatarFrame:input_type -> CPlayer_SetAvatarFrame_Request
+	33,  // 104: Player.GetAnimatedAvatar:input_type -> CPlayer_GetAnimatedAvatar_Request
+	35,  // 105: Player.SetAnimatedAvatar:input_type -> CPlayer_SetAnimatedAvatar_Request
+	37,  // 106: Player.GetSteamDeckKeyboardSkin:input_type -> CPlayer_GetSteamDeckKeyboardSkin_Request
+	39,  // 107: Player.SetSteamDeckKeyboardSkin:input_type -> CPlayer_SetSteamDeckKeyboardSkin_Request
+	41,  // 108: Player.GetProfileItemsOwned:input_type -> CPlayer_GetProfileItemsOwned_Request
+	43,  // 109: Player.GetProfileItemsEquipped:input_type -> CPlayer_GetProfileItemsEquipped_Request
+	45,  // 110: Player.SetEquippedProfileItemFlags:input_type -> CPlayer_SetEquippedProfileItemFlags_Request
+	47,  // 111: Player.GetEmoticonList:input_type -> CPlayer_GetEmoticonList_Request
+	49,  // 112: Player.GetCommunityBadgeProgress:input_type -> CPlayer_GetCommunityBadgeProgress_Request
+	51,  // 113: Player.GetTopAchievementsForGames:input_type -> CPlayer_GetTopAchievementsForGames_Request
+	53,  // 114: Player.GetAchievementsProgress:input_type -> CPlayer_GetAchievementsProgress_Request
+	55,  // 115: Player.GetGameAchievements:input_type -> CPlayer_GetGameAchievements_Request
+	57,  // 116: Player.GetUserAchievements:input_type -> CPlayer_GetUserAchievements_Request
+	59,  // 117: Player.GetGlobalAchievementPercentages:input_type -> CPlayer_GetGlobalAchievementPercentages_Request
+	61,  // 118: Player.GetUserStats:input_type -> CPlayer_GetUserStats_Request
+	63,  // 119: Player.GetFavoriteBadge:input_type -> CPlayer_GetFavoriteBadge_Request
+	65,  // 120: Player.SetFavoriteBadge:input_type -> CPlayer_SetFavoriteBadge_Request
+	67,  // 121: Player.GetProfileCustomization:input_type -> CPlayer_GetProfileCustomization_Request
+	73,  // 122: Player.GetPurchasedProfileCustomizations:input_type -> CPlayer_GetPurchasedProfileCustomizations_Request
+	75,  // 123: Player.GetPurchasedAndUpgradedProfileCustomizations:input_type -> CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request
+	77,  // 124: Player.GetProfileThemesAvailable:input_type -> CPlayer_GetProfileThemesAvailable_Request
+	79,  // 125: Player.SetProfileTheme:input_type -> CPlayer_SetProfileTheme_Request
+	81,  // 126: Player.SetProfilePreferences:input_type -> CPlayer_SetProfilePreferences_Request
+	83,  // 127: Player.PostStatusToFriends:input_type -> CPlayer_PostStatusToFriends_Request
+	85,  // 128: Player.GetPostedStatus:input_type -> CPlayer_GetPostedStatus_Request
+	87,  // 129: Player.DeletePostedStatus:input_type -> CPlayer_DeletePostedStatus_Request
+	89,  // 130: Player.ClientGetLastPlayedTimes:input_type -> CPlayer_GetLastPlayedTimes_Request
+	91,  // 131: Player.GetTimeSSAAccepted:input_type -> CPlayer_GetTimeSSAAccepted_Request
+	93,  // 132: Player.AcceptSSA:input_type -> CPlayer_AcceptSSA_Request
+	95,  // 133: Player.GetNicknameList:input_type -> CPlayer_GetNicknameList_Request
+	97,  // 134: Player.GetPerFriendPreferences:input_type -> CPlayer_GetPerFriendPreferences_Request
+	100, // 135: Player.SetPerFriendPreferences:input_type -> CPlayer_SetPerFriendPreferences_Request
+	102, // 136: Player.AddFriend:input_type -> CPlayer_AddFriend_Request
+	104, // 137: Player.RemoveFriend:input_type -> CPlayer_RemoveFriend_Request
+	106, // 138: Player.IgnoreFriend:input_type -> CPlayer_IgnoreFriend_Request
+	108, // 139: Player.GetCommunityPreferences:input_type -> CPlayer_GetCommunityPreferences_Request
+	111, // 140: Player.SetCommunityPreferences:input_type -> CPlayer_SetCommunityPreferences_Request
+	113, // 141: Player.GetTextFilterWords:input_type -> CPlayer_GetTextFilterWords_Request
+	116, // 142: Player.GetNewSteamAnnouncementState:input_type -> CPlayer_GetNewSteamAnnouncementState_Request
+	118, // 143: Player.UpdateSteamAnnouncementLastRead:input_type -> CPlayer_UpdateSteamAnnouncementLastRead_Request
+	120, // 144: Player.GetPrivacySettings:input_type -> CPlayer_GetPrivacySettings_Request
+	123, // 145: Player.GetDurationControl:input_type -> CPlayer_GetDurationControl_Request
+	125, // 146: Player.RecordDisconnectedPlaytime:input_type -> CPlayer_RecordDisconnectedPlaytime_Request
+	127, // 147: PlayerClient.NotifyLastPlayedTimes:input_type -> CPlayer_LastPlayedTimes_Notification
+	128, // 148: PlayerClient.NotifyFriendNicknameChanged:input_type -> CPlayer_FriendNicknameChanged_Notification
+	129, // 149: PlayerClient.NotifyFriendEquippedProfileItemsChanged:input_type -> CPlayer_FriendEquippedProfileItemsChanged_Notification
+	130, // 150: PlayerClient.NotifyNewSteamAnnouncementState:input_type -> CPlayer_NewSteamAnnouncementState_Notification
+	131, // 151: PlayerClient.NotifyCommunityPreferencesChanged:input_type -> CPlayer_CommunityPreferencesChanged_Notification
+	132, // 152: PlayerClient.NotifyTextFilterWordsChanged:input_type -> CPlayer_TextFilterWordsChanged_Notification
+	133, // 153: PlayerClient.NotifyPerFriendPreferencesChanged:input_type -> CPlayer_PerFriendPreferencesChanged_Notification
+	134, // 154: PlayerClient.NotifyPrivacyPrivacySettingsChanged:input_type -> CPlayer_PrivacySettingsChanged_Notification
+	6,   // 155: Player.GetRecentPlaytimeSessionsForChild:output_type -> CPlayer_GetRecentPlaytimeSessionsForChild_Response
+	8,   // 156: Player.GetPlayerLinkDetails:output_type -> CPlayer_GetPlayerLinkDetails_Response
+	11,  // 157: Player.GetMutualFriendsForIncomingInvites:output_type -> CPlayer_GetMutualFriendsForIncomingInvites_Response
+	13,  // 158: Player.GetOwnedGames:output_type -> CPlayer_GetOwnedGames_Response
+	15,  // 159: Player.GetPlayNext:output_type -> CPlayer_GetPlayNext_Response
+	17,  // 160: Player.GetFriendsGameplayInfo:output_type -> CPlayer_GetFriendsGameplayInfo_Response
+	19,  // 161: Player.GetGameBadgeLevels:output_type -> CPlayer_GetGameBadgeLevels_Response
+	22,  // 162: Player.GetProfileBackground:output_type -> CPlayer_GetProfileBackground_Response
+	24,  // 163: Player.SetProfileBackground:output_type -> CPlayer_SetProfileBackground_Response
+	26,  // 164: Player.GetMiniProfileBackground:output_type -> CPlayer_GetMiniProfileBackground_Response
+	28,  // 165: Player.SetMiniProfileBackground:output_type -> CPlayer_SetMiniProfileBackground_Response
+	30,  // 166: Player.GetAvatarFrame:output_type -> CPlayer_GetAvatarFrame_Response
+	32,  // 167: Player.SetAvatarFrame:output_type -> CPlayer_SetAvatarFrame_Response
+	34,  // 168: Player.GetAnimatedAvatar:output_type -> CPlayer_GetAnimatedAvatar_Response
+	36,  // 169: Player.SetAnimatedAvatar:output_type -> CPlayer_SetAnimatedAvatar_Response
+	38,  // 170: Player.GetSteamDeckKeyboardSkin:output_type -> CPlayer_GetSteamDeckKeyboardSkin_Response
+	40,  // 171: Player.SetSteamDeckKeyboardSkin:output_type -> CPlayer_SetSteamDeckKeyboardSkin_Response
+	42,  // 172: Player.GetProfileItemsOwned:output_type -> CPlayer_GetProfileItemsOwned_Response
+	44,  // 173: Player.GetProfileItemsEquipped:output_type -> CPlayer_GetProfileItemsEquipped_Response
+	46,  // 174: Player.SetEquippedProfileItemFlags:output_type -> CPlayer_SetEquippedProfileItemFlags_Response
+	48,  // 175: Player.GetEmoticonList:output_type -> CPlayer_GetEmoticonList_Response
+	50,  // 176: Player.GetCommunityBadgeProgress:output_type -> CPlayer_GetCommunityBadgeProgress_Response
+	52,  // 177: Player.GetTopAchievementsForGames:output_type -> CPlayer_GetTopAchievementsForGames_Response
+	54,  // 178: Player.GetAchievementsProgress:output_type -> CPlayer_GetAchievementsProgress_Response
+	56,  // 179: Player.GetGameAchievements:output_type -> CPlayer_GetGameAchievements_Response
+	58,  // 180: Player.GetUserAchievements:output_type -> CPlayer_GetUserAchievements_Response
+	60,  // 181: Player.GetGlobalAchievementPercentages:output_type -> CPlayer_GetGlobalAchievementPercentages_Response
+	62,  // 182: Player.GetUserStats:output_type -> CPlayer_GetUserStats_Response
+	64,  // 183: Player.GetFavoriteBadge:output_type -> CPlayer_GetFavoriteBadge_Response
+	66,  // 184: Player.SetFavoriteBadge:output_type -> CPlayer_SetFavoriteBadge_Response
+	72,  // 185: Player.GetProfileCustomization:output_type -> CPlayer_GetProfileCustomization_Response
+	74,  // 186: Player.GetPurchasedProfileCustomizations:output_type -> CPlayer_GetPurchasedProfileCustomizations_Response
+	76,  // 187: Player.GetPurchasedAndUpgradedProfileCustomizations:output_type -> CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response
+	78,  // 188: Player.GetProfileThemesAvailable:output_type -> CPlayer_GetProfileThemesAvailable_Response
+	80,  // 189: Player.SetProfileTheme:output_type -> CPlayer_SetProfileTheme_Response
+	82,  // 190: Player.SetProfilePreferences:output_type -> CPlayer_SetProfilePreferences_Response
+	84,  // 191: Player.PostStatusToFriends:output_type -> CPlayer_PostStatusToFriends_Response
+	86,  // 192: Player.GetPostedStatus:output_type -> CPlayer_GetPostedStatus_Response
+	88,  // 193: Player.DeletePostedStatus:output_type -> CPlayer_DeletePostedStatus_Response
+	90,  // 194: Player.ClientGetLastPlayedTimes:output_type -> CPlayer_GetLastPlayedTimes_Response
+	92,  // 195: Player.GetTimeSSAAccepted:output_type -> CPlayer_GetTimeSSAAccepted_Response
+	94,  // 196: Player.AcceptSSA:output_type -> CPlayer_AcceptSSA_Response
+	96,  // 197: Player.GetNicknameList:output_type -> CPlayer_GetNicknameList_Response
+	99,  // 198: Player.GetPerFriendPreferences:output_type -> CPlayer_GetPerFriendPreferences_Response
+	101, // 199: Player.SetPerFriendPreferences:output_type -> CPlayer_SetPerFriendPreferences_Response
+	103, // 200: Player.AddFriend:output_type -> CPlayer_AddFriend_Response
+	105, // 201: Player.RemoveFriend:output_type -> CPlayer_RemoveFriend_Response
+	107, // 202: Player.IgnoreFriend:output_type -> CPlayer_IgnoreFriend_Response
+	110, // 203: Player.GetCommunityPreferences:output_type -> CPlayer_GetCommunityPreferences_Response
+	112, // 204: Player.SetCommunityPreferences:output_type -> CPlayer_SetCommunityPreferences_Response
+	115, // 205: Player.GetTextFilterWords:output_type -> CPlayer_GetTextFilterWords_Response
+	117, // 206: Player.GetNewSteamAnnouncementState:output_type -> CPlayer_GetNewSteamAnnouncementState_Response
+	119, // 207: Player.UpdateSteamAnnouncementLastRead:output_type -> CPlayer_UpdateSteamAnnouncementLastRead_Response
+	122, // 208: Player.GetPrivacySettings:output_type -> CPlayer_GetPrivacySettings_Response
+	124, // 209: Player.GetDurationControl:output_type -> CPlayer_GetDurationControl_Response
+	126, // 210: Player.RecordDisconnectedPlaytime:output_type -> CPlayer_RecordDisconnectedPlaytime_Response
+	169, // 211: PlayerClient.NotifyLastPlayedTimes:output_type -> NoResponse
+	169, // 212: PlayerClient.NotifyFriendNicknameChanged:output_type -> NoResponse
+	169, // 213: PlayerClient.NotifyFriendEquippedProfileItemsChanged:output_type -> NoResponse
+	169, // 214: PlayerClient.NotifyNewSteamAnnouncementState:output_type -> NoResponse
+	169, // 215: PlayerClient.NotifyCommunityPreferencesChanged:output_type -> NoResponse
+	169, // 216: PlayerClient.NotifyTextFilterWordsChanged:output_type -> NoResponse
+	169, // 217: PlayerClient.NotifyPerFriendPreferencesChanged:output_type -> NoResponse
+	169, // 218: PlayerClient.NotifyPrivacyPrivacySettingsChanged:output_type -> NoResponse
+	155, // [155:219] is the sub-list for method output_type
+	91,  // [91:155] is the sub-list for method input_type
+	91,  // [91:91] is the sub-list for extension type_name
+	91,  // [91:91] is the sub-list for extension extendee
+	0,   // [0:91] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_player_steamclient_proto_init() }
@@ -10764,7 +10912,7 @@ func file_steammessages_player_steamclient_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_player_steamclient_proto_rawDesc), len(file_steammessages_player_steamclient_proto_rawDesc)),
 			NumEnums:      5,
-			NumMessages:   158,
+			NumMessages:   159,
 			NumExtensions: 0,
 			NumServices:   2,
 		},

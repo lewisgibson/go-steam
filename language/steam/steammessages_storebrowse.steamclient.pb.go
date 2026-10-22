@@ -540,6 +540,86 @@ func (EStoreLinkType) EnumDescriptor() ([]byte, []int) {
 	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{5}
 }
 
+type EStoreAppDocumentType int32
+
+const (
+	EStoreAppDocumentType_k_EStoreAppDocumentType_None           EStoreAppDocumentType = 0
+	EStoreAppDocumentType_k_EStoreAppDocumentType_Manual         EStoreAppDocumentType = 1
+	EStoreAppDocumentType_k_EStoreAppDocumentType_QuickRef       EStoreAppDocumentType = 2
+	EStoreAppDocumentType_k_EStoreAppDocumentType_Map            EStoreAppDocumentType = 3
+	EStoreAppDocumentType_k_EStoreAppDocumentType_GettingStarted EStoreAppDocumentType = 4
+	EStoreAppDocumentType_k_EStoreAppDocumentType_ReadMe         EStoreAppDocumentType = 5
+	EStoreAppDocumentType_k_EStoreAppDocumentType_TechTree       EStoreAppDocumentType = 6
+	EStoreAppDocumentType_k_EStoreAppDocumentType_Keybindings    EStoreAppDocumentType = 7
+	EStoreAppDocumentType_k_EStoreAppDocumentType_Warranty       EStoreAppDocumentType = 8
+	EStoreAppDocumentType_k_EStoreAppDocumentType_MAX            EStoreAppDocumentType = 9
+)
+
+// Enum value maps for EStoreAppDocumentType.
+var (
+	EStoreAppDocumentType_name = map[int32]string{
+		0: "k_EStoreAppDocumentType_None",
+		1: "k_EStoreAppDocumentType_Manual",
+		2: "k_EStoreAppDocumentType_QuickRef",
+		3: "k_EStoreAppDocumentType_Map",
+		4: "k_EStoreAppDocumentType_GettingStarted",
+		5: "k_EStoreAppDocumentType_ReadMe",
+		6: "k_EStoreAppDocumentType_TechTree",
+		7: "k_EStoreAppDocumentType_Keybindings",
+		8: "k_EStoreAppDocumentType_Warranty",
+		9: "k_EStoreAppDocumentType_MAX",
+	}
+	EStoreAppDocumentType_value = map[string]int32{
+		"k_EStoreAppDocumentType_None":           0,
+		"k_EStoreAppDocumentType_Manual":         1,
+		"k_EStoreAppDocumentType_QuickRef":       2,
+		"k_EStoreAppDocumentType_Map":            3,
+		"k_EStoreAppDocumentType_GettingStarted": 4,
+		"k_EStoreAppDocumentType_ReadMe":         5,
+		"k_EStoreAppDocumentType_TechTree":       6,
+		"k_EStoreAppDocumentType_Keybindings":    7,
+		"k_EStoreAppDocumentType_Warranty":       8,
+		"k_EStoreAppDocumentType_MAX":            9,
+	}
+)
+
+func (x EStoreAppDocumentType) Enum() *EStoreAppDocumentType {
+	p := new(EStoreAppDocumentType)
+	*p = x
+	return p
+}
+
+func (x EStoreAppDocumentType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (EStoreAppDocumentType) Descriptor() protoreflect.EnumDescriptor {
+	return file_steammessages_storebrowse_steamclient_proto_enumTypes[6].Descriptor()
+}
+
+func (EStoreAppDocumentType) Type() protoreflect.EnumType {
+	return &file_steammessages_storebrowse_steamclient_proto_enumTypes[6]
+}
+
+func (x EStoreAppDocumentType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *EStoreAppDocumentType) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = EStoreAppDocumentType(num)
+	return nil
+}
+
+// Deprecated: Use EStoreAppDocumentType.Descriptor instead.
+func (EStoreAppDocumentType) EnumDescriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{6}
+}
+
 type EStoreCategoryType int32
 
 const (
@@ -582,11 +662,11 @@ func (x EStoreCategoryType) String() string {
 }
 
 func (EStoreCategoryType) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_storebrowse_steamclient_proto_enumTypes[6].Descriptor()
+	return file_steammessages_storebrowse_steamclient_proto_enumTypes[7].Descriptor()
 }
 
 func (EStoreCategoryType) Type() protoreflect.EnumType {
-	return &file_steammessages_storebrowse_steamclient_proto_enumTypes[6]
+	return &file_steammessages_storebrowse_steamclient_proto_enumTypes[7]
 }
 
 func (x EStoreCategoryType) Number() protoreflect.EnumNumber {
@@ -605,7 +685,7 @@ func (x *EStoreCategoryType) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStoreCategoryType.Descriptor instead.
 func (EStoreCategoryType) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{6}
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{7}
 }
 
 type StoreItem_PackageGroup_EPackageGroupDisplayType int32
@@ -638,11 +718,11 @@ func (x StoreItem_PackageGroup_EPackageGroupDisplayType) String() string {
 }
 
 func (StoreItem_PackageGroup_EPackageGroupDisplayType) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_storebrowse_steamclient_proto_enumTypes[7].Descriptor()
+	return file_steammessages_storebrowse_steamclient_proto_enumTypes[8].Descriptor()
 }
 
 func (StoreItem_PackageGroup_EPackageGroupDisplayType) Type() protoreflect.EnumType {
-	return &file_steammessages_storebrowse_steamclient_proto_enumTypes[7]
+	return &file_steammessages_storebrowse_steamclient_proto_enumTypes[8]
 }
 
 func (x StoreItem_PackageGroup_EPackageGroupDisplayType) Number() protoreflect.EnumNumber {
@@ -664,24 +744,89 @@ func (StoreItem_PackageGroup_EPackageGroupDisplayType) EnumDescriptor() ([]byte,
 	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 18, 0}
 }
 
-type StoreItem_PageSection_EPageSectionBanner int32
+type StoreItem_ExtraDetails_EVideoExtrasNote int32
 
 const (
-	StoreItem_PageSection_k_EPageSectionBanner_None              StoreItem_PageSection_EPageSectionBanner = 0
-	StoreItem_PageSection_k_EPageSectionBanner_Workshop          StoreItem_PageSection_EPageSectionBanner = 1
-	StoreItem_PageSection_k_EPageSectionBanner_Follow            StoreItem_PageSection_EPageSectionBanner = 2
-	StoreItem_PageSection_k_EPageSectionBanner_MachineController StoreItem_PageSection_EPageSectionBanner = 3
+	StoreItem_ExtraDetails_k_EVideoExtrasNote_Purchase               StoreItem_ExtraDetails_EVideoExtrasNote = 0
+	StoreItem_ExtraDetails_k_EVideoExtrasNote_Rental                 StoreItem_ExtraDetails_EVideoExtrasNote = 1
+	StoreItem_ExtraDetails_k_EVideoExtrasNote_PurchaseRental         StoreItem_ExtraDetails_EVideoExtrasNote = 2
+	StoreItem_ExtraDetails_k_EVideoExtrasNote_PurchaseSpecialEdition StoreItem_ExtraDetails_EVideoExtrasNote = 3
+	StoreItem_ExtraDetails_k_EVideoExtrasNote_PurchaseDeluxeEdition  StoreItem_ExtraDetails_EVideoExtrasNote = 4
 )
 
-// Enum value maps for StoreItem_PageSection_EPageSectionBanner.
+// Enum value maps for StoreItem_ExtraDetails_EVideoExtrasNote.
 var (
-	StoreItem_PageSection_EPageSectionBanner_name = map[int32]string{
+	StoreItem_ExtraDetails_EVideoExtrasNote_name = map[int32]string{
+		0: "k_EVideoExtrasNote_Purchase",
+		1: "k_EVideoExtrasNote_Rental",
+		2: "k_EVideoExtrasNote_PurchaseRental",
+		3: "k_EVideoExtrasNote_PurchaseSpecialEdition",
+		4: "k_EVideoExtrasNote_PurchaseDeluxeEdition",
+	}
+	StoreItem_ExtraDetails_EVideoExtrasNote_value = map[string]int32{
+		"k_EVideoExtrasNote_Purchase":               0,
+		"k_EVideoExtrasNote_Rental":                 1,
+		"k_EVideoExtrasNote_PurchaseRental":         2,
+		"k_EVideoExtrasNote_PurchaseSpecialEdition": 3,
+		"k_EVideoExtrasNote_PurchaseDeluxeEdition":  4,
+	}
+)
+
+func (x StoreItem_ExtraDetails_EVideoExtrasNote) Enum() *StoreItem_ExtraDetails_EVideoExtrasNote {
+	p := new(StoreItem_ExtraDetails_EVideoExtrasNote)
+	*p = x
+	return p
+}
+
+func (x StoreItem_ExtraDetails_EVideoExtrasNote) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (StoreItem_ExtraDetails_EVideoExtrasNote) Descriptor() protoreflect.EnumDescriptor {
+	return file_steammessages_storebrowse_steamclient_proto_enumTypes[9].Descriptor()
+}
+
+func (StoreItem_ExtraDetails_EVideoExtrasNote) Type() protoreflect.EnumType {
+	return &file_steammessages_storebrowse_steamclient_proto_enumTypes[9]
+}
+
+func (x StoreItem_ExtraDetails_EVideoExtrasNote) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *StoreItem_ExtraDetails_EVideoExtrasNote) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = StoreItem_ExtraDetails_EVideoExtrasNote(num)
+	return nil
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_EVideoExtrasNote.Descriptor instead.
+func (StoreItem_ExtraDetails_EVideoExtrasNote) EnumDescriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 0}
+}
+
+type StoreItem_ExtraDetails_PageSection_EPageSectionBanner int32
+
+const (
+	StoreItem_ExtraDetails_PageSection_k_EPageSectionBanner_None              StoreItem_ExtraDetails_PageSection_EPageSectionBanner = 0
+	StoreItem_ExtraDetails_PageSection_k_EPageSectionBanner_Workshop          StoreItem_ExtraDetails_PageSection_EPageSectionBanner = 1
+	StoreItem_ExtraDetails_PageSection_k_EPageSectionBanner_Follow            StoreItem_ExtraDetails_PageSection_EPageSectionBanner = 2
+	StoreItem_ExtraDetails_PageSection_k_EPageSectionBanner_MachineController StoreItem_ExtraDetails_PageSection_EPageSectionBanner = 3
+)
+
+// Enum value maps for StoreItem_ExtraDetails_PageSection_EPageSectionBanner.
+var (
+	StoreItem_ExtraDetails_PageSection_EPageSectionBanner_name = map[int32]string{
 		0: "k_EPageSectionBanner_None",
 		1: "k_EPageSectionBanner_Workshop",
 		2: "k_EPageSectionBanner_Follow",
 		3: "k_EPageSectionBanner_MachineController",
 	}
-	StoreItem_PageSection_EPageSectionBanner_value = map[string]int32{
+	StoreItem_ExtraDetails_PageSection_EPageSectionBanner_value = map[string]int32{
 		"k_EPageSectionBanner_None":              0,
 		"k_EPageSectionBanner_Workshop":          1,
 		"k_EPageSectionBanner_Follow":            2,
@@ -689,41 +834,298 @@ var (
 	}
 )
 
-func (x StoreItem_PageSection_EPageSectionBanner) Enum() *StoreItem_PageSection_EPageSectionBanner {
-	p := new(StoreItem_PageSection_EPageSectionBanner)
+func (x StoreItem_ExtraDetails_PageSection_EPageSectionBanner) Enum() *StoreItem_ExtraDetails_PageSection_EPageSectionBanner {
+	p := new(StoreItem_ExtraDetails_PageSection_EPageSectionBanner)
 	*p = x
 	return p
 }
 
-func (x StoreItem_PageSection_EPageSectionBanner) String() string {
+func (x StoreItem_ExtraDetails_PageSection_EPageSectionBanner) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (StoreItem_PageSection_EPageSectionBanner) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_storebrowse_steamclient_proto_enumTypes[8].Descriptor()
+func (StoreItem_ExtraDetails_PageSection_EPageSectionBanner) Descriptor() protoreflect.EnumDescriptor {
+	return file_steammessages_storebrowse_steamclient_proto_enumTypes[10].Descriptor()
 }
 
-func (StoreItem_PageSection_EPageSectionBanner) Type() protoreflect.EnumType {
-	return &file_steammessages_storebrowse_steamclient_proto_enumTypes[8]
+func (StoreItem_ExtraDetails_PageSection_EPageSectionBanner) Type() protoreflect.EnumType {
+	return &file_steammessages_storebrowse_steamclient_proto_enumTypes[10]
 }
 
-func (x StoreItem_PageSection_EPageSectionBanner) Number() protoreflect.EnumNumber {
+func (x StoreItem_ExtraDetails_PageSection_EPageSectionBanner) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
 // Deprecated: Do not use.
-func (x *StoreItem_PageSection_EPageSectionBanner) UnmarshalJSON(b []byte) error {
+func (x *StoreItem_ExtraDetails_PageSection_EPageSectionBanner) UnmarshalJSON(b []byte) error {
 	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
 	if err != nil {
 		return err
 	}
-	*x = StoreItem_PageSection_EPageSectionBanner(num)
+	*x = StoreItem_ExtraDetails_PageSection_EPageSectionBanner(num)
 	return nil
 }
 
-// Deprecated: Use StoreItem_PageSection_EPageSectionBanner.Descriptor instead.
-func (StoreItem_PageSection_EPageSectionBanner) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 22, 0}
+// Deprecated: Use StoreItem_ExtraDetails_PageSection_EPageSectionBanner.Descriptor instead.
+func (StoreItem_ExtraDetails_PageSection_EPageSectionBanner) EnumDescriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 3, 0}
+}
+
+type StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote int32
+
+const (
+	StoreItem_ExtraDetails_SystemRequirements_k_EUnsupportedOSNote_None    StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote = 0
+	StoreItem_ExtraDetails_SystemRequirements_k_EUnsupportedOSNote_Windows StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote = 1
+	StoreItem_ExtraDetails_SystemRequirements_k_EUnsupportedOSNote_Mac     StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote = 2
+)
+
+// Enum value maps for StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote.
+var (
+	StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote_name = map[int32]string{
+		0: "k_EUnsupportedOSNote_None",
+		1: "k_EUnsupportedOSNote_Windows",
+		2: "k_EUnsupportedOSNote_Mac",
+	}
+	StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote_value = map[string]int32{
+		"k_EUnsupportedOSNote_None":    0,
+		"k_EUnsupportedOSNote_Windows": 1,
+		"k_EUnsupportedOSNote_Mac":     2,
+	}
+)
+
+func (x StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote) Enum() *StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote {
+	p := new(StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote)
+	*p = x
+	return p
+}
+
+func (x StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote) Descriptor() protoreflect.EnumDescriptor {
+	return file_steammessages_storebrowse_steamclient_proto_enumTypes[11].Descriptor()
+}
+
+func (StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote) Type() protoreflect.EnumType {
+	return &file_steammessages_storebrowse_steamclient_proto_enumTypes[11]
+}
+
+func (x StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote(num)
+	return nil
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote.Descriptor instead.
+func (StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote) EnumDescriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 9, 0}
+}
+
+type StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform int32
+
+const (
+	StoreItem_ExtraDetails_SystemRequirements_k_ESysReqPlatform_Unknown StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform = 0
+	StoreItem_ExtraDetails_SystemRequirements_k_ESysReqPlatform_Windows StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform = 1
+	StoreItem_ExtraDetails_SystemRequirements_k_ESysReqPlatform_Mac     StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform = 2
+	StoreItem_ExtraDetails_SystemRequirements_k_ESysReqPlatform_Linux   StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform = 3
+	StoreItem_ExtraDetails_SystemRequirements_k_ESysReqPlatform_Android StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform = 4
+)
+
+// Enum value maps for StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform.
+var (
+	StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform_name = map[int32]string{
+		0: "k_ESysReqPlatform_Unknown",
+		1: "k_ESysReqPlatform_Windows",
+		2: "k_ESysReqPlatform_Mac",
+		3: "k_ESysReqPlatform_Linux",
+		4: "k_ESysReqPlatform_Android",
+	}
+	StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform_value = map[string]int32{
+		"k_ESysReqPlatform_Unknown": 0,
+		"k_ESysReqPlatform_Windows": 1,
+		"k_ESysReqPlatform_Mac":     2,
+		"k_ESysReqPlatform_Linux":   3,
+		"k_ESysReqPlatform_Android": 4,
+	}
+)
+
+func (x StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform) Enum() *StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform {
+	p := new(StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform)
+	*p = x
+	return p
+}
+
+func (x StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform) Descriptor() protoreflect.EnumDescriptor {
+	return file_steammessages_storebrowse_steamclient_proto_enumTypes[12].Descriptor()
+}
+
+func (StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform) Type() protoreflect.EnumType {
+	return &file_steammessages_storebrowse_steamclient_proto_enumTypes[12]
+}
+
+func (x StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform(num)
+	return nil
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform.Descriptor instead.
+func (StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform) EnumDescriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 9, 1}
+}
+
+type StoreItem_ExtraDetails_Episode_EEpisodeType int32
+
+const (
+	StoreItem_ExtraDetails_Episode_k_EEpisodeType_Unknown         StoreItem_ExtraDetails_Episode_EEpisodeType = 0
+	StoreItem_ExtraDetails_Episode_k_EEpisodeType_Episode         StoreItem_ExtraDetails_Episode_EEpisodeType = 1
+	StoreItem_ExtraDetails_Episode_k_EEpisodeType_Chapter         StoreItem_ExtraDetails_Episode_EEpisodeType = 2
+	StoreItem_ExtraDetails_Episode_k_EEpisodeType_Bonus           StoreItem_ExtraDetails_Episode_EEpisodeType = 3
+	StoreItem_ExtraDetails_Episode_k_EEpisodeType_BehindTheScenes StoreItem_ExtraDetails_Episode_EEpisodeType = 4
+	StoreItem_ExtraDetails_Episode_k_EEpisodeType_Deleted         StoreItem_ExtraDetails_Episode_EEpisodeType = 5
+)
+
+// Enum value maps for StoreItem_ExtraDetails_Episode_EEpisodeType.
+var (
+	StoreItem_ExtraDetails_Episode_EEpisodeType_name = map[int32]string{
+		0: "k_EEpisodeType_Unknown",
+		1: "k_EEpisodeType_Episode",
+		2: "k_EEpisodeType_Chapter",
+		3: "k_EEpisodeType_Bonus",
+		4: "k_EEpisodeType_BehindTheScenes",
+		5: "k_EEpisodeType_Deleted",
+	}
+	StoreItem_ExtraDetails_Episode_EEpisodeType_value = map[string]int32{
+		"k_EEpisodeType_Unknown":         0,
+		"k_EEpisodeType_Episode":         1,
+		"k_EEpisodeType_Chapter":         2,
+		"k_EEpisodeType_Bonus":           3,
+		"k_EEpisodeType_BehindTheScenes": 4,
+		"k_EEpisodeType_Deleted":         5,
+	}
+)
+
+func (x StoreItem_ExtraDetails_Episode_EEpisodeType) Enum() *StoreItem_ExtraDetails_Episode_EEpisodeType {
+	p := new(StoreItem_ExtraDetails_Episode_EEpisodeType)
+	*p = x
+	return p
+}
+
+func (x StoreItem_ExtraDetails_Episode_EEpisodeType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (StoreItem_ExtraDetails_Episode_EEpisodeType) Descriptor() protoreflect.EnumDescriptor {
+	return file_steammessages_storebrowse_steamclient_proto_enumTypes[13].Descriptor()
+}
+
+func (StoreItem_ExtraDetails_Episode_EEpisodeType) Type() protoreflect.EnumType {
+	return &file_steammessages_storebrowse_steamclient_proto_enumTypes[13]
+}
+
+func (x StoreItem_ExtraDetails_Episode_EEpisodeType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *StoreItem_ExtraDetails_Episode_EEpisodeType) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = StoreItem_ExtraDetails_Episode_EEpisodeType(num)
+	return nil
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_Episode_EEpisodeType.Descriptor instead.
+func (StoreItem_ExtraDetails_Episode_EEpisodeType) EnumDescriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 10, 0}
+}
+
+type StoreItem_PurchaseNote_EPurchaseNoteType int32
+
+const (
+	StoreItem_PurchaseNote_k_EPurchaseNoteType_None               StoreItem_PurchaseNote_EPurchaseNoteType = 0
+	StoreItem_PurchaseNote_k_EPurchaseNoteType_Notice             StoreItem_PurchaseNote_EPurchaseNoteType = 1
+	StoreItem_PurchaseNote_k_EPurchaseNoteType_LowViolence        StoreItem_PurchaseNote_EPurchaseNoteType = 2
+	StoreItem_PurchaseNote_k_EPurchaseNoteType_CreditCardRequired StoreItem_PurchaseNote_EPurchaseNoteType = 3
+	StoreItem_PurchaseNote_k_EPurchaseNoteType_SystemRequirements StoreItem_PurchaseNote_EPurchaseNoteType = 4
+)
+
+// Enum value maps for StoreItem_PurchaseNote_EPurchaseNoteType.
+var (
+	StoreItem_PurchaseNote_EPurchaseNoteType_name = map[int32]string{
+		0: "k_EPurchaseNoteType_None",
+		1: "k_EPurchaseNoteType_Notice",
+		2: "k_EPurchaseNoteType_LowViolence",
+		3: "k_EPurchaseNoteType_CreditCardRequired",
+		4: "k_EPurchaseNoteType_SystemRequirements",
+	}
+	StoreItem_PurchaseNote_EPurchaseNoteType_value = map[string]int32{
+		"k_EPurchaseNoteType_None":               0,
+		"k_EPurchaseNoteType_Notice":             1,
+		"k_EPurchaseNoteType_LowViolence":        2,
+		"k_EPurchaseNoteType_CreditCardRequired": 3,
+		"k_EPurchaseNoteType_SystemRequirements": 4,
+	}
+)
+
+func (x StoreItem_PurchaseNote_EPurchaseNoteType) Enum() *StoreItem_PurchaseNote_EPurchaseNoteType {
+	p := new(StoreItem_PurchaseNote_EPurchaseNoteType)
+	*p = x
+	return p
+}
+
+func (x StoreItem_PurchaseNote_EPurchaseNoteType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (StoreItem_PurchaseNote_EPurchaseNoteType) Descriptor() protoreflect.EnumDescriptor {
+	return file_steammessages_storebrowse_steamclient_proto_enumTypes[14].Descriptor()
+}
+
+func (StoreItem_PurchaseNote_EPurchaseNoteType) Type() protoreflect.EnumType {
+	return &file_steammessages_storebrowse_steamclient_proto_enumTypes[14]
+}
+
+func (x StoreItem_PurchaseNote_EPurchaseNoteType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *StoreItem_PurchaseNote_EPurchaseNoteType) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = StoreItem_PurchaseNote_EPurchaseNoteType(num)
+	return nil
+}
+
+// Deprecated: Use StoreItem_PurchaseNote_EPurchaseNoteType.Descriptor instead.
+func (StoreItem_PurchaseNote_EPurchaseNoteType) EnumDescriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 21, 0}
 }
 
 type StoreItemID struct {
@@ -899,6 +1301,7 @@ type StoreBrowseItemDataRequest struct {
 	IncludeLinks                  *bool                       `protobuf:"varint,17,opt,name=include_links,json=includeLinks" json:"include_links,omitempty"`
 	IncludeExtraDetails           *bool                       `protobuf:"varint,18,opt,name=include_extra_details,json=includeExtraDetails" json:"include_extra_details,omitempty"`
 	IncludeBestPurchaseOption     *bool                       `protobuf:"varint,19,opt,name=include_best_purchase_option,json=includeBestPurchaseOption,def=1" json:"include_best_purchase_option,omitempty"`
+	IncludeOptinRegistrationTags  *bool                       `protobuf:"varint,20,opt,name=include_optin_registration_tags,json=includeOptinRegistrationTags" json:"include_optin_registration_tags,omitempty"`
 	unknownFields                 protoimpl.UnknownFields
 	sizeCache                     protoimpl.SizeCache
 }
@@ -1071,6 +1474,13 @@ func (x *StoreBrowseItemDataRequest) GetIncludeBestPurchaseOption() bool {
 	return Default_StoreBrowseItemDataRequest_IncludeBestPurchaseOption
 }
 
+func (x *StoreBrowseItemDataRequest) GetIncludeOptinRegistrationTags() bool {
+	if x != nil && x.IncludeOptinRegistrationTags != nil {
+		return *x.IncludeOptinRegistrationTags
+	}
+	return false
+}
+
 type CStoreBrowse_GetItems_Request struct {
 	state         protoimpl.MessageState      `protogen:"open.v1"`
 	Ids           []*StoreItemID              `protobuf:"bytes,1,rep,name=ids" json:"ids,omitempty"`
@@ -1132,54 +1542,56 @@ func (x *CStoreBrowse_GetItems_Request) GetDataRequest() *StoreBrowseItemDataReq
 }
 
 type StoreItem struct {
-	state                           protoimpl.MessageState         `protogen:"open.v1"`
-	ItemType                        *EStoreItemType                `protobuf:"varint,1,opt,name=item_type,json=itemType,enum=EStoreItemType,def=-1" json:"item_type,omitempty"`
-	Id                              *uint32                        `protobuf:"varint,2,opt,name=id" json:"id,omitempty"`
-	Gid                             *uint64                        `protobuf:"fixed64,76,opt,name=gid" json:"gid,omitempty"`
-	Success                         *uint32                        `protobuf:"varint,3,opt,name=success" json:"success,omitempty"`
-	Visible                         *bool                          `protobuf:"varint,4,opt,name=visible" json:"visible,omitempty"`
-	UnvailableForCountryRestriction *bool                          `protobuf:"varint,5,opt,name=unvailable_for_country_restriction,json=unvailableForCountryRestriction" json:"unvailable_for_country_restriction,omitempty"`
-	Name                            *string                        `protobuf:"bytes,6,opt,name=name" json:"name,omitempty"`
-	StoreUrlPath                    *string                        `protobuf:"bytes,7,opt,name=store_url_path,json=storeUrlPath" json:"store_url_path,omitempty"`
-	StoreUrlSlug                    *string                        `protobuf:"bytes,8,opt,name=store_url_slug,json=storeUrlSlug" json:"store_url_slug,omitempty"`
-	Appid                           *uint32                        `protobuf:"varint,9,opt,name=appid" json:"appid,omitempty"`
-	Type                            *EStoreAppType                 `protobuf:"varint,10,opt,name=type,enum=EStoreAppType,def=0" json:"type,omitempty"`
-	IncludedTypes                   []EStoreAppType                `protobuf:"varint,11,rep,name=included_types,json=includedTypes,enum=EStoreAppType" json:"included_types,omitempty"`
-	IncludedAppids                  []uint32                       `protobuf:"varint,12,rep,name=included_appids,json=includedAppids" json:"included_appids,omitempty"`
-	IsFree                          *bool                          `protobuf:"varint,13,opt,name=is_free,json=isFree" json:"is_free,omitempty"`
-	IsEarlyAccess                   *bool                          `protobuf:"varint,14,opt,name=is_early_access,json=isEarlyAccess" json:"is_early_access,omitempty"`
-	RelatedItems                    *StoreItem_RelatedItems        `protobuf:"bytes,15,opt,name=related_items,json=relatedItems" json:"related_items,omitempty"`
-	IncludedItems                   *StoreItem_IncludedItems       `protobuf:"bytes,16,opt,name=included_items,json=includedItems" json:"included_items,omitempty"`
-	ContentDescriptorids            []EContentDescriptorID         `protobuf:"varint,20,rep,name=content_descriptorids,json=contentDescriptorids,enum=EContentDescriptorID" json:"content_descriptorids,omitempty"`
-	Tagids                          []uint32                       `protobuf:"varint,21,rep,name=tagids" json:"tagids,omitempty"`
-	Categories                      *StoreItem_Categories          `protobuf:"bytes,22,opt,name=categories" json:"categories,omitempty"`
-	Reviews                         *StoreItem_Reviews             `protobuf:"bytes,23,opt,name=reviews" json:"reviews,omitempty"`
-	BasicInfo                       *StoreItem_BasicInfo           `protobuf:"bytes,24,opt,name=basic_info,json=basicInfo" json:"basic_info,omitempty"`
-	Tags                            []*StoreItem_Tag               `protobuf:"bytes,25,rep,name=tags" json:"tags,omitempty"`
-	Assets                          *StoreItem_Assets              `protobuf:"bytes,30,opt,name=assets" json:"assets,omitempty"`
-	Release                         *StoreItem_ReleaseInfo         `protobuf:"bytes,31,opt,name=release" json:"release,omitempty"`
-	Platforms                       *StoreItem_Platforms           `protobuf:"bytes,32,opt,name=platforms" json:"platforms,omitempty"`
-	GameRating                      *StoreGameRating               `protobuf:"bytes,33,opt,name=game_rating,json=gameRating" json:"game_rating,omitempty"`
-	IsComingSoon                    *bool                          `protobuf:"varint,34,opt,name=is_coming_soon,json=isComingSoon" json:"is_coming_soon,omitempty"`
-	BestPurchaseOption              *StoreItem_PurchaseOption      `protobuf:"bytes,40,opt,name=best_purchase_option,json=bestPurchaseOption" json:"best_purchase_option,omitempty"`
-	PurchaseOptions                 []*StoreItem_PurchaseOption    `protobuf:"bytes,41,rep,name=purchase_options,json=purchaseOptions" json:"purchase_options,omitempty"`
-	SelfPurchaseOption              *StoreItem_PurchaseOption      `protobuf:"bytes,43,opt,name=self_purchase_option,json=selfPurchaseOption" json:"self_purchase_option,omitempty"`
-	Screenshots                     *StoreItem_Screenshots         `protobuf:"bytes,50,opt,name=screenshots" json:"screenshots,omitempty"`
-	Trailers                        *StoreItem_Trailers            `protobuf:"bytes,51,opt,name=trailers" json:"trailers,omitempty"`
-	SupportedLanguages              []*StoreItem_SupportedLanguage `protobuf:"bytes,52,rep,name=supported_languages,json=supportedLanguages" json:"supported_languages,omitempty"`
-	StoreUrlPathOverride            *string                        `protobuf:"bytes,53,opt,name=store_url_path_override,json=storeUrlPathOverride" json:"store_url_path_override,omitempty"`
-	FreeWeekend                     *StoreItem_FreeWeekend         `protobuf:"bytes,54,opt,name=free_weekend,json=freeWeekend" json:"free_weekend,omitempty"`
-	Unlisted                        *bool                          `protobuf:"varint,55,opt,name=unlisted" json:"unlisted,omitempty"`
-	GameCount                       *uint32                        `protobuf:"varint,56,opt,name=game_count,json=gameCount" json:"game_count,omitempty"`
-	InternalName                    *string                        `protobuf:"bytes,57,opt,name=internal_name,json=internalName" json:"internal_name,omitempty"`
-	FullDescriptionBbcode           *string                        `protobuf:"bytes,58,opt,name=full_description_bbcode,json=fullDescriptionBbcode" json:"full_description_bbcode,omitempty"`
-	IsFreeTemporarily               *bool                          `protobuf:"varint,59,opt,name=is_free_temporarily,json=isFreeTemporarily" json:"is_free_temporarily,omitempty"`
-	AssetsWithoutOverrides          *StoreItem_Assets              `protobuf:"bytes,60,opt,name=assets_without_overrides,json=assetsWithoutOverrides" json:"assets_without_overrides,omitempty"`
-	UserFilterFailure               *StoreBrowseFilterFailure      `protobuf:"bytes,70,opt,name=user_filter_failure,json=userFilterFailure" json:"user_filter_failure,omitempty"`
-	Links                           []*StoreItem_Link              `protobuf:"bytes,71,rep,name=links" json:"links,omitempty"`
-	PurchaseDescriptionBbcode       *string                        `protobuf:"bytes,72,opt,name=purchase_description_bbcode,json=purchaseDescriptionBbcode" json:"purchase_description_bbcode,omitempty"`
-	PackageGroups                   []*StoreItem_PackageGroup      `protobuf:"bytes,74,rep,name=package_groups,json=packageGroups" json:"package_groups,omitempty"`
-	ExtraDetails                    *StoreItem_ExtraDetails        `protobuf:"bytes,75,opt,name=extra_details,json=extraDetails" json:"extra_details,omitempty"`
+	state                           protoimpl.MessageState             `protogen:"open.v1"`
+	ItemType                        *EStoreItemType                    `protobuf:"varint,1,opt,name=item_type,json=itemType,enum=EStoreItemType,def=-1" json:"item_type,omitempty"`
+	Id                              *uint32                            `protobuf:"varint,2,opt,name=id" json:"id,omitempty"`
+	Gid                             *uint64                            `protobuf:"fixed64,76,opt,name=gid" json:"gid,omitempty"`
+	Success                         *uint32                            `protobuf:"varint,3,opt,name=success" json:"success,omitempty"`
+	Visible                         *bool                              `protobuf:"varint,4,opt,name=visible" json:"visible,omitempty"`
+	UnvailableForCountryRestriction *bool                              `protobuf:"varint,5,opt,name=unvailable_for_country_restriction,json=unvailableForCountryRestriction" json:"unvailable_for_country_restriction,omitempty"`
+	Name                            *string                            `protobuf:"bytes,6,opt,name=name" json:"name,omitempty"`
+	StoreUrlPath                    *string                            `protobuf:"bytes,7,opt,name=store_url_path,json=storeUrlPath" json:"store_url_path,omitempty"`
+	StoreUrlSlug                    *string                            `protobuf:"bytes,8,opt,name=store_url_slug,json=storeUrlSlug" json:"store_url_slug,omitempty"`
+	Appid                           *uint32                            `protobuf:"varint,9,opt,name=appid" json:"appid,omitempty"`
+	Type                            *EStoreAppType                     `protobuf:"varint,10,opt,name=type,enum=EStoreAppType,def=0" json:"type,omitempty"`
+	IncludedTypes                   []EStoreAppType                    `protobuf:"varint,11,rep,name=included_types,json=includedTypes,enum=EStoreAppType" json:"included_types,omitempty"`
+	IncludedAppids                  []uint32                           `protobuf:"varint,12,rep,name=included_appids,json=includedAppids" json:"included_appids,omitempty"`
+	IsFree                          *bool                              `protobuf:"varint,13,opt,name=is_free,json=isFree" json:"is_free,omitempty"`
+	IsEarlyAccess                   *bool                              `protobuf:"varint,14,opt,name=is_early_access,json=isEarlyAccess" json:"is_early_access,omitempty"`
+	RelatedItems                    *StoreItem_RelatedItems            `protobuf:"bytes,15,opt,name=related_items,json=relatedItems" json:"related_items,omitempty"`
+	IncludedItems                   *StoreItem_IncludedItems           `protobuf:"bytes,16,opt,name=included_items,json=includedItems" json:"included_items,omitempty"`
+	ContentDescriptorids            []EContentDescriptorID             `protobuf:"varint,20,rep,name=content_descriptorids,json=contentDescriptorids,enum=EContentDescriptorID" json:"content_descriptorids,omitempty"`
+	Tagids                          []uint32                           `protobuf:"varint,21,rep,name=tagids" json:"tagids,omitempty"`
+	Categories                      *StoreItem_Categories              `protobuf:"bytes,22,opt,name=categories" json:"categories,omitempty"`
+	Reviews                         *StoreItem_Reviews                 `protobuf:"bytes,23,opt,name=reviews" json:"reviews,omitempty"`
+	BasicInfo                       *StoreItem_BasicInfo               `protobuf:"bytes,24,opt,name=basic_info,json=basicInfo" json:"basic_info,omitempty"`
+	Tags                            []*StoreItem_Tag                   `protobuf:"bytes,25,rep,name=tags" json:"tags,omitempty"`
+	Assets                          *StoreItem_Assets                  `protobuf:"bytes,30,opt,name=assets" json:"assets,omitempty"`
+	Release                         *StoreItem_ReleaseInfo             `protobuf:"bytes,31,opt,name=release" json:"release,omitempty"`
+	Platforms                       *StoreItem_Platforms               `protobuf:"bytes,32,opt,name=platforms" json:"platforms,omitempty"`
+	GameRating                      *StoreGameRating                   `protobuf:"bytes,33,opt,name=game_rating,json=gameRating" json:"game_rating,omitempty"`
+	IsComingSoon                    *bool                              `protobuf:"varint,34,opt,name=is_coming_soon,json=isComingSoon" json:"is_coming_soon,omitempty"`
+	BestPurchaseOption              *StoreItem_PurchaseOption          `protobuf:"bytes,40,opt,name=best_purchase_option,json=bestPurchaseOption" json:"best_purchase_option,omitempty"`
+	PurchaseOptions                 []*StoreItem_PurchaseOption        `protobuf:"bytes,41,rep,name=purchase_options,json=purchaseOptions" json:"purchase_options,omitempty"`
+	SelfPurchaseOption              *StoreItem_PurchaseOption          `protobuf:"bytes,43,opt,name=self_purchase_option,json=selfPurchaseOption" json:"self_purchase_option,omitempty"`
+	Screenshots                     *StoreItem_Screenshots             `protobuf:"bytes,50,opt,name=screenshots" json:"screenshots,omitempty"`
+	Trailers                        *StoreItem_Trailers                `protobuf:"bytes,51,opt,name=trailers" json:"trailers,omitempty"`
+	SupportedLanguages              []*StoreItem_SupportedLanguage     `protobuf:"bytes,52,rep,name=supported_languages,json=supportedLanguages" json:"supported_languages,omitempty"`
+	StoreUrlPathOverride            *string                            `protobuf:"bytes,53,opt,name=store_url_path_override,json=storeUrlPathOverride" json:"store_url_path_override,omitempty"`
+	FreeWeekend                     *StoreItem_FreeWeekend             `protobuf:"bytes,54,opt,name=free_weekend,json=freeWeekend" json:"free_weekend,omitempty"`
+	Unlisted                        *bool                              `protobuf:"varint,55,opt,name=unlisted" json:"unlisted,omitempty"`
+	GameCount                       *uint32                            `protobuf:"varint,56,opt,name=game_count,json=gameCount" json:"game_count,omitempty"`
+	InternalName                    *string                            `protobuf:"bytes,57,opt,name=internal_name,json=internalName" json:"internal_name,omitempty"`
+	FullDescriptionBbcode           *string                            `protobuf:"bytes,58,opt,name=full_description_bbcode,json=fullDescriptionBbcode" json:"full_description_bbcode,omitempty"`
+	IsFreeTemporarily               *bool                              `protobuf:"varint,59,opt,name=is_free_temporarily,json=isFreeTemporarily" json:"is_free_temporarily,omitempty"`
+	AssetsWithoutOverrides          *StoreItem_Assets                  `protobuf:"bytes,60,opt,name=assets_without_overrides,json=assetsWithoutOverrides" json:"assets_without_overrides,omitempty"`
+	UserFilterFailure               *StoreBrowseFilterFailure          `protobuf:"bytes,70,opt,name=user_filter_failure,json=userFilterFailure" json:"user_filter_failure,omitempty"`
+	Links                           []*StoreItem_Link                  `protobuf:"bytes,71,rep,name=links" json:"links,omitempty"`
+	PurchaseDescriptionBbcode       *string                            `protobuf:"bytes,72,opt,name=purchase_description_bbcode,json=purchaseDescriptionBbcode" json:"purchase_description_bbcode,omitempty"`
+	PackageGroups                   []*StoreItem_PackageGroup          `protobuf:"bytes,74,rep,name=package_groups,json=packageGroups" json:"package_groups,omitempty"`
+	ExtraDetails                    *StoreItem_ExtraDetails            `protobuf:"bytes,75,opt,name=extra_details,json=extraDetails" json:"extra_details,omitempty"`
+	OptinRegistrationTags           []*StoreItem_OptInRegistrationTags `protobuf:"bytes,77,rep,name=optin_registration_tags,json=optinRegistrationTags" json:"optin_registration_tags,omitempty"`
+	PurchaseNotes                   []*StoreItem_PurchaseNote          `protobuf:"bytes,78,rep,name=purchase_notes,json=purchaseNotes" json:"purchase_notes,omitempty"`
 	unknownFields                   protoimpl.UnknownFields
 	sizeCache                       protoimpl.SizeCache
 }
@@ -1549,21 +1961,37 @@ func (x *StoreItem) GetExtraDetails() *StoreItem_ExtraDetails {
 	return nil
 }
 
+func (x *StoreItem) GetOptinRegistrationTags() []*StoreItem_OptInRegistrationTags {
+	if x != nil {
+		return x.OptinRegistrationTags
+	}
+	return nil
+}
+
+func (x *StoreItem) GetPurchaseNotes() []*StoreItem_PurchaseNote {
+	if x != nil {
+		return x.PurchaseNotes
+	}
+	return nil
+}
+
 type StoreGameRating struct {
-	state                          protoimpl.MessageState `protogen:"open.v1"`
-	Type                           *string                `protobuf:"bytes,1,opt,name=type" json:"type,omitempty"`
-	Rating                         *string                `protobuf:"bytes,2,opt,name=rating" json:"rating,omitempty"`
-	Descriptors                    []string               `protobuf:"bytes,3,rep,name=descriptors" json:"descriptors,omitempty"`
-	InteractiveElements            *string                `protobuf:"bytes,4,opt,name=interactive_elements,json=interactiveElements" json:"interactive_elements,omitempty"`
-	Agency                         *ERatingAgency         `protobuf:"varint,5,opt,name=agency,enum=ERatingAgency,def=0" json:"agency,omitempty"`
-	Banned                         *bool                  `protobuf:"varint,6,opt,name=banned" json:"banned,omitempty"`
-	EsrbOnlineMusicNotRated        *bool                  `protobuf:"varint,7,opt,name=esrb_online_music_not_rated,json=esrbOnlineMusicNotRated" json:"esrb_online_music_not_rated,omitempty"`
-	EsrbOnlineInteractionsNotRated *bool                  `protobuf:"varint,8,opt,name=esrb_online_interactions_not_rated,json=esrbOnlineInteractionsNotRated" json:"esrb_online_interactions_not_rated,omitempty"`
-	SurveyInteractiveElements      []EInteractiveElement  `protobuf:"varint,9,rep,name=survey_interactive_elements,json=surveyInteractiveElements,enum=EInteractiveElement" json:"survey_interactive_elements,omitempty"`
-	RequiredAge                    *int32                 `protobuf:"varint,10,opt,name=required_age,json=requiredAge" json:"required_age,omitempty"`
-	UseAgeGate                     *bool                  `protobuf:"varint,11,opt,name=use_age_gate,json=useAgeGate" json:"use_age_gate,omitempty"`
-	ImageUrl                       *string                `protobuf:"bytes,20,opt,name=image_url,json=imageUrl" json:"image_url,omitempty"`
-	ImageTarget                    *string                `protobuf:"bytes,21,opt,name=image_target,json=imageTarget" json:"image_target,omitempty"`
+	state                          protoimpl.MessageState   `protogen:"open.v1"`
+	Type                           *string                  `protobuf:"bytes,1,opt,name=type" json:"type,omitempty"`
+	Rating                         *string                  `protobuf:"bytes,2,opt,name=rating" json:"rating,omitempty"`
+	Descriptors                    []string                 `protobuf:"bytes,3,rep,name=descriptors" json:"descriptors,omitempty"`
+	InteractiveElements            *string                  `protobuf:"bytes,4,opt,name=interactive_elements,json=interactiveElements" json:"interactive_elements,omitempty"`
+	Agency                         *ERatingAgency           `protobuf:"varint,5,opt,name=agency,enum=ERatingAgency,def=0" json:"agency,omitempty"`
+	Banned                         *bool                    `protobuf:"varint,6,opt,name=banned" json:"banned,omitempty"`
+	EsrbOnlineMusicNotRated        *bool                    `protobuf:"varint,7,opt,name=esrb_online_music_not_rated,json=esrbOnlineMusicNotRated" json:"esrb_online_music_not_rated,omitempty"`
+	EsrbOnlineInteractionsNotRated *bool                    `protobuf:"varint,8,opt,name=esrb_online_interactions_not_rated,json=esrbOnlineInteractionsNotRated" json:"esrb_online_interactions_not_rated,omitempty"`
+	SurveyInteractiveElements      []EInteractiveElement    `protobuf:"varint,9,rep,name=survey_interactive_elements,json=surveyInteractiveElements,enum=EInteractiveElement" json:"survey_interactive_elements,omitempty"`
+	RequiredAge                    *int32                   `protobuf:"varint,10,opt,name=required_age,json=requiredAge" json:"required_age,omitempty"`
+	UseAgeGate                     *bool                    `protobuf:"varint,11,opt,name=use_age_gate,json=useAgeGate" json:"use_age_gate,omitempty"`
+	DescriptorImages               []ERatingDescriptorImage `protobuf:"varint,12,rep,name=descriptor_images,json=descriptorImages,enum=ERatingDescriptorImage" json:"descriptor_images,omitempty"`
+	ContentSurveyNotes             *string                  `protobuf:"bytes,13,opt,name=content_survey_notes,json=contentSurveyNotes" json:"content_survey_notes,omitempty"`
+	ImageUrl                       *string                  `protobuf:"bytes,20,opt,name=image_url,json=imageUrl" json:"image_url,omitempty"`
+	ImageTarget                    *string                  `protobuf:"bytes,21,opt,name=image_target,json=imageTarget" json:"image_target,omitempty"`
 	unknownFields                  protoimpl.UnknownFields
 	sizeCache                      protoimpl.SizeCache
 }
@@ -1678,6 +2106,20 @@ func (x *StoreGameRating) GetUseAgeGate() bool {
 		return *x.UseAgeGate
 	}
 	return false
+}
+
+func (x *StoreGameRating) GetDescriptorImages() []ERatingDescriptorImage {
+	if x != nil {
+		return x.DescriptorImages
+	}
+	return nil
+}
+
+func (x *StoreGameRating) GetContentSurveyNotes() string {
+	if x != nil && x.ContentSurveyNotes != nil {
+		return *x.ContentSurveyNotes
+	}
+	return ""
 }
 
 func (x *StoreGameRating) GetImageUrl() string {
@@ -3049,6 +3491,7 @@ type StoreItem_IncludedItems struct {
 	IncludedApps     []*StoreItem           `protobuf:"bytes,1,rep,name=included_apps,json=includedApps" json:"included_apps,omitempty"`
 	IncludedPackages []*StoreItem           `protobuf:"bytes,2,rep,name=included_packages,json=includedPackages" json:"included_packages,omitempty"`
 	IncludedBundles  []*StoreItem           `protobuf:"bytes,3,rep,name=included_bundles,json=includedBundles" json:"included_bundles,omitempty"`
+	IncludedCreators []*StoreItem           `protobuf:"bytes,4,rep,name=included_creators,json=includedCreators" json:"included_creators,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -3100,6 +3543,13 @@ func (x *StoreItem_IncludedItems) GetIncludedPackages() []*StoreItem {
 func (x *StoreItem_IncludedItems) GetIncludedBundles() []*StoreItem {
 	if x != nil {
 		return x.IncludedBundles
+	}
+	return nil
+}
+
+func (x *StoreItem_IncludedItems) GetIncludedCreators() []*StoreItem {
+	if x != nil {
+		return x.IncludedCreators
 	}
 	return nil
 }
@@ -3353,30 +3803,31 @@ func (x *StoreItem_Tag) GetWeight() uint32 {
 }
 
 type StoreItem_Assets struct {
-	state              protoimpl.MessageState `protogen:"open.v1"`
-	AssetUrlFormat     *string                `protobuf:"bytes,1,opt,name=asset_url_format,json=assetUrlFormat" json:"asset_url_format,omitempty"`
-	MainCapsule        *string                `protobuf:"bytes,2,opt,name=main_capsule,json=mainCapsule" json:"main_capsule,omitempty"`
-	MainCapsule_2X     *string                `protobuf:"bytes,18,opt,name=main_capsule_2x,json=mainCapsule2x" json:"main_capsule_2x,omitempty"`
-	SmallCapsule       *string                `protobuf:"bytes,3,opt,name=small_capsule,json=smallCapsule" json:"small_capsule,omitempty"`
-	SmallCapsule_2X    *string                `protobuf:"bytes,19,opt,name=small_capsule_2x,json=smallCapsule2x" json:"small_capsule_2x,omitempty"`
-	Header             *string                `protobuf:"bytes,4,opt,name=header" json:"header,omitempty"`
-	Header_2X          *string                `protobuf:"bytes,20,opt,name=header_2x,json=header2x" json:"header_2x,omitempty"`
-	PackageHeader      *string                `protobuf:"bytes,5,opt,name=package_header,json=packageHeader" json:"package_header,omitempty"`
-	PageBackground     *string                `protobuf:"bytes,6,opt,name=page_background,json=pageBackground" json:"page_background,omitempty"`
-	HeroCapsule        *string                `protobuf:"bytes,7,opt,name=hero_capsule,json=heroCapsule" json:"hero_capsule,omitempty"`
-	HeroCapsule_2X     *string                `protobuf:"bytes,8,opt,name=hero_capsule_2x,json=heroCapsule2x" json:"hero_capsule_2x,omitempty"`
-	LibraryCapsule     *string                `protobuf:"bytes,9,opt,name=library_capsule,json=libraryCapsule" json:"library_capsule,omitempty"`
-	LibraryCapsule_2X  *string                `protobuf:"bytes,10,opt,name=library_capsule_2x,json=libraryCapsule2x" json:"library_capsule_2x,omitempty"`
-	LibraryHero        *string                `protobuf:"bytes,11,opt,name=library_hero,json=libraryHero" json:"library_hero,omitempty"`
-	LibraryHero_2X     *string                `protobuf:"bytes,12,opt,name=library_hero_2x,json=libraryHero2x" json:"library_hero_2x,omitempty"`
-	CommunityIcon      *string                `protobuf:"bytes,13,opt,name=community_icon,json=communityIcon" json:"community_icon,omitempty"`
-	ClanAvatar         *string                `protobuf:"bytes,14,opt,name=clan_avatar,json=clanAvatar" json:"clan_avatar,omitempty"`
-	PageBackgroundPath *string                `protobuf:"bytes,15,opt,name=page_background_path,json=pageBackgroundPath" json:"page_background_path,omitempty"`
-	RawPageBackground  *string                `protobuf:"bytes,16,opt,name=raw_page_background,json=rawPageBackground" json:"raw_page_background,omitempty"`
-	EditionComparison  *string                `protobuf:"bytes,17,opt,name=edition_comparison,json=editionComparison" json:"edition_comparison,omitempty"`
-	LastModified       *uint32                `protobuf:"varint,21,opt,name=last_modified,json=lastModified" json:"last_modified,omitempty"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
+	state                 protoimpl.MessageState `protogen:"open.v1"`
+	AssetUrlFormat        *string                `protobuf:"bytes,1,opt,name=asset_url_format,json=assetUrlFormat" json:"asset_url_format,omitempty"`
+	MainCapsule           *string                `protobuf:"bytes,2,opt,name=main_capsule,json=mainCapsule" json:"main_capsule,omitempty"`
+	MainCapsule_2X        *string                `protobuf:"bytes,18,opt,name=main_capsule_2x,json=mainCapsule2x" json:"main_capsule_2x,omitempty"`
+	SmallCapsule          *string                `protobuf:"bytes,3,opt,name=small_capsule,json=smallCapsule" json:"small_capsule,omitempty"`
+	SmallCapsule_2X       *string                `protobuf:"bytes,19,opt,name=small_capsule_2x,json=smallCapsule2x" json:"small_capsule_2x,omitempty"`
+	Header                *string                `protobuf:"bytes,4,opt,name=header" json:"header,omitempty"`
+	Header_2X             *string                `protobuf:"bytes,20,opt,name=header_2x,json=header2x" json:"header_2x,omitempty"`
+	PackageHeader         *string                `protobuf:"bytes,5,opt,name=package_header,json=packageHeader" json:"package_header,omitempty"`
+	PageBackground        *string                `protobuf:"bytes,6,opt,name=page_background,json=pageBackground" json:"page_background,omitempty"`
+	HeroCapsule           *string                `protobuf:"bytes,7,opt,name=hero_capsule,json=heroCapsule" json:"hero_capsule,omitempty"`
+	HeroCapsule_2X        *string                `protobuf:"bytes,8,opt,name=hero_capsule_2x,json=heroCapsule2x" json:"hero_capsule_2x,omitempty"`
+	LibraryCapsule        *string                `protobuf:"bytes,9,opt,name=library_capsule,json=libraryCapsule" json:"library_capsule,omitempty"`
+	LibraryCapsule_2X     *string                `protobuf:"bytes,10,opt,name=library_capsule_2x,json=libraryCapsule2x" json:"library_capsule_2x,omitempty"`
+	LibraryHero           *string                `protobuf:"bytes,11,opt,name=library_hero,json=libraryHero" json:"library_hero,omitempty"`
+	LibraryHero_2X        *string                `protobuf:"bytes,12,opt,name=library_hero_2x,json=libraryHero2x" json:"library_hero_2x,omitempty"`
+	CommunityIcon         *string                `protobuf:"bytes,13,opt,name=community_icon,json=communityIcon" json:"community_icon,omitempty"`
+	ClanAvatar            *string                `protobuf:"bytes,14,opt,name=clan_avatar,json=clanAvatar" json:"clan_avatar,omitempty"`
+	PageBackgroundPath    *string                `protobuf:"bytes,15,opt,name=page_background_path,json=pageBackgroundPath" json:"page_background_path,omitempty"`
+	RawPageBackground     *string                `protobuf:"bytes,16,opt,name=raw_page_background,json=rawPageBackground" json:"raw_page_background,omitempty"`
+	EditionComparison     *string                `protobuf:"bytes,17,opt,name=edition_comparison,json=editionComparison" json:"edition_comparison,omitempty"`
+	LastModified          *uint32                `protobuf:"varint,21,opt,name=last_modified,json=lastModified" json:"last_modified,omitempty"`
+	CreatorHomeBackground *string                `protobuf:"bytes,22,opt,name=creator_home_background,json=creatorHomeBackground" json:"creator_home_background,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *StoreItem_Assets) Reset() {
@@ -3554,6 +4005,13 @@ func (x *StoreItem_Assets) GetLastModified() uint32 {
 		return *x.LastModified
 	}
 	return 0
+}
+
+func (x *StoreItem_Assets) GetCreatorHomeBackground() string {
+	if x != nil && x.CreatorHomeBackground != nil {
+		return *x.CreatorHomeBackground
+	}
+	return ""
 }
 
 type StoreItem_ReleaseInfo struct {
@@ -3852,6 +4310,7 @@ type StoreItem_PurchaseOption struct {
 	PriceToBaseDiscountOn              *int64                                   `protobuf:"varint,53,opt,name=price_to_base_discount_on,json=priceToBaseDiscountOn" json:"price_to_base_discount_on,omitempty"`
 	FreeWithMasterSubAppid             *uint32                                  `protobuf:"varint,54,opt,name=free_with_master_sub_appid,json=freeWithMasterSubAppid" json:"free_with_master_sub_appid,omitempty"`
 	FormattedLowestRecentPrice         *string                                  `protobuf:"bytes,55,opt,name=formatted_lowest_recent_price,json=formattedLowestRecentPrice" json:"formatted_lowest_recent_price,omitempty"`
+	IsFreeLicense                      *bool                                    `protobuf:"varint,56,opt,name=is_free_license,json=isFreeLicense" json:"is_free_license,omitempty"`
 	unknownFields                      protoimpl.UnknownFields
 	sizeCache                          protoimpl.SizeCache
 }
@@ -4103,6 +4562,13 @@ func (x *StoreItem_PurchaseOption) GetFormattedLowestRecentPrice() string {
 		return *x.FormattedLowestRecentPrice
 	}
 	return ""
+}
+
+func (x *StoreItem_PurchaseOption) GetIsFreeLicense() bool {
+	if x != nil && x.IsFreeLicense != nil {
+		return *x.IsFreeLicense
+	}
+	return false
 }
 
 type StoreItem_Screenshots struct {
@@ -4505,355 +4971,51 @@ func (x *StoreItem_PackageGroup) GetDropdownDescriptionBbcode() string {
 	return ""
 }
 
-type StoreItem_Anticheat struct {
-	state               protoimpl.MessageState `protogen:"open.v1"`
-	KernelMode          *bool                  `protobuf:"varint,1,opt,name=kernel_mode,json=kernelMode" json:"kernel_mode,omitempty"`
-	UninstallCompletely *bool                  `protobuf:"varint,2,opt,name=uninstall_completely,json=uninstallCompletely" json:"uninstall_completely,omitempty"`
-	BootProtection      *bool                  `protobuf:"varint,3,opt,name=boot_protection,json=bootProtection" json:"boot_protection,omitempty"`
-	BootProtectionName  *string                `protobuf:"bytes,4,opt,name=boot_protection_name,json=bootProtectionName" json:"boot_protection_name,omitempty"`
-	Name                *string                `protobuf:"bytes,5,opt,name=name" json:"name,omitempty"`
-	NameLoc             *string                `protobuf:"bytes,6,opt,name=name_loc,json=nameLoc" json:"name_loc,omitempty"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
-}
-
-func (x *StoreItem_Anticheat) Reset() {
-	*x = StoreItem_Anticheat{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StoreItem_Anticheat) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StoreItem_Anticheat) ProtoMessage() {}
-
-func (x *StoreItem_Anticheat) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StoreItem_Anticheat.ProtoReflect.Descriptor instead.
-func (*StoreItem_Anticheat) Descriptor() ([]byte, []int) {
-	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19}
-}
-
-func (x *StoreItem_Anticheat) GetKernelMode() bool {
-	if x != nil && x.KernelMode != nil {
-		return *x.KernelMode
-	}
-	return false
-}
-
-func (x *StoreItem_Anticheat) GetUninstallCompletely() bool {
-	if x != nil && x.UninstallCompletely != nil {
-		return *x.UninstallCompletely
-	}
-	return false
-}
-
-func (x *StoreItem_Anticheat) GetBootProtection() bool {
-	if x != nil && x.BootProtection != nil {
-		return *x.BootProtection
-	}
-	return false
-}
-
-func (x *StoreItem_Anticheat) GetBootProtectionName() string {
-	if x != nil && x.BootProtectionName != nil {
-		return *x.BootProtectionName
-	}
-	return ""
-}
-
-func (x *StoreItem_Anticheat) GetName() string {
-	if x != nil && x.Name != nil {
-		return *x.Name
-	}
-	return ""
-}
-
-func (x *StoreItem_Anticheat) GetNameLoc() string {
-	if x != nil && x.NameLoc != nil {
-		return *x.NameLoc
-	}
-	return ""
-}
-
-type StoreItem_Eula struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Name          *string                `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
-	Url           *string                `protobuf:"bytes,2,opt,name=url" json:"url,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StoreItem_Eula) Reset() {
-	*x = StoreItem_Eula{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StoreItem_Eula) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StoreItem_Eula) ProtoMessage() {}
-
-func (x *StoreItem_Eula) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StoreItem_Eula.ProtoReflect.Descriptor instead.
-func (*StoreItem_Eula) Descriptor() ([]byte, []int) {
-	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 20}
-}
-
-func (x *StoreItem_Eula) GetName() string {
-	if x != nil && x.Name != nil {
-		return *x.Name
-	}
-	return ""
-}
-
-func (x *StoreItem_Eula) GetUrl() string {
-	if x != nil && x.Url != nil {
-		return *x.Url
-	}
-	return ""
-}
-
-type StoreItem_AIGeneratedContentService struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Name          *string                `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
-	Url           *string                `protobuf:"bytes,2,opt,name=url" json:"url,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StoreItem_AIGeneratedContentService) Reset() {
-	*x = StoreItem_AIGeneratedContentService{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StoreItem_AIGeneratedContentService) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StoreItem_AIGeneratedContentService) ProtoMessage() {}
-
-func (x *StoreItem_AIGeneratedContentService) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StoreItem_AIGeneratedContentService.ProtoReflect.Descriptor instead.
-func (*StoreItem_AIGeneratedContentService) Descriptor() ([]byte, []int) {
-	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 21}
-}
-
-func (x *StoreItem_AIGeneratedContentService) GetName() string {
-	if x != nil && x.Name != nil {
-		return *x.Name
-	}
-	return ""
-}
-
-func (x *StoreItem_AIGeneratedContentService) GetUrl() string {
-	if x != nil && x.Url != nil {
-		return *x.Url
-	}
-	return ""
-}
-
-type StoreItem_PageSection struct {
-	state         protoimpl.MessageState                    `protogen:"open.v1"`
-	Label         *string                                   `protobuf:"bytes,1,opt,name=label" json:"label,omitempty"`
-	ContentBbcode *string                                   `protobuf:"bytes,2,opt,name=content_bbcode,json=contentBbcode" json:"content_bbcode,omitempty"`
-	Banner        *StoreItem_PageSection_EPageSectionBanner `protobuf:"varint,3,opt,name=banner,enum=StoreItem_PageSection_EPageSectionBanner,def=0" json:"banner,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-// Default values for StoreItem_PageSection fields.
-const (
-	Default_StoreItem_PageSection_Banner = StoreItem_PageSection_k_EPageSectionBanner_None
-)
-
-func (x *StoreItem_PageSection) Reset() {
-	*x = StoreItem_PageSection{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StoreItem_PageSection) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StoreItem_PageSection) ProtoMessage() {}
-
-func (x *StoreItem_PageSection) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StoreItem_PageSection.ProtoReflect.Descriptor instead.
-func (*StoreItem_PageSection) Descriptor() ([]byte, []int) {
-	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 22}
-}
-
-func (x *StoreItem_PageSection) GetLabel() string {
-	if x != nil && x.Label != nil {
-		return *x.Label
-	}
-	return ""
-}
-
-func (x *StoreItem_PageSection) GetContentBbcode() string {
-	if x != nil && x.ContentBbcode != nil {
-		return *x.ContentBbcode
-	}
-	return ""
-}
-
-func (x *StoreItem_PageSection) GetBanner() StoreItem_PageSection_EPageSectionBanner {
-	if x != nil && x.Banner != nil {
-		return *x.Banner
-	}
-	return Default_StoreItem_PageSection_Banner
-}
-
-type StoreItem_PressReview struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Quote         *string                `protobuf:"bytes,1,opt,name=quote" json:"quote,omitempty"`
-	Score         *string                `protobuf:"bytes,2,opt,name=score" json:"score,omitempty"`
-	Site          *string                `protobuf:"bytes,3,opt,name=site" json:"site,omitempty"`
-	Url           *string                `protobuf:"bytes,4,opt,name=url" json:"url,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StoreItem_PressReview) Reset() {
-	*x = StoreItem_PressReview{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StoreItem_PressReview) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StoreItem_PressReview) ProtoMessage() {}
-
-func (x *StoreItem_PressReview) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StoreItem_PressReview.ProtoReflect.Descriptor instead.
-func (*StoreItem_PressReview) Descriptor() ([]byte, []int) {
-	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 23}
-}
-
-func (x *StoreItem_PressReview) GetQuote() string {
-	if x != nil && x.Quote != nil {
-		return *x.Quote
-	}
-	return ""
-}
-
-func (x *StoreItem_PressReview) GetScore() string {
-	if x != nil && x.Score != nil {
-		return *x.Score
-	}
-	return ""
-}
-
-func (x *StoreItem_PressReview) GetSite() string {
-	if x != nil && x.Site != nil {
-		return *x.Site
-	}
-	return ""
-}
-
-func (x *StoreItem_PressReview) GetUrl() string {
-	if x != nil && x.Url != nil {
-		return *x.Url
-	}
-	return ""
-}
-
 type StoreItem_ExtraDetails struct {
-	state                            protoimpl.MessageState               `protogen:"open.v1"`
-	SteamAward                       []*SteamAward                        `protobuf:"bytes,1,rep,name=steam_award,json=steamAward" json:"steam_award,omitempty"`
-	Vetted                           *bool                                `protobuf:"varint,2,opt,name=vetted" json:"vetted,omitempty"`
-	NoMouseKeyboardSupport           *bool                                `protobuf:"varint,3,opt,name=no_mouse_keyboard_support,json=noMouseKeyboardSupport" json:"no_mouse_keyboard_support,omitempty"`
-	ControllerWizardComplete         *bool                                `protobuf:"varint,4,opt,name=controller_wizard_complete,json=controllerWizardComplete" json:"controller_wizard_complete,omitempty"`
-	DrmThirdPartyType                *string                              `protobuf:"bytes,5,opt,name=drm_third_party_type,json=drmThirdPartyType" json:"drm_third_party_type,omitempty"`
-	DrmActivationLimit               *string                              `protobuf:"bytes,6,opt,name=drm_activation_limit,json=drmActivationLimit" json:"drm_activation_limit,omitempty"`
-	UserAccountThirdParty            *string                              `protobuf:"bytes,7,opt,name=user_account_third_party,json=userAccountThirdParty" json:"user_account_third_party,omitempty"`
-	UserAccountThirdPartyLinkToSteam *bool                                `protobuf:"varint,8,opt,name=user_account_third_party_link_to_steam,json=userAccountThirdPartyLinkToSteam" json:"user_account_third_party_link_to_steam,omitempty"`
-	Anticheat                        *StoreItem_Anticheat                 `protobuf:"bytes,9,opt,name=anticheat" json:"anticheat,omitempty"`
-	Eula                             []*StoreItem_Eula                    `protobuf:"bytes,10,rep,name=eula" json:"eula,omitempty"`
-	AiGenerationService              *StoreItem_AIGeneratedContentService `protobuf:"bytes,11,opt,name=ai_generation_service,json=aiGenerationService" json:"ai_generation_service,omitempty"`
-	RefundChecksEaPlaytime           *bool                                `protobuf:"varint,12,opt,name=refund_checks_ea_playtime,json=refundChecksEaPlaytime" json:"refund_checks_ea_playtime,omitempty"`
-	Section                          []*StoreItem_PageSection             `protobuf:"bytes,13,rep,name=section" json:"section,omitempty"`
-	LegalNoticeBbcode                *string                              `protobuf:"bytes,14,opt,name=legal_notice_bbcode,json=legalNoticeBbcode" json:"legal_notice_bbcode,omitempty"`
-	InteractiveElements              []EInteractiveElement                `protobuf:"varint,15,rep,name=interactive_elements,json=interactiveElements,enum=EInteractiveElement" json:"interactive_elements,omitempty"`
-	ContentSurveyNotes               *string                              `protobuf:"bytes,16,opt,name=content_survey_notes,json=contentSurveyNotes" json:"content_survey_notes,omitempty"`
-	ContentSurveyAiNotes             *string                              `protobuf:"bytes,17,opt,name=content_survey_ai_notes,json=contentSurveyAiNotes" json:"content_survey_ai_notes,omitempty"`
-	PressReview                      []*StoreItem_PressReview             `protobuf:"bytes,18,rep,name=press_review,json=pressReview" json:"press_review,omitempty"`
-	PartnerAwardsBbcode              *string                              `protobuf:"bytes,19,opt,name=partner_awards_bbcode,json=partnerAwardsBbcode" json:"partner_awards_bbcode,omitempty"`
+	state                            protoimpl.MessageState                            `protogen:"open.v1"`
+	SteamAward                       []*SteamAward                                     `protobuf:"bytes,1,rep,name=steam_award,json=steamAward" json:"steam_award,omitempty"`
+	Vetted                           *bool                                             `protobuf:"varint,2,opt,name=vetted" json:"vetted,omitempty"`
+	NoMouseKeyboardSupport           *bool                                             `protobuf:"varint,3,opt,name=no_mouse_keyboard_support,json=noMouseKeyboardSupport" json:"no_mouse_keyboard_support,omitempty"`
+	ControllerWizardComplete         *bool                                             `protobuf:"varint,4,opt,name=controller_wizard_complete,json=controllerWizardComplete" json:"controller_wizard_complete,omitempty"`
+	DrmThirdPartyType                *string                                           `protobuf:"bytes,5,opt,name=drm_third_party_type,json=drmThirdPartyType" json:"drm_third_party_type,omitempty"`
+	DrmActivationLimit               *string                                           `protobuf:"bytes,6,opt,name=drm_activation_limit,json=drmActivationLimit" json:"drm_activation_limit,omitempty"`
+	UserAccountThirdParty            *string                                           `protobuf:"bytes,7,opt,name=user_account_third_party,json=userAccountThirdParty" json:"user_account_third_party,omitempty"`
+	UserAccountThirdPartyLinkToSteam *bool                                             `protobuf:"varint,8,opt,name=user_account_third_party_link_to_steam,json=userAccountThirdPartyLinkToSteam" json:"user_account_third_party_link_to_steam,omitempty"`
+	Anticheat                        *StoreItem_ExtraDetails_Anticheat                 `protobuf:"bytes,9,opt,name=anticheat" json:"anticheat,omitempty"`
+	Eula                             []*StoreItem_ExtraDetails_Eula                    `protobuf:"bytes,10,rep,name=eula" json:"eula,omitempty"`
+	AiGenerationService              *StoreItem_ExtraDetails_AIGeneratedContentService `protobuf:"bytes,11,opt,name=ai_generation_service,json=aiGenerationService" json:"ai_generation_service,omitempty"`
+	RefundChecksEaPlaytime           *bool                                             `protobuf:"varint,12,opt,name=refund_checks_ea_playtime,json=refundChecksEaPlaytime" json:"refund_checks_ea_playtime,omitempty"`
+	Section                          []*StoreItem_ExtraDetails_PageSection             `protobuf:"bytes,13,rep,name=section" json:"section,omitempty"`
+	LegalNoticeBbcode                *string                                           `protobuf:"bytes,14,opt,name=legal_notice_bbcode,json=legalNoticeBbcode" json:"legal_notice_bbcode,omitempty"`
+	InteractiveElements              []EInteractiveElement                             `protobuf:"varint,15,rep,name=interactive_elements,json=interactiveElements,enum=EInteractiveElement" json:"interactive_elements,omitempty"`
+	ContentSurveyNotes               *string                                           `protobuf:"bytes,16,opt,name=content_survey_notes,json=contentSurveyNotes" json:"content_survey_notes,omitempty"`
+	ContentSurveyAiNotes             *string                                           `protobuf:"bytes,17,opt,name=content_survey_ai_notes,json=contentSurveyAiNotes" json:"content_survey_ai_notes,omitempty"`
+	PressReview                      []*StoreItem_ExtraDetails_PressReview             `protobuf:"bytes,18,rep,name=press_review,json=pressReview" json:"press_review,omitempty"`
+	PartnerAwardsBbcode              *string                                           `protobuf:"bytes,19,opt,name=partner_awards_bbcode,json=partnerAwardsBbcode" json:"partner_awards_bbcode,omitempty"`
+	EarlyAccess                      *StoreItem_ExtraDetails_EarlyAccess               `protobuf:"bytes,20,opt,name=early_access,json=earlyAccess" json:"early_access,omitempty"`
+	SeasonPass                       *CSeasonPass                                      `protobuf:"bytes,21,opt,name=season_pass,json=seasonPass" json:"season_pass,omitempty"`
+	LinksAndInfo                     *StoreItem_ExtraDetails_LinksAndInfo              `protobuf:"bytes,22,opt,name=links_and_info,json=linksAndInfo" json:"links_and_info,omitempty"`
+	ItemStoreEligible                *bool                                             `protobuf:"varint,23,opt,name=item_store_eligible,json=itemStoreEligible" json:"item_store_eligible,omitempty"`
+	PointsShopEligible               *bool                                             `protobuf:"varint,24,opt,name=points_shop_eligible,json=pointsShopEligible" json:"points_shop_eligible,omitempty"`
+	Metacritic                       *StoreItem_ExtraDetails_Metacritic                `protobuf:"bytes,26,opt,name=metacritic" json:"metacritic,omitempty"`
+	CastAndCrew                      *StoreItem_ExtraDetails_CastAndCrew               `protobuf:"bytes,27,opt,name=cast_and_crew,json=castAndCrew" json:"cast_and_crew,omitempty"`
+	SystemRequirements               *StoreItem_ExtraDetails_SystemRequirements        `protobuf:"bytes,28,opt,name=system_requirements,json=systemRequirements" json:"system_requirements,omitempty"`
+	RunningTimeMinutes               *uint32                                           `protobuf:"varint,29,opt,name=running_time_minutes,json=runningTimeMinutes" json:"running_time_minutes,omitempty"`
+	Episode                          *StoreItem_ExtraDetails_Episode                   `protobuf:"bytes,30,opt,name=episode" json:"episode,omitempty"`
+	Seasons                          []*StoreItem_ExtraDetails_Season                  `protobuf:"bytes,31,rep,name=seasons" json:"seasons,omitempty"`
+	VideoExtrasNote                  *StoreItem_ExtraDetails_EVideoExtrasNote          `protobuf:"varint,32,opt,name=video_extras_note,json=videoExtrasNote,enum=StoreItem_ExtraDetails_EVideoExtrasNote,def=0" json:"video_extras_note,omitempty"`
 	unknownFields                    protoimpl.UnknownFields
 	sizeCache                        protoimpl.SizeCache
 }
 
+// Default values for StoreItem_ExtraDetails fields.
+const (
+	Default_StoreItem_ExtraDetails_VideoExtrasNote = StoreItem_ExtraDetails_k_EVideoExtrasNote_Purchase
+)
+
 func (x *StoreItem_ExtraDetails) Reset() {
 	*x = StoreItem_ExtraDetails{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[45]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4865,7 +5027,7 @@ func (x *StoreItem_ExtraDetails) String() string {
 func (*StoreItem_ExtraDetails) ProtoMessage() {}
 
 func (x *StoreItem_ExtraDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[45]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4878,7 +5040,7 @@ func (x *StoreItem_ExtraDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StoreItem_ExtraDetails.ProtoReflect.Descriptor instead.
 func (*StoreItem_ExtraDetails) Descriptor() ([]byte, []int) {
-	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 24}
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19}
 }
 
 func (x *StoreItem_ExtraDetails) GetSteamAward() []*SteamAward {
@@ -4937,21 +5099,21 @@ func (x *StoreItem_ExtraDetails) GetUserAccountThirdPartyLinkToSteam() bool {
 	return false
 }
 
-func (x *StoreItem_ExtraDetails) GetAnticheat() *StoreItem_Anticheat {
+func (x *StoreItem_ExtraDetails) GetAnticheat() *StoreItem_ExtraDetails_Anticheat {
 	if x != nil {
 		return x.Anticheat
 	}
 	return nil
 }
 
-func (x *StoreItem_ExtraDetails) GetEula() []*StoreItem_Eula {
+func (x *StoreItem_ExtraDetails) GetEula() []*StoreItem_ExtraDetails_Eula {
 	if x != nil {
 		return x.Eula
 	}
 	return nil
 }
 
-func (x *StoreItem_ExtraDetails) GetAiGenerationService() *StoreItem_AIGeneratedContentService {
+func (x *StoreItem_ExtraDetails) GetAiGenerationService() *StoreItem_ExtraDetails_AIGeneratedContentService {
 	if x != nil {
 		return x.AiGenerationService
 	}
@@ -4965,7 +5127,7 @@ func (x *StoreItem_ExtraDetails) GetRefundChecksEaPlaytime() bool {
 	return false
 }
 
-func (x *StoreItem_ExtraDetails) GetSection() []*StoreItem_PageSection {
+func (x *StoreItem_ExtraDetails) GetSection() []*StoreItem_ExtraDetails_PageSection {
 	if x != nil {
 		return x.Section
 	}
@@ -5000,7 +5162,7 @@ func (x *StoreItem_ExtraDetails) GetContentSurveyAiNotes() string {
 	return ""
 }
 
-func (x *StoreItem_ExtraDetails) GetPressReview() []*StoreItem_PressReview {
+func (x *StoreItem_ExtraDetails) GetPressReview() []*StoreItem_ExtraDetails_PressReview {
 	if x != nil {
 		return x.PressReview
 	}
@@ -5010,6 +5172,207 @@ func (x *StoreItem_ExtraDetails) GetPressReview() []*StoreItem_PressReview {
 func (x *StoreItem_ExtraDetails) GetPartnerAwardsBbcode() string {
 	if x != nil && x.PartnerAwardsBbcode != nil {
 		return *x.PartnerAwardsBbcode
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails) GetEarlyAccess() *StoreItem_ExtraDetails_EarlyAccess {
+	if x != nil {
+		return x.EarlyAccess
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails) GetSeasonPass() *CSeasonPass {
+	if x != nil {
+		return x.SeasonPass
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails) GetLinksAndInfo() *StoreItem_ExtraDetails_LinksAndInfo {
+	if x != nil {
+		return x.LinksAndInfo
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails) GetItemStoreEligible() bool {
+	if x != nil && x.ItemStoreEligible != nil {
+		return *x.ItemStoreEligible
+	}
+	return false
+}
+
+func (x *StoreItem_ExtraDetails) GetPointsShopEligible() bool {
+	if x != nil && x.PointsShopEligible != nil {
+		return *x.PointsShopEligible
+	}
+	return false
+}
+
+func (x *StoreItem_ExtraDetails) GetMetacritic() *StoreItem_ExtraDetails_Metacritic {
+	if x != nil {
+		return x.Metacritic
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails) GetCastAndCrew() *StoreItem_ExtraDetails_CastAndCrew {
+	if x != nil {
+		return x.CastAndCrew
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails) GetSystemRequirements() *StoreItem_ExtraDetails_SystemRequirements {
+	if x != nil {
+		return x.SystemRequirements
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails) GetRunningTimeMinutes() uint32 {
+	if x != nil && x.RunningTimeMinutes != nil {
+		return *x.RunningTimeMinutes
+	}
+	return 0
+}
+
+func (x *StoreItem_ExtraDetails) GetEpisode() *StoreItem_ExtraDetails_Episode {
+	if x != nil {
+		return x.Episode
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails) GetSeasons() []*StoreItem_ExtraDetails_Season {
+	if x != nil {
+		return x.Seasons
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails) GetVideoExtrasNote() StoreItem_ExtraDetails_EVideoExtrasNote {
+	if x != nil && x.VideoExtrasNote != nil {
+		return *x.VideoExtrasNote
+	}
+	return Default_StoreItem_ExtraDetails_VideoExtrasNote
+}
+
+type StoreItem_OptInRegistrationTags struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	OptinName     *string                `protobuf:"bytes,1,opt,name=optin_name,json=optinName" json:"optin_name,omitempty"`
+	Values        []string               `protobuf:"bytes,2,rep,name=values" json:"values,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StoreItem_OptInRegistrationTags) Reset() {
+	*x = StoreItem_OptInRegistrationTags{}
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StoreItem_OptInRegistrationTags) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StoreItem_OptInRegistrationTags) ProtoMessage() {}
+
+func (x *StoreItem_OptInRegistrationTags) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StoreItem_OptInRegistrationTags.ProtoReflect.Descriptor instead.
+func (*StoreItem_OptInRegistrationTags) Descriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 20}
+}
+
+func (x *StoreItem_OptInRegistrationTags) GetOptinName() string {
+	if x != nil && x.OptinName != nil {
+		return *x.OptinName
+	}
+	return ""
+}
+
+func (x *StoreItem_OptInRegistrationTags) GetValues() []string {
+	if x != nil {
+		return x.Values
+	}
+	return nil
+}
+
+type StoreItem_PurchaseNote struct {
+	state         protoimpl.MessageState                    `protogen:"open.v1"`
+	Type          *StoreItem_PurchaseNote_EPurchaseNoteType `protobuf:"varint,1,opt,name=type,enum=StoreItem_PurchaseNote_EPurchaseNoteType,def=0" json:"type,omitempty"`
+	Highlighted   *bool                                     `protobuf:"varint,2,opt,name=highlighted" json:"highlighted,omitempty"`
+	TextBbcode    *string                                   `protobuf:"bytes,3,opt,name=text_bbcode,json=textBbcode" json:"text_bbcode,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+// Default values for StoreItem_PurchaseNote fields.
+const (
+	Default_StoreItem_PurchaseNote_Type = StoreItem_PurchaseNote_k_EPurchaseNoteType_None
+)
+
+func (x *StoreItem_PurchaseNote) Reset() {
+	*x = StoreItem_PurchaseNote{}
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StoreItem_PurchaseNote) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StoreItem_PurchaseNote) ProtoMessage() {}
+
+func (x *StoreItem_PurchaseNote) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StoreItem_PurchaseNote.ProtoReflect.Descriptor instead.
+func (*StoreItem_PurchaseNote) Descriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 21}
+}
+
+func (x *StoreItem_PurchaseNote) GetType() StoreItem_PurchaseNote_EPurchaseNoteType {
+	if x != nil && x.Type != nil {
+		return *x.Type
+	}
+	return Default_StoreItem_PurchaseNote_Type
+}
+
+func (x *StoreItem_PurchaseNote) GetHighlighted() bool {
+	if x != nil && x.Highlighted != nil {
+		return *x.Highlighted
+	}
+	return false
+}
+
+func (x *StoreItem_PurchaseNote) GetTextBbcode() string {
+	if x != nil && x.TextBbcode != nil {
+		return *x.TextBbcode
 	}
 	return ""
 }
@@ -5031,7 +5394,7 @@ const (
 
 func (x *StoreItem_Reviews_StoreReviewSummary) Reset() {
 	*x = StoreItem_Reviews_StoreReviewSummary{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[46]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5043,7 +5406,7 @@ func (x *StoreItem_Reviews_StoreReviewSummary) String() string {
 func (*StoreItem_Reviews_StoreReviewSummary) ProtoMessage() {}
 
 func (x *StoreItem_Reviews_StoreReviewSummary) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[46]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5097,7 +5460,7 @@ type StoreItem_BasicInfo_CreatorHomeLink struct {
 
 func (x *StoreItem_BasicInfo_CreatorHomeLink) Reset() {
 	*x = StoreItem_BasicInfo_CreatorHomeLink{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[47]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5109,7 +5472,7 @@ func (x *StoreItem_BasicInfo_CreatorHomeLink) String() string {
 func (*StoreItem_BasicInfo_CreatorHomeLink) ProtoMessage() {}
 
 func (x *StoreItem_BasicInfo_CreatorHomeLink) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[47]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5140,20 +5503,21 @@ func (x *StoreItem_BasicInfo_CreatorHomeLink) GetCreatorClanAccountId() uint32 {
 }
 
 type StoreItem_Platforms_VRSupport struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Vrhmd         *bool                  `protobuf:"varint,1,opt,name=vrhmd" json:"vrhmd,omitempty"`
-	VrhmdOnly     *bool                  `protobuf:"varint,2,opt,name=vrhmd_only,json=vrhmdOnly" json:"vrhmd_only,omitempty"`
-	HtcVive       *bool                  `protobuf:"varint,40,opt,name=htc_vive,json=htcVive" json:"htc_vive,omitempty"`
-	OculusRift    *bool                  `protobuf:"varint,41,opt,name=oculus_rift,json=oculusRift" json:"oculus_rift,omitempty"`
-	WindowsMr     *bool                  `protobuf:"varint,42,opt,name=windows_mr,json=windowsMr" json:"windows_mr,omitempty"`
-	ValveIndex    *bool                  `protobuf:"varint,43,opt,name=valve_index,json=valveIndex" json:"valve_index,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                    protoimpl.MessageState `protogen:"open.v1"`
+	Vrhmd                    *bool                  `protobuf:"varint,1,opt,name=vrhmd" json:"vrhmd,omitempty"`
+	VrhmdOnly                *bool                  `protobuf:"varint,2,opt,name=vrhmd_only,json=vrhmdOnly" json:"vrhmd_only,omitempty"`
+	ShowOptionalVrModeNotice *bool                  `protobuf:"varint,3,opt,name=show_optional_vr_mode_notice,json=showOptionalVrModeNotice" json:"show_optional_vr_mode_notice,omitempty"`
+	HtcVive                  *bool                  `protobuf:"varint,40,opt,name=htc_vive,json=htcVive" json:"htc_vive,omitempty"`
+	OculusRift               *bool                  `protobuf:"varint,41,opt,name=oculus_rift,json=oculusRift" json:"oculus_rift,omitempty"`
+	WindowsMr                *bool                  `protobuf:"varint,42,opt,name=windows_mr,json=windowsMr" json:"windows_mr,omitempty"`
+	ValveIndex               *bool                  `protobuf:"varint,43,opt,name=valve_index,json=valveIndex" json:"valve_index,omitempty"`
+	unknownFields            protoimpl.UnknownFields
+	sizeCache                protoimpl.SizeCache
 }
 
 func (x *StoreItem_Platforms_VRSupport) Reset() {
 	*x = StoreItem_Platforms_VRSupport{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[48]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5165,7 +5529,7 @@ func (x *StoreItem_Platforms_VRSupport) String() string {
 func (*StoreItem_Platforms_VRSupport) ProtoMessage() {}
 
 func (x *StoreItem_Platforms_VRSupport) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[48]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5191,6 +5555,13 @@ func (x *StoreItem_Platforms_VRSupport) GetVrhmd() bool {
 func (x *StoreItem_Platforms_VRSupport) GetVrhmdOnly() bool {
 	if x != nil && x.VrhmdOnly != nil {
 		return *x.VrhmdOnly
+	}
+	return false
+}
+
+func (x *StoreItem_Platforms_VRSupport) GetShowOptionalVrModeNotice() bool {
+	if x != nil && x.ShowOptionalVrModeNotice != nil {
+		return *x.ShowOptionalVrModeNotice
 	}
 	return false
 }
@@ -5235,7 +5606,7 @@ type StoreItem_PurchaseOption_Discount struct {
 
 func (x *StoreItem_PurchaseOption_Discount) Reset() {
 	*x = StoreItem_PurchaseOption_Discount{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[49]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5247,7 +5618,7 @@ func (x *StoreItem_PurchaseOption_Discount) String() string {
 func (*StoreItem_PurchaseOption_Discount) ProtoMessage() {}
 
 func (x *StoreItem_PurchaseOption_Discount) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[49]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5305,7 +5676,7 @@ type StoreItem_PurchaseOption_RecurrenceInfo struct {
 
 func (x *StoreItem_PurchaseOption_RecurrenceInfo) Reset() {
 	*x = StoreItem_PurchaseOption_RecurrenceInfo{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[50]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5317,7 +5688,7 @@ func (x *StoreItem_PurchaseOption_RecurrenceInfo) String() string {
 func (*StoreItem_PurchaseOption_RecurrenceInfo) ProtoMessage() {}
 
 func (x *StoreItem_PurchaseOption_RecurrenceInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[50]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5385,7 +5756,7 @@ type StoreItem_Screenshots_Screenshot struct {
 
 func (x *StoreItem_Screenshots_Screenshot) Reset() {
 	*x = StoreItem_Screenshots_Screenshot{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[51]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5397,7 +5768,7 @@ func (x *StoreItem_Screenshots_Screenshot) String() string {
 func (*StoreItem_Screenshots_Screenshot) ProtoMessage() {}
 
 func (x *StoreItem_Screenshots_Screenshot) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[51]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5437,7 +5808,7 @@ type StoreItem_Trailers_VideoSource struct {
 
 func (x *StoreItem_Trailers_VideoSource) Reset() {
 	*x = StoreItem_Trailers_VideoSource{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[52]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5449,7 +5820,7 @@ func (x *StoreItem_Trailers_VideoSource) String() string {
 func (*StoreItem_Trailers_VideoSource) ProtoMessage() {}
 
 func (x *StoreItem_Trailers_VideoSource) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[52]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5489,7 +5860,7 @@ type StoreItem_Trailers_AdaptiveTrailer struct {
 
 func (x *StoreItem_Trailers_AdaptiveTrailer) Reset() {
 	*x = StoreItem_Trailers_AdaptiveTrailer{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[53]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5501,7 +5872,7 @@ func (x *StoreItem_Trailers_AdaptiveTrailer) String() string {
 func (*StoreItem_Trailers_AdaptiveTrailer) ProtoMessage() {}
 
 func (x *StoreItem_Trailers_AdaptiveTrailer) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[53]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5554,7 +5925,7 @@ const (
 
 func (x *StoreItem_Trailers_Trailer) Reset() {
 	*x = StoreItem_Trailers_Trailer{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[54]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5566,7 +5937,7 @@ func (x *StoreItem_Trailers_Trailer) String() string {
 func (*StoreItem_Trailers_Trailer) ProtoMessage() {}
 
 func (x *StoreItem_Trailers_Trailer) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[54]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5652,6 +6023,1122 @@ func (x *StoreItem_Trailers_Trailer) GetAllAges() bool {
 	return false
 }
 
+type StoreItem_ExtraDetails_Anticheat struct {
+	state               protoimpl.MessageState `protogen:"open.v1"`
+	KernelMode          *bool                  `protobuf:"varint,1,opt,name=kernel_mode,json=kernelMode" json:"kernel_mode,omitempty"`
+	UninstallCompletely *bool                  `protobuf:"varint,2,opt,name=uninstall_completely,json=uninstallCompletely" json:"uninstall_completely,omitempty"`
+	BootProtection      *bool                  `protobuf:"varint,3,opt,name=boot_protection,json=bootProtection" json:"boot_protection,omitempty"`
+	BootProtectionName  *string                `protobuf:"bytes,4,opt,name=boot_protection_name,json=bootProtectionName" json:"boot_protection_name,omitempty"`
+	Name                *string                `protobuf:"bytes,5,opt,name=name" json:"name,omitempty"`
+	NameLoc             *string                `protobuf:"bytes,6,opt,name=name_loc,json=nameLoc" json:"name_loc,omitempty"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
+}
+
+func (x *StoreItem_ExtraDetails_Anticheat) Reset() {
+	*x = StoreItem_ExtraDetails_Anticheat{}
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StoreItem_ExtraDetails_Anticheat) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StoreItem_ExtraDetails_Anticheat) ProtoMessage() {}
+
+func (x *StoreItem_ExtraDetails_Anticheat) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_Anticheat.ProtoReflect.Descriptor instead.
+func (*StoreItem_ExtraDetails_Anticheat) Descriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 0}
+}
+
+func (x *StoreItem_ExtraDetails_Anticheat) GetKernelMode() bool {
+	if x != nil && x.KernelMode != nil {
+		return *x.KernelMode
+	}
+	return false
+}
+
+func (x *StoreItem_ExtraDetails_Anticheat) GetUninstallCompletely() bool {
+	if x != nil && x.UninstallCompletely != nil {
+		return *x.UninstallCompletely
+	}
+	return false
+}
+
+func (x *StoreItem_ExtraDetails_Anticheat) GetBootProtection() bool {
+	if x != nil && x.BootProtection != nil {
+		return *x.BootProtection
+	}
+	return false
+}
+
+func (x *StoreItem_ExtraDetails_Anticheat) GetBootProtectionName() string {
+	if x != nil && x.BootProtectionName != nil {
+		return *x.BootProtectionName
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_Anticheat) GetName() string {
+	if x != nil && x.Name != nil {
+		return *x.Name
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_Anticheat) GetNameLoc() string {
+	if x != nil && x.NameLoc != nil {
+		return *x.NameLoc
+	}
+	return ""
+}
+
+type StoreItem_ExtraDetails_Eula struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Name          *string                `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
+	Url           *string                `protobuf:"bytes,2,opt,name=url" json:"url,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StoreItem_ExtraDetails_Eula) Reset() {
+	*x = StoreItem_ExtraDetails_Eula{}
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StoreItem_ExtraDetails_Eula) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StoreItem_ExtraDetails_Eula) ProtoMessage() {}
+
+func (x *StoreItem_ExtraDetails_Eula) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_Eula.ProtoReflect.Descriptor instead.
+func (*StoreItem_ExtraDetails_Eula) Descriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 1}
+}
+
+func (x *StoreItem_ExtraDetails_Eula) GetName() string {
+	if x != nil && x.Name != nil {
+		return *x.Name
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_Eula) GetUrl() string {
+	if x != nil && x.Url != nil {
+		return *x.Url
+	}
+	return ""
+}
+
+type StoreItem_ExtraDetails_AIGeneratedContentService struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Name          *string                `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
+	Url           *string                `protobuf:"bytes,2,opt,name=url" json:"url,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StoreItem_ExtraDetails_AIGeneratedContentService) Reset() {
+	*x = StoreItem_ExtraDetails_AIGeneratedContentService{}
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StoreItem_ExtraDetails_AIGeneratedContentService) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StoreItem_ExtraDetails_AIGeneratedContentService) ProtoMessage() {}
+
+func (x *StoreItem_ExtraDetails_AIGeneratedContentService) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_AIGeneratedContentService.ProtoReflect.Descriptor instead.
+func (*StoreItem_ExtraDetails_AIGeneratedContentService) Descriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 2}
+}
+
+func (x *StoreItem_ExtraDetails_AIGeneratedContentService) GetName() string {
+	if x != nil && x.Name != nil {
+		return *x.Name
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_AIGeneratedContentService) GetUrl() string {
+	if x != nil && x.Url != nil {
+		return *x.Url
+	}
+	return ""
+}
+
+type StoreItem_ExtraDetails_PageSection struct {
+	state         protoimpl.MessageState                                 `protogen:"open.v1"`
+	Label         *string                                                `protobuf:"bytes,1,opt,name=label" json:"label,omitempty"`
+	ContentBbcode *string                                                `protobuf:"bytes,2,opt,name=content_bbcode,json=contentBbcode" json:"content_bbcode,omitempty"`
+	Banner        *StoreItem_ExtraDetails_PageSection_EPageSectionBanner `protobuf:"varint,3,opt,name=banner,enum=StoreItem_ExtraDetails_PageSection_EPageSectionBanner,def=0" json:"banner,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+// Default values for StoreItem_ExtraDetails_PageSection fields.
+const (
+	Default_StoreItem_ExtraDetails_PageSection_Banner = StoreItem_ExtraDetails_PageSection_k_EPageSectionBanner_None
+)
+
+func (x *StoreItem_ExtraDetails_PageSection) Reset() {
+	*x = StoreItem_ExtraDetails_PageSection{}
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StoreItem_ExtraDetails_PageSection) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StoreItem_ExtraDetails_PageSection) ProtoMessage() {}
+
+func (x *StoreItem_ExtraDetails_PageSection) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_PageSection.ProtoReflect.Descriptor instead.
+func (*StoreItem_ExtraDetails_PageSection) Descriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 3}
+}
+
+func (x *StoreItem_ExtraDetails_PageSection) GetLabel() string {
+	if x != nil && x.Label != nil {
+		return *x.Label
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_PageSection) GetContentBbcode() string {
+	if x != nil && x.ContentBbcode != nil {
+		return *x.ContentBbcode
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_PageSection) GetBanner() StoreItem_ExtraDetails_PageSection_EPageSectionBanner {
+	if x != nil && x.Banner != nil {
+		return *x.Banner
+	}
+	return Default_StoreItem_ExtraDetails_PageSection_Banner
+}
+
+type StoreItem_ExtraDetails_PressReview struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Quote         *string                `protobuf:"bytes,1,opt,name=quote" json:"quote,omitempty"`
+	Score         *string                `protobuf:"bytes,2,opt,name=score" json:"score,omitempty"`
+	Site          *string                `protobuf:"bytes,3,opt,name=site" json:"site,omitempty"`
+	Url           *string                `protobuf:"bytes,4,opt,name=url" json:"url,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StoreItem_ExtraDetails_PressReview) Reset() {
+	*x = StoreItem_ExtraDetails_PressReview{}
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StoreItem_ExtraDetails_PressReview) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StoreItem_ExtraDetails_PressReview) ProtoMessage() {}
+
+func (x *StoreItem_ExtraDetails_PressReview) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_PressReview.ProtoReflect.Descriptor instead.
+func (*StoreItem_ExtraDetails_PressReview) Descriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 4}
+}
+
+func (x *StoreItem_ExtraDetails_PressReview) GetQuote() string {
+	if x != nil && x.Quote != nil {
+		return *x.Quote
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_PressReview) GetScore() string {
+	if x != nil && x.Score != nil {
+		return *x.Score
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_PressReview) GetSite() string {
+	if x != nil && x.Site != nil {
+		return *x.Site
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_PressReview) GetUrl() string {
+	if x != nil && x.Url != nil {
+		return *x.Url
+	}
+	return ""
+}
+
+type StoreItem_ExtraDetails_EarlyAccess struct {
+	state              protoimpl.MessageState `protogen:"open.v1"`
+	WhyBbcode          *string                `protobuf:"bytes,1,opt,name=why_bbcode,json=whyBbcode" json:"why_bbcode,omitempty"`
+	HowLongBbcode      *string                `protobuf:"bytes,2,opt,name=how_long_bbcode,json=howLongBbcode" json:"how_long_bbcode,omitempty"`
+	FullVersionBbcode  *string                `protobuf:"bytes,3,opt,name=full_version_bbcode,json=fullVersionBbcode" json:"full_version_bbcode,omitempty"`
+	CurrentStateBbcode *string                `protobuf:"bytes,4,opt,name=current_state_bbcode,json=currentStateBbcode" json:"current_state_bbcode,omitempty"`
+	PricingBbcode      *string                `protobuf:"bytes,5,opt,name=pricing_bbcode,json=pricingBbcode" json:"pricing_bbcode,omitempty"`
+	CommunityBbcode    *string                `protobuf:"bytes,6,opt,name=community_bbcode,json=communityBbcode" json:"community_bbcode,omitempty"`
+	DescriptionBbcode  *string                `protobuf:"bytes,7,opt,name=description_bbcode,json=descriptionBbcode" json:"description_bbcode,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
+}
+
+func (x *StoreItem_ExtraDetails_EarlyAccess) Reset() {
+	*x = StoreItem_ExtraDetails_EarlyAccess{}
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StoreItem_ExtraDetails_EarlyAccess) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StoreItem_ExtraDetails_EarlyAccess) ProtoMessage() {}
+
+func (x *StoreItem_ExtraDetails_EarlyAccess) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_EarlyAccess.ProtoReflect.Descriptor instead.
+func (*StoreItem_ExtraDetails_EarlyAccess) Descriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 5}
+}
+
+func (x *StoreItem_ExtraDetails_EarlyAccess) GetWhyBbcode() string {
+	if x != nil && x.WhyBbcode != nil {
+		return *x.WhyBbcode
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_EarlyAccess) GetHowLongBbcode() string {
+	if x != nil && x.HowLongBbcode != nil {
+		return *x.HowLongBbcode
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_EarlyAccess) GetFullVersionBbcode() string {
+	if x != nil && x.FullVersionBbcode != nil {
+		return *x.FullVersionBbcode
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_EarlyAccess) GetCurrentStateBbcode() string {
+	if x != nil && x.CurrentStateBbcode != nil {
+		return *x.CurrentStateBbcode
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_EarlyAccess) GetPricingBbcode() string {
+	if x != nil && x.PricingBbcode != nil {
+		return *x.PricingBbcode
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_EarlyAccess) GetCommunityBbcode() string {
+	if x != nil && x.CommunityBbcode != nil {
+		return *x.CommunityBbcode
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_EarlyAccess) GetDescriptionBbcode() string {
+	if x != nil && x.DescriptionBbcode != nil {
+		return *x.DescriptionBbcode
+	}
+	return ""
+}
+
+type StoreItem_ExtraDetails_LinksAndInfo struct {
+	state               protoimpl.MessageState  `protogen:"open.v1"`
+	Website             *string                 `protobuf:"bytes,1,opt,name=website" json:"website,omitempty"`
+	StatsUrl            *string                 `protobuf:"bytes,2,opt,name=stats_url,json=statsUrl" json:"stats_url,omitempty"`
+	OnlineManualUrl     *string                 `protobuf:"bytes,3,opt,name=online_manual_url,json=onlineManualUrl" json:"online_manual_url,omitempty"`
+	HealthWarningUrl    *string                 `protobuf:"bytes,4,opt,name=health_warning_url,json=healthWarningUrl" json:"health_warning_url,omitempty"`
+	PrivacyPolicyUrl    *string                 `protobuf:"bytes,5,opt,name=privacy_policy_url,json=privacyPolicyUrl" json:"privacy_policy_url,omitempty"`
+	AvailableDocuments  []EStoreAppDocumentType `protobuf:"varint,6,rep,name=available_documents,json=availableDocuments,enum=EStoreAppDocumentType" json:"available_documents,omitempty"`
+	Genreids            []uint32                `protobuf:"varint,7,rep,name=genreids" json:"genreids,omitempty"`
+	Manufacturers       []string                `protobuf:"bytes,8,rep,name=manufacturers" json:"manufacturers,omitempty"`
+	AchievementsVisible *bool                   `protobuf:"varint,9,opt,name=achievements_visible,json=achievementsVisible" json:"achievements_visible,omitempty"`
+	AchievementCount    *uint32                 `protobuf:"varint,10,opt,name=achievement_count,json=achievementCount" json:"achievement_count,omitempty"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
+}
+
+func (x *StoreItem_ExtraDetails_LinksAndInfo) Reset() {
+	*x = StoreItem_ExtraDetails_LinksAndInfo{}
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StoreItem_ExtraDetails_LinksAndInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StoreItem_ExtraDetails_LinksAndInfo) ProtoMessage() {}
+
+func (x *StoreItem_ExtraDetails_LinksAndInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_LinksAndInfo.ProtoReflect.Descriptor instead.
+func (*StoreItem_ExtraDetails_LinksAndInfo) Descriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 6}
+}
+
+func (x *StoreItem_ExtraDetails_LinksAndInfo) GetWebsite() string {
+	if x != nil && x.Website != nil {
+		return *x.Website
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_LinksAndInfo) GetStatsUrl() string {
+	if x != nil && x.StatsUrl != nil {
+		return *x.StatsUrl
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_LinksAndInfo) GetOnlineManualUrl() string {
+	if x != nil && x.OnlineManualUrl != nil {
+		return *x.OnlineManualUrl
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_LinksAndInfo) GetHealthWarningUrl() string {
+	if x != nil && x.HealthWarningUrl != nil {
+		return *x.HealthWarningUrl
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_LinksAndInfo) GetPrivacyPolicyUrl() string {
+	if x != nil && x.PrivacyPolicyUrl != nil {
+		return *x.PrivacyPolicyUrl
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_LinksAndInfo) GetAvailableDocuments() []EStoreAppDocumentType {
+	if x != nil {
+		return x.AvailableDocuments
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails_LinksAndInfo) GetGenreids() []uint32 {
+	if x != nil {
+		return x.Genreids
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails_LinksAndInfo) GetManufacturers() []string {
+	if x != nil {
+		return x.Manufacturers
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails_LinksAndInfo) GetAchievementsVisible() bool {
+	if x != nil && x.AchievementsVisible != nil {
+		return *x.AchievementsVisible
+	}
+	return false
+}
+
+func (x *StoreItem_ExtraDetails_LinksAndInfo) GetAchievementCount() uint32 {
+	if x != nil && x.AchievementCount != nil {
+		return *x.AchievementCount
+	}
+	return 0
+}
+
+type StoreItem_ExtraDetails_Metacritic struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Score         *uint32                `protobuf:"varint,1,opt,name=score" json:"score,omitempty"`
+	Url           *string                `protobuf:"bytes,2,opt,name=url" json:"url,omitempty"`
+	AlwaysShow    *bool                  `protobuf:"varint,3,opt,name=always_show,json=alwaysShow" json:"always_show,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StoreItem_ExtraDetails_Metacritic) Reset() {
+	*x = StoreItem_ExtraDetails_Metacritic{}
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StoreItem_ExtraDetails_Metacritic) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StoreItem_ExtraDetails_Metacritic) ProtoMessage() {}
+
+func (x *StoreItem_ExtraDetails_Metacritic) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_Metacritic.ProtoReflect.Descriptor instead.
+func (*StoreItem_ExtraDetails_Metacritic) Descriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 7}
+}
+
+func (x *StoreItem_ExtraDetails_Metacritic) GetScore() uint32 {
+	if x != nil && x.Score != nil {
+		return *x.Score
+	}
+	return 0
+}
+
+func (x *StoreItem_ExtraDetails_Metacritic) GetUrl() string {
+	if x != nil && x.Url != nil {
+		return *x.Url
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_Metacritic) GetAlwaysShow() bool {
+	if x != nil && x.AlwaysShow != nil {
+		return *x.AlwaysShow
+	}
+	return false
+}
+
+type StoreItem_ExtraDetails_CastAndCrew struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Directors     []string               `protobuf:"bytes,1,rep,name=directors" json:"directors,omitempty"`
+	Producers     []string               `protobuf:"bytes,2,rep,name=producers" json:"producers,omitempty"`
+	Writers       []string               `protobuf:"bytes,3,rep,name=writers" json:"writers,omitempty"`
+	Music         []string               `protobuf:"bytes,4,rep,name=music" json:"music,omitempty"`
+	Actors        []string               `protobuf:"bytes,5,rep,name=actors" json:"actors,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StoreItem_ExtraDetails_CastAndCrew) Reset() {
+	*x = StoreItem_ExtraDetails_CastAndCrew{}
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StoreItem_ExtraDetails_CastAndCrew) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StoreItem_ExtraDetails_CastAndCrew) ProtoMessage() {}
+
+func (x *StoreItem_ExtraDetails_CastAndCrew) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_CastAndCrew.ProtoReflect.Descriptor instead.
+func (*StoreItem_ExtraDetails_CastAndCrew) Descriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 8}
+}
+
+func (x *StoreItem_ExtraDetails_CastAndCrew) GetDirectors() []string {
+	if x != nil {
+		return x.Directors
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails_CastAndCrew) GetProducers() []string {
+	if x != nil {
+		return x.Producers
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails_CastAndCrew) GetWriters() []string {
+	if x != nil {
+		return x.Writers
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails_CastAndCrew) GetMusic() []string {
+	if x != nil {
+		return x.Music
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails_CastAndCrew) GetActors() []string {
+	if x != nil {
+		return x.Actors
+	}
+	return nil
+}
+
+type StoreItem_ExtraDetails_SystemRequirements struct {
+	state         protoimpl.MessageState                                            `protogen:"open.v1"`
+	Platforms     []*StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements `protobuf:"bytes,1,rep,name=platforms" json:"platforms,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements) Reset() {
+	*x = StoreItem_ExtraDetails_SystemRequirements{}
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StoreItem_ExtraDetails_SystemRequirements) ProtoMessage() {}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_SystemRequirements.ProtoReflect.Descriptor instead.
+func (*StoreItem_ExtraDetails_SystemRequirements) Descriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 9}
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements) GetPlatforms() []*StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements {
+	if x != nil {
+		return x.Platforms
+	}
+	return nil
+}
+
+type StoreItem_ExtraDetails_Episode struct {
+	state         protoimpl.MessageState                       `protogen:"open.v1"`
+	Number        *string                                      `protobuf:"bytes,1,opt,name=number" json:"number,omitempty"`
+	Type          *StoreItem_ExtraDetails_Episode_EEpisodeType `protobuf:"varint,2,opt,name=type,enum=StoreItem_ExtraDetails_Episode_EEpisodeType,def=0" json:"type,omitempty"`
+	HideDetails   *bool                                        `protobuf:"varint,3,opt,name=hide_details,json=hideDetails" json:"hide_details,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+// Default values for StoreItem_ExtraDetails_Episode fields.
+const (
+	Default_StoreItem_ExtraDetails_Episode_Type = StoreItem_ExtraDetails_Episode_k_EEpisodeType_Unknown
+)
+
+func (x *StoreItem_ExtraDetails_Episode) Reset() {
+	*x = StoreItem_ExtraDetails_Episode{}
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StoreItem_ExtraDetails_Episode) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StoreItem_ExtraDetails_Episode) ProtoMessage() {}
+
+func (x *StoreItem_ExtraDetails_Episode) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_Episode.ProtoReflect.Descriptor instead.
+func (*StoreItem_ExtraDetails_Episode) Descriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 10}
+}
+
+func (x *StoreItem_ExtraDetails_Episode) GetNumber() string {
+	if x != nil && x.Number != nil {
+		return *x.Number
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_Episode) GetType() StoreItem_ExtraDetails_Episode_EEpisodeType {
+	if x != nil && x.Type != nil {
+		return *x.Type
+	}
+	return Default_StoreItem_ExtraDetails_Episode_Type
+}
+
+func (x *StoreItem_ExtraDetails_Episode) GetHideDetails() bool {
+	if x != nil && x.HideDetails != nil {
+		return *x.HideDetails
+	}
+	return false
+}
+
+type StoreItem_ExtraDetails_Season struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Index         *int32                 `protobuf:"varint,1,opt,name=index" json:"index,omitempty"`
+	Name          *string                `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
+	EpisodeAppids []uint32               `protobuf:"varint,3,rep,name=episode_appids,json=episodeAppids" json:"episode_appids,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StoreItem_ExtraDetails_Season) Reset() {
+	*x = StoreItem_ExtraDetails_Season{}
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StoreItem_ExtraDetails_Season) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StoreItem_ExtraDetails_Season) ProtoMessage() {}
+
+func (x *StoreItem_ExtraDetails_Season) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_Season.ProtoReflect.Descriptor instead.
+func (*StoreItem_ExtraDetails_Season) Descriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 11}
+}
+
+func (x *StoreItem_ExtraDetails_Season) GetIndex() int32 {
+	if x != nil && x.Index != nil {
+		return *x.Index
+	}
+	return 0
+}
+
+func (x *StoreItem_ExtraDetails_Season) GetName() string {
+	if x != nil && x.Name != nil {
+		return *x.Name
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_Season) GetEpisodeAppids() []uint32 {
+	if x != nil {
+		return x.EpisodeAppids
+	}
+	return nil
+}
+
+type StoreItem_ExtraDetails_SystemRequirements_Size struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Amount        *string                `protobuf:"bytes,1,opt,name=amount" json:"amount,omitempty"`
+	Units         *string                `protobuf:"bytes,2,opt,name=units" json:"units,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Size) Reset() {
+	*x = StoreItem_ExtraDetails_SystemRequirements_Size{}
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Size) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StoreItem_ExtraDetails_SystemRequirements_Size) ProtoMessage() {}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Size) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_SystemRequirements_Size.ProtoReflect.Descriptor instead.
+func (*StoreItem_ExtraDetails_SystemRequirements_Size) Descriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 9, 0}
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Size) GetAmount() string {
+	if x != nil && x.Amount != nil {
+		return *x.Amount
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Size) GetUnits() string {
+	if x != nil && x.Units != nil {
+		return *x.Units
+	}
+	return ""
+}
+
+type StoreItem_ExtraDetails_SystemRequirements_Requirements struct {
+	state                protoimpl.MessageState                          `protogen:"open.v1"`
+	OsVersion            *string                                         `protobuf:"bytes,1,opt,name=os_version,json=osVersion" json:"os_version,omitempty"`
+	OsVersionUnsupported *bool                                           `protobuf:"varint,2,opt,name=os_version_unsupported,json=osVersionUnsupported" json:"os_version_unsupported,omitempty"`
+	Processor            *string                                         `protobuf:"bytes,3,opt,name=processor" json:"processor,omitempty"`
+	Memory               *StoreItem_ExtraDetails_SystemRequirements_Size `protobuf:"bytes,4,opt,name=memory" json:"memory,omitempty"`
+	Graphics             *string                                         `protobuf:"bytes,5,opt,name=graphics" json:"graphics,omitempty"`
+	Directx              *string                                         `protobuf:"bytes,6,opt,name=directx" json:"directx,omitempty"`
+	Broadband            *bool                                           `protobuf:"varint,7,opt,name=broadband" json:"broadband,omitempty"`
+	Storage              *StoreItem_ExtraDetails_SystemRequirements_Size `protobuf:"bytes,8,opt,name=storage" json:"storage,omitempty"`
+	StorageHq            *StoreItem_ExtraDetails_SystemRequirements_Size `protobuf:"bytes,9,opt,name=storage_hq,json=storageHq" json:"storage_hq,omitempty"`
+	SoundCard            *string                                         `protobuf:"bytes,10,opt,name=sound_card,json=soundCard" json:"sound_card,omitempty"`
+	VrSupport            *string                                         `protobuf:"bytes,11,opt,name=vr_support,json=vrSupport" json:"vr_support,omitempty"`
+	Notes                *string                                         `protobuf:"bytes,12,opt,name=notes" json:"notes,omitempty"`
+	LegacyBbcode         *string                                         `protobuf:"bytes,13,opt,name=legacy_bbcode,json=legacyBbcode" json:"legacy_bbcode,omitempty"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Requirements) Reset() {
+	*x = StoreItem_ExtraDetails_SystemRequirements_Requirements{}
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Requirements) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StoreItem_ExtraDetails_SystemRequirements_Requirements) ProtoMessage() {}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Requirements) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_SystemRequirements_Requirements.ProtoReflect.Descriptor instead.
+func (*StoreItem_ExtraDetails_SystemRequirements_Requirements) Descriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 9, 1}
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Requirements) GetOsVersion() string {
+	if x != nil && x.OsVersion != nil {
+		return *x.OsVersion
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Requirements) GetOsVersionUnsupported() bool {
+	if x != nil && x.OsVersionUnsupported != nil {
+		return *x.OsVersionUnsupported
+	}
+	return false
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Requirements) GetProcessor() string {
+	if x != nil && x.Processor != nil {
+		return *x.Processor
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Requirements) GetMemory() *StoreItem_ExtraDetails_SystemRequirements_Size {
+	if x != nil {
+		return x.Memory
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Requirements) GetGraphics() string {
+	if x != nil && x.Graphics != nil {
+		return *x.Graphics
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Requirements) GetDirectx() string {
+	if x != nil && x.Directx != nil {
+		return *x.Directx
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Requirements) GetBroadband() bool {
+	if x != nil && x.Broadband != nil {
+		return *x.Broadband
+	}
+	return false
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Requirements) GetStorage() *StoreItem_ExtraDetails_SystemRequirements_Size {
+	if x != nil {
+		return x.Storage
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Requirements) GetStorageHq() *StoreItem_ExtraDetails_SystemRequirements_Size {
+	if x != nil {
+		return x.StorageHq
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Requirements) GetSoundCard() string {
+	if x != nil && x.SoundCard != nil {
+		return *x.SoundCard
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Requirements) GetVrSupport() string {
+	if x != nil && x.VrSupport != nil {
+		return *x.VrSupport
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Requirements) GetNotes() string {
+	if x != nil && x.Notes != nil {
+		return *x.Notes
+	}
+	return ""
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_Requirements) GetLegacyBbcode() string {
+	if x != nil && x.LegacyBbcode != nil {
+		return *x.LegacyBbcode
+	}
+	return ""
+}
+
+type StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements struct {
+	state                protoimpl.MessageState                                        `protogen:"open.v1"`
+	Platform             *StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform    `protobuf:"varint,1,opt,name=platform,enum=StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform,def=0" json:"platform,omitempty"`
+	Minimum              *StoreItem_ExtraDetails_SystemRequirements_Requirements       `protobuf:"bytes,2,opt,name=minimum" json:"minimum,omitempty"`
+	Recommended          *StoreItem_ExtraDetails_SystemRequirements_Requirements       `protobuf:"bytes,3,opt,name=recommended" json:"recommended,omitempty"`
+	Requires_64Bit       *bool                                                         `protobuf:"varint,4,opt,name=requires_64bit,json=requires64bit" json:"requires_64bit,omitempty"`
+	RequiresAppleSilicon *bool                                                         `protobuf:"varint,5,opt,name=requires_apple_silicon,json=requiresAppleSilicon" json:"requires_apple_silicon,omitempty"`
+	UnsupportedOsNote    *StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote `protobuf:"varint,6,opt,name=unsupported_os_note,json=unsupportedOsNote,enum=StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote,def=0" json:"unsupported_os_note,omitempty"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
+}
+
+// Default values for StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements fields.
+const (
+	Default_StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements_Platform          = StoreItem_ExtraDetails_SystemRequirements_k_ESysReqPlatform_Unknown
+	Default_StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements_UnsupportedOsNote = StoreItem_ExtraDetails_SystemRequirements_k_EUnsupportedOSNote_None
+)
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements) Reset() {
+	*x = StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements{}
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements) ProtoMessage() {}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements.ProtoReflect.Descriptor instead.
+func (*StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements) Descriptor() ([]byte, []int) {
+	return file_steammessages_storebrowse_steamclient_proto_rawDescGZIP(), []int{4, 19, 9, 2}
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements) GetPlatform() StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform {
+	if x != nil && x.Platform != nil {
+		return *x.Platform
+	}
+	return Default_StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements_Platform
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements) GetMinimum() *StoreItem_ExtraDetails_SystemRequirements_Requirements {
+	if x != nil {
+		return x.Minimum
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements) GetRecommended() *StoreItem_ExtraDetails_SystemRequirements_Requirements {
+	if x != nil {
+		return x.Recommended
+	}
+	return nil
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements) GetRequires_64Bit() bool {
+	if x != nil && x.Requires_64Bit != nil {
+		return *x.Requires_64Bit
+	}
+	return false
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements) GetRequiresAppleSilicon() bool {
+	if x != nil && x.RequiresAppleSilicon != nil {
+		return *x.RequiresAppleSilicon
+	}
+	return false
+}
+
+func (x *StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements) GetUnsupportedOsNote() StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote {
+	if x != nil && x.UnsupportedOsNote != nil {
+		return *x.UnsupportedOsNote
+	}
+	return Default_StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements_UnsupportedOsNote
+}
+
 type CStoreBrowse_GetStoreCategories_Response_Category struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Categoryid    *uint32                `protobuf:"varint,1,opt,name=categoryid" json:"categoryid,omitempty"`
@@ -5674,7 +7161,7 @@ const (
 
 func (x *CStoreBrowse_GetStoreCategories_Response_Category) Reset() {
 	*x = CStoreBrowse_GetStoreCategories_Response_Category{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[55]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5686,7 +7173,7 @@ func (x *CStoreBrowse_GetStoreCategories_Response_Category) String() string {
 func (*CStoreBrowse_GetStoreCategories_Response_Category) ProtoMessage() {}
 
 func (x *CStoreBrowse_GetStoreCategories_Response_Category) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[55]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5783,7 +7270,7 @@ type CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig struct {
 
 func (x *CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig) Reset() {
 	*x = CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[56]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5795,7 +7282,7 @@ func (x *CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig) String() st
 func (*CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig) ProtoMessage() {}
 
 func (x *CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[56]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5891,7 +7378,7 @@ type CStoreBrowse_GetPriceStops_Response_PriceStop struct {
 
 func (x *CStoreBrowse_GetPriceStops_Response_PriceStop) Reset() {
 	*x = CStoreBrowse_GetPriceStops_Response_PriceStop{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[57]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5903,7 +7390,7 @@ func (x *CStoreBrowse_GetPriceStops_Response_PriceStop) String() string {
 func (*CStoreBrowse_GetPriceStops_Response_PriceStop) ProtoMessage() {}
 
 func (x *CStoreBrowse_GetPriceStops_Response_PriceStop) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[57]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5948,7 +7435,7 @@ type CStoreBrowse_GetDLCForApps_Response_DLCData struct {
 
 func (x *CStoreBrowse_GetDLCForApps_Response_DLCData) Reset() {
 	*x = CStoreBrowse_GetDLCForApps_Response_DLCData{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[58]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5960,7 +7447,7 @@ func (x *CStoreBrowse_GetDLCForApps_Response_DLCData) String() string {
 func (*CStoreBrowse_GetDLCForApps_Response_DLCData) ProtoMessage() {}
 
 func (x *CStoreBrowse_GetDLCForApps_Response_DLCData) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[58]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6036,7 +7523,7 @@ type CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp struct {
 
 func (x *CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp) Reset() {
 	*x = CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[59]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6048,7 +7535,7 @@ func (x *CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp) String() string {
 func (*CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp) ProtoMessage() {}
 
 func (x *CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[59]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6095,7 +7582,7 @@ type CStoreBrowse_GetDLCForAppsSolr_Response_DLCList struct {
 
 func (x *CStoreBrowse_GetDLCForAppsSolr_Response_DLCList) Reset() {
 	*x = CStoreBrowse_GetDLCForAppsSolr_Response_DLCList{}
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[60]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6107,7 +7594,7 @@ func (x *CStoreBrowse_GetDLCForAppsSolr_Response_DLCList) String() string {
 func (*CStoreBrowse_GetDLCForAppsSolr_Response_DLCList) ProtoMessage() {}
 
 func (x *CStoreBrowse_GetDLCForAppsSolr_Response_DLCList) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[60]
+	mi := &file_steammessages_storebrowse_steamclient_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6141,7 +7628,7 @@ var File_steammessages_storebrowse_steamclient_proto protoreflect.FileDescriptor
 
 const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\n" +
-	"+steammessages_storebrowse.steamclient.proto\x1a\x18steammessages_base.proto\x1a,steammessages_unified_base.steamclient.proto\x1a\x17enums_productinfo.proto\x1a\venums.proto\x1a$steammessages_appratings_types.proto\x1a%steammessages_steamawards_types.proto\x1a\x11contenthubs.proto\"\xd9\x01\n" +
+	"+steammessages_storebrowse.steamclient.proto\x1a\x18steammessages_base.proto\x1a,steammessages_unified_base.steamclient.proto\x1a\x17enums_productinfo.proto\x1a\venums.proto\x1a$steammessages_appratings_types.proto\x1a%steammessages_steamawards_types.proto\x1a$steammessages_seasonpass_types.proto\x1a\x11contenthubs.proto\"\xd9\x01\n" +
 	"\vStoreItemID\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1c\n" +
 	"\tpackageid\x18\x02 \x01(\rR\tpackageid\x12\x1a\n" +
@@ -6153,7 +7640,7 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\x12StoreBrowseContext\x12\x1a\n" +
 	"\blanguage\x18\x01 \x01(\tR\blanguage\x12\x1c\n" +
 	"\telanguage\x18\x02 \x01(\x05R\telanguage\x12!\n" +
-	"\fcountry_code\x18\x03 \x01(\tR\vcountryCode\"\x83\b\n" +
+	"\fcountry_code\x18\x03 \x01(\tR\vcountryCode\"\xca\b\n" +
 	"\x1aStoreBrowseItemDataRequest\x12%\n" +
 	"\x0einclude_assets\x18\x01 \x01(\bR\rincludeAssets\x12'\n" +
 	"\x0finclude_release\x18\x02 \x01(\bR\x0eincludeRelease\x12+\n" +
@@ -6174,11 +7661,12 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\x12apply_user_filters\x18\x10 \x01(\bR\x10applyUserFilters\x12#\n" +
 	"\rinclude_links\x18\x11 \x01(\bR\fincludeLinks\x122\n" +
 	"\x15include_extra_details\x18\x12 \x01(\bR\x13includeExtraDetails\x12E\n" +
-	"\x1cinclude_best_purchase_option\x18\x13 \x01(\b:\x04trueR\x19includeBestPurchaseOption\"\xae\x01\n" +
+	"\x1cinclude_best_purchase_option\x18\x13 \x01(\b:\x04trueR\x19includeBestPurchaseOption\x12E\n" +
+	"\x1finclude_optin_registration_tags\x18\x14 \x01(\bR\x1cincludeOptinRegistrationTags\"\xae\x01\n" +
 	"\x1dCStoreBrowse_GetItems_Request\x12\x1e\n" +
 	"\x03ids\x18\x01 \x03(\v2\f.StoreItemIDR\x03ids\x12-\n" +
 	"\acontext\x18\x02 \x01(\v2\x13.StoreBrowseContextR\acontext\x12>\n" +
-	"\fdata_request\x18\x03 \x01(\v2\x1b.StoreBrowseItemDataRequestR\vdataRequest\"\xf3c\n" +
+	"\fdata_request\x18\x03 \x01(\v2\x1b.StoreBrowseItemDataRequestR\vdataRequest\"\xc0\x8a\x01\n" +
 	"\tStoreItem\x12F\n" +
 	"\titem_type\x18\x01 \x01(\x0e2\x0f.EStoreItemType:\x18k_EStoreItemType_InvalidR\bitemType\x12\x0e\n" +
 	"\x02id\x18\x02 \x01(\rR\x02id\x12\x10\n" +
@@ -6232,7 +7720,9 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\x05links\x18G \x03(\v2\x0f.StoreItem.LinkR\x05links\x12>\n" +
 	"\x1bpurchase_description_bbcode\x18H \x01(\tR\x19purchaseDescriptionBbcode\x12>\n" +
 	"\x0epackage_groups\x18J \x03(\v2\x17.StoreItem.PackageGroupR\rpackageGroups\x12<\n" +
-	"\rextra_details\x18K \x01(\v2\x17.StoreItem.ExtraDetailsR\fextraDetails\x1ab\n" +
+	"\rextra_details\x18K \x01(\v2\x17.StoreItem.ExtraDetailsR\fextraDetails\x12X\n" +
+	"\x17optin_registration_tags\x18M \x03(\v2 .StoreItem.OptInRegistrationTagsR\x15optinRegistrationTags\x12>\n" +
+	"\x0epurchase_notes\x18N \x03(\v2\x17.StoreItem.PurchaseNoteR\rpurchaseNotes\x1ab\n" +
 	"\x04Demo\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x14\n" +
 	"\x05label\x18\x02 \x01(\tR\x05label\x12.\n" +
@@ -6256,14 +7746,16 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\tplaytests\x18\x06 \x03(\v2\x13.StoreItem.PlaytestR\tplaytests\x126\n" +
 	"\vrelated_f2p\x18\a \x01(\v2\x15.StoreItem.RelatedF2PR\n" +
 	"relatedF2p\x12*\n" +
-	"\x11dlc_parent_appids\x18\t \x03(\rR\x0fdlcParentAppids\x1a\xb0\x01\n" +
+	"\x11dlc_parent_appids\x18\t \x03(\rR\x0fdlcParentAppids\x1a\xe9\x01\n" +
 	"\rIncludedItems\x12/\n" +
 	"\rincluded_apps\x18\x01 \x03(\v2\n" +
 	".StoreItemR\fincludedApps\x127\n" +
 	"\x11included_packages\x18\x02 \x03(\v2\n" +
 	".StoreItemR\x10includedPackages\x125\n" +
 	"\x10included_bundles\x18\x03 \x03(\v2\n" +
-	".StoreItemR\x0fincludedBundles\x1a\xb6\x01\n" +
+	".StoreItemR\x0fincludedBundles\x127\n" +
+	"\x11included_creators\x18\x04 \x03(\v2\n" +
+	".StoreItemR\x10includedCreators\x1a\xb6\x01\n" +
 	"\n" +
 	"Categories\x12@\n" +
 	"\x1csupported_player_categoryids\x18\x02 \x03(\rR\x1asupportedPlayerCategoryids\x12/\n" +
@@ -6295,7 +7787,7 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\x17creator_clan_account_id\x18\x02 \x01(\rR\x14creatorClanAccountId\x1a3\n" +
 	"\x03Tag\x12\x14\n" +
 	"\x05tagid\x18\x01 \x01(\rR\x05tagid\x12\x16\n" +
-	"\x06weight\x18\x02 \x01(\rR\x06weight\x1a\xbc\x06\n" +
+	"\x06weight\x18\x02 \x01(\rR\x06weight\x1a\xf4\x06\n" +
 	"\x06Assets\x12(\n" +
 	"\x10asset_url_format\x18\x01 \x01(\tR\x0eassetUrlFormat\x12!\n" +
 	"\fmain_capsule\x18\x02 \x01(\tR\vmainCapsule\x12&\n" +
@@ -6319,7 +7811,8 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\x14page_background_path\x18\x0f \x01(\tR\x12pageBackgroundPath\x12.\n" +
 	"\x13raw_page_background\x18\x10 \x01(\tR\x11rawPageBackground\x12-\n" +
 	"\x12edition_comparison\x18\x11 \x01(\tR\x11editionComparison\x12#\n" +
-	"\rlast_modified\x18\x15 \x01(\rR\flastModified\x1a\x89\x06\n" +
+	"\rlast_modified\x18\x15 \x01(\rR\flastModified\x126\n" +
+	"\x17creator_home_background\x18\x16 \x01(\tR\x15creatorHomeBackground\x1a\x89\x06\n" +
 	"\vReleaseInfo\x12,\n" +
 	"\x12steam_release_date\x18\x01 \x01(\rR\x10steamReleaseDate\x122\n" +
 	"\x15original_release_date\x18\x02 \x01(\rR\x13originalReleaseDate\x12=\n" +
@@ -6337,7 +7830,7 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\x10mac_release_date\x18\x14 \x01(\rR\x0emacReleaseDate\x12,\n" +
 	"\x12linux_release_date\x18\x15 \x01(\rR\x10linuxReleaseDate\x122\n" +
 	"\x15limited_launch_active\x18\x16 \x01(\bR\x13limitedLaunchActive\x12.\n" +
-	"\x13advance_access_date\x18\x17 \x01(\rR\x11advanceAccessDate\x1a\x86\a\n" +
+	"\x13advance_access_date\x18\x17 \x01(\rR\x11advanceAccessDate\x1a\xc6\a\n" +
 	"\tPlatforms\x12\x18\n" +
 	"\awindows\x18\x01 \x01(\bR\awindows\x12\x10\n" +
 	"\x03mac\x18\x02 \x01(\bR\x03mac\x12#\n" +
@@ -6348,18 +7841,19 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\x1asteam_deck_compat_category\x18\v \x01(\x0e2 .ESteamDeckCompatibilityCategory:)k_ESteamDeckCompatibilityCategory_UnknownR\x17steamDeckCompatCategory\x12\x80\x01\n" +
 	"\x18steam_os_compat_category\x18\f \x01(\x0e2\x1e.ESteamOSCompatibilityCategory:'k_ESteamOSCompatibilityCategory_UnknownR\x15steamOsCompatCategory\x12\x8a\x01\n" +
 	"\x1bsteam_frame_compat_category\x18\r \x01(\x0e2 .ESteamDeckCompatibilityCategory:)k_ESteamDeckCompatibilityCategory_UnknownR\x18steamFrameCompatCategory\x12\x8e\x01\n" +
-	"\x1dsteam_machine_compat_category\x18\x0e \x01(\x0e2 .ESteamDeckCompatibilityCategory:)k_ESteamDeckCompatibilityCategory_UnknownR\x1asteamMachineCompatCategory\x1a\xbc\x01\n" +
+	"\x1dsteam_machine_compat_category\x18\x0e \x01(\x0e2 .ESteamDeckCompatibilityCategory:)k_ESteamDeckCompatibilityCategory_UnknownR\x1asteamMachineCompatCategory\x1a\xfc\x01\n" +
 	"\tVRSupport\x12\x14\n" +
 	"\x05vrhmd\x18\x01 \x01(\bR\x05vrhmd\x12\x1d\n" +
 	"\n" +
-	"vrhmd_only\x18\x02 \x01(\bR\tvrhmdOnly\x12\x19\n" +
+	"vrhmd_only\x18\x02 \x01(\bR\tvrhmdOnly\x12>\n" +
+	"\x1cshow_optional_vr_mode_notice\x18\x03 \x01(\bR\x18showOptionalVrModeNotice\x12\x19\n" +
 	"\bhtc_vive\x18( \x01(\bR\ahtcVive\x12\x1f\n" +
 	"\voculus_rift\x18) \x01(\bR\n" +
 	"oculusRift\x12\x1d\n" +
 	"\n" +
 	"windows_mr\x18* \x01(\bR\twindowsMr\x12\x1f\n" +
 	"\vvalve_index\x18+ \x01(\bR\n" +
-	"valveIndex\x1a\x8b\x11\n" +
+	"valveIndex\x1a\xb3\x11\n" +
 	"\x0ePurchaseOption\x12\x1c\n" +
 	"\tpackageid\x18\x01 \x01(\x05R\tpackageid\x12\x1a\n" +
 	"\bbundleid\x18\x02 \x01(\x05R\bbundleid\x120\n" +
@@ -6392,7 +7886,8 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"%price_cannot_be_displayed_as_discount\x184 \x01(\b:\x05falseR priceCannotBeDisplayedAsDiscount\x128\n" +
 	"\x19price_to_base_discount_on\x185 \x01(\x03R\x15priceToBaseDiscountOn\x12:\n" +
 	"\x1afree_with_master_sub_appid\x186 \x01(\rR\x16freeWithMasterSubAppid\x12A\n" +
-	"\x1dformatted_lowest_recent_price\x187 \x01(\tR\x1aformattedLowestRecentPrice\x1a\xbc\x01\n" +
+	"\x1dformatted_lowest_recent_price\x187 \x01(\tR\x1aformattedLowestRecentPrice\x12&\n" +
+	"\x0fis_free_license\x188 \x01(\bR\risFreeLicense\x1a\xbc\x01\n" +
 	"\bDiscount\x12'\n" +
 	"\x0fdiscount_amount\x18\x01 \x01(\x03R\x0ediscountAmount\x121\n" +
 	"\x14discount_description\x18\x02 \x01(\tR\x13discountDescription\x12*\n" +
@@ -6460,7 +7955,44 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\x1bdropdown_description_bbcode\x18\x05 \x01(\tR\x19dropdownDescriptionBbcode\"k\n" +
 	"\x18EPackageGroupDisplayType\x12&\n" +
 	"\"k_EPackageGroupDisplayType_Default\x10\x00\x12'\n" +
-	"#k_EPackageGroupDisplayType_Dropdown\x10\x01\x1a\xe9\x01\n" +
+	"#k_EPackageGroupDisplayType_Dropdown\x10\x01\x1a\xc7.\n" +
+	"\fExtraDetails\x12,\n" +
+	"\vsteam_award\x18\x01 \x03(\v2\v.SteamAwardR\n" +
+	"steamAward\x12\x16\n" +
+	"\x06vetted\x18\x02 \x01(\bR\x06vetted\x129\n" +
+	"\x19no_mouse_keyboard_support\x18\x03 \x01(\bR\x16noMouseKeyboardSupport\x12<\n" +
+	"\x1acontroller_wizard_complete\x18\x04 \x01(\bR\x18controllerWizardComplete\x12/\n" +
+	"\x14drm_third_party_type\x18\x05 \x01(\tR\x11drmThirdPartyType\x120\n" +
+	"\x14drm_activation_limit\x18\x06 \x01(\tR\x12drmActivationLimit\x127\n" +
+	"\x18user_account_third_party\x18\a \x01(\tR\x15userAccountThirdParty\x12P\n" +
+	"&user_account_third_party_link_to_steam\x18\b \x01(\bR userAccountThirdPartyLinkToSteam\x12?\n" +
+	"\tanticheat\x18\t \x01(\v2!.StoreItem.ExtraDetails.AnticheatR\tanticheat\x120\n" +
+	"\x04eula\x18\n" +
+	" \x03(\v2\x1c.StoreItem.ExtraDetails.EulaR\x04eula\x12e\n" +
+	"\x15ai_generation_service\x18\v \x01(\v21.StoreItem.ExtraDetails.AIGeneratedContentServiceR\x13aiGenerationService\x129\n" +
+	"\x19refund_checks_ea_playtime\x18\f \x01(\bR\x16refundChecksEaPlaytime\x12=\n" +
+	"\asection\x18\r \x03(\v2#.StoreItem.ExtraDetails.PageSectionR\asection\x12.\n" +
+	"\x13legal_notice_bbcode\x18\x0e \x01(\tR\x11legalNoticeBbcode\x12G\n" +
+	"\x14interactive_elements\x18\x0f \x03(\x0e2\x14.EInteractiveElementR\x13interactiveElements\x120\n" +
+	"\x14content_survey_notes\x18\x10 \x01(\tR\x12contentSurveyNotes\x125\n" +
+	"\x17content_survey_ai_notes\x18\x11 \x01(\tR\x14contentSurveyAiNotes\x12F\n" +
+	"\fpress_review\x18\x12 \x03(\v2#.StoreItem.ExtraDetails.PressReviewR\vpressReview\x122\n" +
+	"\x15partner_awards_bbcode\x18\x13 \x01(\tR\x13partnerAwardsBbcode\x12F\n" +
+	"\fearly_access\x18\x14 \x01(\v2#.StoreItem.ExtraDetails.EarlyAccessR\vearlyAccess\x12-\n" +
+	"\vseason_pass\x18\x15 \x01(\v2\f.CSeasonPassR\n" +
+	"seasonPass\x12J\n" +
+	"\x0elinks_and_info\x18\x16 \x01(\v2$.StoreItem.ExtraDetails.LinksAndInfoR\flinksAndInfo\x12.\n" +
+	"\x13item_store_eligible\x18\x17 \x01(\bR\x11itemStoreEligible\x120\n" +
+	"\x14points_shop_eligible\x18\x18 \x01(\bR\x12pointsShopEligible\x12B\n" +
+	"\n" +
+	"metacritic\x18\x1a \x01(\v2\".StoreItem.ExtraDetails.MetacriticR\n" +
+	"metacritic\x12G\n" +
+	"\rcast_and_crew\x18\x1b \x01(\v2#.StoreItem.ExtraDetails.CastAndCrewR\vcastAndCrew\x12[\n" +
+	"\x13system_requirements\x18\x1c \x01(\v2*.StoreItem.ExtraDetails.SystemRequirementsR\x12systemRequirements\x120\n" +
+	"\x14running_time_minutes\x18\x1d \x01(\rR\x12runningTimeMinutes\x129\n" +
+	"\aepisode\x18\x1e \x01(\v2\x1f.StoreItem.ExtraDetails.EpisodeR\aepisode\x128\n" +
+	"\aseasons\x18\x1f \x03(\v2\x1e.StoreItem.ExtraDetails.SeasonR\aseasons\x12q\n" +
+	"\x11video_extras_note\x18  \x01(\x0e2(.StoreItem.ExtraDetails.EVideoExtrasNote:\x1bk_EVideoExtrasNote_PurchaseR\x0fvideoExtrasNote\x1a\xe9\x01\n" +
 	"\tAnticheat\x12\x1f\n" +
 	"\vkernel_mode\x18\x01 \x01(\bR\n" +
 	"kernelMode\x121\n" +
@@ -6474,11 +8006,11 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\x03url\x18\x02 \x01(\tR\x03url\x1aA\n" +
 	"\x19AIGeneratedContentService\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x10\n" +
-	"\x03url\x18\x02 \x01(\tR\x03url\x1a\xce\x02\n" +
+	"\x03url\x18\x02 \x01(\tR\x03url\x1a\xdb\x02\n" +
 	"\vPageSection\x12\x14\n" +
 	"\x05label\x18\x01 \x01(\tR\x05label\x12%\n" +
-	"\x0econtent_bbcode\x18\x02 \x01(\tR\rcontentBbcode\x12\\\n" +
-	"\x06banner\x18\x03 \x01(\x0e2).StoreItem.PageSection.EPageSectionBanner:\x19k_EPageSectionBanner_NoneR\x06banner\"\xa3\x01\n" +
+	"\x0econtent_bbcode\x18\x02 \x01(\tR\rcontentBbcode\x12i\n" +
+	"\x06banner\x18\x03 \x01(\x0e26.StoreItem.ExtraDetails.PageSection.EPageSectionBanner:\x19k_EPageSectionBanner_NoneR\x06banner\"\xa3\x01\n" +
 	"\x12EPageSectionBanner\x12\x1d\n" +
 	"\x19k_EPageSectionBanner_None\x10\x00\x12!\n" +
 	"\x1dk_EPageSectionBanner_Workshop\x10\x01\x12\x1f\n" +
@@ -6488,29 +8020,117 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\x05quote\x18\x01 \x01(\tR\x05quote\x12\x14\n" +
 	"\x05score\x18\x02 \x01(\tR\x05score\x12\x12\n" +
 	"\x04site\x18\x03 \x01(\tR\x04site\x12\x10\n" +
-	"\x03url\x18\x04 \x01(\tR\x03url\x1a\xac\b\n" +
-	"\fExtraDetails\x12,\n" +
-	"\vsteam_award\x18\x01 \x03(\v2\v.SteamAwardR\n" +
-	"steamAward\x12\x16\n" +
-	"\x06vetted\x18\x02 \x01(\bR\x06vetted\x129\n" +
-	"\x19no_mouse_keyboard_support\x18\x03 \x01(\bR\x16noMouseKeyboardSupport\x12<\n" +
-	"\x1acontroller_wizard_complete\x18\x04 \x01(\bR\x18controllerWizardComplete\x12/\n" +
-	"\x14drm_third_party_type\x18\x05 \x01(\tR\x11drmThirdPartyType\x120\n" +
-	"\x14drm_activation_limit\x18\x06 \x01(\tR\x12drmActivationLimit\x127\n" +
-	"\x18user_account_third_party\x18\a \x01(\tR\x15userAccountThirdParty\x12P\n" +
-	"&user_account_third_party_link_to_steam\x18\b \x01(\bR userAccountThirdPartyLinkToSteam\x122\n" +
-	"\tanticheat\x18\t \x01(\v2\x14.StoreItem.AnticheatR\tanticheat\x12#\n" +
-	"\x04eula\x18\n" +
-	" \x03(\v2\x0f.StoreItem.EulaR\x04eula\x12X\n" +
-	"\x15ai_generation_service\x18\v \x01(\v2$.StoreItem.AIGeneratedContentServiceR\x13aiGenerationService\x129\n" +
-	"\x19refund_checks_ea_playtime\x18\f \x01(\bR\x16refundChecksEaPlaytime\x120\n" +
-	"\asection\x18\r \x03(\v2\x16.StoreItem.PageSectionR\asection\x12.\n" +
-	"\x13legal_notice_bbcode\x18\x0e \x01(\tR\x11legalNoticeBbcode\x12G\n" +
-	"\x14interactive_elements\x18\x0f \x03(\x0e2\x14.EInteractiveElementR\x13interactiveElements\x120\n" +
-	"\x14content_survey_notes\x18\x10 \x01(\tR\x12contentSurveyNotes\x125\n" +
-	"\x17content_survey_ai_notes\x18\x11 \x01(\tR\x14contentSurveyAiNotes\x129\n" +
-	"\fpress_review\x18\x12 \x03(\v2\x16.StoreItem.PressReviewR\vpressReview\x122\n" +
-	"\x15partner_awards_bbcode\x18\x13 \x01(\tR\x13partnerAwardsBbcode\"\xd0\x04\n" +
+	"\x03url\x18\x04 \x01(\tR\x03url\x1a\xb7\x02\n" +
+	"\vEarlyAccess\x12\x1d\n" +
+	"\n" +
+	"why_bbcode\x18\x01 \x01(\tR\twhyBbcode\x12&\n" +
+	"\x0fhow_long_bbcode\x18\x02 \x01(\tR\rhowLongBbcode\x12.\n" +
+	"\x13full_version_bbcode\x18\x03 \x01(\tR\x11fullVersionBbcode\x120\n" +
+	"\x14current_state_bbcode\x18\x04 \x01(\tR\x12currentStateBbcode\x12%\n" +
+	"\x0epricing_bbcode\x18\x05 \x01(\tR\rpricingBbcode\x12)\n" +
+	"\x10community_bbcode\x18\x06 \x01(\tR\x0fcommunityBbcode\x12-\n" +
+	"\x12description_bbcode\x18\a \x01(\tR\x11descriptionBbcode\x1a\xb8\x03\n" +
+	"\fLinksAndInfo\x12\x18\n" +
+	"\awebsite\x18\x01 \x01(\tR\awebsite\x12\x1b\n" +
+	"\tstats_url\x18\x02 \x01(\tR\bstatsUrl\x12*\n" +
+	"\x11online_manual_url\x18\x03 \x01(\tR\x0fonlineManualUrl\x12,\n" +
+	"\x12health_warning_url\x18\x04 \x01(\tR\x10healthWarningUrl\x12,\n" +
+	"\x12privacy_policy_url\x18\x05 \x01(\tR\x10privacyPolicyUrl\x12G\n" +
+	"\x13available_documents\x18\x06 \x03(\x0e2\x16.EStoreAppDocumentTypeR\x12availableDocuments\x12\x1a\n" +
+	"\bgenreids\x18\a \x03(\rR\bgenreids\x12$\n" +
+	"\rmanufacturers\x18\b \x03(\tR\rmanufacturers\x121\n" +
+	"\x14achievements_visible\x18\t \x01(\bR\x13achievementsVisible\x12+\n" +
+	"\x11achievement_count\x18\n" +
+	" \x01(\rR\x10achievementCount\x1aU\n" +
+	"\n" +
+	"Metacritic\x12\x14\n" +
+	"\x05score\x18\x01 \x01(\rR\x05score\x12\x10\n" +
+	"\x03url\x18\x02 \x01(\tR\x03url\x12\x1f\n" +
+	"\valways_show\x18\x03 \x01(\bR\n" +
+	"alwaysShow\x1a\x91\x01\n" +
+	"\vCastAndCrew\x12\x1c\n" +
+	"\tdirectors\x18\x01 \x03(\tR\tdirectors\x12\x1c\n" +
+	"\tproducers\x18\x02 \x03(\tR\tproducers\x12\x18\n" +
+	"\awriters\x18\x03 \x03(\tR\awriters\x12\x14\n" +
+	"\x05music\x18\x04 \x03(\tR\x05music\x12\x16\n" +
+	"\x06actors\x18\x05 \x03(\tR\x06actors\x1a\x9e\f\n" +
+	"\x12SystemRequirements\x12]\n" +
+	"\tplatforms\x18\x01 \x03(\v2?.StoreItem.ExtraDetails.SystemRequirements.PlatformRequirementsR\tplatforms\x1a4\n" +
+	"\x04Size\x12\x16\n" +
+	"\x06amount\x18\x01 \x01(\tR\x06amount\x12\x14\n" +
+	"\x05units\x18\x02 \x01(\tR\x05units\x1a\xb2\x04\n" +
+	"\fRequirements\x12\x1d\n" +
+	"\n" +
+	"os_version\x18\x01 \x01(\tR\tosVersion\x124\n" +
+	"\x16os_version_unsupported\x18\x02 \x01(\bR\x14osVersionUnsupported\x12\x1c\n" +
+	"\tprocessor\x18\x03 \x01(\tR\tprocessor\x12G\n" +
+	"\x06memory\x18\x04 \x01(\v2/.StoreItem.ExtraDetails.SystemRequirements.SizeR\x06memory\x12\x1a\n" +
+	"\bgraphics\x18\x05 \x01(\tR\bgraphics\x12\x18\n" +
+	"\adirectx\x18\x06 \x01(\tR\adirectx\x12\x1c\n" +
+	"\tbroadband\x18\a \x01(\bR\tbroadband\x12I\n" +
+	"\astorage\x18\b \x01(\v2/.StoreItem.ExtraDetails.SystemRequirements.SizeR\astorage\x12N\n" +
+	"\n" +
+	"storage_hq\x18\t \x01(\v2/.StoreItem.ExtraDetails.SystemRequirements.SizeR\tstorageHq\x12\x1d\n" +
+	"\n" +
+	"sound_card\x18\n" +
+	" \x01(\tR\tsoundCard\x12\x1d\n" +
+	"\n" +
+	"vr_support\x18\v \x01(\tR\tvrSupport\x12\x14\n" +
+	"\x05notes\x18\f \x01(\tR\x05notes\x12#\n" +
+	"\rlegacy_bbcode\x18\r \x01(\tR\flegacyBbcode\x1a\x9f\x04\n" +
+	"\x14PlatformRequirements\x12q\n" +
+	"\bplatform\x18\x01 \x01(\x0e2:.StoreItem.ExtraDetails.SystemRequirements.ESysReqPlatform:\x19k_ESysReqPlatform_UnknownR\bplatform\x12Q\n" +
+	"\aminimum\x18\x02 \x01(\v27.StoreItem.ExtraDetails.SystemRequirements.RequirementsR\aminimum\x12Y\n" +
+	"\vrecommended\x18\x03 \x01(\v27.StoreItem.ExtraDetails.SystemRequirements.RequirementsR\vrecommended\x12%\n" +
+	"\x0erequires_64bit\x18\x04 \x01(\bR\rrequires64bit\x124\n" +
+	"\x16requires_apple_silicon\x18\x05 \x01(\bR\x14requiresAppleSilicon\x12\x88\x01\n" +
+	"\x13unsupported_os_note\x18\x06 \x01(\x0e2=.StoreItem.ExtraDetails.SystemRequirements.EUnsupportedOSNote:\x19k_EUnsupportedOSNote_NoneR\x11unsupportedOsNote\"s\n" +
+	"\x12EUnsupportedOSNote\x12\x1d\n" +
+	"\x19k_EUnsupportedOSNote_None\x10\x00\x12 \n" +
+	"\x1ck_EUnsupportedOSNote_Windows\x10\x01\x12\x1c\n" +
+	"\x18k_EUnsupportedOSNote_Mac\x10\x02\"\xa6\x01\n" +
+	"\x0fESysReqPlatform\x12\x1d\n" +
+	"\x19k_ESysReqPlatform_Unknown\x10\x00\x12\x1d\n" +
+	"\x19k_ESysReqPlatform_Windows\x10\x01\x12\x19\n" +
+	"\x15k_ESysReqPlatform_Mac\x10\x02\x12\x1b\n" +
+	"\x17k_ESysReqPlatform_Linux\x10\x03\x12\x1d\n" +
+	"\x19k_ESysReqPlatform_Android\x10\x04\x1a\xdd\x02\n" +
+	"\aEpisode\x12\x16\n" +
+	"\x06number\x18\x01 \x01(\tR\x06number\x12X\n" +
+	"\x04type\x18\x02 \x01(\x0e2,.StoreItem.ExtraDetails.Episode.EEpisodeType:\x16k_EEpisodeType_UnknownR\x04type\x12!\n" +
+	"\fhide_details\x18\x03 \x01(\bR\vhideDetails\"\xbc\x01\n" +
+	"\fEEpisodeType\x12\x1a\n" +
+	"\x16k_EEpisodeType_Unknown\x10\x00\x12\x1a\n" +
+	"\x16k_EEpisodeType_Episode\x10\x01\x12\x1a\n" +
+	"\x16k_EEpisodeType_Chapter\x10\x02\x12\x18\n" +
+	"\x14k_EEpisodeType_Bonus\x10\x03\x12\"\n" +
+	"\x1ek_EEpisodeType_BehindTheScenes\x10\x04\x12\x1a\n" +
+	"\x16k_EEpisodeType_Deleted\x10\x05\x1aY\n" +
+	"\x06Season\x12\x14\n" +
+	"\x05index\x18\x01 \x01(\x05R\x05index\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12%\n" +
+	"\x0eepisode_appids\x18\x03 \x03(\rR\repisodeAppids\"\xd6\x01\n" +
+	"\x10EVideoExtrasNote\x12\x1f\n" +
+	"\x1bk_EVideoExtrasNote_Purchase\x10\x00\x12\x1d\n" +
+	"\x19k_EVideoExtrasNote_Rental\x10\x01\x12%\n" +
+	"!k_EVideoExtrasNote_PurchaseRental\x10\x02\x12-\n" +
+	")k_EVideoExtrasNote_PurchaseSpecialEdition\x10\x03\x12,\n" +
+	"(k_EVideoExtrasNote_PurchaseDeluxeEdition\x10\x04\x1aN\n" +
+	"\x15OptInRegistrationTags\x12\x1d\n" +
+	"\n" +
+	"optin_name\x18\x01 \x01(\tR\toptinName\x12\x16\n" +
+	"\x06values\x18\x02 \x03(\tR\x06values\x1a\xfb\x02\n" +
+	"\fPurchaseNote\x12W\n" +
+	"\x04type\x18\x01 \x01(\x0e2).StoreItem.PurchaseNote.EPurchaseNoteType:\x18k_EPurchaseNoteType_NoneR\x04type\x12 \n" +
+	"\vhighlighted\x18\x02 \x01(\bR\vhighlighted\x12\x1f\n" +
+	"\vtext_bbcode\x18\x03 \x01(\tR\n" +
+	"textBbcode\"\xce\x01\n" +
+	"\x11EPurchaseNoteType\x12\x1c\n" +
+	"\x18k_EPurchaseNoteType_None\x10\x00\x12\x1e\n" +
+	"\x1ak_EPurchaseNoteType_Notice\x10\x01\x12#\n" +
+	"\x1fk_EPurchaseNoteType_LowViolence\x10\x02\x12*\n" +
+	"&k_EPurchaseNoteType_CreditCardRequired\x10\x03\x12*\n" +
+	"&k_EPurchaseNoteType_SystemRequirements\x10\x04\"\xc8\x05\n" +
 	"\x0fStoreGameRating\x12\x12\n" +
 	"\x04type\x18\x01 \x01(\tR\x04type\x12\x16\n" +
 	"\x06rating\x18\x02 \x01(\tR\x06rating\x12 \n" +
@@ -6524,7 +8144,9 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\frequired_age\x18\n" +
 	" \x01(\x05R\vrequiredAge\x12 \n" +
 	"\fuse_age_gate\x18\v \x01(\bR\n" +
-	"useAgeGate\x12\x1b\n" +
+	"useAgeGate\x12D\n" +
+	"\x11descriptor_images\x18\f \x03(\x0e2\x17.ERatingDescriptorImageR\x10descriptorImages\x120\n" +
+	"\x14content_survey_notes\x18\r \x01(\tR\x12contentSurveyNotes\x12\x1b\n" +
 	"\timage_url\x18\x14 \x01(\tR\bimageUrl\x12!\n" +
 	"\fimage_target\x18\x15 \x01(\tR\vimageTarget\"\xbc\x06\n" +
 	"\x18StoreBrowseFilterFailure\x12c\n" +
@@ -6744,7 +8366,18 @@ const file_steammessages_storebrowse_steamclient_proto_rawDesc = "" +
 	"\x18k_EStoreLinkType_Threads\x10\x16\x12\x1e\n" +
 	"\x1ak_EStoreLinkType_QQChannel\x10\x17\x12\x1c\n" +
 	"\x18k_EStoreLinkType_RedNote\x10\x18\x12\x18\n" +
-	"\x14k_EStoreLinkType_MAX\x10\x19*\xf4\x01\n" +
+	"\x14k_EStoreLinkType_MAX\x10\x19*\x8a\x03\n" +
+	"\x15EStoreAppDocumentType\x12 \n" +
+	"\x1ck_EStoreAppDocumentType_None\x10\x00\x12\"\n" +
+	"\x1ek_EStoreAppDocumentType_Manual\x10\x01\x12$\n" +
+	" k_EStoreAppDocumentType_QuickRef\x10\x02\x12\x1f\n" +
+	"\x1bk_EStoreAppDocumentType_Map\x10\x03\x12*\n" +
+	"&k_EStoreAppDocumentType_GettingStarted\x10\x04\x12\"\n" +
+	"\x1ek_EStoreAppDocumentType_ReadMe\x10\x05\x12$\n" +
+	" k_EStoreAppDocumentType_TechTree\x10\x06\x12'\n" +
+	"#k_EStoreAppDocumentType_Keybindings\x10\a\x12$\n" +
+	" k_EStoreAppDocumentType_Warranty\x10\b\x12\x1f\n" +
+	"\x1bk_EStoreAppDocumentType_MAX\x10\t*\xf4\x01\n" +
 	"\x12EStoreCategoryType\x12!\n" +
 	"\x1dk_EStoreCategoryType_Category\x10\x00\x12)\n" +
 	"%k_EStoreCategoryType_SupportedPlayers\x10\x01\x12 \n" +
@@ -6773,196 +8406,240 @@ func file_steammessages_storebrowse_steamclient_proto_rawDescGZIP() []byte {
 	return file_steammessages_storebrowse_steamclient_proto_rawDescData
 }
 
-var file_steammessages_storebrowse_steamclient_proto_enumTypes = make([]protoimpl.EnumInfo, 9)
-var file_steammessages_storebrowse_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 61)
+var file_steammessages_storebrowse_steamclient_proto_enumTypes = make([]protoimpl.EnumInfo, 15)
+var file_steammessages_storebrowse_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 73)
 var file_steammessages_storebrowse_steamclient_proto_goTypes = []any{
-	(EStoreItemType)(0),                                                // 0: EStoreItemType
-	(EStoreAppType)(0),                                                 // 1: EStoreAppType
-	(EUserReviewScore)(0),                                              // 2: EUserReviewScore
-	(ETrailerCategory)(0),                                              // 3: ETrailerCategory
-	(EStoreBrowseFilterFailure)(0),                                     // 4: EStoreBrowseFilterFailure
-	(EStoreLinkType)(0),                                                // 5: EStoreLinkType
-	(EStoreCategoryType)(0),                                            // 6: EStoreCategoryType
-	(StoreItem_PackageGroup_EPackageGroupDisplayType)(0),               // 7: StoreItem.PackageGroup.EPackageGroupDisplayType
-	(StoreItem_PageSection_EPageSectionBanner)(0),                      // 8: StoreItem.PageSection.EPageSectionBanner
-	(*StoreItemID)(nil),                                                // 9: StoreItemID
-	(*StoreBrowseContext)(nil),                                         // 10: StoreBrowseContext
-	(*StoreBrowseItemDataRequest)(nil),                                 // 11: StoreBrowseItemDataRequest
-	(*CStoreBrowse_GetItems_Request)(nil),                              // 12: CStoreBrowse_GetItems_Request
-	(*StoreItem)(nil),                                                  // 13: StoreItem
-	(*StoreGameRating)(nil),                                            // 14: StoreGameRating
-	(*StoreBrowseFilterFailure)(nil),                                   // 15: StoreBrowseFilterFailure
-	(*CStoreBrowse_GetItems_Response)(nil),                             // 16: CStoreBrowse_GetItems_Response
-	(*CStoreBrowse_GetStoreCategories_Request)(nil),                    // 17: CStoreBrowse_GetStoreCategories_Request
-	(*CStoreBrowse_GetStoreCategories_Response)(nil),                   // 18: CStoreBrowse_GetStoreCategories_Response
-	(*CStoreBrowse_GetContentHubConfig_Request)(nil),                   // 19: CStoreBrowse_GetContentHubConfig_Request
-	(*CStoreBrowse_GetContentHubConfig_Response)(nil),                  // 20: CStoreBrowse_GetContentHubConfig_Response
-	(*CStoreBrowse_GetPriceStops_Request)(nil),                         // 21: CStoreBrowse_GetPriceStops_Request
-	(*CStoreBrowse_GetPriceStops_Response)(nil),                        // 22: CStoreBrowse_GetPriceStops_Response
-	(*CStoreBrowse_GetDLCForApps_Request)(nil),                         // 23: CStoreBrowse_GetDLCForApps_Request
-	(*CStoreBrowse_GetDLCForApps_Response)(nil),                        // 24: CStoreBrowse_GetDLCForApps_Response
-	(*CStoreBrowse_GetDLCForAppsSolr_Request)(nil),                     // 25: CStoreBrowse_GetDLCForAppsSolr_Request
-	(*CStoreBrowse_GetDLCForAppsSolr_Response)(nil),                    // 26: CStoreBrowse_GetDLCForAppsSolr_Response
-	(*CStoreBrowse_GetHardwareItems_Request)(nil),                      // 27: CStoreBrowse_GetHardwareItems_Request
-	(*CHardwarePackageDetails)(nil),                                    // 28: CHardwarePackageDetails
-	(*CStoreBrowse_GetHardwareItems_Response)(nil),                     // 29: CStoreBrowse_GetHardwareItems_Response
-	(*StoreItem_Demo)(nil),                                             // 30: StoreItem.Demo
-	(*StoreItem_Playtest)(nil),                                         // 31: StoreItem.Playtest
-	(*StoreItem_RelatedF2P)(nil),                                       // 32: StoreItem.RelatedF2P
-	(*StoreItem_RelatedItems)(nil),                                     // 33: StoreItem.RelatedItems
-	(*StoreItem_IncludedItems)(nil),                                    // 34: StoreItem.IncludedItems
-	(*StoreItem_Categories)(nil),                                       // 35: StoreItem.Categories
-	(*StoreItem_Reviews)(nil),                                          // 36: StoreItem.Reviews
-	(*StoreItem_BasicInfo)(nil),                                        // 37: StoreItem.BasicInfo
-	(*StoreItem_Tag)(nil),                                              // 38: StoreItem.Tag
-	(*StoreItem_Assets)(nil),                                           // 39: StoreItem.Assets
-	(*StoreItem_ReleaseInfo)(nil),                                      // 40: StoreItem.ReleaseInfo
-	(*StoreItem_Platforms)(nil),                                        // 41: StoreItem.Platforms
-	(*StoreItem_PurchaseOption)(nil),                                   // 42: StoreItem.PurchaseOption
-	(*StoreItem_Screenshots)(nil),                                      // 43: StoreItem.Screenshots
-	(*StoreItem_Trailers)(nil),                                         // 44: StoreItem.Trailers
-	(*StoreItem_SupportedLanguage)(nil),                                // 45: StoreItem.SupportedLanguage
-	(*StoreItem_FreeWeekend)(nil),                                      // 46: StoreItem.FreeWeekend
-	(*StoreItem_Link)(nil),                                             // 47: StoreItem.Link
-	(*StoreItem_PackageGroup)(nil),                                     // 48: StoreItem.PackageGroup
-	(*StoreItem_Anticheat)(nil),                                        // 49: StoreItem.Anticheat
-	(*StoreItem_Eula)(nil),                                             // 50: StoreItem.Eula
-	(*StoreItem_AIGeneratedContentService)(nil),                        // 51: StoreItem.AIGeneratedContentService
-	(*StoreItem_PageSection)(nil),                                      // 52: StoreItem.PageSection
-	(*StoreItem_PressReview)(nil),                                      // 53: StoreItem.PressReview
-	(*StoreItem_ExtraDetails)(nil),                                     // 54: StoreItem.ExtraDetails
-	(*StoreItem_Reviews_StoreReviewSummary)(nil),                       // 55: StoreItem.Reviews.StoreReviewSummary
-	(*StoreItem_BasicInfo_CreatorHomeLink)(nil),                        // 56: StoreItem.BasicInfo.CreatorHomeLink
-	(*StoreItem_Platforms_VRSupport)(nil),                              // 57: StoreItem.Platforms.VRSupport
-	(*StoreItem_PurchaseOption_Discount)(nil),                          // 58: StoreItem.PurchaseOption.Discount
-	(*StoreItem_PurchaseOption_RecurrenceInfo)(nil),                    // 59: StoreItem.PurchaseOption.RecurrenceInfo
-	(*StoreItem_Screenshots_Screenshot)(nil),                           // 60: StoreItem.Screenshots.Screenshot
-	(*StoreItem_Trailers_VideoSource)(nil),                             // 61: StoreItem.Trailers.VideoSource
-	(*StoreItem_Trailers_AdaptiveTrailer)(nil),                         // 62: StoreItem.Trailers.AdaptiveTrailer
-	(*StoreItem_Trailers_Trailer)(nil),                                 // 63: StoreItem.Trailers.Trailer
-	(*CStoreBrowse_GetStoreCategories_Response_Category)(nil),          // 64: CStoreBrowse_GetStoreCategories_Response.Category
-	(*CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig)(nil), // 65: CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig
-	(*CStoreBrowse_GetPriceStops_Response_PriceStop)(nil),              // 66: CStoreBrowse_GetPriceStops_Response.PriceStop
-	(*CStoreBrowse_GetDLCForApps_Response_DLCData)(nil),                // 67: CStoreBrowse_GetDLCForApps_Response.DLCData
-	(*CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp)(nil),         // 68: CStoreBrowse_GetDLCForApps_Response.PlaytimeForApp
-	(*CStoreBrowse_GetDLCForAppsSolr_Response_DLCList)(nil),            // 69: CStoreBrowse_GetDLCForAppsSolr_Response.DLCList
-	(EContentDescriptorID)(0),                                          // 70: EContentDescriptorID
-	(ERatingAgency)(0),                                                 // 71: ERatingAgency
-	(EInteractiveElement)(0),                                           // 72: EInteractiveElement
-	(*CStorePageFilter)(nil),                                           // 73: CStorePageFilter
-	(ESteamDeckCompatibilityCategory)(0),                               // 74: ESteamDeckCompatibilityCategory
-	(ESteamOSCompatibilityCategory)(0),                                 // 75: ESteamOSCompatibilityCategory
-	(*SteamAward)(nil),                                                 // 76: SteamAward
+	(EStoreItemType)(0),                                                    // 0: EStoreItemType
+	(EStoreAppType)(0),                                                     // 1: EStoreAppType
+	(EUserReviewScore)(0),                                                  // 2: EUserReviewScore
+	(ETrailerCategory)(0),                                                  // 3: ETrailerCategory
+	(EStoreBrowseFilterFailure)(0),                                         // 4: EStoreBrowseFilterFailure
+	(EStoreLinkType)(0),                                                    // 5: EStoreLinkType
+	(EStoreAppDocumentType)(0),                                             // 6: EStoreAppDocumentType
+	(EStoreCategoryType)(0),                                                // 7: EStoreCategoryType
+	(StoreItem_PackageGroup_EPackageGroupDisplayType)(0),                   // 8: StoreItem.PackageGroup.EPackageGroupDisplayType
+	(StoreItem_ExtraDetails_EVideoExtrasNote)(0),                           // 9: StoreItem.ExtraDetails.EVideoExtrasNote
+	(StoreItem_ExtraDetails_PageSection_EPageSectionBanner)(0),             // 10: StoreItem.ExtraDetails.PageSection.EPageSectionBanner
+	(StoreItem_ExtraDetails_SystemRequirements_EUnsupportedOSNote)(0),      // 11: StoreItem.ExtraDetails.SystemRequirements.EUnsupportedOSNote
+	(StoreItem_ExtraDetails_SystemRequirements_ESysReqPlatform)(0),         // 12: StoreItem.ExtraDetails.SystemRequirements.ESysReqPlatform
+	(StoreItem_ExtraDetails_Episode_EEpisodeType)(0),                       // 13: StoreItem.ExtraDetails.Episode.EEpisodeType
+	(StoreItem_PurchaseNote_EPurchaseNoteType)(0),                          // 14: StoreItem.PurchaseNote.EPurchaseNoteType
+	(*StoreItemID)(nil),                                                    // 15: StoreItemID
+	(*StoreBrowseContext)(nil),                                             // 16: StoreBrowseContext
+	(*StoreBrowseItemDataRequest)(nil),                                     // 17: StoreBrowseItemDataRequest
+	(*CStoreBrowse_GetItems_Request)(nil),                                  // 18: CStoreBrowse_GetItems_Request
+	(*StoreItem)(nil),                                                      // 19: StoreItem
+	(*StoreGameRating)(nil),                                                // 20: StoreGameRating
+	(*StoreBrowseFilterFailure)(nil),                                       // 21: StoreBrowseFilterFailure
+	(*CStoreBrowse_GetItems_Response)(nil),                                 // 22: CStoreBrowse_GetItems_Response
+	(*CStoreBrowse_GetStoreCategories_Request)(nil),                        // 23: CStoreBrowse_GetStoreCategories_Request
+	(*CStoreBrowse_GetStoreCategories_Response)(nil),                       // 24: CStoreBrowse_GetStoreCategories_Response
+	(*CStoreBrowse_GetContentHubConfig_Request)(nil),                       // 25: CStoreBrowse_GetContentHubConfig_Request
+	(*CStoreBrowse_GetContentHubConfig_Response)(nil),                      // 26: CStoreBrowse_GetContentHubConfig_Response
+	(*CStoreBrowse_GetPriceStops_Request)(nil),                             // 27: CStoreBrowse_GetPriceStops_Request
+	(*CStoreBrowse_GetPriceStops_Response)(nil),                            // 28: CStoreBrowse_GetPriceStops_Response
+	(*CStoreBrowse_GetDLCForApps_Request)(nil),                             // 29: CStoreBrowse_GetDLCForApps_Request
+	(*CStoreBrowse_GetDLCForApps_Response)(nil),                            // 30: CStoreBrowse_GetDLCForApps_Response
+	(*CStoreBrowse_GetDLCForAppsSolr_Request)(nil),                         // 31: CStoreBrowse_GetDLCForAppsSolr_Request
+	(*CStoreBrowse_GetDLCForAppsSolr_Response)(nil),                        // 32: CStoreBrowse_GetDLCForAppsSolr_Response
+	(*CStoreBrowse_GetHardwareItems_Request)(nil),                          // 33: CStoreBrowse_GetHardwareItems_Request
+	(*CHardwarePackageDetails)(nil),                                        // 34: CHardwarePackageDetails
+	(*CStoreBrowse_GetHardwareItems_Response)(nil),                         // 35: CStoreBrowse_GetHardwareItems_Response
+	(*StoreItem_Demo)(nil),                                                 // 36: StoreItem.Demo
+	(*StoreItem_Playtest)(nil),                                             // 37: StoreItem.Playtest
+	(*StoreItem_RelatedF2P)(nil),                                           // 38: StoreItem.RelatedF2P
+	(*StoreItem_RelatedItems)(nil),                                         // 39: StoreItem.RelatedItems
+	(*StoreItem_IncludedItems)(nil),                                        // 40: StoreItem.IncludedItems
+	(*StoreItem_Categories)(nil),                                           // 41: StoreItem.Categories
+	(*StoreItem_Reviews)(nil),                                              // 42: StoreItem.Reviews
+	(*StoreItem_BasicInfo)(nil),                                            // 43: StoreItem.BasicInfo
+	(*StoreItem_Tag)(nil),                                                  // 44: StoreItem.Tag
+	(*StoreItem_Assets)(nil),                                               // 45: StoreItem.Assets
+	(*StoreItem_ReleaseInfo)(nil),                                          // 46: StoreItem.ReleaseInfo
+	(*StoreItem_Platforms)(nil),                                            // 47: StoreItem.Platforms
+	(*StoreItem_PurchaseOption)(nil),                                       // 48: StoreItem.PurchaseOption
+	(*StoreItem_Screenshots)(nil),                                          // 49: StoreItem.Screenshots
+	(*StoreItem_Trailers)(nil),                                             // 50: StoreItem.Trailers
+	(*StoreItem_SupportedLanguage)(nil),                                    // 51: StoreItem.SupportedLanguage
+	(*StoreItem_FreeWeekend)(nil),                                          // 52: StoreItem.FreeWeekend
+	(*StoreItem_Link)(nil),                                                 // 53: StoreItem.Link
+	(*StoreItem_PackageGroup)(nil),                                         // 54: StoreItem.PackageGroup
+	(*StoreItem_ExtraDetails)(nil),                                         // 55: StoreItem.ExtraDetails
+	(*StoreItem_OptInRegistrationTags)(nil),                                // 56: StoreItem.OptInRegistrationTags
+	(*StoreItem_PurchaseNote)(nil),                                         // 57: StoreItem.PurchaseNote
+	(*StoreItem_Reviews_StoreReviewSummary)(nil),                           // 58: StoreItem.Reviews.StoreReviewSummary
+	(*StoreItem_BasicInfo_CreatorHomeLink)(nil),                            // 59: StoreItem.BasicInfo.CreatorHomeLink
+	(*StoreItem_Platforms_VRSupport)(nil),                                  // 60: StoreItem.Platforms.VRSupport
+	(*StoreItem_PurchaseOption_Discount)(nil),                              // 61: StoreItem.PurchaseOption.Discount
+	(*StoreItem_PurchaseOption_RecurrenceInfo)(nil),                        // 62: StoreItem.PurchaseOption.RecurrenceInfo
+	(*StoreItem_Screenshots_Screenshot)(nil),                               // 63: StoreItem.Screenshots.Screenshot
+	(*StoreItem_Trailers_VideoSource)(nil),                                 // 64: StoreItem.Trailers.VideoSource
+	(*StoreItem_Trailers_AdaptiveTrailer)(nil),                             // 65: StoreItem.Trailers.AdaptiveTrailer
+	(*StoreItem_Trailers_Trailer)(nil),                                     // 66: StoreItem.Trailers.Trailer
+	(*StoreItem_ExtraDetails_Anticheat)(nil),                               // 67: StoreItem.ExtraDetails.Anticheat
+	(*StoreItem_ExtraDetails_Eula)(nil),                                    // 68: StoreItem.ExtraDetails.Eula
+	(*StoreItem_ExtraDetails_AIGeneratedContentService)(nil),               // 69: StoreItem.ExtraDetails.AIGeneratedContentService
+	(*StoreItem_ExtraDetails_PageSection)(nil),                             // 70: StoreItem.ExtraDetails.PageSection
+	(*StoreItem_ExtraDetails_PressReview)(nil),                             // 71: StoreItem.ExtraDetails.PressReview
+	(*StoreItem_ExtraDetails_EarlyAccess)(nil),                             // 72: StoreItem.ExtraDetails.EarlyAccess
+	(*StoreItem_ExtraDetails_LinksAndInfo)(nil),                            // 73: StoreItem.ExtraDetails.LinksAndInfo
+	(*StoreItem_ExtraDetails_Metacritic)(nil),                              // 74: StoreItem.ExtraDetails.Metacritic
+	(*StoreItem_ExtraDetails_CastAndCrew)(nil),                             // 75: StoreItem.ExtraDetails.CastAndCrew
+	(*StoreItem_ExtraDetails_SystemRequirements)(nil),                      // 76: StoreItem.ExtraDetails.SystemRequirements
+	(*StoreItem_ExtraDetails_Episode)(nil),                                 // 77: StoreItem.ExtraDetails.Episode
+	(*StoreItem_ExtraDetails_Season)(nil),                                  // 78: StoreItem.ExtraDetails.Season
+	(*StoreItem_ExtraDetails_SystemRequirements_Size)(nil),                 // 79: StoreItem.ExtraDetails.SystemRequirements.Size
+	(*StoreItem_ExtraDetails_SystemRequirements_Requirements)(nil),         // 80: StoreItem.ExtraDetails.SystemRequirements.Requirements
+	(*StoreItem_ExtraDetails_SystemRequirements_PlatformRequirements)(nil), // 81: StoreItem.ExtraDetails.SystemRequirements.PlatformRequirements
+	(*CStoreBrowse_GetStoreCategories_Response_Category)(nil),              // 82: CStoreBrowse_GetStoreCategories_Response.Category
+	(*CStoreBrowse_GetContentHubConfig_Response_ContentHubConfig)(nil),     // 83: CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig
+	(*CStoreBrowse_GetPriceStops_Response_PriceStop)(nil),                  // 84: CStoreBrowse_GetPriceStops_Response.PriceStop
+	(*CStoreBrowse_GetDLCForApps_Response_DLCData)(nil),                    // 85: CStoreBrowse_GetDLCForApps_Response.DLCData
+	(*CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp)(nil),             // 86: CStoreBrowse_GetDLCForApps_Response.PlaytimeForApp
+	(*CStoreBrowse_GetDLCForAppsSolr_Response_DLCList)(nil),                // 87: CStoreBrowse_GetDLCForAppsSolr_Response.DLCList
+	(EContentDescriptorID)(0),                                              // 88: EContentDescriptorID
+	(ERatingAgency)(0),                                                     // 89: ERatingAgency
+	(EInteractiveElement)(0),                                               // 90: EInteractiveElement
+	(ERatingDescriptorImage)(0),                                            // 91: ERatingDescriptorImage
+	(*CStorePageFilter)(nil),                                               // 92: CStorePageFilter
+	(ESteamDeckCompatibilityCategory)(0),                                   // 93: ESteamDeckCompatibilityCategory
+	(ESteamOSCompatibilityCategory)(0),                                     // 94: ESteamOSCompatibilityCategory
+	(*SteamAward)(nil),                                                     // 95: SteamAward
+	(*CSeasonPass)(nil),                                                    // 96: CSeasonPass
 }
 var file_steammessages_storebrowse_steamclient_proto_depIdxs = []int32{
-	11, // 0: StoreBrowseItemDataRequest.included_item_data_request:type_name -> StoreBrowseItemDataRequest
-	9,  // 1: CStoreBrowse_GetItems_Request.ids:type_name -> StoreItemID
-	10, // 2: CStoreBrowse_GetItems_Request.context:type_name -> StoreBrowseContext
-	11, // 3: CStoreBrowse_GetItems_Request.data_request:type_name -> StoreBrowseItemDataRequest
-	0,  // 4: StoreItem.item_type:type_name -> EStoreItemType
-	1,  // 5: StoreItem.type:type_name -> EStoreAppType
-	1,  // 6: StoreItem.included_types:type_name -> EStoreAppType
-	33, // 7: StoreItem.related_items:type_name -> StoreItem.RelatedItems
-	34, // 8: StoreItem.included_items:type_name -> StoreItem.IncludedItems
-	70, // 9: StoreItem.content_descriptorids:type_name -> EContentDescriptorID
-	35, // 10: StoreItem.categories:type_name -> StoreItem.Categories
-	36, // 11: StoreItem.reviews:type_name -> StoreItem.Reviews
-	37, // 12: StoreItem.basic_info:type_name -> StoreItem.BasicInfo
-	38, // 13: StoreItem.tags:type_name -> StoreItem.Tag
-	39, // 14: StoreItem.assets:type_name -> StoreItem.Assets
-	40, // 15: StoreItem.release:type_name -> StoreItem.ReleaseInfo
-	41, // 16: StoreItem.platforms:type_name -> StoreItem.Platforms
-	14, // 17: StoreItem.game_rating:type_name -> StoreGameRating
-	42, // 18: StoreItem.best_purchase_option:type_name -> StoreItem.PurchaseOption
-	42, // 19: StoreItem.purchase_options:type_name -> StoreItem.PurchaseOption
-	42, // 20: StoreItem.self_purchase_option:type_name -> StoreItem.PurchaseOption
-	43, // 21: StoreItem.screenshots:type_name -> StoreItem.Screenshots
-	44, // 22: StoreItem.trailers:type_name -> StoreItem.Trailers
-	45, // 23: StoreItem.supported_languages:type_name -> StoreItem.SupportedLanguage
-	46, // 24: StoreItem.free_weekend:type_name -> StoreItem.FreeWeekend
-	39, // 25: StoreItem.assets_without_overrides:type_name -> StoreItem.Assets
-	15, // 26: StoreItem.user_filter_failure:type_name -> StoreBrowseFilterFailure
-	47, // 27: StoreItem.links:type_name -> StoreItem.Link
-	48, // 28: StoreItem.package_groups:type_name -> StoreItem.PackageGroup
-	54, // 29: StoreItem.extra_details:type_name -> StoreItem.ExtraDetails
-	71, // 30: StoreGameRating.agency:type_name -> ERatingAgency
-	72, // 31: StoreGameRating.survey_interactive_elements:type_name -> EInteractiveElement
-	4,  // 32: StoreBrowseFilterFailure.filter_failure:type_name -> EStoreBrowseFilterFailure
-	70, // 33: StoreBrowseFilterFailure.excluded_content_descriptorids:type_name -> EContentDescriptorID
-	13, // 34: CStoreBrowse_GetItems_Response.store_items:type_name -> StoreItem
-	64, // 35: CStoreBrowse_GetStoreCategories_Response.categories:type_name -> CStoreBrowse_GetStoreCategories_Response.Category
-	10, // 36: CStoreBrowse_GetContentHubConfig_Request.context:type_name -> StoreBrowseContext
-	70, // 37: CStoreBrowse_GetContentHubConfig_Request.excluded_content_descriptorids:type_name -> EContentDescriptorID
-	65, // 38: CStoreBrowse_GetContentHubConfig_Response.hubconfigs:type_name -> CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig
-	66, // 39: CStoreBrowse_GetPriceStops_Response.price_stops:type_name -> CStoreBrowse_GetPriceStops_Response.PriceStop
-	10, // 40: CStoreBrowse_GetDLCForApps_Request.context:type_name -> StoreBrowseContext
-	73, // 41: CStoreBrowse_GetDLCForApps_Request.store_page_filter:type_name -> CStorePageFilter
-	9,  // 42: CStoreBrowse_GetDLCForApps_Request.appids:type_name -> StoreItemID
-	67, // 43: CStoreBrowse_GetDLCForApps_Response.dlc_data:type_name -> CStoreBrowse_GetDLCForApps_Response.DLCData
-	68, // 44: CStoreBrowse_GetDLCForApps_Response.playtime:type_name -> CStoreBrowse_GetDLCForApps_Response.PlaytimeForApp
-	10, // 45: CStoreBrowse_GetDLCForAppsSolr_Request.context:type_name -> StoreBrowseContext
-	73, // 46: CStoreBrowse_GetDLCForAppsSolr_Request.store_page_filter:type_name -> CStorePageFilter
-	69, // 47: CStoreBrowse_GetDLCForAppsSolr_Response.dlc_lists:type_name -> CStoreBrowse_GetDLCForAppsSolr_Response.DLCList
-	10, // 48: CStoreBrowse_GetHardwareItems_Request.context:type_name -> StoreBrowseContext
-	28, // 49: CStoreBrowse_GetHardwareItems_Response.details:type_name -> CHardwarePackageDetails
-	30, // 50: StoreItem.RelatedItems.demos:type_name -> StoreItem.Demo
-	30, // 51: StoreItem.RelatedItems.standalone_demos:type_name -> StoreItem.Demo
-	31, // 52: StoreItem.RelatedItems.playtests:type_name -> StoreItem.Playtest
-	32, // 53: StoreItem.RelatedItems.related_f2p:type_name -> StoreItem.RelatedF2P
-	13, // 54: StoreItem.IncludedItems.included_apps:type_name -> StoreItem
-	13, // 55: StoreItem.IncludedItems.included_packages:type_name -> StoreItem
-	13, // 56: StoreItem.IncludedItems.included_bundles:type_name -> StoreItem
-	55, // 57: StoreItem.Reviews.summary_filtered:type_name -> StoreItem.Reviews.StoreReviewSummary
-	55, // 58: StoreItem.Reviews.summary_unfiltered:type_name -> StoreItem.Reviews.StoreReviewSummary
-	55, // 59: StoreItem.Reviews.summary_language_specific:type_name -> StoreItem.Reviews.StoreReviewSummary
-	56, // 60: StoreItem.BasicInfo.publishers:type_name -> StoreItem.BasicInfo.CreatorHomeLink
-	56, // 61: StoreItem.BasicInfo.developers:type_name -> StoreItem.BasicInfo.CreatorHomeLink
-	56, // 62: StoreItem.BasicInfo.franchises:type_name -> StoreItem.BasicInfo.CreatorHomeLink
-	57, // 63: StoreItem.Platforms.vr_support:type_name -> StoreItem.Platforms.VRSupport
-	74, // 64: StoreItem.Platforms.steam_deck_compat_category:type_name -> ESteamDeckCompatibilityCategory
-	75, // 65: StoreItem.Platforms.steam_os_compat_category:type_name -> ESteamOSCompatibilityCategory
-	74, // 66: StoreItem.Platforms.steam_frame_compat_category:type_name -> ESteamDeckCompatibilityCategory
-	74, // 67: StoreItem.Platforms.steam_machine_compat_category:type_name -> ESteamDeckCompatibilityCategory
-	58, // 68: StoreItem.PurchaseOption.active_discounts:type_name -> StoreItem.PurchaseOption.Discount
-	59, // 69: StoreItem.PurchaseOption.recurrence_info:type_name -> StoreItem.PurchaseOption.RecurrenceInfo
-	60, // 70: StoreItem.Screenshots.all_ages_screenshots:type_name -> StoreItem.Screenshots.Screenshot
-	60, // 71: StoreItem.Screenshots.mature_content_screenshots:type_name -> StoreItem.Screenshots.Screenshot
-	63, // 72: StoreItem.Trailers.highlights:type_name -> StoreItem.Trailers.Trailer
-	63, // 73: StoreItem.Trailers.other_trailers:type_name -> StoreItem.Trailers.Trailer
-	5,  // 74: StoreItem.Link.link_type:type_name -> EStoreLinkType
-	7,  // 75: StoreItem.PackageGroup.display_type:type_name -> StoreItem.PackageGroup.EPackageGroupDisplayType
-	8,  // 76: StoreItem.PageSection.banner:type_name -> StoreItem.PageSection.EPageSectionBanner
-	76, // 77: StoreItem.ExtraDetails.steam_award:type_name -> SteamAward
-	49, // 78: StoreItem.ExtraDetails.anticheat:type_name -> StoreItem.Anticheat
-	50, // 79: StoreItem.ExtraDetails.eula:type_name -> StoreItem.Eula
-	51, // 80: StoreItem.ExtraDetails.ai_generation_service:type_name -> StoreItem.AIGeneratedContentService
-	52, // 81: StoreItem.ExtraDetails.section:type_name -> StoreItem.PageSection
-	72, // 82: StoreItem.ExtraDetails.interactive_elements:type_name -> EInteractiveElement
-	53, // 83: StoreItem.ExtraDetails.press_review:type_name -> StoreItem.PressReview
-	2,  // 84: StoreItem.Reviews.StoreReviewSummary.review_score:type_name -> EUserReviewScore
-	3,  // 85: StoreItem.Trailers.Trailer.trailer_category:type_name -> ETrailerCategory
-	61, // 86: StoreItem.Trailers.Trailer.microtrailer:type_name -> StoreItem.Trailers.VideoSource
-	62, // 87: StoreItem.Trailers.Trailer.adaptive_trailers:type_name -> StoreItem.Trailers.AdaptiveTrailer
-	6,  // 88: CStoreBrowse_GetStoreCategories_Response.Category.type:type_name -> EStoreCategoryType
-	12, // 89: StoreBrowse.GetItems:input_type -> CStoreBrowse_GetItems_Request
-	17, // 90: StoreBrowse.GetStoreCategories:input_type -> CStoreBrowse_GetStoreCategories_Request
-	19, // 91: StoreBrowse.GetContentHubConfig:input_type -> CStoreBrowse_GetContentHubConfig_Request
-	21, // 92: StoreBrowse.GetPriceStops:input_type -> CStoreBrowse_GetPriceStops_Request
-	23, // 93: StoreBrowse.GetDLCForApps:input_type -> CStoreBrowse_GetDLCForApps_Request
-	25, // 94: StoreBrowse.GetDLCForAppsSolr:input_type -> CStoreBrowse_GetDLCForAppsSolr_Request
-	27, // 95: StoreBrowse.GetHardwareItems:input_type -> CStoreBrowse_GetHardwareItems_Request
-	16, // 96: StoreBrowse.GetItems:output_type -> CStoreBrowse_GetItems_Response
-	18, // 97: StoreBrowse.GetStoreCategories:output_type -> CStoreBrowse_GetStoreCategories_Response
-	20, // 98: StoreBrowse.GetContentHubConfig:output_type -> CStoreBrowse_GetContentHubConfig_Response
-	22, // 99: StoreBrowse.GetPriceStops:output_type -> CStoreBrowse_GetPriceStops_Response
-	24, // 100: StoreBrowse.GetDLCForApps:output_type -> CStoreBrowse_GetDLCForApps_Response
-	26, // 101: StoreBrowse.GetDLCForAppsSolr:output_type -> CStoreBrowse_GetDLCForAppsSolr_Response
-	29, // 102: StoreBrowse.GetHardwareItems:output_type -> CStoreBrowse_GetHardwareItems_Response
-	96, // [96:103] is the sub-list for method output_type
-	89, // [89:96] is the sub-list for method input_type
-	89, // [89:89] is the sub-list for extension type_name
-	89, // [89:89] is the sub-list for extension extendee
-	0,  // [0:89] is the sub-list for field type_name
+	17,  // 0: StoreBrowseItemDataRequest.included_item_data_request:type_name -> StoreBrowseItemDataRequest
+	15,  // 1: CStoreBrowse_GetItems_Request.ids:type_name -> StoreItemID
+	16,  // 2: CStoreBrowse_GetItems_Request.context:type_name -> StoreBrowseContext
+	17,  // 3: CStoreBrowse_GetItems_Request.data_request:type_name -> StoreBrowseItemDataRequest
+	0,   // 4: StoreItem.item_type:type_name -> EStoreItemType
+	1,   // 5: StoreItem.type:type_name -> EStoreAppType
+	1,   // 6: StoreItem.included_types:type_name -> EStoreAppType
+	39,  // 7: StoreItem.related_items:type_name -> StoreItem.RelatedItems
+	40,  // 8: StoreItem.included_items:type_name -> StoreItem.IncludedItems
+	88,  // 9: StoreItem.content_descriptorids:type_name -> EContentDescriptorID
+	41,  // 10: StoreItem.categories:type_name -> StoreItem.Categories
+	42,  // 11: StoreItem.reviews:type_name -> StoreItem.Reviews
+	43,  // 12: StoreItem.basic_info:type_name -> StoreItem.BasicInfo
+	44,  // 13: StoreItem.tags:type_name -> StoreItem.Tag
+	45,  // 14: StoreItem.assets:type_name -> StoreItem.Assets
+	46,  // 15: StoreItem.release:type_name -> StoreItem.ReleaseInfo
+	47,  // 16: StoreItem.platforms:type_name -> StoreItem.Platforms
+	20,  // 17: StoreItem.game_rating:type_name -> StoreGameRating
+	48,  // 18: StoreItem.best_purchase_option:type_name -> StoreItem.PurchaseOption
+	48,  // 19: StoreItem.purchase_options:type_name -> StoreItem.PurchaseOption
+	48,  // 20: StoreItem.self_purchase_option:type_name -> StoreItem.PurchaseOption
+	49,  // 21: StoreItem.screenshots:type_name -> StoreItem.Screenshots
+	50,  // 22: StoreItem.trailers:type_name -> StoreItem.Trailers
+	51,  // 23: StoreItem.supported_languages:type_name -> StoreItem.SupportedLanguage
+	52,  // 24: StoreItem.free_weekend:type_name -> StoreItem.FreeWeekend
+	45,  // 25: StoreItem.assets_without_overrides:type_name -> StoreItem.Assets
+	21,  // 26: StoreItem.user_filter_failure:type_name -> StoreBrowseFilterFailure
+	53,  // 27: StoreItem.links:type_name -> StoreItem.Link
+	54,  // 28: StoreItem.package_groups:type_name -> StoreItem.PackageGroup
+	55,  // 29: StoreItem.extra_details:type_name -> StoreItem.ExtraDetails
+	56,  // 30: StoreItem.optin_registration_tags:type_name -> StoreItem.OptInRegistrationTags
+	57,  // 31: StoreItem.purchase_notes:type_name -> StoreItem.PurchaseNote
+	89,  // 32: StoreGameRating.agency:type_name -> ERatingAgency
+	90,  // 33: StoreGameRating.survey_interactive_elements:type_name -> EInteractiveElement
+	91,  // 34: StoreGameRating.descriptor_images:type_name -> ERatingDescriptorImage
+	4,   // 35: StoreBrowseFilterFailure.filter_failure:type_name -> EStoreBrowseFilterFailure
+	88,  // 36: StoreBrowseFilterFailure.excluded_content_descriptorids:type_name -> EContentDescriptorID
+	19,  // 37: CStoreBrowse_GetItems_Response.store_items:type_name -> StoreItem
+	82,  // 38: CStoreBrowse_GetStoreCategories_Response.categories:type_name -> CStoreBrowse_GetStoreCategories_Response.Category
+	16,  // 39: CStoreBrowse_GetContentHubConfig_Request.context:type_name -> StoreBrowseContext
+	88,  // 40: CStoreBrowse_GetContentHubConfig_Request.excluded_content_descriptorids:type_name -> EContentDescriptorID
+	83,  // 41: CStoreBrowse_GetContentHubConfig_Response.hubconfigs:type_name -> CStoreBrowse_GetContentHubConfig_Response.ContentHubConfig
+	84,  // 42: CStoreBrowse_GetPriceStops_Response.price_stops:type_name -> CStoreBrowse_GetPriceStops_Response.PriceStop
+	16,  // 43: CStoreBrowse_GetDLCForApps_Request.context:type_name -> StoreBrowseContext
+	92,  // 44: CStoreBrowse_GetDLCForApps_Request.store_page_filter:type_name -> CStorePageFilter
+	15,  // 45: CStoreBrowse_GetDLCForApps_Request.appids:type_name -> StoreItemID
+	85,  // 46: CStoreBrowse_GetDLCForApps_Response.dlc_data:type_name -> CStoreBrowse_GetDLCForApps_Response.DLCData
+	86,  // 47: CStoreBrowse_GetDLCForApps_Response.playtime:type_name -> CStoreBrowse_GetDLCForApps_Response.PlaytimeForApp
+	16,  // 48: CStoreBrowse_GetDLCForAppsSolr_Request.context:type_name -> StoreBrowseContext
+	92,  // 49: CStoreBrowse_GetDLCForAppsSolr_Request.store_page_filter:type_name -> CStorePageFilter
+	87,  // 50: CStoreBrowse_GetDLCForAppsSolr_Response.dlc_lists:type_name -> CStoreBrowse_GetDLCForAppsSolr_Response.DLCList
+	16,  // 51: CStoreBrowse_GetHardwareItems_Request.context:type_name -> StoreBrowseContext
+	34,  // 52: CStoreBrowse_GetHardwareItems_Response.details:type_name -> CHardwarePackageDetails
+	36,  // 53: StoreItem.RelatedItems.demos:type_name -> StoreItem.Demo
+	36,  // 54: StoreItem.RelatedItems.standalone_demos:type_name -> StoreItem.Demo
+	37,  // 55: StoreItem.RelatedItems.playtests:type_name -> StoreItem.Playtest
+	38,  // 56: StoreItem.RelatedItems.related_f2p:type_name -> StoreItem.RelatedF2P
+	19,  // 57: StoreItem.IncludedItems.included_apps:type_name -> StoreItem
+	19,  // 58: StoreItem.IncludedItems.included_packages:type_name -> StoreItem
+	19,  // 59: StoreItem.IncludedItems.included_bundles:type_name -> StoreItem
+	19,  // 60: StoreItem.IncludedItems.included_creators:type_name -> StoreItem
+	58,  // 61: StoreItem.Reviews.summary_filtered:type_name -> StoreItem.Reviews.StoreReviewSummary
+	58,  // 62: StoreItem.Reviews.summary_unfiltered:type_name -> StoreItem.Reviews.StoreReviewSummary
+	58,  // 63: StoreItem.Reviews.summary_language_specific:type_name -> StoreItem.Reviews.StoreReviewSummary
+	59,  // 64: StoreItem.BasicInfo.publishers:type_name -> StoreItem.BasicInfo.CreatorHomeLink
+	59,  // 65: StoreItem.BasicInfo.developers:type_name -> StoreItem.BasicInfo.CreatorHomeLink
+	59,  // 66: StoreItem.BasicInfo.franchises:type_name -> StoreItem.BasicInfo.CreatorHomeLink
+	60,  // 67: StoreItem.Platforms.vr_support:type_name -> StoreItem.Platforms.VRSupport
+	93,  // 68: StoreItem.Platforms.steam_deck_compat_category:type_name -> ESteamDeckCompatibilityCategory
+	94,  // 69: StoreItem.Platforms.steam_os_compat_category:type_name -> ESteamOSCompatibilityCategory
+	93,  // 70: StoreItem.Platforms.steam_frame_compat_category:type_name -> ESteamDeckCompatibilityCategory
+	93,  // 71: StoreItem.Platforms.steam_machine_compat_category:type_name -> ESteamDeckCompatibilityCategory
+	61,  // 72: StoreItem.PurchaseOption.active_discounts:type_name -> StoreItem.PurchaseOption.Discount
+	62,  // 73: StoreItem.PurchaseOption.recurrence_info:type_name -> StoreItem.PurchaseOption.RecurrenceInfo
+	63,  // 74: StoreItem.Screenshots.all_ages_screenshots:type_name -> StoreItem.Screenshots.Screenshot
+	63,  // 75: StoreItem.Screenshots.mature_content_screenshots:type_name -> StoreItem.Screenshots.Screenshot
+	66,  // 76: StoreItem.Trailers.highlights:type_name -> StoreItem.Trailers.Trailer
+	66,  // 77: StoreItem.Trailers.other_trailers:type_name -> StoreItem.Trailers.Trailer
+	5,   // 78: StoreItem.Link.link_type:type_name -> EStoreLinkType
+	8,   // 79: StoreItem.PackageGroup.display_type:type_name -> StoreItem.PackageGroup.EPackageGroupDisplayType
+	95,  // 80: StoreItem.ExtraDetails.steam_award:type_name -> SteamAward
+	67,  // 81: StoreItem.ExtraDetails.anticheat:type_name -> StoreItem.ExtraDetails.Anticheat
+	68,  // 82: StoreItem.ExtraDetails.eula:type_name -> StoreItem.ExtraDetails.Eula
+	69,  // 83: StoreItem.ExtraDetails.ai_generation_service:type_name -> StoreItem.ExtraDetails.AIGeneratedContentService
+	70,  // 84: StoreItem.ExtraDetails.section:type_name -> StoreItem.ExtraDetails.PageSection
+	90,  // 85: StoreItem.ExtraDetails.interactive_elements:type_name -> EInteractiveElement
+	71,  // 86: StoreItem.ExtraDetails.press_review:type_name -> StoreItem.ExtraDetails.PressReview
+	72,  // 87: StoreItem.ExtraDetails.early_access:type_name -> StoreItem.ExtraDetails.EarlyAccess
+	96,  // 88: StoreItem.ExtraDetails.season_pass:type_name -> CSeasonPass
+	73,  // 89: StoreItem.ExtraDetails.links_and_info:type_name -> StoreItem.ExtraDetails.LinksAndInfo
+	74,  // 90: StoreItem.ExtraDetails.metacritic:type_name -> StoreItem.ExtraDetails.Metacritic
+	75,  // 91: StoreItem.ExtraDetails.cast_and_crew:type_name -> StoreItem.ExtraDetails.CastAndCrew
+	76,  // 92: StoreItem.ExtraDetails.system_requirements:type_name -> StoreItem.ExtraDetails.SystemRequirements
+	77,  // 93: StoreItem.ExtraDetails.episode:type_name -> StoreItem.ExtraDetails.Episode
+	78,  // 94: StoreItem.ExtraDetails.seasons:type_name -> StoreItem.ExtraDetails.Season
+	9,   // 95: StoreItem.ExtraDetails.video_extras_note:type_name -> StoreItem.ExtraDetails.EVideoExtrasNote
+	14,  // 96: StoreItem.PurchaseNote.type:type_name -> StoreItem.PurchaseNote.EPurchaseNoteType
+	2,   // 97: StoreItem.Reviews.StoreReviewSummary.review_score:type_name -> EUserReviewScore
+	3,   // 98: StoreItem.Trailers.Trailer.trailer_category:type_name -> ETrailerCategory
+	64,  // 99: StoreItem.Trailers.Trailer.microtrailer:type_name -> StoreItem.Trailers.VideoSource
+	65,  // 100: StoreItem.Trailers.Trailer.adaptive_trailers:type_name -> StoreItem.Trailers.AdaptiveTrailer
+	10,  // 101: StoreItem.ExtraDetails.PageSection.banner:type_name -> StoreItem.ExtraDetails.PageSection.EPageSectionBanner
+	6,   // 102: StoreItem.ExtraDetails.LinksAndInfo.available_documents:type_name -> EStoreAppDocumentType
+	81,  // 103: StoreItem.ExtraDetails.SystemRequirements.platforms:type_name -> StoreItem.ExtraDetails.SystemRequirements.PlatformRequirements
+	13,  // 104: StoreItem.ExtraDetails.Episode.type:type_name -> StoreItem.ExtraDetails.Episode.EEpisodeType
+	79,  // 105: StoreItem.ExtraDetails.SystemRequirements.Requirements.memory:type_name -> StoreItem.ExtraDetails.SystemRequirements.Size
+	79,  // 106: StoreItem.ExtraDetails.SystemRequirements.Requirements.storage:type_name -> StoreItem.ExtraDetails.SystemRequirements.Size
+	79,  // 107: StoreItem.ExtraDetails.SystemRequirements.Requirements.storage_hq:type_name -> StoreItem.ExtraDetails.SystemRequirements.Size
+	12,  // 108: StoreItem.ExtraDetails.SystemRequirements.PlatformRequirements.platform:type_name -> StoreItem.ExtraDetails.SystemRequirements.ESysReqPlatform
+	80,  // 109: StoreItem.ExtraDetails.SystemRequirements.PlatformRequirements.minimum:type_name -> StoreItem.ExtraDetails.SystemRequirements.Requirements
+	80,  // 110: StoreItem.ExtraDetails.SystemRequirements.PlatformRequirements.recommended:type_name -> StoreItem.ExtraDetails.SystemRequirements.Requirements
+	11,  // 111: StoreItem.ExtraDetails.SystemRequirements.PlatformRequirements.unsupported_os_note:type_name -> StoreItem.ExtraDetails.SystemRequirements.EUnsupportedOSNote
+	7,   // 112: CStoreBrowse_GetStoreCategories_Response.Category.type:type_name -> EStoreCategoryType
+	18,  // 113: StoreBrowse.GetItems:input_type -> CStoreBrowse_GetItems_Request
+	23,  // 114: StoreBrowse.GetStoreCategories:input_type -> CStoreBrowse_GetStoreCategories_Request
+	25,  // 115: StoreBrowse.GetContentHubConfig:input_type -> CStoreBrowse_GetContentHubConfig_Request
+	27,  // 116: StoreBrowse.GetPriceStops:input_type -> CStoreBrowse_GetPriceStops_Request
+	29,  // 117: StoreBrowse.GetDLCForApps:input_type -> CStoreBrowse_GetDLCForApps_Request
+	31,  // 118: StoreBrowse.GetDLCForAppsSolr:input_type -> CStoreBrowse_GetDLCForAppsSolr_Request
+	33,  // 119: StoreBrowse.GetHardwareItems:input_type -> CStoreBrowse_GetHardwareItems_Request
+	22,  // 120: StoreBrowse.GetItems:output_type -> CStoreBrowse_GetItems_Response
+	24,  // 121: StoreBrowse.GetStoreCategories:output_type -> CStoreBrowse_GetStoreCategories_Response
+	26,  // 122: StoreBrowse.GetContentHubConfig:output_type -> CStoreBrowse_GetContentHubConfig_Response
+	28,  // 123: StoreBrowse.GetPriceStops:output_type -> CStoreBrowse_GetPriceStops_Response
+	30,  // 124: StoreBrowse.GetDLCForApps:output_type -> CStoreBrowse_GetDLCForApps_Response
+	32,  // 125: StoreBrowse.GetDLCForAppsSolr:output_type -> CStoreBrowse_GetDLCForAppsSolr_Response
+	35,  // 126: StoreBrowse.GetHardwareItems:output_type -> CStoreBrowse_GetHardwareItems_Response
+	120, // [120:127] is the sub-list for method output_type
+	113, // [113:120] is the sub-list for method input_type
+	113, // [113:113] is the sub-list for extension type_name
+	113, // [113:113] is the sub-list for extension extendee
+	0,   // [0:113] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_storebrowse_steamclient_proto_init() }
@@ -6976,14 +8653,15 @@ func file_steammessages_storebrowse_steamclient_proto_init() {
 	file_enums_proto_init()
 	file_steammessages_appratings_types_proto_init()
 	file_steammessages_steamawards_types_proto_init()
+	file_steammessages_seasonpass_types_proto_init()
 	file_contenthubs_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_storebrowse_steamclient_proto_rawDesc), len(file_steammessages_storebrowse_steamclient_proto_rawDesc)),
-			NumEnums:      9,
-			NumMessages:   61,
+			NumEnums:      15,
+			NumMessages:   73,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
