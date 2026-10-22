@@ -708,7 +708,6 @@ type CMsgClientSettings struct {
 	EnableGamescopeComposer               *bool                     `protobuf:"varint,5010,opt,name=enable_gamescope_composer,json=enableGamescopeComposer" json:"enable_gamescope_composer,omitempty"`
 	EnableGamescopeComposerVr             *bool                     `protobuf:"varint,5011,opt,name=enable_gamescope_composer_vr,json=enableGamescopeComposerVr" json:"enable_gamescope_composer_vr,omitempty"`
 	ShowSwitchToDesktopAtLogin            *bool                     `protobuf:"varint,5012,opt,name=show_switch_to_desktop_at_login,json=showSwitchToDesktopAtLogin" json:"show_switch_to_desktop_at_login,omitempty"`
-	EnableSteamrt64Client                 *bool                     `protobuf:"varint,5013,opt,name=enable_steamrt64_client,json=enableSteamrt64Client" json:"enable_steamrt64_client,omitempty"`
 	DisableAllToasts                      *bool                     `protobuf:"varint,6000,opt,name=disable_all_toasts,json=disableAllToasts" json:"disable_all_toasts,omitempty"`
 	DisableToastsInGame                   *bool                     `protobuf:"varint,6001,opt,name=disable_toasts_in_game,json=disableToastsInGame" json:"disable_toasts_in_game,omitempty"`
 	PlaySoundOnToast                      *bool                     `protobuf:"varint,6002,opt,name=play_sound_on_toast,json=playSoundOnToast" json:"play_sound_on_toast,omitempty"`
@@ -1434,13 +1433,6 @@ func (x *CMsgClientSettings) GetEnableGamescopeComposerVr() bool {
 func (x *CMsgClientSettings) GetShowSwitchToDesktopAtLogin() bool {
 	if x != nil && x.ShowSwitchToDesktopAtLogin != nil {
 		return *x.ShowSwitchToDesktopAtLogin
-	}
-	return false
-}
-
-func (x *CMsgClientSettings) GetEnableSteamrt64Client() bool {
-	if x != nil && x.EnableSteamrt64Client != nil {
-		return *x.EnableSteamrt64Client
 	}
 	return false
 }
@@ -3006,7 +2998,7 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"valueFloat\x12#\n" +
 	"\fvalue_string\x18\a \x01(\tH\x00R\vvalueString\x120\n" +
 	"\fvalue_hotkey\x18\b \x01(\v2\v.CMsgHotkeyH\x00R\vvalueHotkeyB\a\n" +
-	"\x05value\"\xce\xdf\x01\n" +
+	"\x05value\"\x8f\xdf\x01\n" +
 	"\x12CMsgClientSettings\x12b\n" +
 	"\x15no_save_personal_info\x18\x01 \x01(\bB/\x80\xa6\x1d\x01\x8a\xa6\x1d'Software\\Valve\\Steam\\NoSavePersonalInfoR\x12noSavePersonalInfo\x12G\n" +
 	"\x11preferred_monitor\x18\x05 \x01(\tB\x1a\x80\xa6\x1d\x01\x8a\xa6\x1d\x12BigPicture/MonitorR\x10preferredMonitor\x12\x8e\x01\n" +
@@ -3079,8 +3071,7 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"\x10enable_ui_sounds\x18\x91' \x01(\bB!\x80\xa6\x1d\x03\x8a\xa6\x1d\x15system\\EnableUISounds\x98\xa6\x1d\x01R\x0eenableUiSounds\x12\x87\x01\n" +
 	"\x19enable_gamescope_composer\x18\x92' \x01(\bBJ\x80\xa6\x1d\x04\x8a\xa6\x1d>HKEY_CURRENT_USER\\Software\\Valve\\Steam\\EnableGamescopeComposer\x98\xa6\x1d\x00R\x17enableGamescopeComposer\x12\x8e\x01\n" +
 	"\x1cenable_gamescope_composer_vr\x18\x93' \x01(\bBL\x80\xa6\x1d\x04\x8a\xa6\x1d@HKEY_CURRENT_USER\\Software\\Valve\\Steam\\EnableGamescopeComposerVR\x98\xa6\x1d\x01R\x19enableGamescopeComposerVr\x12s\n" +
-	"\x1fshow_switch_to_desktop_at_login\x18\x94' \x01(\bB-\x80\xa6\x1d\x01\x8a\xa6\x1d!system\\ShowSwitchToDesktopAtLogin\x90\xa6\x1d\x01R\x1ashowSwitchToDesktopAtLogin\x12=\n" +
-	"\x17enable_steamrt64_client\x18\x95' \x01(\bB\x04\x80\xa6\x1d\x05R\x15enableSteamrt64Client\x12G\n" +
+	"\x1fshow_switch_to_desktop_at_login\x18\x94' \x01(\bB-\x80\xa6\x1d\x01\x8a\xa6\x1d!system\\ShowSwitchToDesktopAtLogin\x90\xa6\x1d\x01R\x1ashowSwitchToDesktopAtLogin\x12G\n" +
 	"\x12disable_all_toasts\x18\xf0. \x01(\bB\x18\x80\xa6\x1d\x02\x8a\xa6\x1d\x10DisableAllToastsR\x10disableAllToasts\x12Q\n" +
 	"\x16disable_toasts_in_game\x18\xf1. \x01(\bB\x1b\x80\xa6\x1d\x02\x8a\xa6\x1d\x13DisableToastsInGameR\x13disableToastsInGame\x12L\n" +
 	"\x13play_sound_on_toast\x18\xf2. \x01(\bB\x1c\x80\xa6\x1d\x02\x8a\xa6\x1d\x10PlaySoundOnToast\x98\xa6\x1d\x01R\x10playSoundOnToast\x12M\n" +

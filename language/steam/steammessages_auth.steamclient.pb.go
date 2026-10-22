@@ -3159,110 +3159,6 @@ func (*CAuthenticationSupport_MarkTokenCompromised_Response) Descriptor() ([]byt
 	return file_steammessages_auth_steamclient_proto_rawDescGZIP(), []int{40}
 }
 
-type CCloudGaming_CreateNonce_Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Platform      *string                `protobuf:"bytes,1,opt,name=platform" json:"platform,omitempty"`
-	Appid         *uint32                `protobuf:"varint,2,opt,name=appid" json:"appid,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CCloudGaming_CreateNonce_Request) Reset() {
-	*x = CCloudGaming_CreateNonce_Request{}
-	mi := &file_steammessages_auth_steamclient_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CCloudGaming_CreateNonce_Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CCloudGaming_CreateNonce_Request) ProtoMessage() {}
-
-func (x *CCloudGaming_CreateNonce_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_auth_steamclient_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CCloudGaming_CreateNonce_Request.ProtoReflect.Descriptor instead.
-func (*CCloudGaming_CreateNonce_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_auth_steamclient_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *CCloudGaming_CreateNonce_Request) GetPlatform() string {
-	if x != nil && x.Platform != nil {
-		return *x.Platform
-	}
-	return ""
-}
-
-func (x *CCloudGaming_CreateNonce_Request) GetAppid() uint32 {
-	if x != nil && x.Appid != nil {
-		return *x.Appid
-	}
-	return 0
-}
-
-type CCloudGaming_CreateNonce_Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Nonce         *string                `protobuf:"bytes,1,opt,name=nonce" json:"nonce,omitempty"`
-	Expiry        *uint32                `protobuf:"varint,2,opt,name=expiry" json:"expiry,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CCloudGaming_CreateNonce_Response) Reset() {
-	*x = CCloudGaming_CreateNonce_Response{}
-	mi := &file_steammessages_auth_steamclient_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CCloudGaming_CreateNonce_Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CCloudGaming_CreateNonce_Response) ProtoMessage() {}
-
-func (x *CCloudGaming_CreateNonce_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_auth_steamclient_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CCloudGaming_CreateNonce_Response.ProtoReflect.Descriptor instead.
-func (*CCloudGaming_CreateNonce_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_auth_steamclient_proto_rawDescGZIP(), []int{42}
-}
-
-func (x *CCloudGaming_CreateNonce_Response) GetNonce() string {
-	if x != nil && x.Nonce != nil {
-		return *x.Nonce
-	}
-	return ""
-}
-
-func (x *CCloudGaming_CreateNonce_Response) GetExpiry() uint32 {
-	if x != nil && x.Expiry != nil {
-		return *x.Expiry
-	}
-	return 0
-}
-
 type CCloudGaming_GetTimeRemaining_Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Platform      *string                `protobuf:"bytes,1,opt,name=platform" json:"platform,omitempty"`
@@ -3273,7 +3169,7 @@ type CCloudGaming_GetTimeRemaining_Request struct {
 
 func (x *CCloudGaming_GetTimeRemaining_Request) Reset() {
 	*x = CCloudGaming_GetTimeRemaining_Request{}
-	mi := &file_steammessages_auth_steamclient_proto_msgTypes[43]
+	mi := &file_steammessages_auth_steamclient_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3285,7 +3181,7 @@ func (x *CCloudGaming_GetTimeRemaining_Request) String() string {
 func (*CCloudGaming_GetTimeRemaining_Request) ProtoMessage() {}
 
 func (x *CCloudGaming_GetTimeRemaining_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_auth_steamclient_proto_msgTypes[43]
+	mi := &file_steammessages_auth_steamclient_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3298,7 +3194,7 @@ func (x *CCloudGaming_GetTimeRemaining_Request) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CCloudGaming_GetTimeRemaining_Request.ProtoReflect.Descriptor instead.
 func (*CCloudGaming_GetTimeRemaining_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_auth_steamclient_proto_rawDescGZIP(), []int{43}
+	return file_steammessages_auth_steamclient_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *CCloudGaming_GetTimeRemaining_Request) GetPlatform() string {
@@ -3325,7 +3221,7 @@ type CCloudGaming_TimeRemaining struct {
 
 func (x *CCloudGaming_TimeRemaining) Reset() {
 	*x = CCloudGaming_TimeRemaining{}
-	mi := &file_steammessages_auth_steamclient_proto_msgTypes[44]
+	mi := &file_steammessages_auth_steamclient_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3337,7 +3233,7 @@ func (x *CCloudGaming_TimeRemaining) String() string {
 func (*CCloudGaming_TimeRemaining) ProtoMessage() {}
 
 func (x *CCloudGaming_TimeRemaining) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_auth_steamclient_proto_msgTypes[44]
+	mi := &file_steammessages_auth_steamclient_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3350,7 +3246,7 @@ func (x *CCloudGaming_TimeRemaining) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CCloudGaming_TimeRemaining.ProtoReflect.Descriptor instead.
 func (*CCloudGaming_TimeRemaining) Descriptor() ([]byte, []int) {
-	return file_steammessages_auth_steamclient_proto_rawDescGZIP(), []int{44}
+	return file_steammessages_auth_steamclient_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *CCloudGaming_TimeRemaining) GetAppid() uint32 {
@@ -3376,7 +3272,7 @@ type CCloudGaming_GetTimeRemaining_Response struct {
 
 func (x *CCloudGaming_GetTimeRemaining_Response) Reset() {
 	*x = CCloudGaming_GetTimeRemaining_Response{}
-	mi := &file_steammessages_auth_steamclient_proto_msgTypes[45]
+	mi := &file_steammessages_auth_steamclient_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3388,7 +3284,7 @@ func (x *CCloudGaming_GetTimeRemaining_Response) String() string {
 func (*CCloudGaming_GetTimeRemaining_Response) ProtoMessage() {}
 
 func (x *CCloudGaming_GetTimeRemaining_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_auth_steamclient_proto_msgTypes[45]
+	mi := &file_steammessages_auth_steamclient_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3401,7 +3297,7 @@ func (x *CCloudGaming_GetTimeRemaining_Response) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CCloudGaming_GetTimeRemaining_Response.ProtoReflect.Descriptor instead.
 func (*CCloudGaming_GetTimeRemaining_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_auth_steamclient_proto_rawDescGZIP(), []int{45}
+	return file_steammessages_auth_steamclient_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *CCloudGaming_GetTimeRemaining_Response) GetEntries() []*CCloudGaming_TimeRemaining {
@@ -3422,7 +3318,7 @@ type CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults struct {
 
 func (x *CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults) Reset() {
 	*x = CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults{}
-	mi := &file_steammessages_auth_steamclient_proto_msgTypes[46]
+	mi := &file_steammessages_auth_steamclient_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3434,7 +3330,7 @@ func (x *CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults) Str
 func (*CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults) ProtoMessage() {}
 
 func (x *CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_auth_steamclient_proto_msgTypes[46]
+	mi := &file_steammessages_auth_steamclient_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3485,7 +3381,7 @@ type CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent struct {
 
 func (x *CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent) Reset() {
 	*x = CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent{}
-	mi := &file_steammessages_auth_steamclient_proto_msgTypes[47]
+	mi := &file_steammessages_auth_steamclient_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3497,7 +3393,7 @@ func (x *CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent) String
 func (*CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent) ProtoMessage() {}
 
 func (x *CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_auth_steamclient_proto_msgTypes[47]
+	mi := &file_steammessages_auth_steamclient_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3583,7 +3479,7 @@ const (
 
 func (x *CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription) Reset() {
 	*x = CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription{}
-	mi := &file_steammessages_auth_steamclient_proto_msgTypes[48]
+	mi := &file_steammessages_auth_steamclient_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3595,7 +3491,7 @@ func (x *CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription
 func (*CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription) ProtoMessage() {}
 
 func (x *CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_auth_steamclient_proto_msgTypes[48]
+	mi := &file_steammessages_auth_steamclient_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3715,7 +3611,7 @@ type CSupportRefreshTokenDescription_TokenUsageEvent struct {
 
 func (x *CSupportRefreshTokenDescription_TokenUsageEvent) Reset() {
 	*x = CSupportRefreshTokenDescription_TokenUsageEvent{}
-	mi := &file_steammessages_auth_steamclient_proto_msgTypes[49]
+	mi := &file_steammessages_auth_steamclient_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3727,7 +3623,7 @@ func (x *CSupportRefreshTokenDescription_TokenUsageEvent) String() string {
 func (*CSupportRefreshTokenDescription_TokenUsageEvent) ProtoMessage() {}
 
 func (x *CSupportRefreshTokenDescription_TokenUsageEvent) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_auth_steamclient_proto_msgTypes[49]
+	mi := &file_steammessages_auth_steamclient_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4005,13 +3901,7 @@ const file_steammessages_auth_steamclient_proto_rawDesc = "" +
 	"3CAuthenticationSupport_MarkTokenCompromised_Request\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12\x19\n" +
 	"\btoken_id\x18\x02 \x01(\x06R\atokenId\"6\n" +
-	"4CAuthenticationSupport_MarkTokenCompromised_Response\"T\n" +
-	" CCloudGaming_CreateNonce_Request\x12\x1a\n" +
-	"\bplatform\x18\x01 \x01(\tR\bplatform\x12\x14\n" +
-	"\x05appid\x18\x02 \x01(\rR\x05appid\"Q\n" +
-	"!CCloudGaming_CreateNonce_Response\x12\x14\n" +
-	"\x05nonce\x18\x01 \x01(\tR\x05nonce\x12\x16\n" +
-	"\x06expiry\x18\x02 \x01(\rR\x06expiry\"b\n" +
+	"4CAuthenticationSupport_MarkTokenCompromised_Response\"b\n" +
 	"%CCloudGaming_GetTimeRemaining_Request\x12\x1a\n" +
 	"\bplatform\x18\x01 \x01(\tR\bplatform\x12\x1d\n" +
 	"\n" +
@@ -4090,9 +3980,8 @@ const file_steammessages_auth_steamclient_proto_rawDesc = "" +
 	"\x15QueryRefreshTokenByID\x125.CAuthenticationSupport_QueryRefreshTokenByID_Request\x1a6.CAuthenticationSupport_QueryRefreshTokenByID_Response\x12h\n" +
 	"\vRevokeToken\x12+.CAuthenticationSupport_RevokeToken_Request\x1a,.CAuthenticationSupport_RevokeToken_Response\x12t\n" +
 	"\x0fGetTokenHistory\x12/.CAuthenticationSupport_GetTokenHistory_Request\x1a0.CAuthenticationSupport_GetTokenHistory_Response\x12\x83\x01\n" +
-	"\x14MarkTokenCompromised\x124.CAuthenticationSupport_MarkTokenCompromised_Request\x1a5.CAuthenticationSupport_MarkTokenCompromised_Response2\xc8\x01\n" +
-	"\vCloudGaming\x12T\n" +
-	"\vCreateNonce\x12!.CCloudGaming_CreateNonce_Request\x1a\".CCloudGaming_CreateNonce_Response\x12c\n" +
+	"\x14MarkTokenCompromised\x124.CAuthenticationSupport_MarkTokenCompromised_Request\x1a5.CAuthenticationSupport_MarkTokenCompromised_Response2r\n" +
+	"\vCloudGaming\x12c\n" +
 	"\x10GetTimeRemaining\x12&.CCloudGaming_GetTimeRemaining_Request\x1a'.CCloudGaming_GetTimeRemaining_ResponseB\x03\x80\x01\x01"
 
 var (
@@ -4108,7 +3997,7 @@ func file_steammessages_auth_steamclient_proto_rawDescGZIP() []byte {
 }
 
 var file_steammessages_auth_steamclient_proto_enumTypes = make([]protoimpl.EnumInfo, 8)
-var file_steammessages_auth_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 50)
+var file_steammessages_auth_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 48)
 var file_steammessages_auth_steamclient_proto_goTypes = []any{
 	(EAuthTokenPlatformType)(0),                                                     // 0: EAuthTokenPlatformType
 	(EAuthTokenAppType)(0),                                                          // 1: EAuthTokenAppType
@@ -4159,18 +4048,16 @@ var file_steammessages_auth_steamclient_proto_goTypes = []any{
 	(*CAuthenticationSupport_GetTokenHistory_Response)(nil),                         // 46: CAuthenticationSupport_GetTokenHistory_Response
 	(*CAuthenticationSupport_MarkTokenCompromised_Request)(nil),                     // 47: CAuthenticationSupport_MarkTokenCompromised_Request
 	(*CAuthenticationSupport_MarkTokenCompromised_Response)(nil),                    // 48: CAuthenticationSupport_MarkTokenCompromised_Response
-	(*CCloudGaming_CreateNonce_Request)(nil),                                        // 49: CCloudGaming_CreateNonce_Request
-	(*CCloudGaming_CreateNonce_Response)(nil),                                       // 50: CCloudGaming_CreateNonce_Response
-	(*CCloudGaming_GetTimeRemaining_Request)(nil),                                   // 51: CCloudGaming_GetTimeRemaining_Request
-	(*CCloudGaming_TimeRemaining)(nil),                                              // 52: CCloudGaming_TimeRemaining
-	(*CCloudGaming_GetTimeRemaining_Response)(nil),                                  // 53: CCloudGaming_GetTimeRemaining_Response
-	(*CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults)(nil),      // 54: CAuthentication_NotifyRiskQuizResults_Notification.RiskQuizResults
-	(*CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent)(nil),         // 55: CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent
-	(*CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription)(nil), // 56: CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription
-	(*CSupportRefreshTokenDescription_TokenUsageEvent)(nil),                         // 57: CSupportRefreshTokenDescription.TokenUsageEvent
-	(ESessionPersistence)(0),                                                        // 58: ESessionPersistence
-	(*CMsgIPAddress)(nil),                                                           // 59: CMsgIPAddress
-	(*NoResponse)(nil),                                                              // 60: NoResponse
+	(*CCloudGaming_GetTimeRemaining_Request)(nil),                                   // 49: CCloudGaming_GetTimeRemaining_Request
+	(*CCloudGaming_TimeRemaining)(nil),                                              // 50: CCloudGaming_TimeRemaining
+	(*CCloudGaming_GetTimeRemaining_Response)(nil),                                  // 51: CCloudGaming_GetTimeRemaining_Response
+	(*CAuthentication_NotifyRiskQuizResults_Notification_RiskQuizResults)(nil),      // 52: CAuthentication_NotifyRiskQuizResults_Notification.RiskQuizResults
+	(*CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent)(nil),         // 53: CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent
+	(*CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription)(nil), // 54: CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription
+	(*CSupportRefreshTokenDescription_TokenUsageEvent)(nil),                         // 55: CSupportRefreshTokenDescription.TokenUsageEvent
+	(ESessionPersistence)(0),                                                        // 56: ESessionPersistence
+	(*CMsgIPAddress)(nil),                                                           // 57: CMsgIPAddress
+	(*NoResponse)(nil),                                                              // 58: NoResponse
 }
 var file_steammessages_auth_steamclient_proto_depIdxs = []int32{
 	0,  // 0: CAuthentication_DeviceDetails.platform_type:type_name -> EAuthTokenPlatformType
@@ -4180,37 +4067,37 @@ var file_steammessages_auth_steamclient_proto_depIdxs = []int32{
 	2,  // 4: CAuthentication_AllowedConfirmation.confirmation_type:type_name -> EAuthSessionGuardType
 	12, // 5: CAuthentication_BeginAuthSessionViaQR_Response.allowed_confirmations:type_name -> CAuthentication_AllowedConfirmation
 	0,  // 6: CAuthentication_BeginAuthSessionViaCredentials_Request.platform_type:type_name -> EAuthTokenPlatformType
-	58, // 7: CAuthentication_BeginAuthSessionViaCredentials_Request.persistence:type_name -> ESessionPersistence
+	56, // 7: CAuthentication_BeginAuthSessionViaCredentials_Request.persistence:type_name -> ESessionPersistence
 	10, // 8: CAuthentication_BeginAuthSessionViaCredentials_Request.device_details:type_name -> CAuthentication_DeviceDetails
 	12, // 9: CAuthentication_BeginAuthSessionViaCredentials_Response.allowed_confirmations:type_name -> CAuthentication_AllowedConfirmation
 	0,  // 10: CAuthentication_GetAuthSessionInfo_Response.platform_type:type_name -> EAuthTokenPlatformType
 	3,  // 11: CAuthentication_GetAuthSessionInfo_Response.login_history:type_name -> EAuthSessionSecurityHistory
-	58, // 12: CAuthentication_GetAuthSessionInfo_Response.requested_persistence:type_name -> ESessionPersistence
+	56, // 12: CAuthentication_GetAuthSessionInfo_Response.requested_persistence:type_name -> ESessionPersistence
 	1,  // 13: CAuthentication_GetAuthSessionInfo_Response.app_type:type_name -> EAuthTokenAppType
 	0,  // 14: CAuthentication_GetAuthSessionRiskInfo_Response.platform_type:type_name -> EAuthTokenPlatformType
-	54, // 15: CAuthentication_NotifyRiskQuizResults_Notification.results:type_name -> CAuthentication_NotifyRiskQuizResults_Notification.RiskQuizResults
-	58, // 16: CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request.persistence:type_name -> ESessionPersistence
+	52, // 15: CAuthentication_NotifyRiskQuizResults_Notification.results:type_name -> CAuthentication_NotifyRiskQuizResults_Notification.RiskQuizResults
+	56, // 16: CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request.persistence:type_name -> ESessionPersistence
 	2,  // 17: CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request.code_type:type_name -> EAuthSessionGuardType
 	4,  // 18: CAuthentication_AccessToken_GenerateForApp_Request.renewal_type:type_name -> ETokenRenewalType
-	56, // 19: CAuthentication_RefreshToken_Enumerate_Response.refresh_tokens:type_name -> CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription
+	54, // 19: CAuthentication_RefreshToken_Enumerate_Response.refresh_tokens:type_name -> CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription
 	7,  // 20: CAuthentication_Token_Revoke_Request.revoke_action:type_name -> EAuthTokenRevokeAction
 	7,  // 21: CAuthentication_RefreshToken_Revoke_Request.revoke_action:type_name -> EAuthTokenRevokeAction
 	0,  // 22: CSupportRefreshTokenDescription.platform_type:type_name -> EAuthTokenPlatformType
 	6,  // 23: CSupportRefreshTokenDescription.token_state:type_name -> EAuthTokenState
-	57, // 24: CSupportRefreshTokenDescription.first_seen:type_name -> CSupportRefreshTokenDescription.TokenUsageEvent
-	57, // 25: CSupportRefreshTokenDescription.last_seen:type_name -> CSupportRefreshTokenDescription.TokenUsageEvent
+	55, // 24: CSupportRefreshTokenDescription.first_seen:type_name -> CSupportRefreshTokenDescription.TokenUsageEvent
+	55, // 25: CSupportRefreshTokenDescription.last_seen:type_name -> CSupportRefreshTokenDescription.TokenUsageEvent
 	38, // 26: CAuthenticationSupport_QueryRefreshTokensByAccount_Response.refresh_tokens:type_name -> CSupportRefreshTokenDescription
 	38, // 27: CAuthenticationSupport_QueryRefreshTokenByID_Response.refresh_tokens:type_name -> CSupportRefreshTokenDescription
-	59, // 28: CSupportRefreshTokenAudit.ip:type_name -> CMsgIPAddress
+	57, // 28: CSupportRefreshTokenAudit.ip:type_name -> CMsgIPAddress
 	45, // 29: CAuthenticationSupport_GetTokenHistory_Response.history:type_name -> CSupportRefreshTokenAudit
-	52, // 30: CCloudGaming_GetTimeRemaining_Response.entries:type_name -> CCloudGaming_TimeRemaining
-	59, // 31: CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent.ip:type_name -> CMsgIPAddress
+	50, // 30: CCloudGaming_GetTimeRemaining_Response.entries:type_name -> CCloudGaming_TimeRemaining
+	57, // 31: CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent.ip:type_name -> CMsgIPAddress
 	0,  // 32: CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.platform_type:type_name -> EAuthTokenPlatformType
-	55, // 33: CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.first_seen:type_name -> CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent
-	55, // 34: CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.last_seen:type_name -> CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent
+	53, // 33: CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.first_seen:type_name -> CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent
+	53, // 34: CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.last_seen:type_name -> CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent
 	5,  // 35: CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.authentication_type:type_name -> EAuthenticationType
 	6,  // 36: CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.effective_token_state:type_name -> EAuthTokenState
-	59, // 37: CSupportRefreshTokenDescription.TokenUsageEvent.ip:type_name -> CMsgIPAddress
+	57, // 37: CSupportRefreshTokenDescription.TokenUsageEvent.ip:type_name -> CMsgIPAddress
 	8,  // 38: Authentication.GetPasswordRSAPublicKey:input_type -> CAuthentication_GetPasswordRSAPublicKey_Request
 	11, // 39: Authentication.BeginAuthSessionViaQR:input_type -> CAuthentication_BeginAuthSessionViaQR_Request
 	14, // 40: Authentication.BeginAuthSessionViaCredentials:input_type -> CAuthentication_BeginAuthSessionViaCredentials_Request
@@ -4230,31 +4117,29 @@ var file_steammessages_auth_steamclient_proto_depIdxs = []int32{
 	42, // 54: AuthenticationSupport.RevokeToken:input_type -> CAuthenticationSupport_RevokeToken_Request
 	44, // 55: AuthenticationSupport.GetTokenHistory:input_type -> CAuthenticationSupport_GetTokenHistory_Request
 	47, // 56: AuthenticationSupport.MarkTokenCompromised:input_type -> CAuthenticationSupport_MarkTokenCompromised_Request
-	49, // 57: CloudGaming.CreateNonce:input_type -> CCloudGaming_CreateNonce_Request
-	51, // 58: CloudGaming.GetTimeRemaining:input_type -> CCloudGaming_GetTimeRemaining_Request
-	9,  // 59: Authentication.GetPasswordRSAPublicKey:output_type -> CAuthentication_GetPasswordRSAPublicKey_Response
-	13, // 60: Authentication.BeginAuthSessionViaQR:output_type -> CAuthentication_BeginAuthSessionViaQR_Response
-	15, // 61: Authentication.BeginAuthSessionViaCredentials:output_type -> CAuthentication_BeginAuthSessionViaCredentials_Response
-	17, // 62: Authentication.PollAuthSessionStatus:output_type -> CAuthentication_PollAuthSessionStatus_Response
-	19, // 63: Authentication.GetAuthSessionInfo:output_type -> CAuthentication_GetAuthSessionInfo_Response
-	21, // 64: Authentication.GetAuthSessionRiskInfo:output_type -> CAuthentication_GetAuthSessionRiskInfo_Response
-	60, // 65: Authentication.NotifyRiskQuizResults:output_type -> NoResponse
-	24, // 66: Authentication.UpdateAuthSessionWithMobileConfirmation:output_type -> CAuthentication_UpdateAuthSessionWithMobileConfirmation_Response
-	26, // 67: Authentication.UpdateAuthSessionWithSteamGuardCode:output_type -> CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response
-	28, // 68: Authentication.GenerateAccessTokenForApp:output_type -> CAuthentication_AccessToken_GenerateForApp_Response
-	30, // 69: Authentication.EnumerateTokens:output_type -> CAuthentication_RefreshToken_Enumerate_Response
-	32, // 70: Authentication.GetAuthSessionsForAccount:output_type -> CAuthentication_GetAuthSessionsForAccount_Response
-	34, // 71: Authentication.RevokeToken:output_type -> CAuthentication_Token_Revoke_Response
-	36, // 72: Authentication.RevokeRefreshToken:output_type -> CAuthentication_RefreshToken_Revoke_Response
-	39, // 73: AuthenticationSupport.QueryRefreshTokensByAccount:output_type -> CAuthenticationSupport_QueryRefreshTokensByAccount_Response
-	41, // 74: AuthenticationSupport.QueryRefreshTokenByID:output_type -> CAuthenticationSupport_QueryRefreshTokenByID_Response
-	43, // 75: AuthenticationSupport.RevokeToken:output_type -> CAuthenticationSupport_RevokeToken_Response
-	46, // 76: AuthenticationSupport.GetTokenHistory:output_type -> CAuthenticationSupport_GetTokenHistory_Response
-	48, // 77: AuthenticationSupport.MarkTokenCompromised:output_type -> CAuthenticationSupport_MarkTokenCompromised_Response
-	50, // 78: CloudGaming.CreateNonce:output_type -> CCloudGaming_CreateNonce_Response
-	53, // 79: CloudGaming.GetTimeRemaining:output_type -> CCloudGaming_GetTimeRemaining_Response
-	59, // [59:80] is the sub-list for method output_type
-	38, // [38:59] is the sub-list for method input_type
+	49, // 57: CloudGaming.GetTimeRemaining:input_type -> CCloudGaming_GetTimeRemaining_Request
+	9,  // 58: Authentication.GetPasswordRSAPublicKey:output_type -> CAuthentication_GetPasswordRSAPublicKey_Response
+	13, // 59: Authentication.BeginAuthSessionViaQR:output_type -> CAuthentication_BeginAuthSessionViaQR_Response
+	15, // 60: Authentication.BeginAuthSessionViaCredentials:output_type -> CAuthentication_BeginAuthSessionViaCredentials_Response
+	17, // 61: Authentication.PollAuthSessionStatus:output_type -> CAuthentication_PollAuthSessionStatus_Response
+	19, // 62: Authentication.GetAuthSessionInfo:output_type -> CAuthentication_GetAuthSessionInfo_Response
+	21, // 63: Authentication.GetAuthSessionRiskInfo:output_type -> CAuthentication_GetAuthSessionRiskInfo_Response
+	58, // 64: Authentication.NotifyRiskQuizResults:output_type -> NoResponse
+	24, // 65: Authentication.UpdateAuthSessionWithMobileConfirmation:output_type -> CAuthentication_UpdateAuthSessionWithMobileConfirmation_Response
+	26, // 66: Authentication.UpdateAuthSessionWithSteamGuardCode:output_type -> CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response
+	28, // 67: Authentication.GenerateAccessTokenForApp:output_type -> CAuthentication_AccessToken_GenerateForApp_Response
+	30, // 68: Authentication.EnumerateTokens:output_type -> CAuthentication_RefreshToken_Enumerate_Response
+	32, // 69: Authentication.GetAuthSessionsForAccount:output_type -> CAuthentication_GetAuthSessionsForAccount_Response
+	34, // 70: Authentication.RevokeToken:output_type -> CAuthentication_Token_Revoke_Response
+	36, // 71: Authentication.RevokeRefreshToken:output_type -> CAuthentication_RefreshToken_Revoke_Response
+	39, // 72: AuthenticationSupport.QueryRefreshTokensByAccount:output_type -> CAuthenticationSupport_QueryRefreshTokensByAccount_Response
+	41, // 73: AuthenticationSupport.QueryRefreshTokenByID:output_type -> CAuthenticationSupport_QueryRefreshTokenByID_Response
+	43, // 74: AuthenticationSupport.RevokeToken:output_type -> CAuthenticationSupport_RevokeToken_Response
+	46, // 75: AuthenticationSupport.GetTokenHistory:output_type -> CAuthenticationSupport_GetTokenHistory_Response
+	48, // 76: AuthenticationSupport.MarkTokenCompromised:output_type -> CAuthenticationSupport_MarkTokenCompromised_Response
+	51, // 77: CloudGaming.GetTimeRemaining:output_type -> CCloudGaming_GetTimeRemaining_Response
+	58, // [58:78] is the sub-list for method output_type
+	38, // [38:58] is the sub-list for method input_type
 	38, // [38:38] is the sub-list for extension type_name
 	38, // [38:38] is the sub-list for extension extendee
 	0,  // [0:38] is the sub-list for field type_name
@@ -4274,7 +4159,7 @@ func file_steammessages_auth_steamclient_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_auth_steamclient_proto_rawDesc), len(file_steammessages_auth_steamclient_proto_rawDesc)),
 			NumEnums:      8,
-			NumMessages:   50,
+			NumMessages:   48,
 			NumExtensions: 0,
 			NumServices:   3,
 		},

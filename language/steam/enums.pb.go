@@ -4233,14 +4233,15 @@ func (ECloudGamingPlatform) EnumDescriptor() ([]byte, []int) {
 type ECompromiseDetectionType int32
 
 const (
-	ECompromiseDetectionType_k_ECompromiseDetectionType_None            ECompromiseDetectionType = 0
-	ECompromiseDetectionType_k_ECompromiseDetectionType_TradeEvent      ECompromiseDetectionType = 1
-	ECompromiseDetectionType_k_ECompromiseDetectionType_ApiCallRate     ECompromiseDetectionType = 2
-	ECompromiseDetectionType_k_ECompromiseDetectionType_Manual          ECompromiseDetectionType = 3
-	ECompromiseDetectionType_k_ECompromiseDetectionType_TicketAction    ECompromiseDetectionType = 4
-	ECompromiseDetectionType_k_ECompromiseDetectionType_MaliciousRefund ECompromiseDetectionType = 5
-	ECompromiseDetectionType_k_ECompromiseDetectionType_Move2FA         ECompromiseDetectionType = 6
-	ECompromiseDetectionType_k_ECompromiseDetectionType_DeviceType      ECompromiseDetectionType = 7
+	ECompromiseDetectionType_k_ECompromiseDetectionType_None                 ECompromiseDetectionType = 0
+	ECompromiseDetectionType_k_ECompromiseDetectionType_TradeEvent           ECompromiseDetectionType = 1
+	ECompromiseDetectionType_k_ECompromiseDetectionType_ApiCallRate          ECompromiseDetectionType = 2
+	ECompromiseDetectionType_k_ECompromiseDetectionType_Manual               ECompromiseDetectionType = 3
+	ECompromiseDetectionType_k_ECompromiseDetectionType_TicketAction         ECompromiseDetectionType = 4
+	ECompromiseDetectionType_k_ECompromiseDetectionType_MaliciousRefund      ECompromiseDetectionType = 5
+	ECompromiseDetectionType_k_ECompromiseDetectionType_Move2FA              ECompromiseDetectionType = 6
+	ECompromiseDetectionType_k_ECompromiseDetectionType_DeviceType           ECompromiseDetectionType = 7
+	ECompromiseDetectionType_k_ECompromiseDetectionType_LeakedCredentialList ECompromiseDetectionType = 8
 )
 
 // Enum value maps for ECompromiseDetectionType.
@@ -4254,16 +4255,18 @@ var (
 		5: "k_ECompromiseDetectionType_MaliciousRefund",
 		6: "k_ECompromiseDetectionType_Move2FA",
 		7: "k_ECompromiseDetectionType_DeviceType",
+		8: "k_ECompromiseDetectionType_LeakedCredentialList",
 	}
 	ECompromiseDetectionType_value = map[string]int32{
-		"k_ECompromiseDetectionType_None":            0,
-		"k_ECompromiseDetectionType_TradeEvent":      1,
-		"k_ECompromiseDetectionType_ApiCallRate":     2,
-		"k_ECompromiseDetectionType_Manual":          3,
-		"k_ECompromiseDetectionType_TicketAction":    4,
-		"k_ECompromiseDetectionType_MaliciousRefund": 5,
-		"k_ECompromiseDetectionType_Move2FA":         6,
-		"k_ECompromiseDetectionType_DeviceType":      7,
+		"k_ECompromiseDetectionType_None":                 0,
+		"k_ECompromiseDetectionType_TradeEvent":           1,
+		"k_ECompromiseDetectionType_ApiCallRate":          2,
+		"k_ECompromiseDetectionType_Manual":               3,
+		"k_ECompromiseDetectionType_TicketAction":         4,
+		"k_ECompromiseDetectionType_MaliciousRefund":      5,
+		"k_ECompromiseDetectionType_Move2FA":              6,
+		"k_ECompromiseDetectionType_DeviceType":           7,
+		"k_ECompromiseDetectionType_LeakedCredentialList": 8,
 	}
 )
 
@@ -5503,7 +5506,8 @@ const (
 	EContentModerationSanction_k_EContentModerationSanction_HarassmentBanned      EContentModerationSanction = 10
 	EContentModerationSanction_k_EContentModerationSanction_HarassmentStrike      EContentModerationSanction = 11
 	EContentModerationSanction_k_EContentModerationSanction_Escalate              EContentModerationSanction = 12
-	EContentModerationSanction_k_EContentModerationSanction_MAX                   EContentModerationSanction = 13
+	EContentModerationSanction_k_EContentModerationSanction_MarkedIncompatible    EContentModerationSanction = 13
+	EContentModerationSanction_k_EContentModerationSanction_MAX                   EContentModerationSanction = 14
 )
 
 // Enum value maps for EContentModerationSanction.
@@ -5522,7 +5526,8 @@ var (
 		10: "k_EContentModerationSanction_HarassmentBanned",
 		11: "k_EContentModerationSanction_HarassmentStrike",
 		12: "k_EContentModerationSanction_Escalate",
-		13: "k_EContentModerationSanction_MAX",
+		13: "k_EContentModerationSanction_MarkedIncompatible",
+		14: "k_EContentModerationSanction_MAX",
 	}
 	EContentModerationSanction_value = map[string]int32{
 		"k_EContentModerationSanction_Invalid":               0,
@@ -5538,7 +5543,8 @@ var (
 		"k_EContentModerationSanction_HarassmentBanned":      10,
 		"k_EContentModerationSanction_HarassmentStrike":      11,
 		"k_EContentModerationSanction_Escalate":              12,
-		"k_EContentModerationSanction_MAX":                   13,
+		"k_EContentModerationSanction_MarkedIncompatible":    13,
+		"k_EContentModerationSanction_MAX":                   14,
 	}
 )
 
@@ -6798,7 +6804,7 @@ const file_enums_proto_rawDesc = "" +
 	"\x14ECloudGamingPlatform\x12\x1e\n" +
 	"\x1ak_ECloudGamingPlatformNone\x10\x00\x12\x1f\n" +
 	"\x1bk_ECloudGamingPlatformValve\x10\x01\x12 \n" +
-	"\x1ck_ECloudGamingPlatformNVIDIA\x10\x02*\xed\x02\n" +
+	"\x1ck_ECloudGamingPlatformNVIDIA\x10\x02*\xa2\x03\n" +
 	"\x18ECompromiseDetectionType\x12#\n" +
 	"\x1fk_ECompromiseDetectionType_None\x10\x00\x12)\n" +
 	"%k_ECompromiseDetectionType_TradeEvent\x10\x01\x12*\n" +
@@ -6807,7 +6813,8 @@ const file_enums_proto_rawDesc = "" +
 	"'k_ECompromiseDetectionType_TicketAction\x10\x04\x12.\n" +
 	"*k_ECompromiseDetectionType_MaliciousRefund\x10\x05\x12&\n" +
 	"\"k_ECompromiseDetectionType_Move2FA\x10\x06\x12)\n" +
-	"%k_ECompromiseDetectionType_DeviceType\x10\a*\xd6\x01\n" +
+	"%k_ECompromiseDetectionType_DeviceType\x10\a\x123\n" +
+	"/k_ECompromiseDetectionType_LeakedCredentialList\x10\b*\xd6\x01\n" +
 	"\x1aEAsyncGameSessionUserState\x120\n" +
 	"#k_EAsyncGameSessionUserStateUnknown\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x120\n" +
 	",k_EAsyncGameSessionUserStateWaitingForOthers\x10\x00\x12.\n" +
@@ -6937,7 +6944,7 @@ const file_enums_proto_rawDesc = "" +
 	"%k_EContentReportResolution_Sanctioned\x10\x0e\x12(\n" +
 	"$k_EContentReportResolution_Sustained\x10\x0f\x12%\n" +
 	"!k_EContentReportResolution_Broken\x10\x10\x12\"\n" +
-	"\x1ek_EContentReportResolution_MAX\x10\x11*\xa6\x05\n" +
+	"\x1ek_EContentReportResolution_MAX\x10\x11*\xdb\x05\n" +
 	"\x1aEContentModerationSanction\x12(\n" +
 	"$k_EContentModerationSanction_Invalid\x10\x00\x12(\n" +
 	"$k_EContentModerationSanction_Deleted\x10\x01\x120\n" +
@@ -6952,8 +6959,9 @@ const file_enums_proto_rawDesc = "" +
 	"-k_EContentModerationSanction_HarassmentBanned\x10\n" +
 	"\x121\n" +
 	"-k_EContentModerationSanction_HarassmentStrike\x10\v\x12)\n" +
-	"%k_EContentModerationSanction_Escalate\x10\f\x12$\n" +
-	" k_EContentModerationSanction_MAX\x10\r*\xff\b\n" +
+	"%k_EContentModerationSanction_Escalate\x10\f\x123\n" +
+	"/k_EContentModerationSanction_MarkedIncompatible\x10\r\x12$\n" +
+	" k_EContentModerationSanction_MAX\x10\x0e*\xff\b\n" +
 	"\x1bEContentReportSubjectAction\x12)\n" +
 	"%k_EContentReportSubjectAction_Invalid\x10\x00\x12,\n" +
 	"(k_EContentReportSubjectAction_Unresolved\x10\x01\x12,\n" +

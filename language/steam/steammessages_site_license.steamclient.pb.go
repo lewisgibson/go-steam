@@ -177,58 +177,6 @@ func (x *CSiteLicense_ClientSeatCheckout_Notification) GetEresult() uint32 {
 	return 0
 }
 
-type CSiteManagerClient_TrackedPayments_Notification struct {
-	state         protoimpl.MessageState                                     `protogen:"open.v1"`
-	SiteId        *uint64                                                    `protobuf:"fixed64,1,opt,name=site_id,json=siteId" json:"site_id,omitempty"`
-	Payments      []*CSiteManagerClient_TrackedPayments_Notification_Payment `protobuf:"bytes,2,rep,name=payments" json:"payments,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CSiteManagerClient_TrackedPayments_Notification) Reset() {
-	*x = CSiteManagerClient_TrackedPayments_Notification{}
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CSiteManagerClient_TrackedPayments_Notification) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CSiteManagerClient_TrackedPayments_Notification) ProtoMessage() {}
-
-func (x *CSiteManagerClient_TrackedPayments_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CSiteManagerClient_TrackedPayments_Notification.ProtoReflect.Descriptor instead.
-func (*CSiteManagerClient_TrackedPayments_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *CSiteManagerClient_TrackedPayments_Notification) GetSiteId() uint64 {
-	if x != nil && x.SiteId != nil {
-		return *x.SiteId
-	}
-	return 0
-}
-
-func (x *CSiteManagerClient_TrackedPayments_Notification) GetPayments() []*CSiteManagerClient_TrackedPayments_Notification_Payment {
-	if x != nil {
-		return x.Payments
-	}
-	return nil
-}
-
 type CSiteLicense_InitiateAssociation_Request struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	SiteSteamid    *uint64                `protobuf:"fixed64,1,opt,name=site_steamid,json=siteSteamid" json:"site_steamid,omitempty"`
@@ -240,7 +188,7 @@ type CSiteLicense_InitiateAssociation_Request struct {
 
 func (x *CSiteLicense_InitiateAssociation_Request) Reset() {
 	*x = CSiteLicense_InitiateAssociation_Request{}
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[4]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -252,7 +200,7 @@ func (x *CSiteLicense_InitiateAssociation_Request) String() string {
 func (*CSiteLicense_InitiateAssociation_Request) ProtoMessage() {}
 
 func (x *CSiteLicense_InitiateAssociation_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[4]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -265,7 +213,7 @@ func (x *CSiteLicense_InitiateAssociation_Request) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CSiteLicense_InitiateAssociation_Request.ProtoReflect.Descriptor instead.
 func (*CSiteLicense_InitiateAssociation_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{4}
+	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CSiteLicense_InitiateAssociation_Request) GetSiteSteamid() uint64 {
@@ -290,15 +238,17 @@ func (x *CSiteLicense_InitiateAssociation_Request) GetClientLocalIp() uint32 {
 }
 
 type CSiteLicense_InitiateAssociation_Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ConnectionKey []byte                 `protobuf:"bytes,1,opt,name=connection_key,json=connectionKey" json:"connection_key,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                   protoimpl.MessageState `protogen:"open.v1"`
+	ConnectionKey           []byte                 `protobuf:"bytes,1,opt,name=connection_key,json=connectionKey" json:"connection_key,omitempty"`
+	SiteName                *string                `protobuf:"bytes,2,opt,name=site_name,json=siteName" json:"site_name,omitempty"`
+	HasParentalRestrictions *bool                  `protobuf:"varint,3,opt,name=has_parental_restrictions,json=hasParentalRestrictions" json:"has_parental_restrictions,omitempty"`
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
 }
 
 func (x *CSiteLicense_InitiateAssociation_Response) Reset() {
 	*x = CSiteLicense_InitiateAssociation_Response{}
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[5]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -310,7 +260,7 @@ func (x *CSiteLicense_InitiateAssociation_Response) String() string {
 func (*CSiteLicense_InitiateAssociation_Response) ProtoMessage() {}
 
 func (x *CSiteLicense_InitiateAssociation_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[5]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -323,7 +273,7 @@ func (x *CSiteLicense_InitiateAssociation_Response) ProtoReflect() protoreflect.
 
 // Deprecated: Use CSiteLicense_InitiateAssociation_Response.ProtoReflect.Descriptor instead.
 func (*CSiteLicense_InitiateAssociation_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{5}
+	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *CSiteLicense_InitiateAssociation_Response) GetConnectionKey() []byte {
@@ -331,6 +281,20 @@ func (x *CSiteLicense_InitiateAssociation_Response) GetConnectionKey() []byte {
 		return x.ConnectionKey
 	}
 	return nil
+}
+
+func (x *CSiteLicense_InitiateAssociation_Response) GetSiteName() string {
+	if x != nil && x.SiteName != nil {
+		return *x.SiteName
+	}
+	return ""
+}
+
+func (x *CSiteLicense_InitiateAssociation_Response) GetHasParentalRestrictions() bool {
+	if x != nil && x.HasParentalRestrictions != nil {
+		return *x.HasParentalRestrictions
+	}
+	return false
 }
 
 type CSiteLicense_LCSAuthenticate_Request struct {
@@ -342,7 +306,7 @@ type CSiteLicense_LCSAuthenticate_Request struct {
 
 func (x *CSiteLicense_LCSAuthenticate_Request) Reset() {
 	*x = CSiteLicense_LCSAuthenticate_Request{}
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[6]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -354,7 +318,7 @@ func (x *CSiteLicense_LCSAuthenticate_Request) String() string {
 func (*CSiteLicense_LCSAuthenticate_Request) ProtoMessage() {}
 
 func (x *CSiteLicense_LCSAuthenticate_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[6]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -367,7 +331,7 @@ func (x *CSiteLicense_LCSAuthenticate_Request) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CSiteLicense_LCSAuthenticate_Request.ProtoReflect.Descriptor instead.
 func (*CSiteLicense_LCSAuthenticate_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{6}
+	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *CSiteLicense_LCSAuthenticate_Request) GetInstanceid() uint64 {
@@ -389,7 +353,7 @@ type CSiteLicense_LCSAuthenticate_Response struct {
 
 func (x *CSiteLicense_LCSAuthenticate_Response) Reset() {
 	*x = CSiteLicense_LCSAuthenticate_Response{}
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[7]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -401,7 +365,7 @@ func (x *CSiteLicense_LCSAuthenticate_Response) String() string {
 func (*CSiteLicense_LCSAuthenticate_Response) ProtoMessage() {}
 
 func (x *CSiteLicense_LCSAuthenticate_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[7]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -414,7 +378,7 @@ func (x *CSiteLicense_LCSAuthenticate_Response) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CSiteLicense_LCSAuthenticate_Response.ProtoReflect.Descriptor instead.
 func (*CSiteLicense_LCSAuthenticate_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{7}
+	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CSiteLicense_LCSAuthenticate_Response) GetSiteId() uint64 {
@@ -457,7 +421,7 @@ type CSiteLicense_LCSAssociateUser_Request struct {
 
 func (x *CSiteLicense_LCSAssociateUser_Request) Reset() {
 	*x = CSiteLicense_LCSAssociateUser_Request{}
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[8]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -469,7 +433,7 @@ func (x *CSiteLicense_LCSAssociateUser_Request) String() string {
 func (*CSiteLicense_LCSAssociateUser_Request) ProtoMessage() {}
 
 func (x *CSiteLicense_LCSAssociateUser_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[8]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -482,7 +446,7 @@ func (x *CSiteLicense_LCSAssociateUser_Request) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CSiteLicense_LCSAssociateUser_Request.ProtoReflect.Descriptor instead.
 func (*CSiteLicense_LCSAssociateUser_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{8}
+	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CSiteLicense_LCSAssociateUser_Request) GetSteamid() uint64 {
@@ -521,7 +485,7 @@ type CSiteLicense_LCSAssociateUser_Response struct {
 
 func (x *CSiteLicense_LCSAssociateUser_Response) Reset() {
 	*x = CSiteLicense_LCSAssociateUser_Response{}
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[9]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -533,7 +497,7 @@ func (x *CSiteLicense_LCSAssociateUser_Response) String() string {
 func (*CSiteLicense_LCSAssociateUser_Response) ProtoMessage() {}
 
 func (x *CSiteLicense_LCSAssociateUser_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[9]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -546,7 +510,7 @@ func (x *CSiteLicense_LCSAssociateUser_Response) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CSiteLicense_LCSAssociateUser_Response.ProtoReflect.Descriptor instead.
 func (*CSiteLicense_LCSAssociateUser_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{9}
+	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{8}
 }
 
 type CSiteLicense_ClientSeatCheckout_Request struct {
@@ -560,7 +524,7 @@ type CSiteLicense_ClientSeatCheckout_Request struct {
 
 func (x *CSiteLicense_ClientSeatCheckout_Request) Reset() {
 	*x = CSiteLicense_ClientSeatCheckout_Request{}
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[10]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -572,7 +536,7 @@ func (x *CSiteLicense_ClientSeatCheckout_Request) String() string {
 func (*CSiteLicense_ClientSeatCheckout_Request) ProtoMessage() {}
 
 func (x *CSiteLicense_ClientSeatCheckout_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[10]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -585,7 +549,7 @@ func (x *CSiteLicense_ClientSeatCheckout_Request) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CSiteLicense_ClientSeatCheckout_Request.ProtoReflect.Descriptor instead.
 func (*CSiteLicense_ClientSeatCheckout_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{10}
+	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CSiteLicense_ClientSeatCheckout_Request) GetSteamid() uint64 {
@@ -617,7 +581,7 @@ type CSiteLicense_ClientSeatCheckout_Response struct {
 
 func (x *CSiteLicense_ClientSeatCheckout_Response) Reset() {
 	*x = CSiteLicense_ClientSeatCheckout_Response{}
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[11]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -629,7 +593,7 @@ func (x *CSiteLicense_ClientSeatCheckout_Response) String() string {
 func (*CSiteLicense_ClientSeatCheckout_Response) ProtoMessage() {}
 
 func (x *CSiteLicense_ClientSeatCheckout_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[11]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -642,7 +606,7 @@ func (x *CSiteLicense_ClientSeatCheckout_Response) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CSiteLicense_ClientSeatCheckout_Response.ProtoReflect.Descriptor instead.
 func (*CSiteLicense_ClientSeatCheckout_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{11}
+	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{10}
 }
 
 type CSiteLicense_ClientGetAvailableSeats_Request struct {
@@ -656,7 +620,7 @@ type CSiteLicense_ClientGetAvailableSeats_Request struct {
 
 func (x *CSiteLicense_ClientGetAvailableSeats_Request) Reset() {
 	*x = CSiteLicense_ClientGetAvailableSeats_Request{}
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[12]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -668,7 +632,7 @@ func (x *CSiteLicense_ClientGetAvailableSeats_Request) String() string {
 func (*CSiteLicense_ClientGetAvailableSeats_Request) ProtoMessage() {}
 
 func (x *CSiteLicense_ClientGetAvailableSeats_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[12]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -681,7 +645,7 @@ func (x *CSiteLicense_ClientGetAvailableSeats_Request) ProtoReflect() protorefle
 
 // Deprecated: Use CSiteLicense_ClientGetAvailableSeats_Request.ProtoReflect.Descriptor instead.
 func (*CSiteLicense_ClientGetAvailableSeats_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{12}
+	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *CSiteLicense_ClientGetAvailableSeats_Request) GetSteamid() uint64 {
@@ -714,7 +678,7 @@ type CSiteLicense_ClientGetAvailableSeats_Response struct {
 
 func (x *CSiteLicense_ClientGetAvailableSeats_Response) Reset() {
 	*x = CSiteLicense_ClientGetAvailableSeats_Response{}
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[13]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -726,7 +690,7 @@ func (x *CSiteLicense_ClientGetAvailableSeats_Response) String() string {
 func (*CSiteLicense_ClientGetAvailableSeats_Response) ProtoMessage() {}
 
 func (x *CSiteLicense_ClientGetAvailableSeats_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[13]
+	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -739,7 +703,7 @@ func (x *CSiteLicense_ClientGetAvailableSeats_Response) ProtoReflect() protorefl
 
 // Deprecated: Use CSiteLicense_ClientGetAvailableSeats_Response.ProtoReflect.Descriptor instead.
 func (*CSiteLicense_ClientGetAvailableSeats_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{13}
+	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *CSiteLicense_ClientGetAvailableSeats_Response) GetAvailableSeats() uint32 {
@@ -747,122 +711,6 @@ func (x *CSiteLicense_ClientGetAvailableSeats_Response) GetAvailableSeats() uint
 		return *x.AvailableSeats
 	}
 	return 0
-}
-
-type CSiteManagerClient_TrackedPayments_Notification_Payment struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Transid        *uint64                `protobuf:"varint,1,opt,name=transid" json:"transid,omitempty"`
-	Steamid        *uint64                `protobuf:"varint,2,opt,name=steamid" json:"steamid,omitempty"`
-	Amount         *int64                 `protobuf:"varint,3,opt,name=amount" json:"amount,omitempty"`
-	Ecurrency      *uint32                `protobuf:"varint,4,opt,name=ecurrency" json:"ecurrency,omitempty"`
-	TimeCreated    *int32                 `protobuf:"varint,5,opt,name=time_created,json=timeCreated" json:"time_created,omitempty"`
-	PurchaseStatus *int32                 `protobuf:"varint,6,opt,name=purchase_status,json=purchaseStatus" json:"purchase_status,omitempty"`
-	MachineName    *string                `protobuf:"bytes,7,opt,name=machine_name,json=machineName" json:"machine_name,omitempty"`
-	PersonaName    *string                `protobuf:"bytes,8,opt,name=persona_name,json=personaName" json:"persona_name,omitempty"`
-	ProfileUrl     *string                `protobuf:"bytes,9,opt,name=profile_url,json=profileUrl" json:"profile_url,omitempty"`
-	AvatarUrl      *string                `protobuf:"bytes,10,opt,name=avatar_url,json=avatarUrl" json:"avatar_url,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
-}
-
-func (x *CSiteManagerClient_TrackedPayments_Notification_Payment) Reset() {
-	*x = CSiteManagerClient_TrackedPayments_Notification_Payment{}
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CSiteManagerClient_TrackedPayments_Notification_Payment) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CSiteManagerClient_TrackedPayments_Notification_Payment) ProtoMessage() {}
-
-func (x *CSiteManagerClient_TrackedPayments_Notification_Payment) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_site_license_steamclient_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CSiteManagerClient_TrackedPayments_Notification_Payment.ProtoReflect.Descriptor instead.
-func (*CSiteManagerClient_TrackedPayments_Notification_Payment) Descriptor() ([]byte, []int) {
-	return file_steammessages_site_license_steamclient_proto_rawDescGZIP(), []int{3, 0}
-}
-
-func (x *CSiteManagerClient_TrackedPayments_Notification_Payment) GetTransid() uint64 {
-	if x != nil && x.Transid != nil {
-		return *x.Transid
-	}
-	return 0
-}
-
-func (x *CSiteManagerClient_TrackedPayments_Notification_Payment) GetSteamid() uint64 {
-	if x != nil && x.Steamid != nil {
-		return *x.Steamid
-	}
-	return 0
-}
-
-func (x *CSiteManagerClient_TrackedPayments_Notification_Payment) GetAmount() int64 {
-	if x != nil && x.Amount != nil {
-		return *x.Amount
-	}
-	return 0
-}
-
-func (x *CSiteManagerClient_TrackedPayments_Notification_Payment) GetEcurrency() uint32 {
-	if x != nil && x.Ecurrency != nil {
-		return *x.Ecurrency
-	}
-	return 0
-}
-
-func (x *CSiteManagerClient_TrackedPayments_Notification_Payment) GetTimeCreated() int32 {
-	if x != nil && x.TimeCreated != nil {
-		return *x.TimeCreated
-	}
-	return 0
-}
-
-func (x *CSiteManagerClient_TrackedPayments_Notification_Payment) GetPurchaseStatus() int32 {
-	if x != nil && x.PurchaseStatus != nil {
-		return *x.PurchaseStatus
-	}
-	return 0
-}
-
-func (x *CSiteManagerClient_TrackedPayments_Notification_Payment) GetMachineName() string {
-	if x != nil && x.MachineName != nil {
-		return *x.MachineName
-	}
-	return ""
-}
-
-func (x *CSiteManagerClient_TrackedPayments_Notification_Payment) GetPersonaName() string {
-	if x != nil && x.PersonaName != nil {
-		return *x.PersonaName
-	}
-	return ""
-}
-
-func (x *CSiteManagerClient_TrackedPayments_Notification_Payment) GetProfileUrl() string {
-	if x != nil && x.ProfileUrl != nil {
-		return *x.ProfileUrl
-	}
-	return ""
-}
-
-func (x *CSiteManagerClient_TrackedPayments_Notification_Payment) GetAvatarUrl() string {
-	if x != nil && x.AvatarUrl != nil {
-		return *x.AvatarUrl
-	}
-	return ""
 }
 
 var File_steammessages_site_license_steamclient_proto protoreflect.FileDescriptor
@@ -878,30 +726,15 @@ const file_steammessages_site_license_steamclient_proto_rawDesc = "" +
 	"*CSiteManagerClient_IncomingClient_Response\"^\n" +
 	",CSiteLicense_ClientSeatCheckout_Notification\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x18\n" +
-	"\aeresult\x18\x02 \x01(\rR\aeresult\"\xe8\x03\n" +
-	"/CSiteManagerClient_TrackedPayments_Notification\x12\x17\n" +
-	"\asite_id\x18\x01 \x01(\x06R\x06siteId\x12T\n" +
-	"\bpayments\x18\x02 \x03(\v28.CSiteManagerClient_TrackedPayments_Notification.PaymentR\bpayments\x1a\xc5\x02\n" +
-	"\aPayment\x12\x18\n" +
-	"\atransid\x18\x01 \x01(\x04R\atransid\x12\x18\n" +
-	"\asteamid\x18\x02 \x01(\x04R\asteamid\x12\x16\n" +
-	"\x06amount\x18\x03 \x01(\x03R\x06amount\x12\x1c\n" +
-	"\tecurrency\x18\x04 \x01(\rR\tecurrency\x12!\n" +
-	"\ftime_created\x18\x05 \x01(\x05R\vtimeCreated\x12'\n" +
-	"\x0fpurchase_status\x18\x06 \x01(\x05R\x0epurchaseStatus\x12!\n" +
-	"\fmachine_name\x18\a \x01(\tR\vmachineName\x12!\n" +
-	"\fpersona_name\x18\b \x01(\tR\vpersonaName\x12\x1f\n" +
-	"\vprofile_url\x18\t \x01(\tR\n" +
-	"profileUrl\x12\x1d\n" +
-	"\n" +
-	"avatar_url\x18\n" +
-	" \x01(\tR\tavatarUrl\"\x9e\x01\n" +
+	"\aeresult\x18\x02 \x01(\rR\aeresult\"\x9e\x01\n" +
 	"(CSiteLicense_InitiateAssociation_Request\x12!\n" +
 	"\fsite_steamid\x18\x01 \x01(\x06R\vsiteSteamid\x12'\n" +
 	"\x0fsite_instanceid\x18\x02 \x01(\x06R\x0esiteInstanceid\x12&\n" +
-	"\x0fclient_local_ip\x18\x03 \x01(\aR\rclientLocalIp\"R\n" +
+	"\x0fclient_local_ip\x18\x03 \x01(\aR\rclientLocalIp\"\xab\x01\n" +
 	")CSiteLicense_InitiateAssociation_Response\x12%\n" +
-	"\x0econnection_key\x18\x01 \x01(\fR\rconnectionKey\"F\n" +
+	"\x0econnection_key\x18\x01 \x01(\fR\rconnectionKey\x12\x1b\n" +
+	"\tsite_name\x18\x02 \x01(\tR\bsiteName\x12:\n" +
+	"\x19has_parental_restrictions\x18\x03 \x01(\bR\x17hasParentalRestrictions\"F\n" +
 	"$CSiteLicense_LCSAuthenticate_Request\x12\x1e\n" +
 	"\n" +
 	"instanceid\x18\x01 \x01(\x06R\n" +
@@ -934,11 +767,10 @@ const file_steammessages_site_license_steamclient_proto_rawDesc = "" +
 	"instanceid\x12\x14\n" +
 	"\x05appid\x18\x03 \x01(\rR\x05appid\"X\n" +
 	"-CSiteLicense_ClientGetAvailableSeats_Response\x12'\n" +
-	"\x0favailable_seats\x18\x01 \x01(\rR\x0eavailableSeats2\xc0\x02\n" +
+	"\x0favailable_seats\x18\x01 \x01(\rR\x0eavailableSeats2\xe2\x01\n" +
 	"\x11SiteManagerClient\x12i\n" +
 	"\x0eIncomingClient\x12*.CSiteManagerClient_IncomingClient_Request\x1a+.CSiteManagerClient_IncomingClient_Response\x12\\\n" +
-	"\x1eClientSeatCheckoutNotification\x12-.CSiteLicense_ClientSeatCheckout_Notification\x1a\v.NoResponse\x12\\\n" +
-	"\x1bTrackedPaymentsNotification\x120.CSiteManagerClient_TrackedPayments_Notification\x1a\v.NoResponse\x1a\x04\xc0\xb5\x18\x022\xa7\x04\n" +
+	"\x1eClientSeatCheckoutNotification\x12-.CSiteLicense_ClientSeatCheckout_Notification\x1a\v.NoResponse\x1a\x04\xc0\xb5\x18\x022\xa7\x04\n" +
 	"\vSiteLicense\x12l\n" +
 	"\x13InitiateAssociation\x12).CSiteLicense_InitiateAssociation_Request\x1a*.CSiteLicense_InitiateAssociation_Response\x12`\n" +
 	"\x0fLCSAuthenticate\x12%.CSiteLicense_LCSAuthenticate_Request\x1a&.CSiteLicense_LCSAuthenticate_Response\x12c\n" +
@@ -958,48 +790,43 @@ func file_steammessages_site_license_steamclient_proto_rawDescGZIP() []byte {
 	return file_steammessages_site_license_steamclient_proto_rawDescData
 }
 
-var file_steammessages_site_license_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
+var file_steammessages_site_license_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
 var file_steammessages_site_license_steamclient_proto_goTypes = []any{
-	(*CSiteManagerClient_IncomingClient_Request)(nil),               // 0: CSiteManagerClient_IncomingClient_Request
-	(*CSiteManagerClient_IncomingClient_Response)(nil),              // 1: CSiteManagerClient_IncomingClient_Response
-	(*CSiteLicense_ClientSeatCheckout_Notification)(nil),            // 2: CSiteLicense_ClientSeatCheckout_Notification
-	(*CSiteManagerClient_TrackedPayments_Notification)(nil),         // 3: CSiteManagerClient_TrackedPayments_Notification
-	(*CSiteLicense_InitiateAssociation_Request)(nil),                // 4: CSiteLicense_InitiateAssociation_Request
-	(*CSiteLicense_InitiateAssociation_Response)(nil),               // 5: CSiteLicense_InitiateAssociation_Response
-	(*CSiteLicense_LCSAuthenticate_Request)(nil),                    // 6: CSiteLicense_LCSAuthenticate_Request
-	(*CSiteLicense_LCSAuthenticate_Response)(nil),                   // 7: CSiteLicense_LCSAuthenticate_Response
-	(*CSiteLicense_LCSAssociateUser_Request)(nil),                   // 8: CSiteLicense_LCSAssociateUser_Request
-	(*CSiteLicense_LCSAssociateUser_Response)(nil),                  // 9: CSiteLicense_LCSAssociateUser_Response
-	(*CSiteLicense_ClientSeatCheckout_Request)(nil),                 // 10: CSiteLicense_ClientSeatCheckout_Request
-	(*CSiteLicense_ClientSeatCheckout_Response)(nil),                // 11: CSiteLicense_ClientSeatCheckout_Response
-	(*CSiteLicense_ClientGetAvailableSeats_Request)(nil),            // 12: CSiteLicense_ClientGetAvailableSeats_Request
-	(*CSiteLicense_ClientGetAvailableSeats_Response)(nil),           // 13: CSiteLicense_ClientGetAvailableSeats_Response
-	(*CSiteManagerClient_TrackedPayments_Notification_Payment)(nil), // 14: CSiteManagerClient_TrackedPayments_Notification.Payment
-	(*NoResponse)(nil), // 15: NoResponse
+	(*CSiteManagerClient_IncomingClient_Request)(nil),     // 0: CSiteManagerClient_IncomingClient_Request
+	(*CSiteManagerClient_IncomingClient_Response)(nil),    // 1: CSiteManagerClient_IncomingClient_Response
+	(*CSiteLicense_ClientSeatCheckout_Notification)(nil),  // 2: CSiteLicense_ClientSeatCheckout_Notification
+	(*CSiteLicense_InitiateAssociation_Request)(nil),      // 3: CSiteLicense_InitiateAssociation_Request
+	(*CSiteLicense_InitiateAssociation_Response)(nil),     // 4: CSiteLicense_InitiateAssociation_Response
+	(*CSiteLicense_LCSAuthenticate_Request)(nil),          // 5: CSiteLicense_LCSAuthenticate_Request
+	(*CSiteLicense_LCSAuthenticate_Response)(nil),         // 6: CSiteLicense_LCSAuthenticate_Response
+	(*CSiteLicense_LCSAssociateUser_Request)(nil),         // 7: CSiteLicense_LCSAssociateUser_Request
+	(*CSiteLicense_LCSAssociateUser_Response)(nil),        // 8: CSiteLicense_LCSAssociateUser_Response
+	(*CSiteLicense_ClientSeatCheckout_Request)(nil),       // 9: CSiteLicense_ClientSeatCheckout_Request
+	(*CSiteLicense_ClientSeatCheckout_Response)(nil),      // 10: CSiteLicense_ClientSeatCheckout_Response
+	(*CSiteLicense_ClientGetAvailableSeats_Request)(nil),  // 11: CSiteLicense_ClientGetAvailableSeats_Request
+	(*CSiteLicense_ClientGetAvailableSeats_Response)(nil), // 12: CSiteLicense_ClientGetAvailableSeats_Response
+	(*NoResponse)(nil), // 13: NoResponse
 }
 var file_steammessages_site_license_steamclient_proto_depIdxs = []int32{
-	14, // 0: CSiteManagerClient_TrackedPayments_Notification.payments:type_name -> CSiteManagerClient_TrackedPayments_Notification.Payment
-	0,  // 1: SiteManagerClient.IncomingClient:input_type -> CSiteManagerClient_IncomingClient_Request
-	2,  // 2: SiteManagerClient.ClientSeatCheckoutNotification:input_type -> CSiteLicense_ClientSeatCheckout_Notification
-	3,  // 3: SiteManagerClient.TrackedPaymentsNotification:input_type -> CSiteManagerClient_TrackedPayments_Notification
-	4,  // 4: SiteLicense.InitiateAssociation:input_type -> CSiteLicense_InitiateAssociation_Request
-	6,  // 5: SiteLicense.LCSAuthenticate:input_type -> CSiteLicense_LCSAuthenticate_Request
-	8,  // 6: SiteLicense.LCSAssociateUser:input_type -> CSiteLicense_LCSAssociateUser_Request
-	10, // 7: SiteLicense.ClientSeatCheckout:input_type -> CSiteLicense_ClientSeatCheckout_Request
-	12, // 8: SiteLicense.ClientGetAvailableSeats:input_type -> CSiteLicense_ClientGetAvailableSeats_Request
-	1,  // 9: SiteManagerClient.IncomingClient:output_type -> CSiteManagerClient_IncomingClient_Response
-	15, // 10: SiteManagerClient.ClientSeatCheckoutNotification:output_type -> NoResponse
-	15, // 11: SiteManagerClient.TrackedPaymentsNotification:output_type -> NoResponse
-	5,  // 12: SiteLicense.InitiateAssociation:output_type -> CSiteLicense_InitiateAssociation_Response
-	7,  // 13: SiteLicense.LCSAuthenticate:output_type -> CSiteLicense_LCSAuthenticate_Response
-	9,  // 14: SiteLicense.LCSAssociateUser:output_type -> CSiteLicense_LCSAssociateUser_Response
-	11, // 15: SiteLicense.ClientSeatCheckout:output_type -> CSiteLicense_ClientSeatCheckout_Response
-	13, // 16: SiteLicense.ClientGetAvailableSeats:output_type -> CSiteLicense_ClientGetAvailableSeats_Response
-	9,  // [9:17] is the sub-list for method output_type
-	1,  // [1:9] is the sub-list for method input_type
-	1,  // [1:1] is the sub-list for extension type_name
-	1,  // [1:1] is the sub-list for extension extendee
-	0,  // [0:1] is the sub-list for field type_name
+	0,  // 0: SiteManagerClient.IncomingClient:input_type -> CSiteManagerClient_IncomingClient_Request
+	2,  // 1: SiteManagerClient.ClientSeatCheckoutNotification:input_type -> CSiteLicense_ClientSeatCheckout_Notification
+	3,  // 2: SiteLicense.InitiateAssociation:input_type -> CSiteLicense_InitiateAssociation_Request
+	5,  // 3: SiteLicense.LCSAuthenticate:input_type -> CSiteLicense_LCSAuthenticate_Request
+	7,  // 4: SiteLicense.LCSAssociateUser:input_type -> CSiteLicense_LCSAssociateUser_Request
+	9,  // 5: SiteLicense.ClientSeatCheckout:input_type -> CSiteLicense_ClientSeatCheckout_Request
+	11, // 6: SiteLicense.ClientGetAvailableSeats:input_type -> CSiteLicense_ClientGetAvailableSeats_Request
+	1,  // 7: SiteManagerClient.IncomingClient:output_type -> CSiteManagerClient_IncomingClient_Response
+	13, // 8: SiteManagerClient.ClientSeatCheckoutNotification:output_type -> NoResponse
+	4,  // 9: SiteLicense.InitiateAssociation:output_type -> CSiteLicense_InitiateAssociation_Response
+	6,  // 10: SiteLicense.LCSAuthenticate:output_type -> CSiteLicense_LCSAuthenticate_Response
+	8,  // 11: SiteLicense.LCSAssociateUser:output_type -> CSiteLicense_LCSAssociateUser_Response
+	10, // 12: SiteLicense.ClientSeatCheckout:output_type -> CSiteLicense_ClientSeatCheckout_Response
+	12, // 13: SiteLicense.ClientGetAvailableSeats:output_type -> CSiteLicense_ClientGetAvailableSeats_Response
+	7,  // [7:14] is the sub-list for method output_type
+	0,  // [0:7] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_site_license_steamclient_proto_init() }
@@ -1015,7 +842,7 @@ func file_steammessages_site_license_steamclient_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_site_license_steamclient_proto_rawDesc), len(file_steammessages_site_license_steamclient_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   15,
+			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   2,
 		},

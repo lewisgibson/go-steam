@@ -662,6 +662,14 @@ type CMsgProtoBufHeader struct {
 	AdminRequestSpoofingSteamid *uint64                                 `protobuf:"fixed64,43,opt,name=admin_request_spoofing_steamid,json=adminRequestSpoofingSteamid" json:"admin_request_spoofing_steamid,omitempty"`
 	IsValveds                   *bool                                   `protobuf:"varint,44,opt,name=is_valveds,json=isValveds" json:"is_valveds,omitempty"`
 	TraceTag                    *uint64                                 `protobuf:"fixed64,45,opt,name=trace_tag,json=traceTag" json:"trace_tag,omitempty"`
+	WgMsgTraceFlags             *uint32                                 `protobuf:"varint,46,opt,name=wg_msg_trace_flags,json=wgMsgTraceFlags" json:"wg_msg_trace_flags,omitempty"`
+	WgMsgTraceInstance          *uint32                                 `protobuf:"varint,47,opt,name=wg_msg_trace_instance,json=wgMsgTraceInstance" json:"wg_msg_trace_instance,omitempty"`
+	WgMsgTraceGid               *uint32                                 `protobuf:"varint,48,opt,name=wg_msg_trace_gid,json=wgMsgTraceGid" json:"wg_msg_trace_gid,omitempty"`
+	WgMsgTraceToken             *string                                 `protobuf:"bytes,49,opt,name=wg_msg_trace_token,json=wgMsgTraceToken" json:"wg_msg_trace_token,omitempty"`
+	WgMsgTraceSteamid           *uint64                                 `protobuf:"fixed64,50,opt,name=wg_msg_trace_steamid,json=wgMsgTraceSteamid" json:"wg_msg_trace_steamid,omitempty"`
+	WgMsgTraceStatus            *string                                 `protobuf:"bytes,51,opt,name=wg_msg_trace_status,json=wgMsgTraceStatus" json:"wg_msg_trace_status,omitempty"`
+	TraceFlags                  *uint32                                 `protobuf:"varint,52,opt,name=trace_flags,json=traceFlags" json:"trace_flags,omitempty"`
+	BrowserapiSite              *string                                 `protobuf:"bytes,53,opt,name=browserapi_site,json=browserapiSite" json:"browserapi_site,omitempty"`
 	// Types that are valid to be assigned to IpAddr:
 	//
 	//	*CMsgProtoBufHeader_Ip
@@ -950,6 +958,62 @@ func (x *CMsgProtoBufHeader) GetTraceTag() uint64 {
 		return *x.TraceTag
 	}
 	return 0
+}
+
+func (x *CMsgProtoBufHeader) GetWgMsgTraceFlags() uint32 {
+	if x != nil && x.WgMsgTraceFlags != nil {
+		return *x.WgMsgTraceFlags
+	}
+	return 0
+}
+
+func (x *CMsgProtoBufHeader) GetWgMsgTraceInstance() uint32 {
+	if x != nil && x.WgMsgTraceInstance != nil {
+		return *x.WgMsgTraceInstance
+	}
+	return 0
+}
+
+func (x *CMsgProtoBufHeader) GetWgMsgTraceGid() uint32 {
+	if x != nil && x.WgMsgTraceGid != nil {
+		return *x.WgMsgTraceGid
+	}
+	return 0
+}
+
+func (x *CMsgProtoBufHeader) GetWgMsgTraceToken() string {
+	if x != nil && x.WgMsgTraceToken != nil {
+		return *x.WgMsgTraceToken
+	}
+	return ""
+}
+
+func (x *CMsgProtoBufHeader) GetWgMsgTraceSteamid() uint64 {
+	if x != nil && x.WgMsgTraceSteamid != nil {
+		return *x.WgMsgTraceSteamid
+	}
+	return 0
+}
+
+func (x *CMsgProtoBufHeader) GetWgMsgTraceStatus() string {
+	if x != nil && x.WgMsgTraceStatus != nil {
+		return *x.WgMsgTraceStatus
+	}
+	return ""
+}
+
+func (x *CMsgProtoBufHeader) GetTraceFlags() uint32 {
+	if x != nil && x.TraceFlags != nil {
+		return *x.TraceFlags
+	}
+	return 0
+}
+
+func (x *CMsgProtoBufHeader) GetBrowserapiSite() string {
+	if x != nil && x.BrowserapiSite != nil {
+		return *x.BrowserapiSite
+	}
+	return ""
 }
 
 func (x *CMsgProtoBufHeader) GetIpAddr() isCMsgProtoBufHeader_IpAddr {
@@ -3329,7 +3393,7 @@ const file_steammessages_base_proto_rawDesc = "" +
 	"\x06bucket\x18\x02 \x01(\x06R\x06bucket\"l\n" +
 	"\x1bCMsgGCRoutingProtoBufHeader\x12$\n" +
 	"\x0edst_gcid_queue\x18\x01 \x01(\x04R\fdstGcidQueue\x12'\n" +
-	"\x10dst_gc_dir_index\x18\x02 \x01(\rR\rdstGcDirIndex\"\xd8\f\n" +
+	"\x10dst_gc_dir_index\x18\x02 \x01(\rR\rdstGcDirIndex\"\xb8\x0f\n" +
 	"\x12CMsgProtoBufHeader\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12)\n" +
 	"\x10client_sessionid\x18\x02 \x01(\x05R\x0fclientSessionid\x12#\n" +
@@ -3368,7 +3432,16 @@ const file_steammessages_base_proto_rawDesc = "" +
 	"\x1eadmin_request_spoofing_steamid\x18+ \x01(\x06R\x1badminRequestSpoofingSteamid\x12\x1d\n" +
 	"\n" +
 	"is_valveds\x18, \x01(\bR\tisValveds\x12\x1b\n" +
-	"\ttrace_tag\x18- \x01(\x06R\btraceTag\x12\x10\n" +
+	"\ttrace_tag\x18- \x01(\x06R\btraceTag\x12+\n" +
+	"\x12wg_msg_trace_flags\x18. \x01(\rR\x0fwgMsgTraceFlags\x121\n" +
+	"\x15wg_msg_trace_instance\x18/ \x01(\rR\x12wgMsgTraceInstance\x12'\n" +
+	"\x10wg_msg_trace_gid\x180 \x01(\rR\rwgMsgTraceGid\x12+\n" +
+	"\x12wg_msg_trace_token\x181 \x01(\tR\x0fwgMsgTraceToken\x12/\n" +
+	"\x14wg_msg_trace_steamid\x182 \x01(\x06R\x11wgMsgTraceSteamid\x12-\n" +
+	"\x13wg_msg_trace_status\x183 \x01(\tR\x10wgMsgTraceStatus\x12\x1f\n" +
+	"\vtrace_flags\x184 \x01(\rR\n" +
+	"traceFlags\x12'\n" +
+	"\x0fbrowserapi_site\x185 \x01(\tR\x0ebrowserapiSite\x12\x10\n" +
 	"\x02ip\x18\x0f \x01(\rH\x00R\x02ip\x12\x15\n" +
 	"\x05ip_v6\x18\x1d \x01(\fH\x00R\x04ipV6\"[\n" +
 	"\x13ESessionDisposition\x12\x1f\n" +

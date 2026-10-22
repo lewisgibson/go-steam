@@ -1154,6 +1154,7 @@ type CCommunity_SanctionComment_Request struct {
 	Reason          *EContentReportReason                          `protobuf:"varint,4,opt,name=reason,enum=EContentReportReason,def=0" json:"reason,omitempty"`
 	Note            *string                                        `protobuf:"bytes,5,opt,name=note" json:"note,omitempty"`
 	Sanctions       []*CCommunity_SanctionComment_Request_Sanction `protobuf:"bytes,6,rep,name=sanctions" json:"sanctions,omitempty"`
+	SkipLock        *bool                                          `protobuf:"varint,7,opt,name=skip_lock,json=skipLock" json:"skip_lock,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -1233,6 +1234,13 @@ func (x *CCommunity_SanctionComment_Request) GetSanctions() []*CCommunity_Sancti
 		return x.Sanctions
 	}
 	return nil
+}
+
+func (x *CCommunity_SanctionComment_Request) GetSkipLock() bool {
+	if x != nil && x.SkipLock != nil {
+		return *x.SkipLock
+	}
+	return false
 }
 
 type CCommunity_SanctionComment_Response struct {
@@ -4287,6 +4295,7 @@ type CCommentModeration_UpdateCommentReportState_Request struct {
 	CommentThreadId   *uint64                                                         `protobuf:"varint,11,opt,name=comment_thread_id,json=commentThreadId" json:"comment_thread_id,omitempty"`
 	Sanctions         []*CCommentModeration_UpdateCommentReportState_Request_Sanction `protobuf:"bytes,12,rep,name=sanctions" json:"sanctions,omitempty"`
 	Note              *string                                                         `protobuf:"bytes,13,opt,name=note" json:"note,omitempty"`
+	SkipLock          *bool                                                           `protobuf:"varint,14,opt,name=skip_lock,json=skipLock" json:"skip_lock,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -4415,6 +4424,13 @@ func (x *CCommentModeration_UpdateCommentReportState_Request) GetNote() string {
 		return *x.Note
 	}
 	return ""
+}
+
+func (x *CCommentModeration_UpdateCommentReportState_Request) GetSkipLock() bool {
+	if x != nil && x.SkipLock != nil {
+		return *x.SkipLock
+	}
+	return false
 }
 
 type CCommentModeration_UpdateCommentReportState_Response struct {
@@ -5115,7 +5131,7 @@ const file_steammessages_community_steamclient_proto_rawDesc = "" +
 	"\n" +
 	"gidfeature\x18\x03 \x01(\x06R\n" +
 	"gidfeature\x12 \n" +
-	"\vgidfeature2\x18\x04 \x01(\x06R\vgidfeature2\"\x91\x04\n" +
+	"\vgidfeature2\x18\x04 \x01(\x06R\vgidfeature2\"\xae\x04\n" +
 	"\"CCommunity_SanctionComment_Request\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12*\n" +
 	"\x11comment_thread_id\x18\x02 \x01(\x06R\x0fcommentThreadId\x12\x1e\n" +
@@ -5124,7 +5140,8 @@ const file_steammessages_community_steamclient_proto_rawDesc = "" +
 	"gidcomment\x12M\n" +
 	"\x06reason\x18\x04 \x01(\x0e2\x15.EContentReportReason:\x1ek_EContentReportReason_InvalidR\x06reason\x12\x12\n" +
 	"\x04note\x18\x05 \x01(\tR\x04note\x12J\n" +
-	"\tsanctions\x18\x06 \x03(\v2,.CCommunity_SanctionComment_Request.SanctionR\tsanctions\x1a\xd5\x01\n" +
+	"\tsanctions\x18\x06 \x03(\v2,.CCommunity_SanctionComment_Request.SanctionR\tsanctions\x12\x1b\n" +
+	"\tskip_lock\x18\a \x01(\bR\bskipLock\x1a\xd5\x01\n" +
 	"\bSanction\x12]\n" +
 	"\bsanction\x18\x01 \x01(\x0e2\x1b.EContentModerationSanction:$k_EContentModerationSanction_InvalidR\bsanction\x12\x12\n" +
 	"\x04days\x18\x02 \x01(\x05R\x04days\x12V\n" +
@@ -5379,7 +5396,7 @@ const file_steammessages_community_steamclient_proto_rawDesc = "" +
 	"\tmalicious\x18\x05 \x01(\bR\tmalicious\x12\x1e\n" +
 	"\n" +
 	"commercial\x18\x06 \x01(\bR\n" +
-	"commercial\"\xbe\x06\n" +
+	"commercial\"\xdb\x06\n" +
 	"3CCommentModeration_UpdateCommentReportState_Request\x12\x18\n" +
 	"\aresolve\x18\x01 \x01(\bR\aresolve\x12\x1a\n" +
 	"\breportid\x18\x02 \x01(\x04R\breportid\x12Z\n" +
@@ -5398,7 +5415,8 @@ const file_steammessages_community_steamclient_proto_rawDesc = "" +
 	" \x01(\rR\x06reason\x12*\n" +
 	"\x11comment_thread_id\x18\v \x01(\x04R\x0fcommentThreadId\x12[\n" +
 	"\tsanctions\x18\f \x03(\v2=.CCommentModeration_UpdateCommentReportState_Request.SanctionR\tsanctions\x12\x12\n" +
-	"\x04note\x18\r \x01(\tR\x04note\x1a\xd5\x01\n" +
+	"\x04note\x18\r \x01(\tR\x04note\x12\x1b\n" +
+	"\tskip_lock\x18\x0e \x01(\bR\bskipLock\x1a\xd5\x01\n" +
 	"\bSanction\x12]\n" +
 	"\bsanction\x18\x01 \x01(\x0e2\x1b.EContentModerationSanction:$k_EContentModerationSanction_InvalidR\bsanction\x12\x12\n" +
 	"\x04days\x18\x02 \x01(\x05R\x04days\x12V\n" +

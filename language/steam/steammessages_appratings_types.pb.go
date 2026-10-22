@@ -190,13 +190,94 @@ func (EAppRatingSource) EnumDescriptor() ([]byte, []int) {
 	return file_steammessages_appratings_types_proto_rawDescGZIP(), []int{1}
 }
 
+type ERatingDescriptorImage int32
+
+const (
+	ERatingDescriptorImage_k_ERatingDescriptorImage_Invalid              ERatingDescriptorImage = 0
+	ERatingDescriptorImage_k_ERatingDescriptorImage_CERO_Love            ERatingDescriptorImage = 1
+	ERatingDescriptorImage_k_ERatingDescriptorImage_CERO_SexualContent   ERatingDescriptorImage = 2
+	ERatingDescriptorImage_k_ERatingDescriptorImage_CERO_Violence        ERatingDescriptorImage = 3
+	ERatingDescriptorImage_k_ERatingDescriptorImage_CERO_Horror          ERatingDescriptorImage = 4
+	ERatingDescriptorImage_k_ERatingDescriptorImage_CERO_DrinkingSmoking ERatingDescriptorImage = 5
+	ERatingDescriptorImage_k_ERatingDescriptorImage_CERO_Gambling        ERatingDescriptorImage = 6
+	ERatingDescriptorImage_k_ERatingDescriptorImage_CERO_Crime           ERatingDescriptorImage = 7
+	ERatingDescriptorImage_k_ERatingDescriptorImage_CERO_Drugs           ERatingDescriptorImage = 8
+	ERatingDescriptorImage_k_ERatingDescriptorImage_CERO_Language        ERatingDescriptorImage = 9
+)
+
+// Enum value maps for ERatingDescriptorImage.
+var (
+	ERatingDescriptorImage_name = map[int32]string{
+		0: "k_ERatingDescriptorImage_Invalid",
+		1: "k_ERatingDescriptorImage_CERO_Love",
+		2: "k_ERatingDescriptorImage_CERO_SexualContent",
+		3: "k_ERatingDescriptorImage_CERO_Violence",
+		4: "k_ERatingDescriptorImage_CERO_Horror",
+		5: "k_ERatingDescriptorImage_CERO_DrinkingSmoking",
+		6: "k_ERatingDescriptorImage_CERO_Gambling",
+		7: "k_ERatingDescriptorImage_CERO_Crime",
+		8: "k_ERatingDescriptorImage_CERO_Drugs",
+		9: "k_ERatingDescriptorImage_CERO_Language",
+	}
+	ERatingDescriptorImage_value = map[string]int32{
+		"k_ERatingDescriptorImage_Invalid":              0,
+		"k_ERatingDescriptorImage_CERO_Love":            1,
+		"k_ERatingDescriptorImage_CERO_SexualContent":   2,
+		"k_ERatingDescriptorImage_CERO_Violence":        3,
+		"k_ERatingDescriptorImage_CERO_Horror":          4,
+		"k_ERatingDescriptorImage_CERO_DrinkingSmoking": 5,
+		"k_ERatingDescriptorImage_CERO_Gambling":        6,
+		"k_ERatingDescriptorImage_CERO_Crime":           7,
+		"k_ERatingDescriptorImage_CERO_Drugs":           8,
+		"k_ERatingDescriptorImage_CERO_Language":        9,
+	}
+)
+
+func (x ERatingDescriptorImage) Enum() *ERatingDescriptorImage {
+	p := new(ERatingDescriptorImage)
+	*p = x
+	return p
+}
+
+func (x ERatingDescriptorImage) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ERatingDescriptorImage) Descriptor() protoreflect.EnumDescriptor {
+	return file_steammessages_appratings_types_proto_enumTypes[2].Descriptor()
+}
+
+func (ERatingDescriptorImage) Type() protoreflect.EnumType {
+	return &file_steammessages_appratings_types_proto_enumTypes[2]
+}
+
+func (x ERatingDescriptorImage) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *ERatingDescriptorImage) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = ERatingDescriptorImage(num)
+	return nil
+}
+
+// Deprecated: Use ERatingDescriptorImage.Descriptor instead.
+func (ERatingDescriptorImage) EnumDescriptor() ([]byte, []int) {
+	return file_steammessages_appratings_types_proto_rawDescGZIP(), []int{2}
+}
+
 type AppRatingAuxData struct {
-	state                          protoimpl.MessageState `protogen:"open.v1"`
-	Descriptors                    []string               `protobuf:"bytes,1,rep,name=descriptors" json:"descriptors,omitempty"`
-	InteractiveElements            []string               `protobuf:"bytes,2,rep,name=interactive_elements,json=interactiveElements" json:"interactive_elements,omitempty"`
-	OfficialId                     *string                `protobuf:"bytes,3,opt,name=official_id,json=officialId" json:"official_id,omitempty"`
-	EsrbOnlineMusicNotRated        *bool                  `protobuf:"varint,4,opt,name=esrb_online_music_not_rated,json=esrbOnlineMusicNotRated" json:"esrb_online_music_not_rated,omitempty"`
-	EsrbOnlineInteractionsNotRated *bool                  `protobuf:"varint,5,opt,name=esrb_online_interactions_not_rated,json=esrbOnlineInteractionsNotRated" json:"esrb_online_interactions_not_rated,omitempty"`
+	state                          protoimpl.MessageState   `protogen:"open.v1"`
+	Descriptors                    []string                 `protobuf:"bytes,1,rep,name=descriptors" json:"descriptors,omitempty"`
+	InteractiveElements            []string                 `protobuf:"bytes,2,rep,name=interactive_elements,json=interactiveElements" json:"interactive_elements,omitempty"`
+	OfficialId                     *string                  `protobuf:"bytes,3,opt,name=official_id,json=officialId" json:"official_id,omitempty"`
+	EsrbOnlineMusicNotRated        *bool                    `protobuf:"varint,4,opt,name=esrb_online_music_not_rated,json=esrbOnlineMusicNotRated" json:"esrb_online_music_not_rated,omitempty"`
+	EsrbOnlineInteractionsNotRated *bool                    `protobuf:"varint,5,opt,name=esrb_online_interactions_not_rated,json=esrbOnlineInteractionsNotRated" json:"esrb_online_interactions_not_rated,omitempty"`
+	DescriptorImages               []ERatingDescriptorImage `protobuf:"varint,6,rep,name=descriptor_images,json=descriptorImages,enum=ERatingDescriptorImage" json:"descriptor_images,omitempty"`
 	unknownFields                  protoimpl.UnknownFields
 	sizeCache                      protoimpl.SizeCache
 }
@@ -264,6 +345,13 @@ func (x *AppRatingAuxData) GetEsrbOnlineInteractionsNotRated() bool {
 		return *x.EsrbOnlineInteractionsNotRated
 	}
 	return false
+}
+
+func (x *AppRatingAuxData) GetDescriptorImages() []ERatingDescriptorImage {
+	if x != nil {
+		return x.DescriptorImages
+	}
+	return nil
 }
 
 type AppRating struct {
@@ -368,14 +456,15 @@ var File_steammessages_appratings_types_proto protoreflect.FileDescriptor
 
 const file_steammessages_appratings_types_proto_rawDesc = "" +
 	"\n" +
-	"$steammessages_appratings_types.proto\"\x92\x02\n" +
+	"$steammessages_appratings_types.proto\"\xd8\x02\n" +
 	"\x10AppRatingAuxData\x12 \n" +
 	"\vdescriptors\x18\x01 \x03(\tR\vdescriptors\x121\n" +
 	"\x14interactive_elements\x18\x02 \x03(\tR\x13interactiveElements\x12\x1f\n" +
 	"\vofficial_id\x18\x03 \x01(\tR\n" +
 	"officialId\x12<\n" +
 	"\x1besrb_online_music_not_rated\x18\x04 \x01(\bR\x17esrbOnlineMusicNotRated\x12J\n" +
-	"\"esrb_online_interactions_not_rated\x18\x05 \x01(\bR\x1eesrbOnlineInteractionsNotRated\"\xc3\x02\n" +
+	"\"esrb_online_interactions_not_rated\x18\x05 \x01(\bR\x1eesrbOnlineInteractionsNotRated\x12D\n" +
+	"\x11descriptor_images\x18\x06 \x03(\x0e2\x17.ERatingDescriptorImageR\x10descriptorImages\"\xc3\x02\n" +
 	"\tAppRating\x12L\n" +
 	"\rrating_agency\x18\x01 \x01(\x0e2\x0e.ERatingAgency:\x17k_ERatingAgency_InvalidR\fratingAgency\x12\x16\n" +
 	"\x06rating\x18\x02 \x01(\tR\x06rating\x12E\n" +
@@ -410,7 +499,18 @@ const file_steammessages_appratings_types_proto_rawDesc = "" +
 	"\x10EAppRatingSource\x12\x1e\n" +
 	"\x1ak_EAppRatingSource_Invalid\x10\x00\x12\x1f\n" +
 	"\x1bk_EAppRatingSource_Official\x10\x01\x12 \n" +
-	"\x1ck_EAppRatingSource_Generated\x10\x02B\x02H\x01"
+	"\x1ck_EAppRatingSource_Generated\x10\x02*\xca\x03\n" +
+	"\x16ERatingDescriptorImage\x12$\n" +
+	" k_ERatingDescriptorImage_Invalid\x10\x00\x12&\n" +
+	"\"k_ERatingDescriptorImage_CERO_Love\x10\x01\x12/\n" +
+	"+k_ERatingDescriptorImage_CERO_SexualContent\x10\x02\x12*\n" +
+	"&k_ERatingDescriptorImage_CERO_Violence\x10\x03\x12(\n" +
+	"$k_ERatingDescriptorImage_CERO_Horror\x10\x04\x121\n" +
+	"-k_ERatingDescriptorImage_CERO_DrinkingSmoking\x10\x05\x12*\n" +
+	"&k_ERatingDescriptorImage_CERO_Gambling\x10\x06\x12'\n" +
+	"#k_ERatingDescriptorImage_CERO_Crime\x10\a\x12'\n" +
+	"#k_ERatingDescriptorImage_CERO_Drugs\x10\b\x12*\n" +
+	"&k_ERatingDescriptorImage_CERO_Language\x10\tB\x02H\x01"
 
 var (
 	file_steammessages_appratings_types_proto_rawDescOnce sync.Once
@@ -424,23 +524,25 @@ func file_steammessages_appratings_types_proto_rawDescGZIP() []byte {
 	return file_steammessages_appratings_types_proto_rawDescData
 }
 
-var file_steammessages_appratings_types_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_steammessages_appratings_types_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_steammessages_appratings_types_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_steammessages_appratings_types_proto_goTypes = []any{
-	(ERatingAgency)(0),       // 0: ERatingAgency
-	(EAppRatingSource)(0),    // 1: EAppRatingSource
-	(*AppRatingAuxData)(nil), // 2: AppRatingAuxData
-	(*AppRating)(nil),        // 3: AppRating
+	(ERatingAgency)(0),          // 0: ERatingAgency
+	(EAppRatingSource)(0),       // 1: EAppRatingSource
+	(ERatingDescriptorImage)(0), // 2: ERatingDescriptorImage
+	(*AppRatingAuxData)(nil),    // 3: AppRatingAuxData
+	(*AppRating)(nil),           // 4: AppRating
 }
 var file_steammessages_appratings_types_proto_depIdxs = []int32{
-	0, // 0: AppRating.rating_agency:type_name -> ERatingAgency
-	1, // 1: AppRating.source:type_name -> EAppRatingSource
-	2, // 2: AppRating.aux_data:type_name -> AppRatingAuxData
-	3, // [3:3] is the sub-list for method output_type
-	3, // [3:3] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	2, // 0: AppRatingAuxData.descriptor_images:type_name -> ERatingDescriptorImage
+	0, // 1: AppRating.rating_agency:type_name -> ERatingAgency
+	1, // 2: AppRating.source:type_name -> EAppRatingSource
+	3, // 3: AppRating.aux_data:type_name -> AppRatingAuxData
+	4, // [4:4] is the sub-list for method output_type
+	4, // [4:4] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_appratings_types_proto_init() }
@@ -453,7 +555,7 @@ func file_steammessages_appratings_types_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_appratings_types_proto_rawDesc), len(file_steammessages_appratings_types_proto_rawDesc)),
-			NumEnums:      2,
+			NumEnums:      3,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,

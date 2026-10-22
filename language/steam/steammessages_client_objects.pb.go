@@ -4075,9 +4075,10 @@ func (x *CMsgSelectOSBranchParams) GetCustomBranch() string {
 
 type CMsgSystemUpdateProgress struct {
 	state                    protoimpl.MessageState `protogen:"open.v1"`
-	StageProgress            *float32               `protobuf:"fixed32,1,opt,name=stage_progress,json=stageProgress" json:"stage_progress,omitempty"`
+	TotalProgress            *float32               `protobuf:"fixed32,1,opt,name=total_progress,json=totalProgress" json:"total_progress,omitempty"`
 	StageSizeBytes           *int64                 `protobuf:"varint,2,opt,name=stage_size_bytes,json=stageSizeBytes" json:"stage_size_bytes,omitempty"`
 	RtimeEstimatedCompletion *uint32                `protobuf:"fixed32,3,opt,name=rtime_estimated_completion,json=rtimeEstimatedCompletion" json:"rtime_estimated_completion,omitempty"`
+	StageBytesDownloaded     *int64                 `protobuf:"varint,4,opt,name=stage_bytes_downloaded,json=stageBytesDownloaded" json:"stage_bytes_downloaded,omitempty"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
@@ -4112,9 +4113,9 @@ func (*CMsgSystemUpdateProgress) Descriptor() ([]byte, []int) {
 	return file_steammessages_client_objects_proto_rawDescGZIP(), []int{43}
 }
 
-func (x *CMsgSystemUpdateProgress) GetStageProgress() float32 {
-	if x != nil && x.StageProgress != nil {
-		return *x.StageProgress
+func (x *CMsgSystemUpdateProgress) GetTotalProgress() float32 {
+	if x != nil && x.TotalProgress != nil {
+		return *x.TotalProgress
 	}
 	return 0
 }
@@ -4129,6 +4130,13 @@ func (x *CMsgSystemUpdateProgress) GetStageSizeBytes() int64 {
 func (x *CMsgSystemUpdateProgress) GetRtimeEstimatedCompletion() uint32 {
 	if x != nil && x.RtimeEstimatedCompletion != nil {
 		return *x.RtimeEstimatedCompletion
+	}
+	return 0
+}
+
+func (x *CMsgSystemUpdateProgress) GetStageBytesDownloaded() int64 {
+	if x != nil && x.StageBytesDownloaded != nil {
+		return *x.StageBytesDownloaded
 	}
 	return 0
 }
@@ -4234,6 +4242,7 @@ func (x *CMsgSystemUpdateCheckResult) GetSystemRestartPending() bool {
 type CMsgSystemUpdateApplyParams struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	ApplyTypes    []EUpdaterType         `protobuf:"varint,1,rep,name=apply_types,json=applyTypes,enum=EUpdaterType" json:"apply_types,omitempty"`
+	RecheckTypes  []EUpdaterType         `protobuf:"varint,2,rep,name=recheck_types,json=recheckTypes,enum=EUpdaterType" json:"recheck_types,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -4271,6 +4280,13 @@ func (*CMsgSystemUpdateApplyParams) Descriptor() ([]byte, []int) {
 func (x *CMsgSystemUpdateApplyParams) GetApplyTypes() []EUpdaterType {
 	if x != nil {
 		return x.ApplyTypes
+	}
+	return nil
+}
+
+func (x *CMsgSystemUpdateApplyParams) GetRecheckTypes() []EUpdaterType {
+	if x != nil {
+		return x.RecheckTypes
 	}
 	return nil
 }
@@ -6829,11 +6845,12 @@ const file_steammessages_client_objects_proto_rawDesc = "" +
 	"\x18CMsgSelectOSBranchParams\x127\n" +
 	"\x06branch\x18\x01 \x01(\x0e2\n" +
 	".EOSBranch:\x13k_EOSBranch_UnknownR\x06branch\x12#\n" +
-	"\rcustom_branch\x18\x02 \x01(\tR\fcustomBranch\"\xa9\x01\n" +
+	"\rcustom_branch\x18\x02 \x01(\tR\fcustomBranch\"\xdf\x01\n" +
 	"\x18CMsgSystemUpdateProgress\x12%\n" +
-	"\x0estage_progress\x18\x01 \x01(\x02R\rstageProgress\x12(\n" +
+	"\x0etotal_progress\x18\x01 \x01(\x02R\rtotalProgress\x12(\n" +
 	"\x10stage_size_bytes\x18\x02 \x01(\x03R\x0estageSizeBytes\x12<\n" +
-	"\x1artime_estimated_completion\x18\x03 \x01(\aR\x18rtimeEstimatedCompletion\"\xab\x02\n" +
+	"\x1artime_estimated_completion\x18\x03 \x01(\aR\x18rtimeEstimatedCompletion\x124\n" +
+	"\x16stage_bytes_downloaded\x18\x04 \x01(\x03R\x14stageBytesDownloaded\"\xab\x02\n" +
 	"\x1bCMsgSystemUpdateCheckResult\x129\n" +
 	"\x04type\x18\x01 \x01(\x0e2\r.EUpdaterType:\x16k_EUpdaterType_InvalidR\x04type\x12\x1b\n" +
 	"\aeresult\x18\x02 \x01(\r:\x012R\aeresult\x12#\n" +
@@ -6841,10 +6858,11 @@ const file_steammessages_client_objects_proto_rawDesc = "" +
 	"\tavailable\x18\x04 \x01(\bR\tavailable\x12\x18\n" +
 	"\aversion\x18\x05 \x01(\tR\aversion\x12!\n" +
 	"\fauto_message\x18\x06 \x01(\tR\vautoMessage\x124\n" +
-	"\x16system_restart_pending\x18\a \x01(\bR\x14systemRestartPending\"M\n" +
+	"\x16system_restart_pending\x18\a \x01(\bR\x14systemRestartPending\"\x81\x01\n" +
 	"\x1bCMsgSystemUpdateApplyParams\x12.\n" +
 	"\vapply_types\x18\x01 \x03(\x0e2\r.EUpdaterTypeR\n" +
-	"applyTypes\"\xf3\x01\n" +
+	"applyTypes\x122\n" +
+	"\rrecheck_types\x18\x02 \x03(\x0e2\r.EUpdaterTypeR\frecheckTypes\"\xf3\x01\n" +
 	"\x1bCMsgSystemUpdateApplyResult\x129\n" +
 	"\x04type\x18\x01 \x01(\x0e2\r.EUpdaterType:\x16k_EUpdaterType_InvalidR\x04type\x12\x1b\n" +
 	"\aeresult\x18\x02 \x01(\r:\x012R\aeresult\x12=\n" +
@@ -7150,30 +7168,31 @@ var file_steammessages_client_objects_proto_depIdxs = []int32{
 	97,  // 71: CMsgSelectOSBranchParams.branch:type_name -> EOSBranch
 	98,  // 72: CMsgSystemUpdateCheckResult.type:type_name -> EUpdaterType
 	98,  // 73: CMsgSystemUpdateApplyParams.apply_types:type_name -> EUpdaterType
-	98,  // 74: CMsgSystemUpdateApplyResult.type:type_name -> EUpdaterType
-	90,  // 75: CMsgSystemUpdateState.state:type_name -> EUpdaterState
-	46,  // 76: CMsgSystemUpdateState.progress:type_name -> CMsgSystemUpdateProgress
-	47,  // 77: CMsgSystemUpdateState.update_check_results:type_name -> CMsgSystemUpdateCheckResult
-	49,  // 78: CMsgSystemUpdateState.update_apply_results:type_name -> CMsgSystemUpdateApplyResult
-	77,  // 79: CMsgCellList.cells:type_name -> CMsgCellList.Cell
-	53,  // 80: CMsgShortcutInfos.shorcuts:type_name -> CMsgShortcutInfo
-	78,  // 81: CMsgMonitorInfo.monitors:type_name -> CMsgMonitorInfo.MonitorInfo
-	60,  // 82: CMsgClientShaderHitCache.entries:type_name -> CMsgClientShaderHitCacheEntry
-	5,   // 83: CMsgNetworkDevicesData.Device.ip4:type_name -> CMsgNetworkDeviceIP4Config
-	7,   // 84: CMsgNetworkDevicesData.Device.ip6:type_name -> CMsgNetworkDeviceIP6Config
-	63,  // 85: CMsgNetworkDevicesData.Device.wired:type_name -> CMsgNetworkDevicesData.Device.Wired
-	64,  // 86: CMsgNetworkDevicesData.Device.wireless:type_name -> CMsgNetworkDevicesData.Device.Wireless
-	65,  // 87: CMsgNetworkDevicesData.Device.Wireless.aps:type_name -> CMsgNetworkDevicesData.Device.Wireless.AP
-	99,  // 88: CMsgStorageDevicesData.Drive.media_type:type_name -> EStorageDriveMediaType
-	80,  // 89: CMsgStorageDevicesData.BlockDevice.content_type:type_name -> EStorageBlockContentType
-	81,  // 90: CMsgStorageDevicesData.BlockDevice.filesystem_type:type_name -> EStorageBlockFileSystemType
-	79,  // 91: CMsgBluetoothDevicesData.Device.etype:type_name -> EBluetoothDeviceType
-	100, // 92: CMsgSystemAudioVolume.ChannelEntry.echannel:type_name -> ESystemAudioChannel
-	93,  // [93:93] is the sub-list for method output_type
-	93,  // [93:93] is the sub-list for method input_type
-	93,  // [93:93] is the sub-list for extension type_name
-	93,  // [93:93] is the sub-list for extension extendee
-	0,   // [0:93] is the sub-list for field type_name
+	98,  // 74: CMsgSystemUpdateApplyParams.recheck_types:type_name -> EUpdaterType
+	98,  // 75: CMsgSystemUpdateApplyResult.type:type_name -> EUpdaterType
+	90,  // 76: CMsgSystemUpdateState.state:type_name -> EUpdaterState
+	46,  // 77: CMsgSystemUpdateState.progress:type_name -> CMsgSystemUpdateProgress
+	47,  // 78: CMsgSystemUpdateState.update_check_results:type_name -> CMsgSystemUpdateCheckResult
+	49,  // 79: CMsgSystemUpdateState.update_apply_results:type_name -> CMsgSystemUpdateApplyResult
+	77,  // 80: CMsgCellList.cells:type_name -> CMsgCellList.Cell
+	53,  // 81: CMsgShortcutInfos.shorcuts:type_name -> CMsgShortcutInfo
+	78,  // 82: CMsgMonitorInfo.monitors:type_name -> CMsgMonitorInfo.MonitorInfo
+	60,  // 83: CMsgClientShaderHitCache.entries:type_name -> CMsgClientShaderHitCacheEntry
+	5,   // 84: CMsgNetworkDevicesData.Device.ip4:type_name -> CMsgNetworkDeviceIP4Config
+	7,   // 85: CMsgNetworkDevicesData.Device.ip6:type_name -> CMsgNetworkDeviceIP6Config
+	63,  // 86: CMsgNetworkDevicesData.Device.wired:type_name -> CMsgNetworkDevicesData.Device.Wired
+	64,  // 87: CMsgNetworkDevicesData.Device.wireless:type_name -> CMsgNetworkDevicesData.Device.Wireless
+	65,  // 88: CMsgNetworkDevicesData.Device.Wireless.aps:type_name -> CMsgNetworkDevicesData.Device.Wireless.AP
+	99,  // 89: CMsgStorageDevicesData.Drive.media_type:type_name -> EStorageDriveMediaType
+	80,  // 90: CMsgStorageDevicesData.BlockDevice.content_type:type_name -> EStorageBlockContentType
+	81,  // 91: CMsgStorageDevicesData.BlockDevice.filesystem_type:type_name -> EStorageBlockFileSystemType
+	79,  // 92: CMsgBluetoothDevicesData.Device.etype:type_name -> EBluetoothDeviceType
+	100, // 93: CMsgSystemAudioVolume.ChannelEntry.echannel:type_name -> ESystemAudioChannel
+	94,  // [94:94] is the sub-list for method output_type
+	94,  // [94:94] is the sub-list for method input_type
+	94,  // [94:94] is the sub-list for extension type_name
+	94,  // [94:94] is the sub-list for extension extendee
+	0,   // [0:94] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_client_objects_proto_init() }

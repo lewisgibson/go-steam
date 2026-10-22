@@ -109,6 +109,110 @@ func (x *CAchievements_GetInfo_Response) GetAchievements() []*CAchievements_GetI
 	return nil
 }
 
+type CAchievements_GetUserAchievements_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Gameid        *uint64                `protobuf:"varint,1,opt,name=gameid" json:"gameid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CAchievements_GetUserAchievements_Request) Reset() {
+	*x = CAchievements_GetUserAchievements_Request{}
+	mi := &file_webuimessages_achievements_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CAchievements_GetUserAchievements_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CAchievements_GetUserAchievements_Request) ProtoMessage() {}
+
+func (x *CAchievements_GetUserAchievements_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_achievements_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CAchievements_GetUserAchievements_Request.ProtoReflect.Descriptor instead.
+func (*CAchievements_GetUserAchievements_Request) Descriptor() ([]byte, []int) {
+	return file_webuimessages_achievements_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *CAchievements_GetUserAchievements_Request) GetGameid() uint64 {
+	if x != nil && x.Gameid != nil {
+		return *x.Gameid
+	}
+	return 0
+}
+
+type CAchievements_GetUserAchievements_Response struct {
+	state         protoimpl.MessageState                                    `protogen:"open.v1"`
+	Achievements  []*CAchievements_GetUserAchievements_Response_Achievement `protobuf:"bytes,1,rep,name=achievements" json:"achievements,omitempty"`
+	Groups        []*CAchievements_GetUserAchievements_Response_Group       `protobuf:"bytes,2,rep,name=groups" json:"groups,omitempty"`
+	SchemaVersion *int32                                                    `protobuf:"varint,3,opt,name=schema_version,json=schemaVersion" json:"schema_version,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CAchievements_GetUserAchievements_Response) Reset() {
+	*x = CAchievements_GetUserAchievements_Response{}
+	mi := &file_webuimessages_achievements_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CAchievements_GetUserAchievements_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CAchievements_GetUserAchievements_Response) ProtoMessage() {}
+
+func (x *CAchievements_GetUserAchievements_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_achievements_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CAchievements_GetUserAchievements_Response.ProtoReflect.Descriptor instead.
+func (*CAchievements_GetUserAchievements_Response) Descriptor() ([]byte, []int) {
+	return file_webuimessages_achievements_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *CAchievements_GetUserAchievements_Response) GetAchievements() []*CAchievements_GetUserAchievements_Response_Achievement {
+	if x != nil {
+		return x.Achievements
+	}
+	return nil
+}
+
+func (x *CAchievements_GetUserAchievements_Response) GetGroups() []*CAchievements_GetUserAchievements_Response_Group {
+	if x != nil {
+		return x.Groups
+	}
+	return nil
+}
+
+func (x *CAchievements_GetUserAchievements_Response) GetSchemaVersion() int32 {
+	if x != nil && x.SchemaVersion != nil {
+		return *x.SchemaVersion
+	}
+	return 0
+}
+
 type CAchievements_GetInfo_Response_Info struct {
 	state               protoimpl.MessageState `protogen:"open.v1"`
 	Id                  *string                `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
@@ -124,7 +228,7 @@ type CAchievements_GetInfo_Response_Info struct {
 
 func (x *CAchievements_GetInfo_Response_Info) Reset() {
 	*x = CAchievements_GetInfo_Response_Info{}
-	mi := &file_webuimessages_achievements_proto_msgTypes[2]
+	mi := &file_webuimessages_achievements_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -136,7 +240,7 @@ func (x *CAchievements_GetInfo_Response_Info) String() string {
 func (*CAchievements_GetInfo_Response_Info) ProtoMessage() {}
 
 func (x *CAchievements_GetInfo_Response_Info) ProtoReflect() protoreflect.Message {
-	mi := &file_webuimessages_achievements_proto_msgTypes[2]
+	mi := &file_webuimessages_achievements_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -201,6 +305,158 @@ func (x *CAchievements_GetInfo_Response_Info) GetUnlockTime() uint32 {
 	return 0
 }
 
+type CAchievements_GetUserAchievements_Response_Achievement struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	InternalKey   *uint32                `protobuf:"varint,1,opt,name=internal_key,json=internalKey" json:"internal_key,omitempty"`
+	Unlocked      *bool                  `protobuf:"varint,2,opt,name=unlocked" json:"unlocked,omitempty"`
+	UnlockTime    *uint32                `protobuf:"fixed32,3,opt,name=unlock_time,json=unlockTime" json:"unlock_time,omitempty"`
+	ProgressInt   *int32                 `protobuf:"varint,4,opt,name=progress_int,json=progressInt" json:"progress_int,omitempty"`
+	ProgressFloat *float32               `protobuf:"fixed32,5,opt,name=progress_float,json=progressFloat" json:"progress_float,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CAchievements_GetUserAchievements_Response_Achievement) Reset() {
+	*x = CAchievements_GetUserAchievements_Response_Achievement{}
+	mi := &file_webuimessages_achievements_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CAchievements_GetUserAchievements_Response_Achievement) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CAchievements_GetUserAchievements_Response_Achievement) ProtoMessage() {}
+
+func (x *CAchievements_GetUserAchievements_Response_Achievement) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_achievements_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CAchievements_GetUserAchievements_Response_Achievement.ProtoReflect.Descriptor instead.
+func (*CAchievements_GetUserAchievements_Response_Achievement) Descriptor() ([]byte, []int) {
+	return file_webuimessages_achievements_proto_rawDescGZIP(), []int{3, 0}
+}
+
+func (x *CAchievements_GetUserAchievements_Response_Achievement) GetInternalKey() uint32 {
+	if x != nil && x.InternalKey != nil {
+		return *x.InternalKey
+	}
+	return 0
+}
+
+func (x *CAchievements_GetUserAchievements_Response_Achievement) GetUnlocked() bool {
+	if x != nil && x.Unlocked != nil {
+		return *x.Unlocked
+	}
+	return false
+}
+
+func (x *CAchievements_GetUserAchievements_Response_Achievement) GetUnlockTime() uint32 {
+	if x != nil && x.UnlockTime != nil {
+		return *x.UnlockTime
+	}
+	return 0
+}
+
+func (x *CAchievements_GetUserAchievements_Response_Achievement) GetProgressInt() int32 {
+	if x != nil && x.ProgressInt != nil {
+		return *x.ProgressInt
+	}
+	return 0
+}
+
+func (x *CAchievements_GetUserAchievements_Response_Achievement) GetProgressFloat() float32 {
+	if x != nil && x.ProgressFloat != nil {
+		return *x.ProgressFloat
+	}
+	return 0
+}
+
+type CAchievements_GetUserAchievements_Response_Group struct {
+	state                 protoimpl.MessageState `protogen:"open.v1"`
+	Groupid               *uint32                `protobuf:"varint,1,opt,name=groupid" json:"groupid,omitempty"`
+	IsAchievable          *bool                  `protobuf:"varint,2,opt,name=is_achievable,json=isAchievable" json:"is_achievable,omitempty"`
+	CompletedAchievements *uint32                `protobuf:"varint,3,opt,name=completed_achievements,json=completedAchievements" json:"completed_achievements,omitempty"`
+	IsCompleted           *bool                  `protobuf:"varint,4,opt,name=is_completed,json=isCompleted" json:"is_completed,omitempty"`
+	TimeCompleted         *uint32                `protobuf:"fixed32,9,opt,name=time_completed,json=timeCompleted" json:"time_completed,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
+}
+
+func (x *CAchievements_GetUserAchievements_Response_Group) Reset() {
+	*x = CAchievements_GetUserAchievements_Response_Group{}
+	mi := &file_webuimessages_achievements_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CAchievements_GetUserAchievements_Response_Group) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CAchievements_GetUserAchievements_Response_Group) ProtoMessage() {}
+
+func (x *CAchievements_GetUserAchievements_Response_Group) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_achievements_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CAchievements_GetUserAchievements_Response_Group.ProtoReflect.Descriptor instead.
+func (*CAchievements_GetUserAchievements_Response_Group) Descriptor() ([]byte, []int) {
+	return file_webuimessages_achievements_proto_rawDescGZIP(), []int{3, 1}
+}
+
+func (x *CAchievements_GetUserAchievements_Response_Group) GetGroupid() uint32 {
+	if x != nil && x.Groupid != nil {
+		return *x.Groupid
+	}
+	return 0
+}
+
+func (x *CAchievements_GetUserAchievements_Response_Group) GetIsAchievable() bool {
+	if x != nil && x.IsAchievable != nil {
+		return *x.IsAchievable
+	}
+	return false
+}
+
+func (x *CAchievements_GetUserAchievements_Response_Group) GetCompletedAchievements() uint32 {
+	if x != nil && x.CompletedAchievements != nil {
+		return *x.CompletedAchievements
+	}
+	return 0
+}
+
+func (x *CAchievements_GetUserAchievements_Response_Group) GetIsCompleted() bool {
+	if x != nil && x.IsCompleted != nil {
+		return *x.IsCompleted
+	}
+	return false
+}
+
+func (x *CAchievements_GetUserAchievements_Response_Group) GetTimeCompleted() uint32 {
+	if x != nil && x.TimeCompleted != nil {
+		return *x.TimeCompleted
+	}
+	return 0
+}
+
 var File_webuimessages_achievements_proto protoreflect.FileDescriptor
 
 const file_webuimessages_achievements_proto_rawDesc = "" +
@@ -218,9 +474,29 @@ const file_webuimessages_achievements_proto_rawDesc = "" +
 	"\x16image_url_not_achieved\x18\x05 \x01(\tR\x13imageUrlNotAchieved\x12\x1a\n" +
 	"\bachieved\x18\x06 \x01(\bR\bachieved\x12\x1f\n" +
 	"\vunlock_time\x18\a \x01(\rR\n" +
-	"unlockTime2`\n" +
+	"unlockTime\"C\n" +
+	")CAchievements_GetUserAchievements_Request\x12\x16\n" +
+	"\x06gameid\x18\x01 \x01(\x04R\x06gameid\"\xff\x04\n" +
+	"*CAchievements_GetUserAchievements_Response\x12[\n" +
+	"\fachievements\x18\x01 \x03(\v27.CAchievements_GetUserAchievements_Response.AchievementR\fachievements\x12I\n" +
+	"\x06groups\x18\x02 \x03(\v21.CAchievements_GetUserAchievements_Response.GroupR\x06groups\x12%\n" +
+	"\x0eschema_version\x18\x03 \x01(\x05R\rschemaVersion\x1a\xb7\x01\n" +
+	"\vAchievement\x12!\n" +
+	"\finternal_key\x18\x01 \x01(\rR\vinternalKey\x12\x1a\n" +
+	"\bunlocked\x18\x02 \x01(\bR\bunlocked\x12\x1f\n" +
+	"\vunlock_time\x18\x03 \x01(\aR\n" +
+	"unlockTime\x12!\n" +
+	"\fprogress_int\x18\x04 \x01(\x05R\vprogressInt\x12%\n" +
+	"\x0eprogress_float\x18\x05 \x01(\x02R\rprogressFloat\x1a\xc7\x01\n" +
+	"\x05Group\x12\x18\n" +
+	"\agroupid\x18\x01 \x01(\rR\agroupid\x12#\n" +
+	"\ris_achievable\x18\x02 \x01(\bR\fisAchievable\x125\n" +
+	"\x16completed_achievements\x18\x03 \x01(\rR\x15completedAchievements\x12!\n" +
+	"\fis_completed\x18\x04 \x01(\bR\visCompleted\x12%\n" +
+	"\x0etime_completed\x18\t \x01(\aR\rtimeCompleted2\xd0\x01\n" +
 	"\fAchievements\x12J\n" +
-	"\aGetInfo\x12\x1e.CAchievements_GetInfo_Request\x1a\x1f.CAchievements_GetInfo_Response\x1a\x04\x80\x97\"\x02B\x05H\x01\x80\x01\x01"
+	"\aGetInfo\x12\x1e.CAchievements_GetInfo_Request\x1a\x1f.CAchievements_GetInfo_Response\x12n\n" +
+	"\x13GetUserAchievements\x12*.CAchievements_GetUserAchievements_Request\x1a+.CAchievements_GetUserAchievements_Response\x1a\x04\x80\x97\"\x02B\x05H\x01\x80\x01\x01"
 
 var (
 	file_webuimessages_achievements_proto_rawDescOnce sync.Once
@@ -234,21 +510,29 @@ func file_webuimessages_achievements_proto_rawDescGZIP() []byte {
 	return file_webuimessages_achievements_proto_rawDescData
 }
 
-var file_webuimessages_achievements_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_webuimessages_achievements_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_webuimessages_achievements_proto_goTypes = []any{
-	(*CAchievements_GetInfo_Request)(nil),       // 0: CAchievements_GetInfo_Request
-	(*CAchievements_GetInfo_Response)(nil),      // 1: CAchievements_GetInfo_Response
-	(*CAchievements_GetInfo_Response_Info)(nil), // 2: CAchievements_GetInfo_Response.Info
+	(*CAchievements_GetInfo_Request)(nil),                          // 0: CAchievements_GetInfo_Request
+	(*CAchievements_GetInfo_Response)(nil),                         // 1: CAchievements_GetInfo_Response
+	(*CAchievements_GetUserAchievements_Request)(nil),              // 2: CAchievements_GetUserAchievements_Request
+	(*CAchievements_GetUserAchievements_Response)(nil),             // 3: CAchievements_GetUserAchievements_Response
+	(*CAchievements_GetInfo_Response_Info)(nil),                    // 4: CAchievements_GetInfo_Response.Info
+	(*CAchievements_GetUserAchievements_Response_Achievement)(nil), // 5: CAchievements_GetUserAchievements_Response.Achievement
+	(*CAchievements_GetUserAchievements_Response_Group)(nil),       // 6: CAchievements_GetUserAchievements_Response.Group
 }
 var file_webuimessages_achievements_proto_depIdxs = []int32{
-	2, // 0: CAchievements_GetInfo_Response.achievements:type_name -> CAchievements_GetInfo_Response.Info
-	0, // 1: Achievements.GetInfo:input_type -> CAchievements_GetInfo_Request
-	1, // 2: Achievements.GetInfo:output_type -> CAchievements_GetInfo_Response
-	2, // [2:3] is the sub-list for method output_type
-	1, // [1:2] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	4, // 0: CAchievements_GetInfo_Response.achievements:type_name -> CAchievements_GetInfo_Response.Info
+	5, // 1: CAchievements_GetUserAchievements_Response.achievements:type_name -> CAchievements_GetUserAchievements_Response.Achievement
+	6, // 2: CAchievements_GetUserAchievements_Response.groups:type_name -> CAchievements_GetUserAchievements_Response.Group
+	0, // 3: Achievements.GetInfo:input_type -> CAchievements_GetInfo_Request
+	2, // 4: Achievements.GetUserAchievements:input_type -> CAchievements_GetUserAchievements_Request
+	1, // 5: Achievements.GetInfo:output_type -> CAchievements_GetInfo_Response
+	3, // 6: Achievements.GetUserAchievements:output_type -> CAchievements_GetUserAchievements_Response
+	5, // [5:7] is the sub-list for method output_type
+	3, // [3:5] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_webuimessages_achievements_proto_init() }
@@ -264,7 +548,7 @@ func file_webuimessages_achievements_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_webuimessages_achievements_proto_rawDesc), len(file_webuimessages_achievements_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

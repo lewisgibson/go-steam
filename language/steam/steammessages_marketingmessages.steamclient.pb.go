@@ -263,7 +263,8 @@ const (
 	EMarketingMessageTemplateType_k_EMarketingMessageTemplate_Replay         EMarketingMessageTemplateType = 5
 	EMarketingMessageTemplateType_k_EMarketingMessageTemplate_Event          EMarketingMessageTemplateType = 6
 	EMarketingMessageTemplateType_k_EMarketingMessageTemplate_AutoRender     EMarketingMessageTemplateType = 7
-	EMarketingMessageTemplateType_k_EMarketingMessageTemplate_MAX            EMarketingMessageTemplateType = 8
+	EMarketingMessageTemplateType_k_EMarketingMessageTemplate_SaleItems      EMarketingMessageTemplateType = 8
+	EMarketingMessageTemplateType_k_EMarketingMessageTemplate_MAX            EMarketingMessageTemplateType = 9
 )
 
 // Enum value maps for EMarketingMessageTemplateType.
@@ -277,7 +278,8 @@ var (
 		5: "k_EMarketingMessageTemplate_Replay",
 		6: "k_EMarketingMessageTemplate_Event",
 		7: "k_EMarketingMessageTemplate_AutoRender",
-		8: "k_EMarketingMessageTemplate_MAX",
+		8: "k_EMarketingMessageTemplate_SaleItems",
+		9: "k_EMarketingMessageTemplate_MAX",
 	}
 	EMarketingMessageTemplateType_value = map[string]int32{
 		"k_EMarketingMessageTemplate_Unknown":        0,
@@ -288,7 +290,8 @@ var (
 		"k_EMarketingMessageTemplate_Replay":         5,
 		"k_EMarketingMessageTemplate_Event":          6,
 		"k_EMarketingMessageTemplate_AutoRender":     7,
-		"k_EMarketingMessageTemplate_MAX":            8,
+		"k_EMarketingMessageTemplate_SaleItems":      8,
+		"k_EMarketingMessageTemplate_MAX":            9,
 	}
 )
 
@@ -1014,6 +1017,7 @@ type CDisplayMarketingMessage struct {
 	TemplateType     *string                `protobuf:"bytes,10,opt,name=template_type,json=templateType" json:"template_type,omitempty"`
 	TemplateVarsJson *string                `protobuf:"bytes,11,opt,name=template_vars_json,json=templateVarsJson" json:"template_vars_json,omitempty"`
 	RecommendedItems []*StoreItemID         `protobuf:"bytes,12,rep,name=recommended_items,json=recommendedItems" json:"recommended_items,omitempty"`
+	SaleItemCount    *uint32                `protobuf:"varint,13,opt,name=sale_item_count,json=saleItemCount" json:"sale_item_count,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -1114,6 +1118,13 @@ func (x *CDisplayMarketingMessage) GetRecommendedItems() []*StoreItemID {
 		return x.RecommendedItems
 	}
 	return nil
+}
+
+func (x *CDisplayMarketingMessage) GetSaleItemCount() uint32 {
+	if x != nil && x.SaleItemCount != nil {
+		return *x.SaleItemCount
+	}
+	return 0
 }
 
 type CMarketingMessages_GetMarketingMessagesForUser_Response struct {
@@ -3008,7 +3019,7 @@ const file_steammessages_marketingmessages_steamclient_proto_rawDesc = "" +
 	"\x10operating_system\x18\x04 \x01(\x05R\x0foperatingSystem\x124\n" +
 	"\x16client_package_version\x18\x05 \x01(\x05R\x14clientPackageVersion\x12-\n" +
 	"\acontext\x18\x06 \x01(\v2\x13.StoreBrowseContextR\acontext\x12>\n" +
-	"\fdata_request\x18\a \x01(\v2\x1b.StoreBrowseItemDataRequestR\vdataRequest\"\xb2\x03\n" +
+	"\fdata_request\x18\a \x01(\v2\x1b.StoreBrowseItemDataRequestR\vdataRequest\"\xda\x03\n" +
 	"\x18CDisplayMarketingMessage\x12\x10\n" +
 	"\x03gid\x18\x01 \x01(\x06R\x03gid\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12F\n" +
@@ -3020,7 +3031,8 @@ const file_steammessages_marketingmessages_steamclient_proto_rawDesc = "" +
 	"\rtemplate_type\x18\n" +
 	" \x01(\tR\ftemplateType\x12,\n" +
 	"\x12template_vars_json\x18\v \x01(\tR\x10templateVarsJson\x129\n" +
-	"\x11recommended_items\x18\f \x03(\v2\f.StoreItemIDR\x10recommendedItems\"\x9a\x02\n" +
+	"\x11recommended_items\x18\f \x03(\v2\f.StoreItemIDR\x10recommendedItems\x12&\n" +
+	"\x0fsale_item_count\x18\r \x01(\rR\rsaleItemCount\"\x9a\x02\n" +
 	"7CMarketingMessages_GetMarketingMessagesForUser_Response\x12l\n" +
 	"\bmessages\x18\x01 \x03(\v2P.CMarketingMessages_GetMarketingMessagesForUser_Response.MarketingMessageForUserR\bmessages\x1aq\n" +
 	"\x17MarketingMessageForUser\x12!\n" +
@@ -3155,7 +3167,7 @@ const file_steammessages_marketingmessages_steamclient_proto_rawDesc = "" +
 	"*k_EMarketingMessageSubscriptionAssociation\x10\x02\x12+\n" +
 	"'k_EMarketingMessagePublisherAssociation\x10\x03\x12'\n" +
 	"#k_EMarketingMessageGenreAssociation\x10\x04\x12(\n" +
-	"$k_EMarketingMessageBundleAssociation\x10\x05*\x97\x03\n" +
+	"$k_EMarketingMessageBundleAssociation\x10\x05*\xc2\x03\n" +
 	"\x1dEMarketingMessageTemplateType\x12'\n" +
 	"#k_EMarketingMessageTemplate_Unknown\x10\x00\x12%\n" +
 	"!k_EMarketingMessageTemplate_Image\x10\x01\x12(\n" +
@@ -3164,8 +3176,9 @@ const file_steammessages_marketingmessages_steamclient_proto_rawDesc = "" +
 	"(k_EMarketingMessageTemplate_DLC_Override\x10\x04\x12&\n" +
 	"\"k_EMarketingMessageTemplate_Replay\x10\x05\x12%\n" +
 	"!k_EMarketingMessageTemplate_Event\x10\x06\x12*\n" +
-	"&k_EMarketingMessageTemplate_AutoRender\x10\a\x12#\n" +
-	"\x1fk_EMarketingMessageTemplate_MAX\x10\b*\xee\x02\n" +
+	"&k_EMarketingMessageTemplate_AutoRender\x10\a\x12)\n" +
+	"%k_EMarketingMessageTemplate_SaleItems\x10\b\x12#\n" +
+	"\x1fk_EMarketingMessageTemplate_MAX\x10\t*\xee\x02\n" +
 	"\x1eEMarketingMessageClickLocation\x12,\n" +
 	"(k_EMarketingMessageClickLocation_Unknown\x10\x00\x12*\n" +
 	"&k_EMarketingMessageClickLocation_Image\x10\x01\x12+\n" +

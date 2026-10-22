@@ -428,6 +428,7 @@ type CCloud_BeginUGCUpload_Request struct {
 	Filename      *string                `protobuf:"bytes,3,opt,name=filename" json:"filename,omitempty"`
 	FileSha       *string                `protobuf:"bytes,4,opt,name=file_sha,json=fileSha" json:"file_sha,omitempty"`
 	ContentType   *string                `protobuf:"bytes,5,opt,name=content_type,json=contentType" json:"content_type,omitempty"`
+	IsPublic      *bool                  `protobuf:"varint,6,opt,name=is_public,json=isPublic" json:"is_public,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -495,6 +496,13 @@ func (x *CCloud_BeginUGCUpload_Request) GetContentType() string {
 		return *x.ContentType
 	}
 	return ""
+}
+
+func (x *CCloud_BeginUGCUpload_Request) GetIsPublic() bool {
+	if x != nil && x.IsPublic != nil {
+		return *x.IsPublic
+	}
+	return false
 }
 
 type CCloud_BeginUGCUpload_Response struct {
@@ -3862,13 +3870,14 @@ const file_steammessages_cloud_steamclient_proto_rawDesc = "" +
 	"\bfile_sha\x18\x03 \x01(\tR\afileSha\x12\x1a\n" +
 	"\bfilename\x18\x04 \x01(\tR\bfilename\"I\n" +
 	" CCloud_CommitHTTPUpload_Response\x12%\n" +
-	"\x0efile_committed\x18\x01 \x01(\bR\rfileCommitted\"\xac\x01\n" +
+	"\x0efile_committed\x18\x01 \x01(\bR\rfileCommitted\"\xc9\x01\n" +
 	"\x1dCCloud_BeginUGCUpload_Request\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1b\n" +
 	"\tfile_size\x18\x02 \x01(\rR\bfileSize\x12\x1a\n" +
 	"\bfilename\x18\x03 \x01(\tR\bfilename\x12\x19\n" +
 	"\bfile_sha\x18\x04 \x01(\tR\afileSha\x12!\n" +
-	"\fcontent_type\x18\x05 \x01(\tR\vcontentType\"\xa1\x03\n" +
+	"\fcontent_type\x18\x05 \x01(\tR\vcontentType\x12\x1b\n" +
+	"\tis_public\x18\x06 \x01(\bR\bisPublic\"\xa1\x03\n" +
 	"\x1eCCloud_BeginUGCUpload_Response\x12i\n" +
 	"\x0estorage_system\x18\x01 \x01(\x0e2\x1c.EPublishedFileStorageSystem:$k_EPublishedFileStorageSystemInvalidR\rstorageSystem\x12\x14\n" +
 	"\x05ugcid\x18\x02 \x01(\x06R\x05ugcid\x12\x1c\n" +
