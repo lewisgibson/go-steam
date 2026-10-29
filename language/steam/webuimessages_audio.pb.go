@@ -65,6 +65,7 @@ type CAudio_GetSupportedFeatures_Response struct {
 	BluetoothAudioPreference *bool                  `protobuf:"varint,4,opt,name=bluetooth_audio_preference,json=bluetoothAudioPreference" json:"bluetooth_audio_preference,omitempty"`
 	Spatialize               *bool                  `protobuf:"varint,5,opt,name=spatialize" json:"spatialize,omitempty"`
 	SpatializeSurround       *bool                  `protobuf:"varint,6,opt,name=spatialize_surround,json=spatializeSurround" json:"spatialize_surround,omitempty"`
+	PerDeviceMicProcessing   *bool                  `protobuf:"varint,7,opt,name=per_device_mic_processing,json=perDeviceMicProcessing" json:"per_device_mic_processing,omitempty"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
@@ -137,6 +138,13 @@ func (x *CAudio_GetSupportedFeatures_Response) GetSpatialize() bool {
 func (x *CAudio_GetSupportedFeatures_Response) GetSpatializeSurround() bool {
 	if x != nil && x.SpatializeSurround != nil {
 		return *x.SpatializeSurround
+	}
+	return false
+}
+
+func (x *CAudio_GetSupportedFeatures_Response) GetPerDeviceMicProcessing() bool {
+	if x != nil && x.PerDeviceMicProcessing != nil {
+		return *x.PerDeviceMicProcessing
 	}
 	return false
 }
@@ -1753,12 +1761,396 @@ func (*CAudio_SetSpatializeSurroundEnabled_Response) Descriptor() ([]byte, []int
 	return file_webuimessages_audio_proto_rawDescGZIP(), []int{39}
 }
 
+type CAudio_GetEchoCancellationEnabledForDevice_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            *int32                 `protobuf:"varint,1,opt,name=id" json:"id,omitempty"`
+	Builtin       *bool                  `protobuf:"varint,2,opt,name=builtin" json:"builtin,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CAudio_GetEchoCancellationEnabledForDevice_Request) Reset() {
+	*x = CAudio_GetEchoCancellationEnabledForDevice_Request{}
+	mi := &file_webuimessages_audio_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CAudio_GetEchoCancellationEnabledForDevice_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CAudio_GetEchoCancellationEnabledForDevice_Request) ProtoMessage() {}
+
+func (x *CAudio_GetEchoCancellationEnabledForDevice_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_audio_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CAudio_GetEchoCancellationEnabledForDevice_Request.ProtoReflect.Descriptor instead.
+func (*CAudio_GetEchoCancellationEnabledForDevice_Request) Descriptor() ([]byte, []int) {
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *CAudio_GetEchoCancellationEnabledForDevice_Request) GetId() int32 {
+	if x != nil && x.Id != nil {
+		return *x.Id
+	}
+	return 0
+}
+
+func (x *CAudio_GetEchoCancellationEnabledForDevice_Request) GetBuiltin() bool {
+	if x != nil && x.Builtin != nil {
+		return *x.Builtin
+	}
+	return false
+}
+
+type CAudio_GetEchoCancellationEnabledForDevice_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Enabled       *bool                  `protobuf:"varint,1,opt,name=enabled" json:"enabled,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CAudio_GetEchoCancellationEnabledForDevice_Response) Reset() {
+	*x = CAudio_GetEchoCancellationEnabledForDevice_Response{}
+	mi := &file_webuimessages_audio_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CAudio_GetEchoCancellationEnabledForDevice_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CAudio_GetEchoCancellationEnabledForDevice_Response) ProtoMessage() {}
+
+func (x *CAudio_GetEchoCancellationEnabledForDevice_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_audio_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CAudio_GetEchoCancellationEnabledForDevice_Response.ProtoReflect.Descriptor instead.
+func (*CAudio_GetEchoCancellationEnabledForDevice_Response) Descriptor() ([]byte, []int) {
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *CAudio_GetEchoCancellationEnabledForDevice_Response) GetEnabled() bool {
+	if x != nil && x.Enabled != nil {
+		return *x.Enabled
+	}
+	return false
+}
+
+type CAudio_SetEchoCancellationEnabledForDevice_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            *int32                 `protobuf:"varint,1,opt,name=id" json:"id,omitempty"`
+	Builtin       *bool                  `protobuf:"varint,2,opt,name=builtin" json:"builtin,omitempty"`
+	Enabled       *bool                  `protobuf:"varint,3,opt,name=enabled" json:"enabled,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CAudio_SetEchoCancellationEnabledForDevice_Request) Reset() {
+	*x = CAudio_SetEchoCancellationEnabledForDevice_Request{}
+	mi := &file_webuimessages_audio_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CAudio_SetEchoCancellationEnabledForDevice_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CAudio_SetEchoCancellationEnabledForDevice_Request) ProtoMessage() {}
+
+func (x *CAudio_SetEchoCancellationEnabledForDevice_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_audio_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CAudio_SetEchoCancellationEnabledForDevice_Request.ProtoReflect.Descriptor instead.
+func (*CAudio_SetEchoCancellationEnabledForDevice_Request) Descriptor() ([]byte, []int) {
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *CAudio_SetEchoCancellationEnabledForDevice_Request) GetId() int32 {
+	if x != nil && x.Id != nil {
+		return *x.Id
+	}
+	return 0
+}
+
+func (x *CAudio_SetEchoCancellationEnabledForDevice_Request) GetBuiltin() bool {
+	if x != nil && x.Builtin != nil {
+		return *x.Builtin
+	}
+	return false
+}
+
+func (x *CAudio_SetEchoCancellationEnabledForDevice_Request) GetEnabled() bool {
+	if x != nil && x.Enabled != nil {
+		return *x.Enabled
+	}
+	return false
+}
+
+type CAudio_SetEchoCancellationEnabledForDevice_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CAudio_SetEchoCancellationEnabledForDevice_Response) Reset() {
+	*x = CAudio_SetEchoCancellationEnabledForDevice_Response{}
+	mi := &file_webuimessages_audio_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CAudio_SetEchoCancellationEnabledForDevice_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CAudio_SetEchoCancellationEnabledForDevice_Response) ProtoMessage() {}
+
+func (x *CAudio_SetEchoCancellationEnabledForDevice_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_audio_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CAudio_SetEchoCancellationEnabledForDevice_Response.ProtoReflect.Descriptor instead.
+func (*CAudio_SetEchoCancellationEnabledForDevice_Response) Descriptor() ([]byte, []int) {
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{43}
+}
+
+type CAudio_GetNoiseSuppressionEnabledForDevice_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            *int32                 `protobuf:"varint,1,opt,name=id" json:"id,omitempty"`
+	Builtin       *bool                  `protobuf:"varint,2,opt,name=builtin" json:"builtin,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CAudio_GetNoiseSuppressionEnabledForDevice_Request) Reset() {
+	*x = CAudio_GetNoiseSuppressionEnabledForDevice_Request{}
+	mi := &file_webuimessages_audio_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CAudio_GetNoiseSuppressionEnabledForDevice_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CAudio_GetNoiseSuppressionEnabledForDevice_Request) ProtoMessage() {}
+
+func (x *CAudio_GetNoiseSuppressionEnabledForDevice_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_audio_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CAudio_GetNoiseSuppressionEnabledForDevice_Request.ProtoReflect.Descriptor instead.
+func (*CAudio_GetNoiseSuppressionEnabledForDevice_Request) Descriptor() ([]byte, []int) {
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *CAudio_GetNoiseSuppressionEnabledForDevice_Request) GetId() int32 {
+	if x != nil && x.Id != nil {
+		return *x.Id
+	}
+	return 0
+}
+
+func (x *CAudio_GetNoiseSuppressionEnabledForDevice_Request) GetBuiltin() bool {
+	if x != nil && x.Builtin != nil {
+		return *x.Builtin
+	}
+	return false
+}
+
+type CAudio_GetNoiseSuppressionEnabledForDevice_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Enabled       *bool                  `protobuf:"varint,1,opt,name=enabled" json:"enabled,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CAudio_GetNoiseSuppressionEnabledForDevice_Response) Reset() {
+	*x = CAudio_GetNoiseSuppressionEnabledForDevice_Response{}
+	mi := &file_webuimessages_audio_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CAudio_GetNoiseSuppressionEnabledForDevice_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CAudio_GetNoiseSuppressionEnabledForDevice_Response) ProtoMessage() {}
+
+func (x *CAudio_GetNoiseSuppressionEnabledForDevice_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_audio_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CAudio_GetNoiseSuppressionEnabledForDevice_Response.ProtoReflect.Descriptor instead.
+func (*CAudio_GetNoiseSuppressionEnabledForDevice_Response) Descriptor() ([]byte, []int) {
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *CAudio_GetNoiseSuppressionEnabledForDevice_Response) GetEnabled() bool {
+	if x != nil && x.Enabled != nil {
+		return *x.Enabled
+	}
+	return false
+}
+
+type CAudio_SetNoiseSuppressionEnabledForDevice_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            *int32                 `protobuf:"varint,1,opt,name=id" json:"id,omitempty"`
+	Builtin       *bool                  `protobuf:"varint,2,opt,name=builtin" json:"builtin,omitempty"`
+	Enabled       *bool                  `protobuf:"varint,3,opt,name=enabled" json:"enabled,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CAudio_SetNoiseSuppressionEnabledForDevice_Request) Reset() {
+	*x = CAudio_SetNoiseSuppressionEnabledForDevice_Request{}
+	mi := &file_webuimessages_audio_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CAudio_SetNoiseSuppressionEnabledForDevice_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CAudio_SetNoiseSuppressionEnabledForDevice_Request) ProtoMessage() {}
+
+func (x *CAudio_SetNoiseSuppressionEnabledForDevice_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_audio_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CAudio_SetNoiseSuppressionEnabledForDevice_Request.ProtoReflect.Descriptor instead.
+func (*CAudio_SetNoiseSuppressionEnabledForDevice_Request) Descriptor() ([]byte, []int) {
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *CAudio_SetNoiseSuppressionEnabledForDevice_Request) GetId() int32 {
+	if x != nil && x.Id != nil {
+		return *x.Id
+	}
+	return 0
+}
+
+func (x *CAudio_SetNoiseSuppressionEnabledForDevice_Request) GetBuiltin() bool {
+	if x != nil && x.Builtin != nil {
+		return *x.Builtin
+	}
+	return false
+}
+
+func (x *CAudio_SetNoiseSuppressionEnabledForDevice_Request) GetEnabled() bool {
+	if x != nil && x.Enabled != nil {
+		return *x.Enabled
+	}
+	return false
+}
+
+type CAudio_SetNoiseSuppressionEnabledForDevice_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CAudio_SetNoiseSuppressionEnabledForDevice_Response) Reset() {
+	*x = CAudio_SetNoiseSuppressionEnabledForDevice_Response{}
+	mi := &file_webuimessages_audio_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CAudio_SetNoiseSuppressionEnabledForDevice_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CAudio_SetNoiseSuppressionEnabledForDevice_Response) ProtoMessage() {}
+
+func (x *CAudio_SetNoiseSuppressionEnabledForDevice_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_audio_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CAudio_SetNoiseSuppressionEnabledForDevice_Response.ProtoReflect.Descriptor instead.
+func (*CAudio_SetNoiseSuppressionEnabledForDevice_Response) Descriptor() ([]byte, []int) {
+	return file_webuimessages_audio_proto_rawDescGZIP(), []int{47}
+}
+
 var File_webuimessages_audio_proto protoreflect.FileDescriptor
 
 const file_webuimessages_audio_proto_rawDesc = "" +
 	"\n" +
 	"\x19webuimessages_audio.proto\x1a\x18steammessages_base.proto\x1a\x18webuimessages_base.proto\x1a\venums.proto\"%\n" +
-	"#CAudio_GetSupportedFeatures_Request\"\xae\x02\n" +
+	"#CAudio_GetSupportedFeatures_Request\"\xe9\x02\n" +
 	"$CAudio_GetSupportedFeatures_Response\x12!\n" +
 	"\fmono_downmix\x18\x01 \x01(\bR\vmonoDownmix\x121\n" +
 	"\x15use_bluetooth_for_mic\x18\x02 \x01(\bR\x12useBluetoothForMic\x12!\n" +
@@ -1767,7 +2159,8 @@ const file_webuimessages_audio_proto_rawDesc = "" +
 	"\n" +
 	"spatialize\x18\x05 \x01(\bR\n" +
 	"spatialize\x12/\n" +
-	"\x13spatialize_surround\x18\x06 \x01(\bR\x12spatializeSurround\"&\n" +
+	"\x13spatialize_surround\x18\x06 \x01(\bR\x12spatializeSurround\x129\n" +
+	"\x19per_device_mic_processing\x18\a \x01(\bR\x16perDeviceMicProcessing\"&\n" +
 	"$CAudio_GetMonoDownmixEnabled_Request\"A\n" +
 	"%CAudio_GetMonoDownmixEnabled_Response\x12\x18\n" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\"@\n" +
@@ -1838,7 +2231,27 @@ const file_webuimessages_audio_proto_rawDesc = "" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\"G\n" +
 	"+CAudio_SetSpatializeSurroundEnabled_Request\x12\x18\n" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\".\n" +
-	",CAudio_SetSpatializeSurroundEnabled_Response2\x92\x10\n" +
+	",CAudio_SetSpatializeSurroundEnabled_Response\"^\n" +
+	"2CAudio_GetEchoCancellationEnabledForDevice_Request\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x18\n" +
+	"\abuiltin\x18\x02 \x01(\bR\abuiltin\"O\n" +
+	"3CAudio_GetEchoCancellationEnabledForDevice_Response\x12\x18\n" +
+	"\aenabled\x18\x01 \x01(\bR\aenabled\"x\n" +
+	"2CAudio_SetEchoCancellationEnabledForDevice_Request\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x18\n" +
+	"\abuiltin\x18\x02 \x01(\bR\abuiltin\x12\x18\n" +
+	"\aenabled\x18\x03 \x01(\bR\aenabled\"5\n" +
+	"3CAudio_SetEchoCancellationEnabledForDevice_Response\"^\n" +
+	"2CAudio_GetNoiseSuppressionEnabledForDevice_Request\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x18\n" +
+	"\abuiltin\x18\x02 \x01(\bR\abuiltin\"O\n" +
+	"3CAudio_GetNoiseSuppressionEnabledForDevice_Response\x12\x18\n" +
+	"\aenabled\x18\x01 \x01(\bR\aenabled\"x\n" +
+	"2CAudio_SetNoiseSuppressionEnabledForDevice_Request\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x18\n" +
+	"\abuiltin\x18\x02 \x01(\bR\abuiltin\x12\x18\n" +
+	"\aenabled\x18\x03 \x01(\bR\aenabled\"5\n" +
+	"3CAudio_SetNoiseSuppressionEnabledForDevice_Response2\xde\x14\n" +
 	"\x05Audio\x12c\n" +
 	"\x14GetSupportedFeatures\x12$.CAudio_GetSupportedFeatures_Request\x1a%.CAudio_GetSupportedFeatures_Response\x12f\n" +
 	"\x15GetMonoDownmixEnabled\x12%.CAudio_GetMonoDownmixEnabled_Request\x1a&.CAudio_GetMonoDownmixEnabled_Response\x12f\n" +
@@ -1859,7 +2272,11 @@ const file_webuimessages_audio_proto_rawDesc = "" +
 	"\x1cSetSpatializeSurroundEnabled\x12,.CAudio_SetSpatializeSurroundEnabled_Request\x1a-.CAudio_SetSpatializeSurroundEnabled_Response\x12H\n" +
 	"\vResetConfig\x12\x1b.CAudio_ResetConfig_Request\x1a\x1c.CAudio_ResetConfig_Response\x12o\n" +
 	"\x18PlaySpeakerTestOnChannel\x12(.CAudio_PlaySpeakerTestOnChannel_Request\x1a).CAudio_PlaySpeakerTestOnChannel_Response\x12l\n" +
-	"\x17SetSpeakerConfiguration\x12'.CAudio_SetSpeakerConfiguration_Request\x1a(.CAudio_SetSpeakerConfiguration_Response\x1a\x04\x80\x97\"\x01B\x05H\x01\x80\x01\x01"
+	"\x17SetSpeakerConfiguration\x12'.CAudio_SetSpeakerConfiguration_Request\x1a(.CAudio_SetSpeakerConfiguration_Response\x12\x90\x01\n" +
+	"#GetEchoCancellationEnabledForDevice\x123.CAudio_GetEchoCancellationEnabledForDevice_Request\x1a4.CAudio_GetEchoCancellationEnabledForDevice_Response\x12\x90\x01\n" +
+	"#SetEchoCancellationEnabledForDevice\x123.CAudio_SetEchoCancellationEnabledForDevice_Request\x1a4.CAudio_SetEchoCancellationEnabledForDevice_Response\x12\x90\x01\n" +
+	"#GetNoiseSuppressionEnabledForDevice\x123.CAudio_GetNoiseSuppressionEnabledForDevice_Request\x1a4.CAudio_GetNoiseSuppressionEnabledForDevice_Response\x12\x90\x01\n" +
+	"#SetNoiseSuppressionEnabledForDevice\x123.CAudio_SetNoiseSuppressionEnabledForDevice_Request\x1a4.CAudio_SetNoiseSuppressionEnabledForDevice_Response\x1a\x04\x80\x97\"\x01B\x05H\x01\x80\x01\x01"
 
 var (
 	file_webuimessages_audio_proto_rawDescOnce sync.Once
@@ -1873,56 +2290,64 @@ func file_webuimessages_audio_proto_rawDescGZIP() []byte {
 	return file_webuimessages_audio_proto_rawDescData
 }
 
-var file_webuimessages_audio_proto_msgTypes = make([]protoimpl.MessageInfo, 40)
+var file_webuimessages_audio_proto_msgTypes = make([]protoimpl.MessageInfo, 48)
 var file_webuimessages_audio_proto_goTypes = []any{
-	(*CAudio_GetSupportedFeatures_Request)(nil),          // 0: CAudio_GetSupportedFeatures_Request
-	(*CAudio_GetSupportedFeatures_Response)(nil),         // 1: CAudio_GetSupportedFeatures_Response
-	(*CAudio_GetMonoDownmixEnabled_Request)(nil),         // 2: CAudio_GetMonoDownmixEnabled_Request
-	(*CAudio_GetMonoDownmixEnabled_Response)(nil),        // 3: CAudio_GetMonoDownmixEnabled_Response
-	(*CAudio_SetMonoDownmixEnabled_Request)(nil),         // 4: CAudio_SetMonoDownmixEnabled_Request
-	(*CAudio_SetMonoDownmixEnabled_Response)(nil),        // 5: CAudio_SetMonoDownmixEnabled_Response
-	(*CAudio_GetUseBluetoothForMic_Request)(nil),         // 6: CAudio_GetUseBluetoothForMic_Request
-	(*CAudio_GetUseBluetoothForMic_Response)(nil),        // 7: CAudio_GetUseBluetoothForMic_Response
-	(*CAudio_SetUseBluetoothForMic_Request)(nil),         // 8: CAudio_SetUseBluetoothForMic_Request
-	(*CAudio_SetUseBluetoothForMic_Response)(nil),        // 9: CAudio_SetUseBluetoothForMic_Response
-	(*CAudio_GetBluetoothAudioPreference_Request)(nil),   // 10: CAudio_GetBluetoothAudioPreference_Request
-	(*CAudio_GetBluetoothAudioPreference_Response)(nil),  // 11: CAudio_GetBluetoothAudioPreference_Response
-	(*CAudio_SetBluetoothAudioPreference_Request)(nil),   // 12: CAudio_SetBluetoothAudioPreference_Request
-	(*CAudio_SetBluetoothAudioPreference_Response)(nil),  // 13: CAudio_SetBluetoothAudioPreference_Response
-	(*CAudio_SupportsHdmiCec_Request)(nil),               // 14: CAudio_SupportsHdmiCec_Request
-	(*CAudio_SupportsHdmiCec_Response)(nil),              // 15: CAudio_SupportsHdmiCec_Response
-	(*CAudio_GetHdmiCecEnabled_Request)(nil),             // 16: CAudio_GetHdmiCecEnabled_Request
-	(*CAudio_GetHdmiCecEnabled_Response)(nil),            // 17: CAudio_GetHdmiCecEnabled_Response
-	(*CAudio_GetHdmiCecActive_Request)(nil),              // 18: CAudio_GetHdmiCecActive_Request
-	(*CAudio_GetHdmiCecActive_Response)(nil),             // 19: CAudio_GetHdmiCecActive_Response
-	(*CAudio_SetHdmiCecEnabled_Request)(nil),             // 20: CAudio_SetHdmiCecEnabled_Request
-	(*CAudio_SetHdmiCecEnabled_Response)(nil),            // 21: CAudio_SetHdmiCecEnabled_Response
-	(*CAudio_SendHdmiCecVolume_Request)(nil),             // 22: CAudio_SendHdmiCecVolume_Request
-	(*CAudio_SendHdmiCecVolume_Response)(nil),            // 23: CAudio_SendHdmiCecVolume_Response
-	(*CAudio_ToggleHdmiCecMute_Request)(nil),             // 24: CAudio_ToggleHdmiCecMute_Request
-	(*CAudio_ToggleHdmiCecMute_Response)(nil),            // 25: CAudio_ToggleHdmiCecMute_Response
-	(*CAudio_ResetConfig_Request)(nil),                   // 26: CAudio_ResetConfig_Request
-	(*CAudio_ResetConfig_Response)(nil),                  // 27: CAudio_ResetConfig_Response
-	(*CAudio_PlaySpeakerTestOnChannel_Request)(nil),      // 28: CAudio_PlaySpeakerTestOnChannel_Request
-	(*CAudio_PlaySpeakerTestOnChannel_Response)(nil),     // 29: CAudio_PlaySpeakerTestOnChannel_Response
-	(*CAudio_SetSpeakerConfiguration_Request)(nil),       // 30: CAudio_SetSpeakerConfiguration_Request
-	(*CAudio_SetSpeakerConfiguration_Response)(nil),      // 31: CAudio_SetSpeakerConfiguration_Response
-	(*CAudio_GetSpatializeEnabled_Request)(nil),          // 32: CAudio_GetSpatializeEnabled_Request
-	(*CAudio_GetSpatializeEnabled_Response)(nil),         // 33: CAudio_GetSpatializeEnabled_Response
-	(*CAudio_SetSpatializeEnabled_Request)(nil),          // 34: CAudio_SetSpatializeEnabled_Request
-	(*CAudio_SetSpatializeEnabled_Response)(nil),         // 35: CAudio_SetSpatializeEnabled_Response
-	(*CAudio_GetSpatializeSurroundEnabled_Request)(nil),  // 36: CAudio_GetSpatializeSurroundEnabled_Request
-	(*CAudio_GetSpatializeSurroundEnabled_Response)(nil), // 37: CAudio_GetSpatializeSurroundEnabled_Response
-	(*CAudio_SetSpatializeSurroundEnabled_Request)(nil),  // 38: CAudio_SetSpatializeSurroundEnabled_Request
-	(*CAudio_SetSpatializeSurroundEnabled_Response)(nil), // 39: CAudio_SetSpatializeSurroundEnabled_Response
-	(EBluetoothAudioPreference)(0),                       // 40: EBluetoothAudioPreference
-	(ESpeakerConfiguration)(0),                           // 41: ESpeakerConfiguration
+	(*CAudio_GetSupportedFeatures_Request)(nil),                 // 0: CAudio_GetSupportedFeatures_Request
+	(*CAudio_GetSupportedFeatures_Response)(nil),                // 1: CAudio_GetSupportedFeatures_Response
+	(*CAudio_GetMonoDownmixEnabled_Request)(nil),                // 2: CAudio_GetMonoDownmixEnabled_Request
+	(*CAudio_GetMonoDownmixEnabled_Response)(nil),               // 3: CAudio_GetMonoDownmixEnabled_Response
+	(*CAudio_SetMonoDownmixEnabled_Request)(nil),                // 4: CAudio_SetMonoDownmixEnabled_Request
+	(*CAudio_SetMonoDownmixEnabled_Response)(nil),               // 5: CAudio_SetMonoDownmixEnabled_Response
+	(*CAudio_GetUseBluetoothForMic_Request)(nil),                // 6: CAudio_GetUseBluetoothForMic_Request
+	(*CAudio_GetUseBluetoothForMic_Response)(nil),               // 7: CAudio_GetUseBluetoothForMic_Response
+	(*CAudio_SetUseBluetoothForMic_Request)(nil),                // 8: CAudio_SetUseBluetoothForMic_Request
+	(*CAudio_SetUseBluetoothForMic_Response)(nil),               // 9: CAudio_SetUseBluetoothForMic_Response
+	(*CAudio_GetBluetoothAudioPreference_Request)(nil),          // 10: CAudio_GetBluetoothAudioPreference_Request
+	(*CAudio_GetBluetoothAudioPreference_Response)(nil),         // 11: CAudio_GetBluetoothAudioPreference_Response
+	(*CAudio_SetBluetoothAudioPreference_Request)(nil),          // 12: CAudio_SetBluetoothAudioPreference_Request
+	(*CAudio_SetBluetoothAudioPreference_Response)(nil),         // 13: CAudio_SetBluetoothAudioPreference_Response
+	(*CAudio_SupportsHdmiCec_Request)(nil),                      // 14: CAudio_SupportsHdmiCec_Request
+	(*CAudio_SupportsHdmiCec_Response)(nil),                     // 15: CAudio_SupportsHdmiCec_Response
+	(*CAudio_GetHdmiCecEnabled_Request)(nil),                    // 16: CAudio_GetHdmiCecEnabled_Request
+	(*CAudio_GetHdmiCecEnabled_Response)(nil),                   // 17: CAudio_GetHdmiCecEnabled_Response
+	(*CAudio_GetHdmiCecActive_Request)(nil),                     // 18: CAudio_GetHdmiCecActive_Request
+	(*CAudio_GetHdmiCecActive_Response)(nil),                    // 19: CAudio_GetHdmiCecActive_Response
+	(*CAudio_SetHdmiCecEnabled_Request)(nil),                    // 20: CAudio_SetHdmiCecEnabled_Request
+	(*CAudio_SetHdmiCecEnabled_Response)(nil),                   // 21: CAudio_SetHdmiCecEnabled_Response
+	(*CAudio_SendHdmiCecVolume_Request)(nil),                    // 22: CAudio_SendHdmiCecVolume_Request
+	(*CAudio_SendHdmiCecVolume_Response)(nil),                   // 23: CAudio_SendHdmiCecVolume_Response
+	(*CAudio_ToggleHdmiCecMute_Request)(nil),                    // 24: CAudio_ToggleHdmiCecMute_Request
+	(*CAudio_ToggleHdmiCecMute_Response)(nil),                   // 25: CAudio_ToggleHdmiCecMute_Response
+	(*CAudio_ResetConfig_Request)(nil),                          // 26: CAudio_ResetConfig_Request
+	(*CAudio_ResetConfig_Response)(nil),                         // 27: CAudio_ResetConfig_Response
+	(*CAudio_PlaySpeakerTestOnChannel_Request)(nil),             // 28: CAudio_PlaySpeakerTestOnChannel_Request
+	(*CAudio_PlaySpeakerTestOnChannel_Response)(nil),            // 29: CAudio_PlaySpeakerTestOnChannel_Response
+	(*CAudio_SetSpeakerConfiguration_Request)(nil),              // 30: CAudio_SetSpeakerConfiguration_Request
+	(*CAudio_SetSpeakerConfiguration_Response)(nil),             // 31: CAudio_SetSpeakerConfiguration_Response
+	(*CAudio_GetSpatializeEnabled_Request)(nil),                 // 32: CAudio_GetSpatializeEnabled_Request
+	(*CAudio_GetSpatializeEnabled_Response)(nil),                // 33: CAudio_GetSpatializeEnabled_Response
+	(*CAudio_SetSpatializeEnabled_Request)(nil),                 // 34: CAudio_SetSpatializeEnabled_Request
+	(*CAudio_SetSpatializeEnabled_Response)(nil),                // 35: CAudio_SetSpatializeEnabled_Response
+	(*CAudio_GetSpatializeSurroundEnabled_Request)(nil),         // 36: CAudio_GetSpatializeSurroundEnabled_Request
+	(*CAudio_GetSpatializeSurroundEnabled_Response)(nil),        // 37: CAudio_GetSpatializeSurroundEnabled_Response
+	(*CAudio_SetSpatializeSurroundEnabled_Request)(nil),         // 38: CAudio_SetSpatializeSurroundEnabled_Request
+	(*CAudio_SetSpatializeSurroundEnabled_Response)(nil),        // 39: CAudio_SetSpatializeSurroundEnabled_Response
+	(*CAudio_GetEchoCancellationEnabledForDevice_Request)(nil),  // 40: CAudio_GetEchoCancellationEnabledForDevice_Request
+	(*CAudio_GetEchoCancellationEnabledForDevice_Response)(nil), // 41: CAudio_GetEchoCancellationEnabledForDevice_Response
+	(*CAudio_SetEchoCancellationEnabledForDevice_Request)(nil),  // 42: CAudio_SetEchoCancellationEnabledForDevice_Request
+	(*CAudio_SetEchoCancellationEnabledForDevice_Response)(nil), // 43: CAudio_SetEchoCancellationEnabledForDevice_Response
+	(*CAudio_GetNoiseSuppressionEnabledForDevice_Request)(nil),  // 44: CAudio_GetNoiseSuppressionEnabledForDevice_Request
+	(*CAudio_GetNoiseSuppressionEnabledForDevice_Response)(nil), // 45: CAudio_GetNoiseSuppressionEnabledForDevice_Response
+	(*CAudio_SetNoiseSuppressionEnabledForDevice_Request)(nil),  // 46: CAudio_SetNoiseSuppressionEnabledForDevice_Request
+	(*CAudio_SetNoiseSuppressionEnabledForDevice_Response)(nil), // 47: CAudio_SetNoiseSuppressionEnabledForDevice_Response
+	(EBluetoothAudioPreference)(0),                              // 48: EBluetoothAudioPreference
+	(ESpeakerConfiguration)(0),                                  // 49: ESpeakerConfiguration
 }
 var file_webuimessages_audio_proto_depIdxs = []int32{
-	40, // 0: CAudio_GetBluetoothAudioPreference_Response.preference:type_name -> EBluetoothAudioPreference
-	40, // 1: CAudio_SetBluetoothAudioPreference_Request.preference:type_name -> EBluetoothAudioPreference
-	41, // 2: CAudio_SetSpeakerConfiguration_Request.config:type_name -> ESpeakerConfiguration
-	41, // 3: CAudio_SetSpeakerConfiguration_Response.config:type_name -> ESpeakerConfiguration
+	48, // 0: CAudio_GetBluetoothAudioPreference_Response.preference:type_name -> EBluetoothAudioPreference
+	48, // 1: CAudio_SetBluetoothAudioPreference_Request.preference:type_name -> EBluetoothAudioPreference
+	49, // 2: CAudio_SetSpeakerConfiguration_Request.config:type_name -> ESpeakerConfiguration
+	49, // 3: CAudio_SetSpeakerConfiguration_Response.config:type_name -> ESpeakerConfiguration
 	0,  // 4: Audio.GetSupportedFeatures:input_type -> CAudio_GetSupportedFeatures_Request
 	2,  // 5: Audio.GetMonoDownmixEnabled:input_type -> CAudio_GetMonoDownmixEnabled_Request
 	4,  // 6: Audio.SetMonoDownmixEnabled:input_type -> CAudio_SetMonoDownmixEnabled_Request
@@ -1943,28 +2368,36 @@ var file_webuimessages_audio_proto_depIdxs = []int32{
 	26, // 21: Audio.ResetConfig:input_type -> CAudio_ResetConfig_Request
 	28, // 22: Audio.PlaySpeakerTestOnChannel:input_type -> CAudio_PlaySpeakerTestOnChannel_Request
 	30, // 23: Audio.SetSpeakerConfiguration:input_type -> CAudio_SetSpeakerConfiguration_Request
-	1,  // 24: Audio.GetSupportedFeatures:output_type -> CAudio_GetSupportedFeatures_Response
-	3,  // 25: Audio.GetMonoDownmixEnabled:output_type -> CAudio_GetMonoDownmixEnabled_Response
-	5,  // 26: Audio.SetMonoDownmixEnabled:output_type -> CAudio_SetMonoDownmixEnabled_Response
-	7,  // 27: Audio.GetUseBluetoothForMic:output_type -> CAudio_GetUseBluetoothForMic_Response
-	9,  // 28: Audio.SetUseBluetoothForMic:output_type -> CAudio_SetUseBluetoothForMic_Response
-	11, // 29: Audio.GetBluetoothAudioPreference:output_type -> CAudio_GetBluetoothAudioPreference_Response
-	13, // 30: Audio.SetBluetoothAudioPreference:output_type -> CAudio_SetBluetoothAudioPreference_Response
-	15, // 31: Audio.SupportsHdmiCec:output_type -> CAudio_SupportsHdmiCec_Response
-	17, // 32: Audio.GetHdmiCecEnabled:output_type -> CAudio_GetHdmiCecEnabled_Response
-	19, // 33: Audio.GetHdmiCecActive:output_type -> CAudio_GetHdmiCecActive_Response
-	21, // 34: Audio.SetHdmiCecEnabled:output_type -> CAudio_SetHdmiCecEnabled_Response
-	23, // 35: Audio.SendHdmiCecVolume:output_type -> CAudio_SendHdmiCecVolume_Response
-	25, // 36: Audio.ToggleHdmiCecMute:output_type -> CAudio_ToggleHdmiCecMute_Response
-	33, // 37: Audio.GetSpatializeEnabled:output_type -> CAudio_GetSpatializeEnabled_Response
-	35, // 38: Audio.SetSpatializeEnabled:output_type -> CAudio_SetSpatializeEnabled_Response
-	37, // 39: Audio.GetSpatializeSurroundEnabled:output_type -> CAudio_GetSpatializeSurroundEnabled_Response
-	39, // 40: Audio.SetSpatializeSurroundEnabled:output_type -> CAudio_SetSpatializeSurroundEnabled_Response
-	27, // 41: Audio.ResetConfig:output_type -> CAudio_ResetConfig_Response
-	29, // 42: Audio.PlaySpeakerTestOnChannel:output_type -> CAudio_PlaySpeakerTestOnChannel_Response
-	31, // 43: Audio.SetSpeakerConfiguration:output_type -> CAudio_SetSpeakerConfiguration_Response
-	24, // [24:44] is the sub-list for method output_type
-	4,  // [4:24] is the sub-list for method input_type
+	40, // 24: Audio.GetEchoCancellationEnabledForDevice:input_type -> CAudio_GetEchoCancellationEnabledForDevice_Request
+	42, // 25: Audio.SetEchoCancellationEnabledForDevice:input_type -> CAudio_SetEchoCancellationEnabledForDevice_Request
+	44, // 26: Audio.GetNoiseSuppressionEnabledForDevice:input_type -> CAudio_GetNoiseSuppressionEnabledForDevice_Request
+	46, // 27: Audio.SetNoiseSuppressionEnabledForDevice:input_type -> CAudio_SetNoiseSuppressionEnabledForDevice_Request
+	1,  // 28: Audio.GetSupportedFeatures:output_type -> CAudio_GetSupportedFeatures_Response
+	3,  // 29: Audio.GetMonoDownmixEnabled:output_type -> CAudio_GetMonoDownmixEnabled_Response
+	5,  // 30: Audio.SetMonoDownmixEnabled:output_type -> CAudio_SetMonoDownmixEnabled_Response
+	7,  // 31: Audio.GetUseBluetoothForMic:output_type -> CAudio_GetUseBluetoothForMic_Response
+	9,  // 32: Audio.SetUseBluetoothForMic:output_type -> CAudio_SetUseBluetoothForMic_Response
+	11, // 33: Audio.GetBluetoothAudioPreference:output_type -> CAudio_GetBluetoothAudioPreference_Response
+	13, // 34: Audio.SetBluetoothAudioPreference:output_type -> CAudio_SetBluetoothAudioPreference_Response
+	15, // 35: Audio.SupportsHdmiCec:output_type -> CAudio_SupportsHdmiCec_Response
+	17, // 36: Audio.GetHdmiCecEnabled:output_type -> CAudio_GetHdmiCecEnabled_Response
+	19, // 37: Audio.GetHdmiCecActive:output_type -> CAudio_GetHdmiCecActive_Response
+	21, // 38: Audio.SetHdmiCecEnabled:output_type -> CAudio_SetHdmiCecEnabled_Response
+	23, // 39: Audio.SendHdmiCecVolume:output_type -> CAudio_SendHdmiCecVolume_Response
+	25, // 40: Audio.ToggleHdmiCecMute:output_type -> CAudio_ToggleHdmiCecMute_Response
+	33, // 41: Audio.GetSpatializeEnabled:output_type -> CAudio_GetSpatializeEnabled_Response
+	35, // 42: Audio.SetSpatializeEnabled:output_type -> CAudio_SetSpatializeEnabled_Response
+	37, // 43: Audio.GetSpatializeSurroundEnabled:output_type -> CAudio_GetSpatializeSurroundEnabled_Response
+	39, // 44: Audio.SetSpatializeSurroundEnabled:output_type -> CAudio_SetSpatializeSurroundEnabled_Response
+	27, // 45: Audio.ResetConfig:output_type -> CAudio_ResetConfig_Response
+	29, // 46: Audio.PlaySpeakerTestOnChannel:output_type -> CAudio_PlaySpeakerTestOnChannel_Response
+	31, // 47: Audio.SetSpeakerConfiguration:output_type -> CAudio_SetSpeakerConfiguration_Response
+	41, // 48: Audio.GetEchoCancellationEnabledForDevice:output_type -> CAudio_GetEchoCancellationEnabledForDevice_Response
+	43, // 49: Audio.SetEchoCancellationEnabledForDevice:output_type -> CAudio_SetEchoCancellationEnabledForDevice_Response
+	45, // 50: Audio.GetNoiseSuppressionEnabledForDevice:output_type -> CAudio_GetNoiseSuppressionEnabledForDevice_Response
+	47, // 51: Audio.SetNoiseSuppressionEnabledForDevice:output_type -> CAudio_SetNoiseSuppressionEnabledForDevice_Response
+	28, // [28:52] is the sub-list for method output_type
+	4,  // [4:28] is the sub-list for method input_type
 	4,  // [4:4] is the sub-list for extension type_name
 	4,  // [4:4] is the sub-list for extension extendee
 	0,  // [0:4] is the sub-list for field type_name
@@ -1984,7 +2417,7 @@ func file_webuimessages_audio_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_webuimessages_audio_proto_rawDesc), len(file_webuimessages_audio_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   40,
+			NumMessages:   48,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

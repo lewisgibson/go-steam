@@ -84,6 +84,13 @@ func (x EDisplayStyle) EncodeValues(key string, v *url.Values) error {
 	return nil
 }
 
+// EncodeValues implements the query.Encoder interface for EStreamHDRMode.
+// This allows the enum to be encoded as its numerical value in URL parameters.
+func (x EStreamHDRMode) EncodeValues(key string, v *url.Values) error {
+	v.Add(key, strconv.FormatInt(int64(x), 10))
+	return nil
+}
+
 // EncodeValues implements the query.Encoder interface for EStreamHostPlayAudioPreference.
 // This allows the enum to be encoded as its numerical value in URL parameters.
 func (x EStreamHostPlayAudioPreference) EncodeValues(key string, v *url.Values) error {

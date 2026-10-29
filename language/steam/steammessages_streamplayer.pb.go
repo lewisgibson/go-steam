@@ -32,6 +32,8 @@ type CStreamPlayerConfig struct {
 	WantsTouchInput          *bool                             `protobuf:"varint,8,opt,name=wants_touch_input,json=wantsTouchInput" json:"wants_touch_input,omitempty"`
 	WindowCurvature_OBSOLETE *float32                          `protobuf:"fixed32,10,opt,name=window_curvature_OBSOLETE,json=windowCurvatureOBSOLETE" json:"window_curvature_OBSOLETE,omitempty"`
 	WindowSettings           *string                           `protobuf:"bytes,11,opt,name=window_settings,json=windowSettings" json:"window_settings,omitempty"`
+	SdrVideoBrightness       *float32                          `protobuf:"fixed32,12,opt,name=sdr_video_brightness,json=sdrVideoBrightness" json:"sdr_video_brightness,omitempty"`
+	HdrVideoBrightness       *float32                          `protobuf:"fixed32,13,opt,name=hdr_video_brightness,json=hdrVideoBrightness" json:"hdr_video_brightness,omitempty"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
@@ -129,6 +131,20 @@ func (x *CStreamPlayerConfig) GetWindowSettings() string {
 	return ""
 }
 
+func (x *CStreamPlayerConfig) GetSdrVideoBrightness() float32 {
+	if x != nil && x.SdrVideoBrightness != nil {
+		return *x.SdrVideoBrightness
+	}
+	return 0
+}
+
+func (x *CStreamPlayerConfig) GetHdrVideoBrightness() float32 {
+	if x != nil && x.HdrVideoBrightness != nil {
+		return *x.HdrVideoBrightness
+	}
+	return 0
+}
+
 type CStreamPlayerConfig_CAudioConfig struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Volume        *float32               `protobuf:"fixed32,1,opt,name=volume,def=1" json:"volume,omitempty"`
@@ -198,7 +214,7 @@ var File_steammessages_streamplayer_proto protoreflect.FileDescriptor
 
 const file_steammessages_streamplayer_proto_rawDesc = "" +
 	"\n" +
-	" steammessages_streamplayer.proto\"\xe1\x04\n" +
+	" steammessages_streamplayer.proto\"\xc5\x05\n" +
 	"\x13CStreamPlayerConfig\x12D\n" +
 	"\faudio_config\x18\x01 \x01(\v2!.CStreamPlayerConfig.CAudioConfigR\vaudioConfig\x12N\n" +
 	"\x11microphone_config\x18\x02 \x01(\v2!.CStreamPlayerConfig.CAudioConfigR\x10microphoneConfig\x12:\n" +
@@ -209,7 +225,9 @@ const file_steammessages_streamplayer_proto_rawDesc = "" +
 	"\x11wants_touch_input\x18\b \x01(\bR\x0fwantsTouchInput\x12:\n" +
 	"\x19window_curvature_OBSOLETE\x18\n" +
 	" \x01(\x02R\x17windowCurvatureOBSOLETE\x12'\n" +
-	"\x0fwindow_settings\x18\v \x01(\tR\x0ewindowSettings\x1aS\n" +
+	"\x0fwindow_settings\x18\v \x01(\tR\x0ewindowSettings\x120\n" +
+	"\x14sdr_video_brightness\x18\f \x01(\x02R\x12sdrVideoBrightness\x120\n" +
+	"\x14hdr_video_brightness\x18\r \x01(\x02R\x12hdrVideoBrightness\x1aS\n" +
 	"\fCAudioConfig\x12\x19\n" +
 	"\x06volume\x18\x01 \x01(\x02:\x011R\x06volume\x12\x12\n" +
 	"\x04mute\x18\x02 \x01(\bR\x04mute\x12\x14\n" +
