@@ -175,7 +175,7 @@ const (
 	EStreamControlMessage_k_EStreamControlSetCursorImage                           EStreamControlMessage = 67
 	EStreamControlMessage_k_EStreamControlDeleteCursor                             EStreamControlMessage = 68
 	EStreamControlMessage_k_EStreamControlSetTargetFramerate                       EStreamControlMessage = 69
-	EStreamControlMessage_k_EStreamControlInputLatencyTest                         EStreamControlMessage = 70
+	EStreamControlMessage_k_EStreamControlInputLatencyTest_OBSOLETE                EStreamControlMessage = 70
 	EStreamControlMessage_k_EStreamControlGamepadRumble_OBSOLETE                   EStreamControlMessage = 71
 	EStreamControlMessage_k_EStreamControlOverlayEnabled                           EStreamControlMessage = 74
 	EStreamControlMessage_k_EStreamControlInputControllerAttached_OBSOLETE         EStreamControlMessage = 75
@@ -246,6 +246,7 @@ const (
 	EStreamControlMessage_k_EStreamControlSetCursorScale                           EStreamControlMessage = 146
 	EStreamControlMessage_k_EStreamControlCaptureFailed                            EStreamControlMessage = 147
 	EStreamControlMessage_k_EStreamControlVideoOverflow                            EStreamControlMessage = 148
+	EStreamControlMessage_k_EStreamControlSetSupportedColorspaces                  EStreamControlMessage = 149
 )
 
 // Enum value maps for EStreamControlMessage.
@@ -281,7 +282,7 @@ var (
 		67:  "k_EStreamControlSetCursorImage",
 		68:  "k_EStreamControlDeleteCursor",
 		69:  "k_EStreamControlSetTargetFramerate",
-		70:  "k_EStreamControlInputLatencyTest",
+		70:  "k_EStreamControlInputLatencyTest_OBSOLETE",
 		71:  "k_EStreamControlGamepadRumble_OBSOLETE",
 		74:  "k_EStreamControlOverlayEnabled",
 		75:  "k_EStreamControlInputControllerAttached_OBSOLETE",
@@ -352,6 +353,7 @@ var (
 		146: "k_EStreamControlSetCursorScale",
 		147: "k_EStreamControlCaptureFailed",
 		148: "k_EStreamControlVideoOverflow",
+		149: "k_EStreamControlSetSupportedColorspaces",
 	}
 	EStreamControlMessage_value = map[string]int32{
 		"k_EStreamControlAuthenticationRequest":                    1,
@@ -384,7 +386,7 @@ var (
 		"k_EStreamControlSetCursorImage":                           67,
 		"k_EStreamControlDeleteCursor":                             68,
 		"k_EStreamControlSetTargetFramerate":                       69,
-		"k_EStreamControlInputLatencyTest":                         70,
+		"k_EStreamControlInputLatencyTest_OBSOLETE":                70,
 		"k_EStreamControlGamepadRumble_OBSOLETE":                   71,
 		"k_EStreamControlOverlayEnabled":                           74,
 		"k_EStreamControlInputControllerAttached_OBSOLETE":         75,
@@ -455,6 +457,7 @@ var (
 		"k_EStreamControlSetCursorScale":                           146,
 		"k_EStreamControlCaptureFailed":                            147,
 		"k_EStreamControlVideoOverflow":                            148,
+		"k_EStreamControlSetSupportedColorspaces":                  149,
 	}
 )
 
@@ -997,6 +1000,65 @@ func (EDisplayStyle) EnumDescriptor() ([]byte, []int) {
 	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{10}
 }
 
+type EStreamHDRMode int32
+
+const (
+	EStreamHDRMode_k_EStreamHDRModeAuto EStreamHDRMode = 0
+	EStreamHDRMode_k_EStreamHDRModeOn   EStreamHDRMode = 1
+	EStreamHDRMode_k_EStreamHDRModeOff  EStreamHDRMode = 2
+)
+
+// Enum value maps for EStreamHDRMode.
+var (
+	EStreamHDRMode_name = map[int32]string{
+		0: "k_EStreamHDRModeAuto",
+		1: "k_EStreamHDRModeOn",
+		2: "k_EStreamHDRModeOff",
+	}
+	EStreamHDRMode_value = map[string]int32{
+		"k_EStreamHDRModeAuto": 0,
+		"k_EStreamHDRModeOn":   1,
+		"k_EStreamHDRModeOff":  2,
+	}
+)
+
+func (x EStreamHDRMode) Enum() *EStreamHDRMode {
+	p := new(EStreamHDRMode)
+	*p = x
+	return p
+}
+
+func (x EStreamHDRMode) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (EStreamHDRMode) Descriptor() protoreflect.EnumDescriptor {
+	return file_steammessages_remoteplay_proto_enumTypes[11].Descriptor()
+}
+
+func (EStreamHDRMode) Type() protoreflect.EnumType {
+	return &file_steammessages_remoteplay_proto_enumTypes[11]
+}
+
+func (x EStreamHDRMode) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *EStreamHDRMode) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = EStreamHDRMode(num)
+	return nil
+}
+
+// Deprecated: Use EStreamHDRMode.Descriptor instead.
+func (EStreamHDRMode) EnumDescriptor() ([]byte, []int) {
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{11}
+}
+
 type EStreamHostPlayAudioPreference int32
 
 const (
@@ -1027,11 +1089,11 @@ func (x EStreamHostPlayAudioPreference) String() string {
 }
 
 func (EStreamHostPlayAudioPreference) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[11].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[12].Descriptor()
 }
 
 func (EStreamHostPlayAudioPreference) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[11]
+	return &file_steammessages_remoteplay_proto_enumTypes[12]
 }
 
 func (x EStreamHostPlayAudioPreference) Number() protoreflect.EnumNumber {
@@ -1050,7 +1112,7 @@ func (x *EStreamHostPlayAudioPreference) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamHostPlayAudioPreference.Descriptor instead.
 func (EStreamHostPlayAudioPreference) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{11}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{12}
 }
 
 type EStreamHostDisplaySetting int32
@@ -1086,11 +1148,11 @@ func (x EStreamHostDisplaySetting) String() string {
 }
 
 func (EStreamHostDisplaySetting) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[12].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[13].Descriptor()
 }
 
 func (EStreamHostDisplaySetting) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[12]
+	return &file_steammessages_remoteplay_proto_enumTypes[13]
 }
 
 func (x EStreamHostDisplaySetting) Number() protoreflect.EnumNumber {
@@ -1109,7 +1171,7 @@ func (x *EStreamHostDisplaySetting) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamHostDisplaySetting.Descriptor instead.
 func (EStreamHostDisplaySetting) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{12}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{13}
 }
 
 type EStreamingDataType int32
@@ -1148,11 +1210,11 @@ func (x EStreamingDataType) String() string {
 }
 
 func (EStreamingDataType) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[13].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[14].Descriptor()
 }
 
 func (EStreamingDataType) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[13]
+	return &file_steammessages_remoteplay_proto_enumTypes[14]
 }
 
 func (x EStreamingDataType) Number() protoreflect.EnumNumber {
@@ -1171,7 +1233,7 @@ func (x *EStreamingDataType) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamingDataType.Descriptor instead.
 func (EStreamingDataType) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{13}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{14}
 }
 
 type EStreamMouseButton int32
@@ -1216,11 +1278,11 @@ func (x EStreamMouseButton) String() string {
 }
 
 func (EStreamMouseButton) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[14].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[15].Descriptor()
 }
 
 func (EStreamMouseButton) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[14]
+	return &file_steammessages_remoteplay_proto_enumTypes[15]
 }
 
 func (x EStreamMouseButton) Number() protoreflect.EnumNumber {
@@ -1239,7 +1301,7 @@ func (x *EStreamMouseButton) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamMouseButton.Descriptor instead.
 func (EStreamMouseButton) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{14}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{15}
 }
 
 type EStreamMouseWheelDirection int32
@@ -1278,11 +1340,11 @@ func (x EStreamMouseWheelDirection) String() string {
 }
 
 func (EStreamMouseWheelDirection) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[15].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[16].Descriptor()
 }
 
 func (EStreamMouseWheelDirection) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[15]
+	return &file_steammessages_remoteplay_proto_enumTypes[16]
 }
 
 func (x EStreamMouseWheelDirection) Number() protoreflect.EnumNumber {
@@ -1301,7 +1363,7 @@ func (x *EStreamMouseWheelDirection) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamMouseWheelDirection.Descriptor instead.
 func (EStreamMouseWheelDirection) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{15}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{16}
 }
 
 type EStreamFramerateLimiter int32
@@ -1349,11 +1411,11 @@ func (x EStreamFramerateLimiter) String() string {
 }
 
 func (EStreamFramerateLimiter) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[16].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[17].Descriptor()
 }
 
 func (EStreamFramerateLimiter) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[16]
+	return &file_steammessages_remoteplay_proto_enumTypes[17]
 }
 
 func (x EStreamFramerateLimiter) Number() protoreflect.EnumNumber {
@@ -1372,7 +1434,7 @@ func (x *EStreamFramerateLimiter) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamFramerateLimiter.Descriptor instead.
 func (EStreamFramerateLimiter) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{16}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{17}
 }
 
 type EStreamActivity int32
@@ -1414,11 +1476,11 @@ func (x EStreamActivity) String() string {
 }
 
 func (EStreamActivity) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[17].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[18].Descriptor()
 }
 
 func (EStreamActivity) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[17]
+	return &file_steammessages_remoteplay_proto_enumTypes[18]
 }
 
 func (x EStreamActivity) Number() protoreflect.EnumNumber {
@@ -1437,7 +1499,7 @@ func (x *EStreamActivity) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamActivity.Descriptor instead.
 func (EStreamActivity) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{17}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{18}
 }
 
 type ECaptureFailedReason int32
@@ -1479,11 +1541,11 @@ func (x ECaptureFailedReason) String() string {
 }
 
 func (ECaptureFailedReason) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[18].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[19].Descriptor()
 }
 
 func (ECaptureFailedReason) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[18]
+	return &file_steammessages_remoteplay_proto_enumTypes[19]
 }
 
 func (x ECaptureFailedReason) Number() protoreflect.EnumNumber {
@@ -1502,7 +1564,7 @@ func (x *ECaptureFailedReason) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use ECaptureFailedReason.Descriptor instead.
 func (ECaptureFailedReason) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{18}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{19}
 }
 
 type EStreamDataMessage int32
@@ -1535,11 +1597,11 @@ func (x EStreamDataMessage) String() string {
 }
 
 func (EStreamDataMessage) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[19].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[20].Descriptor()
 }
 
 func (EStreamDataMessage) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[19]
+	return &file_steammessages_remoteplay_proto_enumTypes[20]
 }
 
 func (x EStreamDataMessage) Number() protoreflect.EnumNumber {
@@ -1558,7 +1620,7 @@ func (x *EStreamDataMessage) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamDataMessage.Descriptor instead.
 func (EStreamDataMessage) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{19}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{20}
 }
 
 type EAudioFormat int32
@@ -1594,11 +1656,11 @@ func (x EAudioFormat) String() string {
 }
 
 func (EAudioFormat) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[20].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[21].Descriptor()
 }
 
 func (EAudioFormat) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[20]
+	return &file_steammessages_remoteplay_proto_enumTypes[21]
 }
 
 func (x EAudioFormat) Number() protoreflect.EnumNumber {
@@ -1617,7 +1679,7 @@ func (x *EAudioFormat) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EAudioFormat.Descriptor instead.
 func (EAudioFormat) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{20}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{21}
 }
 
 type EStreamStatsMessage int32
@@ -1662,11 +1724,11 @@ func (x EStreamStatsMessage) String() string {
 }
 
 func (EStreamStatsMessage) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[21].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[22].Descriptor()
 }
 
 func (EStreamStatsMessage) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[21]
+	return &file_steammessages_remoteplay_proto_enumTypes[22]
 }
 
 func (x EStreamStatsMessage) Number() protoreflect.EnumNumber {
@@ -1685,7 +1747,7 @@ func (x *EStreamStatsMessage) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamStatsMessage.Descriptor instead.
 func (EStreamStatsMessage) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{21}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{22}
 }
 
 type EStreamFrameEvent int32
@@ -1769,11 +1831,11 @@ func (x EStreamFrameEvent) String() string {
 }
 
 func (EStreamFrameEvent) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[22].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[23].Descriptor()
 }
 
 func (EStreamFrameEvent) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[22]
+	return &file_steammessages_remoteplay_proto_enumTypes[23]
 }
 
 func (x EStreamFrameEvent) Number() protoreflect.EnumNumber {
@@ -1792,7 +1854,7 @@ func (x *EStreamFrameEvent) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamFrameEvent.Descriptor instead.
 func (EStreamFrameEvent) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{22}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{23}
 }
 
 type EStreamFrameResult int32
@@ -1843,11 +1905,11 @@ func (x EStreamFrameResult) String() string {
 }
 
 func (EStreamFrameResult) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[23].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[24].Descriptor()
 }
 
 func (EStreamFrameResult) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[23]
+	return &file_steammessages_remoteplay_proto_enumTypes[24]
 }
 
 func (x EStreamFrameResult) Number() protoreflect.EnumNumber {
@@ -1866,7 +1928,7 @@ func (x *EStreamFrameResult) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamFrameResult.Descriptor instead.
 func (EStreamFrameResult) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{23}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{24}
 }
 
 type EFrameAccumulatedStat int32
@@ -1950,11 +2012,11 @@ func (x EFrameAccumulatedStat) String() string {
 }
 
 func (EFrameAccumulatedStat) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[24].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[25].Descriptor()
 }
 
 func (EFrameAccumulatedStat) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[24]
+	return &file_steammessages_remoteplay_proto_enumTypes[25]
 }
 
 func (x EFrameAccumulatedStat) Number() protoreflect.EnumNumber {
@@ -1973,7 +2035,7 @@ func (x *EFrameAccumulatedStat) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EFrameAccumulatedStat.Descriptor instead.
 func (EFrameAccumulatedStat) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{24}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{25}
 }
 
 type ELogFileType int32
@@ -2009,11 +2071,11 @@ func (x ELogFileType) String() string {
 }
 
 func (ELogFileType) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[25].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[26].Descriptor()
 }
 
 func (ELogFileType) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[25]
+	return &file_steammessages_remoteplay_proto_enumTypes[26]
 }
 
 func (x ELogFileType) Number() protoreflect.EnumNumber {
@@ -2032,7 +2094,7 @@ func (x *ELogFileType) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use ELogFileType.Descriptor instead.
 func (ELogFileType) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{25}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{26}
 }
 
 type EStreamControllerConfigMsg int32
@@ -2074,11 +2136,11 @@ func (x EStreamControllerConfigMsg) String() string {
 }
 
 func (EStreamControllerConfigMsg) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[26].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[27].Descriptor()
 }
 
 func (EStreamControllerConfigMsg) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[26]
+	return &file_steammessages_remoteplay_proto_enumTypes[27]
 }
 
 func (x EStreamControllerConfigMsg) Number() protoreflect.EnumNumber {
@@ -2097,7 +2159,7 @@ func (x *EStreamControllerConfigMsg) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EStreamControllerConfigMsg.Descriptor instead.
 func (EStreamControllerConfigMsg) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{26}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{27}
 }
 
 type CAuthenticationResponseMsg_AuthenticationResult int32
@@ -2130,11 +2192,11 @@ func (x CAuthenticationResponseMsg_AuthenticationResult) String() string {
 }
 
 func (CAuthenticationResponseMsg_AuthenticationResult) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_remoteplay_proto_enumTypes[27].Descriptor()
+	return file_steammessages_remoteplay_proto_enumTypes[28].Descriptor()
 }
 
 func (CAuthenticationResponseMsg_AuthenticationResult) Type() protoreflect.EnumType {
-	return &file_steammessages_remoteplay_proto_enumTypes[27]
+	return &file_steammessages_remoteplay_proto_enumTypes[28]
 }
 
 func (x CAuthenticationResponseMsg_AuthenticationResult) Number() protoreflect.EnumNumber {
@@ -2838,6 +2900,7 @@ type CStreamingClientCaps struct {
 	SupportedAudioCodecs          []EStreamAudioCodec    `protobuf:"varint,14,rep,name=supported_audio_codecs,json=supportedAudioCodecs,enum=EStreamAudioCodec" json:"supported_audio_codecs,omitempty"`
 	SupportedVideoCodecs          []EStreamVideoCodec    `protobuf:"varint,15,rep,name=supported_video_codecs,json=supportedVideoCodecs,enum=EStreamVideoCodec" json:"supported_video_codecs,omitempty"`
 	CanToggleFullscreen           *bool                  `protobuf:"varint,16,opt,name=can_toggle_fullscreen,json=canToggleFullscreen" json:"can_toggle_fullscreen,omitempty"`
+	SupportsVideoFrameHeader      *bool                  `protobuf:"varint,17,opt,name=supports_video_frame_header,json=supportsVideoFrameHeader" json:"supports_video_frame_header,omitempty"`
 	unknownFields                 protoimpl.UnknownFields
 	sizeCache                     protoimpl.SizeCache
 }
@@ -2984,6 +3047,13 @@ func (x *CStreamingClientCaps) GetCanToggleFullscreen() bool {
 	return false
 }
 
+func (x *CStreamingClientCaps) GetSupportsVideoFrameHeader() bool {
+	if x != nil && x.SupportsVideoFrameHeader != nil {
+		return *x.SupportsVideoFrameHeader
+	}
+	return false
+}
+
 type CStreamingClientConfig struct {
 	state                              protoimpl.MessageState    `protogen:"open.v1"`
 	Quality                            *EStreamQualityPreference `protobuf:"varint,1,opt,name=quality,enum=EStreamQualityPreference,def=2" json:"quality,omitempty"`
@@ -3026,6 +3096,7 @@ type CStreamingClientConfig struct {
 	PyrowaveYuv444                     *bool                     `protobuf:"varint,39,opt,name=pyrowave_yuv444,json=pyrowaveYuv444" json:"pyrowave_yuv444,omitempty"`
 	PyrowaveBitrateKbps                *int32                    `protobuf:"varint,40,opt,name=pyrowave_bitrate_kbps,json=pyrowaveBitrateKbps,def=-1" json:"pyrowave_bitrate_kbps,omitempty"`
 	DisplayStyle                       *EDisplayStyle            `protobuf:"varint,41,opt,name=display_style,json=displayStyle,enum=EDisplayStyle,def=0" json:"display_style,omitempty"`
+	HdrMode                            *EStreamHDRMode           `protobuf:"varint,42,opt,name=hdr_mode,json=hdrMode,enum=EStreamHDRMode,def=0" json:"hdr_mode,omitempty"`
 	unknownFields                      protoimpl.UnknownFields
 	sizeCache                          protoimpl.SizeCache
 }
@@ -3051,6 +3122,7 @@ const (
 	Default_CStreamingClientConfig_EnableVideoPyrowave            = bool(false)
 	Default_CStreamingClientConfig_PyrowaveBitrateKbps            = int32(-1)
 	Default_CStreamingClientConfig_DisplayStyle                   = EDisplayStyle_k_EDisplayStyleLetterbox
+	Default_CStreamingClientConfig_HdrMode                        = EStreamHDRMode_k_EStreamHDRModeAuto
 )
 
 func (x *CStreamingClientConfig) Reset() {
@@ -3361,6 +3433,13 @@ func (x *CStreamingClientConfig) GetDisplayStyle() EDisplayStyle {
 		return *x.DisplayStyle
 	}
 	return Default_CStreamingClientConfig_DisplayStyle
+}
+
+func (x *CStreamingClientConfig) GetHdrMode() EStreamHDRMode {
+	if x != nil && x.HdrMode != nil {
+		return *x.HdrMode
+	}
+	return Default_CStreamingClientConfig_HdrMode
 }
 
 type CStreamingServerConfig struct {
@@ -3915,15 +3994,16 @@ func (*CStopAudioDataMsg) Descriptor() ([]byte, []int) {
 }
 
 type CStartVideoDataMsg struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Channel       *uint32                `protobuf:"varint,1,req,name=channel" json:"channel,omitempty"`
-	Codec         *EStreamVideoCodec     `protobuf:"varint,2,opt,name=codec,enum=EStreamVideoCodec,def=0" json:"codec,omitempty"`
-	CodecData     []byte                 `protobuf:"bytes,3,opt,name=codec_data,json=codecData" json:"codec_data,omitempty"`
-	Width         *uint32                `protobuf:"varint,4,opt,name=width" json:"width,omitempty"`
-	Height        *uint32                `protobuf:"varint,5,opt,name=height" json:"height,omitempty"`
-	Colorspace    *EStreamColorspace     `protobuf:"varint,6,opt,name=colorspace,enum=EStreamColorspace,def=0" json:"colorspace,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	Channel           *uint32                `protobuf:"varint,1,req,name=channel" json:"channel,omitempty"`
+	Codec             *EStreamVideoCodec     `protobuf:"varint,2,opt,name=codec,enum=EStreamVideoCodec,def=0" json:"codec,omitempty"`
+	CodecData         []byte                 `protobuf:"bytes,3,opt,name=codec_data,json=codecData" json:"codec_data,omitempty"`
+	Width             *uint32                `protobuf:"varint,4,opt,name=width" json:"width,omitempty"`
+	Height            *uint32                `protobuf:"varint,5,opt,name=height" json:"height,omitempty"`
+	Colorspace        *EStreamColorspace     `protobuf:"varint,6,opt,name=colorspace,enum=EStreamColorspace,def=0" json:"colorspace,omitempty"`
+	VideoFrameHeaders *bool                  `protobuf:"varint,7,opt,name=video_frame_headers,json=videoFrameHeaders" json:"video_frame_headers,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 // Default values for CStartVideoDataMsg fields.
@@ -4002,6 +4082,13 @@ func (x *CStartVideoDataMsg) GetColorspace() EStreamColorspace {
 		return *x.Colorspace
 	}
 	return Default_CStartVideoDataMsg_Colorspace
+}
+
+func (x *CStartVideoDataMsg) GetVideoFrameHeaders() bool {
+	if x != nil && x.VideoFrameHeaders != nil {
+		return *x.VideoFrameHeaders
+	}
+	return false
 }
 
 type CStopVideoDataMsg struct {
@@ -4331,58 +4418,6 @@ func (x *CRecordedInputStream) GetEntries() []*CRecordedInput {
 	return nil
 }
 
-type CInputLatencyTestMsg struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	InputMark     *uint32                `protobuf:"varint,1,req,name=input_mark,json=inputMark" json:"input_mark,omitempty"`
-	Color         *uint32                `protobuf:"varint,2,opt,name=color" json:"color,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CInputLatencyTestMsg) Reset() {
-	*x = CInputLatencyTestMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CInputLatencyTestMsg) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CInputLatencyTestMsg) ProtoMessage() {}
-
-func (x *CInputLatencyTestMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[25]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CInputLatencyTestMsg.ProtoReflect.Descriptor instead.
-func (*CInputLatencyTestMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *CInputLatencyTestMsg) GetInputMark() uint32 {
-	if x != nil && x.InputMark != nil {
-		return *x.InputMark
-	}
-	return 0
-}
-
-func (x *CInputLatencyTestMsg) GetColor() uint32 {
-	if x != nil && x.Color != nil {
-		return *x.Color
-	}
-	return 0
-}
-
 type CInputTouchFingerDownMsg struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	InputMark     *uint32                `protobuf:"varint,1,opt,name=input_mark,json=inputMark" json:"input_mark,omitempty"`
@@ -4395,7 +4430,7 @@ type CInputTouchFingerDownMsg struct {
 
 func (x *CInputTouchFingerDownMsg) Reset() {
 	*x = CInputTouchFingerDownMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[26]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4407,7 +4442,7 @@ func (x *CInputTouchFingerDownMsg) String() string {
 func (*CInputTouchFingerDownMsg) ProtoMessage() {}
 
 func (x *CInputTouchFingerDownMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[26]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4420,7 +4455,7 @@ func (x *CInputTouchFingerDownMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CInputTouchFingerDownMsg.ProtoReflect.Descriptor instead.
 func (*CInputTouchFingerDownMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{26}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *CInputTouchFingerDownMsg) GetInputMark() uint32 {
@@ -4463,7 +4498,7 @@ type CInputTouchFingerMotionMsg struct {
 
 func (x *CInputTouchFingerMotionMsg) Reset() {
 	*x = CInputTouchFingerMotionMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[27]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4475,7 +4510,7 @@ func (x *CInputTouchFingerMotionMsg) String() string {
 func (*CInputTouchFingerMotionMsg) ProtoMessage() {}
 
 func (x *CInputTouchFingerMotionMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[27]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4488,7 +4523,7 @@ func (x *CInputTouchFingerMotionMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CInputTouchFingerMotionMsg.ProtoReflect.Descriptor instead.
 func (*CInputTouchFingerMotionMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{27}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *CInputTouchFingerMotionMsg) GetInputMark() uint32 {
@@ -4532,7 +4567,7 @@ type CInputTouchFingerUpMsg struct {
 
 func (x *CInputTouchFingerUpMsg) Reset() {
 	*x = CInputTouchFingerUpMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[28]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4544,7 +4579,7 @@ func (x *CInputTouchFingerUpMsg) String() string {
 func (*CInputTouchFingerUpMsg) ProtoMessage() {}
 
 func (x *CInputTouchFingerUpMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[28]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4557,7 +4592,7 @@ func (x *CInputTouchFingerUpMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CInputTouchFingerUpMsg.ProtoReflect.Descriptor instead.
 func (*CInputTouchFingerUpMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{28}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *CInputTouchFingerUpMsg) GetInputMark() uint32 {
@@ -4608,7 +4643,7 @@ type CInputMouseMotionMsg struct {
 
 func (x *CInputMouseMotionMsg) Reset() {
 	*x = CInputMouseMotionMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[29]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4620,7 +4655,7 @@ func (x *CInputMouseMotionMsg) String() string {
 func (*CInputMouseMotionMsg) ProtoMessage() {}
 
 func (x *CInputMouseMotionMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[29]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4633,7 +4668,7 @@ func (x *CInputMouseMotionMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CInputMouseMotionMsg.ProtoReflect.Descriptor instead.
 func (*CInputMouseMotionMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{29}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *CInputMouseMotionMsg) GetInputMark() uint32 {
@@ -4688,7 +4723,7 @@ const (
 
 func (x *CInputMouseWheelMsg) Reset() {
 	*x = CInputMouseWheelMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[30]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4700,7 +4735,7 @@ func (x *CInputMouseWheelMsg) String() string {
 func (*CInputMouseWheelMsg) ProtoMessage() {}
 
 func (x *CInputMouseWheelMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[30]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4713,7 +4748,7 @@ func (x *CInputMouseWheelMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CInputMouseWheelMsg.ProtoReflect.Descriptor instead.
 func (*CInputMouseWheelMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{30}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *CInputMouseWheelMsg) GetInputMark() uint32 {
@@ -4752,7 +4787,7 @@ const (
 
 func (x *CInputMouseDownMsg) Reset() {
 	*x = CInputMouseDownMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[31]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4764,7 +4799,7 @@ func (x *CInputMouseDownMsg) String() string {
 func (*CInputMouseDownMsg) ProtoMessage() {}
 
 func (x *CInputMouseDownMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[31]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4777,7 +4812,7 @@ func (x *CInputMouseDownMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CInputMouseDownMsg.ProtoReflect.Descriptor instead.
 func (*CInputMouseDownMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{31}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *CInputMouseDownMsg) GetInputMark() uint32 {
@@ -4809,7 +4844,7 @@ const (
 
 func (x *CInputMouseUpMsg) Reset() {
 	*x = CInputMouseUpMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[32]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4821,7 +4856,7 @@ func (x *CInputMouseUpMsg) String() string {
 func (*CInputMouseUpMsg) ProtoMessage() {}
 
 func (x *CInputMouseUpMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[32]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4834,7 +4869,7 @@ func (x *CInputMouseUpMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CInputMouseUpMsg.ProtoReflect.Descriptor instead.
 func (*CInputMouseUpMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{32}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *CInputMouseUpMsg) GetInputMark() uint32 {
@@ -4863,7 +4898,7 @@ type CInputKeyDownMsg struct {
 
 func (x *CInputKeyDownMsg) Reset() {
 	*x = CInputKeyDownMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[33]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4875,7 +4910,7 @@ func (x *CInputKeyDownMsg) String() string {
 func (*CInputKeyDownMsg) ProtoMessage() {}
 
 func (x *CInputKeyDownMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[33]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4888,7 +4923,7 @@ func (x *CInputKeyDownMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CInputKeyDownMsg.ProtoReflect.Descriptor instead.
 func (*CInputKeyDownMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{33}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *CInputKeyDownMsg) GetInputMark() uint32 {
@@ -4931,7 +4966,7 @@ type CInputKeyUpMsg struct {
 
 func (x *CInputKeyUpMsg) Reset() {
 	*x = CInputKeyUpMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[34]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4943,7 +4978,7 @@ func (x *CInputKeyUpMsg) String() string {
 func (*CInputKeyUpMsg) ProtoMessage() {}
 
 func (x *CInputKeyUpMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[34]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4956,7 +4991,7 @@ func (x *CInputKeyUpMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CInputKeyUpMsg.ProtoReflect.Descriptor instead.
 func (*CInputKeyUpMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{34}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *CInputKeyUpMsg) GetInputMark() uint32 {
@@ -4997,7 +5032,7 @@ type CInputTextMsg struct {
 
 func (x *CInputTextMsg) Reset() {
 	*x = CInputTextMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[35]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5009,7 +5044,7 @@ func (x *CInputTextMsg) String() string {
 func (*CInputTextMsg) ProtoMessage() {}
 
 func (x *CInputTextMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[35]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5022,7 +5057,7 @@ func (x *CInputTextMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CInputTextMsg.ProtoReflect.Descriptor instead.
 func (*CInputTextMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{35}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *CInputTextMsg) GetInputMark() uint32 {
@@ -5048,7 +5083,7 @@ type CSetTitleMsg struct {
 
 func (x *CSetTitleMsg) Reset() {
 	*x = CSetTitleMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[36]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5060,7 +5095,7 @@ func (x *CSetTitleMsg) String() string {
 func (*CSetTitleMsg) ProtoMessage() {}
 
 func (x *CSetTitleMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[36]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5073,7 +5108,7 @@ func (x *CSetTitleMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetTitleMsg.ProtoReflect.Descriptor instead.
 func (*CSetTitleMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{36}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *CSetTitleMsg) GetText() string {
@@ -5093,7 +5128,7 @@ type CSetCaptureSizeMsg struct {
 
 func (x *CSetCaptureSizeMsg) Reset() {
 	*x = CSetCaptureSizeMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[37]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5105,7 +5140,7 @@ func (x *CSetCaptureSizeMsg) String() string {
 func (*CSetCaptureSizeMsg) ProtoMessage() {}
 
 func (x *CSetCaptureSizeMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[37]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5118,7 +5153,7 @@ func (x *CSetCaptureSizeMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetCaptureSizeMsg.ProtoReflect.Descriptor instead.
 func (*CSetCaptureSizeMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{37}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *CSetCaptureSizeMsg) GetWidth() int32 {
@@ -5146,7 +5181,7 @@ type CSetIconMsg struct {
 
 func (x *CSetIconMsg) Reset() {
 	*x = CSetIconMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[38]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5158,7 +5193,7 @@ func (x *CSetIconMsg) String() string {
 func (*CSetIconMsg) ProtoMessage() {}
 
 func (x *CSetIconMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[38]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5171,7 +5206,7 @@ func (x *CSetIconMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetIconMsg.ProtoReflect.Descriptor instead.
 func (*CSetIconMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{38}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *CSetIconMsg) GetWidth() int32 {
@@ -5206,7 +5241,7 @@ type CSetFlashStateMsg struct {
 
 func (x *CSetFlashStateMsg) Reset() {
 	*x = CSetFlashStateMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[39]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5218,7 +5253,7 @@ func (x *CSetFlashStateMsg) String() string {
 func (*CSetFlashStateMsg) ProtoMessage() {}
 
 func (x *CSetFlashStateMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[39]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5231,7 +5266,7 @@ func (x *CSetFlashStateMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetFlashStateMsg.ProtoReflect.Descriptor instead.
 func (*CSetFlashStateMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{39}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *CSetFlashStateMsg) GetFlags() uint32 {
@@ -5266,7 +5301,7 @@ type CShowCursorMsg struct {
 
 func (x *CShowCursorMsg) Reset() {
 	*x = CShowCursorMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[40]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5278,7 +5313,7 @@ func (x *CShowCursorMsg) String() string {
 func (*CShowCursorMsg) ProtoMessage() {}
 
 func (x *CShowCursorMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[40]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5291,7 +5326,7 @@ func (x *CShowCursorMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CShowCursorMsg.ProtoReflect.Descriptor instead.
 func (*CShowCursorMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{40}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *CShowCursorMsg) GetXNormalized() float32 {
@@ -5323,7 +5358,7 @@ type CHideCursorMsg struct {
 
 func (x *CHideCursorMsg) Reset() {
 	*x = CHideCursorMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[41]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5335,7 +5370,7 @@ func (x *CHideCursorMsg) String() string {
 func (*CHideCursorMsg) ProtoMessage() {}
 
 func (x *CHideCursorMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[41]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5348,7 +5383,7 @@ func (x *CHideCursorMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CHideCursorMsg.ProtoReflect.Descriptor instead.
 func (*CHideCursorMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{41}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{40}
 }
 
 type CSetCursorMsg struct {
@@ -5360,7 +5395,7 @@ type CSetCursorMsg struct {
 
 func (x *CSetCursorMsg) Reset() {
 	*x = CSetCursorMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[42]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5372,7 +5407,7 @@ func (x *CSetCursorMsg) String() string {
 func (*CSetCursorMsg) ProtoMessage() {}
 
 func (x *CSetCursorMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[42]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5385,7 +5420,7 @@ func (x *CSetCursorMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetCursorMsg.ProtoReflect.Descriptor instead.
 func (*CSetCursorMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{42}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *CSetCursorMsg) GetCursorId() uint64 {
@@ -5404,7 +5439,7 @@ type CGetCursorImageMsg struct {
 
 func (x *CGetCursorImageMsg) Reset() {
 	*x = CGetCursorImageMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[43]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5416,7 +5451,7 @@ func (x *CGetCursorImageMsg) String() string {
 func (*CGetCursorImageMsg) ProtoMessage() {}
 
 func (x *CGetCursorImageMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[43]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5429,7 +5464,7 @@ func (x *CGetCursorImageMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CGetCursorImageMsg.ProtoReflect.Descriptor instead.
 func (*CGetCursorImageMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{43}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *CGetCursorImageMsg) GetCursorId() uint64 {
@@ -5453,7 +5488,7 @@ type CSetCursorImageMsg struct {
 
 func (x *CSetCursorImageMsg) Reset() {
 	*x = CSetCursorImageMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[44]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5465,7 +5500,7 @@ func (x *CSetCursorImageMsg) String() string {
 func (*CSetCursorImageMsg) ProtoMessage() {}
 
 func (x *CSetCursorImageMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[44]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5478,7 +5513,7 @@ func (x *CSetCursorImageMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetCursorImageMsg.ProtoReflect.Descriptor instead.
 func (*CSetCursorImageMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{44}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *CSetCursorImageMsg) GetCursorId() uint64 {
@@ -5532,7 +5567,7 @@ type CSetCursorScaleMsg struct {
 
 func (x *CSetCursorScaleMsg) Reset() {
 	*x = CSetCursorScaleMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[45]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5544,7 +5579,7 @@ func (x *CSetCursorScaleMsg) String() string {
 func (*CSetCursorScaleMsg) ProtoMessage() {}
 
 func (x *CSetCursorScaleMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[45]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5557,7 +5592,7 @@ func (x *CSetCursorScaleMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetCursorScaleMsg.ProtoReflect.Descriptor instead.
 func (*CSetCursorScaleMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{45}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *CSetCursorScaleMsg) GetScale() float32 {
@@ -5577,7 +5612,7 @@ type CVideoDecoderInfoMsg struct {
 
 func (x *CVideoDecoderInfoMsg) Reset() {
 	*x = CVideoDecoderInfoMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[46]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5589,7 +5624,7 @@ func (x *CVideoDecoderInfoMsg) String() string {
 func (*CVideoDecoderInfoMsg) ProtoMessage() {}
 
 func (x *CVideoDecoderInfoMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[46]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5602,7 +5637,7 @@ func (x *CVideoDecoderInfoMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CVideoDecoderInfoMsg.ProtoReflect.Descriptor instead.
 func (*CVideoDecoderInfoMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{46}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *CVideoDecoderInfoMsg) GetInfo() string {
@@ -5628,7 +5663,7 @@ type CVideoEncoderInfoMsg struct {
 
 func (x *CVideoEncoderInfoMsg) Reset() {
 	*x = CVideoEncoderInfoMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[47]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5640,7 +5675,7 @@ func (x *CVideoEncoderInfoMsg) String() string {
 func (*CVideoEncoderInfoMsg) ProtoMessage() {}
 
 func (x *CVideoEncoderInfoMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[47]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5653,7 +5688,7 @@ func (x *CVideoEncoderInfoMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CVideoEncoderInfoMsg.ProtoReflect.Descriptor instead.
 func (*CVideoEncoderInfoMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{47}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *CVideoEncoderInfoMsg) GetInfo() string {
@@ -5671,7 +5706,7 @@ type CPauseMsg struct {
 
 func (x *CPauseMsg) Reset() {
 	*x = CPauseMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[48]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5683,7 +5718,7 @@ func (x *CPauseMsg) String() string {
 func (*CPauseMsg) ProtoMessage() {}
 
 func (x *CPauseMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[48]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5696,7 +5731,7 @@ func (x *CPauseMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPauseMsg.ProtoReflect.Descriptor instead.
 func (*CPauseMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{48}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{47}
 }
 
 type CResumeMsg struct {
@@ -5707,7 +5742,7 @@ type CResumeMsg struct {
 
 func (x *CResumeMsg) Reset() {
 	*x = CResumeMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[49]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5719,7 +5754,7 @@ func (x *CResumeMsg) String() string {
 func (*CResumeMsg) ProtoMessage() {}
 
 func (x *CResumeMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[49]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5732,7 +5767,7 @@ func (x *CResumeMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CResumeMsg.ProtoReflect.Descriptor instead.
 func (*CResumeMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{49}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{48}
 }
 
 type CEnableHighResCaptureMsg struct {
@@ -5743,7 +5778,7 @@ type CEnableHighResCaptureMsg struct {
 
 func (x *CEnableHighResCaptureMsg) Reset() {
 	*x = CEnableHighResCaptureMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[50]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5755,7 +5790,7 @@ func (x *CEnableHighResCaptureMsg) String() string {
 func (*CEnableHighResCaptureMsg) ProtoMessage() {}
 
 func (x *CEnableHighResCaptureMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[50]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5768,7 +5803,7 @@ func (x *CEnableHighResCaptureMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CEnableHighResCaptureMsg.ProtoReflect.Descriptor instead.
 func (*CEnableHighResCaptureMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{50}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{49}
 }
 
 type CDisableHighResCaptureMsg struct {
@@ -5779,7 +5814,7 @@ type CDisableHighResCaptureMsg struct {
 
 func (x *CDisableHighResCaptureMsg) Reset() {
 	*x = CDisableHighResCaptureMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[51]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5791,7 +5826,7 @@ func (x *CDisableHighResCaptureMsg) String() string {
 func (*CDisableHighResCaptureMsg) ProtoMessage() {}
 
 func (x *CDisableHighResCaptureMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[51]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5804,7 +5839,7 @@ func (x *CDisableHighResCaptureMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CDisableHighResCaptureMsg.ProtoReflect.Descriptor instead.
 func (*CDisableHighResCaptureMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{51}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{50}
 }
 
 type CPauseControllerInputMsg struct {
@@ -5815,7 +5850,7 @@ type CPauseControllerInputMsg struct {
 
 func (x *CPauseControllerInputMsg) Reset() {
 	*x = CPauseControllerInputMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[52]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5827,7 +5862,7 @@ func (x *CPauseControllerInputMsg) String() string {
 func (*CPauseControllerInputMsg) ProtoMessage() {}
 
 func (x *CPauseControllerInputMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[52]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5840,7 +5875,7 @@ func (x *CPauseControllerInputMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPauseControllerInputMsg.ProtoReflect.Descriptor instead.
 func (*CPauseControllerInputMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{52}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{51}
 }
 
 type CResumeControllerInputMsg struct {
@@ -5851,7 +5886,7 @@ type CResumeControllerInputMsg struct {
 
 func (x *CResumeControllerInputMsg) Reset() {
 	*x = CResumeControllerInputMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[53]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5863,7 +5898,7 @@ func (x *CResumeControllerInputMsg) String() string {
 func (*CResumeControllerInputMsg) ProtoMessage() {}
 
 func (x *CResumeControllerInputMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[53]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5876,7 +5911,7 @@ func (x *CResumeControllerInputMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CResumeControllerInputMsg.ProtoReflect.Descriptor instead.
 func (*CResumeControllerInputMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{53}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{52}
 }
 
 type CToggleMagnificationMsg struct {
@@ -5887,7 +5922,7 @@ type CToggleMagnificationMsg struct {
 
 func (x *CToggleMagnificationMsg) Reset() {
 	*x = CToggleMagnificationMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[54]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5899,7 +5934,7 @@ func (x *CToggleMagnificationMsg) String() string {
 func (*CToggleMagnificationMsg) ProtoMessage() {}
 
 func (x *CToggleMagnificationMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[54]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5912,7 +5947,7 @@ func (x *CToggleMagnificationMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CToggleMagnificationMsg.ProtoReflect.Descriptor instead.
 func (*CToggleMagnificationMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{54}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{53}
 }
 
 type CSetCapslockMsg struct {
@@ -5924,7 +5959,7 @@ type CSetCapslockMsg struct {
 
 func (x *CSetCapslockMsg) Reset() {
 	*x = CSetCapslockMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[55]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5936,7 +5971,7 @@ func (x *CSetCapslockMsg) String() string {
 func (*CSetCapslockMsg) ProtoMessage() {}
 
 func (x *CSetCapslockMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[55]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5949,7 +5984,7 @@ func (x *CSetCapslockMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetCapslockMsg.ProtoReflect.Descriptor instead.
 func (*CSetCapslockMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{55}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *CSetCapslockMsg) GetPressed() bool {
@@ -5976,7 +6011,7 @@ type CStreamingKeymapEntry struct {
 
 func (x *CStreamingKeymapEntry) Reset() {
 	*x = CStreamingKeymapEntry{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[56]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5988,7 +6023,7 @@ func (x *CStreamingKeymapEntry) String() string {
 func (*CStreamingKeymapEntry) ProtoMessage() {}
 
 func (x *CStreamingKeymapEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[56]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6001,7 +6036,7 @@ func (x *CStreamingKeymapEntry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CStreamingKeymapEntry.ProtoReflect.Descriptor instead.
 func (*CStreamingKeymapEntry) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{56}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *CStreamingKeymapEntry) GetScancode() int32 {
@@ -6076,7 +6111,7 @@ type CStreamingKeymap struct {
 
 func (x *CStreamingKeymap) Reset() {
 	*x = CStreamingKeymap{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[57]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6088,7 +6123,7 @@ func (x *CStreamingKeymap) String() string {
 func (*CStreamingKeymap) ProtoMessage() {}
 
 func (x *CStreamingKeymap) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[57]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6101,7 +6136,7 @@ func (x *CStreamingKeymap) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CStreamingKeymap.ProtoReflect.Descriptor instead.
 func (*CStreamingKeymap) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{57}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *CStreamingKeymap) GetEntries() []*CStreamingKeymapEntry {
@@ -6120,7 +6155,7 @@ type CSetKeymapMsg struct {
 
 func (x *CSetKeymapMsg) Reset() {
 	*x = CSetKeymapMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[58]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6132,7 +6167,7 @@ func (x *CSetKeymapMsg) String() string {
 func (*CSetKeymapMsg) ProtoMessage() {}
 
 func (x *CSetKeymapMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[58]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6145,7 +6180,7 @@ func (x *CSetKeymapMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetKeymapMsg.ProtoReflect.Descriptor instead.
 func (*CSetKeymapMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{58}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *CSetKeymapMsg) GetKeymap() *CStreamingKeymap {
@@ -6163,7 +6198,7 @@ type CStopRequest struct {
 
 func (x *CStopRequest) Reset() {
 	*x = CStopRequest{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[59]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6175,7 +6210,7 @@ func (x *CStopRequest) String() string {
 func (*CStopRequest) ProtoMessage() {}
 
 func (x *CStopRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[59]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6188,7 +6223,7 @@ func (x *CStopRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CStopRequest.ProtoReflect.Descriptor instead.
 func (*CStopRequest) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{59}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{58}
 }
 
 type CQuitRequest struct {
@@ -6199,7 +6234,7 @@ type CQuitRequest struct {
 
 func (x *CQuitRequest) Reset() {
 	*x = CQuitRequest{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[60]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6211,7 +6246,7 @@ func (x *CQuitRequest) String() string {
 func (*CQuitRequest) ProtoMessage() {}
 
 func (x *CQuitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[60]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6224,7 +6259,7 @@ func (x *CQuitRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CQuitRequest.ProtoReflect.Descriptor instead.
 func (*CQuitRequest) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{60}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{59}
 }
 
 type CDeleteCursorMsg struct {
@@ -6236,7 +6271,7 @@ type CDeleteCursorMsg struct {
 
 func (x *CDeleteCursorMsg) Reset() {
 	*x = CDeleteCursorMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[61]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6248,7 +6283,7 @@ func (x *CDeleteCursorMsg) String() string {
 func (*CDeleteCursorMsg) ProtoMessage() {}
 
 func (x *CDeleteCursorMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[61]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6261,7 +6296,7 @@ func (x *CDeleteCursorMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CDeleteCursorMsg.ProtoReflect.Descriptor instead.
 func (*CDeleteCursorMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{61}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *CDeleteCursorMsg) GetCursorId() uint64 {
@@ -6280,7 +6315,7 @@ type CSetStreamingClientConfig struct {
 
 func (x *CSetStreamingClientConfig) Reset() {
 	*x = CSetStreamingClientConfig{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[62]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6292,7 +6327,7 @@ func (x *CSetStreamingClientConfig) String() string {
 func (*CSetStreamingClientConfig) ProtoMessage() {}
 
 func (x *CSetStreamingClientConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[62]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6305,7 +6340,7 @@ func (x *CSetStreamingClientConfig) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetStreamingClientConfig.ProtoReflect.Descriptor instead.
 func (*CSetStreamingClientConfig) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{62}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *CSetStreamingClientConfig) GetConfig() *CStreamingClientConfig {
@@ -6324,7 +6359,7 @@ type CSetQoSMsg struct {
 
 func (x *CSetQoSMsg) Reset() {
 	*x = CSetQoSMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[63]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6336,7 +6371,7 @@ func (x *CSetQoSMsg) String() string {
 func (*CSetQoSMsg) ProtoMessage() {}
 
 func (x *CSetQoSMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[63]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6349,7 +6384,7 @@ func (x *CSetQoSMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetQoSMsg.ProtoReflect.Descriptor instead.
 func (*CSetQoSMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{63}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *CSetQoSMsg) GetUseQos() bool {
@@ -6371,7 +6406,7 @@ type CSetTargetFramerateMsg struct {
 
 func (x *CSetTargetFramerateMsg) Reset() {
 	*x = CSetTargetFramerateMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[64]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6383,7 +6418,7 @@ func (x *CSetTargetFramerateMsg) String() string {
 func (*CSetTargetFramerateMsg) ProtoMessage() {}
 
 func (x *CSetTargetFramerateMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[64]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6396,7 +6431,7 @@ func (x *CSetTargetFramerateMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetTargetFramerateMsg.ProtoReflect.Descriptor instead.
 func (*CSetTargetFramerateMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{64}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *CSetTargetFramerateMsg) GetFramerate() uint32 {
@@ -6436,7 +6471,7 @@ type CSetTargetBitrateMsg struct {
 
 func (x *CSetTargetBitrateMsg) Reset() {
 	*x = CSetTargetBitrateMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[65]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6448,7 +6483,7 @@ func (x *CSetTargetBitrateMsg) String() string {
 func (*CSetTargetBitrateMsg) ProtoMessage() {}
 
 func (x *CSetTargetBitrateMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[65]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6461,7 +6496,7 @@ func (x *CSetTargetBitrateMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetTargetBitrateMsg.ProtoReflect.Descriptor instead.
 func (*CSetTargetBitrateMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{65}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *CSetTargetBitrateMsg) GetBitrate() int32 {
@@ -6480,7 +6515,7 @@ type COverlayEnabledMsg struct {
 
 func (x *COverlayEnabledMsg) Reset() {
 	*x = COverlayEnabledMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[66]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6492,7 +6527,7 @@ func (x *COverlayEnabledMsg) String() string {
 func (*COverlayEnabledMsg) ProtoMessage() {}
 
 func (x *COverlayEnabledMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[66]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6505,7 +6540,7 @@ func (x *COverlayEnabledMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use COverlayEnabledMsg.ProtoReflect.Descriptor instead.
 func (*COverlayEnabledMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{66}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *COverlayEnabledMsg) GetEnabled() bool {
@@ -6524,7 +6559,7 @@ type CSetGammaRampMsg struct {
 
 func (x *CSetGammaRampMsg) Reset() {
 	*x = CSetGammaRampMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[67]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6536,7 +6571,7 @@ func (x *CSetGammaRampMsg) String() string {
 func (*CSetGammaRampMsg) ProtoMessage() {}
 
 func (x *CSetGammaRampMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[67]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6549,7 +6584,7 @@ func (x *CSetGammaRampMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetGammaRampMsg.ProtoReflect.Descriptor instead.
 func (*CSetGammaRampMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{67}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *CSetGammaRampMsg) GetGammaRamp() []byte {
@@ -6576,7 +6611,7 @@ const (
 
 func (x *CSetActivityMsg) Reset() {
 	*x = CSetActivityMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[68]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6588,7 +6623,7 @@ func (x *CSetActivityMsg) String() string {
 func (*CSetActivityMsg) ProtoMessage() {}
 
 func (x *CSetActivityMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[68]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6601,7 +6636,7 @@ func (x *CSetActivityMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetActivityMsg.ProtoReflect.Descriptor instead.
 func (*CSetActivityMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{68}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *CSetActivityMsg) GetActivity() EStreamActivity {
@@ -6640,7 +6675,7 @@ type CSystemSuspendMsg struct {
 
 func (x *CSystemSuspendMsg) Reset() {
 	*x = CSystemSuspendMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[69]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6652,7 +6687,7 @@ func (x *CSystemSuspendMsg) String() string {
 func (*CSystemSuspendMsg) ProtoMessage() {}
 
 func (x *CSystemSuspendMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[69]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6665,7 +6700,7 @@ func (x *CSystemSuspendMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSystemSuspendMsg.ProtoReflect.Descriptor instead.
 func (*CSystemSuspendMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{69}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{68}
 }
 
 type CVirtualHereRequestMsg struct {
@@ -6677,7 +6712,7 @@ type CVirtualHereRequestMsg struct {
 
 func (x *CVirtualHereRequestMsg) Reset() {
 	*x = CVirtualHereRequestMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[70]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6689,7 +6724,7 @@ func (x *CVirtualHereRequestMsg) String() string {
 func (*CVirtualHereRequestMsg) ProtoMessage() {}
 
 func (x *CVirtualHereRequestMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[70]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6702,7 +6737,7 @@ func (x *CVirtualHereRequestMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CVirtualHereRequestMsg.ProtoReflect.Descriptor instead.
 func (*CVirtualHereRequestMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{70}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *CVirtualHereRequestMsg) GetHostname() string {
@@ -6721,7 +6756,7 @@ type CVirtualHereReadyMsg struct {
 
 func (x *CVirtualHereReadyMsg) Reset() {
 	*x = CVirtualHereReadyMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[71]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6733,7 +6768,7 @@ func (x *CVirtualHereReadyMsg) String() string {
 func (*CVirtualHereReadyMsg) ProtoMessage() {}
 
 func (x *CVirtualHereReadyMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[71]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6746,7 +6781,7 @@ func (x *CVirtualHereReadyMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CVirtualHereReadyMsg.ProtoReflect.Descriptor instead.
 func (*CVirtualHereReadyMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{71}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *CVirtualHereReadyMsg) GetLicensedDeviceCount() uint32 {
@@ -6765,7 +6800,7 @@ type CVirtualHereShareDeviceMsg struct {
 
 func (x *CVirtualHereShareDeviceMsg) Reset() {
 	*x = CVirtualHereShareDeviceMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[72]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6777,7 +6812,7 @@ func (x *CVirtualHereShareDeviceMsg) String() string {
 func (*CVirtualHereShareDeviceMsg) ProtoMessage() {}
 
 func (x *CVirtualHereShareDeviceMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[72]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6790,7 +6825,7 @@ func (x *CVirtualHereShareDeviceMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CVirtualHereShareDeviceMsg.ProtoReflect.Descriptor instead.
 func (*CVirtualHereShareDeviceMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{72}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *CVirtualHereShareDeviceMsg) GetDeviceAddress() string {
@@ -6809,7 +6844,7 @@ type CSetSpectatorModeMsg struct {
 
 func (x *CSetSpectatorModeMsg) Reset() {
 	*x = CSetSpectatorModeMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[73]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6821,7 +6856,7 @@ func (x *CSetSpectatorModeMsg) String() string {
 func (*CSetSpectatorModeMsg) ProtoMessage() {}
 
 func (x *CSetSpectatorModeMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[73]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6834,7 +6869,7 @@ func (x *CSetSpectatorModeMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetSpectatorModeMsg.ProtoReflect.Descriptor instead.
 func (*CSetSpectatorModeMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{73}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *CSetSpectatorModeMsg) GetEnabled() bool {
@@ -6854,7 +6889,7 @@ type CRemoteHIDMsg struct {
 
 func (x *CRemoteHIDMsg) Reset() {
 	*x = CRemoteHIDMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[74]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6866,7 +6901,7 @@ func (x *CRemoteHIDMsg) String() string {
 func (*CRemoteHIDMsg) ProtoMessage() {}
 
 func (x *CRemoteHIDMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[74]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6879,7 +6914,7 @@ func (x *CRemoteHIDMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CRemoteHIDMsg.ProtoReflect.Descriptor instead.
 func (*CRemoteHIDMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{74}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *CRemoteHIDMsg) GetData() []byte {
@@ -6907,7 +6942,7 @@ type CTouchConfigActiveMsg struct {
 
 func (x *CTouchConfigActiveMsg) Reset() {
 	*x = CTouchConfigActiveMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[75]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6919,7 +6954,7 @@ func (x *CTouchConfigActiveMsg) String() string {
 func (*CTouchConfigActiveMsg) ProtoMessage() {}
 
 func (x *CTouchConfigActiveMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[75]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6932,7 +6967,7 @@ func (x *CTouchConfigActiveMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CTouchConfigActiveMsg.ProtoReflect.Descriptor instead.
 func (*CTouchConfigActiveMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{75}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *CTouchConfigActiveMsg) GetAppid() uint32 {
@@ -6965,7 +7000,7 @@ type CGetTouchConfigDataMsg struct {
 
 func (x *CGetTouchConfigDataMsg) Reset() {
 	*x = CGetTouchConfigDataMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[76]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6977,7 +7012,7 @@ func (x *CGetTouchConfigDataMsg) String() string {
 func (*CGetTouchConfigDataMsg) ProtoMessage() {}
 
 func (x *CGetTouchConfigDataMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[76]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6990,7 +7025,7 @@ func (x *CGetTouchConfigDataMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CGetTouchConfigDataMsg.ProtoReflect.Descriptor instead.
 func (*CGetTouchConfigDataMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{76}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *CGetTouchConfigDataMsg) GetAppid() uint32 {
@@ -7013,7 +7048,7 @@ type CSetTouchConfigDataMsg struct {
 
 func (x *CSetTouchConfigDataMsg) Reset() {
 	*x = CSetTouchConfigDataMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[77]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7025,7 +7060,7 @@ func (x *CSetTouchConfigDataMsg) String() string {
 func (*CSetTouchConfigDataMsg) ProtoMessage() {}
 
 func (x *CSetTouchConfigDataMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[77]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7038,7 +7073,7 @@ func (x *CSetTouchConfigDataMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetTouchConfigDataMsg.ProtoReflect.Descriptor instead.
 func (*CSetTouchConfigDataMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{77}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *CSetTouchConfigDataMsg) GetAppid() uint32 {
@@ -7086,7 +7121,7 @@ type CSaveTouchConfigLayoutMsg struct {
 
 func (x *CSaveTouchConfigLayoutMsg) Reset() {
 	*x = CSaveTouchConfigLayoutMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[78]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7098,7 +7133,7 @@ func (x *CSaveTouchConfigLayoutMsg) String() string {
 func (*CSaveTouchConfigLayoutMsg) ProtoMessage() {}
 
 func (x *CSaveTouchConfigLayoutMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[78]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7111,7 +7146,7 @@ func (x *CSaveTouchConfigLayoutMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSaveTouchConfigLayoutMsg.ProtoReflect.Descriptor instead.
 func (*CSaveTouchConfigLayoutMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{78}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *CSaveTouchConfigLayoutMsg) GetAppid() uint32 {
@@ -7138,7 +7173,7 @@ type CTouchActionSetActiveMsg struct {
 
 func (x *CTouchActionSetActiveMsg) Reset() {
 	*x = CTouchActionSetActiveMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[79]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7150,7 +7185,7 @@ func (x *CTouchActionSetActiveMsg) String() string {
 func (*CTouchActionSetActiveMsg) ProtoMessage() {}
 
 func (x *CTouchActionSetActiveMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[79]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7163,7 +7198,7 @@ func (x *CTouchActionSetActiveMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CTouchActionSetActiveMsg.ProtoReflect.Descriptor instead.
 func (*CTouchActionSetActiveMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{79}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *CTouchActionSetActiveMsg) GetAppid() uint32 {
@@ -7190,7 +7225,7 @@ type CTouchActionSetLayerAddedMsg struct {
 
 func (x *CTouchActionSetLayerAddedMsg) Reset() {
 	*x = CTouchActionSetLayerAddedMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[80]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7202,7 +7237,7 @@ func (x *CTouchActionSetLayerAddedMsg) String() string {
 func (*CTouchActionSetLayerAddedMsg) ProtoMessage() {}
 
 func (x *CTouchActionSetLayerAddedMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[80]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7215,7 +7250,7 @@ func (x *CTouchActionSetLayerAddedMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CTouchActionSetLayerAddedMsg.ProtoReflect.Descriptor instead.
 func (*CTouchActionSetLayerAddedMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{80}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *CTouchActionSetLayerAddedMsg) GetAppid() uint32 {
@@ -7242,7 +7277,7 @@ type CTouchActionSetLayerRemovedMsg struct {
 
 func (x *CTouchActionSetLayerRemovedMsg) Reset() {
 	*x = CTouchActionSetLayerRemovedMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[81]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7254,7 +7289,7 @@ func (x *CTouchActionSetLayerRemovedMsg) String() string {
 func (*CTouchActionSetLayerRemovedMsg) ProtoMessage() {}
 
 func (x *CTouchActionSetLayerRemovedMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[81]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7267,7 +7302,7 @@ func (x *CTouchActionSetLayerRemovedMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CTouchActionSetLayerRemovedMsg.ProtoReflect.Descriptor instead.
 func (*CTouchActionSetLayerRemovedMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{81}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *CTouchActionSetLayerRemovedMsg) GetAppid() uint32 {
@@ -7294,7 +7329,7 @@ type CGetTouchIconDataMsg struct {
 
 func (x *CGetTouchIconDataMsg) Reset() {
 	*x = CGetTouchIconDataMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[82]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7306,7 +7341,7 @@ func (x *CGetTouchIconDataMsg) String() string {
 func (*CGetTouchIconDataMsg) ProtoMessage() {}
 
 func (x *CGetTouchIconDataMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[82]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7319,7 +7354,7 @@ func (x *CGetTouchIconDataMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CGetTouchIconDataMsg.ProtoReflect.Descriptor instead.
 func (*CGetTouchIconDataMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{82}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *CGetTouchIconDataMsg) GetAppid() uint32 {
@@ -7347,7 +7382,7 @@ type CSetTouchIconDataMsg struct {
 
 func (x *CSetTouchIconDataMsg) Reset() {
 	*x = CSetTouchIconDataMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[83]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7359,7 +7394,7 @@ func (x *CSetTouchIconDataMsg) String() string {
 func (*CSetTouchIconDataMsg) ProtoMessage() {}
 
 func (x *CSetTouchIconDataMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[83]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7372,7 +7407,7 @@ func (x *CSetTouchIconDataMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetTouchIconDataMsg.ProtoReflect.Descriptor instead.
 func (*CSetTouchIconDataMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{83}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *CSetTouchIconDataMsg) GetAppid() uint32 {
@@ -7410,7 +7445,7 @@ type CRemotePlayTogetherGroupUpdateMsg struct {
 
 func (x *CRemotePlayTogetherGroupUpdateMsg) Reset() {
 	*x = CRemotePlayTogetherGroupUpdateMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[84]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7422,7 +7457,7 @@ func (x *CRemotePlayTogetherGroupUpdateMsg) String() string {
 func (*CRemotePlayTogetherGroupUpdateMsg) ProtoMessage() {}
 
 func (x *CRemotePlayTogetherGroupUpdateMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[84]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7435,7 +7470,7 @@ func (x *CRemotePlayTogetherGroupUpdateMsg) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CRemotePlayTogetherGroupUpdateMsg.ProtoReflect.Descriptor instead.
 func (*CRemotePlayTogetherGroupUpdateMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{84}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *CRemotePlayTogetherGroupUpdateMsg) GetPlayers() []*CRemotePlayTogetherGroupUpdateMsg_Player {
@@ -7489,7 +7524,7 @@ type CSetInputTemporarilyDisabledMsg struct {
 
 func (x *CSetInputTemporarilyDisabledMsg) Reset() {
 	*x = CSetInputTemporarilyDisabledMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[85]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7501,7 +7536,7 @@ func (x *CSetInputTemporarilyDisabledMsg) String() string {
 func (*CSetInputTemporarilyDisabledMsg) ProtoMessage() {}
 
 func (x *CSetInputTemporarilyDisabledMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[85]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7514,7 +7549,7 @@ func (x *CSetInputTemporarilyDisabledMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetInputTemporarilyDisabledMsg.ProtoReflect.Descriptor instead.
 func (*CSetInputTemporarilyDisabledMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{85}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *CSetInputTemporarilyDisabledMsg) GetDisabled() bool {
@@ -7533,7 +7568,7 @@ type CSetQualityOverrideMsg struct {
 
 func (x *CSetQualityOverrideMsg) Reset() {
 	*x = CSetQualityOverrideMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[86]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7545,7 +7580,7 @@ func (x *CSetQualityOverrideMsg) String() string {
 func (*CSetQualityOverrideMsg) ProtoMessage() {}
 
 func (x *CSetQualityOverrideMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[86]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7558,7 +7593,7 @@ func (x *CSetQualityOverrideMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetQualityOverrideMsg.ProtoReflect.Descriptor instead.
 func (*CSetQualityOverrideMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{86}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *CSetQualityOverrideMsg) GetValue() int32 {
@@ -7577,7 +7612,7 @@ type CSetBitrateOverrideMsg struct {
 
 func (x *CSetBitrateOverrideMsg) Reset() {
 	*x = CSetBitrateOverrideMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[87]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7589,7 +7624,7 @@ func (x *CSetBitrateOverrideMsg) String() string {
 func (*CSetBitrateOverrideMsg) ProtoMessage() {}
 
 func (x *CSetBitrateOverrideMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[87]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7602,7 +7637,7 @@ func (x *CSetBitrateOverrideMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSetBitrateOverrideMsg.ProtoReflect.Descriptor instead.
 func (*CSetBitrateOverrideMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{87}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *CSetBitrateOverrideMsg) GetValue() int32 {
@@ -7620,7 +7655,7 @@ type CShowOnScreenKeyboardMsg struct {
 
 func (x *CShowOnScreenKeyboardMsg) Reset() {
 	*x = CShowOnScreenKeyboardMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[88]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7632,7 +7667,7 @@ func (x *CShowOnScreenKeyboardMsg) String() string {
 func (*CShowOnScreenKeyboardMsg) ProtoMessage() {}
 
 func (x *CShowOnScreenKeyboardMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[88]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7645,7 +7680,7 @@ func (x *CShowOnScreenKeyboardMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CShowOnScreenKeyboardMsg.ProtoReflect.Descriptor instead.
 func (*CShowOnScreenKeyboardMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{88}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{87}
 }
 
 type CControllerPersonalizationUpdateMsg struct {
@@ -7659,7 +7694,7 @@ type CControllerPersonalizationUpdateMsg struct {
 
 func (x *CControllerPersonalizationUpdateMsg) Reset() {
 	*x = CControllerPersonalizationUpdateMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[89]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7671,7 +7706,7 @@ func (x *CControllerPersonalizationUpdateMsg) String() string {
 func (*CControllerPersonalizationUpdateMsg) ProtoMessage() {}
 
 func (x *CControllerPersonalizationUpdateMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[89]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7684,7 +7719,7 @@ func (x *CControllerPersonalizationUpdateMsg) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CControllerPersonalizationUpdateMsg.ProtoReflect.Descriptor instead.
 func (*CControllerPersonalizationUpdateMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{89}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *CControllerPersonalizationUpdateMsg) GetControllerPath() string {
@@ -7717,7 +7752,7 @@ type CVRConnectionReady struct {
 
 func (x *CVRConnectionReady) Reset() {
 	*x = CVRConnectionReady{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[90]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7729,7 +7764,7 @@ func (x *CVRConnectionReady) String() string {
 func (*CVRConnectionReady) ProtoMessage() {}
 
 func (x *CVRConnectionReady) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[90]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7742,7 +7777,7 @@ func (x *CVRConnectionReady) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CVRConnectionReady.ProtoReflect.Descriptor instead.
 func (*CVRConnectionReady) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{90}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *CVRConnectionReady) GetConnectParams() string {
@@ -7766,7 +7801,7 @@ const (
 
 func (x *CCaptureFailedMsg) Reset() {
 	*x = CCaptureFailedMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[91]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7778,7 +7813,7 @@ func (x *CCaptureFailedMsg) String() string {
 func (*CCaptureFailedMsg) ProtoMessage() {}
 
 func (x *CCaptureFailedMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[91]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7791,7 +7826,7 @@ func (x *CCaptureFailedMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CCaptureFailedMsg.ProtoReflect.Descriptor instead.
 func (*CCaptureFailedMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{91}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{90}
 }
 
 func (x *CCaptureFailedMsg) GetReason() ECaptureFailedReason {
@@ -7811,7 +7846,7 @@ type CStreamVideoOverflowMsg struct {
 
 func (x *CStreamVideoOverflowMsg) Reset() {
 	*x = CStreamVideoOverflowMsg{}
-	mi := &file_steammessages_remoteplay_proto_msgTypes[92]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7823,7 +7858,7 @@ func (x *CStreamVideoOverflowMsg) String() string {
 func (*CStreamVideoOverflowMsg) ProtoMessage() {}
 
 func (x *CStreamVideoOverflowMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_remoteplay_proto_msgTypes[92]
+	mi := &file_steammessages_remoteplay_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7836,7 +7871,7 @@ func (x *CStreamVideoOverflowMsg) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CStreamVideoOverflowMsg.ProtoReflect.Descriptor instead.
 func (*CStreamVideoOverflowMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{92}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *CStreamVideoOverflowMsg) GetFirstFrameId() uint32 {
@@ -7851,6 +7886,50 @@ func (x *CStreamVideoOverflowMsg) GetLastFrameId() uint32 {
 		return *x.LastFrameId
 	}
 	return 0
+}
+
+type CSetSupportedColorspacesMsg struct {
+	state                protoimpl.MessageState `protogen:"open.v1"`
+	SupportedColorspaces []EStreamColorspace    `protobuf:"varint,1,rep,name=supported_colorspaces,json=supportedColorspaces,enum=EStreamColorspace" json:"supported_colorspaces,omitempty"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
+}
+
+func (x *CSetSupportedColorspacesMsg) Reset() {
+	*x = CSetSupportedColorspacesMsg{}
+	mi := &file_steammessages_remoteplay_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CSetSupportedColorspacesMsg) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CSetSupportedColorspacesMsg) ProtoMessage() {}
+
+func (x *CSetSupportedColorspacesMsg) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_remoteplay_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CSetSupportedColorspacesMsg.ProtoReflect.Descriptor instead.
+func (*CSetSupportedColorspacesMsg) Descriptor() ([]byte, []int) {
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *CSetSupportedColorspacesMsg) GetSupportedColorspaces() []EStreamColorspace {
+	if x != nil {
+		return x.SupportedColorspaces
+	}
+	return nil
 }
 
 type CStreamDataLostMsg struct {
@@ -7963,26 +8042,28 @@ func (x *CAudioFormat) GetChannels() uint32 {
 }
 
 type CVideoFrameHeader struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	FrameId       *uint32                `protobuf:"varint,1,opt,name=frame_id,json=frameId" json:"frame_id,omitempty"`
-	Timestamp     *uint32                `protobuf:"varint,2,opt,name=timestamp" json:"timestamp,omitempty"`
-	Codec         *EStreamVideoCodec     `protobuf:"varint,3,opt,name=codec,enum=EStreamVideoCodec,def=0" json:"codec,omitempty"`
-	PixelBits     *uint32                `protobuf:"varint,4,opt,name=pixel_bits,json=pixelBits" json:"pixel_bits,omitempty"`
-	Yuv420        *bool                  `protobuf:"varint,5,opt,name=yuv420" json:"yuv420,omitempty"`
-	Yuv444        *bool                  `protobuf:"varint,6,opt,name=yuv444" json:"yuv444,omitempty"`
-	Colorspace    *uint32                `protobuf:"varint,7,opt,name=colorspace" json:"colorspace,omitempty"`
-	MinLuminance  *uint32                `protobuf:"varint,8,opt,name=min_luminance,json=minLuminance" json:"min_luminance,omitempty"`
-	MaxLuminance  *uint32                `protobuf:"varint,9,opt,name=max_luminance,json=maxLuminance" json:"max_luminance,omitempty"`
-	SdrLuminance  *uint32                `protobuf:"varint,10,opt,name=sdr_luminance,json=sdrLuminance" json:"sdr_luminance,omitempty"`
-	Width         *uint32                `protobuf:"varint,11,opt,name=width" json:"width,omitempty"`
-	Height        *uint32                `protobuf:"varint,12,opt,name=height" json:"height,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	FrameId        *uint32                `protobuf:"varint,1,opt,name=frame_id,json=frameId" json:"frame_id,omitempty"`
+	Timestamp      *uint32                `protobuf:"varint,2,opt,name=timestamp" json:"timestamp,omitempty"`
+	Codec          *EStreamVideoCodec     `protobuf:"varint,3,opt,name=codec,enum=EStreamVideoCodec,def=0" json:"codec,omitempty"`
+	PixelBits      *uint32                `protobuf:"varint,4,opt,name=pixel_bits,json=pixelBits" json:"pixel_bits,omitempty"`
+	Yuv420         *bool                  `protobuf:"varint,5,opt,name=yuv420" json:"yuv420,omitempty"`
+	Yuv444         *bool                  `protobuf:"varint,6,opt,name=yuv444" json:"yuv444,omitempty"`
+	Colorspace     *EStreamColorspace     `protobuf:"varint,7,opt,name=colorspace,enum=EStreamColorspace,def=0" json:"colorspace,omitempty"`
+	MinLuminance   *uint32                `protobuf:"varint,8,opt,name=min_luminance,json=minLuminance" json:"min_luminance,omitempty"`
+	MaxLuminance   *uint32                `protobuf:"varint,9,opt,name=max_luminance,json=maxLuminance" json:"max_luminance,omitempty"`
+	SdrLuminance   *uint32                `protobuf:"varint,10,opt,name=sdr_luminance,json=sdrLuminance" json:"sdr_luminance,omitempty"`
+	Width          *uint32                `protobuf:"varint,11,opt,name=width" json:"width,omitempty"`
+	Height         *uint32                `protobuf:"varint,12,opt,name=height" json:"height,omitempty"`
+	CursorCaptured *bool                  `protobuf:"varint,13,opt,name=cursor_captured,json=cursorCaptured" json:"cursor_captured,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 // Default values for CVideoFrameHeader fields.
 const (
-	Default_CVideoFrameHeader_Codec = EStreamVideoCodec_k_EStreamVideoCodecNone
+	Default_CVideoFrameHeader_Codec      = EStreamVideoCodec_k_EStreamVideoCodecNone
+	Default_CVideoFrameHeader_Colorspace = EStreamColorspace_k_EStreamColorspace_Unknown
 )
 
 func (x *CVideoFrameHeader) Reset() {
@@ -8057,11 +8138,11 @@ func (x *CVideoFrameHeader) GetYuv444() bool {
 	return false
 }
 
-func (x *CVideoFrameHeader) GetColorspace() uint32 {
+func (x *CVideoFrameHeader) GetColorspace() EStreamColorspace {
 	if x != nil && x.Colorspace != nil {
 		return *x.Colorspace
 	}
-	return 0
+	return Default_CVideoFrameHeader_Colorspace
 }
 
 func (x *CVideoFrameHeader) GetMinLuminance() uint32 {
@@ -8097,6 +8178,13 @@ func (x *CVideoFrameHeader) GetHeight() uint32 {
 		return *x.Height
 	}
 	return 0
+}
+
+func (x *CVideoFrameHeader) GetCursorCaptured() bool {
+	if x != nil && x.CursorCaptured != nil {
+		return *x.CursorCaptured
+	}
+	return false
 }
 
 type CFrameEvent struct {
@@ -8841,7 +8929,7 @@ func (x *CRemotePlayTogetherGroupUpdateMsg_Player) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CRemotePlayTogetherGroupUpdateMsg_Player.ProtoReflect.Descriptor instead.
 func (*CRemotePlayTogetherGroupUpdateMsg_Player) Descriptor() ([]byte, []int) {
-	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{84, 0}
+	return file_steammessages_remoteplay_proto_rawDescGZIP(), []int{83, 0}
 }
 
 func (x *CRemotePlayTogetherGroupUpdateMsg_Player) GetAccountid() uint32 {
@@ -9378,7 +9466,7 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x05codec\x18\x01 \x01(\x0e2\x12.EStreamVideoCodec:\x17k_EStreamVideoCodecNoneR\x05codec\x12%\n" +
 	"\x04mode\x18\x02 \x01(\v2\x11.CStreamVideoModeR\x04mode\x12!\n" +
 	"\fbitrate_kbps\x18\x03 \x01(\x05R\vbitrateKbps\x12,\n" +
-	"\x12burst_bitrate_kbps\x18\x04 \x01(\x05R\x10burstBitrateKbps\"\xc0\a\n" +
+	"\x12burst_bitrate_kbps\x18\x04 \x01(\x05R\x10burstBitrateKbps\"\xff\a\n" +
 	"\x14CStreamingClientCaps\x12\x1f\n" +
 	"\vsystem_info\x18\x01 \x01(\tR\n" +
 	"systemInfo\x12,\n" +
@@ -9398,7 +9486,8 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x15supported_colorspaces\x18\r \x03(\x0e2\x12.EStreamColorspaceR\x14supportedColorspaces\x12H\n" +
 	"\x16supported_audio_codecs\x18\x0e \x03(\x0e2\x12.EStreamAudioCodecR\x14supportedAudioCodecs\x12H\n" +
 	"\x16supported_video_codecs\x18\x0f \x03(\x0e2\x12.EStreamVideoCodecR\x14supportedVideoCodecs\x122\n" +
-	"\x15can_toggle_fullscreen\x18\x10 \x01(\bR\x13canToggleFullscreen\"\xa2\x12\n" +
+	"\x15can_toggle_fullscreen\x18\x10 \x01(\bR\x13canToggleFullscreen\x12=\n" +
+	"\x1bsupports_video_frame_header\x18\x11 \x01(\bR\x18supportsVideoFrameHeader\"\xe4\x12\n" +
 	"\x16CStreamingClientConfig\x12M\n" +
 	"\aquality\x18\x01 \x01(\x0e2\x19.EStreamQualityPreference:\x18k_EStreamQualityBalancedR\aquality\x120\n" +
 	"\x14desired_resolution_x\x18\x02 \x01(\rR\x12desiredResolutionX\x120\n" +
@@ -9440,7 +9529,8 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x19pyrowave_quality_modifier\x18& \x01(\x02R\x17pyrowaveQualityModifier\x12'\n" +
 	"\x0fpyrowave_yuv444\x18' \x01(\bR\x0epyrowaveYuv444\x126\n" +
 	"\x15pyrowave_bitrate_kbps\x18( \x01(\x05:\x02-1R\x13pyrowaveBitrateKbps\x12M\n" +
-	"\rdisplay_style\x18) \x01(\x0e2\x0e.EDisplayStyle:\x18k_EDisplayStyleLetterboxR\fdisplayStyle\"\xe5\a\n" +
+	"\rdisplay_style\x18) \x01(\x0e2\x0e.EDisplayStyle:\x18k_EDisplayStyleLetterboxR\fdisplayStyle\x12@\n" +
+	"\bhdr_mode\x18* \x01(\x0e2\x0f.EStreamHDRMode:\x14k_EStreamHDRModeAutoR\ahdrMode\"\xe5\a\n" +
 	"\x16CStreamingServerConfig\x12f\n" +
 	"\x0fhost_play_audio\x18\x01 \x01(\x0e2\x1f.EStreamHostPlayAudioPreference:\x1dk_EStreamHostPlayAudioDefaultR\rhostPlayAudio\x122\n" +
 	"\x15custom_display_device\x18\x02 \x01(\tR\x13customDisplayDevice\x12y\n" +
@@ -9484,7 +9574,7 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"codec_data\x18\x04 \x01(\fR\tcodecData\x12\x1c\n" +
 	"\tfrequency\x18\x05 \x01(\rR\tfrequency\x12\x1a\n" +
 	"\bchannels\x18\x06 \x01(\rR\bchannels\"\x13\n" +
-	"\x11CStopAudioDataMsg\"\x8f\x02\n" +
+	"\x11CStopAudioDataMsg\"\xbf\x02\n" +
 	"\x12CStartVideoDataMsg\x12\x18\n" +
 	"\achannel\x18\x01 \x02(\rR\achannel\x12A\n" +
 	"\x05codec\x18\x02 \x01(\x0e2\x12.EStreamVideoCodec:\x17k_EStreamVideoCodecNoneR\x05codec\x12\x1d\n" +
@@ -9494,7 +9584,8 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x06height\x18\x05 \x01(\rR\x06height\x12O\n" +
 	"\n" +
 	"colorspace\x18\x06 \x01(\x0e2\x12.EStreamColorspace:\x1bk_EStreamColorspace_UnknownR\n" +
-	"colorspace\"\x13\n" +
+	"colorspace\x12.\n" +
+	"\x13video_frame_headers\x18\a \x01(\bR\x11videoFrameHeaders\"\x13\n" +
 	"\x11CStopVideoDataMsg\"\xc2\x05\n" +
 	"\x0eCRecordedInput\x12Q\n" +
 	"\x04type\x18\x01 \x01(\x0e2\x16.EStreamControlMessage:%k_EStreamControlAuthenticationRequestR\x04type\x12\x1c\n" +
@@ -9516,11 +9607,7 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x03hid\x18\r \x01(\v2\x0e.CRemoteHIDMsgH\x00R\x03hidB\x06\n" +
 	"\x04data\"A\n" +
 	"\x14CRecordedInputStream\x12)\n" +
-	"\aentries\x18\x01 \x03(\v2\x0f.CRecordedInputR\aentries\"K\n" +
-	"\x14CInputLatencyTestMsg\x12\x1d\n" +
-	"\n" +
-	"input_mark\x18\x01 \x02(\rR\tinputMark\x12\x14\n" +
-	"\x05color\x18\x02 \x01(\rR\x05color\"\x9b\x01\n" +
+	"\aentries\x18\x01 \x03(\v2\x0f.CRecordedInputR\aentries\"\x9b\x01\n" +
 	"\x18CInputTouchFingerDownMsg\x12\x1d\n" +
 	"\n" +
 	"input_mark\x18\x01 \x01(\rR\tinputMark\x12\x1a\n" +
@@ -9739,13 +9826,15 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x06reason\x18\x01 \x01(\x0e2\x15.ECaptureFailedReason:\x1ak_ECaptureFailedReasonNoneR\x06reason\"c\n" +
 	"\x17CStreamVideoOverflowMsg\x12$\n" +
 	"\x0efirst_frame_id\x18\x01 \x01(\rR\ffirstFrameId\x12\"\n" +
-	"\rlast_frame_id\x18\x02 \x01(\rR\vlastFrameId\".\n" +
+	"\rlast_frame_id\x18\x02 \x01(\rR\vlastFrameId\"f\n" +
+	"\x1bCSetSupportedColorspacesMsg\x12G\n" +
+	"\x15supported_colorspaces\x18\x01 \x03(\x0e2\x12.EStreamColorspaceR\x14supportedColorspaces\".\n" +
 	"\x12CStreamDataLostMsg\x12\x18\n" +
 	"\apackets\x18\x01 \x03(\rR\apackets\"\x83\x01\n" +
 	"\fCAudioFormat\x129\n" +
 	"\x06format\x18\x01 \x02(\x0e2\r.EAudioFormat:\x12k_EAudioFormatNoneR\x06format\x12\x1c\n" +
 	"\tfrequency\x18\x02 \x01(\rR\tfrequency\x12\x1a\n" +
-	"\bchannels\x18\x03 \x01(\rR\bchannels\"\x9b\x03\n" +
+	"\bchannels\x18\x03 \x01(\rR\bchannels\"\xf5\x03\n" +
 	"\x11CVideoFrameHeader\x12\x19\n" +
 	"\bframe_id\x18\x01 \x01(\rR\aframeId\x12\x1c\n" +
 	"\ttimestamp\x18\x02 \x01(\rR\ttimestamp\x12A\n" +
@@ -9753,16 +9842,17 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\n" +
 	"pixel_bits\x18\x04 \x01(\rR\tpixelBits\x12\x16\n" +
 	"\x06yuv420\x18\x05 \x01(\bR\x06yuv420\x12\x16\n" +
-	"\x06yuv444\x18\x06 \x01(\bR\x06yuv444\x12\x1e\n" +
+	"\x06yuv444\x18\x06 \x01(\bR\x06yuv444\x12O\n" +
 	"\n" +
-	"colorspace\x18\a \x01(\rR\n" +
+	"colorspace\x18\a \x01(\x0e2\x12.EStreamColorspace:\x1bk_EStreamColorspace_UnknownR\n" +
 	"colorspace\x12#\n" +
 	"\rmin_luminance\x18\b \x01(\rR\fminLuminance\x12#\n" +
 	"\rmax_luminance\x18\t \x01(\rR\fmaxLuminance\x12#\n" +
 	"\rsdr_luminance\x18\n" +
 	" \x01(\rR\fsdrLuminance\x12\x14\n" +
 	"\x05width\x18\v \x01(\rR\x05width\x12\x16\n" +
-	"\x06height\x18\f \x01(\rR\x06height\"t\n" +
+	"\x06height\x18\f \x01(\rR\x06height\x12'\n" +
+	"\x0fcursor_captured\x18\r \x01(\bR\x0ecursorCaptured\"t\n" +
 	"\vCFrameEvent\x12G\n" +
 	"\bevent_id\x18\x01 \x02(\x0e2\x12.EStreamFrameEvent:\x18k_EStreamInputEventStartR\aeventId\x12\x1c\n" +
 	"\ttimestamp\x18\x02 \x02(\rR\ttimestamp\"\xe5\x03\n" +
@@ -9855,7 +9945,7 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	" k_EStreamChannelDataChannelStart\x10\x03*`\n" +
 	"\x17EStreamDiscoveryMessage\x12!\n" +
 	"\x1dk_EStreamDiscoveryPingRequest\x10\x01\x12\"\n" +
-	"\x1ek_EStreamDiscoveryPingResponse\x10\x02*\x94 \n" +
+	"\x1ek_EStreamDiscoveryPingResponse\x10\x02*\xcb \n" +
 	"\x15EStreamControlMessage\x12)\n" +
 	"%k_EStreamControlAuthenticationRequest\x10\x01\x12*\n" +
 	"&k_EStreamControlAuthenticationResponse\x10\x02\x12#\n" +
@@ -9886,8 +9976,8 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\x1ek_EStreamControlGetCursorImage\x10B\x12\"\n" +
 	"\x1ek_EStreamControlSetCursorImage\x10C\x12 \n" +
 	"\x1ck_EStreamControlDeleteCursor\x10D\x12&\n" +
-	"\"k_EStreamControlSetTargetFramerate\x10E\x12$\n" +
-	" k_EStreamControlInputLatencyTest\x10F\x12*\n" +
+	"\"k_EStreamControlSetTargetFramerate\x10E\x12-\n" +
+	")k_EStreamControlInputLatencyTest_OBSOLETE\x10F\x12*\n" +
 	"&k_EStreamControlGamepadRumble_OBSOLETE\x10G\x12\"\n" +
 	"\x1ek_EStreamControlOverlayEnabled\x10J\x124\n" +
 	"0k_EStreamControlInputControllerAttached_OBSOLETE\x10K\x121\n" +
@@ -9957,7 +10047,8 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"!k_EStreamControlVRConnectionReady\x10\x91\x01\x12#\n" +
 	"\x1ek_EStreamControlSetCursorScale\x10\x92\x01\x12\"\n" +
 	"\x1dk_EStreamControlCaptureFailed\x10\x93\x01\x12\"\n" +
-	"\x1dk_EStreamControlVideoOverflow\x10\x94\x01*G\n" +
+	"\x1dk_EStreamControlVideoOverflow\x10\x94\x01\x12,\n" +
+	"'k_EStreamControlSetSupportedColorspaces\x10\x95\x01*G\n" +
 	"\x0eEStreamVersion\x12\x18\n" +
 	"\x14k_EStreamVersionNone\x10\x00\x12\x1b\n" +
 	"\x17k_EStreamVersionCurrent\x10\x01*\xc0\x01\n" +
@@ -9999,7 +10090,11 @@ const file_steammessages_remoteplay_proto_rawDesc = "" +
 	"\rEDisplayStyle\x12\x1c\n" +
 	"\x18k_EDisplayStyleLetterbox\x10\x00\x12\x1a\n" +
 	"\x16k_EDisplayStyleStretch\x10\x01\x12\x17\n" +
-	"\x13k_EDisplayStyleZoom\x10\x02*e\n" +
+	"\x13k_EDisplayStyleZoom\x10\x02*[\n" +
+	"\x0eEStreamHDRMode\x12\x18\n" +
+	"\x14k_EStreamHDRModeAuto\x10\x00\x12\x16\n" +
+	"\x12k_EStreamHDRModeOn\x10\x01\x12\x17\n" +
+	"\x13k_EStreamHDRModeOff\x10\x02*e\n" +
 	"\x1eEStreamHostPlayAudioPreference\x12!\n" +
 	"\x1dk_EStreamHostPlayAudioDefault\x10\x00\x12 \n" +
 	"\x1ck_EStreamHostPlayAudioAlways\x10\x01*\x8e\x01\n" +
@@ -10132,7 +10227,7 @@ func file_steammessages_remoteplay_proto_rawDescGZIP() []byte {
 	return file_steammessages_remoteplay_proto_rawDescData
 }
 
-var file_steammessages_remoteplay_proto_enumTypes = make([]protoimpl.EnumInfo, 28)
+var file_steammessages_remoteplay_proto_enumTypes = make([]protoimpl.EnumInfo, 29)
 var file_steammessages_remoteplay_proto_msgTypes = make([]protoimpl.MessageInfo, 113)
 var file_steammessages_remoteplay_proto_goTypes = []any{
 	(EStreamChannel)(0),                                               // 0: EStreamChannel
@@ -10146,49 +10241,49 @@ var file_steammessages_remoteplay_proto_goTypes = []any{
 	(EStreamColorspace)(0),                                            // 8: EStreamColorspace
 	(EStreamP2PScope)(0),                                              // 9: EStreamP2PScope
 	(EDisplayStyle)(0),                                                // 10: EDisplayStyle
-	(EStreamHostPlayAudioPreference)(0),                               // 11: EStreamHostPlayAudioPreference
-	(EStreamHostDisplaySetting)(0),                                    // 12: EStreamHostDisplaySetting
-	(EStreamingDataType)(0),                                           // 13: EStreamingDataType
-	(EStreamMouseButton)(0),                                           // 14: EStreamMouseButton
-	(EStreamMouseWheelDirection)(0),                                   // 15: EStreamMouseWheelDirection
-	(EStreamFramerateLimiter)(0),                                      // 16: EStreamFramerateLimiter
-	(EStreamActivity)(0),                                              // 17: EStreamActivity
-	(ECaptureFailedReason)(0),                                         // 18: ECaptureFailedReason
-	(EStreamDataMessage)(0),                                           // 19: EStreamDataMessage
-	(EAudioFormat)(0),                                                 // 20: EAudioFormat
-	(EStreamStatsMessage)(0),                                          // 21: EStreamStatsMessage
-	(EStreamFrameEvent)(0),                                            // 22: EStreamFrameEvent
-	(EStreamFrameResult)(0),                                           // 23: EStreamFrameResult
-	(EFrameAccumulatedStat)(0),                                        // 24: EFrameAccumulatedStat
-	(ELogFileType)(0),                                                 // 25: ELogFileType
-	(EStreamControllerConfigMsg)(0),                                   // 26: EStreamControllerConfigMsg
-	(CAuthenticationResponseMsg_AuthenticationResult)(0),              // 27: CAuthenticationResponseMsg.AuthenticationResult
-	(*CDiscoveryPingRequest)(nil),                                     // 28: CDiscoveryPingRequest
-	(*CDiscoveryPingResponse)(nil),                                    // 29: CDiscoveryPingResponse
-	(*CStreamingClientHandshakeInfo)(nil),                             // 30: CStreamingClientHandshakeInfo
-	(*CClientHandshakeMsg)(nil),                                       // 31: CClientHandshakeMsg
-	(*CStreamingServerHandshakeInfo)(nil),                             // 32: CStreamingServerHandshakeInfo
-	(*CServerHandshakeMsg)(nil),                                       // 33: CServerHandshakeMsg
-	(*CAuthenticationRequestMsg)(nil),                                 // 34: CAuthenticationRequestMsg
-	(*CAuthenticationResponseMsg)(nil),                                // 35: CAuthenticationResponseMsg
-	(*CKeepAliveMsg)(nil),                                             // 36: CKeepAliveMsg
-	(*CStartNetworkTestMsg)(nil),                                      // 37: CStartNetworkTestMsg
-	(*CStreamVideoMode)(nil),                                          // 38: CStreamVideoMode
-	(*CStreamVideoLimit)(nil),                                         // 39: CStreamVideoLimit
-	(*CStreamingClientCaps)(nil),                                      // 40: CStreamingClientCaps
-	(*CStreamingClientConfig)(nil),                                    // 41: CStreamingClientConfig
-	(*CStreamingServerConfig)(nil),                                    // 42: CStreamingServerConfig
-	(*CNegotiatedConfig)(nil),                                         // 43: CNegotiatedConfig
-	(*CNegotiationInitMsg)(nil),                                       // 44: CNegotiationInitMsg
-	(*CNegotiationSetConfigMsg)(nil),                                  // 45: CNegotiationSetConfigMsg
-	(*CNegotiationCompleteMsg)(nil),                                   // 46: CNegotiationCompleteMsg
-	(*CStartAudioDataMsg)(nil),                                        // 47: CStartAudioDataMsg
-	(*CStopAudioDataMsg)(nil),                                         // 48: CStopAudioDataMsg
-	(*CStartVideoDataMsg)(nil),                                        // 49: CStartVideoDataMsg
-	(*CStopVideoDataMsg)(nil),                                         // 50: CStopVideoDataMsg
-	(*CRecordedInput)(nil),                                            // 51: CRecordedInput
-	(*CRecordedInputStream)(nil),                                      // 52: CRecordedInputStream
-	(*CInputLatencyTestMsg)(nil),                                      // 53: CInputLatencyTestMsg
+	(EStreamHDRMode)(0),                                               // 11: EStreamHDRMode
+	(EStreamHostPlayAudioPreference)(0),                               // 12: EStreamHostPlayAudioPreference
+	(EStreamHostDisplaySetting)(0),                                    // 13: EStreamHostDisplaySetting
+	(EStreamingDataType)(0),                                           // 14: EStreamingDataType
+	(EStreamMouseButton)(0),                                           // 15: EStreamMouseButton
+	(EStreamMouseWheelDirection)(0),                                   // 16: EStreamMouseWheelDirection
+	(EStreamFramerateLimiter)(0),                                      // 17: EStreamFramerateLimiter
+	(EStreamActivity)(0),                                              // 18: EStreamActivity
+	(ECaptureFailedReason)(0),                                         // 19: ECaptureFailedReason
+	(EStreamDataMessage)(0),                                           // 20: EStreamDataMessage
+	(EAudioFormat)(0),                                                 // 21: EAudioFormat
+	(EStreamStatsMessage)(0),                                          // 22: EStreamStatsMessage
+	(EStreamFrameEvent)(0),                                            // 23: EStreamFrameEvent
+	(EStreamFrameResult)(0),                                           // 24: EStreamFrameResult
+	(EFrameAccumulatedStat)(0),                                        // 25: EFrameAccumulatedStat
+	(ELogFileType)(0),                                                 // 26: ELogFileType
+	(EStreamControllerConfigMsg)(0),                                   // 27: EStreamControllerConfigMsg
+	(CAuthenticationResponseMsg_AuthenticationResult)(0),              // 28: CAuthenticationResponseMsg.AuthenticationResult
+	(*CDiscoveryPingRequest)(nil),                                     // 29: CDiscoveryPingRequest
+	(*CDiscoveryPingResponse)(nil),                                    // 30: CDiscoveryPingResponse
+	(*CStreamingClientHandshakeInfo)(nil),                             // 31: CStreamingClientHandshakeInfo
+	(*CClientHandshakeMsg)(nil),                                       // 32: CClientHandshakeMsg
+	(*CStreamingServerHandshakeInfo)(nil),                             // 33: CStreamingServerHandshakeInfo
+	(*CServerHandshakeMsg)(nil),                                       // 34: CServerHandshakeMsg
+	(*CAuthenticationRequestMsg)(nil),                                 // 35: CAuthenticationRequestMsg
+	(*CAuthenticationResponseMsg)(nil),                                // 36: CAuthenticationResponseMsg
+	(*CKeepAliveMsg)(nil),                                             // 37: CKeepAliveMsg
+	(*CStartNetworkTestMsg)(nil),                                      // 38: CStartNetworkTestMsg
+	(*CStreamVideoMode)(nil),                                          // 39: CStreamVideoMode
+	(*CStreamVideoLimit)(nil),                                         // 40: CStreamVideoLimit
+	(*CStreamingClientCaps)(nil),                                      // 41: CStreamingClientCaps
+	(*CStreamingClientConfig)(nil),                                    // 42: CStreamingClientConfig
+	(*CStreamingServerConfig)(nil),                                    // 43: CStreamingServerConfig
+	(*CNegotiatedConfig)(nil),                                         // 44: CNegotiatedConfig
+	(*CNegotiationInitMsg)(nil),                                       // 45: CNegotiationInitMsg
+	(*CNegotiationSetConfigMsg)(nil),                                  // 46: CNegotiationSetConfigMsg
+	(*CNegotiationCompleteMsg)(nil),                                   // 47: CNegotiationCompleteMsg
+	(*CStartAudioDataMsg)(nil),                                        // 48: CStartAudioDataMsg
+	(*CStopAudioDataMsg)(nil),                                         // 49: CStopAudioDataMsg
+	(*CStartVideoDataMsg)(nil),                                        // 50: CStartVideoDataMsg
+	(*CStopVideoDataMsg)(nil),                                         // 51: CStopVideoDataMsg
+	(*CRecordedInput)(nil),                                            // 52: CRecordedInput
+	(*CRecordedInputStream)(nil),                                      // 53: CRecordedInputStream
 	(*CInputTouchFingerDownMsg)(nil),                                  // 54: CInputTouchFingerDownMsg
 	(*CInputTouchFingerMotionMsg)(nil),                                // 55: CInputTouchFingerMotionMsg
 	(*CInputTouchFingerUpMsg)(nil),                                    // 56: CInputTouchFingerUpMsg
@@ -10256,103 +10351,107 @@ var file_steammessages_remoteplay_proto_goTypes = []any{
 	(*CVRConnectionReady)(nil),                                        // 118: CVRConnectionReady
 	(*CCaptureFailedMsg)(nil),                                         // 119: CCaptureFailedMsg
 	(*CStreamVideoOverflowMsg)(nil),                                   // 120: CStreamVideoOverflowMsg
-	(*CStreamDataLostMsg)(nil),                                        // 121: CStreamDataLostMsg
-	(*CAudioFormat)(nil),                                              // 122: CAudioFormat
-	(*CVideoFrameHeader)(nil),                                         // 123: CVideoFrameHeader
-	(*CFrameEvent)(nil),                                               // 124: CFrameEvent
-	(*CFrameStats)(nil),                                               // 125: CFrameStats
-	(*CFrameStatAccumulatedValue)(nil),                                // 126: CFrameStatAccumulatedValue
-	(*CFrameStatsListMsg)(nil),                                        // 127: CFrameStatsListMsg
-	(*CStreamingSessionStats)(nil),                                    // 128: CStreamingSessionStats
-	(*CDebugDumpMsg)(nil),                                             // 129: CDebugDumpMsg
-	(*CLogMsg)(nil),                                                   // 130: CLogMsg
-	(*CLogUploadMsg)(nil),                                             // 131: CLogUploadMsg
-	(*CTransportSignalMsg)(nil),                                       // 132: CTransportSignalMsg
-	(*CControllerConfigMsg)(nil),                                      // 133: CControllerConfigMsg
-	(*CRemotePlayTogetherGroupUpdateMsg_Player)(nil),                  // 134: CRemotePlayTogetherGroupUpdateMsg.Player
-	(*CTransportSignalMsg_WebRTCMessage)(nil),                         // 135: CTransportSignalMsg.WebRTCMessage
-	(*CTransportSignalMsg_WebRTCMessage_Candidate)(nil),               // 136: CTransportSignalMsg.WebRTCMessage.Candidate
-	(*CControllerConfigMsg_ControllerConfigResponse)(nil),             // 137: CControllerConfigMsg.ControllerConfigResponse
-	(*CControllerConfigMsg_ControllerPersonalizationResponse)(nil),    // 138: CControllerConfigMsg.ControllerPersonalizationResponse
-	(*CControllerConfigMsg_ControllerActiveConfigChangeResponse)(nil), // 139: CControllerConfigMsg.ControllerActiveConfigChangeResponse
-	(*CControllerConfigMsg_ControllerActiveConfigMsg)(nil),            // 140: CControllerConfigMsg.ControllerActiveConfigMsg
+	(*CSetSupportedColorspacesMsg)(nil),                               // 121: CSetSupportedColorspacesMsg
+	(*CStreamDataLostMsg)(nil),                                        // 122: CStreamDataLostMsg
+	(*CAudioFormat)(nil),                                              // 123: CAudioFormat
+	(*CVideoFrameHeader)(nil),                                         // 124: CVideoFrameHeader
+	(*CFrameEvent)(nil),                                               // 125: CFrameEvent
+	(*CFrameStats)(nil),                                               // 126: CFrameStats
+	(*CFrameStatAccumulatedValue)(nil),                                // 127: CFrameStatAccumulatedValue
+	(*CFrameStatsListMsg)(nil),                                        // 128: CFrameStatsListMsg
+	(*CStreamingSessionStats)(nil),                                    // 129: CStreamingSessionStats
+	(*CDebugDumpMsg)(nil),                                             // 130: CDebugDumpMsg
+	(*CLogMsg)(nil),                                                   // 131: CLogMsg
+	(*CLogUploadMsg)(nil),                                             // 132: CLogUploadMsg
+	(*CTransportSignalMsg)(nil),                                       // 133: CTransportSignalMsg
+	(*CControllerConfigMsg)(nil),                                      // 134: CControllerConfigMsg
+	(*CRemotePlayTogetherGroupUpdateMsg_Player)(nil),                  // 135: CRemotePlayTogetherGroupUpdateMsg.Player
+	(*CTransportSignalMsg_WebRTCMessage)(nil),                         // 136: CTransportSignalMsg.WebRTCMessage
+	(*CTransportSignalMsg_WebRTCMessage_Candidate)(nil),               // 137: CTransportSignalMsg.WebRTCMessage.Candidate
+	(*CControllerConfigMsg_ControllerConfigResponse)(nil),             // 138: CControllerConfigMsg.ControllerConfigResponse
+	(*CControllerConfigMsg_ControllerPersonalizationResponse)(nil),    // 139: CControllerConfigMsg.ControllerPersonalizationResponse
+	(*CControllerConfigMsg_ControllerActiveConfigChangeResponse)(nil), // 140: CControllerConfigMsg.ControllerActiveConfigChangeResponse
+	(*CControllerConfigMsg_ControllerActiveConfigMsg)(nil),            // 141: CControllerConfigMsg.ControllerActiveConfigMsg
 }
 var file_steammessages_remoteplay_proto_depIdxs = []int32{
-	30,  // 0: CClientHandshakeMsg.info:type_name -> CStreamingClientHandshakeInfo
-	32,  // 1: CServerHandshakeMsg.info:type_name -> CStreamingServerHandshakeInfo
+	31,  // 0: CClientHandshakeMsg.info:type_name -> CStreamingClientHandshakeInfo
+	33,  // 1: CServerHandshakeMsg.info:type_name -> CStreamingServerHandshakeInfo
 	3,   // 2: CAuthenticationRequestMsg.version:type_name -> EStreamVersion
-	27,  // 3: CAuthenticationResponseMsg.result:type_name -> CAuthenticationResponseMsg.AuthenticationResult
+	28,  // 3: CAuthenticationResponseMsg.result:type_name -> CAuthenticationResponseMsg.AuthenticationResult
 	3,   // 4: CAuthenticationResponseMsg.version:type_name -> EStreamVersion
 	5,   // 5: CStreamVideoLimit.codec:type_name -> EStreamVideoCodec
-	38,  // 6: CStreamVideoLimit.mode:type_name -> CStreamVideoMode
+	39,  // 6: CStreamVideoLimit.mode:type_name -> CStreamVideoMode
 	8,   // 7: CStreamingClientCaps.supported_colorspaces:type_name -> EStreamColorspace
 	4,   // 8: CStreamingClientCaps.supported_audio_codecs:type_name -> EStreamAudioCodec
 	5,   // 9: CStreamingClientCaps.supported_video_codecs:type_name -> EStreamVideoCodec
 	6,   // 10: CStreamingClientConfig.quality:type_name -> EStreamQualityPreference
 	9,   // 11: CStreamingClientConfig.p2p_scope:type_name -> EStreamP2PScope
-	39,  // 12: CStreamingClientConfig.display_limit:type_name -> CStreamVideoLimit
-	39,  // 13: CStreamingClientConfig.quality_limit:type_name -> CStreamVideoLimit
-	39,  // 14: CStreamingClientConfig.runtime_limit:type_name -> CStreamVideoLimit
-	39,  // 15: CStreamingClientConfig.decoder_limit:type_name -> CStreamVideoLimit
+	40,  // 12: CStreamingClientConfig.display_limit:type_name -> CStreamVideoLimit
+	40,  // 13: CStreamingClientConfig.quality_limit:type_name -> CStreamVideoLimit
+	40,  // 14: CStreamingClientConfig.runtime_limit:type_name -> CStreamVideoLimit
+	40,  // 15: CStreamingClientConfig.decoder_limit:type_name -> CStreamVideoLimit
 	10,  // 16: CStreamingClientConfig.display_style:type_name -> EDisplayStyle
-	11,  // 17: CStreamingServerConfig.host_play_audio:type_name -> EStreamHostPlayAudioPreference
-	12,  // 18: CStreamingServerConfig.display_resolution_setting:type_name -> EStreamHostDisplaySetting
-	12,  // 19: CStreamingServerConfig.display_refresh_rate_setting:type_name -> EStreamHostDisplaySetting
-	12,  // 20: CStreamingServerConfig.display_hdr_setting:type_name -> EStreamHostDisplaySetting
-	4,   // 21: CNegotiatedConfig.selected_audio_codec:type_name -> EStreamAudioCodec
-	5,   // 22: CNegotiatedConfig.selected_video_codec:type_name -> EStreamVideoCodec
-	38,  // 23: CNegotiatedConfig.available_video_modes_OBSOLETE:type_name -> CStreamVideoMode
-	4,   // 24: CNegotiationInitMsg.supported_audio_codecs:type_name -> EStreamAudioCodec
-	5,   // 25: CNegotiationInitMsg.supported_video_codecs:type_name -> EStreamVideoCodec
-	43,  // 26: CNegotiationSetConfigMsg.config:type_name -> CNegotiatedConfig
-	41,  // 27: CNegotiationSetConfigMsg.streaming_client_config:type_name -> CStreamingClientConfig
-	40,  // 28: CNegotiationSetConfigMsg.streaming_client_caps:type_name -> CStreamingClientCaps
-	4,   // 29: CStartAudioDataMsg.codec:type_name -> EStreamAudioCodec
-	5,   // 30: CStartVideoDataMsg.codec:type_name -> EStreamVideoCodec
-	8,   // 31: CStartVideoDataMsg.colorspace:type_name -> EStreamColorspace
-	2,   // 32: CRecordedInput.type:type_name -> EStreamControlMessage
-	54,  // 33: CRecordedInput.finger_down:type_name -> CInputTouchFingerDownMsg
-	55,  // 34: CRecordedInput.finger_motion:type_name -> CInputTouchFingerMotionMsg
-	56,  // 35: CRecordedInput.finger_up:type_name -> CInputTouchFingerUpMsg
-	57,  // 36: CRecordedInput.mouse_motion:type_name -> CInputMouseMotionMsg
-	58,  // 37: CRecordedInput.mouse_wheel:type_name -> CInputMouseWheelMsg
-	59,  // 38: CRecordedInput.mouse_down:type_name -> CInputMouseDownMsg
-	60,  // 39: CRecordedInput.mouse_up:type_name -> CInputMouseUpMsg
-	61,  // 40: CRecordedInput.key_down:type_name -> CInputKeyDownMsg
-	62,  // 41: CRecordedInput.key_up:type_name -> CInputKeyUpMsg
-	63,  // 42: CRecordedInput.text:type_name -> CInputTextMsg
-	102, // 43: CRecordedInput.hid:type_name -> CRemoteHIDMsg
-	51,  // 44: CRecordedInputStream.entries:type_name -> CRecordedInput
-	15,  // 45: CInputMouseWheelMsg.direction:type_name -> EStreamMouseWheelDirection
-	14,  // 46: CInputMouseDownMsg.button:type_name -> EStreamMouseButton
-	14,  // 47: CInputMouseUpMsg.button:type_name -> EStreamMouseButton
-	84,  // 48: CStreamingKeymap.entries:type_name -> CStreamingKeymapEntry
-	85,  // 49: CSetKeymapMsg.keymap:type_name -> CStreamingKeymap
-	41,  // 50: CSetStreamingClientConfig.config:type_name -> CStreamingClientConfig
-	17,  // 51: CSetActivityMsg.activity:type_name -> EStreamActivity
-	134, // 52: CRemotePlayTogetherGroupUpdateMsg.players:type_name -> CRemotePlayTogetherGroupUpdateMsg.Player
-	18,  // 53: CCaptureFailedMsg.reason:type_name -> ECaptureFailedReason
-	20,  // 54: CAudioFormat.format:type_name -> EAudioFormat
-	5,   // 55: CVideoFrameHeader.codec:type_name -> EStreamVideoCodec
-	22,  // 56: CFrameEvent.event_id:type_name -> EStreamFrameEvent
-	124, // 57: CFrameStats.events:type_name -> CFrameEvent
-	23,  // 58: CFrameStats.result:type_name -> EStreamFrameResult
-	24,  // 59: CFrameStatAccumulatedValue.stat_type:type_name -> EFrameAccumulatedStat
-	13,  // 60: CFrameStatsListMsg.data_type:type_name -> EStreamingDataType
-	125, // 61: CFrameStatsListMsg.stats:type_name -> CFrameStats
-	126, // 62: CFrameStatsListMsg.accumulated_stats:type_name -> CFrameStatAccumulatedValue
-	25,  // 63: CLogUploadMsg.type:type_name -> ELogFileType
-	135, // 64: CTransportSignalMsg.webrtc:type_name -> CTransportSignalMsg.WebRTCMessage
-	26,  // 65: CControllerConfigMsg.type:type_name -> EStreamControllerConfigMsg
-	138, // 66: CControllerConfigMsg.personalizationResponse:type_name -> CControllerConfigMsg.ControllerPersonalizationResponse
-	137, // 67: CControllerConfigMsg.configResponse:type_name -> CControllerConfigMsg.ControllerConfigResponse
-	140, // 68: CControllerConfigMsg.activeConfigChangeMsg:type_name -> CControllerConfigMsg.ControllerActiveConfigMsg
-	136, // 69: CTransportSignalMsg.WebRTCMessage.candidate:type_name -> CTransportSignalMsg.WebRTCMessage.Candidate
-	70,  // [70:70] is the sub-list for method output_type
-	70,  // [70:70] is the sub-list for method input_type
-	70,  // [70:70] is the sub-list for extension type_name
-	70,  // [70:70] is the sub-list for extension extendee
-	0,   // [0:70] is the sub-list for field type_name
+	11,  // 17: CStreamingClientConfig.hdr_mode:type_name -> EStreamHDRMode
+	12,  // 18: CStreamingServerConfig.host_play_audio:type_name -> EStreamHostPlayAudioPreference
+	13,  // 19: CStreamingServerConfig.display_resolution_setting:type_name -> EStreamHostDisplaySetting
+	13,  // 20: CStreamingServerConfig.display_refresh_rate_setting:type_name -> EStreamHostDisplaySetting
+	13,  // 21: CStreamingServerConfig.display_hdr_setting:type_name -> EStreamHostDisplaySetting
+	4,   // 22: CNegotiatedConfig.selected_audio_codec:type_name -> EStreamAudioCodec
+	5,   // 23: CNegotiatedConfig.selected_video_codec:type_name -> EStreamVideoCodec
+	39,  // 24: CNegotiatedConfig.available_video_modes_OBSOLETE:type_name -> CStreamVideoMode
+	4,   // 25: CNegotiationInitMsg.supported_audio_codecs:type_name -> EStreamAudioCodec
+	5,   // 26: CNegotiationInitMsg.supported_video_codecs:type_name -> EStreamVideoCodec
+	44,  // 27: CNegotiationSetConfigMsg.config:type_name -> CNegotiatedConfig
+	42,  // 28: CNegotiationSetConfigMsg.streaming_client_config:type_name -> CStreamingClientConfig
+	41,  // 29: CNegotiationSetConfigMsg.streaming_client_caps:type_name -> CStreamingClientCaps
+	4,   // 30: CStartAudioDataMsg.codec:type_name -> EStreamAudioCodec
+	5,   // 31: CStartVideoDataMsg.codec:type_name -> EStreamVideoCodec
+	8,   // 32: CStartVideoDataMsg.colorspace:type_name -> EStreamColorspace
+	2,   // 33: CRecordedInput.type:type_name -> EStreamControlMessage
+	54,  // 34: CRecordedInput.finger_down:type_name -> CInputTouchFingerDownMsg
+	55,  // 35: CRecordedInput.finger_motion:type_name -> CInputTouchFingerMotionMsg
+	56,  // 36: CRecordedInput.finger_up:type_name -> CInputTouchFingerUpMsg
+	57,  // 37: CRecordedInput.mouse_motion:type_name -> CInputMouseMotionMsg
+	58,  // 38: CRecordedInput.mouse_wheel:type_name -> CInputMouseWheelMsg
+	59,  // 39: CRecordedInput.mouse_down:type_name -> CInputMouseDownMsg
+	60,  // 40: CRecordedInput.mouse_up:type_name -> CInputMouseUpMsg
+	61,  // 41: CRecordedInput.key_down:type_name -> CInputKeyDownMsg
+	62,  // 42: CRecordedInput.key_up:type_name -> CInputKeyUpMsg
+	63,  // 43: CRecordedInput.text:type_name -> CInputTextMsg
+	102, // 44: CRecordedInput.hid:type_name -> CRemoteHIDMsg
+	52,  // 45: CRecordedInputStream.entries:type_name -> CRecordedInput
+	16,  // 46: CInputMouseWheelMsg.direction:type_name -> EStreamMouseWheelDirection
+	15,  // 47: CInputMouseDownMsg.button:type_name -> EStreamMouseButton
+	15,  // 48: CInputMouseUpMsg.button:type_name -> EStreamMouseButton
+	84,  // 49: CStreamingKeymap.entries:type_name -> CStreamingKeymapEntry
+	85,  // 50: CSetKeymapMsg.keymap:type_name -> CStreamingKeymap
+	42,  // 51: CSetStreamingClientConfig.config:type_name -> CStreamingClientConfig
+	18,  // 52: CSetActivityMsg.activity:type_name -> EStreamActivity
+	135, // 53: CRemotePlayTogetherGroupUpdateMsg.players:type_name -> CRemotePlayTogetherGroupUpdateMsg.Player
+	19,  // 54: CCaptureFailedMsg.reason:type_name -> ECaptureFailedReason
+	8,   // 55: CSetSupportedColorspacesMsg.supported_colorspaces:type_name -> EStreamColorspace
+	21,  // 56: CAudioFormat.format:type_name -> EAudioFormat
+	5,   // 57: CVideoFrameHeader.codec:type_name -> EStreamVideoCodec
+	8,   // 58: CVideoFrameHeader.colorspace:type_name -> EStreamColorspace
+	23,  // 59: CFrameEvent.event_id:type_name -> EStreamFrameEvent
+	125, // 60: CFrameStats.events:type_name -> CFrameEvent
+	24,  // 61: CFrameStats.result:type_name -> EStreamFrameResult
+	25,  // 62: CFrameStatAccumulatedValue.stat_type:type_name -> EFrameAccumulatedStat
+	14,  // 63: CFrameStatsListMsg.data_type:type_name -> EStreamingDataType
+	126, // 64: CFrameStatsListMsg.stats:type_name -> CFrameStats
+	127, // 65: CFrameStatsListMsg.accumulated_stats:type_name -> CFrameStatAccumulatedValue
+	26,  // 66: CLogUploadMsg.type:type_name -> ELogFileType
+	136, // 67: CTransportSignalMsg.webrtc:type_name -> CTransportSignalMsg.WebRTCMessage
+	27,  // 68: CControllerConfigMsg.type:type_name -> EStreamControllerConfigMsg
+	139, // 69: CControllerConfigMsg.personalizationResponse:type_name -> CControllerConfigMsg.ControllerPersonalizationResponse
+	138, // 70: CControllerConfigMsg.configResponse:type_name -> CControllerConfigMsg.ControllerConfigResponse
+	141, // 71: CControllerConfigMsg.activeConfigChangeMsg:type_name -> CControllerConfigMsg.ControllerActiveConfigMsg
+	137, // 72: CTransportSignalMsg.WebRTCMessage.candidate:type_name -> CTransportSignalMsg.WebRTCMessage.Candidate
+	73,  // [73:73] is the sub-list for method output_type
+	73,  // [73:73] is the sub-list for method input_type
+	73,  // [73:73] is the sub-list for extension type_name
+	73,  // [73:73] is the sub-list for extension extendee
+	0,   // [0:73] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_remoteplay_proto_init() }
@@ -10384,7 +10483,7 @@ func file_steammessages_remoteplay_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_remoteplay_proto_rawDesc), len(file_steammessages_remoteplay_proto_rawDesc)),
-			NumEnums:      28,
+			NumEnums:      29,
 			NumMessages:   113,
 			NumExtensions: 0,
 			NumServices:   0,
