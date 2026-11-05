@@ -99,7 +99,6 @@ type CSteamOSManagerState struct {
 	IsTdpLimitAvailable                  *bool                  `protobuf:"varint,7,opt,name=is_tdp_limit_available,json=isTdpLimitAvailable" json:"is_tdp_limit_available,omitempty"`
 	TdpLimitMin                          *int32                 `protobuf:"varint,8,opt,name=tdp_limit_min,json=tdpLimitMin" json:"tdp_limit_min,omitempty"`
 	TdpLimitMax                          *int32                 `protobuf:"varint,9,opt,name=tdp_limit_max,json=tdpLimitMax" json:"tdp_limit_max,omitempty"`
-	IsCecAvailable                       *bool                  `protobuf:"varint,10,opt,name=is_cec_available,json=isCecAvailable" json:"is_cec_available,omitempty"`
 	IsWifiDebugSupported                 *bool                  `protobuf:"varint,11,opt,name=is_wifi_debug_supported,json=isWifiDebugSupported" json:"is_wifi_debug_supported,omitempty"`
 	IsWifiDebugForceDisabled             *bool                  `protobuf:"varint,12,opt,name=is_wifi_debug_force_disabled,json=isWifiDebugForceDisabled" json:"is_wifi_debug_force_disabled,omitempty"`
 	IsWifiForceWpaSupplicantSupported    *bool                  `protobuf:"varint,13,opt,name=is_wifi_force_wpa_supplicant_supported,json=isWifiForceWpaSupplicantSupported" json:"is_wifi_force_wpa_supplicant_supported,omitempty"`
@@ -214,13 +213,6 @@ func (x *CSteamOSManagerState) GetTdpLimitMax() int32 {
 		return *x.TdpLimitMax
 	}
 	return 0
-}
-
-func (x *CSteamOSManagerState) GetIsCecAvailable() bool {
-	if x != nil && x.IsCecAvailable != nil {
-		return *x.IsCecAvailable
-	}
-	return false
 }
 
 func (x *CSteamOSManagerState) GetIsWifiDebugSupported() bool {
@@ -2138,7 +2130,7 @@ const file_webuimessages_steamos_proto_rawDesc = "" +
 	"is_running\x18\x01 \x01(\bR\tisRunning\x12\x1a\n" +
 	"\bprogress\x18\x02 \x01(\x05R\bprogress\x12,\n" +
 	"\x12is_restart_pending\x18\x03 \x01(\bR\x10isRestartPending\x12<\n" +
-	"\x1artime_estimated_completion\x18\x04 \x01(\aR\x18rtimeEstimatedCompletion\"\xad\x10\n" +
+	"\x1artime_estimated_completion\x18\x04 \x01(\aR\x18rtimeEstimatedCompletion\"\x83\x10\n" +
 	"\x14CSteamOSManagerState\x120\n" +
 	"\x14is_service_available\x18\x01 \x01(\bR\x12isServiceAvailable\x12\x1d\n" +
 	"\n" +
@@ -2148,9 +2140,7 @@ const file_webuimessages_steamos_proto_rawDesc = "" +
 	"\x13factory_reset_state\x18\x06 \x01(\v2\x16.CMsgFactoryResetStateR\x11factoryResetState\x123\n" +
 	"\x16is_tdp_limit_available\x18\a \x01(\bR\x13isTdpLimitAvailable\x12\"\n" +
 	"\rtdp_limit_min\x18\b \x01(\x05R\vtdpLimitMin\x12\"\n" +
-	"\rtdp_limit_max\x18\t \x01(\x05R\vtdpLimitMax\x12(\n" +
-	"\x10is_cec_available\x18\n" +
-	" \x01(\bR\x0eisCecAvailable\x125\n" +
+	"\rtdp_limit_max\x18\t \x01(\x05R\vtdpLimitMax\x125\n" +
 	"\x17is_wifi_debug_supported\x18\v \x01(\bR\x14isWifiDebugSupported\x12>\n" +
 	"\x1cis_wifi_debug_force_disabled\x18\f \x01(\bR\x18isWifiDebugForceDisabled\x12Q\n" +
 	"&is_wifi_force_wpa_supplicant_supported\x18\r \x01(\bR!isWifiForceWpaSupplicantSupported\x12@\n" +
