@@ -33,20 +33,22 @@ const (
 	ERemoteClientPairWifiAPResult_k_ERemoteClientPairWifiAPCanceled        ERemoteClientPairWifiAPResult = 7
 	ERemoteClientPairWifiAPResult_k_ERemoteClientPairWifiAPProgress        ERemoteClientPairWifiAPResult = 8
 	ERemoteClientPairWifiAPResult_k_ERemoteClientPairWifiAPConnectFailed   ERemoteClientPairWifiAPResult = 9
+	ERemoteClientPairWifiAPResult_k_ERemoteClientPairWifiAPPINTimeout      ERemoteClientPairWifiAPResult = 10
 )
 
 // Enum value maps for ERemoteClientPairWifiAPResult.
 var (
 	ERemoteClientPairWifiAPResult_name = map[int32]string{
-		1: "k_ERemoteClientPairWifiAPOK",
-		2: "k_ERemoteClientPairWifiAPFail",
-		3: "k_ERemoteClientPairWifiAPNetworkError",
-		4: "k_ERemoteClientPairWifiAPUnauthorized",
-		5: "k_ERemoteClientPairWifiAPNoDonglePresent",
-		6: "k_ERemoteClientPairWifiAPTimeout",
-		7: "k_ERemoteClientPairWifiAPCanceled",
-		8: "k_ERemoteClientPairWifiAPProgress",
-		9: "k_ERemoteClientPairWifiAPConnectFailed",
+		1:  "k_ERemoteClientPairWifiAPOK",
+		2:  "k_ERemoteClientPairWifiAPFail",
+		3:  "k_ERemoteClientPairWifiAPNetworkError",
+		4:  "k_ERemoteClientPairWifiAPUnauthorized",
+		5:  "k_ERemoteClientPairWifiAPNoDonglePresent",
+		6:  "k_ERemoteClientPairWifiAPTimeout",
+		7:  "k_ERemoteClientPairWifiAPCanceled",
+		8:  "k_ERemoteClientPairWifiAPProgress",
+		9:  "k_ERemoteClientPairWifiAPConnectFailed",
+		10: "k_ERemoteClientPairWifiAPPINTimeout",
 	}
 	ERemoteClientPairWifiAPResult_value = map[string]int32{
 		"k_ERemoteClientPairWifiAPOK":              1,
@@ -58,6 +60,7 @@ var (
 		"k_ERemoteClientPairWifiAPCanceled":        7,
 		"k_ERemoteClientPairWifiAPProgress":        8,
 		"k_ERemoteClientPairWifiAPConnectFailed":   9,
+		"k_ERemoteClientPairWifiAPPINTimeout":      10,
 	}
 )
 
@@ -3000,7 +3003,7 @@ const file_steammessages_remoteclient_proto_rawDesc = "" +
 	"\vsteps_total\x18\x05 \x01(\x05R\n" +
 	"stepsTotal\x12\x1b\n" +
 	"\tstep_name\x18\x06 \x01(\tR\bstepName\x12+\n" +
-	"\x11estimated_seconds\x18\a \x01(\rR\x10estimatedSeconds*\x87\x03\n" +
+	"\x11estimated_seconds\x18\a \x01(\rR\x10estimatedSeconds*\xb0\x03\n" +
 	"\x1dERemoteClientPairWifiAPResult\x12\x1f\n" +
 	"\x1bk_ERemoteClientPairWifiAPOK\x10\x01\x12!\n" +
 	"\x1dk_ERemoteClientPairWifiAPFail\x10\x02\x12)\n" +
@@ -3010,7 +3013,9 @@ const file_steammessages_remoteclient_proto_rawDesc = "" +
 	" k_ERemoteClientPairWifiAPTimeout\x10\x06\x12%\n" +
 	"!k_ERemoteClientPairWifiAPCanceled\x10\a\x12%\n" +
 	"!k_ERemoteClientPairWifiAPProgress\x10\b\x12*\n" +
-	"&k_ERemoteClientPairWifiAPConnectFailed\x10\t*k\n" +
+	"&k_ERemoteClientPairWifiAPConnectFailed\x10\t\x12'\n" +
+	"#k_ERemoteClientPairWifiAPPINTimeout\x10\n" +
+	"*k\n" +
 	"\x19EStreamingDongleFixResult\x12&\n" +
 	"\"k_EStreamingDongleFixResultSuccess\x10\x01\x12&\n" +
 	"\"k_EStreamingDongleFixResultFailure\x10\x02B\x05H\x01\x80\x01\x00"
