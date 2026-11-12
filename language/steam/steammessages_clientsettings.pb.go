@@ -876,6 +876,7 @@ type CMsgClientSettings struct {
 	SystemIdleScreensaverBatterySec       *int32                    `protobuf:"varint,24008,opt,name=system_idle_screensaver_battery_sec,json=systemIdleScreensaverBatterySec" json:"system_idle_screensaver_battery_sec,omitempty"`
 	SystemIdleScreensaverAcSec            *int32                    `protobuf:"varint,24009,opt,name=system_idle_screensaver_ac_sec,json=systemIdleScreensaverAcSec" json:"system_idle_screensaver_ac_sec,omitempty"`
 	VrShowPerfGraphInHmd                  *bool                     `protobuf:"varint,25000,opt,name=vr_show_perf_graph_in_hmd,json=vrShowPerfGraphInHmd" json:"vr_show_perf_graph_in_hmd,omitempty"`
+	VrLaunchProgramsHidden                *string                   `protobuf:"bytes,25003,opt,name=vr_launch_programs_hidden,json=vrLaunchProgramsHidden" json:"vr_launch_programs_hidden,omitempty"`
 	AccessibilityDebugVisualizer          *bool                     `protobuf:"varint,26000,opt,name=accessibility_debug_visualizer,json=accessibilityDebugVisualizer" json:"accessibility_debug_visualizer,omitempty"`
 	AccessibilityScreenReaderEnabled      *bool                     `protobuf:"varint,26001,opt,name=accessibility_screen_reader_enabled,json=accessibilityScreenReaderEnabled" json:"accessibility_screen_reader_enabled,omitempty"`
 	AccessibilityScreenReaderRate         *float32                  `protobuf:"fixed32,26002,opt,name=accessibility_screen_reader_rate,json=accessibilityScreenReaderRate" json:"accessibility_screen_reader_rate,omitempty"`
@@ -2613,6 +2614,13 @@ func (x *CMsgClientSettings) GetVrShowPerfGraphInHmd() bool {
 	return false
 }
 
+func (x *CMsgClientSettings) GetVrLaunchProgramsHidden() string {
+	if x != nil && x.VrLaunchProgramsHidden != nil {
+		return *x.VrLaunchProgramsHidden
+	}
+	return ""
+}
+
 func (x *CMsgClientSettings) GetAccessibilityDebugVisualizer() bool {
 	if x != nil && x.AccessibilityDebugVisualizer != nil {
 		return *x.AccessibilityDebugVisualizer
@@ -2998,7 +3006,7 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"valueFloat\x12#\n" +
 	"\fvalue_string\x18\a \x01(\tH\x00R\vvalueString\x120\n" +
 	"\fvalue_hotkey\x18\b \x01(\v2\v.CMsgHotkeyH\x00R\vvalueHotkeyB\a\n" +
-	"\x05value\"\x8f\xdf\x01\n" +
+	"\x05value\"\xf1\xdf\x01\n" +
 	"\x12CMsgClientSettings\x12b\n" +
 	"\x15no_save_personal_info\x18\x01 \x01(\bB/\x80\xa6\x1d\x01\x8a\xa6\x1d'Software\\Valve\\Steam\\NoSavePersonalInfoR\x12noSavePersonalInfo\x12G\n" +
 	"\x11preferred_monitor\x18\x05 \x01(\tB\x1a\x80\xa6\x1d\x01\x8a\xa6\x1d\x12BigPicture/MonitorR\x10preferredMonitor\x12\x8e\x01\n" +
@@ -3240,7 +3248,8 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"(system_allow_battery_low_power_downloads\x18ƻ\x01 \x01(\bBE\x80\xa6\x1d\x01\x8a\xa6\x1d9Software\\Valve\\Steam\\System\\AllowBatteryLowPowerDownloads\x98\xa6\x1d\x00R#systemAllowBatteryLowPowerDownloads\x12\x95\x01\n" +
 	"#system_idle_screensaver_battery_sec\x18Ȼ\x01 \x01(\x05BE\x80\xa6\x1d\x01\x8a\xa6\x1d9Software\\Valve\\Steam\\System\\IdleScreensaverBatterySeconds\xa0\xa6\x1d\x00R\x1fsystemIdleScreensaverBatterySec\x12\x87\x01\n" +
 	"\x1esystem_idle_screensaver_ac_sec\x18ɻ\x01 \x01(\x05BA\x80\xa6\x1d\x01\x8a\xa6\x1d4Software\\Valve\\Steam\\System\\IdleScreensaverACSeconds\xa0\xa6\x1d\xac\x02R\x1asystemIdleScreensaverAcSec\x12\\\n" +
-	"\x19vr_show_perf_graph_in_hmd\x18\xa8\xc3\x01 \x01(\bB!\x80\xa6\x1d\x03\x8a\xa6\x1d\x15VR/ShowPerfGraphInHMD\x98\xa6\x1d\x00R\x14vrShowPerfGraphInHmd\x12q\n" +
+	"\x19vr_show_perf_graph_in_hmd\x18\xa8\xc3\x01 \x01(\bB!\x80\xa6\x1d\x03\x8a\xa6\x1d\x15VR/ShowPerfGraphInHMD\x98\xa6\x1d\x00R\x14vrShowPerfGraphInHmd\x12`\n" +
+	"\x19vr_launch_programs_hidden\x18\xab\xc3\x01 \x01(\tB#\x80\xa6\x1d\x03\x8a\xa6\x1d\x17VR/LaunchProgramsHidden\xba\xa6\x1d\x00R\x16vrLaunchProgramsHidden\x12q\n" +
 	"\x1eaccessibility_debug_visualizer\x18\x90\xcb\x01 \x01(\bB)\x80\xa6\x1d\x03\x8a\xa6\x1d\x1dAccessibility/DebugVisualizer\x98\xa6\x1d\x00R\x1caccessibilityDebugVisualizer\x12~\n" +
 	"#accessibility_screen_reader_enabled\x18\x91\xcb\x01 \x01(\bB-\x80\xa6\x1d\x01\x8a\xa6\x1d!Accessibility/ScreenReaderEnabled\x98\xa6\x1d\x00R accessibilityScreenReaderEnabled\x12y\n" +
 	" accessibility_screen_reader_rate\x18\x92\xcb\x01 \x01(\x02B.\x80\xa6\x1d\x03\x8a\xa6\x1d\x1fAccessibility/ScreenReaderPitch\xb5\xa6\x1d\x00\x00\x00?R\x1daccessibilityScreenReaderRate\x12z\n" +
