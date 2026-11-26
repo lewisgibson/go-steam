@@ -796,6 +796,7 @@ type CMsgClientLogonResponse struct {
 	AgreementSessionUrl             *string                `protobuf:"bytes,29,opt,name=agreement_session_url,json=agreementSessionUrl" json:"agreement_session_url,omitempty"`
 	TokenId                         *uint64                `protobuf:"varint,30,opt,name=token_id,json=tokenId" json:"token_id,omitempty"`
 	FamilyGroupId                   *uint64                `protobuf:"varint,31,opt,name=family_group_id,json=familyGroupId" json:"family_group_id,omitempty"`
+	LoginCredentialType             *int32                 `protobuf:"varint,32,opt,name=login_credential_type,json=loginCredentialType" json:"login_credential_type,omitempty"`
 	unknownFields                   protoimpl.UnknownFields
 	sizeCache                       protoimpl.SizeCache
 }
@@ -1020,6 +1021,13 @@ func (x *CMsgClientLogonResponse) GetTokenId() uint64 {
 func (x *CMsgClientLogonResponse) GetFamilyGroupId() uint64 {
 	if x != nil && x.FamilyGroupId != nil {
 		return *x.FamilyGroupId
+	}
+	return 0
+}
+
+func (x *CMsgClientLogonResponse) GetLoginCredentialType() int32 {
+	if x != nil && x.LoginCredentialType != nil {
+		return *x.LoginCredentialType
 	}
 	return 0
 }
@@ -1595,7 +1603,7 @@ const file_steammessages_clientserver_login_proto_rawDesc = "" +
 	"\faccess_token\x18l \x01(\tR\vaccessToken\x12 \n" +
 	"\fis_chrome_os\x18m \x01(\bR\n" +
 	"isChromeOs\x12,\n" +
-	"\x12gaming_device_type\x18o \x01(\rR\x10gamingDeviceType\"\x88\n" +
+	"\x12gaming_device_type\x18o \x01(\rR\x10gamingDeviceType\"\xbc\n" +
 	"\n" +
 	"\x17CMsgClientLogonResponse\x12\x1b\n" +
 	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\x12M\n" +
@@ -1626,7 +1634,8 @@ const file_steammessages_clientserver_login_proto_rawDesc = "" +
 	"\x19force_client_update_check\x18\x1c \x01(\bR\x16forceClientUpdateCheck\x122\n" +
 	"\x15agreement_session_url\x18\x1d \x01(\tR\x13agreementSessionUrl\x12\x19\n" +
 	"\btoken_id\x18\x1e \x01(\x04R\atokenId\x12&\n" +
-	"\x0ffamily_group_id\x18\x1f \x01(\x04R\rfamilyGroupId\"Q\n" +
+	"\x0ffamily_group_id\x18\x1f \x01(\x04R\rfamilyGroupId\x122\n" +
+	"\x15login_credential_type\x18  \x01(\x05R\x13loginCredentialType\"Q\n" +
 	",CMsgClientRequestWebAPIAuthenticateUserNonce\x12!\n" +
 	"\n" +
 	"token_type\x18\x01 \x01(\x05:\x02-1R\ttokenType\"\xbb\x01\n" +

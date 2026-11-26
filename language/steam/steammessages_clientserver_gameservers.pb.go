@@ -689,6 +689,7 @@ type CMsgClientGMSServerQuery struct {
 	FilterText      *string                `protobuf:"bytes,4,opt,name=filter_text,json=filterText" json:"filter_text,omitempty"`
 	MaxServers      *uint32                `protobuf:"varint,5,opt,name=max_servers,json=maxServers" json:"max_servers,omitempty"`
 	SdrPingLocation *string                `protobuf:"bytes,6,opt,name=sdr_ping_location,json=sdrPingLocation" json:"sdr_ping_location,omitempty"`
+	AcceptsZeroIp   *bool                  `protobuf:"varint,7,opt,name=accepts_zero_ip,json=acceptsZeroIp" json:"accepts_zero_ip,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -763,6 +764,13 @@ func (x *CMsgClientGMSServerQuery) GetSdrPingLocation() string {
 		return *x.SdrPingLocation
 	}
 	return ""
+}
+
+func (x *CMsgClientGMSServerQuery) GetAcceptsZeroIp() bool {
+	if x != nil && x.AcceptsZeroIp != nil {
+		return *x.AcceptsZeroIp
+	}
+	return false
 }
 
 type CMsgGMSClientServerQueryResponse struct {
@@ -1274,6 +1282,7 @@ type CMsgGMSClientServerQueryResponse_Server struct {
 	FriendsCount            *uint32                `protobuf:"varint,34,opt,name=friends_count,json=friendsCount" json:"friends_count,omitempty"`
 	FriendsCountConnected   *uint32                `protobuf:"varint,35,opt,name=friends_count_connected,json=friendsCountConnected" json:"friends_count_connected,omitempty"`
 	PingEstimate            *uint32                `protobuf:"varint,36,opt,name=ping_estimate,json=pingEstimate" json:"ping_estimate,omitempty"`
+	SteamClanId             *uint64                `protobuf:"fixed64,37,opt,name=steam_clan_id,json=steamClanId" json:"steam_clan_id,omitempty"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -1539,6 +1548,13 @@ func (x *CMsgGMSClientServerQueryResponse_Server) GetPingEstimate() uint32 {
 	return 0
 }
 
+func (x *CMsgGMSClientServerQueryResponse_Server) GetSteamClanId() uint64 {
+	if x != nil && x.SteamClanId != nil {
+		return *x.SteamClanId
+	}
+	return 0
+}
+
 var File_steammessages_clientserver_gameservers_proto protoreflect.FileDescriptor
 
 const file_steammessages_clientserver_gameservers_proto_rawDesc = "" +
@@ -1607,7 +1623,7 @@ const file_steammessages_clientserver_gameservers_proto_rawDesc = "" +
 	"\bsteam_id\x18\x01 \x01(\x06R\asteamId\"o\n" +
 	"\x14CMsgGameServerRemove\x12+\n" +
 	"\x12legacy_steam_id_gs\x18\x01 \x01(\x06R\x0flegacySteamIdGs\x12*\n" +
-	"\x11legacy_query_port\x18\x03 \x01(\rR\x0flegacyQueryPort\"\xe8\x01\n" +
+	"\x11legacy_query_port\x18\x03 \x01(\rR\x0flegacyQueryPort\"\x90\x02\n" +
 	"\x18CMsgClientGMSServerQuery\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12&\n" +
 	"\x0fgeo_location_ip\x18\x02 \x01(\rR\rgeoLocationIp\x12\x1f\n" +
@@ -1617,12 +1633,13 @@ const file_steammessages_clientserver_gameservers_proto_rawDesc = "" +
 	"filterText\x12\x1f\n" +
 	"\vmax_servers\x18\x05 \x01(\rR\n" +
 	"maxServers\x12*\n" +
-	"\x11sdr_ping_location\x18\x06 \x01(\tR\x0fsdrPingLocation\"\xfa\v\n" +
+	"\x11sdr_ping_location\x18\x06 \x01(\tR\x0fsdrPingLocation\x12&\n" +
+	"\x0faccepts_zero_ip\x18\a \x01(\bR\racceptsZeroIp\"\x9e\f\n" +
 	" CMsgGMSClientServerQueryResponse\x12B\n" +
 	"\aservers\x18\x01 \x03(\v2(.CMsgGMSClientServerQueryResponse.ServerR\aservers\x12\x14\n" +
 	"\x05error\x18\x02 \x01(\tR\x05error\x12X\n" +
 	"\x13default_server_data\x18\x03 \x01(\v2(.CMsgGMSClientServerQueryResponse.ServerR\x11defaultServerData\x12%\n" +
-	"\x0eserver_strings\x18\x04 \x03(\tR\rserverStrings\x1a\xc3\t\n" +
+	"\x0eserver_strings\x18\x04 \x03(\tR\rserverStrings\x1a\xe7\t\n" +
 	"\x06Server\x120\n" +
 	"\x14deprecated_server_ip\x18\x01 \x01(\rR\x12deprecatedServerIp\x12\x1d\n" +
 	"\n" +
@@ -1661,7 +1678,8 @@ const file_steammessages_clientserver_gameservers_proto_rawDesc = "" +
 	"\afriends\x18! \x03(\x06R\afriends\x12#\n" +
 	"\rfriends_count\x18\" \x01(\rR\ffriendsCount\x126\n" +
 	"\x17friends_count_connected\x18# \x01(\rR\x15friendsCountConnected\x12#\n" +
-	"\rping_estimate\x18$ \x01(\rR\fpingEstimate\"5\n" +
+	"\rping_estimate\x18$ \x01(\rR\fpingEstimate\x12\"\n" +
+	"\rsteam_clan_id\x18% \x01(\x06R\vsteamClanId\"5\n" +
 	"\x06EFlags\x12\x17\n" +
 	"\x13k_EFlag_HasPassword\x10\x01\x12\x12\n" +
 	"\x0ek_EFlag_Secure\x10\x02\"k\n" +

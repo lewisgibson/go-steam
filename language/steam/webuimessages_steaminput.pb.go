@@ -2699,6 +2699,7 @@ type CSteamInputService_RawControllerDetailItem struct {
 	TritonGyroHwCal              *int32                 `protobuf:"varint,48,opt,name=triton_gyro_hw_cal,json=tritonGyroHwCal" json:"triton_gyro_hw_cal,omitempty"`
 	UseGyroSwBiases              *bool                  `protobuf:"varint,49,opt,name=use_gyro_sw_biases,json=useGyroSwBiases" json:"use_gyro_sw_biases,omitempty"`
 	RumbleIntensity              *int32                 `protobuf:"varint,50,opt,name=rumble_intensity,json=rumbleIntensity" json:"rumble_intensity,omitempty"`
+	LedChargedLevel              *int32                 `protobuf:"varint,51,opt,name=led_charged_level,json=ledChargedLevel" json:"led_charged_level,omitempty"`
 	unknownFields                protoimpl.UnknownFields
 	sizeCache                    protoimpl.SizeCache
 }
@@ -3079,6 +3080,13 @@ func (x *CSteamInputService_RawControllerDetailItem) GetUseGyroSwBiases() bool {
 func (x *CSteamInputService_RawControllerDetailItem) GetRumbleIntensity() int32 {
 	if x != nil && x.RumbleIntensity != nil {
 		return *x.RumbleIntensity
+	}
+	return 0
+}
+
+func (x *CSteamInputService_RawControllerDetailItem) GetLedChargedLevel() int32 {
+	if x != nil && x.LedChargedLevel != nil {
+		return *x.LedChargedLevel
 	}
 	return 0
 }
@@ -3930,7 +3938,7 @@ const file_webuimessages_steaminput_proto_rawDesc = "" +
 	",CSteamInputService_EnableDockedInput_Request\x12)\n" +
 	"\x10controller_index\x18\x01 \x01(\rR\x0fcontrollerIndex\x12\x16\n" +
 	"\x06enable\x18\x02 \x01(\bR\x06enable\"/\n" +
-	"-CSteamInputService_EnableDockedInput_Response\"\xc9\x11\n" +
+	"-CSteamInputService_EnableDockedInput_Response\"\xf5\x11\n" +
 	"*CSteamInputService_RawControllerDetailItem\x12)\n" +
 	"\x10controller_index\x18\x01 \x01(\rR\x0fcontrollerIndex\x12 \n" +
 	"\vinitialized\x18\x02 \x01(\bR\vinitialized\x12'\n" +
@@ -3984,7 +3992,8 @@ const file_webuimessages_steaminput_proto_rawDesc = "" +
 	"\x0erumble_setting\x18/ \x01(\x05R\rrumbleSetting\x12+\n" +
 	"\x12triton_gyro_hw_cal\x180 \x01(\x05R\x0ftritonGyroHwCal\x12+\n" +
 	"\x12use_gyro_sw_biases\x181 \x01(\bR\x0fuseGyroSwBiases\x12)\n" +
-	"\x10rumble_intensity\x182 \x01(\x05R\x0frumbleIntensity\"7\n" +
+	"\x10rumble_intensity\x182 \x01(\x05R\x0frumbleIntensity\x12*\n" +
+	"\x11led_charged_level\x183 \x01(\x05R\x0fledChargedLevel\"7\n" +
 	"5CSteamInputService_ControllerListChanged_Notification\"/\n" +
 	"-CSteamInputService_InitControllerList_Request\"0\n" +
 	".CSteamInputService_InitControllerList_Response\".\n" +

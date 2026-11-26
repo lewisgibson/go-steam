@@ -4996,15 +4996,17 @@ func (x *CMsgClose) GetBrowserHandle() uint32 {
 }
 
 type CMsgSetSharedPaintBuffers struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	BrowserHandle *uint32                `protobuf:"varint,1,opt,name=browser_handle,json=browserHandle" json:"browser_handle,omitempty"`
-	Wide          *uint32                `protobuf:"varint,2,opt,name=wide" json:"wide,omitempty"`
-	Tall          *uint32                `protobuf:"varint,3,opt,name=tall" json:"tall,omitempty"`
-	SourcePid     *uint64                `protobuf:"varint,4,opt,name=source_pid,json=sourcePid" json:"source_pid,omitempty"`
-	SourceHandle  *uint64                `protobuf:"varint,5,opt,name=source_handle,json=sourceHandle" json:"source_handle,omitempty"`
-	Handle        *uint64                `protobuf:"varint,6,opt,name=handle" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	BrowserHandle  *uint32                `protobuf:"varint,1,opt,name=browser_handle,json=browserHandle" json:"browser_handle,omitempty"`
+	Wide           *uint32                `protobuf:"varint,2,opt,name=wide" json:"wide,omitempty"`
+	Tall           *uint32                `protobuf:"varint,3,opt,name=tall" json:"tall,omitempty"`
+	SourcePid      *uint64                `protobuf:"varint,4,opt,name=source_pid,json=sourcePid" json:"source_pid,omitempty"`
+	SourceHandle   *uint64                `protobuf:"varint,5,opt,name=source_handle,json=sourceHandle" json:"source_handle,omitempty"`
+	Handle         *uint64                `protobuf:"varint,6,opt,name=handle" json:"handle,omitempty"`
+	TextureHandles []uint64               `protobuf:"varint,7,rep,name=texture_handles,json=textureHandles" json:"texture_handles,omitempty"`
+	AdapterLuid    *uint64                `protobuf:"varint,9,opt,name=adapter_luid,json=adapterLuid" json:"adapter_luid,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *CMsgSetSharedPaintBuffers) Reset() {
@@ -5075,6 +5077,20 @@ func (x *CMsgSetSharedPaintBuffers) GetSourceHandle() uint64 {
 func (x *CMsgSetSharedPaintBuffers) GetHandle() uint64 {
 	if x != nil && x.Handle != nil {
 		return *x.Handle
+	}
+	return 0
+}
+
+func (x *CMsgSetSharedPaintBuffers) GetTextureHandles() []uint64 {
+	if x != nil {
+		return x.TextureHandles
+	}
+	return nil
+}
+
+func (x *CMsgSetSharedPaintBuffers) GetAdapterLuid() uint64 {
+	if x != nil && x.AdapterLuid != nil {
+		return *x.AdapterLuid
 	}
 	return 0
 }
@@ -5315,106 +5331,6 @@ func (x *CMsgComboNeedsPaint) GetSharedMemorySize() uint64 {
 	return Default_CMsgComboNeedsPaint_SharedMemorySize
 }
 
-type CMsgNeedsSharedTexturePaint struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	BrowserHandle *uint32                `protobuf:"varint,1,opt,name=browser_handle,json=browserHandle" json:"browser_handle,omitempty"`
-	ShareHandle   *uint32                `protobuf:"varint,2,opt,name=share_handle,json=shareHandle" json:"share_handle,omitempty"`
-	Width         *uint32                `protobuf:"varint,3,opt,name=width" json:"width,omitempty"`
-	Height        *uint32                `protobuf:"varint,4,opt,name=height" json:"height,omitempty"`
-	Scrollx       *uint32                `protobuf:"varint,5,opt,name=scrollx" json:"scrollx,omitempty"`
-	Scrolly       *uint32                `protobuf:"varint,6,opt,name=scrolly" json:"scrolly,omitempty"`
-	Pagescale     *float32               `protobuf:"fixed32,7,opt,name=pagescale" json:"pagescale,omitempty"`
-	Pageserial    *uint32                `protobuf:"varint,8,opt,name=pageserial" json:"pageserial,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgNeedsSharedTexturePaint) Reset() {
-	*x = CMsgNeedsSharedTexturePaint{}
-	mi := &file_htmlmessages_proto_msgTypes[79]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgNeedsSharedTexturePaint) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgNeedsSharedTexturePaint) ProtoMessage() {}
-
-func (x *CMsgNeedsSharedTexturePaint) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[79]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgNeedsSharedTexturePaint.ProtoReflect.Descriptor instead.
-func (*CMsgNeedsSharedTexturePaint) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{79}
-}
-
-func (x *CMsgNeedsSharedTexturePaint) GetBrowserHandle() uint32 {
-	if x != nil && x.BrowserHandle != nil {
-		return *x.BrowserHandle
-	}
-	return 0
-}
-
-func (x *CMsgNeedsSharedTexturePaint) GetShareHandle() uint32 {
-	if x != nil && x.ShareHandle != nil {
-		return *x.ShareHandle
-	}
-	return 0
-}
-
-func (x *CMsgNeedsSharedTexturePaint) GetWidth() uint32 {
-	if x != nil && x.Width != nil {
-		return *x.Width
-	}
-	return 0
-}
-
-func (x *CMsgNeedsSharedTexturePaint) GetHeight() uint32 {
-	if x != nil && x.Height != nil {
-		return *x.Height
-	}
-	return 0
-}
-
-func (x *CMsgNeedsSharedTexturePaint) GetScrollx() uint32 {
-	if x != nil && x.Scrollx != nil {
-		return *x.Scrollx
-	}
-	return 0
-}
-
-func (x *CMsgNeedsSharedTexturePaint) GetScrolly() uint32 {
-	if x != nil && x.Scrolly != nil {
-		return *x.Scrolly
-	}
-	return 0
-}
-
-func (x *CMsgNeedsSharedTexturePaint) GetPagescale() float32 {
-	if x != nil && x.Pagescale != nil {
-		return *x.Pagescale
-	}
-	return 0
-}
-
-func (x *CMsgNeedsSharedTexturePaint) GetPageserial() uint32 {
-	if x != nil && x.Pageserial != nil {
-		return *x.Pageserial
-	}
-	return 0
-}
-
 type CMsgGetZoom struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	BrowserHandle *uint32                `protobuf:"varint,1,opt,name=browser_handle,json=browserHandle" json:"browser_handle,omitempty"`
@@ -5424,7 +5340,7 @@ type CMsgGetZoom struct {
 
 func (x *CMsgGetZoom) Reset() {
 	*x = CMsgGetZoom{}
-	mi := &file_htmlmessages_proto_msgTypes[80]
+	mi := &file_htmlmessages_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5436,7 +5352,7 @@ func (x *CMsgGetZoom) String() string {
 func (*CMsgGetZoom) ProtoMessage() {}
 
 func (x *CMsgGetZoom) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[80]
+	mi := &file_htmlmessages_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5449,7 +5365,7 @@ func (x *CMsgGetZoom) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGetZoom.ProtoReflect.Descriptor instead.
 func (*CMsgGetZoom) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{80}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *CMsgGetZoom) GetBrowserHandle() uint32 {
@@ -5469,7 +5385,7 @@ type CMsgGetZoomResponse struct {
 
 func (x *CMsgGetZoomResponse) Reset() {
 	*x = CMsgGetZoomResponse{}
-	mi := &file_htmlmessages_proto_msgTypes[81]
+	mi := &file_htmlmessages_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5481,7 +5397,7 @@ func (x *CMsgGetZoomResponse) String() string {
 func (*CMsgGetZoomResponse) ProtoMessage() {}
 
 func (x *CMsgGetZoomResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[81]
+	mi := &file_htmlmessages_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5494,7 +5410,7 @@ func (x *CMsgGetZoomResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGetZoomResponse.ProtoReflect.Descriptor instead.
 func (*CMsgGetZoomResponse) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{81}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *CMsgGetZoomResponse) GetBrowserHandle() uint32 {
@@ -5522,7 +5438,7 @@ type CMsgLinkAtPosition struct {
 
 func (x *CMsgLinkAtPosition) Reset() {
 	*x = CMsgLinkAtPosition{}
-	mi := &file_htmlmessages_proto_msgTypes[82]
+	mi := &file_htmlmessages_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5534,7 +5450,7 @@ func (x *CMsgLinkAtPosition) String() string {
 func (*CMsgLinkAtPosition) ProtoMessage() {}
 
 func (x *CMsgLinkAtPosition) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[82]
+	mi := &file_htmlmessages_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5547,7 +5463,7 @@ func (x *CMsgLinkAtPosition) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgLinkAtPosition.ProtoReflect.Descriptor instead.
 func (*CMsgLinkAtPosition) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{82}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *CMsgLinkAtPosition) GetBrowserHandle() uint32 {
@@ -5585,7 +5501,7 @@ type CMsgLinkAtPositionResponse struct {
 
 func (x *CMsgLinkAtPositionResponse) Reset() {
 	*x = CMsgLinkAtPositionResponse{}
-	mi := &file_htmlmessages_proto_msgTypes[83]
+	mi := &file_htmlmessages_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5597,7 +5513,7 @@ func (x *CMsgLinkAtPositionResponse) String() string {
 func (*CMsgLinkAtPositionResponse) ProtoMessage() {}
 
 func (x *CMsgLinkAtPositionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[83]
+	mi := &file_htmlmessages_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5610,7 +5526,7 @@ func (x *CMsgLinkAtPositionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgLinkAtPositionResponse.ProtoReflect.Descriptor instead.
 func (*CMsgLinkAtPositionResponse) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{83}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *CMsgLinkAtPositionResponse) GetBrowserHandle() uint32 {
@@ -5667,7 +5583,7 @@ type CMsgScalePageToValue struct {
 
 func (x *CMsgScalePageToValue) Reset() {
 	*x = CMsgScalePageToValue{}
-	mi := &file_htmlmessages_proto_msgTypes[84]
+	mi := &file_htmlmessages_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5679,7 +5595,7 @@ func (x *CMsgScalePageToValue) String() string {
 func (*CMsgScalePageToValue) ProtoMessage() {}
 
 func (x *CMsgScalePageToValue) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[84]
+	mi := &file_htmlmessages_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5692,7 +5608,7 @@ func (x *CMsgScalePageToValue) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgScalePageToValue.ProtoReflect.Descriptor instead.
 func (*CMsgScalePageToValue) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{84}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *CMsgScalePageToValue) GetBrowserHandle() uint32 {
@@ -5736,7 +5652,7 @@ type CMsgSavePageToJPEG struct {
 
 func (x *CMsgSavePageToJPEG) Reset() {
 	*x = CMsgSavePageToJPEG{}
-	mi := &file_htmlmessages_proto_msgTypes[85]
+	mi := &file_htmlmessages_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5748,7 +5664,7 @@ func (x *CMsgSavePageToJPEG) String() string {
 func (*CMsgSavePageToJPEG) ProtoMessage() {}
 
 func (x *CMsgSavePageToJPEG) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[85]
+	mi := &file_htmlmessages_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5761,7 +5677,7 @@ func (x *CMsgSavePageToJPEG) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSavePageToJPEG.ProtoReflect.Descriptor instead.
 func (*CMsgSavePageToJPEG) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{85}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *CMsgSavePageToJPEG) GetBrowserHandle() uint32 {
@@ -5810,7 +5726,7 @@ type CMsgSavePageToJPEGResponse struct {
 
 func (x *CMsgSavePageToJPEGResponse) Reset() {
 	*x = CMsgSavePageToJPEGResponse{}
-	mi := &file_htmlmessages_proto_msgTypes[86]
+	mi := &file_htmlmessages_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5822,7 +5738,7 @@ func (x *CMsgSavePageToJPEGResponse) String() string {
 func (*CMsgSavePageToJPEGResponse) ProtoMessage() {}
 
 func (x *CMsgSavePageToJPEGResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[86]
+	mi := &file_htmlmessages_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5835,7 +5751,7 @@ func (x *CMsgSavePageToJPEGResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSavePageToJPEGResponse.ProtoReflect.Descriptor instead.
 func (*CMsgSavePageToJPEGResponse) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{86}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *CMsgSavePageToJPEGResponse) GetBrowserHandle() uint32 {
@@ -5869,7 +5785,7 @@ type CMsgJSAlert struct {
 
 func (x *CMsgJSAlert) Reset() {
 	*x = CMsgJSAlert{}
-	mi := &file_htmlmessages_proto_msgTypes[87]
+	mi := &file_htmlmessages_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5881,7 +5797,7 @@ func (x *CMsgJSAlert) String() string {
 func (*CMsgJSAlert) ProtoMessage() {}
 
 func (x *CMsgJSAlert) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[87]
+	mi := &file_htmlmessages_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5894,7 +5810,7 @@ func (x *CMsgJSAlert) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgJSAlert.ProtoReflect.Descriptor instead.
 func (*CMsgJSAlert) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{87}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *CMsgJSAlert) GetBrowserHandle() uint32 {
@@ -5921,7 +5837,7 @@ type CMsgJSConfirm struct {
 
 func (x *CMsgJSConfirm) Reset() {
 	*x = CMsgJSConfirm{}
-	mi := &file_htmlmessages_proto_msgTypes[88]
+	mi := &file_htmlmessages_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5933,7 +5849,7 @@ func (x *CMsgJSConfirm) String() string {
 func (*CMsgJSConfirm) ProtoMessage() {}
 
 func (x *CMsgJSConfirm) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[88]
+	mi := &file_htmlmessages_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5946,7 +5862,7 @@ func (x *CMsgJSConfirm) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgJSConfirm.ProtoReflect.Descriptor instead.
 func (*CMsgJSConfirm) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{88}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *CMsgJSConfirm) GetBrowserHandle() uint32 {
@@ -5973,7 +5889,7 @@ type CMsgJSDialogResponse struct {
 
 func (x *CMsgJSDialogResponse) Reset() {
 	*x = CMsgJSDialogResponse{}
-	mi := &file_htmlmessages_proto_msgTypes[89]
+	mi := &file_htmlmessages_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5985,7 +5901,7 @@ func (x *CMsgJSDialogResponse) String() string {
 func (*CMsgJSDialogResponse) ProtoMessage() {}
 
 func (x *CMsgJSDialogResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[89]
+	mi := &file_htmlmessages_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5998,7 +5914,7 @@ func (x *CMsgJSDialogResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgJSDialogResponse.ProtoReflect.Descriptor instead.
 func (*CMsgJSDialogResponse) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{89}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *CMsgJSDialogResponse) GetBrowserHandle() uint32 {
@@ -6026,7 +5942,7 @@ type CMsgCanGoBackAndForward struct {
 
 func (x *CMsgCanGoBackAndForward) Reset() {
 	*x = CMsgCanGoBackAndForward{}
-	mi := &file_htmlmessages_proto_msgTypes[90]
+	mi := &file_htmlmessages_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6038,7 +5954,7 @@ func (x *CMsgCanGoBackAndForward) String() string {
 func (*CMsgCanGoBackAndForward) ProtoMessage() {}
 
 func (x *CMsgCanGoBackAndForward) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[90]
+	mi := &file_htmlmessages_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6051,7 +5967,7 @@ func (x *CMsgCanGoBackAndForward) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgCanGoBackAndForward.ProtoReflect.Descriptor instead.
 func (*CMsgCanGoBackAndForward) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{90}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *CMsgCanGoBackAndForward) GetBrowserHandle() uint32 {
@@ -6086,7 +6002,7 @@ type CMsgOpenSteamURL struct {
 
 func (x *CMsgOpenSteamURL) Reset() {
 	*x = CMsgOpenSteamURL{}
-	mi := &file_htmlmessages_proto_msgTypes[91]
+	mi := &file_htmlmessages_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6098,7 +6014,7 @@ func (x *CMsgOpenSteamURL) String() string {
 func (*CMsgOpenSteamURL) ProtoMessage() {}
 
 func (x *CMsgOpenSteamURL) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[91]
+	mi := &file_htmlmessages_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6111,7 +6027,7 @@ func (x *CMsgOpenSteamURL) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgOpenSteamURL.ProtoReflect.Descriptor instead.
 func (*CMsgOpenSteamURL) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{91}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{90}
 }
 
 func (x *CMsgOpenSteamURL) GetBrowserHandle() uint32 {
@@ -6151,7 +6067,7 @@ type CMsgSetCookie struct {
 
 func (x *CMsgSetCookie) Reset() {
 	*x = CMsgSetCookie{}
-	mi := &file_htmlmessages_proto_msgTypes[92]
+	mi := &file_htmlmessages_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6163,7 +6079,7 @@ func (x *CMsgSetCookie) String() string {
 func (*CMsgSetCookie) ProtoMessage() {}
 
 func (x *CMsgSetCookie) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[92]
+	mi := &file_htmlmessages_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6176,7 +6092,7 @@ func (x *CMsgSetCookie) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSetCookie.ProtoReflect.Descriptor instead.
 func (*CMsgSetCookie) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{92}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *CMsgSetCookie) GetKey() string {
@@ -6245,7 +6161,7 @@ type CMsgSetTargetFrameRate struct {
 
 func (x *CMsgSetTargetFrameRate) Reset() {
 	*x = CMsgSetTargetFrameRate{}
-	mi := &file_htmlmessages_proto_msgTypes[93]
+	mi := &file_htmlmessages_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6257,7 +6173,7 @@ func (x *CMsgSetTargetFrameRate) String() string {
 func (*CMsgSetTargetFrameRate) ProtoMessage() {}
 
 func (x *CMsgSetTargetFrameRate) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[93]
+	mi := &file_htmlmessages_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6270,7 +6186,7 @@ func (x *CMsgSetTargetFrameRate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSetTargetFrameRate.ProtoReflect.Descriptor instead.
 func (*CMsgSetTargetFrameRate) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{93}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *CMsgSetTargetFrameRate) GetBrowserHandle() uint32 {
@@ -6296,7 +6212,7 @@ type CMsgPauseRepaint struct {
 
 func (x *CMsgPauseRepaint) Reset() {
 	*x = CMsgPauseRepaint{}
-	mi := &file_htmlmessages_proto_msgTypes[94]
+	mi := &file_htmlmessages_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6308,7 +6224,7 @@ func (x *CMsgPauseRepaint) String() string {
 func (*CMsgPauseRepaint) ProtoMessage() {}
 
 func (x *CMsgPauseRepaint) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[94]
+	mi := &file_htmlmessages_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6321,7 +6237,7 @@ func (x *CMsgPauseRepaint) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgPauseRepaint.ProtoReflect.Descriptor instead.
 func (*CMsgPauseRepaint) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{94}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *CMsgPauseRepaint) GetBrowserHandle() uint32 {
@@ -6340,7 +6256,7 @@ type CMsgFullRepaint struct {
 
 func (x *CMsgFullRepaint) Reset() {
 	*x = CMsgFullRepaint{}
-	mi := &file_htmlmessages_proto_msgTypes[95]
+	mi := &file_htmlmessages_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6352,7 +6268,7 @@ func (x *CMsgFullRepaint) String() string {
 func (*CMsgFullRepaint) ProtoMessage() {}
 
 func (x *CMsgFullRepaint) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[95]
+	mi := &file_htmlmessages_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6365,7 +6281,7 @@ func (x *CMsgFullRepaint) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgFullRepaint.ProtoReflect.Descriptor instead.
 func (*CMsgFullRepaint) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{95}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *CMsgFullRepaint) GetBrowserHandle() uint32 {
@@ -6384,7 +6300,7 @@ type CMsgRequestFullScreen struct {
 
 func (x *CMsgRequestFullScreen) Reset() {
 	*x = CMsgRequestFullScreen{}
-	mi := &file_htmlmessages_proto_msgTypes[96]
+	mi := &file_htmlmessages_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6396,7 +6312,7 @@ func (x *CMsgRequestFullScreen) String() string {
 func (*CMsgRequestFullScreen) ProtoMessage() {}
 
 func (x *CMsgRequestFullScreen) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[96]
+	mi := &file_htmlmessages_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6409,7 +6325,7 @@ func (x *CMsgRequestFullScreen) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRequestFullScreen.ProtoReflect.Descriptor instead.
 func (*CMsgRequestFullScreen) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{96}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *CMsgRequestFullScreen) GetBrowserHandle() uint32 {
@@ -6428,7 +6344,7 @@ type CMsgExitFullScreen struct {
 
 func (x *CMsgExitFullScreen) Reset() {
 	*x = CMsgExitFullScreen{}
-	mi := &file_htmlmessages_proto_msgTypes[97]
+	mi := &file_htmlmessages_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6440,7 +6356,7 @@ func (x *CMsgExitFullScreen) String() string {
 func (*CMsgExitFullScreen) ProtoMessage() {}
 
 func (x *CMsgExitFullScreen) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[97]
+	mi := &file_htmlmessages_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6453,7 +6369,7 @@ func (x *CMsgExitFullScreen) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgExitFullScreen.ProtoReflect.Descriptor instead.
 func (*CMsgExitFullScreen) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{97}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{96}
 }
 
 func (x *CMsgExitFullScreen) GetBrowserHandle() uint32 {
@@ -6472,7 +6388,7 @@ type CMsgToggleFindInPageDialog struct {
 
 func (x *CMsgToggleFindInPageDialog) Reset() {
 	*x = CMsgToggleFindInPageDialog{}
-	mi := &file_htmlmessages_proto_msgTypes[98]
+	mi := &file_htmlmessages_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6484,7 +6400,7 @@ func (x *CMsgToggleFindInPageDialog) String() string {
 func (*CMsgToggleFindInPageDialog) ProtoMessage() {}
 
 func (x *CMsgToggleFindInPageDialog) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[98]
+	mi := &file_htmlmessages_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6497,7 +6413,7 @@ func (x *CMsgToggleFindInPageDialog) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgToggleFindInPageDialog.ProtoReflect.Descriptor instead.
 func (*CMsgToggleFindInPageDialog) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{98}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *CMsgToggleFindInPageDialog) GetBrowserHandle() uint32 {
@@ -6516,7 +6432,7 @@ type CMsgSetPIDShuttingDown struct {
 
 func (x *CMsgSetPIDShuttingDown) Reset() {
 	*x = CMsgSetPIDShuttingDown{}
-	mi := &file_htmlmessages_proto_msgTypes[99]
+	mi := &file_htmlmessages_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6528,7 +6444,7 @@ func (x *CMsgSetPIDShuttingDown) String() string {
 func (*CMsgSetPIDShuttingDown) ProtoMessage() {}
 
 func (x *CMsgSetPIDShuttingDown) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[99]
+	mi := &file_htmlmessages_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6541,7 +6457,7 @@ func (x *CMsgSetPIDShuttingDown) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSetPIDShuttingDown.ProtoReflect.Descriptor instead.
 func (*CMsgSetPIDShuttingDown) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{99}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *CMsgSetPIDShuttingDown) GetBrowserHandle() uint32 {
@@ -6560,7 +6476,7 @@ type CMsgDisableBackgroundThrottling struct {
 
 func (x *CMsgDisableBackgroundThrottling) Reset() {
 	*x = CMsgDisableBackgroundThrottling{}
-	mi := &file_htmlmessages_proto_msgTypes[100]
+	mi := &file_htmlmessages_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6572,7 +6488,7 @@ func (x *CMsgDisableBackgroundThrottling) String() string {
 func (*CMsgDisableBackgroundThrottling) ProtoMessage() {}
 
 func (x *CMsgDisableBackgroundThrottling) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[100]
+	mi := &file_htmlmessages_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6585,7 +6501,7 @@ func (x *CMsgDisableBackgroundThrottling) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgDisableBackgroundThrottling.ProtoReflect.Descriptor instead.
 func (*CMsgDisableBackgroundThrottling) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{100}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *CMsgDisableBackgroundThrottling) GetBrowserHandle() uint32 {
@@ -6604,7 +6520,7 @@ type CMsgAckPIDShuttingDown struct {
 
 func (x *CMsgAckPIDShuttingDown) Reset() {
 	*x = CMsgAckPIDShuttingDown{}
-	mi := &file_htmlmessages_proto_msgTypes[101]
+	mi := &file_htmlmessages_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6616,7 +6532,7 @@ func (x *CMsgAckPIDShuttingDown) String() string {
 func (*CMsgAckPIDShuttingDown) ProtoMessage() {}
 
 func (x *CMsgAckPIDShuttingDown) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[101]
+	mi := &file_htmlmessages_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6629,7 +6545,7 @@ func (x *CMsgAckPIDShuttingDown) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgAckPIDShuttingDown.ProtoReflect.Descriptor instead.
 func (*CMsgAckPIDShuttingDown) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{101}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *CMsgAckPIDShuttingDown) GetBrowserHandle() uint32 {
@@ -6649,7 +6565,7 @@ type CMsgGetCookiesForURL struct {
 
 func (x *CMsgGetCookiesForURL) Reset() {
 	*x = CMsgGetCookiesForURL{}
-	mi := &file_htmlmessages_proto_msgTypes[102]
+	mi := &file_htmlmessages_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6661,7 +6577,7 @@ func (x *CMsgGetCookiesForURL) String() string {
 func (*CMsgGetCookiesForURL) ProtoMessage() {}
 
 func (x *CMsgGetCookiesForURL) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[102]
+	mi := &file_htmlmessages_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6674,7 +6590,7 @@ func (x *CMsgGetCookiesForURL) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGetCookiesForURL.ProtoReflect.Descriptor instead.
 func (*CMsgGetCookiesForURL) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{102}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{101}
 }
 
 func (x *CMsgGetCookiesForURL) GetBrowserHandle() uint32 {
@@ -6703,7 +6619,7 @@ type CCookie struct {
 
 func (x *CCookie) Reset() {
 	*x = CCookie{}
-	mi := &file_htmlmessages_proto_msgTypes[103]
+	mi := &file_htmlmessages_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6715,7 +6631,7 @@ func (x *CCookie) String() string {
 func (*CCookie) ProtoMessage() {}
 
 func (x *CCookie) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[103]
+	mi := &file_htmlmessages_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6728,7 +6644,7 @@ func (x *CCookie) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CCookie.ProtoReflect.Descriptor instead.
 func (*CCookie) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{103}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{102}
 }
 
 func (x *CCookie) GetName() string {
@@ -6770,7 +6686,7 @@ type CMsgGetCookiesForURLResponse struct {
 
 func (x *CMsgGetCookiesForURLResponse) Reset() {
 	*x = CMsgGetCookiesForURLResponse{}
-	mi := &file_htmlmessages_proto_msgTypes[104]
+	mi := &file_htmlmessages_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6782,7 +6698,7 @@ func (x *CMsgGetCookiesForURLResponse) String() string {
 func (*CMsgGetCookiesForURLResponse) ProtoMessage() {}
 
 func (x *CMsgGetCookiesForURLResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[104]
+	mi := &file_htmlmessages_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6795,7 +6711,7 @@ func (x *CMsgGetCookiesForURLResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGetCookiesForURLResponse.ProtoReflect.Descriptor instead.
 func (*CMsgGetCookiesForURLResponse) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{104}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *CMsgGetCookiesForURLResponse) GetBrowserHandle() uint32 {
@@ -6835,7 +6751,7 @@ type CMsgNodeHasFocus struct {
 
 func (x *CMsgNodeHasFocus) Reset() {
 	*x = CMsgNodeHasFocus{}
-	mi := &file_htmlmessages_proto_msgTypes[105]
+	mi := &file_htmlmessages_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6847,7 +6763,7 @@ func (x *CMsgNodeHasFocus) String() string {
 func (*CMsgNodeHasFocus) ProtoMessage() {}
 
 func (x *CMsgNodeHasFocus) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[105]
+	mi := &file_htmlmessages_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6860,7 +6776,7 @@ func (x *CMsgNodeHasFocus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgNodeHasFocus.ProtoReflect.Descriptor instead.
 func (*CMsgNodeHasFocus) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{105}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{104}
 }
 
 func (x *CMsgNodeHasFocus) GetBrowserHandle() uint32 {
@@ -6928,7 +6844,7 @@ type CMsgBuildID struct {
 
 func (x *CMsgBuildID) Reset() {
 	*x = CMsgBuildID{}
-	mi := &file_htmlmessages_proto_msgTypes[106]
+	mi := &file_htmlmessages_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6940,7 +6856,7 @@ func (x *CMsgBuildID) String() string {
 func (*CMsgBuildID) ProtoMessage() {}
 
 func (x *CMsgBuildID) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[106]
+	mi := &file_htmlmessages_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6953,7 +6869,7 @@ func (x *CMsgBuildID) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgBuildID.ProtoReflect.Descriptor instead.
 func (*CMsgBuildID) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{106}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{105}
 }
 
 func (x *CMsgBuildID) GetBuildId() uint64 {
@@ -6972,7 +6888,7 @@ type CMsgOpenDevTools struct {
 
 func (x *CMsgOpenDevTools) Reset() {
 	*x = CMsgOpenDevTools{}
-	mi := &file_htmlmessages_proto_msgTypes[107]
+	mi := &file_htmlmessages_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6984,7 +6900,7 @@ func (x *CMsgOpenDevTools) String() string {
 func (*CMsgOpenDevTools) ProtoMessage() {}
 
 func (x *CMsgOpenDevTools) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[107]
+	mi := &file_htmlmessages_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6997,7 +6913,7 @@ func (x *CMsgOpenDevTools) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgOpenDevTools.ProtoReflect.Descriptor instead.
 func (*CMsgOpenDevTools) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{107}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{106}
 }
 
 func (x *CMsgOpenDevTools) GetBrowserHandle() uint32 {
@@ -7016,7 +6932,7 @@ type CMsgCloseDevTools struct {
 
 func (x *CMsgCloseDevTools) Reset() {
 	*x = CMsgCloseDevTools{}
-	mi := &file_htmlmessages_proto_msgTypes[108]
+	mi := &file_htmlmessages_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7028,7 +6944,7 @@ func (x *CMsgCloseDevTools) String() string {
 func (*CMsgCloseDevTools) ProtoMessage() {}
 
 func (x *CMsgCloseDevTools) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[108]
+	mi := &file_htmlmessages_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7041,7 +6957,7 @@ func (x *CMsgCloseDevTools) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgCloseDevTools.ProtoReflect.Descriptor instead.
 func (*CMsgCloseDevTools) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{108}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{107}
 }
 
 func (x *CMsgCloseDevTools) GetBrowserHandle() uint32 {
@@ -7061,7 +6977,7 @@ type CMsgUnlockH264 struct {
 
 func (x *CMsgUnlockH264) Reset() {
 	*x = CMsgUnlockH264{}
-	mi := &file_htmlmessages_proto_msgTypes[109]
+	mi := &file_htmlmessages_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7073,7 +6989,7 @@ func (x *CMsgUnlockH264) String() string {
 func (*CMsgUnlockH264) ProtoMessage() {}
 
 func (x *CMsgUnlockH264) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[109]
+	mi := &file_htmlmessages_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7086,7 +7002,7 @@ func (x *CMsgUnlockH264) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgUnlockH264.ProtoReflect.Descriptor instead.
 func (*CMsgUnlockH264) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{109}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{108}
 }
 
 func (x *CMsgUnlockH264) GetBrowserHandle() uint32 {
@@ -7114,7 +7030,7 @@ type CMsgScreenInformationChanged struct {
 
 func (x *CMsgScreenInformationChanged) Reset() {
 	*x = CMsgScreenInformationChanged{}
-	mi := &file_htmlmessages_proto_msgTypes[110]
+	mi := &file_htmlmessages_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7126,7 +7042,7 @@ func (x *CMsgScreenInformationChanged) String() string {
 func (*CMsgScreenInformationChanged) ProtoMessage() {}
 
 func (x *CMsgScreenInformationChanged) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[110]
+	mi := &file_htmlmessages_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7139,7 +7055,7 @@ func (x *CMsgScreenInformationChanged) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgScreenInformationChanged.ProtoReflect.Descriptor instead.
 func (*CMsgScreenInformationChanged) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{110}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{109}
 }
 
 func (x *CMsgScreenInformationChanged) GetBrowserHandle() uint32 {
@@ -7172,7 +7088,7 @@ type CMsgClearAllCookies struct {
 
 func (x *CMsgClearAllCookies) Reset() {
 	*x = CMsgClearAllCookies{}
-	mi := &file_htmlmessages_proto_msgTypes[111]
+	mi := &file_htmlmessages_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7184,7 +7100,7 @@ func (x *CMsgClearAllCookies) String() string {
 func (*CMsgClearAllCookies) ProtoMessage() {}
 
 func (x *CMsgClearAllCookies) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[111]
+	mi := &file_htmlmessages_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7197,7 +7113,7 @@ func (x *CMsgClearAllCookies) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClearAllCookies.ProtoReflect.Descriptor instead.
 func (*CMsgClearAllCookies) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{111}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{110}
 }
 
 func (x *CMsgClearAllCookies) GetBrowserHandle() uint32 {
@@ -7217,7 +7133,7 @@ type CMsgScreenDPI struct {
 
 func (x *CMsgScreenDPI) Reset() {
 	*x = CMsgScreenDPI{}
-	mi := &file_htmlmessages_proto_msgTypes[112]
+	mi := &file_htmlmessages_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7229,7 +7145,7 @@ func (x *CMsgScreenDPI) String() string {
 func (*CMsgScreenDPI) ProtoMessage() {}
 
 func (x *CMsgScreenDPI) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[112]
+	mi := &file_htmlmessages_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7242,7 +7158,7 @@ func (x *CMsgScreenDPI) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgScreenDPI.ProtoReflect.Descriptor instead.
 func (*CMsgScreenDPI) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{112}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{111}
 }
 
 func (x *CMsgScreenDPI) GetBrowserHandle() uint32 {
@@ -7255,6 +7171,50 @@ func (x *CMsgScreenDPI) GetBrowserHandle() uint32 {
 func (x *CMsgScreenDPI) GetDpiScaling() float32 {
 	if x != nil && x.DpiScaling != nil {
 		return *x.DpiScaling
+	}
+	return 0
+}
+
+type CMsgSplashWindow struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Window        *uint64                `protobuf:"varint,1,opt,name=window" json:"window,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgSplashWindow) Reset() {
+	*x = CMsgSplashWindow{}
+	mi := &file_htmlmessages_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgSplashWindow) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgSplashWindow) ProtoMessage() {}
+
+func (x *CMsgSplashWindow) ProtoReflect() protoreflect.Message {
+	mi := &file_htmlmessages_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgSplashWindow.ProtoReflect.Descriptor instead.
+func (*CMsgSplashWindow) Descriptor() ([]byte, []int) {
+	return file_htmlmessages_proto_rawDescGZIP(), []int{112}
+}
+
+func (x *CMsgSplashWindow) GetWindow() uint64 {
+	if x != nil && x.Window != nil {
+		return *x.Window
 	}
 	return 0
 }
@@ -8044,6 +8004,50 @@ func (x *CMsgSetNetFakeLocalSystemState) GetState() uint32 {
 	return 0
 }
 
+type CMsgSetSimulatedLatency struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	LatencyMs     *uint32                `protobuf:"varint,1,opt,name=latency_ms,json=latencyMs" json:"latency_ms,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgSetSimulatedLatency) Reset() {
+	*x = CMsgSetSimulatedLatency{}
+	mi := &file_htmlmessages_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgSetSimulatedLatency) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgSetSimulatedLatency) ProtoMessage() {}
+
+func (x *CMsgSetSimulatedLatency) ProtoReflect() protoreflect.Message {
+	mi := &file_htmlmessages_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgSetSimulatedLatency.ProtoReflect.Descriptor instead.
+func (*CMsgSetSimulatedLatency) Descriptor() ([]byte, []int) {
+	return file_htmlmessages_proto_rawDescGZIP(), []int{126}
+}
+
+func (x *CMsgSetSimulatedLatency) GetLatencyMs() uint32 {
+	if x != nil && x.LatencyMs != nil {
+		return *x.LatencyMs
+	}
+	return 0
+}
+
 type CMsgDraggableRegionsChanged struct {
 	state         protoimpl.MessageState                        `protogen:"open.v1"`
 	BrowserHandle *uint32                                       `protobuf:"varint,1,opt,name=browser_handle,json=browserHandle" json:"browser_handle,omitempty"`
@@ -8054,7 +8058,7 @@ type CMsgDraggableRegionsChanged struct {
 
 func (x *CMsgDraggableRegionsChanged) Reset() {
 	*x = CMsgDraggableRegionsChanged{}
-	mi := &file_htmlmessages_proto_msgTypes[126]
+	mi := &file_htmlmessages_proto_msgTypes[127]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8066,7 +8070,7 @@ func (x *CMsgDraggableRegionsChanged) String() string {
 func (*CMsgDraggableRegionsChanged) ProtoMessage() {}
 
 func (x *CMsgDraggableRegionsChanged) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[126]
+	mi := &file_htmlmessages_proto_msgTypes[127]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8079,7 +8083,7 @@ func (x *CMsgDraggableRegionsChanged) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgDraggableRegionsChanged.ProtoReflect.Descriptor instead.
 func (*CMsgDraggableRegionsChanged) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{126}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{127}
 }
 
 func (x *CMsgDraggableRegionsChanged) GetBrowserHandle() uint32 {
@@ -8107,7 +8111,7 @@ type CMsgResizeGripChanged struct {
 
 func (x *CMsgResizeGripChanged) Reset() {
 	*x = CMsgResizeGripChanged{}
-	mi := &file_htmlmessages_proto_msgTypes[127]
+	mi := &file_htmlmessages_proto_msgTypes[128]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8119,7 +8123,7 @@ func (x *CMsgResizeGripChanged) String() string {
 func (*CMsgResizeGripChanged) ProtoMessage() {}
 
 func (x *CMsgResizeGripChanged) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[127]
+	mi := &file_htmlmessages_proto_msgTypes[128]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8132,7 +8136,7 @@ func (x *CMsgResizeGripChanged) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgResizeGripChanged.ProtoReflect.Descriptor instead.
 func (*CMsgResizeGripChanged) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{127}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{128}
 }
 
 func (x *CMsgResizeGripChanged) GetBrowserHandle() uint32 {
@@ -8173,7 +8177,7 @@ type CMsgSetWindowPosition struct {
 
 func (x *CMsgSetWindowPosition) Reset() {
 	*x = CMsgSetWindowPosition{}
-	mi := &file_htmlmessages_proto_msgTypes[128]
+	mi := &file_htmlmessages_proto_msgTypes[129]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8185,7 +8189,7 @@ func (x *CMsgSetWindowPosition) String() string {
 func (*CMsgSetWindowPosition) ProtoMessage() {}
 
 func (x *CMsgSetWindowPosition) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[128]
+	mi := &file_htmlmessages_proto_msgTypes[129]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8198,7 +8202,7 @@ func (x *CMsgSetWindowPosition) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSetWindowPosition.ProtoReflect.Descriptor instead.
 func (*CMsgSetWindowPosition) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{128}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{129}
 }
 
 func (x *CMsgSetWindowPosition) GetBrowserHandle() uint32 {
@@ -8273,7 +8277,7 @@ type CMsgShowWindow struct {
 
 func (x *CMsgShowWindow) Reset() {
 	*x = CMsgShowWindow{}
-	mi := &file_htmlmessages_proto_msgTypes[129]
+	mi := &file_htmlmessages_proto_msgTypes[130]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8285,7 +8289,7 @@ func (x *CMsgShowWindow) String() string {
 func (*CMsgShowWindow) ProtoMessage() {}
 
 func (x *CMsgShowWindow) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[129]
+	mi := &file_htmlmessages_proto_msgTypes[130]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8298,7 +8302,7 @@ func (x *CMsgShowWindow) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgShowWindow.ProtoReflect.Descriptor instead.
 func (*CMsgShowWindow) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{129}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{130}
 }
 
 func (x *CMsgShowWindow) GetBrowserHandle() uint32 {
@@ -8317,7 +8321,7 @@ type CMsgHideWindow struct {
 
 func (x *CMsgHideWindow) Reset() {
 	*x = CMsgHideWindow{}
-	mi := &file_htmlmessages_proto_msgTypes[130]
+	mi := &file_htmlmessages_proto_msgTypes[131]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8329,7 +8333,7 @@ func (x *CMsgHideWindow) String() string {
 func (*CMsgHideWindow) ProtoMessage() {}
 
 func (x *CMsgHideWindow) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[130]
+	mi := &file_htmlmessages_proto_msgTypes[131]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8342,7 +8346,7 @@ func (x *CMsgHideWindow) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgHideWindow.ProtoReflect.Descriptor instead.
 func (*CMsgHideWindow) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{130}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{131}
 }
 
 func (x *CMsgHideWindow) GetBrowserHandle() uint32 {
@@ -8361,7 +8365,7 @@ type CMsgBringWindowToFront struct {
 
 func (x *CMsgBringWindowToFront) Reset() {
 	*x = CMsgBringWindowToFront{}
-	mi := &file_htmlmessages_proto_msgTypes[131]
+	mi := &file_htmlmessages_proto_msgTypes[132]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8373,7 +8377,7 @@ func (x *CMsgBringWindowToFront) String() string {
 func (*CMsgBringWindowToFront) ProtoMessage() {}
 
 func (x *CMsgBringWindowToFront) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[131]
+	mi := &file_htmlmessages_proto_msgTypes[132]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8386,7 +8390,7 @@ func (x *CMsgBringWindowToFront) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgBringWindowToFront.ProtoReflect.Descriptor instead.
 func (*CMsgBringWindowToFront) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{131}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{132}
 }
 
 func (x *CMsgBringWindowToFront) GetBrowserHandle() uint32 {
@@ -8405,7 +8409,7 @@ type CMsgSetForegroundWindow struct {
 
 func (x *CMsgSetForegroundWindow) Reset() {
 	*x = CMsgSetForegroundWindow{}
-	mi := &file_htmlmessages_proto_msgTypes[132]
+	mi := &file_htmlmessages_proto_msgTypes[133]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8417,7 +8421,7 @@ func (x *CMsgSetForegroundWindow) String() string {
 func (*CMsgSetForegroundWindow) ProtoMessage() {}
 
 func (x *CMsgSetForegroundWindow) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[132]
+	mi := &file_htmlmessages_proto_msgTypes[133]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8430,7 +8434,7 @@ func (x *CMsgSetForegroundWindow) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSetForegroundWindow.ProtoReflect.Descriptor instead.
 func (*CMsgSetForegroundWindow) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{132}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{133}
 }
 
 func (x *CMsgSetForegroundWindow) GetBrowserHandle() uint32 {
@@ -8449,7 +8453,7 @@ type CMsgMaximizeRestoreWindow struct {
 
 func (x *CMsgMaximizeRestoreWindow) Reset() {
 	*x = CMsgMaximizeRestoreWindow{}
-	mi := &file_htmlmessages_proto_msgTypes[133]
+	mi := &file_htmlmessages_proto_msgTypes[134]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8461,7 +8465,7 @@ func (x *CMsgMaximizeRestoreWindow) String() string {
 func (*CMsgMaximizeRestoreWindow) ProtoMessage() {}
 
 func (x *CMsgMaximizeRestoreWindow) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[133]
+	mi := &file_htmlmessages_proto_msgTypes[134]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8474,7 +8478,7 @@ func (x *CMsgMaximizeRestoreWindow) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgMaximizeRestoreWindow.ProtoReflect.Descriptor instead.
 func (*CMsgMaximizeRestoreWindow) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{133}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{134}
 }
 
 func (x *CMsgMaximizeRestoreWindow) GetBrowserHandle() uint32 {
@@ -8493,7 +8497,7 @@ type CMsgMinimizeWindow struct {
 
 func (x *CMsgMinimizeWindow) Reset() {
 	*x = CMsgMinimizeWindow{}
-	mi := &file_htmlmessages_proto_msgTypes[134]
+	mi := &file_htmlmessages_proto_msgTypes[135]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8505,7 +8509,7 @@ func (x *CMsgMinimizeWindow) String() string {
 func (*CMsgMinimizeWindow) ProtoMessage() {}
 
 func (x *CMsgMinimizeWindow) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[134]
+	mi := &file_htmlmessages_proto_msgTypes[135]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8518,7 +8522,7 @@ func (x *CMsgMinimizeWindow) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgMinimizeWindow.ProtoReflect.Descriptor instead.
 func (*CMsgMinimizeWindow) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{134}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{135}
 }
 
 func (x *CMsgMinimizeWindow) GetBrowserHandle() uint32 {
@@ -8547,7 +8551,7 @@ type CMsgShowBrowserContextMenu struct {
 
 func (x *CMsgShowBrowserContextMenu) Reset() {
 	*x = CMsgShowBrowserContextMenu{}
-	mi := &file_htmlmessages_proto_msgTypes[135]
+	mi := &file_htmlmessages_proto_msgTypes[136]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8559,7 +8563,7 @@ func (x *CMsgShowBrowserContextMenu) String() string {
 func (*CMsgShowBrowserContextMenu) ProtoMessage() {}
 
 func (x *CMsgShowBrowserContextMenu) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[135]
+	mi := &file_htmlmessages_proto_msgTypes[136]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8572,7 +8576,7 @@ func (x *CMsgShowBrowserContextMenu) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgShowBrowserContextMenu.ProtoReflect.Descriptor instead.
 func (*CMsgShowBrowserContextMenu) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{135}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{136}
 }
 
 func (x *CMsgShowBrowserContextMenu) GetBrowserHandle() uint32 {
@@ -8662,7 +8666,7 @@ type CMsgHandleContextMenuCommand struct {
 
 func (x *CMsgHandleContextMenuCommand) Reset() {
 	*x = CMsgHandleContextMenuCommand{}
-	mi := &file_htmlmessages_proto_msgTypes[136]
+	mi := &file_htmlmessages_proto_msgTypes[137]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8674,7 +8678,7 @@ func (x *CMsgHandleContextMenuCommand) String() string {
 func (*CMsgHandleContextMenuCommand) ProtoMessage() {}
 
 func (x *CMsgHandleContextMenuCommand) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[136]
+	mi := &file_htmlmessages_proto_msgTypes[137]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8687,7 +8691,7 @@ func (x *CMsgHandleContextMenuCommand) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgHandleContextMenuCommand.ProtoReflect.Descriptor instead.
 func (*CMsgHandleContextMenuCommand) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{136}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{137}
 }
 
 func (x *CMsgHandleContextMenuCommand) GetBrowserHandle() uint32 {
@@ -8721,7 +8725,7 @@ type CMsgTouchGesture struct {
 
 func (x *CMsgTouchGesture) Reset() {
 	*x = CMsgTouchGesture{}
-	mi := &file_htmlmessages_proto_msgTypes[137]
+	mi := &file_htmlmessages_proto_msgTypes[138]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8733,7 +8737,7 @@ func (x *CMsgTouchGesture) String() string {
 func (*CMsgTouchGesture) ProtoMessage() {}
 
 func (x *CMsgTouchGesture) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[137]
+	mi := &file_htmlmessages_proto_msgTypes[138]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8746,7 +8750,7 @@ func (x *CMsgTouchGesture) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgTouchGesture.ProtoReflect.Descriptor instead.
 func (*CMsgTouchGesture) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{137}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{138}
 }
 
 func (x *CMsgTouchGesture) GetBrowserHandle() uint32 {
@@ -8822,7 +8826,7 @@ type CMsgSetTouchGesturesToCancel struct {
 
 func (x *CMsgSetTouchGesturesToCancel) Reset() {
 	*x = CMsgSetTouchGesturesToCancel{}
-	mi := &file_htmlmessages_proto_msgTypes[138]
+	mi := &file_htmlmessages_proto_msgTypes[139]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8834,7 +8838,7 @@ func (x *CMsgSetTouchGesturesToCancel) String() string {
 func (*CMsgSetTouchGesturesToCancel) ProtoMessage() {}
 
 func (x *CMsgSetTouchGesturesToCancel) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[138]
+	mi := &file_htmlmessages_proto_msgTypes[139]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8847,7 +8851,7 @@ func (x *CMsgSetTouchGesturesToCancel) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSetTouchGesturesToCancel.ProtoReflect.Descriptor instead.
 func (*CMsgSetTouchGesturesToCancel) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{138}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{139}
 }
 
 func (x *CMsgSetTouchGesturesToCancel) GetBrowserHandle() uint32 {
@@ -8874,7 +8878,7 @@ type CMsgSetBlockInput struct {
 
 func (x *CMsgSetBlockInput) Reset() {
 	*x = CMsgSetBlockInput{}
-	mi := &file_htmlmessages_proto_msgTypes[139]
+	mi := &file_htmlmessages_proto_msgTypes[140]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8886,7 +8890,7 @@ func (x *CMsgSetBlockInput) String() string {
 func (*CMsgSetBlockInput) ProtoMessage() {}
 
 func (x *CMsgSetBlockInput) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[139]
+	mi := &file_htmlmessages_proto_msgTypes[140]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8899,7 +8903,7 @@ func (x *CMsgSetBlockInput) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSetBlockInput.ProtoReflect.Descriptor instead.
 func (*CMsgSetBlockInput) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{139}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{140}
 }
 
 func (x *CMsgSetBlockInput) GetBrowserHandle() uint32 {
@@ -8925,7 +8929,7 @@ type CMsgInputBlocked struct {
 
 func (x *CMsgInputBlocked) Reset() {
 	*x = CMsgInputBlocked{}
-	mi := &file_htmlmessages_proto_msgTypes[140]
+	mi := &file_htmlmessages_proto_msgTypes[141]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8937,7 +8941,7 @@ func (x *CMsgInputBlocked) String() string {
 func (*CMsgInputBlocked) ProtoMessage() {}
 
 func (x *CMsgInputBlocked) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[140]
+	mi := &file_htmlmessages_proto_msgTypes[141]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8950,7 +8954,7 @@ func (x *CMsgInputBlocked) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgInputBlocked.ProtoReflect.Descriptor instead.
 func (*CMsgInputBlocked) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{140}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{141}
 }
 
 func (x *CMsgInputBlocked) GetBrowserHandle() uint32 {
@@ -8970,7 +8974,7 @@ type CMsgImeSetComposition struct {
 
 func (x *CMsgImeSetComposition) Reset() {
 	*x = CMsgImeSetComposition{}
-	mi := &file_htmlmessages_proto_msgTypes[141]
+	mi := &file_htmlmessages_proto_msgTypes[142]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8982,7 +8986,7 @@ func (x *CMsgImeSetComposition) String() string {
 func (*CMsgImeSetComposition) ProtoMessage() {}
 
 func (x *CMsgImeSetComposition) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[141]
+	mi := &file_htmlmessages_proto_msgTypes[142]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8995,7 +8999,7 @@ func (x *CMsgImeSetComposition) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgImeSetComposition.ProtoReflect.Descriptor instead.
 func (*CMsgImeSetComposition) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{141}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{142}
 }
 
 func (x *CMsgImeSetComposition) GetBrowserHandle() uint32 {
@@ -9022,7 +9026,7 @@ type CMsgImeCommitText struct {
 
 func (x *CMsgImeCommitText) Reset() {
 	*x = CMsgImeCommitText{}
-	mi := &file_htmlmessages_proto_msgTypes[142]
+	mi := &file_htmlmessages_proto_msgTypes[143]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9034,7 +9038,7 @@ func (x *CMsgImeCommitText) String() string {
 func (*CMsgImeCommitText) ProtoMessage() {}
 
 func (x *CMsgImeCommitText) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[142]
+	mi := &file_htmlmessages_proto_msgTypes[143]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9047,7 +9051,7 @@ func (x *CMsgImeCommitText) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgImeCommitText.ProtoReflect.Descriptor instead.
 func (*CMsgImeCommitText) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{142}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{143}
 }
 
 func (x *CMsgImeCommitText) GetBrowserHandle() uint32 {
@@ -9073,7 +9077,7 @@ type CMsgImeCancelComposition struct {
 
 func (x *CMsgImeCancelComposition) Reset() {
 	*x = CMsgImeCancelComposition{}
-	mi := &file_htmlmessages_proto_msgTypes[143]
+	mi := &file_htmlmessages_proto_msgTypes[144]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9085,7 +9089,7 @@ func (x *CMsgImeCancelComposition) String() string {
 func (*CMsgImeCancelComposition) ProtoMessage() {}
 
 func (x *CMsgImeCancelComposition) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[143]
+	mi := &file_htmlmessages_proto_msgTypes[144]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9098,7 +9102,7 @@ func (x *CMsgImeCancelComposition) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgImeCancelComposition.ProtoReflect.Descriptor instead.
 func (*CMsgImeCancelComposition) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{143}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{144}
 }
 
 func (x *CMsgImeCancelComposition) GetBrowserHandle() uint32 {
@@ -9119,7 +9123,7 @@ type CMsgImeCompositionRangeChanged struct {
 
 func (x *CMsgImeCompositionRangeChanged) Reset() {
 	*x = CMsgImeCompositionRangeChanged{}
-	mi := &file_htmlmessages_proto_msgTypes[144]
+	mi := &file_htmlmessages_proto_msgTypes[145]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9131,7 +9135,7 @@ func (x *CMsgImeCompositionRangeChanged) String() string {
 func (*CMsgImeCompositionRangeChanged) ProtoMessage() {}
 
 func (x *CMsgImeCompositionRangeChanged) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[144]
+	mi := &file_htmlmessages_proto_msgTypes[145]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9144,7 +9148,7 @@ func (x *CMsgImeCompositionRangeChanged) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgImeCompositionRangeChanged.ProtoReflect.Descriptor instead.
 func (*CMsgImeCompositionRangeChanged) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{144}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{145}
 }
 
 func (x *CMsgImeCompositionRangeChanged) GetBrowserHandle() uint32 {
@@ -9179,7 +9183,7 @@ type CMsgInspectElement struct {
 
 func (x *CMsgInspectElement) Reset() {
 	*x = CMsgInspectElement{}
-	mi := &file_htmlmessages_proto_msgTypes[145]
+	mi := &file_htmlmessages_proto_msgTypes[146]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9191,7 +9195,7 @@ func (x *CMsgInspectElement) String() string {
 func (*CMsgInspectElement) ProtoMessage() {}
 
 func (x *CMsgInspectElement) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[145]
+	mi := &file_htmlmessages_proto_msgTypes[146]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9204,7 +9208,7 @@ func (x *CMsgInspectElement) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgInspectElement.ProtoReflect.Descriptor instead.
 func (*CMsgInspectElement) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{145}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{146}
 }
 
 func (x *CMsgInspectElement) GetBrowserHandle() uint32 {
@@ -9238,7 +9242,7 @@ type CMsgDisableF5 struct {
 
 func (x *CMsgDisableF5) Reset() {
 	*x = CMsgDisableF5{}
-	mi := &file_htmlmessages_proto_msgTypes[146]
+	mi := &file_htmlmessages_proto_msgTypes[147]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9250,7 +9254,7 @@ func (x *CMsgDisableF5) String() string {
 func (*CMsgDisableF5) ProtoMessage() {}
 
 func (x *CMsgDisableF5) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[146]
+	mi := &file_htmlmessages_proto_msgTypes[147]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9263,7 +9267,7 @@ func (x *CMsgDisableF5) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgDisableF5.ProtoReflect.Descriptor instead.
 func (*CMsgDisableF5) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{146}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{147}
 }
 
 func (x *CMsgDisableF5) GetBrowserHandle() uint32 {
@@ -9290,7 +9294,7 @@ type CMsgStartDownload struct {
 
 func (x *CMsgStartDownload) Reset() {
 	*x = CMsgStartDownload{}
-	mi := &file_htmlmessages_proto_msgTypes[147]
+	mi := &file_htmlmessages_proto_msgTypes[148]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9302,7 +9306,7 @@ func (x *CMsgStartDownload) String() string {
 func (*CMsgStartDownload) ProtoMessage() {}
 
 func (x *CMsgStartDownload) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[147]
+	mi := &file_htmlmessages_proto_msgTypes[148]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9315,7 +9319,7 @@ func (x *CMsgStartDownload) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgStartDownload.ProtoReflect.Descriptor instead.
 func (*CMsgStartDownload) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{147}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{148}
 }
 
 func (x *CMsgStartDownload) GetBrowserHandle() uint32 {
@@ -9332,6 +9336,66 @@ func (x *CMsgStartDownload) GetUrl() string {
 	return ""
 }
 
+type CMsgStartTracing struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Categories    *string                `protobuf:"bytes,1,opt,name=categories" json:"categories,omitempty"`
+	File          *string                `protobuf:"bytes,2,opt,name=file" json:"file,omitempty"`
+	DurationMs    *uint32                `protobuf:"varint,3,opt,name=duration_ms,json=durationMs" json:"duration_ms,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgStartTracing) Reset() {
+	*x = CMsgStartTracing{}
+	mi := &file_htmlmessages_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgStartTracing) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgStartTracing) ProtoMessage() {}
+
+func (x *CMsgStartTracing) ProtoReflect() protoreflect.Message {
+	mi := &file_htmlmessages_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgStartTracing.ProtoReflect.Descriptor instead.
+func (*CMsgStartTracing) Descriptor() ([]byte, []int) {
+	return file_htmlmessages_proto_rawDescGZIP(), []int{149}
+}
+
+func (x *CMsgStartTracing) GetCategories() string {
+	if x != nil && x.Categories != nil {
+		return *x.Categories
+	}
+	return ""
+}
+
+func (x *CMsgStartTracing) GetFile() string {
+	if x != nil && x.File != nil {
+		return *x.File
+	}
+	return ""
+}
+
+func (x *CMsgStartTracing) GetDurationMs() uint32 {
+	if x != nil && x.DurationMs != nil {
+		return *x.DurationMs
+	}
+	return 0
+}
+
 type CMsgSetWindowStackingOrder struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	BrowserHandle  *uint32                `protobuf:"varint,1,opt,name=browser_handle,json=browserHandle" json:"browser_handle,omitempty"`
@@ -9342,7 +9406,7 @@ type CMsgSetWindowStackingOrder struct {
 
 func (x *CMsgSetWindowStackingOrder) Reset() {
 	*x = CMsgSetWindowStackingOrder{}
-	mi := &file_htmlmessages_proto_msgTypes[148]
+	mi := &file_htmlmessages_proto_msgTypes[150]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9354,7 +9418,7 @@ func (x *CMsgSetWindowStackingOrder) String() string {
 func (*CMsgSetWindowStackingOrder) ProtoMessage() {}
 
 func (x *CMsgSetWindowStackingOrder) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[148]
+	mi := &file_htmlmessages_proto_msgTypes[150]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9367,7 +9431,7 @@ func (x *CMsgSetWindowStackingOrder) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSetWindowStackingOrder.ProtoReflect.Descriptor instead.
 func (*CMsgSetWindowStackingOrder) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{148}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{150}
 }
 
 func (x *CMsgSetWindowStackingOrder) GetBrowserHandle() uint32 {
@@ -9396,7 +9460,7 @@ type CMsgBrowserViewPostMessageToParentRequest struct {
 
 func (x *CMsgBrowserViewPostMessageToParentRequest) Reset() {
 	*x = CMsgBrowserViewPostMessageToParentRequest{}
-	mi := &file_htmlmessages_proto_msgTypes[149]
+	mi := &file_htmlmessages_proto_msgTypes[151]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9408,7 +9472,7 @@ func (x *CMsgBrowserViewPostMessageToParentRequest) String() string {
 func (*CMsgBrowserViewPostMessageToParentRequest) ProtoMessage() {}
 
 func (x *CMsgBrowserViewPostMessageToParentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[149]
+	mi := &file_htmlmessages_proto_msgTypes[151]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9421,7 +9485,7 @@ func (x *CMsgBrowserViewPostMessageToParentRequest) ProtoReflect() protoreflect.
 
 // Deprecated: Use CMsgBrowserViewPostMessageToParentRequest.ProtoReflect.Descriptor instead.
 func (*CMsgBrowserViewPostMessageToParentRequest) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{149}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{151}
 }
 
 func (x *CMsgBrowserViewPostMessageToParentRequest) GetBrowserHandle() uint32 {
@@ -9462,7 +9526,7 @@ type CMsgBlockedRequest struct {
 
 func (x *CMsgBlockedRequest) Reset() {
 	*x = CMsgBlockedRequest{}
-	mi := &file_htmlmessages_proto_msgTypes[150]
+	mi := &file_htmlmessages_proto_msgTypes[152]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9474,7 +9538,7 @@ func (x *CMsgBlockedRequest) String() string {
 func (*CMsgBlockedRequest) ProtoMessage() {}
 
 func (x *CMsgBlockedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[150]
+	mi := &file_htmlmessages_proto_msgTypes[152]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9487,7 +9551,7 @@ func (x *CMsgBlockedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgBlockedRequest.ProtoReflect.Descriptor instead.
 func (*CMsgBlockedRequest) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{150}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{152}
 }
 
 func (x *CMsgBlockedRequest) GetBrowserHandle() uint32 {
@@ -9514,7 +9578,7 @@ type CMsgBrowserFocusChanged struct {
 
 func (x *CMsgBrowserFocusChanged) Reset() {
 	*x = CMsgBrowserFocusChanged{}
-	mi := &file_htmlmessages_proto_msgTypes[151]
+	mi := &file_htmlmessages_proto_msgTypes[153]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9526,7 +9590,7 @@ func (x *CMsgBrowserFocusChanged) String() string {
 func (*CMsgBrowserFocusChanged) ProtoMessage() {}
 
 func (x *CMsgBrowserFocusChanged) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[151]
+	mi := &file_htmlmessages_proto_msgTypes[153]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9539,7 +9603,7 @@ func (x *CMsgBrowserFocusChanged) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgBrowserFocusChanged.ProtoReflect.Descriptor instead.
 func (*CMsgBrowserFocusChanged) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{151}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{153}
 }
 
 func (x *CMsgBrowserFocusChanged) GetBrowserHandle() uint32 {
@@ -9565,7 +9629,7 @@ type CMsgRenderProcessTerminated struct {
 
 func (x *CMsgRenderProcessTerminated) Reset() {
 	*x = CMsgRenderProcessTerminated{}
-	mi := &file_htmlmessages_proto_msgTypes[152]
+	mi := &file_htmlmessages_proto_msgTypes[154]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9577,7 +9641,7 @@ func (x *CMsgRenderProcessTerminated) String() string {
 func (*CMsgRenderProcessTerminated) ProtoMessage() {}
 
 func (x *CMsgRenderProcessTerminated) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[152]
+	mi := &file_htmlmessages_proto_msgTypes[154]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9590,7 +9654,7 @@ func (x *CMsgRenderProcessTerminated) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgRenderProcessTerminated.ProtoReflect.Descriptor instead.
 func (*CMsgRenderProcessTerminated) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{152}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{154}
 }
 
 func (x *CMsgRenderProcessTerminated) GetBrowserHandle() uint32 {
@@ -9610,7 +9674,7 @@ type CMsgSetProtocolBlockList struct {
 
 func (x *CMsgSetProtocolBlockList) Reset() {
 	*x = CMsgSetProtocolBlockList{}
-	mi := &file_htmlmessages_proto_msgTypes[153]
+	mi := &file_htmlmessages_proto_msgTypes[155]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9622,7 +9686,7 @@ func (x *CMsgSetProtocolBlockList) String() string {
 func (*CMsgSetProtocolBlockList) ProtoMessage() {}
 
 func (x *CMsgSetProtocolBlockList) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[153]
+	mi := &file_htmlmessages_proto_msgTypes[155]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9635,7 +9699,7 @@ func (x *CMsgSetProtocolBlockList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSetProtocolBlockList.ProtoReflect.Descriptor instead.
 func (*CMsgSetProtocolBlockList) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{153}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{155}
 }
 
 func (x *CMsgSetProtocolBlockList) GetBrowserHandle() uint32 {
@@ -9662,7 +9726,7 @@ type CMsgSetForceDeviceScaleFactors struct {
 
 func (x *CMsgSetForceDeviceScaleFactors) Reset() {
 	*x = CMsgSetForceDeviceScaleFactors{}
-	mi := &file_htmlmessages_proto_msgTypes[154]
+	mi := &file_htmlmessages_proto_msgTypes[156]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9674,7 +9738,7 @@ func (x *CMsgSetForceDeviceScaleFactors) String() string {
 func (*CMsgSetForceDeviceScaleFactors) ProtoMessage() {}
 
 func (x *CMsgSetForceDeviceScaleFactors) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[154]
+	mi := &file_htmlmessages_proto_msgTypes[156]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9687,7 +9751,7 @@ func (x *CMsgSetForceDeviceScaleFactors) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSetForceDeviceScaleFactors.ProtoReflect.Descriptor instead.
 func (*CMsgSetForceDeviceScaleFactors) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{154}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{156}
 }
 
 func (x *CMsgSetForceDeviceScaleFactors) GetDpiScale() float64 {
@@ -9713,7 +9777,7 @@ type CMsgSetUIMode struct {
 
 func (x *CMsgSetUIMode) Reset() {
 	*x = CMsgSetUIMode{}
-	mi := &file_htmlmessages_proto_msgTypes[155]
+	mi := &file_htmlmessages_proto_msgTypes[157]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9725,7 +9789,7 @@ func (x *CMsgSetUIMode) String() string {
 func (*CMsgSetUIMode) ProtoMessage() {}
 
 func (x *CMsgSetUIMode) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[155]
+	mi := &file_htmlmessages_proto_msgTypes[157]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9738,7 +9802,7 @@ func (x *CMsgSetUIMode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSetUIMode.ProtoReflect.Descriptor instead.
 func (*CMsgSetUIMode) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{155}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{157}
 }
 
 func (x *CMsgSetUIMode) GetUiMode() int32 {
@@ -9757,7 +9821,7 @@ type CMsgSetSteamBetaName struct {
 
 func (x *CMsgSetSteamBetaName) Reset() {
 	*x = CMsgSetSteamBetaName{}
-	mi := &file_htmlmessages_proto_msgTypes[156]
+	mi := &file_htmlmessages_proto_msgTypes[158]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9769,7 +9833,7 @@ func (x *CMsgSetSteamBetaName) String() string {
 func (*CMsgSetSteamBetaName) ProtoMessage() {}
 
 func (x *CMsgSetSteamBetaName) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[156]
+	mi := &file_htmlmessages_proto_msgTypes[158]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9782,7 +9846,7 @@ func (x *CMsgSetSteamBetaName) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSetSteamBetaName.ProtoReflect.Descriptor instead.
 func (*CMsgSetSteamBetaName) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{156}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{158}
 }
 
 func (x *CMsgSetSteamBetaName) GetSteamBetaName() string {
@@ -9801,7 +9865,7 @@ type CMsgSetSteamID struct {
 
 func (x *CMsgSetSteamID) Reset() {
 	*x = CMsgSetSteamID{}
-	mi := &file_htmlmessages_proto_msgTypes[157]
+	mi := &file_htmlmessages_proto_msgTypes[159]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9813,7 +9877,7 @@ func (x *CMsgSetSteamID) String() string {
 func (*CMsgSetSteamID) ProtoMessage() {}
 
 func (x *CMsgSetSteamID) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[157]
+	mi := &file_htmlmessages_proto_msgTypes[159]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9826,7 +9890,7 @@ func (x *CMsgSetSteamID) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSetSteamID.ProtoReflect.Descriptor instead.
 func (*CMsgSetSteamID) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{157}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{159}
 }
 
 func (x *CMsgSetSteamID) GetSteamId() uint64 {
@@ -9845,7 +9909,7 @@ type CMsgPopupCreated struct {
 
 func (x *CMsgPopupCreated) Reset() {
 	*x = CMsgPopupCreated{}
-	mi := &file_htmlmessages_proto_msgTypes[158]
+	mi := &file_htmlmessages_proto_msgTypes[160]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9857,7 +9921,7 @@ func (x *CMsgPopupCreated) String() string {
 func (*CMsgPopupCreated) ProtoMessage() {}
 
 func (x *CMsgPopupCreated) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[158]
+	mi := &file_htmlmessages_proto_msgTypes[160]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9870,7 +9934,7 @@ func (x *CMsgPopupCreated) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgPopupCreated.ProtoReflect.Descriptor instead.
 func (*CMsgPopupCreated) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{158}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{160}
 }
 
 func (x *CMsgPopupCreated) GetBrowserHandle() uint32 {
@@ -9890,7 +9954,7 @@ type CMsgSetVRKeyboardVisibility struct {
 
 func (x *CMsgSetVRKeyboardVisibility) Reset() {
 	*x = CMsgSetVRKeyboardVisibility{}
-	mi := &file_htmlmessages_proto_msgTypes[159]
+	mi := &file_htmlmessages_proto_msgTypes[161]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9902,7 +9966,7 @@ func (x *CMsgSetVRKeyboardVisibility) String() string {
 func (*CMsgSetVRKeyboardVisibility) ProtoMessage() {}
 
 func (x *CMsgSetVRKeyboardVisibility) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[159]
+	mi := &file_htmlmessages_proto_msgTypes[161]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9915,7 +9979,7 @@ func (x *CMsgSetVRKeyboardVisibility) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSetVRKeyboardVisibility.ProtoReflect.Descriptor instead.
 func (*CMsgSetVRKeyboardVisibility) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{159}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{161}
 }
 
 func (x *CMsgSetVRKeyboardVisibility) GetBrowserHandle() uint32 {
@@ -9948,7 +10012,7 @@ const (
 
 func (x *CMsgSetAccessibilitySettings) Reset() {
 	*x = CMsgSetAccessibilitySettings{}
-	mi := &file_htmlmessages_proto_msgTypes[160]
+	mi := &file_htmlmessages_proto_msgTypes[162]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9960,7 +10024,7 @@ func (x *CMsgSetAccessibilitySettings) String() string {
 func (*CMsgSetAccessibilitySettings) ProtoMessage() {}
 
 func (x *CMsgSetAccessibilitySettings) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[160]
+	mi := &file_htmlmessages_proto_msgTypes[162]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9973,7 +10037,7 @@ func (x *CMsgSetAccessibilitySettings) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSetAccessibilitySettings.ProtoReflect.Descriptor instead.
 func (*CMsgSetAccessibilitySettings) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{160}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{162}
 }
 
 func (x *CMsgSetAccessibilitySettings) GetReducedMotionEnabled() bool {
@@ -10007,7 +10071,7 @@ type CMsgSetBrowserViewDomainRequestMapping struct {
 
 func (x *CMsgSetBrowserViewDomainRequestMapping) Reset() {
 	*x = CMsgSetBrowserViewDomainRequestMapping{}
-	mi := &file_htmlmessages_proto_msgTypes[161]
+	mi := &file_htmlmessages_proto_msgTypes[163]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10019,7 +10083,7 @@ func (x *CMsgSetBrowserViewDomainRequestMapping) String() string {
 func (*CMsgSetBrowserViewDomainRequestMapping) ProtoMessage() {}
 
 func (x *CMsgSetBrowserViewDomainRequestMapping) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[161]
+	mi := &file_htmlmessages_proto_msgTypes[163]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10032,7 +10096,7 @@ func (x *CMsgSetBrowserViewDomainRequestMapping) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CMsgSetBrowserViewDomainRequestMapping.ProtoReflect.Descriptor instead.
 func (*CMsgSetBrowserViewDomainRequestMapping) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{161}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{163}
 }
 
 func (x *CMsgSetBrowserViewDomainRequestMapping) GetRequestDomain() string {
@@ -10049,19 +10113,88 @@ func (x *CMsgSetBrowserViewDomainRequestMapping) GetDefaultLocalPath() string {
 	return ""
 }
 
-type CMsgSetLocalFileRequestMapping_AdditionalRoute struct {
+type CMsgSetLocalFileRequestMapping_ClientAssetRoute struct {
 	state             protoimpl.MessageState `protogen:"open.v1"`
-	RelativeUrl       *string                `protobuf:"bytes,1,opt,name=relative_url,json=relativeUrl" json:"relative_url,omitempty"`
-	LocalPath         *string                `protobuf:"bytes,2,opt,name=local_path,json=localPath" json:"local_path,omitempty"`
-	AllowedExtensions *string                `protobuf:"bytes,3,opt,name=allowed_extensions,json=allowedExtensions" json:"allowed_extensions,omitempty"`
-	UrlRewrite        *bool                  `protobuf:"varint,4,opt,name=url_rewrite,json=urlRewrite" json:"url_rewrite,omitempty"`
+	Type              *int32                 `protobuf:"varint,1,opt,name=type" json:"type,omitempty"`
+	RemoteBaseUrl     *string                `protobuf:"bytes,2,opt,name=remote_base_url,json=remoteBaseUrl" json:"remote_base_url,omitempty"`
+	FallbackLocalPath *string                `protobuf:"bytes,3,opt,name=fallback_local_path,json=fallbackLocalPath" json:"fallback_local_path,omitempty"`
+	MarkUsedWhenRead  *bool                  `protobuf:"varint,4,opt,name=mark_used_when_read,json=markUsedWhenRead" json:"mark_used_when_read,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
+}
+
+func (x *CMsgSetLocalFileRequestMapping_ClientAssetRoute) Reset() {
+	*x = CMsgSetLocalFileRequestMapping_ClientAssetRoute{}
+	mi := &file_htmlmessages_proto_msgTypes[164]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgSetLocalFileRequestMapping_ClientAssetRoute) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgSetLocalFileRequestMapping_ClientAssetRoute) ProtoMessage() {}
+
+func (x *CMsgSetLocalFileRequestMapping_ClientAssetRoute) ProtoReflect() protoreflect.Message {
+	mi := &file_htmlmessages_proto_msgTypes[164]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgSetLocalFileRequestMapping_ClientAssetRoute.ProtoReflect.Descriptor instead.
+func (*CMsgSetLocalFileRequestMapping_ClientAssetRoute) Descriptor() ([]byte, []int) {
+	return file_htmlmessages_proto_rawDescGZIP(), []int{12, 0}
+}
+
+func (x *CMsgSetLocalFileRequestMapping_ClientAssetRoute) GetType() int32 {
+	if x != nil && x.Type != nil {
+		return *x.Type
+	}
+	return 0
+}
+
+func (x *CMsgSetLocalFileRequestMapping_ClientAssetRoute) GetRemoteBaseUrl() string {
+	if x != nil && x.RemoteBaseUrl != nil {
+		return *x.RemoteBaseUrl
+	}
+	return ""
+}
+
+func (x *CMsgSetLocalFileRequestMapping_ClientAssetRoute) GetFallbackLocalPath() string {
+	if x != nil && x.FallbackLocalPath != nil {
+		return *x.FallbackLocalPath
+	}
+	return ""
+}
+
+func (x *CMsgSetLocalFileRequestMapping_ClientAssetRoute) GetMarkUsedWhenRead() bool {
+	if x != nil && x.MarkUsedWhenRead != nil {
+		return *x.MarkUsedWhenRead
+	}
+	return false
+}
+
+type CMsgSetLocalFileRequestMapping_AdditionalRoute struct {
+	state             protoimpl.MessageState                           `protogen:"open.v1"`
+	RelativeUrl       *string                                          `protobuf:"bytes,1,opt,name=relative_url,json=relativeUrl" json:"relative_url,omitempty"`
+	LocalPath         *string                                          `protobuf:"bytes,2,opt,name=local_path,json=localPath" json:"local_path,omitempty"`
+	AllowedExtensions *string                                          `protobuf:"bytes,3,opt,name=allowed_extensions,json=allowedExtensions" json:"allowed_extensions,omitempty"`
+	UrlRewrite        *bool                                            `protobuf:"varint,4,opt,name=url_rewrite,json=urlRewrite" json:"url_rewrite,omitempty"`
+	ClientAsset       *CMsgSetLocalFileRequestMapping_ClientAssetRoute `protobuf:"bytes,5,opt,name=client_asset,json=clientAsset" json:"client_asset,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
 
 func (x *CMsgSetLocalFileRequestMapping_AdditionalRoute) Reset() {
 	*x = CMsgSetLocalFileRequestMapping_AdditionalRoute{}
-	mi := &file_htmlmessages_proto_msgTypes[162]
+	mi := &file_htmlmessages_proto_msgTypes[165]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10073,7 +10206,7 @@ func (x *CMsgSetLocalFileRequestMapping_AdditionalRoute) String() string {
 func (*CMsgSetLocalFileRequestMapping_AdditionalRoute) ProtoMessage() {}
 
 func (x *CMsgSetLocalFileRequestMapping_AdditionalRoute) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[162]
+	mi := &file_htmlmessages_proto_msgTypes[165]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10086,7 +10219,7 @@ func (x *CMsgSetLocalFileRequestMapping_AdditionalRoute) ProtoReflect() protoref
 
 // Deprecated: Use CMsgSetLocalFileRequestMapping_AdditionalRoute.ProtoReflect.Descriptor instead.
 func (*CMsgSetLocalFileRequestMapping_AdditionalRoute) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{12, 0}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{12, 1}
 }
 
 func (x *CMsgSetLocalFileRequestMapping_AdditionalRoute) GetRelativeUrl() string {
@@ -10117,6 +10250,13 @@ func (x *CMsgSetLocalFileRequestMapping_AdditionalRoute) GetUrlRewrite() bool {
 	return false
 }
 
+func (x *CMsgSetLocalFileRequestMapping_AdditionalRoute) GetClientAsset() *CMsgSetLocalFileRequestMapping_ClientAssetRoute {
+	if x != nil {
+		return x.ClientAsset
+	}
+	return nil
+}
+
 type CMsgFileLoadDialog_Filter struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          *string                `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
@@ -10128,7 +10268,7 @@ type CMsgFileLoadDialog_Filter struct {
 
 func (x *CMsgFileLoadDialog_Filter) Reset() {
 	*x = CMsgFileLoadDialog_Filter{}
-	mi := &file_htmlmessages_proto_msgTypes[163]
+	mi := &file_htmlmessages_proto_msgTypes[166]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10140,7 +10280,7 @@ func (x *CMsgFileLoadDialog_Filter) String() string {
 func (*CMsgFileLoadDialog_Filter) ProtoMessage() {}
 
 func (x *CMsgFileLoadDialog_Filter) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[163]
+	mi := &file_htmlmessages_proto_msgTypes[166]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10187,7 +10327,7 @@ type CMsgJSValue_JSObjectProperty struct {
 
 func (x *CMsgJSValue_JSObjectProperty) Reset() {
 	*x = CMsgJSValue_JSObjectProperty{}
-	mi := &file_htmlmessages_proto_msgTypes[164]
+	mi := &file_htmlmessages_proto_msgTypes[167]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10199,7 +10339,7 @@ func (x *CMsgJSValue_JSObjectProperty) String() string {
 func (*CMsgJSValue_JSObjectProperty) ProtoMessage() {}
 
 func (x *CMsgJSValue_JSObjectProperty) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[164]
+	mi := &file_htmlmessages_proto_msgTypes[167]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10243,7 +10383,7 @@ type CMsgDraggableRegionsChanged_DraggableRects struct {
 
 func (x *CMsgDraggableRegionsChanged_DraggableRects) Reset() {
 	*x = CMsgDraggableRegionsChanged_DraggableRects{}
-	mi := &file_htmlmessages_proto_msgTypes[165]
+	mi := &file_htmlmessages_proto_msgTypes[168]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10255,7 +10395,7 @@ func (x *CMsgDraggableRegionsChanged_DraggableRects) String() string {
 func (*CMsgDraggableRegionsChanged_DraggableRects) ProtoMessage() {}
 
 func (x *CMsgDraggableRegionsChanged_DraggableRects) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[165]
+	mi := &file_htmlmessages_proto_msgTypes[168]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10268,7 +10408,7 @@ func (x *CMsgDraggableRegionsChanged_DraggableRects) ProtoReflect() protoreflect
 
 // Deprecated: Use CMsgDraggableRegionsChanged_DraggableRects.ProtoReflect.Descriptor instead.
 func (*CMsgDraggableRegionsChanged_DraggableRects) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{126, 0}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{127, 0}
 }
 
 func (x *CMsgDraggableRegionsChanged_DraggableRects) GetX() int32 {
@@ -10323,7 +10463,7 @@ type CMsgShowBrowserContextMenu_ContextCommand struct {
 
 func (x *CMsgShowBrowserContextMenu_ContextCommand) Reset() {
 	*x = CMsgShowBrowserContextMenu_ContextCommand{}
-	mi := &file_htmlmessages_proto_msgTypes[166]
+	mi := &file_htmlmessages_proto_msgTypes[169]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10335,7 +10475,7 @@ func (x *CMsgShowBrowserContextMenu_ContextCommand) String() string {
 func (*CMsgShowBrowserContextMenu_ContextCommand) ProtoMessage() {}
 
 func (x *CMsgShowBrowserContextMenu_ContextCommand) ProtoReflect() protoreflect.Message {
-	mi := &file_htmlmessages_proto_msgTypes[166]
+	mi := &file_htmlmessages_proto_msgTypes[169]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10348,7 +10488,7 @@ func (x *CMsgShowBrowserContextMenu_ContextCommand) ProtoReflect() protoreflect.
 
 // Deprecated: Use CMsgShowBrowserContextMenu_ContextCommand.ProtoReflect.Descriptor instead.
 func (*CMsgShowBrowserContextMenu_ContextCommand) Descriptor() ([]byte, []int) {
-	return file_htmlmessages_proto_rawDescGZIP(), []int{135, 0}
+	return file_htmlmessages_proto_rawDescGZIP(), []int{136, 0}
 }
 
 func (x *CMsgShowBrowserContextMenu_ContextCommand) GetId() int32 {
@@ -10444,20 +10584,26 @@ const file_htmlmessages_proto_rawDesc = "" +
 	"\n" +
 	"request_id\x18\x02 \x01(\rR\trequestId\":\n" +
 	"\x11CMsgBrowserRemove\x12%\n" +
-	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\"\x85\x03\n" +
+	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\"\x8a\x05\n" +
 	"\x1eCMsgSetLocalFileRequestMapping\x12%\n" +
 	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\x12\x1f\n" +
 	"\vrequest_url\x18\x02 \x01(\tR\n" +
 	"requestUrl\x12,\n" +
 	"\x12default_local_path\x18\x03 \x01(\tR\x10defaultLocalPath\x12G\n" +
-	"\x06routes\x18\x04 \x03(\v2/.CMsgSetLocalFileRequestMapping.AdditionalRouteR\x06routes\x1a\xa3\x01\n" +
+	"\x06routes\x18\x04 \x03(\v2/.CMsgSetLocalFileRequestMapping.AdditionalRouteR\x06routes\x1a\xad\x01\n" +
+	"\x10ClientAssetRoute\x12\x12\n" +
+	"\x04type\x18\x01 \x01(\x05R\x04type\x12&\n" +
+	"\x0fremote_base_url\x18\x02 \x01(\tR\rremoteBaseUrl\x12.\n" +
+	"\x13fallback_local_path\x18\x03 \x01(\tR\x11fallbackLocalPath\x12-\n" +
+	"\x13mark_used_when_read\x18\x04 \x01(\bR\x10markUsedWhenRead\x1a\xf8\x01\n" +
 	"\x0fAdditionalRoute\x12!\n" +
 	"\frelative_url\x18\x01 \x01(\tR\vrelativeUrl\x12\x1d\n" +
 	"\n" +
 	"local_path\x18\x02 \x01(\tR\tlocalPath\x12-\n" +
 	"\x12allowed_extensions\x18\x03 \x01(\tR\x11allowedExtensions\x12\x1f\n" +
 	"\vurl_rewrite\x18\x04 \x01(\bR\n" +
-	"urlRewrite\"\x94\x02\n" +
+	"urlRewrite\x12S\n" +
+	"\fclient_asset\x18\x05 \x01(\v20.CMsgSetLocalFileRequestMapping.ClientAssetRouteR\vclientAsset\"\x94\x02\n" +
 	"\x17CMsgBrowserErrorStrings\x12%\n" +
 	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12\x16\n" +
@@ -10751,7 +10897,7 @@ const file_htmlmessages_proto_rawDesc = "" +
 	"\vactiveMatch\x18\x02 \x01(\x05R\vactiveMatch\x12\x18\n" +
 	"\aresults\x18\x03 \x01(\x05R\aresults\"2\n" +
 	"\tCMsgClose\x12%\n" +
-	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\"\xc6\x01\n" +
+	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\"\x92\x02\n" +
 	"\x19CMsgSetSharedPaintBuffers\x12%\n" +
 	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\x12\x12\n" +
 	"\x04wide\x18\x02 \x01(\rR\x04wide\x12\x12\n" +
@@ -10759,7 +10905,9 @@ const file_htmlmessages_proto_rawDesc = "" +
 	"\n" +
 	"source_pid\x18\x04 \x01(\x04R\tsourcePid\x12#\n" +
 	"\rsource_handle\x18\x05 \x01(\x04R\fsourceHandle\x12\x16\n" +
-	"\x06handle\x18\x06 \x01(\x04R\x06handle\"B\n" +
+	"\x06handle\x18\x06 \x01(\x04R\x06handle\x12'\n" +
+	"\x0ftexture_handles\x18\a \x03(\x04R\x0etextureHandles\x12!\n" +
+	"\fadapter_luid\x18\t \x01(\x04R\vadapterLuid\"B\n" +
 	"\x19CMsgAckSharedPaintBuffers\x12%\n" +
 	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\"\x9e\x02\n" +
 	"\x0eCMsgNeedsPaint\x12%\n" +
@@ -10781,18 +10929,7 @@ const file_htmlmessages_proto_rawDesc = "" +
 	"\rcombobox_wide\x18\x03 \x01(\r:\x010R\fcomboboxWide\x12&\n" +
 	"\rcombobox_tall\x18\x04 \x01(\r:\x010R\fcomboboxTall\x123\n" +
 	"\x14shared_memory_handle\x18\x05 \x01(\x04:\x010R\x12sharedMemoryHandle\x12/\n" +
-	"\x12shared_memory_size\x18\a \x01(\x04:\x010R\x10sharedMemorySize\"\x87\x02\n" +
-	"\x1bCMsgNeedsSharedTexturePaint\x12%\n" +
-	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\x12!\n" +
-	"\fshare_handle\x18\x02 \x01(\rR\vshareHandle\x12\x14\n" +
-	"\x05width\x18\x03 \x01(\rR\x05width\x12\x16\n" +
-	"\x06height\x18\x04 \x01(\rR\x06height\x12\x18\n" +
-	"\ascrollx\x18\x05 \x01(\rR\ascrollx\x12\x18\n" +
-	"\ascrolly\x18\x06 \x01(\rR\ascrolly\x12\x1c\n" +
-	"\tpagescale\x18\a \x01(\x02R\tpagescale\x12\x1e\n" +
-	"\n" +
-	"pageserial\x18\b \x01(\rR\n" +
-	"pageserial\"4\n" +
+	"\x12shared_memory_size\x18\a \x01(\x04:\x010R\x10sharedMemorySize\"4\n" +
 	"\vCMsgGetZoom\x12%\n" +
 	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\"P\n" +
 	"\x13CMsgGetZoomResponse\x12%\n" +
@@ -10912,7 +11049,9 @@ const file_htmlmessages_proto_rawDesc = "" +
 	"\rCMsgScreenDPI\x12%\n" +
 	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\x12\x1f\n" +
 	"\vdpi_scaling\x18\x02 \x01(\x02R\n" +
-	"dpiScaling\"9\n" +
+	"dpiScaling\"*\n" +
+	"\x10CMsgSplashWindow\x12\x16\n" +
+	"\x06window\x18\x01 \x01(\x04R\x06window\"9\n" +
 	"\x10CMsgAckScreenDPI\x12%\n" +
 	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\"2\n" +
 	"\x16CMsgAuthedSteamDomains\x12\x18\n" +
@@ -10972,7 +11111,10 @@ const file_htmlmessages_proto_rawDesc = "" +
 	"\x18CMsgNotifyUserActivation\x12%\n" +
 	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\"6\n" +
 	"\x1eCMsgSetNetFakeLocalSystemState\x12\x14\n" +
-	"\x05state\x18\x01 \x01(\rR\x05state\"\xa4\x02\n" +
+	"\x05state\x18\x01 \x01(\rR\x05state\"8\n" +
+	"\x17CMsgSetSimulatedLatency\x12\x1d\n" +
+	"\n" +
+	"latency_ms\x18\x01 \x01(\rR\tlatencyMs\"\xa4\x02\n" +
 	"\x1bCMsgDraggableRegionsChanged\x12%\n" +
 	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\x12A\n" +
 	"\x05rects\x18\x02 \x03(\v2+.CMsgDraggableRegionsChanged.DraggableRectsR\x05rects\x1a\x9a\x01\n" +
@@ -11072,7 +11214,14 @@ const file_htmlmessages_proto_rawDesc = "" +
 	"\adisable\x18\x02 \x01(\bR\adisable\"L\n" +
 	"\x11CMsgStartDownload\x12%\n" +
 	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\x12\x10\n" +
-	"\x03url\x18\x02 \x01(\tR\x03url\"k\n" +
+	"\x03url\x18\x02 \x01(\tR\x03url\"g\n" +
+	"\x10CMsgStartTracing\x12\x1e\n" +
+	"\n" +
+	"categories\x18\x01 \x01(\tR\n" +
+	"categories\x12\x12\n" +
+	"\x04file\x18\x02 \x01(\tR\x04file\x12\x1f\n" +
+	"\vduration_ms\x18\x03 \x01(\rR\n" +
+	"durationMs\"k\n" +
 	"\x1aCMsgSetWindowStackingOrder\x12%\n" +
 	"\x0ebrowser_handle\x18\x01 \x01(\rR\rbrowserHandle\x12&\n" +
 	"\x0eestackingorder\x18\x02 \x01(\rR\x0eestackingorder\"\xa7\x01\n" +
@@ -11136,219 +11285,223 @@ func file_htmlmessages_proto_rawDescGZIP() []byte {
 }
 
 var file_htmlmessages_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_htmlmessages_proto_msgTypes = make([]protoimpl.MessageInfo, 167)
+var file_htmlmessages_proto_msgTypes = make([]protoimpl.MessageInfo, 170)
 var file_htmlmessages_proto_goTypes = []any{
-	(EJSRegisterMethodType)(0),                             // 0: EJSRegisterMethodType
-	(EAccessibilityContrastMode)(0),                        // 1: EAccessibilityContrastMode
-	(*CMsgKeyUp)(nil),                                      // 2: CMsgKeyUp
-	(*CMsgKeyDown)(nil),                                    // 3: CMsgKeyDown
-	(*CMsgKeyChar)(nil),                                    // 4: CMsgKeyChar
-	(*CMsgMouseDown)(nil),                                  // 5: CMsgMouseDown
-	(*CMsgMouseUp)(nil),                                    // 6: CMsgMouseUp
-	(*CMsgMouseDblClick)(nil),                              // 7: CMsgMouseDblClick
-	(*CMsgMouseWheel)(nil),                                 // 8: CMsgMouseWheel
-	(*CMsgMouseMove)(nil),                                  // 9: CMsgMouseMove
-	(*CMsgMouseLeave)(nil),                                 // 10: CMsgMouseLeave
-	(*CMsgBrowserCreate)(nil),                              // 11: CMsgBrowserCreate
-	(*CMsgBrowserCreateResponse)(nil),                      // 12: CMsgBrowserCreateResponse
-	(*CMsgBrowserRemove)(nil),                              // 13: CMsgBrowserRemove
-	(*CMsgSetLocalFileRequestMapping)(nil),                 // 14: CMsgSetLocalFileRequestMapping
-	(*CMsgBrowserErrorStrings)(nil),                        // 15: CMsgBrowserErrorStrings
-	(*CMsgBrowserSetName)(nil),                             // 16: CMsgBrowserSetName
-	(*CMsgBrowserSize)(nil),                                // 17: CMsgBrowserSize
-	(*CMsgBrowserSetMinSize)(nil),                          // 18: CMsgBrowserSetMinSize
-	(*CMsgBrowserPosition)(nil),                            // 19: CMsgBrowserPosition
-	(*CMsgBrowserResized)(nil),                             // 20: CMsgBrowserResized
-	(*CMsgPostURL)(nil),                                    // 21: CMsgPostURL
-	(*CMsgAddHeader)(nil),                                  // 22: CMsgAddHeader
-	(*CMsgStopLoad)(nil),                                   // 23: CMsgStopLoad
-	(*CMsgReload)(nil),                                     // 24: CMsgReload
-	(*CMsgGoForward)(nil),                                  // 25: CMsgGoForward
-	(*CMsgGoBack)(nil),                                     // 26: CMsgGoBack
-	(*CMsgWasHidden)(nil),                                  // 27: CMsgWasHidden
-	(*CMsgSetWindowVisibility)(nil),                        // 28: CMsgSetWindowVisibility
-	(*CMsgClearHistory)(nil),                               // 29: CMsgClearHistory
-	(*CMsgClearAllBrowsingData)(nil),                       // 30: CMsgClearAllBrowsingData
-	(*CMsgCopy)(nil),                                       // 31: CMsgCopy
-	(*CMsgPaste)(nil),                                      // 32: CMsgPaste
-	(*CMsgExecuteJavaScript)(nil),                          // 33: CMsgExecuteJavaScript
-	(*CMsgSetFocus)(nil),                                   // 34: CMsgSetFocus
-	(*CMsgHorizontalScrollBarSize)(nil),                    // 35: CMsgHorizontalScrollBarSize
-	(*CMsgHorizontalScrollBarSizeResponse)(nil),            // 36: CMsgHorizontalScrollBarSizeResponse
-	(*CMsgVerticalScrollBarSize)(nil),                      // 37: CMsgVerticalScrollBarSize
-	(*CMsgVerticalScrollBarSizeResponse)(nil),              // 38: CMsgVerticalScrollBarSizeResponse
-	(*CMsgFind)(nil),                                       // 39: CMsgFind
-	(*CMsgStopFind)(nil),                                   // 40: CMsgStopFind
-	(*CMsgSetHorizontalScroll)(nil),                        // 41: CMsgSetHorizontalScroll
-	(*CMsgSetVerticalScroll)(nil),                          // 42: CMsgSetVerticalScroll
-	(*CMsgSetZoomLevel)(nil),                               // 43: CMsgSetZoomLevel
-	(*CMsgViewSource)(nil),                                 // 44: CMsgViewSource
-	(*CMsgBrowserReady)(nil),                               // 45: CMsgBrowserReady
-	(*CMsgURLChanged)(nil),                                 // 46: CMsgURLChanged
-	(*CHistoryEntry)(nil),                                  // 47: CHistoryEntry
-	(*CMsgHistoryChanged)(nil),                             // 48: CMsgHistoryChanged
-	(*CMsgLoadError)(nil),                                  // 49: CMsgLoadError
-	(*CHTMLHeader)(nil),                                    // 50: CHTMLHeader
-	(*CHTMLPageSecurityInfo)(nil),                          // 51: CHTMLPageSecurityInfo
-	(*CMsgFinishedRequest)(nil),                            // 52: CMsgFinishedRequest
-	(*CMsgLoadedRequest)(nil),                              // 53: CMsgLoadedRequest
-	(*CMsgFavIconURLChanged)(nil),                          // 54: CMsgFavIconURLChanged
-	(*CMsgCtrlTabPressed)(nil),                             // 55: CMsgCtrlTabPressed
-	(*CMsgPageSecurity)(nil),                               // 56: CMsgPageSecurity
-	(*CMsgStartRequest)(nil),                               // 57: CMsgStartRequest
-	(*CMsgStartRequestResponse)(nil),                       // 58: CMsgStartRequestResponse
-	(*CMsgShowPopup)(nil),                                  // 59: CMsgShowPopup
-	(*CMsgHidePopup)(nil),                                  // 60: CMsgHidePopup
-	(*CMsgSizePopup)(nil),                                  // 61: CMsgSizePopup
-	(*CMsgOpenNewTab)(nil),                                 // 62: CMsgOpenNewTab
-	(*CMsgPopupHTMLWindow)(nil),                            // 63: CMsgPopupHTMLWindow
-	(*CMsgSetHTMLTitle)(nil),                               // 64: CMsgSetHTMLTitle
-	(*CMsgLoadingResource)(nil),                            // 65: CMsgLoadingResource
-	(*CMsgStatusText)(nil),                                 // 66: CMsgStatusText
-	(*CMsgSetCursor)(nil),                                  // 67: CMsgSetCursor
-	(*CMsgFileLoadDialog)(nil),                             // 68: CMsgFileLoadDialog
-	(*CMsgFileLoadDialogResponse)(nil),                     // 69: CMsgFileLoadDialogResponse
-	(*CMsgRequestProcessInfo)(nil),                         // 70: CMsgRequestProcessInfo
-	(*CMsgProcessInfoNotification)(nil),                    // 71: CMsgProcessInfoNotification
-	(*CMsgShowToolTip)(nil),                                // 72: CMsgShowToolTip
-	(*CMsgUpdateToolTip)(nil),                              // 73: CMsgUpdateToolTip
-	(*CMsgHideToolTip)(nil),                                // 74: CMsgHideToolTip
-	(*CMsgSearchResults)(nil),                              // 75: CMsgSearchResults
-	(*CMsgClose)(nil),                                      // 76: CMsgClose
-	(*CMsgSetSharedPaintBuffers)(nil),                      // 77: CMsgSetSharedPaintBuffers
-	(*CMsgAckSharedPaintBuffers)(nil),                      // 78: CMsgAckSharedPaintBuffers
-	(*CMsgNeedsPaint)(nil),                                 // 79: CMsgNeedsPaint
-	(*CMsgComboNeedsPaint)(nil),                            // 80: CMsgComboNeedsPaint
-	(*CMsgNeedsSharedTexturePaint)(nil),                    // 81: CMsgNeedsSharedTexturePaint
-	(*CMsgGetZoom)(nil),                                    // 82: CMsgGetZoom
-	(*CMsgGetZoomResponse)(nil),                            // 83: CMsgGetZoomResponse
-	(*CMsgLinkAtPosition)(nil),                             // 84: CMsgLinkAtPosition
-	(*CMsgLinkAtPositionResponse)(nil),                     // 85: CMsgLinkAtPositionResponse
-	(*CMsgScalePageToValue)(nil),                           // 86: CMsgScalePageToValue
-	(*CMsgSavePageToJPEG)(nil),                             // 87: CMsgSavePageToJPEG
-	(*CMsgSavePageToJPEGResponse)(nil),                     // 88: CMsgSavePageToJPEGResponse
-	(*CMsgJSAlert)(nil),                                    // 89: CMsgJSAlert
-	(*CMsgJSConfirm)(nil),                                  // 90: CMsgJSConfirm
-	(*CMsgJSDialogResponse)(nil),                           // 91: CMsgJSDialogResponse
-	(*CMsgCanGoBackAndForward)(nil),                        // 92: CMsgCanGoBackAndForward
-	(*CMsgOpenSteamURL)(nil),                               // 93: CMsgOpenSteamURL
-	(*CMsgSetCookie)(nil),                                  // 94: CMsgSetCookie
-	(*CMsgSetTargetFrameRate)(nil),                         // 95: CMsgSetTargetFrameRate
-	(*CMsgPauseRepaint)(nil),                               // 96: CMsgPauseRepaint
-	(*CMsgFullRepaint)(nil),                                // 97: CMsgFullRepaint
-	(*CMsgRequestFullScreen)(nil),                          // 98: CMsgRequestFullScreen
-	(*CMsgExitFullScreen)(nil),                             // 99: CMsgExitFullScreen
-	(*CMsgToggleFindInPageDialog)(nil),                     // 100: CMsgToggleFindInPageDialog
-	(*CMsgSetPIDShuttingDown)(nil),                         // 101: CMsgSetPIDShuttingDown
-	(*CMsgDisableBackgroundThrottling)(nil),                // 102: CMsgDisableBackgroundThrottling
-	(*CMsgAckPIDShuttingDown)(nil),                         // 103: CMsgAckPIDShuttingDown
-	(*CMsgGetCookiesForURL)(nil),                           // 104: CMsgGetCookiesForURL
-	(*CCookie)(nil),                                        // 105: CCookie
-	(*CMsgGetCookiesForURLResponse)(nil),                   // 106: CMsgGetCookiesForURLResponse
-	(*CMsgNodeHasFocus)(nil),                               // 107: CMsgNodeHasFocus
-	(*CMsgBuildID)(nil),                                    // 108: CMsgBuildID
-	(*CMsgOpenDevTools)(nil),                               // 109: CMsgOpenDevTools
-	(*CMsgCloseDevTools)(nil),                              // 110: CMsgCloseDevTools
-	(*CMsgUnlockH264)(nil),                                 // 111: CMsgUnlockH264
-	(*CMsgScreenInformationChanged)(nil),                   // 112: CMsgScreenInformationChanged
-	(*CMsgClearAllCookies)(nil),                            // 113: CMsgClearAllCookies
-	(*CMsgScreenDPI)(nil),                                  // 114: CMsgScreenDPI
-	(*CMsgAckScreenDPI)(nil),                               // 115: CMsgAckScreenDPI
-	(*CMsgAuthedSteamDomains)(nil),                         // 116: CMsgAuthedSteamDomains
-	(*CMsgSteamAuthNeeded)(nil),                            // 117: CMsgSteamAuthNeeded
-	(*CMsgSteamAuthCookiesSet)(nil),                        // 118: CMsgSteamAuthCookiesSet
-	(*CMsgJSRegisterMethod)(nil),                           // 119: CMsgJSRegisterMethod
-	(*CMsgJSValue)(nil),                                    // 120: CMsgJSValue
-	(*CMsgJSMethodCall)(nil),                               // 121: CMsgJSMethodCall
-	(*CMsgJSExecuteCallback)(nil),                          // 122: CMsgJSExecuteCallback
-	(*CMsgJSExecutePromise)(nil),                           // 123: CMsgJSExecutePromise
-	(*CMsgJSReleaseCallback)(nil),                          // 124: CMsgJSReleaseCallback
-	(*CMsgJSRaiseException)(nil),                           // 125: CMsgJSRaiseException
-	(*CMsgNotifyUserActivation)(nil),                       // 126: CMsgNotifyUserActivation
-	(*CMsgSetNetFakeLocalSystemState)(nil),                 // 127: CMsgSetNetFakeLocalSystemState
-	(*CMsgDraggableRegionsChanged)(nil),                    // 128: CMsgDraggableRegionsChanged
-	(*CMsgResizeGripChanged)(nil),                          // 129: CMsgResizeGripChanged
-	(*CMsgSetWindowPosition)(nil),                          // 130: CMsgSetWindowPosition
-	(*CMsgShowWindow)(nil),                                 // 131: CMsgShowWindow
-	(*CMsgHideWindow)(nil),                                 // 132: CMsgHideWindow
-	(*CMsgBringWindowToFront)(nil),                         // 133: CMsgBringWindowToFront
-	(*CMsgSetForegroundWindow)(nil),                        // 134: CMsgSetForegroundWindow
-	(*CMsgMaximizeRestoreWindow)(nil),                      // 135: CMsgMaximizeRestoreWindow
-	(*CMsgMinimizeWindow)(nil),                             // 136: CMsgMinimizeWindow
-	(*CMsgShowBrowserContextMenu)(nil),                     // 137: CMsgShowBrowserContextMenu
-	(*CMsgHandleContextMenuCommand)(nil),                   // 138: CMsgHandleContextMenuCommand
-	(*CMsgTouchGesture)(nil),                               // 139: CMsgTouchGesture
-	(*CMsgSetTouchGesturesToCancel)(nil),                   // 140: CMsgSetTouchGesturesToCancel
-	(*CMsgSetBlockInput)(nil),                              // 141: CMsgSetBlockInput
-	(*CMsgInputBlocked)(nil),                               // 142: CMsgInputBlocked
-	(*CMsgImeSetComposition)(nil),                          // 143: CMsgImeSetComposition
-	(*CMsgImeCommitText)(nil),                              // 144: CMsgImeCommitText
-	(*CMsgImeCancelComposition)(nil),                       // 145: CMsgImeCancelComposition
-	(*CMsgImeCompositionRangeChanged)(nil),                 // 146: CMsgImeCompositionRangeChanged
-	(*CMsgInspectElement)(nil),                             // 147: CMsgInspectElement
-	(*CMsgDisableF5)(nil),                                  // 148: CMsgDisableF5
-	(*CMsgStartDownload)(nil),                              // 149: CMsgStartDownload
-	(*CMsgSetWindowStackingOrder)(nil),                     // 150: CMsgSetWindowStackingOrder
-	(*CMsgBrowserViewPostMessageToParentRequest)(nil),      // 151: CMsgBrowserViewPostMessageToParentRequest
-	(*CMsgBlockedRequest)(nil),                             // 152: CMsgBlockedRequest
-	(*CMsgBrowserFocusChanged)(nil),                        // 153: CMsgBrowserFocusChanged
-	(*CMsgRenderProcessTerminated)(nil),                    // 154: CMsgRenderProcessTerminated
-	(*CMsgSetProtocolBlockList)(nil),                       // 155: CMsgSetProtocolBlockList
-	(*CMsgSetForceDeviceScaleFactors)(nil),                 // 156: CMsgSetForceDeviceScaleFactors
-	(*CMsgSetUIMode)(nil),                                  // 157: CMsgSetUIMode
-	(*CMsgSetSteamBetaName)(nil),                           // 158: CMsgSetSteamBetaName
-	(*CMsgSetSteamID)(nil),                                 // 159: CMsgSetSteamID
-	(*CMsgPopupCreated)(nil),                               // 160: CMsgPopupCreated
-	(*CMsgSetVRKeyboardVisibility)(nil),                    // 161: CMsgSetVRKeyboardVisibility
-	(*CMsgSetAccessibilitySettings)(nil),                   // 162: CMsgSetAccessibilitySettings
-	(*CMsgSetBrowserViewDomainRequestMapping)(nil),         // 163: CMsgSetBrowserViewDomainRequestMapping
-	(*CMsgSetLocalFileRequestMapping_AdditionalRoute)(nil), // 164: CMsgSetLocalFileRequestMapping.AdditionalRoute
-	(*CMsgFileLoadDialog_Filter)(nil),                      // 165: CMsgFileLoadDialog.Filter
-	(*CMsgJSValue_JSObjectProperty)(nil),                   // 166: CMsgJSValue.JSObjectProperty
-	(*CMsgDraggableRegionsChanged_DraggableRects)(nil),     // 167: CMsgDraggableRegionsChanged.DraggableRects
-	(*CMsgShowBrowserContextMenu_ContextCommand)(nil),      // 168: CMsgShowBrowserContextMenu.ContextCommand
-	(EBrowserGPUStatus)(0),                                 // 169: EBrowserGPUStatus
-	(EBrowserFeatureStatus)(0),                             // 170: EBrowserFeatureStatus
+	(EJSRegisterMethodType)(0),                              // 0: EJSRegisterMethodType
+	(EAccessibilityContrastMode)(0),                         // 1: EAccessibilityContrastMode
+	(*CMsgKeyUp)(nil),                                       // 2: CMsgKeyUp
+	(*CMsgKeyDown)(nil),                                     // 3: CMsgKeyDown
+	(*CMsgKeyChar)(nil),                                     // 4: CMsgKeyChar
+	(*CMsgMouseDown)(nil),                                   // 5: CMsgMouseDown
+	(*CMsgMouseUp)(nil),                                     // 6: CMsgMouseUp
+	(*CMsgMouseDblClick)(nil),                               // 7: CMsgMouseDblClick
+	(*CMsgMouseWheel)(nil),                                  // 8: CMsgMouseWheel
+	(*CMsgMouseMove)(nil),                                   // 9: CMsgMouseMove
+	(*CMsgMouseLeave)(nil),                                  // 10: CMsgMouseLeave
+	(*CMsgBrowserCreate)(nil),                               // 11: CMsgBrowserCreate
+	(*CMsgBrowserCreateResponse)(nil),                       // 12: CMsgBrowserCreateResponse
+	(*CMsgBrowserRemove)(nil),                               // 13: CMsgBrowserRemove
+	(*CMsgSetLocalFileRequestMapping)(nil),                  // 14: CMsgSetLocalFileRequestMapping
+	(*CMsgBrowserErrorStrings)(nil),                         // 15: CMsgBrowserErrorStrings
+	(*CMsgBrowserSetName)(nil),                              // 16: CMsgBrowserSetName
+	(*CMsgBrowserSize)(nil),                                 // 17: CMsgBrowserSize
+	(*CMsgBrowserSetMinSize)(nil),                           // 18: CMsgBrowserSetMinSize
+	(*CMsgBrowserPosition)(nil),                             // 19: CMsgBrowserPosition
+	(*CMsgBrowserResized)(nil),                              // 20: CMsgBrowserResized
+	(*CMsgPostURL)(nil),                                     // 21: CMsgPostURL
+	(*CMsgAddHeader)(nil),                                   // 22: CMsgAddHeader
+	(*CMsgStopLoad)(nil),                                    // 23: CMsgStopLoad
+	(*CMsgReload)(nil),                                      // 24: CMsgReload
+	(*CMsgGoForward)(nil),                                   // 25: CMsgGoForward
+	(*CMsgGoBack)(nil),                                      // 26: CMsgGoBack
+	(*CMsgWasHidden)(nil),                                   // 27: CMsgWasHidden
+	(*CMsgSetWindowVisibility)(nil),                         // 28: CMsgSetWindowVisibility
+	(*CMsgClearHistory)(nil),                                // 29: CMsgClearHistory
+	(*CMsgClearAllBrowsingData)(nil),                        // 30: CMsgClearAllBrowsingData
+	(*CMsgCopy)(nil),                                        // 31: CMsgCopy
+	(*CMsgPaste)(nil),                                       // 32: CMsgPaste
+	(*CMsgExecuteJavaScript)(nil),                           // 33: CMsgExecuteJavaScript
+	(*CMsgSetFocus)(nil),                                    // 34: CMsgSetFocus
+	(*CMsgHorizontalScrollBarSize)(nil),                     // 35: CMsgHorizontalScrollBarSize
+	(*CMsgHorizontalScrollBarSizeResponse)(nil),             // 36: CMsgHorizontalScrollBarSizeResponse
+	(*CMsgVerticalScrollBarSize)(nil),                       // 37: CMsgVerticalScrollBarSize
+	(*CMsgVerticalScrollBarSizeResponse)(nil),               // 38: CMsgVerticalScrollBarSizeResponse
+	(*CMsgFind)(nil),                                        // 39: CMsgFind
+	(*CMsgStopFind)(nil),                                    // 40: CMsgStopFind
+	(*CMsgSetHorizontalScroll)(nil),                         // 41: CMsgSetHorizontalScroll
+	(*CMsgSetVerticalScroll)(nil),                           // 42: CMsgSetVerticalScroll
+	(*CMsgSetZoomLevel)(nil),                                // 43: CMsgSetZoomLevel
+	(*CMsgViewSource)(nil),                                  // 44: CMsgViewSource
+	(*CMsgBrowserReady)(nil),                                // 45: CMsgBrowserReady
+	(*CMsgURLChanged)(nil),                                  // 46: CMsgURLChanged
+	(*CHistoryEntry)(nil),                                   // 47: CHistoryEntry
+	(*CMsgHistoryChanged)(nil),                              // 48: CMsgHistoryChanged
+	(*CMsgLoadError)(nil),                                   // 49: CMsgLoadError
+	(*CHTMLHeader)(nil),                                     // 50: CHTMLHeader
+	(*CHTMLPageSecurityInfo)(nil),                           // 51: CHTMLPageSecurityInfo
+	(*CMsgFinishedRequest)(nil),                             // 52: CMsgFinishedRequest
+	(*CMsgLoadedRequest)(nil),                               // 53: CMsgLoadedRequest
+	(*CMsgFavIconURLChanged)(nil),                           // 54: CMsgFavIconURLChanged
+	(*CMsgCtrlTabPressed)(nil),                              // 55: CMsgCtrlTabPressed
+	(*CMsgPageSecurity)(nil),                                // 56: CMsgPageSecurity
+	(*CMsgStartRequest)(nil),                                // 57: CMsgStartRequest
+	(*CMsgStartRequestResponse)(nil),                        // 58: CMsgStartRequestResponse
+	(*CMsgShowPopup)(nil),                                   // 59: CMsgShowPopup
+	(*CMsgHidePopup)(nil),                                   // 60: CMsgHidePopup
+	(*CMsgSizePopup)(nil),                                   // 61: CMsgSizePopup
+	(*CMsgOpenNewTab)(nil),                                  // 62: CMsgOpenNewTab
+	(*CMsgPopupHTMLWindow)(nil),                             // 63: CMsgPopupHTMLWindow
+	(*CMsgSetHTMLTitle)(nil),                                // 64: CMsgSetHTMLTitle
+	(*CMsgLoadingResource)(nil),                             // 65: CMsgLoadingResource
+	(*CMsgStatusText)(nil),                                  // 66: CMsgStatusText
+	(*CMsgSetCursor)(nil),                                   // 67: CMsgSetCursor
+	(*CMsgFileLoadDialog)(nil),                              // 68: CMsgFileLoadDialog
+	(*CMsgFileLoadDialogResponse)(nil),                      // 69: CMsgFileLoadDialogResponse
+	(*CMsgRequestProcessInfo)(nil),                          // 70: CMsgRequestProcessInfo
+	(*CMsgProcessInfoNotification)(nil),                     // 71: CMsgProcessInfoNotification
+	(*CMsgShowToolTip)(nil),                                 // 72: CMsgShowToolTip
+	(*CMsgUpdateToolTip)(nil),                               // 73: CMsgUpdateToolTip
+	(*CMsgHideToolTip)(nil),                                 // 74: CMsgHideToolTip
+	(*CMsgSearchResults)(nil),                               // 75: CMsgSearchResults
+	(*CMsgClose)(nil),                                       // 76: CMsgClose
+	(*CMsgSetSharedPaintBuffers)(nil),                       // 77: CMsgSetSharedPaintBuffers
+	(*CMsgAckSharedPaintBuffers)(nil),                       // 78: CMsgAckSharedPaintBuffers
+	(*CMsgNeedsPaint)(nil),                                  // 79: CMsgNeedsPaint
+	(*CMsgComboNeedsPaint)(nil),                             // 80: CMsgComboNeedsPaint
+	(*CMsgGetZoom)(nil),                                     // 81: CMsgGetZoom
+	(*CMsgGetZoomResponse)(nil),                             // 82: CMsgGetZoomResponse
+	(*CMsgLinkAtPosition)(nil),                              // 83: CMsgLinkAtPosition
+	(*CMsgLinkAtPositionResponse)(nil),                      // 84: CMsgLinkAtPositionResponse
+	(*CMsgScalePageToValue)(nil),                            // 85: CMsgScalePageToValue
+	(*CMsgSavePageToJPEG)(nil),                              // 86: CMsgSavePageToJPEG
+	(*CMsgSavePageToJPEGResponse)(nil),                      // 87: CMsgSavePageToJPEGResponse
+	(*CMsgJSAlert)(nil),                                     // 88: CMsgJSAlert
+	(*CMsgJSConfirm)(nil),                                   // 89: CMsgJSConfirm
+	(*CMsgJSDialogResponse)(nil),                            // 90: CMsgJSDialogResponse
+	(*CMsgCanGoBackAndForward)(nil),                         // 91: CMsgCanGoBackAndForward
+	(*CMsgOpenSteamURL)(nil),                                // 92: CMsgOpenSteamURL
+	(*CMsgSetCookie)(nil),                                   // 93: CMsgSetCookie
+	(*CMsgSetTargetFrameRate)(nil),                          // 94: CMsgSetTargetFrameRate
+	(*CMsgPauseRepaint)(nil),                                // 95: CMsgPauseRepaint
+	(*CMsgFullRepaint)(nil),                                 // 96: CMsgFullRepaint
+	(*CMsgRequestFullScreen)(nil),                           // 97: CMsgRequestFullScreen
+	(*CMsgExitFullScreen)(nil),                              // 98: CMsgExitFullScreen
+	(*CMsgToggleFindInPageDialog)(nil),                      // 99: CMsgToggleFindInPageDialog
+	(*CMsgSetPIDShuttingDown)(nil),                          // 100: CMsgSetPIDShuttingDown
+	(*CMsgDisableBackgroundThrottling)(nil),                 // 101: CMsgDisableBackgroundThrottling
+	(*CMsgAckPIDShuttingDown)(nil),                          // 102: CMsgAckPIDShuttingDown
+	(*CMsgGetCookiesForURL)(nil),                            // 103: CMsgGetCookiesForURL
+	(*CCookie)(nil),                                         // 104: CCookie
+	(*CMsgGetCookiesForURLResponse)(nil),                    // 105: CMsgGetCookiesForURLResponse
+	(*CMsgNodeHasFocus)(nil),                                // 106: CMsgNodeHasFocus
+	(*CMsgBuildID)(nil),                                     // 107: CMsgBuildID
+	(*CMsgOpenDevTools)(nil),                                // 108: CMsgOpenDevTools
+	(*CMsgCloseDevTools)(nil),                               // 109: CMsgCloseDevTools
+	(*CMsgUnlockH264)(nil),                                  // 110: CMsgUnlockH264
+	(*CMsgScreenInformationChanged)(nil),                    // 111: CMsgScreenInformationChanged
+	(*CMsgClearAllCookies)(nil),                             // 112: CMsgClearAllCookies
+	(*CMsgScreenDPI)(nil),                                   // 113: CMsgScreenDPI
+	(*CMsgSplashWindow)(nil),                                // 114: CMsgSplashWindow
+	(*CMsgAckScreenDPI)(nil),                                // 115: CMsgAckScreenDPI
+	(*CMsgAuthedSteamDomains)(nil),                          // 116: CMsgAuthedSteamDomains
+	(*CMsgSteamAuthNeeded)(nil),                             // 117: CMsgSteamAuthNeeded
+	(*CMsgSteamAuthCookiesSet)(nil),                         // 118: CMsgSteamAuthCookiesSet
+	(*CMsgJSRegisterMethod)(nil),                            // 119: CMsgJSRegisterMethod
+	(*CMsgJSValue)(nil),                                     // 120: CMsgJSValue
+	(*CMsgJSMethodCall)(nil),                                // 121: CMsgJSMethodCall
+	(*CMsgJSExecuteCallback)(nil),                           // 122: CMsgJSExecuteCallback
+	(*CMsgJSExecutePromise)(nil),                            // 123: CMsgJSExecutePromise
+	(*CMsgJSReleaseCallback)(nil),                           // 124: CMsgJSReleaseCallback
+	(*CMsgJSRaiseException)(nil),                            // 125: CMsgJSRaiseException
+	(*CMsgNotifyUserActivation)(nil),                        // 126: CMsgNotifyUserActivation
+	(*CMsgSetNetFakeLocalSystemState)(nil),                  // 127: CMsgSetNetFakeLocalSystemState
+	(*CMsgSetSimulatedLatency)(nil),                         // 128: CMsgSetSimulatedLatency
+	(*CMsgDraggableRegionsChanged)(nil),                     // 129: CMsgDraggableRegionsChanged
+	(*CMsgResizeGripChanged)(nil),                           // 130: CMsgResizeGripChanged
+	(*CMsgSetWindowPosition)(nil),                           // 131: CMsgSetWindowPosition
+	(*CMsgShowWindow)(nil),                                  // 132: CMsgShowWindow
+	(*CMsgHideWindow)(nil),                                  // 133: CMsgHideWindow
+	(*CMsgBringWindowToFront)(nil),                          // 134: CMsgBringWindowToFront
+	(*CMsgSetForegroundWindow)(nil),                         // 135: CMsgSetForegroundWindow
+	(*CMsgMaximizeRestoreWindow)(nil),                       // 136: CMsgMaximizeRestoreWindow
+	(*CMsgMinimizeWindow)(nil),                              // 137: CMsgMinimizeWindow
+	(*CMsgShowBrowserContextMenu)(nil),                      // 138: CMsgShowBrowserContextMenu
+	(*CMsgHandleContextMenuCommand)(nil),                    // 139: CMsgHandleContextMenuCommand
+	(*CMsgTouchGesture)(nil),                                // 140: CMsgTouchGesture
+	(*CMsgSetTouchGesturesToCancel)(nil),                    // 141: CMsgSetTouchGesturesToCancel
+	(*CMsgSetBlockInput)(nil),                               // 142: CMsgSetBlockInput
+	(*CMsgInputBlocked)(nil),                                // 143: CMsgInputBlocked
+	(*CMsgImeSetComposition)(nil),                           // 144: CMsgImeSetComposition
+	(*CMsgImeCommitText)(nil),                               // 145: CMsgImeCommitText
+	(*CMsgImeCancelComposition)(nil),                        // 146: CMsgImeCancelComposition
+	(*CMsgImeCompositionRangeChanged)(nil),                  // 147: CMsgImeCompositionRangeChanged
+	(*CMsgInspectElement)(nil),                              // 148: CMsgInspectElement
+	(*CMsgDisableF5)(nil),                                   // 149: CMsgDisableF5
+	(*CMsgStartDownload)(nil),                               // 150: CMsgStartDownload
+	(*CMsgStartTracing)(nil),                                // 151: CMsgStartTracing
+	(*CMsgSetWindowStackingOrder)(nil),                      // 152: CMsgSetWindowStackingOrder
+	(*CMsgBrowserViewPostMessageToParentRequest)(nil),       // 153: CMsgBrowserViewPostMessageToParentRequest
+	(*CMsgBlockedRequest)(nil),                              // 154: CMsgBlockedRequest
+	(*CMsgBrowserFocusChanged)(nil),                         // 155: CMsgBrowserFocusChanged
+	(*CMsgRenderProcessTerminated)(nil),                     // 156: CMsgRenderProcessTerminated
+	(*CMsgSetProtocolBlockList)(nil),                        // 157: CMsgSetProtocolBlockList
+	(*CMsgSetForceDeviceScaleFactors)(nil),                  // 158: CMsgSetForceDeviceScaleFactors
+	(*CMsgSetUIMode)(nil),                                   // 159: CMsgSetUIMode
+	(*CMsgSetSteamBetaName)(nil),                            // 160: CMsgSetSteamBetaName
+	(*CMsgSetSteamID)(nil),                                  // 161: CMsgSetSteamID
+	(*CMsgPopupCreated)(nil),                                // 162: CMsgPopupCreated
+	(*CMsgSetVRKeyboardVisibility)(nil),                     // 163: CMsgSetVRKeyboardVisibility
+	(*CMsgSetAccessibilitySettings)(nil),                    // 164: CMsgSetAccessibilitySettings
+	(*CMsgSetBrowserViewDomainRequestMapping)(nil),          // 165: CMsgSetBrowserViewDomainRequestMapping
+	(*CMsgSetLocalFileRequestMapping_ClientAssetRoute)(nil), // 166: CMsgSetLocalFileRequestMapping.ClientAssetRoute
+	(*CMsgSetLocalFileRequestMapping_AdditionalRoute)(nil),  // 167: CMsgSetLocalFileRequestMapping.AdditionalRoute
+	(*CMsgFileLoadDialog_Filter)(nil),                       // 168: CMsgFileLoadDialog.Filter
+	(*CMsgJSValue_JSObjectProperty)(nil),                    // 169: CMsgJSValue.JSObjectProperty
+	(*CMsgDraggableRegionsChanged_DraggableRects)(nil),      // 170: CMsgDraggableRegionsChanged.DraggableRects
+	(*CMsgShowBrowserContextMenu_ContextCommand)(nil),       // 171: CMsgShowBrowserContextMenu.ContextCommand
+	(EBrowserGPUStatus)(0),                                  // 172: EBrowserGPUStatus
+	(EBrowserFeatureStatus)(0),                              // 173: EBrowserFeatureStatus
 }
 var file_htmlmessages_proto_depIdxs = []int32{
-	164, // 0: CMsgSetLocalFileRequestMapping.routes:type_name -> CMsgSetLocalFileRequestMapping.AdditionalRoute
+	167, // 0: CMsgSetLocalFileRequestMapping.routes:type_name -> CMsgSetLocalFileRequestMapping.AdditionalRoute
 	47,  // 1: CMsgHistoryChanged.entries:type_name -> CHistoryEntry
 	50,  // 2: CMsgLoadedRequest.headers:type_name -> CHTMLHeader
 	51,  // 3: CMsgPageSecurity.security_info:type_name -> CHTMLPageSecurityInfo
-	165, // 4: CMsgFileLoadDialog.filters:type_name -> CMsgFileLoadDialog.Filter
-	169, // 5: CMsgProcessInfoNotification.gpu_status:type_name -> EBrowserGPUStatus
-	170, // 6: CMsgProcessInfoNotification.canvas_2d:type_name -> EBrowserFeatureStatus
-	170, // 7: CMsgProcessInfoNotification.canvas_oop_rasterization:type_name -> EBrowserFeatureStatus
-	170, // 8: CMsgProcessInfoNotification.direct_rendering_display_compositor:type_name -> EBrowserFeatureStatus
-	170, // 9: CMsgProcessInfoNotification.gpu_compositing:type_name -> EBrowserFeatureStatus
-	170, // 10: CMsgProcessInfoNotification.multiple_raster_threads:type_name -> EBrowserFeatureStatus
-	170, // 11: CMsgProcessInfoNotification.opengl:type_name -> EBrowserFeatureStatus
-	170, // 12: CMsgProcessInfoNotification.rasterization:type_name -> EBrowserFeatureStatus
-	170, // 13: CMsgProcessInfoNotification.raw_draw:type_name -> EBrowserFeatureStatus
-	170, // 14: CMsgProcessInfoNotification.skia_graphite:type_name -> EBrowserFeatureStatus
-	170, // 15: CMsgProcessInfoNotification.video_decode:type_name -> EBrowserFeatureStatus
-	170, // 16: CMsgProcessInfoNotification.video_encode:type_name -> EBrowserFeatureStatus
-	170, // 17: CMsgProcessInfoNotification.vulkan:type_name -> EBrowserFeatureStatus
-	170, // 18: CMsgProcessInfoNotification.webgl:type_name -> EBrowserFeatureStatus
-	170, // 19: CMsgProcessInfoNotification.webgl2:type_name -> EBrowserFeatureStatus
-	170, // 20: CMsgProcessInfoNotification.webgpu:type_name -> EBrowserFeatureStatus
-	170, // 21: CMsgProcessInfoNotification.webnn:type_name -> EBrowserFeatureStatus
-	105, // 22: CMsgGetCookiesForURLResponse.cookies:type_name -> CCookie
+	168, // 4: CMsgFileLoadDialog.filters:type_name -> CMsgFileLoadDialog.Filter
+	172, // 5: CMsgProcessInfoNotification.gpu_status:type_name -> EBrowserGPUStatus
+	173, // 6: CMsgProcessInfoNotification.canvas_2d:type_name -> EBrowserFeatureStatus
+	173, // 7: CMsgProcessInfoNotification.canvas_oop_rasterization:type_name -> EBrowserFeatureStatus
+	173, // 8: CMsgProcessInfoNotification.direct_rendering_display_compositor:type_name -> EBrowserFeatureStatus
+	173, // 9: CMsgProcessInfoNotification.gpu_compositing:type_name -> EBrowserFeatureStatus
+	173, // 10: CMsgProcessInfoNotification.multiple_raster_threads:type_name -> EBrowserFeatureStatus
+	173, // 11: CMsgProcessInfoNotification.opengl:type_name -> EBrowserFeatureStatus
+	173, // 12: CMsgProcessInfoNotification.rasterization:type_name -> EBrowserFeatureStatus
+	173, // 13: CMsgProcessInfoNotification.raw_draw:type_name -> EBrowserFeatureStatus
+	173, // 14: CMsgProcessInfoNotification.skia_graphite:type_name -> EBrowserFeatureStatus
+	173, // 15: CMsgProcessInfoNotification.video_decode:type_name -> EBrowserFeatureStatus
+	173, // 16: CMsgProcessInfoNotification.video_encode:type_name -> EBrowserFeatureStatus
+	173, // 17: CMsgProcessInfoNotification.vulkan:type_name -> EBrowserFeatureStatus
+	173, // 18: CMsgProcessInfoNotification.webgl:type_name -> EBrowserFeatureStatus
+	173, // 19: CMsgProcessInfoNotification.webgl2:type_name -> EBrowserFeatureStatus
+	173, // 20: CMsgProcessInfoNotification.webgpu:type_name -> EBrowserFeatureStatus
+	173, // 21: CMsgProcessInfoNotification.webnn:type_name -> EBrowserFeatureStatus
+	104, // 22: CMsgGetCookiesForURLResponse.cookies:type_name -> CCookie
 	0,   // 23: CMsgJSRegisterMethod.method_type:type_name -> EJSRegisterMethodType
 	120, // 24: CMsgJSValue.array_values:type_name -> CMsgJSValue
-	166, // 25: CMsgJSValue.object_properties:type_name -> CMsgJSValue.JSObjectProperty
+	169, // 25: CMsgJSValue.object_properties:type_name -> CMsgJSValue.JSObjectProperty
 	120, // 26: CMsgJSMethodCall.arguments:type_name -> CMsgJSValue
 	120, // 27: CMsgJSExecuteCallback.arguments:type_name -> CMsgJSValue
 	120, // 28: CMsgJSExecutePromise.argument:type_name -> CMsgJSValue
-	167, // 29: CMsgDraggableRegionsChanged.rects:type_name -> CMsgDraggableRegionsChanged.DraggableRects
-	168, // 30: CMsgShowBrowserContextMenu.custom_commands:type_name -> CMsgShowBrowserContextMenu.ContextCommand
+	170, // 29: CMsgDraggableRegionsChanged.rects:type_name -> CMsgDraggableRegionsChanged.DraggableRects
+	171, // 30: CMsgShowBrowserContextMenu.custom_commands:type_name -> CMsgShowBrowserContextMenu.ContextCommand
 	1,   // 31: CMsgSetAccessibilitySettings.preferred_contrast:type_name -> EAccessibilityContrastMode
-	120, // 32: CMsgJSValue.JSObjectProperty.value:type_name -> CMsgJSValue
-	33,  // [33:33] is the sub-list for method output_type
-	33,  // [33:33] is the sub-list for method input_type
-	33,  // [33:33] is the sub-list for extension type_name
-	33,  // [33:33] is the sub-list for extension extendee
-	0,   // [0:33] is the sub-list for field type_name
+	166, // 32: CMsgSetLocalFileRequestMapping.AdditionalRoute.client_asset:type_name -> CMsgSetLocalFileRequestMapping.ClientAssetRoute
+	120, // 33: CMsgJSValue.JSObjectProperty.value:type_name -> CMsgJSValue
+	34,  // [34:34] is the sub-list for method output_type
+	34,  // [34:34] is the sub-list for method input_type
+	34,  // [34:34] is the sub-list for extension type_name
+	34,  // [34:34] is the sub-list for extension extendee
+	0,   // [0:34] is the sub-list for field type_name
 }
 
 func init() { file_htmlmessages_proto_init() }
@@ -11363,7 +11516,7 @@ func file_htmlmessages_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_htmlmessages_proto_rawDesc), len(file_htmlmessages_proto_rawDesc)),
 			NumEnums:      2,
-			NumMessages:   167,
+			NumMessages:   170,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

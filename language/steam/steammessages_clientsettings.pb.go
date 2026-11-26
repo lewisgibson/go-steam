@@ -708,6 +708,7 @@ type CMsgClientSettings struct {
 	EnableGamescopeComposer               *bool                     `protobuf:"varint,5010,opt,name=enable_gamescope_composer,json=enableGamescopeComposer" json:"enable_gamescope_composer,omitempty"`
 	EnableGamescopeComposerVr             *bool                     `protobuf:"varint,5011,opt,name=enable_gamescope_composer_vr,json=enableGamescopeComposerVr" json:"enable_gamescope_composer_vr,omitempty"`
 	ShowSwitchToDesktopAtLogin            *bool                     `protobuf:"varint,5012,opt,name=show_switch_to_desktop_at_login,json=showSwitchToDesktopAtLogin" json:"show_switch_to_desktop_at_login,omitempty"`
+	EnableSteamrtarm64Client              *bool                     `protobuf:"varint,5013,opt,name=enable_steamrtarm64_client,json=enableSteamrtarm64Client" json:"enable_steamrtarm64_client,omitempty"`
 	DisableAllToasts                      *bool                     `protobuf:"varint,6000,opt,name=disable_all_toasts,json=disableAllToasts" json:"disable_all_toasts,omitempty"`
 	DisableToastsInGame                   *bool                     `protobuf:"varint,6001,opt,name=disable_toasts_in_game,json=disableToastsInGame" json:"disable_toasts_in_game,omitempty"`
 	PlaySoundOnToast                      *bool                     `protobuf:"varint,6002,opt,name=play_sound_on_toast,json=playSoundOnToast" json:"play_sound_on_toast,omitempty"`
@@ -902,6 +903,7 @@ type CMsgClientSettings struct {
 	SkipSteamframePairingDialog           *bool                     `protobuf:"varint,27010,opt,name=skip_steamframe_pairing_dialog,json=skipSteamframePairingDialog" json:"skip_steamframe_pairing_dialog,omitempty"`
 	SkipSteamframeTroubleshootingDialog   *bool                     `protobuf:"varint,27011,opt,name=skip_steamframe_troubleshooting_dialog,json=skipSteamframeTroubleshootingDialog" json:"skip_steamframe_troubleshooting_dialog,omitempty"`
 	SkipSteamframeAirplaneDialog          *bool                     `protobuf:"varint,27012,opt,name=skip_steamframe_airplane_dialog,json=skipSteamframeAirplaneDialog" json:"skip_steamframe_airplane_dialog,omitempty"`
+	RemotePlayWifiApPlanChannelOverride   *string                   `protobuf:"bytes,27013,opt,name=remote_play_wifi_ap_plan_channel_override,json=remotePlayWifiApPlanChannelOverride" json:"remote_play_wifi_ap_plan_channel_override,omitempty"`
 	OobeCompleted                         *bool                     `protobuf:"varint,28001,opt,name=oobe_completed,json=oobeCompleted" json:"oobe_completed,omitempty"`
 	OobeTestModeEnabled                   *bool                     `protobuf:"varint,28002,opt,name=oobe_test_mode_enabled,json=oobeTestModeEnabled" json:"oobe_test_mode_enabled,omitempty"`
 	ForceOobe                             *bool                     `protobuf:"varint,28003,opt,name=force_oobe,json=forceOobe" json:"force_oobe,omitempty"`
@@ -1434,6 +1436,13 @@ func (x *CMsgClientSettings) GetEnableGamescopeComposerVr() bool {
 func (x *CMsgClientSettings) GetShowSwitchToDesktopAtLogin() bool {
 	if x != nil && x.ShowSwitchToDesktopAtLogin != nil {
 		return *x.ShowSwitchToDesktopAtLogin
+	}
+	return false
+}
+
+func (x *CMsgClientSettings) GetEnableSteamrtarm64Client() bool {
+	if x != nil && x.EnableSteamrtarm64Client != nil {
+		return *x.EnableSteamrtarm64Client
 	}
 	return false
 }
@@ -2796,6 +2805,13 @@ func (x *CMsgClientSettings) GetSkipSteamframeAirplaneDialog() bool {
 	return false
 }
 
+func (x *CMsgClientSettings) GetRemotePlayWifiApPlanChannelOverride() string {
+	if x != nil && x.RemotePlayWifiApPlanChannelOverride != nil {
+		return *x.RemotePlayWifiApPlanChannelOverride
+	}
+	return ""
+}
+
 func (x *CMsgClientSettings) GetOobeCompleted() bool {
 	if x != nil && x.OobeCompleted != nil {
 		return *x.OobeCompleted
@@ -3006,7 +3022,7 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"valueFloat\x12#\n" +
 	"\fvalue_string\x18\a \x01(\tH\x00R\vvalueString\x120\n" +
 	"\fvalue_hotkey\x18\b \x01(\v2\v.CMsgHotkeyH\x00R\vvalueHotkeyB\a\n" +
-	"\x05value\"\xf1\xdf\x01\n" +
+	"\x05value\"\xc5\xe1\x01\n" +
 	"\x12CMsgClientSettings\x12b\n" +
 	"\x15no_save_personal_info\x18\x01 \x01(\bB/\x80\xa6\x1d\x01\x8a\xa6\x1d'Software\\Valve\\Steam\\NoSavePersonalInfoR\x12noSavePersonalInfo\x12G\n" +
 	"\x11preferred_monitor\x18\x05 \x01(\tB\x1a\x80\xa6\x1d\x01\x8a\xa6\x1d\x12BigPicture/MonitorR\x10preferredMonitor\x12\x8e\x01\n" +
@@ -3079,7 +3095,8 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"\x10enable_ui_sounds\x18\x91' \x01(\bB!\x80\xa6\x1d\x03\x8a\xa6\x1d\x15system\\EnableUISounds\x98\xa6\x1d\x01R\x0eenableUiSounds\x12\x87\x01\n" +
 	"\x19enable_gamescope_composer\x18\x92' \x01(\bBJ\x80\xa6\x1d\x04\x8a\xa6\x1d>HKEY_CURRENT_USER\\Software\\Valve\\Steam\\EnableGamescopeComposer\x98\xa6\x1d\x00R\x17enableGamescopeComposer\x12\x8e\x01\n" +
 	"\x1cenable_gamescope_composer_vr\x18\x93' \x01(\bBL\x80\xa6\x1d\x04\x8a\xa6\x1d@HKEY_CURRENT_USER\\Software\\Valve\\Steam\\EnableGamescopeComposerVR\x98\xa6\x1d\x01R\x19enableGamescopeComposerVr\x12s\n" +
-	"\x1fshow_switch_to_desktop_at_login\x18\x94' \x01(\bB-\x80\xa6\x1d\x01\x8a\xa6\x1d!system\\ShowSwitchToDesktopAtLogin\x90\xa6\x1d\x01R\x1ashowSwitchToDesktopAtLogin\x12G\n" +
+	"\x1fshow_switch_to_desktop_at_login\x18\x94' \x01(\bB-\x80\xa6\x1d\x01\x8a\xa6\x1d!system\\ShowSwitchToDesktopAtLogin\x90\xa6\x1d\x01R\x1ashowSwitchToDesktopAtLogin\x12C\n" +
+	"\x1aenable_steamrtarm64_client\x18\x95' \x01(\bB\x04\x80\xa6\x1d\x05R\x18enableSteamrtarm64Client\x12G\n" +
 	"\x12disable_all_toasts\x18\xf0. \x01(\bB\x18\x80\xa6\x1d\x02\x8a\xa6\x1d\x10DisableAllToastsR\x10disableAllToasts\x12Q\n" +
 	"\x16disable_toasts_in_game\x18\xf1. \x01(\bB\x1b\x80\xa6\x1d\x02\x8a\xa6\x1d\x13DisableToastsInGameR\x13disableToastsInGame\x12L\n" +
 	"\x13play_sound_on_toast\x18\xf2. \x01(\bB\x1c\x80\xa6\x1d\x02\x8a\xa6\x1d\x10PlaySoundOnToast\x98\xa6\x1d\x01R\x10playSoundOnToast\x12M\n" +
@@ -3274,7 +3291,8 @@ const file_steammessages_clientsettings_proto_rawDesc = "" +
 	"\x1fremote_play_wifi_ap_paired_ssid\x18\x81\xd3\x01 \x01(\tB)\x80\xa6\x1d\x01\x8a\xa6\x1d\x1dstreaming_v2\\WifiAPPairedSSID\xba\xa6\x1d\x00R\x1aremotePlayWifiApPairedSsid\x12|\n" +
 	"\x1eskip_steamframe_pairing_dialog\x18\x82\xd3\x01 \x01(\bB5\x80\xa6\x1d\x03\x8a\xa6\x1d-system\\SteamFrameWirelessAdapterPairingDialogR\x1bskipSteamframePairingDialog\x12\x98\x01\n" +
 	"&skip_steamframe_troubleshooting_dialog\x18\x83\xd3\x01 \x01(\bBA\x80\xa6\x1d\x03\x8a\xa6\x1d9system\\SteamFrameWirelessAdapterTroubleshootingDialogSkipR#skipSteamframeTroubleshootingDialog\x12\x83\x01\n" +
-	"\x1fskip_steamframe_airplane_dialog\x18\x84\xd3\x01 \x01(\bB:\x80\xa6\x1d\x03\x8a\xa6\x1d2system\\SteamFrameWirelessAdapterAirplaneDialogSkipR\x1cskipSteamframeAirplaneDialog\x12\x85\x01\n" +
+	"\x1fskip_steamframe_airplane_dialog\x18\x84\xd3\x01 \x01(\bB:\x80\xa6\x1d\x03\x8a\xa6\x1d2system\\SteamFrameWirelessAdapterAirplaneDialogSkipR\x1cskipSteamframeAirplaneDialog\x12\x8c\x01\n" +
+	")remote_play_wifi_ap_plan_channel_override\x18\x85\xd3\x01 \x01(\tB2\x80\xa6\x1d\x01\x8a\xa6\x1d&streaming_v2\\WifiAPPlanChannelOverride\xba\xa6\x1d\x00R#remotePlayWifiApPlanChannelOverride\x12\x85\x01\n" +
 	"\x0eoobe_completed\x18\xe1\xda\x01 \x01(\bB\\\x80\xa6\x1d\x05\x90\xa6\x1d\x01ʦ\x1dPTrue if OOBE stage 1 has completed or we're on a platform where we don't do OOBER\roobeCompleted\x12\xba\x01\n" +
 	"\x16oobe_test_mode_enabled\x18\xe2\xda\x01 \x01(\bB\x82\x01\x80\xa6\x1d\x05\x90\xa6\x1d\x01\xc0\xa6\x1d\x01ʦ\x1drOOBE test mode is enabled either by passing -testoobe on the command line or setting the force_oobe client settingR\x13oobeTestModeEnabled\x12]\n" +
 	"\n" +
