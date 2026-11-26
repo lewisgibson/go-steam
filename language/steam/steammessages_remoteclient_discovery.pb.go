@@ -133,19 +133,21 @@ const (
 	ERemoteClientService_k_ERemoteClientServiceContentServer           ERemoteClientService = 16
 	ERemoteClientService_k_ERemoteClientServiceManageDownloads         ERemoteClientService = 32
 	ERemoteClientService_k_ERemoteClientServiceRemoteInstallWithoutPin ERemoteClientService = 64
+	ERemoteClientService_k_ERemoteClientServiceMultipleConnections     ERemoteClientService = 128
 )
 
 // Enum value maps for ERemoteClientService.
 var (
 	ERemoteClientService_name = map[int32]string{
-		0:  "k_ERemoteClientServiceNone",
-		1:  "k_ERemoteClientServiceRemoteControl",
-		2:  "k_ERemoteClientServiceGameStreaming",
-		4:  "k_ERemoteClientServiceSiteLicense",
-		8:  "k_ERemoteClientServiceContentCache",
-		16: "k_ERemoteClientServiceContentServer",
-		32: "k_ERemoteClientServiceManageDownloads",
-		64: "k_ERemoteClientServiceRemoteInstallWithoutPin",
+		0:   "k_ERemoteClientServiceNone",
+		1:   "k_ERemoteClientServiceRemoteControl",
+		2:   "k_ERemoteClientServiceGameStreaming",
+		4:   "k_ERemoteClientServiceSiteLicense",
+		8:   "k_ERemoteClientServiceContentCache",
+		16:  "k_ERemoteClientServiceContentServer",
+		32:  "k_ERemoteClientServiceManageDownloads",
+		64:  "k_ERemoteClientServiceRemoteInstallWithoutPin",
+		128: "k_ERemoteClientServiceMultipleConnections",
 	}
 	ERemoteClientService_value = map[string]int32{
 		"k_ERemoteClientServiceNone":                    0,
@@ -156,6 +158,7 @@ var (
 		"k_ERemoteClientServiceContentServer":           16,
 		"k_ERemoteClientServiceManageDownloads":         32,
 		"k_ERemoteClientServiceRemoteInstallWithoutPin": 64,
+		"k_ERemoteClientServiceMultipleConnections":     128,
 	}
 )
 
@@ -2484,7 +2487,7 @@ const file_steammessages_remoteclient_discovery_proto_rawDesc = "" +
 	" k_ERemoteDeviceStreamingProgress\x10\r\x12)\n" +
 	"%k_ERemoteDeviceAuthorizationConfirmed\x10\x0e\x12+\n" +
 	"'k_ERemoteClientBroadcastMsgPairingState\x10\x0f\x121\n" +
-	"-k_ERemoteClientBroadcastMsgPairingExclusivity\x10\x10*\xde\x02\n" +
+	"-k_ERemoteClientBroadcastMsgPairingExclusivity\x10\x10*\x8e\x03\n" +
 	"\x14ERemoteClientService\x12\x1e\n" +
 	"\x1ak_ERemoteClientServiceNone\x10\x00\x12'\n" +
 	"#k_ERemoteClientServiceRemoteControl\x10\x01\x12'\n" +
@@ -2493,7 +2496,8 @@ const file_steammessages_remoteclient_discovery_proto_rawDesc = "" +
 	"\"k_ERemoteClientServiceContentCache\x10\b\x12'\n" +
 	"#k_ERemoteClientServiceContentServer\x10\x10\x12)\n" +
 	"%k_ERemoteClientServiceManageDownloads\x10 \x121\n" +
-	"-k_ERemoteClientServiceRemoteInstallWithoutPin\x10@*\x8d\x01\n" +
+	"-k_ERemoteClientServiceRemoteInstallWithoutPin\x10@\x12.\n" +
+	")k_ERemoteClientServiceMultipleConnections\x10\x80\x01*\x8d\x01\n" +
 	"\vEVRLinkCaps\x12\x18\n" +
 	"\x14k_EVRLinkCapsUnknown\x10\x00\x12\x1a\n" +
 	"\x16k_EVRLinkCapsAvailable\x10\x01\x12\x1e\n" +

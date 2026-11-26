@@ -139,6 +139,80 @@ func (ETwoFactorUsageType) EnumDescriptor() ([]byte, []int) {
 	return file_steammessages_twofactor_steamclient_proto_rawDescGZIP(), []int{1}
 }
 
+type ETwoFactorNextStep int32
+
+const (
+	ETwoFactorNextStep_k_ETwoFactorNextStep_Invalid           ETwoFactorNextStep = 0
+	ETwoFactorNextStep_k_ETwoFactorNextStep_None              ETwoFactorNextStep = 1
+	ETwoFactorNextStep_k_ETwoFactorNextStep_EnterSMSCode      ETwoFactorNextStep = 2
+	ETwoFactorNextStep_k_ETwoFactorNextStep_EnterEmailCode    ETwoFactorNextStep = 3
+	ETwoFactorNextStep_k_ETwoFactorNextStep_ConfirmPhoneEmail ETwoFactorNextStep = 4
+	ETwoFactorNextStep_k_ETwoFactorNextStep_Retry             ETwoFactorNextStep = 5
+	ETwoFactorNextStep_k_ETwoFactorNextStep_StartOver         ETwoFactorNextStep = 6
+	ETwoFactorNextStep_k_ETwoFactorNextStep_Blocked           ETwoFactorNextStep = 7
+)
+
+// Enum value maps for ETwoFactorNextStep.
+var (
+	ETwoFactorNextStep_name = map[int32]string{
+		0: "k_ETwoFactorNextStep_Invalid",
+		1: "k_ETwoFactorNextStep_None",
+		2: "k_ETwoFactorNextStep_EnterSMSCode",
+		3: "k_ETwoFactorNextStep_EnterEmailCode",
+		4: "k_ETwoFactorNextStep_ConfirmPhoneEmail",
+		5: "k_ETwoFactorNextStep_Retry",
+		6: "k_ETwoFactorNextStep_StartOver",
+		7: "k_ETwoFactorNextStep_Blocked",
+	}
+	ETwoFactorNextStep_value = map[string]int32{
+		"k_ETwoFactorNextStep_Invalid":           0,
+		"k_ETwoFactorNextStep_None":              1,
+		"k_ETwoFactorNextStep_EnterSMSCode":      2,
+		"k_ETwoFactorNextStep_EnterEmailCode":    3,
+		"k_ETwoFactorNextStep_ConfirmPhoneEmail": 4,
+		"k_ETwoFactorNextStep_Retry":             5,
+		"k_ETwoFactorNextStep_StartOver":         6,
+		"k_ETwoFactorNextStep_Blocked":           7,
+	}
+)
+
+func (x ETwoFactorNextStep) Enum() *ETwoFactorNextStep {
+	p := new(ETwoFactorNextStep)
+	*p = x
+	return p
+}
+
+func (x ETwoFactorNextStep) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ETwoFactorNextStep) Descriptor() protoreflect.EnumDescriptor {
+	return file_steammessages_twofactor_steamclient_proto_enumTypes[2].Descriptor()
+}
+
+func (ETwoFactorNextStep) Type() protoreflect.EnumType {
+	return &file_steammessages_twofactor_steamclient_proto_enumTypes[2]
+}
+
+func (x ETwoFactorNextStep) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *ETwoFactorNextStep) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = ETwoFactorNextStep(num)
+	return nil
+}
+
+// Deprecated: Use ETwoFactorNextStep.Descriptor instead.
+func (ETwoFactorNextStep) EnumDescriptor() ([]byte, []int) {
+	return file_steammessages_twofactor_steamclient_proto_rawDescGZIP(), []int{2}
+}
+
 type CTwoFactor_Time_Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	SenderTime    *uint64                `protobuf:"varint,1,opt,name=sender_time,json=senderTime" json:"sender_time,omitempty"`
@@ -696,9 +770,15 @@ type CTwoFactor_AddAuthenticator_Response struct {
 	Status          *int32                 `protobuf:"varint,10,opt,name=status" json:"status,omitempty"`
 	PhoneNumberHint *string                `protobuf:"bytes,11,opt,name=phone_number_hint,json=phoneNumberHint" json:"phone_number_hint,omitempty"`
 	ConfirmType     *int32                 `protobuf:"varint,12,opt,name=confirm_type,json=confirmType" json:"confirm_type,omitempty"`
+	NextStep        *ETwoFactorNextStep    `protobuf:"varint,13,opt,name=next_step,json=nextStep,enum=ETwoFactorNextStep,def=0" json:"next_step,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
+
+// Default values for CTwoFactor_AddAuthenticator_Response fields.
+const (
+	Default_CTwoFactor_AddAuthenticator_Response_NextStep = ETwoFactorNextStep_k_ETwoFactorNextStep_Invalid
+)
 
 func (x *CTwoFactor_AddAuthenticator_Response) Reset() {
 	*x = CTwoFactor_AddAuthenticator_Response{}
@@ -814,6 +894,13 @@ func (x *CTwoFactor_AddAuthenticator_Response) GetConfirmType() int32 {
 	return 0
 }
 
+func (x *CTwoFactor_AddAuthenticator_Response) GetNextStep() ETwoFactorNextStep {
+	if x != nil && x.NextStep != nil {
+		return *x.NextStep
+	}
+	return Default_CTwoFactor_AddAuthenticator_Response_NextStep
+}
+
 type CTwoFactor_FinalizeAddAuthenticator_Request struct {
 	state             protoimpl.MessageState `protogen:"open.v1"`
 	Steamid           *uint64                `protobuf:"fixed64,1,opt,name=steamid" json:"steamid,omitempty"`
@@ -903,9 +990,15 @@ type CTwoFactor_FinalizeAddAuthenticator_Response struct {
 	Success       *bool                  `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	ServerTime    *uint64                `protobuf:"varint,3,opt,name=server_time,json=serverTime" json:"server_time,omitempty"`
 	Status        *int32                 `protobuf:"varint,4,opt,name=status" json:"status,omitempty"`
+	NextStep      *ETwoFactorNextStep    `protobuf:"varint,5,opt,name=next_step,json=nextStep,enum=ETwoFactorNextStep,def=0" json:"next_step,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
+
+// Default values for CTwoFactor_FinalizeAddAuthenticator_Response fields.
+const (
+	Default_CTwoFactor_FinalizeAddAuthenticator_Response_NextStep = ETwoFactorNextStep_k_ETwoFactorNextStep_Invalid
+)
 
 func (x *CTwoFactor_FinalizeAddAuthenticator_Response) Reset() {
 	*x = CTwoFactor_FinalizeAddAuthenticator_Response{}
@@ -956,6 +1049,13 @@ func (x *CTwoFactor_FinalizeAddAuthenticator_Response) GetStatus() int32 {
 		return *x.Status
 	}
 	return 0
+}
+
+func (x *CTwoFactor_FinalizeAddAuthenticator_Response) GetNextStep() ETwoFactorNextStep {
+	if x != nil && x.NextStep != nil {
+		return *x.NextStep
+	}
+	return Default_CTwoFactor_FinalizeAddAuthenticator_Response_NextStep
 }
 
 type CTwoFactor_UpdateTokenVersion_Request struct {
@@ -1267,6 +1367,7 @@ type CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request struct {
 	SmsCode          *string                `protobuf:"bytes,1,opt,name=sms_code,json=smsCode" json:"sms_code,omitempty"`
 	GenerateNewToken *bool                  `protobuf:"varint,2,opt,name=generate_new_token,json=generateNewToken" json:"generate_new_token,omitempty"`
 	Version          *uint32                `protobuf:"varint,3,opt,name=version,def=1" json:"version,omitempty"`
+	CallerVersion    *uint32                `protobuf:"varint,4,opt,name=caller_version,json=callerVersion" json:"caller_version,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -1325,6 +1426,13 @@ func (x *CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request) GetVersion(
 		return *x.Version
 	}
 	return Default_CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request_Version
+}
+
+func (x *CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request) GetCallerVersion() uint32 {
+	if x != nil && x.CallerVersion != nil {
+		return *x.CallerVersion
+	}
+	return 0
 }
 
 type CRemoveAuthenticatorViaChallengeContinue_Replacement_Token struct {
@@ -1564,7 +1672,7 @@ const file_steammessages_twofactor_steamclient_proto_rawDesc = "" +
 	"\x12authenticator_type\x18\x04 \x01(\rR\x11authenticatorType\x12+\n" +
 	"\x11device_identifier\x18\x05 \x01(\tR\x10deviceIdentifier\x12!\n" +
 	"\fhttp_headers\x18\a \x03(\tR\vhttpHeaders\x12\x1b\n" +
-	"\aversion\x18\b \x01(\r:\x011R\aversion\"\xb7\x03\n" +
+	"\aversion\x18\b \x01(\r:\x011R\aversion\"\x87\x04\n" +
 	"$CTwoFactor_AddAuthenticator_Response\x12#\n" +
 	"\rshared_secret\x18\x01 \x01(\fR\fsharedSecret\x12#\n" +
 	"\rserial_number\x18\x02 \x01(\x06R\fserialNumber\x12'\n" +
@@ -1579,19 +1687,21 @@ const file_steammessages_twofactor_steamclient_proto_rawDesc = "" +
 	"\x06status\x18\n" +
 	" \x01(\x05R\x06status\x12*\n" +
 	"\x11phone_number_hint\x18\v \x01(\tR\x0fphoneNumberHint\x12!\n" +
-	"\fconfirm_type\x18\f \x01(\x05R\vconfirmType\"\x9d\x02\n" +
+	"\fconfirm_type\x18\f \x01(\x05R\vconfirmType\x12N\n" +
+	"\tnext_step\x18\r \x01(\x0e2\x13.ETwoFactorNextStep:\x1ck_ETwoFactorNextStep_InvalidR\bnextStep\"\x9d\x02\n" +
 	"+CTwoFactor_FinalizeAddAuthenticator_Request\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12-\n" +
 	"\x12authenticator_code\x18\x02 \x01(\tR\x11authenticatorCode\x12-\n" +
 	"\x12authenticator_time\x18\x03 \x01(\x04R\x11authenticatorTime\x12'\n" +
 	"\x0factivation_code\x18\x04 \x01(\tR\x0eactivationCode\x12!\n" +
 	"\fhttp_headers\x18\x05 \x03(\tR\vhttpHeaders\x12*\n" +
-	"\x11validate_sms_code\x18\x06 \x01(\bR\x0fvalidateSmsCode\"\x81\x01\n" +
+	"\x11validate_sms_code\x18\x06 \x01(\bR\x0fvalidateSmsCode\"\xd1\x01\n" +
 	",CTwoFactor_FinalizeAddAuthenticator_Response\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x1f\n" +
 	"\vserver_time\x18\x03 \x01(\x04R\n" +
 	"serverTime\x12\x16\n" +
-	"\x06status\x18\x04 \x01(\x05R\x06status\"y\n" +
+	"\x06status\x18\x04 \x01(\x05R\x06status\x12N\n" +
+	"\tnext_step\x18\x05 \x01(\x0e2\x13.ETwoFactorNextStep:\x1ck_ETwoFactorNextStep_InvalidR\bnextStep\"y\n" +
 	"%CTwoFactor_UpdateTokenVersion_Request\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12\x18\n" +
 	"\aversion\x18\x02 \x01(\rR\aversion\x12\x1c\n" +
@@ -1609,11 +1719,12 @@ const file_steammessages_twofactor_steamclient_proto_rawDesc = "" +
 	"\x1drevocation_attempts_remaining\x18\x05 \x01(\rR\x1brevocationAttemptsRemaining\"9\n" +
 	"7CTwoFactor_RemoveAuthenticatorViaChallengeStart_Request\"T\n" +
 	"8CTwoFactor_RemoveAuthenticatorViaChallengeStart_Response\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccess\"\xa2\x01\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\"\xc9\x01\n" +
 	":CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request\x12\x19\n" +
 	"\bsms_code\x18\x01 \x01(\tR\asmsCode\x12,\n" +
 	"\x12generate_new_token\x18\x02 \x01(\bR\x10generateNewToken\x12\x1b\n" +
-	"\aversion\x18\x03 \x01(\r:\x011R\aversion\"\xc5\x03\n" +
+	"\aversion\x18\x03 \x01(\r:\x011R\aversion\x12%\n" +
+	"\x0ecaller_version\x18\x04 \x01(\rR\rcallerVersion\"\xc5\x03\n" +
 	":CRemoveAuthenticatorViaChallengeContinue_Replacement_Token\x12#\n" +
 	"\rshared_secret\x18\x01 \x01(\fR\fsharedSecret\x12#\n" +
 	"\rserial_number\x18\x02 \x01(\x06R\fserialNumber\x12'\n" +
@@ -1639,7 +1750,16 @@ const file_steammessages_twofactor_steamclient_proto_rawDesc = "" +
 	"\x1dk_ETwoFactorUsageType_Unknown\x10\x00\x12\x1e\n" +
 	"\x1ak_ETwoFactorUsageType_None\x10\x01\x12,\n" +
 	"(k_ETwoFactorUsageType_MobileConfirmation\x10\x02\x12\x1f\n" +
-	"\x1bk_ETwoFactorUsageType_Login\x10\x032\x85\a\n" +
+	"\x1bk_ETwoFactorUsageType_Login\x10\x03*\xb7\x02\n" +
+	"\x12ETwoFactorNextStep\x12 \n" +
+	"\x1ck_ETwoFactorNextStep_Invalid\x10\x00\x12\x1d\n" +
+	"\x19k_ETwoFactorNextStep_None\x10\x01\x12%\n" +
+	"!k_ETwoFactorNextStep_EnterSMSCode\x10\x02\x12'\n" +
+	"#k_ETwoFactorNextStep_EnterEmailCode\x10\x03\x12*\n" +
+	"&k_ETwoFactorNextStep_ConfirmPhoneEmail\x10\x04\x12\x1e\n" +
+	"\x1ak_ETwoFactorNextStep_Retry\x10\x05\x12\"\n" +
+	"\x1ek_ETwoFactorNextStep_StartOver\x10\x06\x12 \n" +
+	"\x1ck_ETwoFactorNextStep_Blocked\x10\a2\x85\a\n" +
 	"\tTwoFactor\x12@\n" +
 	"\tQueryTime\x12\x18.CTwoFactor_Time_Request\x1a\x19.CTwoFactor_Time_Response\x12F\n" +
 	"\vQueryStatus\x12\x1a.CTwoFactor_Status_Request\x1a\x1b.CTwoFactor_Status_Response\x12_\n" +
@@ -1662,56 +1782,59 @@ func file_steammessages_twofactor_steamclient_proto_rawDescGZIP() []byte {
 	return file_steammessages_twofactor_steamclient_proto_rawDescData
 }
 
-var file_steammessages_twofactor_steamclient_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_steammessages_twofactor_steamclient_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_steammessages_twofactor_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 18)
 var file_steammessages_twofactor_steamclient_proto_goTypes = []any{
 	(ETwoFactorStatusFieldFlag)(0),                                      // 0: ETwoFactorStatusFieldFlag
 	(ETwoFactorUsageType)(0),                                            // 1: ETwoFactorUsageType
-	(*CTwoFactor_Time_Request)(nil),                                     // 2: CTwoFactor_Time_Request
-	(*CTwoFactor_Time_Response)(nil),                                    // 3: CTwoFactor_Time_Response
-	(*CTwoFactor_Status_Request)(nil),                                   // 4: CTwoFactor_Status_Request
-	(*CTwoFactor_UsageEvent)(nil),                                       // 5: CTwoFactor_UsageEvent
-	(*CTwoFactor_Status_Response)(nil),                                  // 6: CTwoFactor_Status_Response
-	(*CTwoFactor_AddAuthenticator_Request)(nil),                         // 7: CTwoFactor_AddAuthenticator_Request
-	(*CTwoFactor_AddAuthenticator_Response)(nil),                        // 8: CTwoFactor_AddAuthenticator_Response
-	(*CTwoFactor_FinalizeAddAuthenticator_Request)(nil),                 // 9: CTwoFactor_FinalizeAddAuthenticator_Request
-	(*CTwoFactor_FinalizeAddAuthenticator_Response)(nil),                // 10: CTwoFactor_FinalizeAddAuthenticator_Response
-	(*CTwoFactor_UpdateTokenVersion_Request)(nil),                       // 11: CTwoFactor_UpdateTokenVersion_Request
-	(*CTwoFactor_UpdateTokenVersion_Response)(nil),                      // 12: CTwoFactor_UpdateTokenVersion_Response
-	(*CTwoFactor_RemoveAuthenticator_Request)(nil),                      // 13: CTwoFactor_RemoveAuthenticator_Request
-	(*CTwoFactor_RemoveAuthenticator_Response)(nil),                     // 14: CTwoFactor_RemoveAuthenticator_Response
-	(*CTwoFactor_RemoveAuthenticatorViaChallengeStart_Request)(nil),     // 15: CTwoFactor_RemoveAuthenticatorViaChallengeStart_Request
-	(*CTwoFactor_RemoveAuthenticatorViaChallengeStart_Response)(nil),    // 16: CTwoFactor_RemoveAuthenticatorViaChallengeStart_Response
-	(*CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request)(nil),  // 17: CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request
-	(*CRemoveAuthenticatorViaChallengeContinue_Replacement_Token)(nil),  // 18: CRemoveAuthenticatorViaChallengeContinue_Replacement_Token
-	(*CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response)(nil), // 19: CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response
+	(ETwoFactorNextStep)(0),                                             // 2: ETwoFactorNextStep
+	(*CTwoFactor_Time_Request)(nil),                                     // 3: CTwoFactor_Time_Request
+	(*CTwoFactor_Time_Response)(nil),                                    // 4: CTwoFactor_Time_Response
+	(*CTwoFactor_Status_Request)(nil),                                   // 5: CTwoFactor_Status_Request
+	(*CTwoFactor_UsageEvent)(nil),                                       // 6: CTwoFactor_UsageEvent
+	(*CTwoFactor_Status_Response)(nil),                                  // 7: CTwoFactor_Status_Response
+	(*CTwoFactor_AddAuthenticator_Request)(nil),                         // 8: CTwoFactor_AddAuthenticator_Request
+	(*CTwoFactor_AddAuthenticator_Response)(nil),                        // 9: CTwoFactor_AddAuthenticator_Response
+	(*CTwoFactor_FinalizeAddAuthenticator_Request)(nil),                 // 10: CTwoFactor_FinalizeAddAuthenticator_Request
+	(*CTwoFactor_FinalizeAddAuthenticator_Response)(nil),                // 11: CTwoFactor_FinalizeAddAuthenticator_Response
+	(*CTwoFactor_UpdateTokenVersion_Request)(nil),                       // 12: CTwoFactor_UpdateTokenVersion_Request
+	(*CTwoFactor_UpdateTokenVersion_Response)(nil),                      // 13: CTwoFactor_UpdateTokenVersion_Response
+	(*CTwoFactor_RemoveAuthenticator_Request)(nil),                      // 14: CTwoFactor_RemoveAuthenticator_Request
+	(*CTwoFactor_RemoveAuthenticator_Response)(nil),                     // 15: CTwoFactor_RemoveAuthenticator_Response
+	(*CTwoFactor_RemoveAuthenticatorViaChallengeStart_Request)(nil),     // 16: CTwoFactor_RemoveAuthenticatorViaChallengeStart_Request
+	(*CTwoFactor_RemoveAuthenticatorViaChallengeStart_Response)(nil),    // 17: CTwoFactor_RemoveAuthenticatorViaChallengeStart_Response
+	(*CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request)(nil),  // 18: CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request
+	(*CRemoveAuthenticatorViaChallengeContinue_Replacement_Token)(nil),  // 19: CRemoveAuthenticatorViaChallengeContinue_Replacement_Token
+	(*CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response)(nil), // 20: CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response
 }
 var file_steammessages_twofactor_steamclient_proto_depIdxs = []int32{
 	0,  // 0: CTwoFactor_Status_Request.include:type_name -> ETwoFactorStatusFieldFlag
 	1,  // 1: CTwoFactor_UsageEvent.usage_type:type_name -> ETwoFactorUsageType
-	5,  // 2: CTwoFactor_Status_Response.usages:type_name -> CTwoFactor_UsageEvent
-	18, // 3: CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response.replacement_token:type_name -> CRemoveAuthenticatorViaChallengeContinue_Replacement_Token
-	2,  // 4: TwoFactor.QueryTime:input_type -> CTwoFactor_Time_Request
-	4,  // 5: TwoFactor.QueryStatus:input_type -> CTwoFactor_Status_Request
-	7,  // 6: TwoFactor.AddAuthenticator:input_type -> CTwoFactor_AddAuthenticator_Request
-	9,  // 7: TwoFactor.FinalizeAddAuthenticator:input_type -> CTwoFactor_FinalizeAddAuthenticator_Request
-	11, // 8: TwoFactor.UpdateTokenVersion:input_type -> CTwoFactor_UpdateTokenVersion_Request
-	13, // 9: TwoFactor.RemoveAuthenticator:input_type -> CTwoFactor_RemoveAuthenticator_Request
-	15, // 10: TwoFactor.RemoveAuthenticatorViaChallengeStart:input_type -> CTwoFactor_RemoveAuthenticatorViaChallengeStart_Request
-	17, // 11: TwoFactor.RemoveAuthenticatorViaChallengeContinue:input_type -> CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request
-	3,  // 12: TwoFactor.QueryTime:output_type -> CTwoFactor_Time_Response
-	6,  // 13: TwoFactor.QueryStatus:output_type -> CTwoFactor_Status_Response
-	8,  // 14: TwoFactor.AddAuthenticator:output_type -> CTwoFactor_AddAuthenticator_Response
-	10, // 15: TwoFactor.FinalizeAddAuthenticator:output_type -> CTwoFactor_FinalizeAddAuthenticator_Response
-	12, // 16: TwoFactor.UpdateTokenVersion:output_type -> CTwoFactor_UpdateTokenVersion_Response
-	14, // 17: TwoFactor.RemoveAuthenticator:output_type -> CTwoFactor_RemoveAuthenticator_Response
-	16, // 18: TwoFactor.RemoveAuthenticatorViaChallengeStart:output_type -> CTwoFactor_RemoveAuthenticatorViaChallengeStart_Response
-	19, // 19: TwoFactor.RemoveAuthenticatorViaChallengeContinue:output_type -> CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response
-	12, // [12:20] is the sub-list for method output_type
-	4,  // [4:12] is the sub-list for method input_type
-	4,  // [4:4] is the sub-list for extension type_name
-	4,  // [4:4] is the sub-list for extension extendee
-	0,  // [0:4] is the sub-list for field type_name
+	6,  // 2: CTwoFactor_Status_Response.usages:type_name -> CTwoFactor_UsageEvent
+	2,  // 3: CTwoFactor_AddAuthenticator_Response.next_step:type_name -> ETwoFactorNextStep
+	2,  // 4: CTwoFactor_FinalizeAddAuthenticator_Response.next_step:type_name -> ETwoFactorNextStep
+	19, // 5: CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response.replacement_token:type_name -> CRemoveAuthenticatorViaChallengeContinue_Replacement_Token
+	3,  // 6: TwoFactor.QueryTime:input_type -> CTwoFactor_Time_Request
+	5,  // 7: TwoFactor.QueryStatus:input_type -> CTwoFactor_Status_Request
+	8,  // 8: TwoFactor.AddAuthenticator:input_type -> CTwoFactor_AddAuthenticator_Request
+	10, // 9: TwoFactor.FinalizeAddAuthenticator:input_type -> CTwoFactor_FinalizeAddAuthenticator_Request
+	12, // 10: TwoFactor.UpdateTokenVersion:input_type -> CTwoFactor_UpdateTokenVersion_Request
+	14, // 11: TwoFactor.RemoveAuthenticator:input_type -> CTwoFactor_RemoveAuthenticator_Request
+	16, // 12: TwoFactor.RemoveAuthenticatorViaChallengeStart:input_type -> CTwoFactor_RemoveAuthenticatorViaChallengeStart_Request
+	18, // 13: TwoFactor.RemoveAuthenticatorViaChallengeContinue:input_type -> CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request
+	4,  // 14: TwoFactor.QueryTime:output_type -> CTwoFactor_Time_Response
+	7,  // 15: TwoFactor.QueryStatus:output_type -> CTwoFactor_Status_Response
+	9,  // 16: TwoFactor.AddAuthenticator:output_type -> CTwoFactor_AddAuthenticator_Response
+	11, // 17: TwoFactor.FinalizeAddAuthenticator:output_type -> CTwoFactor_FinalizeAddAuthenticator_Response
+	13, // 18: TwoFactor.UpdateTokenVersion:output_type -> CTwoFactor_UpdateTokenVersion_Response
+	15, // 19: TwoFactor.RemoveAuthenticator:output_type -> CTwoFactor_RemoveAuthenticator_Response
+	17, // 20: TwoFactor.RemoveAuthenticatorViaChallengeStart:output_type -> CTwoFactor_RemoveAuthenticatorViaChallengeStart_Response
+	20, // 21: TwoFactor.RemoveAuthenticatorViaChallengeContinue:output_type -> CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response
+	14, // [14:22] is the sub-list for method output_type
+	6,  // [6:14] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_twofactor_steamclient_proto_init() }
@@ -1726,7 +1849,7 @@ func file_steammessages_twofactor_steamclient_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_twofactor_steamclient_proto_rawDesc), len(file_steammessages_twofactor_steamclient_proto_rawDesc)),
-			NumEnums:      2,
+			NumEnums:      3,
 			NumMessages:   18,
 			NumExtensions: 0,
 			NumServices:   1,

@@ -5061,12 +5061,14 @@ func (EWindowsUpdateOperationResult) EnumDescriptor() ([]byte, []int) {
 type EExternalSaleEventType int32
 
 const (
-	EExternalSaleEventType_k_EExternalSaleEventType_Unknown   EExternalSaleEventType = 0
-	EExternalSaleEventType_k_EExternalSaleEventType_Publisher EExternalSaleEventType = 1
-	EExternalSaleEventType_k_EExternalSaleEventType_Showcase  EExternalSaleEventType = 2
-	EExternalSaleEventType_k_EExternalSaleEventType_Region    EExternalSaleEventType = 3
-	EExternalSaleEventType_k_EExternalSaleEventType_Theme     EExternalSaleEventType = 4
-	EExternalSaleEventType_k_EExternalSaleEventType_Franchise EExternalSaleEventType = 5
+	EExternalSaleEventType_k_EExternalSaleEventType_Unknown         EExternalSaleEventType = 0
+	EExternalSaleEventType_k_EExternalSaleEventType_Publisher       EExternalSaleEventType = 1
+	EExternalSaleEventType_k_EExternalSaleEventType_Showcase        EExternalSaleEventType = 2
+	EExternalSaleEventType_k_EExternalSaleEventType_Region          EExternalSaleEventType = 3
+	EExternalSaleEventType_k_EExternalSaleEventType_Theme           EExternalSaleEventType = 4
+	EExternalSaleEventType_k_EExternalSaleEventType_Franchise       EExternalSaleEventType = 5
+	EExternalSaleEventType_k_EExternalSaleEventType_LockedPublisher EExternalSaleEventType = 6
+	EExternalSaleEventType_k_EExternalSaleEventType_LockedFranchise EExternalSaleEventType = 7
 )
 
 // Enum value maps for EExternalSaleEventType.
@@ -5078,14 +5080,18 @@ var (
 		3: "k_EExternalSaleEventType_Region",
 		4: "k_EExternalSaleEventType_Theme",
 		5: "k_EExternalSaleEventType_Franchise",
+		6: "k_EExternalSaleEventType_LockedPublisher",
+		7: "k_EExternalSaleEventType_LockedFranchise",
 	}
 	EExternalSaleEventType_value = map[string]int32{
-		"k_EExternalSaleEventType_Unknown":   0,
-		"k_EExternalSaleEventType_Publisher": 1,
-		"k_EExternalSaleEventType_Showcase":  2,
-		"k_EExternalSaleEventType_Region":    3,
-		"k_EExternalSaleEventType_Theme":     4,
-		"k_EExternalSaleEventType_Franchise": 5,
+		"k_EExternalSaleEventType_Unknown":         0,
+		"k_EExternalSaleEventType_Publisher":       1,
+		"k_EExternalSaleEventType_Showcase":        2,
+		"k_EExternalSaleEventType_Region":          3,
+		"k_EExternalSaleEventType_Theme":           4,
+		"k_EExternalSaleEventType_Franchise":       5,
+		"k_EExternalSaleEventType_LockedPublisher": 6,
+		"k_EExternalSaleEventType_LockedFranchise": 7,
 	}
 )
 
@@ -5780,7 +5786,8 @@ const (
 	EContentReportReason_k_EContentReportReason_Miscategorized                               EContentReportReason = 67
 	EContentReportReason_k_EContentReportReason_BypassingProfanityFilter                     EContentReportReason = 68
 	EContentReportReason_k_EContentReportReason_BulkDeletion                                 EContentReportReason = 69
-	EContentReportReason_k_EContentReportReason_MAX                                          EContentReportReason = 70
+	EContentReportReason_k_EContentReportReason_Malware                                      EContentReportReason = 70
+	EContentReportReason_k_EContentReportReason_MAX                                          EContentReportReason = 71
 )
 
 // Enum value maps for EContentReportReason.
@@ -5856,7 +5863,8 @@ var (
 		67: "k_EContentReportReason_Miscategorized",
 		68: "k_EContentReportReason_BypassingProfanityFilter",
 		69: "k_EContentReportReason_BulkDeletion",
-		70: "k_EContentReportReason_MAX",
+		70: "k_EContentReportReason_Malware",
+		71: "k_EContentReportReason_MAX",
 	}
 	EContentReportReason_value = map[string]int32{
 		"k_EContentReportReason_Invalid":                                      0,
@@ -5929,7 +5937,8 @@ var (
 		"k_EContentReportReason_Miscategorized":                               67,
 		"k_EContentReportReason_BypassingProfanityFilter":                     68,
 		"k_EContentReportReason_BulkDeletion":                                 69,
-		"k_EContentReportReason_MAX":                                          70,
+		"k_EContentReportReason_Malware":                                      70,
+		"k_EContentReportReason_MAX":                                          71,
 	}
 )
 
@@ -6892,14 +6901,16 @@ const file_enums_proto_rawDesc = "" +
 	")k_EWindowsUpdateOperationResult_Succeeded\x10\x02\x127\n" +
 	"3k_EWindowsUpdateOperationResult_SucceededWithErrors\x10\x03\x12*\n" +
 	"&k_EWindowsUpdateOperationResult_Failed\x10\x04\x12+\n" +
-	"'k_EWindowsUpdateOperationResult_Aborted\x10\x05*\xfe\x01\n" +
+	"'k_EWindowsUpdateOperationResult_Aborted\x10\x05*\xda\x02\n" +
 	"\x16EExternalSaleEventType\x12$\n" +
 	" k_EExternalSaleEventType_Unknown\x10\x00\x12&\n" +
 	"\"k_EExternalSaleEventType_Publisher\x10\x01\x12%\n" +
 	"!k_EExternalSaleEventType_Showcase\x10\x02\x12#\n" +
 	"\x1fk_EExternalSaleEventType_Region\x10\x03\x12\"\n" +
 	"\x1ek_EExternalSaleEventType_Theme\x10\x04\x12&\n" +
-	"\"k_EExternalSaleEventType_Franchise\x10\x05*\xdb\x01\n" +
+	"\"k_EExternalSaleEventType_Franchise\x10\x05\x12,\n" +
+	"(k_EExternalSaleEventType_LockedPublisher\x10\x06\x12,\n" +
+	"(k_EExternalSaleEventType_LockedFranchise\x10\a*\xdb\x01\n" +
 	"\x1fEEnhancedMarketAppearanceStatus\x12)\n" +
 	"%k_EnhancedMarketAppearanceStatus_None\x10\x00\x12,\n" +
 	"(k_EnhancedMarketAppearanceStatus_Pending\x10\x01\x12/\n" +
@@ -6987,7 +6998,7 @@ const file_enums_proto_rawDesc = "" +
 	"%k_EContentReportSubjectAction_Claimed\x10\x14\x12*\n" +
 	"&k_EContentReportSubjectAction_Released\x10\x15\x121\n" +
 	"-k_EContentReportSubjectAction_PrivateMessaged\x10\x16\x12/\n" +
-	"+k_EContentReportSubjectAction_OwnerDisputed\x10\x17*\xb2\x1a\n" +
+	"+k_EContentReportSubjectAction_OwnerDisputed\x10\x17*\xd6\x1a\n" +
 	"\x14EContentReportReason\x12\"\n" +
 	"\x1ek_EContentReportReason_Invalid\x10\x00\x12\x1f\n" +
 	"\x1bk_EContentReportReason_None\x10\x01\x12\"\n" +
@@ -7059,8 +7070,9 @@ const file_enums_proto_rawDesc = "" +
 	"#k_EContentReportReason_ToSViolation\x10B\x12)\n" +
 	"%k_EContentReportReason_Miscategorized\x10C\x123\n" +
 	"/k_EContentReportReason_BypassingProfanityFilter\x10D\x12'\n" +
-	"#k_EContentReportReason_BulkDeletion\x10E\x12\x1e\n" +
-	"\x1ak_EContentReportReason_MAX\x10F*\xb8\x01\n" +
+	"#k_EContentReportReason_BulkDeletion\x10E\x12\"\n" +
+	"\x1ek_EContentReportReason_Malware\x10F\x12\x1e\n" +
+	"\x1ak_EContentReportReason_MAX\x10G*\xb8\x01\n" +
 	"\x15EResolutionAutomation\x12\"\n" +
 	"\x1ek_EResolutionAutomation_Manual\x10\x00\x12.\n" +
 	"*k_EResolutionAutomation_PartiallyAutomated\x10\x01\x12*\n" +

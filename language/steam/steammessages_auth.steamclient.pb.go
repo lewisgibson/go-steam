@@ -28,6 +28,7 @@ const (
 	EAuthTokenPlatformType_k_EAuthTokenPlatformType_SteamClient EAuthTokenPlatformType = 1
 	EAuthTokenPlatformType_k_EAuthTokenPlatformType_WebBrowser  EAuthTokenPlatformType = 2
 	EAuthTokenPlatformType_k_EAuthTokenPlatformType_MobileApp   EAuthTokenPlatformType = 3
+	EAuthTokenPlatformType_k_EAuthTokenPlatformType_PAT         EAuthTokenPlatformType = 4
 )
 
 // Enum value maps for EAuthTokenPlatformType.
@@ -37,12 +38,14 @@ var (
 		1: "k_EAuthTokenPlatformType_SteamClient",
 		2: "k_EAuthTokenPlatformType_WebBrowser",
 		3: "k_EAuthTokenPlatformType_MobileApp",
+		4: "k_EAuthTokenPlatformType_PAT",
 	}
 	EAuthTokenPlatformType_value = map[string]int32{
 		"k_EAuthTokenPlatformType_Unknown":     0,
 		"k_EAuthTokenPlatformType_SteamClient": 1,
 		"k_EAuthTokenPlatformType_WebBrowser":  2,
 		"k_EAuthTokenPlatformType_MobileApp":   3,
+		"k_EAuthTokenPlatformType_PAT":         4,
 	}
 )
 
@@ -3910,12 +3913,13 @@ const file_steammessages_auth_steamclient_proto_rawDesc = "" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12+\n" +
 	"\x11minutes_remaining\x18\x02 \x01(\rR\x10minutesRemaining\"_\n" +
 	"&CCloudGaming_GetTimeRemaining_Response\x125\n" +
-	"\aentries\x18\x02 \x03(\v2\x1b.CCloudGaming_TimeRemainingR\aentries*\xb9\x01\n" +
+	"\aentries\x18\x02 \x03(\v2\x1b.CCloudGaming_TimeRemainingR\aentries*\xdb\x01\n" +
 	"\x16EAuthTokenPlatformType\x12$\n" +
 	" k_EAuthTokenPlatformType_Unknown\x10\x00\x12(\n" +
 	"$k_EAuthTokenPlatformType_SteamClient\x10\x01\x12'\n" +
 	"#k_EAuthTokenPlatformType_WebBrowser\x10\x02\x12&\n" +
-	"\"k_EAuthTokenPlatformType_MobileApp\x10\x03*\x85\x01\n" +
+	"\"k_EAuthTokenPlatformType_MobileApp\x10\x03\x12 \n" +
+	"\x1ck_EAuthTokenPlatformType_PAT\x10\x04*\x85\x01\n" +
 	"\x11EAuthTokenAppType\x12\x1f\n" +
 	"\x1bk_EAuthTokenAppType_Unknown\x10\x00\x12'\n" +
 	"#k_EAuthTokenAppType_Mobile_SteamApp\x10\x01\x12&\n" +

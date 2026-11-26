@@ -205,6 +205,170 @@ func (x *CUser_GetSavedHardwareInfo_Response) GetSystemInfo() *UserSystemInforma
 	return nil
 }
 
+type CUser_GetCachedFriendData_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CUser_GetCachedFriendData_Request) Reset() {
+	*x = CUser_GetCachedFriendData_Request{}
+	mi := &file_webuimessages_user_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CUser_GetCachedFriendData_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CUser_GetCachedFriendData_Request) ProtoMessage() {}
+
+func (x *CUser_GetCachedFriendData_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_user_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CUser_GetCachedFriendData_Request.ProtoReflect.Descriptor instead.
+func (*CUser_GetCachedFriendData_Request) Descriptor() ([]byte, []int) {
+	return file_webuimessages_user_proto_rawDescGZIP(), []int{4}
+}
+
+type CUser_GetCachedFriendData_Response struct {
+	state         protoimpl.MessageState                       `protogen:"open.v1"`
+	Players       []*CUser_GetCachedFriendData_Response_Player `protobuf:"bytes,1,rep,name=players" json:"players,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CUser_GetCachedFriendData_Response) Reset() {
+	*x = CUser_GetCachedFriendData_Response{}
+	mi := &file_webuimessages_user_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CUser_GetCachedFriendData_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CUser_GetCachedFriendData_Response) ProtoMessage() {}
+
+func (x *CUser_GetCachedFriendData_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_user_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CUser_GetCachedFriendData_Response.ProtoReflect.Descriptor instead.
+func (*CUser_GetCachedFriendData_Response) Descriptor() ([]byte, []int) {
+	return file_webuimessages_user_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *CUser_GetCachedFriendData_Response) GetPlayers() []*CUser_GetCachedFriendData_Response_Player {
+	if x != nil {
+		return x.Players
+	}
+	return nil
+}
+
+type CUser_GetCachedFriendData_Response_Player struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Accountid     *uint32                `protobuf:"varint,1,opt,name=accountid" json:"accountid,omitempty"`
+	PersonaName   *string                `protobuf:"bytes,2,opt,name=persona_name,json=personaName" json:"persona_name,omitempty"`
+	AvatarHash    *string                `protobuf:"bytes,3,opt,name=avatar_hash,json=avatarHash" json:"avatar_hash,omitempty"`
+	Nickname      *string                `protobuf:"bytes,4,opt,name=nickname" json:"nickname,omitempty"`
+	IsFriend      *bool                  `protobuf:"varint,5,opt,name=is_friend,json=isFriend" json:"is_friend,omitempty"`
+	IsFamily      *bool                  `protobuf:"varint,6,opt,name=is_family,json=isFamily" json:"is_family,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CUser_GetCachedFriendData_Response_Player) Reset() {
+	*x = CUser_GetCachedFriendData_Response_Player{}
+	mi := &file_webuimessages_user_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CUser_GetCachedFriendData_Response_Player) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CUser_GetCachedFriendData_Response_Player) ProtoMessage() {}
+
+func (x *CUser_GetCachedFriendData_Response_Player) ProtoReflect() protoreflect.Message {
+	mi := &file_webuimessages_user_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CUser_GetCachedFriendData_Response_Player.ProtoReflect.Descriptor instead.
+func (*CUser_GetCachedFriendData_Response_Player) Descriptor() ([]byte, []int) {
+	return file_webuimessages_user_proto_rawDescGZIP(), []int{5, 0}
+}
+
+func (x *CUser_GetCachedFriendData_Response_Player) GetAccountid() uint32 {
+	if x != nil && x.Accountid != nil {
+		return *x.Accountid
+	}
+	return 0
+}
+
+func (x *CUser_GetCachedFriendData_Response_Player) GetPersonaName() string {
+	if x != nil && x.PersonaName != nil {
+		return *x.PersonaName
+	}
+	return ""
+}
+
+func (x *CUser_GetCachedFriendData_Response_Player) GetAvatarHash() string {
+	if x != nil && x.AvatarHash != nil {
+		return *x.AvatarHash
+	}
+	return ""
+}
+
+func (x *CUser_GetCachedFriendData_Response_Player) GetNickname() string {
+	if x != nil && x.Nickname != nil {
+		return *x.Nickname
+	}
+	return ""
+}
+
+func (x *CUser_GetCachedFriendData_Response_Player) GetIsFriend() bool {
+	if x != nil && x.IsFriend != nil {
+		return *x.IsFriend
+	}
+	return false
+}
+
+func (x *CUser_GetCachedFriendData_Response_Player) GetIsFamily() bool {
+	if x != nil && x.IsFamily != nil {
+		return *x.IsFamily
+	}
+	return false
+}
+
 var File_webuimessages_user_proto protoreflect.FileDescriptor
 
 const file_webuimessages_user_proto_rawDesc = "" +
@@ -219,10 +383,22 @@ const file_webuimessages_user_proto_rawDesc = "" +
 	"\rfriendly_name\x18\x01 \x01(\tR\ffriendlyName\x12*\n" +
 	"\x11saved_hardware_id\x18\x02 \x01(\x04R\x0fsavedHardwareId\x127\n" +
 	"\vsystem_info\x18\x03 \x01(\v2\x16.UserSystemInformationR\n" +
-	"systemInfo2\xc6\x01\n" +
+	"systemInfo\"#\n" +
+	"!CUser_GetCachedFriendData_Request\"\xad\x02\n" +
+	"\"CUser_GetCachedFriendData_Response\x12D\n" +
+	"\aplayers\x18\x01 \x03(\v2*.CUser_GetCachedFriendData_Response.PlayerR\aplayers\x1a\xc0\x01\n" +
+	"\x06Player\x12\x1c\n" +
+	"\taccountid\x18\x01 \x01(\rR\taccountid\x12!\n" +
+	"\fpersona_name\x18\x02 \x01(\tR\vpersonaName\x12\x1f\n" +
+	"\vavatar_hash\x18\x03 \x01(\tR\n" +
+	"avatarHash\x12\x1a\n" +
+	"\bnickname\x18\x04 \x01(\tR\bnickname\x12\x1b\n" +
+	"\tis_friend\x18\x05 \x01(\bR\bisFriend\x12\x1b\n" +
+	"\tis_family\x18\x06 \x01(\bR\bisFamily2\xa6\x02\n" +
 	"\x04User\x12U\n" +
 	"\x10SaveHardwareInfo\x12\x1f.CUser_SaveHardwareInfo_Request\x1a .CUser_SaveHardwareInfo_Response\x12a\n" +
-	"\x14GetSavedHardwareInfo\x12#.CUser_GetSavedHardwareInfo_Request\x1a$.CUser_GetSavedHardwareInfo_Response\x1a\x04\x80\x97\"\x02B\x05H\x01\x80\x01\x01"
+	"\x14GetSavedHardwareInfo\x12#.CUser_GetSavedHardwareInfo_Request\x1a$.CUser_GetSavedHardwareInfo_Response\x12^\n" +
+	"\x13GetCachedFriendData\x12\".CUser_GetCachedFriendData_Request\x1a#.CUser_GetCachedFriendData_Response\x1a\x04\x80\x97\"\x02B\x05H\x01\x80\x01\x01"
 
 var (
 	file_webuimessages_user_proto_rawDescOnce sync.Once
@@ -236,25 +412,31 @@ func file_webuimessages_user_proto_rawDescGZIP() []byte {
 	return file_webuimessages_user_proto_rawDescData
 }
 
-var file_webuimessages_user_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_webuimessages_user_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_webuimessages_user_proto_goTypes = []any{
-	(*CUser_SaveHardwareInfo_Request)(nil),      // 0: CUser_SaveHardwareInfo_Request
-	(*CUser_SaveHardwareInfo_Response)(nil),     // 1: CUser_SaveHardwareInfo_Response
-	(*CUser_GetSavedHardwareInfo_Request)(nil),  // 2: CUser_GetSavedHardwareInfo_Request
-	(*CUser_GetSavedHardwareInfo_Response)(nil), // 3: CUser_GetSavedHardwareInfo_Response
-	(*UserSystemInformation)(nil),               // 4: UserSystemInformation
+	(*CUser_SaveHardwareInfo_Request)(nil),            // 0: CUser_SaveHardwareInfo_Request
+	(*CUser_SaveHardwareInfo_Response)(nil),           // 1: CUser_SaveHardwareInfo_Response
+	(*CUser_GetSavedHardwareInfo_Request)(nil),        // 2: CUser_GetSavedHardwareInfo_Request
+	(*CUser_GetSavedHardwareInfo_Response)(nil),       // 3: CUser_GetSavedHardwareInfo_Response
+	(*CUser_GetCachedFriendData_Request)(nil),         // 4: CUser_GetCachedFriendData_Request
+	(*CUser_GetCachedFriendData_Response)(nil),        // 5: CUser_GetCachedFriendData_Response
+	(*CUser_GetCachedFriendData_Response_Player)(nil), // 6: CUser_GetCachedFriendData_Response.Player
+	(*UserSystemInformation)(nil),                     // 7: UserSystemInformation
 }
 var file_webuimessages_user_proto_depIdxs = []int32{
-	4, // 0: CUser_GetSavedHardwareInfo_Response.system_info:type_name -> UserSystemInformation
-	0, // 1: User.SaveHardwareInfo:input_type -> CUser_SaveHardwareInfo_Request
-	2, // 2: User.GetSavedHardwareInfo:input_type -> CUser_GetSavedHardwareInfo_Request
-	1, // 3: User.SaveHardwareInfo:output_type -> CUser_SaveHardwareInfo_Response
-	3, // 4: User.GetSavedHardwareInfo:output_type -> CUser_GetSavedHardwareInfo_Response
-	3, // [3:5] is the sub-list for method output_type
-	1, // [1:3] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	7, // 0: CUser_GetSavedHardwareInfo_Response.system_info:type_name -> UserSystemInformation
+	6, // 1: CUser_GetCachedFriendData_Response.players:type_name -> CUser_GetCachedFriendData_Response.Player
+	0, // 2: User.SaveHardwareInfo:input_type -> CUser_SaveHardwareInfo_Request
+	2, // 3: User.GetSavedHardwareInfo:input_type -> CUser_GetSavedHardwareInfo_Request
+	4, // 4: User.GetCachedFriendData:input_type -> CUser_GetCachedFriendData_Request
+	1, // 5: User.SaveHardwareInfo:output_type -> CUser_SaveHardwareInfo_Response
+	3, // 6: User.GetSavedHardwareInfo:output_type -> CUser_GetSavedHardwareInfo_Response
+	5, // 7: User.GetCachedFriendData:output_type -> CUser_GetCachedFriendData_Response
+	5, // [5:8] is the sub-list for method output_type
+	2, // [2:5] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_webuimessages_user_proto_init() }
@@ -270,7 +452,7 @@ func file_webuimessages_user_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_webuimessages_user_proto_rawDesc), len(file_webuimessages_user_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -270,6 +270,425 @@ func (ERatingDescriptorImage) EnumDescriptor() ([]byte, []int) {
 	return file_steammessages_appratings_types_proto_rawDescGZIP(), []int{2}
 }
 
+type EAgencyRating int32
+
+const (
+	EAgencyRating_k_EAgencyRating_Invalid              EAgencyRating = 0
+	EAgencyRating_k_EAgencyRating_ESRB_RP              EAgencyRating = 1
+	EAgencyRating_k_EAgencyRating_ESRB_EC              EAgencyRating = 2
+	EAgencyRating_k_EAgencyRating_ESRB_E               EAgencyRating = 3
+	EAgencyRating_k_EAgencyRating_ESRB_E10             EAgencyRating = 4
+	EAgencyRating_k_EAgencyRating_ESRB_T               EAgencyRating = 5
+	EAgencyRating_k_EAgencyRating_ESRB_M               EAgencyRating = 6
+	EAgencyRating_k_EAgencyRating_ESRB_AO              EAgencyRating = 7
+	EAgencyRating_k_EAgencyRating_ESRB_RPM             EAgencyRating = 8
+	EAgencyRating_k_EAgencyRating_PEGI_3               EAgencyRating = 20
+	EAgencyRating_k_EAgencyRating_PEGI_4               EAgencyRating = 21
+	EAgencyRating_k_EAgencyRating_PEGI_6               EAgencyRating = 22
+	EAgencyRating_k_EAgencyRating_PEGI_7               EAgencyRating = 23
+	EAgencyRating_k_EAgencyRating_PEGI_11              EAgencyRating = 24
+	EAgencyRating_k_EAgencyRating_PEGI_12              EAgencyRating = 25
+	EAgencyRating_k_EAgencyRating_PEGI_15              EAgencyRating = 26
+	EAgencyRating_k_EAgencyRating_PEGI_16              EAgencyRating = 27
+	EAgencyRating_k_EAgencyRating_PEGI_18              EAgencyRating = 28
+	EAgencyRating_k_EAgencyRating_BBFC_U               EAgencyRating = 40
+	EAgencyRating_k_EAgencyRating_BBFC_UC              EAgencyRating = 41
+	EAgencyRating_k_EAgencyRating_BBFC_PG              EAgencyRating = 42
+	EAgencyRating_k_EAgencyRating_BBFC_12              EAgencyRating = 43
+	EAgencyRating_k_EAgencyRating_BBFC_12A             EAgencyRating = 44
+	EAgencyRating_k_EAgencyRating_BBFC_15              EAgencyRating = 45
+	EAgencyRating_k_EAgencyRating_BBFC_18              EAgencyRating = 46
+	EAgencyRating_k_EAgencyRating_BBFC_R18             EAgencyRating = 47
+	EAgencyRating_k_EAgencyRating_USK_0                EAgencyRating = 60
+	EAgencyRating_k_EAgencyRating_USK_6                EAgencyRating = 61
+	EAgencyRating_k_EAgencyRating_USK_12               EAgencyRating = 62
+	EAgencyRating_k_EAgencyRating_USK_16               EAgencyRating = 63
+	EAgencyRating_k_EAgencyRating_USK_18               EAgencyRating = 64
+	EAgencyRating_k_EAgencyRating_OFLC_AU_G            EAgencyRating = 80
+	EAgencyRating_k_EAgencyRating_OFLC_AU_PG           EAgencyRating = 81
+	EAgencyRating_k_EAgencyRating_OFLC_AU_M            EAgencyRating = 82
+	EAgencyRating_k_EAgencyRating_OFLC_AU_MA15         EAgencyRating = 83
+	EAgencyRating_k_EAgencyRating_OFLC_AU_R18          EAgencyRating = 84
+	EAgencyRating_k_EAgencyRating_OFLC_AU_X18          EAgencyRating = 85
+	EAgencyRating_k_EAgencyRating_OFLC_AU_CTC          EAgencyRating = 86
+	EAgencyRating_k_EAgencyRating_OFLC_NZ_G            EAgencyRating = 100
+	EAgencyRating_k_EAgencyRating_OFLC_NZ_PG           EAgencyRating = 101
+	EAgencyRating_k_EAgencyRating_OFLC_NZ_R13          EAgencyRating = 102
+	EAgencyRating_k_EAgencyRating_OFLC_NZ_M            EAgencyRating = 103
+	EAgencyRating_k_EAgencyRating_OFLC_NZ_MA15         EAgencyRating = 104
+	EAgencyRating_k_EAgencyRating_OFLC_NZ_R15          EAgencyRating = 105
+	EAgencyRating_k_EAgencyRating_OFLC_NZ_R16          EAgencyRating = 106
+	EAgencyRating_k_EAgencyRating_OFLC_NZ_R18          EAgencyRating = 107
+	EAgencyRating_k_EAgencyRating_OFLC_NZ_X18          EAgencyRating = 108
+	EAgencyRating_k_EAgencyRating_OFLC_NZ_CTC          EAgencyRating = 109
+	EAgencyRating_k_EAgencyRating_CERO_A               EAgencyRating = 120
+	EAgencyRating_k_EAgencyRating_CERO_B               EAgencyRating = 121
+	EAgencyRating_k_EAgencyRating_CERO_C               EAgencyRating = 122
+	EAgencyRating_k_EAgencyRating_CERO_D               EAgencyRating = 123
+	EAgencyRating_k_EAgencyRating_CERO_Z               EAgencyRating = 124
+	EAgencyRating_k_EAgencyRating_CERO_STATS           EAgencyRating = 125
+	EAgencyRating_k_EAgencyRating_CERO_SAMPLER         EAgencyRating = 126
+	EAgencyRating_k_EAgencyRating_CERO_RP              EAgencyRating = 127
+	EAgencyRating_k_EAgencyRating_GRAC_ALL             EAgencyRating = 140
+	EAgencyRating_k_EAgencyRating_GRAC_12              EAgencyRating = 141
+	EAgencyRating_k_EAgencyRating_GRAC_15              EAgencyRating = 142
+	EAgencyRating_k_EAgencyRating_GRAC_18              EAgencyRating = 143
+	EAgencyRating_k_EAgencyRating_GRAC_19              EAgencyRating = 144
+	EAgencyRating_k_EAgencyRating_GMEDIA_3             EAgencyRating = 160
+	EAgencyRating_k_EAgencyRating_GMEDIA_7             EAgencyRating = 161
+	EAgencyRating_k_EAgencyRating_GMEDIA_12            EAgencyRating = 162
+	EAgencyRating_k_EAgencyRating_GMEDIA_16            EAgencyRating = 163
+	EAgencyRating_k_EAgencyRating_GMEDIA_18            EAgencyRating = 164
+	EAgencyRating_k_EAgencyRating_GMEDIA_21            EAgencyRating = 165
+	EAgencyRating_k_EAgencyRating_GMEDIA_TBC           EAgencyRating = 166
+	EAgencyRating_k_EAgencyRating_DEJUS_L              EAgencyRating = 180
+	EAgencyRating_k_EAgencyRating_DEJUS_6              EAgencyRating = 181
+	EAgencyRating_k_EAgencyRating_DEJUS_10             EAgencyRating = 182
+	EAgencyRating_k_EAgencyRating_DEJUS_12             EAgencyRating = 183
+	EAgencyRating_k_EAgencyRating_DEJUS_14             EAgencyRating = 184
+	EAgencyRating_k_EAgencyRating_DEJUS_16             EAgencyRating = 185
+	EAgencyRating_k_EAgencyRating_DEJUS_18             EAgencyRating = 186
+	EAgencyRating_k_EAgencyRating_IMDA_AA16            EAgencyRating = 200
+	EAgencyRating_k_EAgencyRating_IMDA_M18             EAgencyRating = 201
+	EAgencyRating_k_EAgencyRating_FPB_A                EAgencyRating = 220
+	EAgencyRating_k_EAgencyRating_FPB_PG               EAgencyRating = 221
+	EAgencyRating_k_EAgencyRating_FPB_7_9PG            EAgencyRating = 222
+	EAgencyRating_k_EAgencyRating_FPB_10_12PG          EAgencyRating = 223
+	EAgencyRating_k_EAgencyRating_FPB_13               EAgencyRating = 224
+	EAgencyRating_k_EAgencyRating_FPB_16               EAgencyRating = 225
+	EAgencyRating_k_EAgencyRating_FPB_18               EAgencyRating = 226
+	EAgencyRating_k_EAgencyRating_TESRI_G              EAgencyRating = 240
+	EAgencyRating_k_EAgencyRating_TESRI_P6             EAgencyRating = 241
+	EAgencyRating_k_EAgencyRating_TESRI_C12            EAgencyRating = 242
+	EAgencyRating_k_EAgencyRating_TESRI_C15            EAgencyRating = 243
+	EAgencyRating_k_EAgencyRating_TESRI_R              EAgencyRating = 244
+	EAgencyRating_k_EAgencyRating_RARS_0               EAgencyRating = 260
+	EAgencyRating_k_EAgencyRating_RARS_6               EAgencyRating = 261
+	EAgencyRating_k_EAgencyRating_RARS_12              EAgencyRating = 262
+	EAgencyRating_k_EAgencyRating_RARS_16              EAgencyRating = 263
+	EAgencyRating_k_EAgencyRating_RARS_18              EAgencyRating = 264
+	EAgencyRating_k_EAgencyRating_AGCOM_3              EAgencyRating = 280
+	EAgencyRating_k_EAgencyRating_AGCOM_4              EAgencyRating = 281
+	EAgencyRating_k_EAgencyRating_AGCOM_7              EAgencyRating = 282
+	EAgencyRating_k_EAgencyRating_AGCOM_12             EAgencyRating = 283
+	EAgencyRating_k_EAgencyRating_AGCOM_16             EAgencyRating = 284
+	EAgencyRating_k_EAgencyRating_AGCOM_18             EAgencyRating = 285
+	EAgencyRating_k_EAgencyRating_IGRS_3               EAgencyRating = 300
+	EAgencyRating_k_EAgencyRating_IGRS_7               EAgencyRating = 301
+	EAgencyRating_k_EAgencyRating_IGRS_13              EAgencyRating = 302
+	EAgencyRating_k_EAgencyRating_IGRS_15              EAgencyRating = 303
+	EAgencyRating_k_EAgencyRating_IGRS_18              EAgencyRating = 304
+	EAgencyRating_k_EAgencyRating_Steam_Germany_0      EAgencyRating = 320
+	EAgencyRating_k_EAgencyRating_Steam_Germany_6      EAgencyRating = 321
+	EAgencyRating_k_EAgencyRating_Steam_Germany_10     EAgencyRating = 322
+	EAgencyRating_k_EAgencyRating_Steam_Germany_12     EAgencyRating = 323
+	EAgencyRating_k_EAgencyRating_Steam_Germany_13     EAgencyRating = 324
+	EAgencyRating_k_EAgencyRating_Steam_Germany_14     EAgencyRating = 325
+	EAgencyRating_k_EAgencyRating_Steam_Germany_15     EAgencyRating = 326
+	EAgencyRating_k_EAgencyRating_Steam_Germany_16     EAgencyRating = 327
+	EAgencyRating_k_EAgencyRating_Steam_Germany_17     EAgencyRating = 328
+	EAgencyRating_k_EAgencyRating_Steam_Germany_18     EAgencyRating = 329
+	EAgencyRating_k_EAgencyRating_Steam_Australia_0    EAgencyRating = 340
+	EAgencyRating_k_EAgencyRating_Steam_Australia_PG   EAgencyRating = 341
+	EAgencyRating_k_EAgencyRating_Steam_Australia_M    EAgencyRating = 342
+	EAgencyRating_k_EAgencyRating_Steam_Australia_MA15 EAgencyRating = 343
+	EAgencyRating_k_EAgencyRating_Steam_Australia_R18  EAgencyRating = 344
+	EAgencyRating_k_EAgencyRating_CADPA_8              EAgencyRating = 360
+	EAgencyRating_k_EAgencyRating_CADPA_12             EAgencyRating = 361
+	EAgencyRating_k_EAgencyRating_CADPA_16             EAgencyRating = 362
+)
+
+// Enum value maps for EAgencyRating.
+var (
+	EAgencyRating_name = map[int32]string{
+		0:   "k_EAgencyRating_Invalid",
+		1:   "k_EAgencyRating_ESRB_RP",
+		2:   "k_EAgencyRating_ESRB_EC",
+		3:   "k_EAgencyRating_ESRB_E",
+		4:   "k_EAgencyRating_ESRB_E10",
+		5:   "k_EAgencyRating_ESRB_T",
+		6:   "k_EAgencyRating_ESRB_M",
+		7:   "k_EAgencyRating_ESRB_AO",
+		8:   "k_EAgencyRating_ESRB_RPM",
+		20:  "k_EAgencyRating_PEGI_3",
+		21:  "k_EAgencyRating_PEGI_4",
+		22:  "k_EAgencyRating_PEGI_6",
+		23:  "k_EAgencyRating_PEGI_7",
+		24:  "k_EAgencyRating_PEGI_11",
+		25:  "k_EAgencyRating_PEGI_12",
+		26:  "k_EAgencyRating_PEGI_15",
+		27:  "k_EAgencyRating_PEGI_16",
+		28:  "k_EAgencyRating_PEGI_18",
+		40:  "k_EAgencyRating_BBFC_U",
+		41:  "k_EAgencyRating_BBFC_UC",
+		42:  "k_EAgencyRating_BBFC_PG",
+		43:  "k_EAgencyRating_BBFC_12",
+		44:  "k_EAgencyRating_BBFC_12A",
+		45:  "k_EAgencyRating_BBFC_15",
+		46:  "k_EAgencyRating_BBFC_18",
+		47:  "k_EAgencyRating_BBFC_R18",
+		60:  "k_EAgencyRating_USK_0",
+		61:  "k_EAgencyRating_USK_6",
+		62:  "k_EAgencyRating_USK_12",
+		63:  "k_EAgencyRating_USK_16",
+		64:  "k_EAgencyRating_USK_18",
+		80:  "k_EAgencyRating_OFLC_AU_G",
+		81:  "k_EAgencyRating_OFLC_AU_PG",
+		82:  "k_EAgencyRating_OFLC_AU_M",
+		83:  "k_EAgencyRating_OFLC_AU_MA15",
+		84:  "k_EAgencyRating_OFLC_AU_R18",
+		85:  "k_EAgencyRating_OFLC_AU_X18",
+		86:  "k_EAgencyRating_OFLC_AU_CTC",
+		100: "k_EAgencyRating_OFLC_NZ_G",
+		101: "k_EAgencyRating_OFLC_NZ_PG",
+		102: "k_EAgencyRating_OFLC_NZ_R13",
+		103: "k_EAgencyRating_OFLC_NZ_M",
+		104: "k_EAgencyRating_OFLC_NZ_MA15",
+		105: "k_EAgencyRating_OFLC_NZ_R15",
+		106: "k_EAgencyRating_OFLC_NZ_R16",
+		107: "k_EAgencyRating_OFLC_NZ_R18",
+		108: "k_EAgencyRating_OFLC_NZ_X18",
+		109: "k_EAgencyRating_OFLC_NZ_CTC",
+		120: "k_EAgencyRating_CERO_A",
+		121: "k_EAgencyRating_CERO_B",
+		122: "k_EAgencyRating_CERO_C",
+		123: "k_EAgencyRating_CERO_D",
+		124: "k_EAgencyRating_CERO_Z",
+		125: "k_EAgencyRating_CERO_STATS",
+		126: "k_EAgencyRating_CERO_SAMPLER",
+		127: "k_EAgencyRating_CERO_RP",
+		140: "k_EAgencyRating_GRAC_ALL",
+		141: "k_EAgencyRating_GRAC_12",
+		142: "k_EAgencyRating_GRAC_15",
+		143: "k_EAgencyRating_GRAC_18",
+		144: "k_EAgencyRating_GRAC_19",
+		160: "k_EAgencyRating_GMEDIA_3",
+		161: "k_EAgencyRating_GMEDIA_7",
+		162: "k_EAgencyRating_GMEDIA_12",
+		163: "k_EAgencyRating_GMEDIA_16",
+		164: "k_EAgencyRating_GMEDIA_18",
+		165: "k_EAgencyRating_GMEDIA_21",
+		166: "k_EAgencyRating_GMEDIA_TBC",
+		180: "k_EAgencyRating_DEJUS_L",
+		181: "k_EAgencyRating_DEJUS_6",
+		182: "k_EAgencyRating_DEJUS_10",
+		183: "k_EAgencyRating_DEJUS_12",
+		184: "k_EAgencyRating_DEJUS_14",
+		185: "k_EAgencyRating_DEJUS_16",
+		186: "k_EAgencyRating_DEJUS_18",
+		200: "k_EAgencyRating_IMDA_AA16",
+		201: "k_EAgencyRating_IMDA_M18",
+		220: "k_EAgencyRating_FPB_A",
+		221: "k_EAgencyRating_FPB_PG",
+		222: "k_EAgencyRating_FPB_7_9PG",
+		223: "k_EAgencyRating_FPB_10_12PG",
+		224: "k_EAgencyRating_FPB_13",
+		225: "k_EAgencyRating_FPB_16",
+		226: "k_EAgencyRating_FPB_18",
+		240: "k_EAgencyRating_TESRI_G",
+		241: "k_EAgencyRating_TESRI_P6",
+		242: "k_EAgencyRating_TESRI_C12",
+		243: "k_EAgencyRating_TESRI_C15",
+		244: "k_EAgencyRating_TESRI_R",
+		260: "k_EAgencyRating_RARS_0",
+		261: "k_EAgencyRating_RARS_6",
+		262: "k_EAgencyRating_RARS_12",
+		263: "k_EAgencyRating_RARS_16",
+		264: "k_EAgencyRating_RARS_18",
+		280: "k_EAgencyRating_AGCOM_3",
+		281: "k_EAgencyRating_AGCOM_4",
+		282: "k_EAgencyRating_AGCOM_7",
+		283: "k_EAgencyRating_AGCOM_12",
+		284: "k_EAgencyRating_AGCOM_16",
+		285: "k_EAgencyRating_AGCOM_18",
+		300: "k_EAgencyRating_IGRS_3",
+		301: "k_EAgencyRating_IGRS_7",
+		302: "k_EAgencyRating_IGRS_13",
+		303: "k_EAgencyRating_IGRS_15",
+		304: "k_EAgencyRating_IGRS_18",
+		320: "k_EAgencyRating_Steam_Germany_0",
+		321: "k_EAgencyRating_Steam_Germany_6",
+		322: "k_EAgencyRating_Steam_Germany_10",
+		323: "k_EAgencyRating_Steam_Germany_12",
+		324: "k_EAgencyRating_Steam_Germany_13",
+		325: "k_EAgencyRating_Steam_Germany_14",
+		326: "k_EAgencyRating_Steam_Germany_15",
+		327: "k_EAgencyRating_Steam_Germany_16",
+		328: "k_EAgencyRating_Steam_Germany_17",
+		329: "k_EAgencyRating_Steam_Germany_18",
+		340: "k_EAgencyRating_Steam_Australia_0",
+		341: "k_EAgencyRating_Steam_Australia_PG",
+		342: "k_EAgencyRating_Steam_Australia_M",
+		343: "k_EAgencyRating_Steam_Australia_MA15",
+		344: "k_EAgencyRating_Steam_Australia_R18",
+		360: "k_EAgencyRating_CADPA_8",
+		361: "k_EAgencyRating_CADPA_12",
+		362: "k_EAgencyRating_CADPA_16",
+	}
+	EAgencyRating_value = map[string]int32{
+		"k_EAgencyRating_Invalid":              0,
+		"k_EAgencyRating_ESRB_RP":              1,
+		"k_EAgencyRating_ESRB_EC":              2,
+		"k_EAgencyRating_ESRB_E":               3,
+		"k_EAgencyRating_ESRB_E10":             4,
+		"k_EAgencyRating_ESRB_T":               5,
+		"k_EAgencyRating_ESRB_M":               6,
+		"k_EAgencyRating_ESRB_AO":              7,
+		"k_EAgencyRating_ESRB_RPM":             8,
+		"k_EAgencyRating_PEGI_3":               20,
+		"k_EAgencyRating_PEGI_4":               21,
+		"k_EAgencyRating_PEGI_6":               22,
+		"k_EAgencyRating_PEGI_7":               23,
+		"k_EAgencyRating_PEGI_11":              24,
+		"k_EAgencyRating_PEGI_12":              25,
+		"k_EAgencyRating_PEGI_15":              26,
+		"k_EAgencyRating_PEGI_16":              27,
+		"k_EAgencyRating_PEGI_18":              28,
+		"k_EAgencyRating_BBFC_U":               40,
+		"k_EAgencyRating_BBFC_UC":              41,
+		"k_EAgencyRating_BBFC_PG":              42,
+		"k_EAgencyRating_BBFC_12":              43,
+		"k_EAgencyRating_BBFC_12A":             44,
+		"k_EAgencyRating_BBFC_15":              45,
+		"k_EAgencyRating_BBFC_18":              46,
+		"k_EAgencyRating_BBFC_R18":             47,
+		"k_EAgencyRating_USK_0":                60,
+		"k_EAgencyRating_USK_6":                61,
+		"k_EAgencyRating_USK_12":               62,
+		"k_EAgencyRating_USK_16":               63,
+		"k_EAgencyRating_USK_18":               64,
+		"k_EAgencyRating_OFLC_AU_G":            80,
+		"k_EAgencyRating_OFLC_AU_PG":           81,
+		"k_EAgencyRating_OFLC_AU_M":            82,
+		"k_EAgencyRating_OFLC_AU_MA15":         83,
+		"k_EAgencyRating_OFLC_AU_R18":          84,
+		"k_EAgencyRating_OFLC_AU_X18":          85,
+		"k_EAgencyRating_OFLC_AU_CTC":          86,
+		"k_EAgencyRating_OFLC_NZ_G":            100,
+		"k_EAgencyRating_OFLC_NZ_PG":           101,
+		"k_EAgencyRating_OFLC_NZ_R13":          102,
+		"k_EAgencyRating_OFLC_NZ_M":            103,
+		"k_EAgencyRating_OFLC_NZ_MA15":         104,
+		"k_EAgencyRating_OFLC_NZ_R15":          105,
+		"k_EAgencyRating_OFLC_NZ_R16":          106,
+		"k_EAgencyRating_OFLC_NZ_R18":          107,
+		"k_EAgencyRating_OFLC_NZ_X18":          108,
+		"k_EAgencyRating_OFLC_NZ_CTC":          109,
+		"k_EAgencyRating_CERO_A":               120,
+		"k_EAgencyRating_CERO_B":               121,
+		"k_EAgencyRating_CERO_C":               122,
+		"k_EAgencyRating_CERO_D":               123,
+		"k_EAgencyRating_CERO_Z":               124,
+		"k_EAgencyRating_CERO_STATS":           125,
+		"k_EAgencyRating_CERO_SAMPLER":         126,
+		"k_EAgencyRating_CERO_RP":              127,
+		"k_EAgencyRating_GRAC_ALL":             140,
+		"k_EAgencyRating_GRAC_12":              141,
+		"k_EAgencyRating_GRAC_15":              142,
+		"k_EAgencyRating_GRAC_18":              143,
+		"k_EAgencyRating_GRAC_19":              144,
+		"k_EAgencyRating_GMEDIA_3":             160,
+		"k_EAgencyRating_GMEDIA_7":             161,
+		"k_EAgencyRating_GMEDIA_12":            162,
+		"k_EAgencyRating_GMEDIA_16":            163,
+		"k_EAgencyRating_GMEDIA_18":            164,
+		"k_EAgencyRating_GMEDIA_21":            165,
+		"k_EAgencyRating_GMEDIA_TBC":           166,
+		"k_EAgencyRating_DEJUS_L":              180,
+		"k_EAgencyRating_DEJUS_6":              181,
+		"k_EAgencyRating_DEJUS_10":             182,
+		"k_EAgencyRating_DEJUS_12":             183,
+		"k_EAgencyRating_DEJUS_14":             184,
+		"k_EAgencyRating_DEJUS_16":             185,
+		"k_EAgencyRating_DEJUS_18":             186,
+		"k_EAgencyRating_IMDA_AA16":            200,
+		"k_EAgencyRating_IMDA_M18":             201,
+		"k_EAgencyRating_FPB_A":                220,
+		"k_EAgencyRating_FPB_PG":               221,
+		"k_EAgencyRating_FPB_7_9PG":            222,
+		"k_EAgencyRating_FPB_10_12PG":          223,
+		"k_EAgencyRating_FPB_13":               224,
+		"k_EAgencyRating_FPB_16":               225,
+		"k_EAgencyRating_FPB_18":               226,
+		"k_EAgencyRating_TESRI_G":              240,
+		"k_EAgencyRating_TESRI_P6":             241,
+		"k_EAgencyRating_TESRI_C12":            242,
+		"k_EAgencyRating_TESRI_C15":            243,
+		"k_EAgencyRating_TESRI_R":              244,
+		"k_EAgencyRating_RARS_0":               260,
+		"k_EAgencyRating_RARS_6":               261,
+		"k_EAgencyRating_RARS_12":              262,
+		"k_EAgencyRating_RARS_16":              263,
+		"k_EAgencyRating_RARS_18":              264,
+		"k_EAgencyRating_AGCOM_3":              280,
+		"k_EAgencyRating_AGCOM_4":              281,
+		"k_EAgencyRating_AGCOM_7":              282,
+		"k_EAgencyRating_AGCOM_12":             283,
+		"k_EAgencyRating_AGCOM_16":             284,
+		"k_EAgencyRating_AGCOM_18":             285,
+		"k_EAgencyRating_IGRS_3":               300,
+		"k_EAgencyRating_IGRS_7":               301,
+		"k_EAgencyRating_IGRS_13":              302,
+		"k_EAgencyRating_IGRS_15":              303,
+		"k_EAgencyRating_IGRS_18":              304,
+		"k_EAgencyRating_Steam_Germany_0":      320,
+		"k_EAgencyRating_Steam_Germany_6":      321,
+		"k_EAgencyRating_Steam_Germany_10":     322,
+		"k_EAgencyRating_Steam_Germany_12":     323,
+		"k_EAgencyRating_Steam_Germany_13":     324,
+		"k_EAgencyRating_Steam_Germany_14":     325,
+		"k_EAgencyRating_Steam_Germany_15":     326,
+		"k_EAgencyRating_Steam_Germany_16":     327,
+		"k_EAgencyRating_Steam_Germany_17":     328,
+		"k_EAgencyRating_Steam_Germany_18":     329,
+		"k_EAgencyRating_Steam_Australia_0":    340,
+		"k_EAgencyRating_Steam_Australia_PG":   341,
+		"k_EAgencyRating_Steam_Australia_M":    342,
+		"k_EAgencyRating_Steam_Australia_MA15": 343,
+		"k_EAgencyRating_Steam_Australia_R18":  344,
+		"k_EAgencyRating_CADPA_8":              360,
+		"k_EAgencyRating_CADPA_12":             361,
+		"k_EAgencyRating_CADPA_16":             362,
+	}
+)
+
+func (x EAgencyRating) Enum() *EAgencyRating {
+	p := new(EAgencyRating)
+	*p = x
+	return p
+}
+
+func (x EAgencyRating) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (EAgencyRating) Descriptor() protoreflect.EnumDescriptor {
+	return file_steammessages_appratings_types_proto_enumTypes[3].Descriptor()
+}
+
+func (EAgencyRating) Type() protoreflect.EnumType {
+	return &file_steammessages_appratings_types_proto_enumTypes[3]
+}
+
+func (x EAgencyRating) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *EAgencyRating) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = EAgencyRating(num)
+	return nil
+}
+
+// Deprecated: Use EAgencyRating.Descriptor instead.
+func (EAgencyRating) EnumDescriptor() ([]byte, []int) {
+	return file_steammessages_appratings_types_proto_rawDescGZIP(), []int{3}
+}
+
 type AppRatingAuxData struct {
 	state                          protoimpl.MessageState   `protogen:"open.v1"`
 	Descriptors                    []string                 `protobuf:"bytes,1,rep,name=descriptors" json:"descriptors,omitempty"`
@@ -363,6 +782,7 @@ type AppRating struct {
 	RequiredAge   *uint32                `protobuf:"varint,5,opt,name=required_age,json=requiredAge" json:"required_age,omitempty"`
 	UseAgeGate    *bool                  `protobuf:"varint,6,opt,name=use_age_gate,json=useAgeGate" json:"use_age_gate,omitempty"`
 	AuxData       *AppRatingAuxData      `protobuf:"bytes,7,opt,name=aux_data,json=auxData" json:"aux_data,omitempty"`
+	AgencyRating  *EAgencyRating         `protobuf:"varint,8,opt,name=agency_rating,json=agencyRating,enum=EAgencyRating,def=0" json:"agency_rating,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -371,6 +791,7 @@ type AppRating struct {
 const (
 	Default_AppRating_RatingAgency = ERatingAgency_k_ERatingAgency_Invalid
 	Default_AppRating_Source       = EAppRatingSource_k_EAppRatingSource_Invalid
+	Default_AppRating_AgencyRating = EAgencyRating_k_EAgencyRating_Invalid
 )
 
 func (x *AppRating) Reset() {
@@ -452,6 +873,13 @@ func (x *AppRating) GetAuxData() *AppRatingAuxData {
 	return nil
 }
 
+func (x *AppRating) GetAgencyRating() EAgencyRating {
+	if x != nil && x.AgencyRating != nil {
+		return *x.AgencyRating
+	}
+	return Default_AppRating_AgencyRating
+}
+
 var File_steammessages_appratings_types_proto protoreflect.FileDescriptor
 
 const file_steammessages_appratings_types_proto_rawDesc = "" +
@@ -464,7 +892,7 @@ const file_steammessages_appratings_types_proto_rawDesc = "" +
 	"officialId\x12<\n" +
 	"\x1besrb_online_music_not_rated\x18\x04 \x01(\bR\x17esrbOnlineMusicNotRated\x12J\n" +
 	"\"esrb_online_interactions_not_rated\x18\x05 \x01(\bR\x1eesrbOnlineInteractionsNotRated\x12D\n" +
-	"\x11descriptor_images\x18\x06 \x03(\x0e2\x17.ERatingDescriptorImageR\x10descriptorImages\"\xc3\x02\n" +
+	"\x11descriptor_images\x18\x06 \x03(\x0e2\x17.ERatingDescriptorImageR\x10descriptorImages\"\x91\x03\n" +
 	"\tAppRating\x12L\n" +
 	"\rrating_agency\x18\x01 \x01(\x0e2\x0e.ERatingAgency:\x17k_ERatingAgency_InvalidR\fratingAgency\x12\x16\n" +
 	"\x06rating\x18\x02 \x01(\tR\x06rating\x12E\n" +
@@ -473,7 +901,8 @@ const file_steammessages_appratings_types_proto_rawDesc = "" +
 	"\frequired_age\x18\x05 \x01(\rR\vrequiredAge\x12 \n" +
 	"\fuse_age_gate\x18\x06 \x01(\bR\n" +
 	"useAgeGate\x12,\n" +
-	"\baux_data\x18\a \x01(\v2\x11.AppRatingAuxDataR\aauxData*\xb8\x04\n" +
+	"\baux_data\x18\a \x01(\v2\x11.AppRatingAuxDataR\aauxData\x12L\n" +
+	"\ragency_rating\x18\b \x01(\x0e2\x0e.EAgencyRating:\x17k_EAgencyRating_InvalidR\fagencyRating*\xb8\x04\n" +
 	"\rERatingAgency\x12\x1b\n" +
 	"\x17k_ERatingAgency_Invalid\x10\x00\x12\x18\n" +
 	"\x14k_ERatingAgency_ESRB\x10\x01\x12\x18\n" +
@@ -510,7 +939,131 @@ const file_steammessages_appratings_types_proto_rawDesc = "" +
 	"&k_ERatingDescriptorImage_CERO_Gambling\x10\x06\x12'\n" +
 	"#k_ERatingDescriptorImage_CERO_Crime\x10\a\x12'\n" +
 	"#k_ERatingDescriptorImage_CERO_Drugs\x10\b\x12*\n" +
-	"&k_ERatingDescriptorImage_CERO_Language\x10\tB\x02H\x01"
+	"&k_ERatingDescriptorImage_CERO_Language\x10\t*\xa1\x1e\n" +
+	"\rEAgencyRating\x12\x1b\n" +
+	"\x17k_EAgencyRating_Invalid\x10\x00\x12\x1b\n" +
+	"\x17k_EAgencyRating_ESRB_RP\x10\x01\x12\x1b\n" +
+	"\x17k_EAgencyRating_ESRB_EC\x10\x02\x12\x1a\n" +
+	"\x16k_EAgencyRating_ESRB_E\x10\x03\x12\x1c\n" +
+	"\x18k_EAgencyRating_ESRB_E10\x10\x04\x12\x1a\n" +
+	"\x16k_EAgencyRating_ESRB_T\x10\x05\x12\x1a\n" +
+	"\x16k_EAgencyRating_ESRB_M\x10\x06\x12\x1b\n" +
+	"\x17k_EAgencyRating_ESRB_AO\x10\a\x12\x1c\n" +
+	"\x18k_EAgencyRating_ESRB_RPM\x10\b\x12\x1a\n" +
+	"\x16k_EAgencyRating_PEGI_3\x10\x14\x12\x1a\n" +
+	"\x16k_EAgencyRating_PEGI_4\x10\x15\x12\x1a\n" +
+	"\x16k_EAgencyRating_PEGI_6\x10\x16\x12\x1a\n" +
+	"\x16k_EAgencyRating_PEGI_7\x10\x17\x12\x1b\n" +
+	"\x17k_EAgencyRating_PEGI_11\x10\x18\x12\x1b\n" +
+	"\x17k_EAgencyRating_PEGI_12\x10\x19\x12\x1b\n" +
+	"\x17k_EAgencyRating_PEGI_15\x10\x1a\x12\x1b\n" +
+	"\x17k_EAgencyRating_PEGI_16\x10\x1b\x12\x1b\n" +
+	"\x17k_EAgencyRating_PEGI_18\x10\x1c\x12\x1a\n" +
+	"\x16k_EAgencyRating_BBFC_U\x10(\x12\x1b\n" +
+	"\x17k_EAgencyRating_BBFC_UC\x10)\x12\x1b\n" +
+	"\x17k_EAgencyRating_BBFC_PG\x10*\x12\x1b\n" +
+	"\x17k_EAgencyRating_BBFC_12\x10+\x12\x1c\n" +
+	"\x18k_EAgencyRating_BBFC_12A\x10,\x12\x1b\n" +
+	"\x17k_EAgencyRating_BBFC_15\x10-\x12\x1b\n" +
+	"\x17k_EAgencyRating_BBFC_18\x10.\x12\x1c\n" +
+	"\x18k_EAgencyRating_BBFC_R18\x10/\x12\x19\n" +
+	"\x15k_EAgencyRating_USK_0\x10<\x12\x19\n" +
+	"\x15k_EAgencyRating_USK_6\x10=\x12\x1a\n" +
+	"\x16k_EAgencyRating_USK_12\x10>\x12\x1a\n" +
+	"\x16k_EAgencyRating_USK_16\x10?\x12\x1a\n" +
+	"\x16k_EAgencyRating_USK_18\x10@\x12\x1d\n" +
+	"\x19k_EAgencyRating_OFLC_AU_G\x10P\x12\x1e\n" +
+	"\x1ak_EAgencyRating_OFLC_AU_PG\x10Q\x12\x1d\n" +
+	"\x19k_EAgencyRating_OFLC_AU_M\x10R\x12 \n" +
+	"\x1ck_EAgencyRating_OFLC_AU_MA15\x10S\x12\x1f\n" +
+	"\x1bk_EAgencyRating_OFLC_AU_R18\x10T\x12\x1f\n" +
+	"\x1bk_EAgencyRating_OFLC_AU_X18\x10U\x12\x1f\n" +
+	"\x1bk_EAgencyRating_OFLC_AU_CTC\x10V\x12\x1d\n" +
+	"\x19k_EAgencyRating_OFLC_NZ_G\x10d\x12\x1e\n" +
+	"\x1ak_EAgencyRating_OFLC_NZ_PG\x10e\x12\x1f\n" +
+	"\x1bk_EAgencyRating_OFLC_NZ_R13\x10f\x12\x1d\n" +
+	"\x19k_EAgencyRating_OFLC_NZ_M\x10g\x12 \n" +
+	"\x1ck_EAgencyRating_OFLC_NZ_MA15\x10h\x12\x1f\n" +
+	"\x1bk_EAgencyRating_OFLC_NZ_R15\x10i\x12\x1f\n" +
+	"\x1bk_EAgencyRating_OFLC_NZ_R16\x10j\x12\x1f\n" +
+	"\x1bk_EAgencyRating_OFLC_NZ_R18\x10k\x12\x1f\n" +
+	"\x1bk_EAgencyRating_OFLC_NZ_X18\x10l\x12\x1f\n" +
+	"\x1bk_EAgencyRating_OFLC_NZ_CTC\x10m\x12\x1a\n" +
+	"\x16k_EAgencyRating_CERO_A\x10x\x12\x1a\n" +
+	"\x16k_EAgencyRating_CERO_B\x10y\x12\x1a\n" +
+	"\x16k_EAgencyRating_CERO_C\x10z\x12\x1a\n" +
+	"\x16k_EAgencyRating_CERO_D\x10{\x12\x1a\n" +
+	"\x16k_EAgencyRating_CERO_Z\x10|\x12\x1e\n" +
+	"\x1ak_EAgencyRating_CERO_STATS\x10}\x12 \n" +
+	"\x1ck_EAgencyRating_CERO_SAMPLER\x10~\x12\x1b\n" +
+	"\x17k_EAgencyRating_CERO_RP\x10\x7f\x12\x1d\n" +
+	"\x18k_EAgencyRating_GRAC_ALL\x10\x8c\x01\x12\x1c\n" +
+	"\x17k_EAgencyRating_GRAC_12\x10\x8d\x01\x12\x1c\n" +
+	"\x17k_EAgencyRating_GRAC_15\x10\x8e\x01\x12\x1c\n" +
+	"\x17k_EAgencyRating_GRAC_18\x10\x8f\x01\x12\x1c\n" +
+	"\x17k_EAgencyRating_GRAC_19\x10\x90\x01\x12\x1d\n" +
+	"\x18k_EAgencyRating_GMEDIA_3\x10\xa0\x01\x12\x1d\n" +
+	"\x18k_EAgencyRating_GMEDIA_7\x10\xa1\x01\x12\x1e\n" +
+	"\x19k_EAgencyRating_GMEDIA_12\x10\xa2\x01\x12\x1e\n" +
+	"\x19k_EAgencyRating_GMEDIA_16\x10\xa3\x01\x12\x1e\n" +
+	"\x19k_EAgencyRating_GMEDIA_18\x10\xa4\x01\x12\x1e\n" +
+	"\x19k_EAgencyRating_GMEDIA_21\x10\xa5\x01\x12\x1f\n" +
+	"\x1ak_EAgencyRating_GMEDIA_TBC\x10\xa6\x01\x12\x1c\n" +
+	"\x17k_EAgencyRating_DEJUS_L\x10\xb4\x01\x12\x1c\n" +
+	"\x17k_EAgencyRating_DEJUS_6\x10\xb5\x01\x12\x1d\n" +
+	"\x18k_EAgencyRating_DEJUS_10\x10\xb6\x01\x12\x1d\n" +
+	"\x18k_EAgencyRating_DEJUS_12\x10\xb7\x01\x12\x1d\n" +
+	"\x18k_EAgencyRating_DEJUS_14\x10\xb8\x01\x12\x1d\n" +
+	"\x18k_EAgencyRating_DEJUS_16\x10\xb9\x01\x12\x1d\n" +
+	"\x18k_EAgencyRating_DEJUS_18\x10\xba\x01\x12\x1e\n" +
+	"\x19k_EAgencyRating_IMDA_AA16\x10\xc8\x01\x12\x1d\n" +
+	"\x18k_EAgencyRating_IMDA_M18\x10\xc9\x01\x12\x1a\n" +
+	"\x15k_EAgencyRating_FPB_A\x10\xdc\x01\x12\x1b\n" +
+	"\x16k_EAgencyRating_FPB_PG\x10\xdd\x01\x12\x1e\n" +
+	"\x19k_EAgencyRating_FPB_7_9PG\x10\xde\x01\x12 \n" +
+	"\x1bk_EAgencyRating_FPB_10_12PG\x10\xdf\x01\x12\x1b\n" +
+	"\x16k_EAgencyRating_FPB_13\x10\xe0\x01\x12\x1b\n" +
+	"\x16k_EAgencyRating_FPB_16\x10\xe1\x01\x12\x1b\n" +
+	"\x16k_EAgencyRating_FPB_18\x10\xe2\x01\x12\x1c\n" +
+	"\x17k_EAgencyRating_TESRI_G\x10\xf0\x01\x12\x1d\n" +
+	"\x18k_EAgencyRating_TESRI_P6\x10\xf1\x01\x12\x1e\n" +
+	"\x19k_EAgencyRating_TESRI_C12\x10\xf2\x01\x12\x1e\n" +
+	"\x19k_EAgencyRating_TESRI_C15\x10\xf3\x01\x12\x1c\n" +
+	"\x17k_EAgencyRating_TESRI_R\x10\xf4\x01\x12\x1b\n" +
+	"\x16k_EAgencyRating_RARS_0\x10\x84\x02\x12\x1b\n" +
+	"\x16k_EAgencyRating_RARS_6\x10\x85\x02\x12\x1c\n" +
+	"\x17k_EAgencyRating_RARS_12\x10\x86\x02\x12\x1c\n" +
+	"\x17k_EAgencyRating_RARS_16\x10\x87\x02\x12\x1c\n" +
+	"\x17k_EAgencyRating_RARS_18\x10\x88\x02\x12\x1c\n" +
+	"\x17k_EAgencyRating_AGCOM_3\x10\x98\x02\x12\x1c\n" +
+	"\x17k_EAgencyRating_AGCOM_4\x10\x99\x02\x12\x1c\n" +
+	"\x17k_EAgencyRating_AGCOM_7\x10\x9a\x02\x12\x1d\n" +
+	"\x18k_EAgencyRating_AGCOM_12\x10\x9b\x02\x12\x1d\n" +
+	"\x18k_EAgencyRating_AGCOM_16\x10\x9c\x02\x12\x1d\n" +
+	"\x18k_EAgencyRating_AGCOM_18\x10\x9d\x02\x12\x1b\n" +
+	"\x16k_EAgencyRating_IGRS_3\x10\xac\x02\x12\x1b\n" +
+	"\x16k_EAgencyRating_IGRS_7\x10\xad\x02\x12\x1c\n" +
+	"\x17k_EAgencyRating_IGRS_13\x10\xae\x02\x12\x1c\n" +
+	"\x17k_EAgencyRating_IGRS_15\x10\xaf\x02\x12\x1c\n" +
+	"\x17k_EAgencyRating_IGRS_18\x10\xb0\x02\x12$\n" +
+	"\x1fk_EAgencyRating_Steam_Germany_0\x10\xc0\x02\x12$\n" +
+	"\x1fk_EAgencyRating_Steam_Germany_6\x10\xc1\x02\x12%\n" +
+	" k_EAgencyRating_Steam_Germany_10\x10\xc2\x02\x12%\n" +
+	" k_EAgencyRating_Steam_Germany_12\x10\xc3\x02\x12%\n" +
+	" k_EAgencyRating_Steam_Germany_13\x10\xc4\x02\x12%\n" +
+	" k_EAgencyRating_Steam_Germany_14\x10\xc5\x02\x12%\n" +
+	" k_EAgencyRating_Steam_Germany_15\x10\xc6\x02\x12%\n" +
+	" k_EAgencyRating_Steam_Germany_16\x10\xc7\x02\x12%\n" +
+	" k_EAgencyRating_Steam_Germany_17\x10\xc8\x02\x12%\n" +
+	" k_EAgencyRating_Steam_Germany_18\x10\xc9\x02\x12&\n" +
+	"!k_EAgencyRating_Steam_Australia_0\x10\xd4\x02\x12'\n" +
+	"\"k_EAgencyRating_Steam_Australia_PG\x10\xd5\x02\x12&\n" +
+	"!k_EAgencyRating_Steam_Australia_M\x10\xd6\x02\x12)\n" +
+	"$k_EAgencyRating_Steam_Australia_MA15\x10\xd7\x02\x12(\n" +
+	"#k_EAgencyRating_Steam_Australia_R18\x10\xd8\x02\x12\x1c\n" +
+	"\x17k_EAgencyRating_CADPA_8\x10\xe8\x02\x12\x1d\n" +
+	"\x18k_EAgencyRating_CADPA_12\x10\xe9\x02\x12\x1d\n" +
+	"\x18k_EAgencyRating_CADPA_16\x10\xea\x02B\x02H\x01"
 
 var (
 	file_steammessages_appratings_types_proto_rawDescOnce sync.Once
@@ -524,25 +1077,27 @@ func file_steammessages_appratings_types_proto_rawDescGZIP() []byte {
 	return file_steammessages_appratings_types_proto_rawDescData
 }
 
-var file_steammessages_appratings_types_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
+var file_steammessages_appratings_types_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
 var file_steammessages_appratings_types_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_steammessages_appratings_types_proto_goTypes = []any{
 	(ERatingAgency)(0),          // 0: ERatingAgency
 	(EAppRatingSource)(0),       // 1: EAppRatingSource
 	(ERatingDescriptorImage)(0), // 2: ERatingDescriptorImage
-	(*AppRatingAuxData)(nil),    // 3: AppRatingAuxData
-	(*AppRating)(nil),           // 4: AppRating
+	(EAgencyRating)(0),          // 3: EAgencyRating
+	(*AppRatingAuxData)(nil),    // 4: AppRatingAuxData
+	(*AppRating)(nil),           // 5: AppRating
 }
 var file_steammessages_appratings_types_proto_depIdxs = []int32{
 	2, // 0: AppRatingAuxData.descriptor_images:type_name -> ERatingDescriptorImage
 	0, // 1: AppRating.rating_agency:type_name -> ERatingAgency
 	1, // 2: AppRating.source:type_name -> EAppRatingSource
-	3, // 3: AppRating.aux_data:type_name -> AppRatingAuxData
-	4, // [4:4] is the sub-list for method output_type
-	4, // [4:4] is the sub-list for method input_type
-	4, // [4:4] is the sub-list for extension type_name
-	4, // [4:4] is the sub-list for extension extendee
-	0, // [0:4] is the sub-list for field type_name
+	4, // 3: AppRating.aux_data:type_name -> AppRatingAuxData
+	3, // 4: AppRating.agency_rating:type_name -> EAgencyRating
+	5, // [5:5] is the sub-list for method output_type
+	5, // [5:5] is the sub-list for method input_type
+	5, // [5:5] is the sub-list for extension type_name
+	5, // [5:5] is the sub-list for extension extendee
+	0, // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_appratings_types_proto_init() }
@@ -555,7 +1110,7 @@ func file_steammessages_appratings_types_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_appratings_types_proto_rawDesc), len(file_steammessages_appratings_types_proto_rawDesc)),
-			NumEnums:      3,
+			NumEnums:      4,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,

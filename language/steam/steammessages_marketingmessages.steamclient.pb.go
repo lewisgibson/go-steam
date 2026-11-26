@@ -1007,19 +1007,20 @@ func (x *CMarketingMessages_GetMarketingMessagesForUser_Request) GetDataRequest(
 }
 
 type CDisplayMarketingMessage struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Gid              *uint64                `protobuf:"fixed64,1,opt,name=gid" json:"gid,omitempty"`
-	Title            *string                `protobuf:"bytes,2,opt,name=title" json:"title,omitempty"`
-	Type             *EMarketingMessageType `protobuf:"varint,3,opt,name=type,enum=EMarketingMessageType,def=0" json:"type,omitempty"`
-	AssociatedItemId *StoreItemID           `protobuf:"bytes,4,opt,name=associated_item_id,json=associatedItemId" json:"associated_item_id,omitempty"`
-	AssociatedItem   *StoreItem             `protobuf:"bytes,5,opt,name=associated_item,json=associatedItem" json:"associated_item,omitempty"`
-	AssociatedName   *string                `protobuf:"bytes,6,opt,name=associated_name,json=associatedName" json:"associated_name,omitempty"`
-	TemplateType     *string                `protobuf:"bytes,10,opt,name=template_type,json=templateType" json:"template_type,omitempty"`
-	TemplateVarsJson *string                `protobuf:"bytes,11,opt,name=template_vars_json,json=templateVarsJson" json:"template_vars_json,omitempty"`
-	RecommendedItems []*StoreItemID         `protobuf:"bytes,12,rep,name=recommended_items,json=recommendedItems" json:"recommended_items,omitempty"`
-	SaleItemCount    *uint32                `protobuf:"varint,13,opt,name=sale_item_count,json=saleItemCount" json:"sale_item_count,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
+	state                      protoimpl.MessageState `protogen:"open.v1"`
+	Gid                        *uint64                `protobuf:"fixed64,1,opt,name=gid" json:"gid,omitempty"`
+	Title                      *string                `protobuf:"bytes,2,opt,name=title" json:"title,omitempty"`
+	Type                       *EMarketingMessageType `protobuf:"varint,3,opt,name=type,enum=EMarketingMessageType,def=0" json:"type,omitempty"`
+	AssociatedItemId           *StoreItemID           `protobuf:"bytes,4,opt,name=associated_item_id,json=associatedItemId" json:"associated_item_id,omitempty"`
+	AssociatedItem             *StoreItem             `protobuf:"bytes,5,opt,name=associated_item,json=associatedItem" json:"associated_item,omitempty"`
+	AssociatedName             *string                `protobuf:"bytes,6,opt,name=associated_name,json=associatedName" json:"associated_name,omitempty"`
+	TemplateType               *string                `protobuf:"bytes,10,opt,name=template_type,json=templateType" json:"template_type,omitempty"`
+	TemplateVarsJson           *string                `protobuf:"bytes,11,opt,name=template_vars_json,json=templateVarsJson" json:"template_vars_json,omitempty"`
+	RecommendedItems           []*StoreItemID         `protobuf:"bytes,12,rep,name=recommended_items,json=recommendedItems" json:"recommended_items,omitempty"`
+	SaleItemCount              *uint32                `protobuf:"varint,13,opt,name=sale_item_count,json=saleItemCount" json:"sale_item_count,omitempty"`
+	RecommendedItemsIncludeDlc *bool                  `protobuf:"varint,14,opt,name=recommended_items_include_dlc,json=recommendedItemsIncludeDlc" json:"recommended_items_include_dlc,omitempty"`
+	unknownFields              protoimpl.UnknownFields
+	sizeCache                  protoimpl.SizeCache
 }
 
 // Default values for CDisplayMarketingMessage fields.
@@ -1125,6 +1126,13 @@ func (x *CDisplayMarketingMessage) GetSaleItemCount() uint32 {
 		return *x.SaleItemCount
 	}
 	return 0
+}
+
+func (x *CDisplayMarketingMessage) GetRecommendedItemsIncludeDlc() bool {
+	if x != nil && x.RecommendedItemsIncludeDlc != nil {
+		return *x.RecommendedItemsIncludeDlc
+	}
+	return false
 }
 
 type CMarketingMessages_GetMarketingMessagesForUser_Response struct {
@@ -3019,7 +3027,7 @@ const file_steammessages_marketingmessages_steamclient_proto_rawDesc = "" +
 	"\x10operating_system\x18\x04 \x01(\x05R\x0foperatingSystem\x124\n" +
 	"\x16client_package_version\x18\x05 \x01(\x05R\x14clientPackageVersion\x12-\n" +
 	"\acontext\x18\x06 \x01(\v2\x13.StoreBrowseContextR\acontext\x12>\n" +
-	"\fdata_request\x18\a \x01(\v2\x1b.StoreBrowseItemDataRequestR\vdataRequest\"\xda\x03\n" +
+	"\fdata_request\x18\a \x01(\v2\x1b.StoreBrowseItemDataRequestR\vdataRequest\"\x9d\x04\n" +
 	"\x18CDisplayMarketingMessage\x12\x10\n" +
 	"\x03gid\x18\x01 \x01(\x06R\x03gid\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12F\n" +
@@ -3032,7 +3040,8 @@ const file_steammessages_marketingmessages_steamclient_proto_rawDesc = "" +
 	" \x01(\tR\ftemplateType\x12,\n" +
 	"\x12template_vars_json\x18\v \x01(\tR\x10templateVarsJson\x129\n" +
 	"\x11recommended_items\x18\f \x03(\v2\f.StoreItemIDR\x10recommendedItems\x12&\n" +
-	"\x0fsale_item_count\x18\r \x01(\rR\rsaleItemCount\"\x9a\x02\n" +
+	"\x0fsale_item_count\x18\r \x01(\rR\rsaleItemCount\x12A\n" +
+	"\x1drecommended_items_include_dlc\x18\x0e \x01(\bR\x1arecommendedItemsIncludeDlc\"\x9a\x02\n" +
 	"7CMarketingMessages_GetMarketingMessagesForUser_Response\x12l\n" +
 	"\bmessages\x18\x01 \x03(\v2P.CMarketingMessages_GetMarketingMessagesForUser_Response.MarketingMessageForUserR\bmessages\x1aq\n" +
 	"\x17MarketingMessageForUser\x12!\n" +
